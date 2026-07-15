@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://coywtc41abane"]
+
+[ext_resource type="Texture2D" uid="uid://b25bytw03mblh" path="res://sprites/spritesheets/familiars/L1_gark.png" id="1_22vwv"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_22vwv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

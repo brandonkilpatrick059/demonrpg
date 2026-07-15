@@ -7,7 +7,6 @@ class_name Familiar extends Node
 @export var defense : int = 1
 @export var speed : int = 1
 @export var magic : int = 1
-@export var antimagic : int = 1
 
 @export var level : int = 1
 @export var exp : int = 0
@@ -51,12 +50,6 @@ func get_magic() -> int:
 
 func set_magic(num : int):
 	magic = num
-
-func get_antimagic() -> int:
-	return antimagic
-
-func set_antimagic(num : int):
-	antimagic = num
 
 func get_battle_sprite() -> AnimatedSprite2D:
 	return battle_sprite

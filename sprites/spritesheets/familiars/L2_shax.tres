@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cy248d0mn3m8u"]
+
+[ext_resource type="Texture2D" uid="uid://ccqq8yfrj4sw7" path="res://sprites/spritesheets/familiars/L2_shax.png" id="1_cvbjh"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cvbjh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

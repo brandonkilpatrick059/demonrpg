@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dsew6vh6f7yp7"]
+
+[ext_resource type="Texture2D" uid="uid://dpa426k18345p" path="res://sprites/spritesheets/familiars/L1_martyr.png" id="1_vkgtx"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vkgtx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

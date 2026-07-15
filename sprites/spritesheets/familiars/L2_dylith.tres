@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://5nlryqdef2ss"]
+
+[ext_resource type="Texture2D" uid="uid://upfo1qaboog3" path="res://sprites/spritesheets/familiars/L2_dylith.png" id="1_lu320"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lu320")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

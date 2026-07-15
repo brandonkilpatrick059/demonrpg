@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cji52mlwppvu1"]
+
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_6wg25"]
+[ext_resource type="SpriteFrames" uid="uid://dsew6vh6f7yp7" path="res://sprites/spritesheets/familiars/L1_martyr.tres" id="2_6wg25"]
+
+[node name="L1martyr" type="Node2D" unique_id=246003526]
+script = ExtResource("1_6wg25")
+max_hp = 5
+current_hp = 5
+attack = 5
+level = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
+sprite_frames = ExtResource("2_6wg25")

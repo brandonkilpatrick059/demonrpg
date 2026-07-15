@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bbbf7yp3wdb2k"]
+
+[ext_resource type="Texture2D" uid="uid://qdnpaqo5g638" path="res://sprites/spritesheets/familiars/L2_byle.png" id="1_r0tpl"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r0tpl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

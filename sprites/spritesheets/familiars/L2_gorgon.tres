@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://clrnhvdy6nfvn"]
+
+[ext_resource type="Texture2D" uid="uid://br3b2f6dueost" path="res://sprites/spritesheets/familiars/L2_gorgon.png" id="1_rct4k"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rct4k")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
