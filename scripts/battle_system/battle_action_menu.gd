@@ -1,7 +1,7 @@
 class_name BattleActionMenu extends Node2D
 
 @onready var energy_bar : AnimatedSprite2D = $energy_bar
-@onready var num_act_tab : AnimatedSprite2D = $num_act_tab
+@onready var num_act_tab : Sprite2D = $num_act_tab
 
 var tabs : Array[ActionMenuTab] = []
 

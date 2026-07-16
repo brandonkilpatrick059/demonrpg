@@ -3,7 +3,7 @@ class_name BattleMessage extends Node2D
 @onready var label : RichTextLabel = $RichTextLabel
 
 var timer := Timer.new()
-var text_speed : float = 0.08
+var text_speed : float = 0.04
 
 var current_text : String = ""
 var full_text : String = ""
@@ -12,6 +12,10 @@ var text_index : int = 0
 
 var audio_player := AudioStreamPlayer.new() 
 
+var active : bool = false
+
+var text_queue : Array[String] = []
+
 func _ready() -> void:
 	timer.one_shot = true
 	add_child(timer)
@@ -19,7 +23,28 @@ func _ready() -> void:
 	add_child(audio_player)
 	audio_player.stream = load("res://audio/effects/click.ogg")
 
+func is_active() -> bool:
+	return active
+
+func set_active():
+	visible = true
+	active = true
+
+func set_inactive():
+	visible = false
+	active = false
+
+func queue_text(texts : Array[String]):
+	for text in texts:
+		text_queue.append(text)
+	play_next_text()
+
+func play_next_text():
+	var text = text_queue.pop_front()
+	play_text(text)
+
 func play_text(text : String):
+	set_active()
 	finished_writing = false
 	full_text = text
 	current_text = ""
@@ -43,6 +68,21 @@ func write_text():
 func is_finished_writing() -> bool:
 	return finished_writing
 
+func handle_input():
+	if(Input.is_action_just_pressed("action_1")):
+		if(not finished_writing):
+			current_text = full_text
+			update_label()
+			finished_writing = true
+		if(finished_writing):
+			if(text_queue.size() > 0):
+				play_next_text()
+			else:
+				set_inactive()
+				get_parent().end_awaiting_input()
+	
+
 func _physics_process(_delta: float) -> void:
 	if(not finished_writing):
 		write_text()
+	handle_input()

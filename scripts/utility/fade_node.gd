@@ -6,19 +6,25 @@ class_name FadeNode extends Node
 
 var timer := Timer.new()
 
-func set_target_modulate(color : Color, mod_step : float, time_step : float):
+func _ready() -> void:
+	timer.one_shot = true
+	add_child(timer)
+
+func set_target_modulate(color : Color, mod_step : float, set_time_step : float):
 	target_modulate = color
+	modulate_step = mod_step
+	time_step = set_time_step
 
 func get_stepped_value(mod_val : float, target_val : float):
 	var ret_val = mod_val
 	if(mod_val < target_val):
-		mod_val = mod_val + modulate_step
-		if(mod_val > target_val):
-			mod_val = target_val
+		ret_val = mod_val + modulate_step
+		if(ret_val > target_val):
+			ret_val = target_val
 	else:
-		mod_val = mod_val - modulate_step
-		if(mod_val < target_val):
-			mod_val = target_val
+		ret_val = mod_val - modulate_step
+		if(ret_val < target_val):
+			ret_val = target_val
 	return ret_val
 
 func handle_modulate_step():

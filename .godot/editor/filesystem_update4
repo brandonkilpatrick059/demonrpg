@@ -21,3 +21,5 @@ res://scripts/battle_system/battle_status.gd
 res://scripts/utility/fade_node.gd
 res://utility/fade_node.tscn
 res://battle/battle_system_sandbox.tscn
+res://scripts/battle_system/battle_text_constants_manager.gd
+res://scripts/battle_system/battle_text_manager.gd

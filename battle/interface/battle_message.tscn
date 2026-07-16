@@ -20,3 +20,4 @@ theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "Byle casts FIRE"
 horizontal_alignment = 1
+vertical_alignment = 1

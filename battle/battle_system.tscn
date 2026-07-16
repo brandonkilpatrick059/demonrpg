@@ -67,13 +67,15 @@ position = Vector2(108, 50)
 z_index = -5
 
 [node name="background_shadow" type="Sprite2D" parent="background" unique_id=1353990384]
-z_index = 1
+z_index = -1
 texture = ExtResource("5_7mede")
 
 [node name="background_floor" type="Sprite2D" parent="background" unique_id=2040842043]
+z_index = -2
 texture = ExtResource("6_72ene")
 
 [node name="BattleMessage" parent="." unique_id=836972938 instance=ExtResource("12_sycs1")]
+z_index = 5
 
 [node name="BattleStatus" parent="." unique_id=2019142930 instance=ExtResource("13_qcet8")]
 
@@ -82,3 +84,8 @@ z_index = 5
 position = Vector2(-108, -29)
 
 [node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("15_qcet8")]
+
+[node name="fade_to_black" type="Polygon2D" parent="." unique_id=1399459263]
+z_index = 4
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
