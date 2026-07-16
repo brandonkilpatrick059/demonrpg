@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw4ms11ngts88"
-path="res://.godot/imported/battle_energy_bar.png-4d535ae3a8106c4f828995f10022d474.ctex"
+uid="uid://bp45usl0dr8ak"
+path="res://.godot/imported/battle_energy_bar.png-2c6f433e1ca490dcc5c8a4afc4fc5697.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/battle/interface/battle_energy_bar.png"
-dest_files=["res://.godot/imported/battle_energy_bar.png-4d535ae3a8106c4f828995f10022d474.ctex"]
+source_file="res://sprites/spritesheets/battle/interface/battle_energy_bar.png"
+dest_files=["res://.godot/imported/battle_energy_bar.png-2c6f433e1ca490dcc5c8a4afc4fc5697.ctex"]
 
 [params]
 

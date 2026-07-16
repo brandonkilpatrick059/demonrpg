@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm7o0kgyrv8oh"
-path="res://.godot/imported/battle_actions_tab.png-749c24a9ad5be2eeb0fb90038edadb19.ctex"
+uid="uid://dmuwd34igs3nq"
+path="res://.godot/imported/gore.png-970594771f469c591a2f8dcf8030c7bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/battle/interface/battle_actions_tab.png"
-dest_files=["res://.godot/imported/battle_actions_tab.png-749c24a9ad5be2eeb0fb90038edadb19.ctex"]
+source_file="res://sprites/spritesheets/familiars/gore.png"
+dest_files=["res://.godot/imported/gore.png-970594771f469c591a2f8dcf8030c7bb.ctex"]
 
 [params]
 

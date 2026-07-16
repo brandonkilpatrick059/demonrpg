@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b5fvxik0lh6x0"]
+
+[ext_resource type="Texture2D" uid="uid://cc0vt8l8dwv4j" path="res://sprites/spritesheets/battle/interface/action_tab.png" id="1_0rh6n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xx85"]
+atlas = ExtResource("1_0rh6n")
+region = Rect2(0, 0, 70, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llcbd"]
+atlas = ExtResource("1_0rh6n")
+region = Rect2(0, 16, 70, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgslv"]
+atlas = ExtResource("1_0rh6n")
+region = Rect2(0, 8, 70, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xx85")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llcbd")
+}],
+"loop": 1,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgslv")
+}],
+"loop": 1,
+"name": &"selected",
+"speed": 5.0
+}]

@@ -1,4 +1,4 @@
-class_name Battle_Action extends Node
+class_name BattleAction extends Node
 
 enum target_type {NO_TARGET,SELF,ANY_ALLY,ANY_OPPONENT,ALL_ALLIES,ALL_OPPONENTS,
 HALF_ALLIES,HALF_OPPONENTS,ALL,ANY,ANY_DEAD}

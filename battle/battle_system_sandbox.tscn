@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d1hwdmd2h6inw"]
+
+[ext_resource type="PackedScene" uid="uid://d1yksn1grty30" path="res://battle/battle_system.tscn" id="1_13ec6"]
+
+[node name="BattleSystemSandbox" type="Node2D" unique_id=405016994]
+
+[node name="BattleSystem" parent="." unique_id=415039822 instance=ExtResource("1_13ec6")]

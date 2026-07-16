@@ -11,7 +11,7 @@ class_name Familiar extends Node
 @export var level : int = 1
 @export var exp : int = 0
 
-@export var actions : Array[Battle_Action] = []
+@export var actions : Array[BattleAction] = []
 
 @export var battle_sprite : AnimatedSprite2D
 

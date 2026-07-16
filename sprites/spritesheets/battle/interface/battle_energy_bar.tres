@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://xng0w2ulb4wl"]
+
+[ext_resource type="Texture2D" uid="uid://bp45usl0dr8ak" path="res://sprites/spritesheets/battle/interface/battle_energy_bar.png" id="1_dxo0i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krrtj"]
+atlas = ExtResource("1_dxo0i")
+region = Rect2(0, 64, 72, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv58e"]
+atlas = ExtResource("1_dxo0i")
+region = Rect2(0, 48, 72, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0sd4"]
+atlas = ExtResource("1_dxo0i")
+region = Rect2(0, 32, 72, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jroja"]
+atlas = ExtResource("1_dxo0i")
+region = Rect2(0, 16, 72, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1dkc"]
+atlas = ExtResource("1_dxo0i")
+region = Rect2(0, 0, 72, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krrtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv58e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0sd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jroja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1dkc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

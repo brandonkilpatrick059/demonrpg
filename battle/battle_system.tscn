@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://d1yksn1grty30"]
 
 [ext_resource type="Script" uid="uid://dhfls34gu62yx" path="res://scripts/battle_system/battle_system_manager.gd" id="1_m8o33"]
+[ext_resource type="PackedScene" uid="uid://rgdy6g0uqvfp" path="res://battle/interface/battle_action_menu/battle_action_menu.tscn" id="2_5ix18"]
+[ext_resource type="Script" uid="uid://brgs1kvfm7ojc" path="res://scripts/utility/invisible_on_ready.gd" id="2_44d04"]
 [ext_resource type="Texture2D" uid="uid://b3nr6mi40doim" path="res://sprites/battle/guides/battle_system_grid.png" id="2_o4lua"]
 [ext_resource type="Texture2D" uid="uid://b2pjdkrdni3vv" path="res://sprites/battle/guides/battle_system_player_boundaries.png" id="3_7mede"]
 [ext_resource type="Texture2D" uid="uid://817fddi07fi8" path="res://sprites/battle/guides/battle_system_opponent_boundaries.png" id="4_72ene"]
 [ext_resource type="Texture2D" uid="uid://mpaantth3vv6" path="res://sprites/battle/background/background_shadow.png" id="5_7mede"]
 [ext_resource type="Texture2D" uid="uid://2lqbl3gvcy5b" path="res://sprites/battle/background/background_floor_test.png" id="6_72ene"]
+[ext_resource type="PackedScene" uid="uid://bfh5a8mgq3k77" path="res://battle/interface/battle_message.tscn" id="12_sycs1"]
+[ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_status.tscn" id="13_qcet8"]
+[ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="15_qcet8"]
 
 [node name="BattleSystem" type="Node2D" unique_id=415039822]
 script = ExtResource("1_m8o33")
@@ -13,6 +18,7 @@ script = ExtResource("1_m8o33")
 [node name="guides" type="Node2D" parent="." unique_id=1166741683]
 modulate = Color(1, 1, 1, 0.5137255)
 z_index = 10
+script = ExtResource("2_44d04")
 
 [node name="grid" type="Sprite2D" parent="guides" unique_id=942732636]
 texture = ExtResource("2_o4lua")
@@ -28,15 +34,19 @@ texture = ExtResource("4_72ene")
 [node name="opponent" type="Node2D" parent="familiars" unique_id=1861458970]
 
 [node name="1" type="Node2D" parent="familiars/opponent" unique_id=1349854130]
+modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(-108, -38)
 
 [node name="2" type="Node2D" parent="familiars/opponent" unique_id=1575615225]
+modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(-36, -38)
 
 [node name="3" type="Node2D" parent="familiars/opponent" unique_id=1013699245]
+modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(36, -38)
 
 [node name="4" type="Node2D" parent="familiars/opponent" unique_id=1440403003]
+modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(108, -38)
 
 [node name="player" type="Node2D" parent="familiars" unique_id=138781909]
@@ -62,3 +72,13 @@ texture = ExtResource("5_7mede")
 
 [node name="background_floor" type="Sprite2D" parent="background" unique_id=2040842043]
 texture = ExtResource("6_72ene")
+
+[node name="BattleMessage" parent="." unique_id=836972938 instance=ExtResource("12_sycs1")]
+
+[node name="BattleStatus" parent="." unique_id=2019142930 instance=ExtResource("13_qcet8")]
+
+[node name="BattleActionMenu" parent="." unique_id=1589695393 instance=ExtResource("2_5ix18")]
+z_index = 5
+position = Vector2(-108, -29)
+
+[node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("15_qcet8")]

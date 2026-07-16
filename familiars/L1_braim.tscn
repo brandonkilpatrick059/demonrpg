@@ -5,9 +5,9 @@
 
 [node name="L1braim" type="Node2D" unique_id=246003526]
 script = ExtResource("1_bk1nj")
-max_hp = 12
-current_hp = 12
-defense = 3
+max_hp = 10
+current_hp = 10
+defense = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
 sprite_frames = ExtResource("2_bk1nj")
