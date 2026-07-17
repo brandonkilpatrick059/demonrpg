@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://817fddi07fi8" path="res://sprites/battle/guides/battle_system_opponent_boundaries.png" id="4_72ene"]
 [ext_resource type="Texture2D" uid="uid://mpaantth3vv6" path="res://sprites/battle/background/background_shadow.png" id="5_7mede"]
 [ext_resource type="Texture2D" uid="uid://2lqbl3gvcy5b" path="res://sprites/battle/background/background_floor_test.png" id="6_72ene"]
+[ext_resource type="Script" uid="uid://dapw787rh5bjf" path="res://battle/interface/familiar_slot.gd" id="6_sycs1"]
+[ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="7_213sk"]
+[ext_resource type="SpriteFrames" uid="uid://ls8yujdwrhbu" path="res://sprites/spritesheets/battle/interface/select_arrow.tres" id="12_5ix18"]
 [ext_resource type="PackedScene" uid="uid://bfh5a8mgq3k77" path="res://battle/interface/battle_message.tscn" id="12_sycs1"]
 [ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_input/battle_status.tscn" id="13_qcet8"]
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="15_qcet8"]
@@ -33,35 +36,115 @@ texture = ExtResource("4_72ene")
 
 [node name="opponent" type="Node2D" parent="familiars" unique_id=1861458970]
 
-[node name="1" type="Node2D" parent="familiars/opponent" unique_id=1349854130]
+[node name="1" type="Node2D" parent="familiars/opponent" unique_id=1349854130 node_paths=PackedStringArray("select_arrow")]
 modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(-108, -38)
+script = ExtResource("6_sycs1")
+select_arrow = NodePath("../SelectArrow1")
 
-[node name="2" type="Node2D" parent="familiars/opponent" unique_id=1575615225]
+[node name="2" type="Node2D" parent="familiars/opponent" unique_id=1575615225 node_paths=PackedStringArray("select_arrow")]
 modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(-36, -38)
+script = ExtResource("6_sycs1")
+select_arrow = NodePath("../SelectArrow2")
 
-[node name="3" type="Node2D" parent="familiars/opponent" unique_id=1013699245]
+[node name="3" type="Node2D" parent="familiars/opponent" unique_id=1013699245 node_paths=PackedStringArray("select_arrow")]
 modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(36, -38)
+script = ExtResource("6_sycs1")
+select_arrow = NodePath("../SelectArrow3")
 
-[node name="4" type="Node2D" parent="familiars/opponent" unique_id=1440403003]
+[node name="4" type="Node2D" parent="familiars/opponent" unique_id=1440403003 node_paths=PackedStringArray("select_arrow")]
 modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(108, -38)
+script = ExtResource("6_sycs1")
+select_arrow = NodePath("../SelectArrow4")
+
+[node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1237670864]
+visible = false
+z_index = 5
+position = Vector2(-107, -73)
+sprite_frames = ExtResource("12_5ix18")
+frame_progress = 0.026412489
+script = ExtResource("7_213sk")
+
+[node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=738696610]
+visible = false
+z_index = 5
+position = Vector2(-35, -73)
+sprite_frames = ExtResource("12_5ix18")
+frame_progress = 0.09231411
+script = ExtResource("7_213sk")
+
+[node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=2134764836]
+visible = false
+z_index = 5
+position = Vector2(36, -73)
+sprite_frames = ExtResource("12_5ix18")
+frame_progress = 0.09231411
+script = ExtResource("7_213sk")
+
+[node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=295955405]
+visible = false
+z_index = 5
+position = Vector2(108, -73)
+sprite_frames = ExtResource("12_5ix18")
+frame_progress = 0.09231411
+script = ExtResource("7_213sk")
 
 [node name="player" type="Node2D" parent="familiars" unique_id=138781909]
 
-[node name="1" type="Node2D" parent="familiars/player" unique_id=1693108586]
+[node name="1" type="Node2D" parent="familiars/player" unique_id=1693108586 node_paths=PackedStringArray("select_arrow")]
 position = Vector2(-108, 50)
+script = ExtResource("6_sycs1")
+select_arrow = NodePath("../SelectArrow1")
 
-[node name="2" type="Node2D" parent="familiars/player" unique_id=100473518]
+[node name="2" type="Node2D" parent="familiars/player" unique_id=100473518 node_paths=PackedStringArray("select_arrow")]
 position = Vector2(-36, 50)
+script = ExtResource("6_sycs1")
+select_arrow = NodePath("../SelectArrow2")
 
-[node name="3" type="Node2D" parent="familiars/player" unique_id=350009502]
+[node name="3" type="Node2D" parent="familiars/player" unique_id=350009502 node_paths=PackedStringArray("select_arrow")]
 position = Vector2(36, 50)
+script = ExtResource("6_sycs1")
+select_arrow = NodePath("../SelectArrow3")
 
-[node name="4" type="Node2D" parent="familiars/player" unique_id=1361610248]
+[node name="4" type="Node2D" parent="familiars/player" unique_id=1361610248 node_paths=PackedStringArray("select_arrow")]
 position = Vector2(108, 50)
+script = ExtResource("6_sycs1")
+select_arrow = NodePath("../SelectArrow4")
+
+[node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/player" unique_id=1082058211]
+visible = false
+z_index = 5
+position = Vector2(-107, 7)
+sprite_frames = ExtResource("12_5ix18")
+frame_progress = 0.7760188
+script = ExtResource("7_213sk")
+
+[node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/player" unique_id=1346809307]
+visible = false
+z_index = 5
+position = Vector2(-35, 7)
+sprite_frames = ExtResource("12_5ix18")
+frame_progress = 0.09231411
+script = ExtResource("7_213sk")
+
+[node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/player" unique_id=2073269311]
+visible = false
+z_index = 5
+position = Vector2(36, 7)
+sprite_frames = ExtResource("12_5ix18")
+frame_progress = 0.09231411
+script = ExtResource("7_213sk")
+
+[node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/player" unique_id=618700280]
+visible = false
+z_index = 5
+position = Vector2(108, 7)
+sprite_frames = ExtResource("12_5ix18")
+frame_progress = 0.09231411
+script = ExtResource("7_213sk")
 
 [node name="background" type="Node2D" parent="." unique_id=1093393912]
 z_index = -5
@@ -75,13 +158,16 @@ z_index = -2
 texture = ExtResource("6_72ene")
 
 [node name="BattleMessage" parent="." unique_id=836972938 instance=ExtResource("12_sycs1")]
+visible = false
 z_index = 5
 
 [node name="BattleStatus" parent="." unique_id=2019142930 instance=ExtResource("13_qcet8")]
+visible = false
 z_index = 5
 position = Vector2(-108, -15)
 
 [node name="BattleActionMenu" parent="." unique_id=1589695393 instance=ExtResource("2_5ix18")]
+visible = false
 z_index = 5
 position = Vector2(-108, -29)
 

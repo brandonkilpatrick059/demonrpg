@@ -1,10 +1,8 @@
 extends BattleAction
 
-func get_type() -> TargetType:
-	return TargetType.ANY_ALLY
-
-func get_action_name() -> String:
-	return "DEFEND"
+func _ready() -> void:
+	action_name = "DEFEND"
+	target_type = TargetType.ANY_ALLY
 
 func run_action(actor : Familiar, targets : Array[Familiar]):
 	pass

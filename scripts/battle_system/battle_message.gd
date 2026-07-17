@@ -21,7 +21,6 @@ func _ready() -> void:
 	add_child(timer)
 	#TODO: figure out audio bus 
 	add_child(audio_player)
-	audio_player.stream = load("res://audio/effects/click.ogg")
 
 func is_active() -> bool:
 	return active
@@ -61,6 +60,7 @@ func write_text():
 			current_text = full_text.substr(0,text_index)
 			timer.start(text_speed)
 			update_label()
+			audio_player.stream = load("res://audio/effects/click.ogg")
 			audio_player.play()
 	else:
 		finished_writing = true
@@ -69,19 +69,22 @@ func is_finished_writing() -> bool:
 	return finished_writing
 
 func handle_input():
-	if(Input.is_action_just_pressed("action_1")):
-		if(not finished_writing):
-			current_text = full_text
-			update_label()
-			finished_writing = true
-		elif(finished_writing):
-			if(text_queue.size() > 0):
-				play_next_text()
-			else:
-				set_inactive()
-				var battle_system : BattleSystemManager
-				battle_system = get_tree().get_first_node_in_group("battle_system")
-				battle_system.end_awaiting_input()
+	if(is_active()):
+		if(Input.is_action_just_pressed("action_1")):
+			if(not finished_writing):
+				current_text = full_text
+				update_label()
+				finished_writing = true
+			elif(finished_writing):
+				if(text_queue.size() > 0):
+					play_next_text()
+				else:
+					set_inactive()
+					var battle_system : BattleSystemManager
+					battle_system = get_tree().get_first_node_in_group("battle_system")
+					battle_system.end_awaiting_input()
+					audio_player.stream = load("res://audio/effects/brush_snare.ogg")
+				audio_player.play()
 
 func _physics_process(_delta: float) -> void:
 	if(not finished_writing):

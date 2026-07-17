@@ -3,7 +3,7 @@ class_name ActionMenuTab extends Node2D
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var label : RichTextLabel = $RichTextLabel
 
-var action_node : BattleAction = null
+var action : BattleAction = null
 var text : String = ""
 
 func set_inactive():
@@ -17,10 +17,10 @@ func set_active():
 	visible = true
 	sprite.play("active")
 
-func set_tab(action : BattleAction):
-	action_node = action
+func set_tab(input_action : BattleAction):
+	action = input_action
 	text = action.get_action_name()
 	label.parse_bbcode(text)
 
-func get_action_node() -> BattleAction:
-	return action_node
+func get_action() -> BattleAction:
+	return action

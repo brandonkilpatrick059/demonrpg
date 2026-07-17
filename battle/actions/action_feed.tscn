@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://iwklftc2amt6"]
+
+[ext_resource type="Script" uid="uid://d6i774ro4l7s" path="res://scripts/battle_system/actions/action_feed.gd" id="1_wigad"]
+
+[node name="ActionFeed" type="Node" unique_id=918915832]
+script = ExtResource("1_wigad")

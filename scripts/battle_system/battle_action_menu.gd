@@ -66,7 +66,7 @@ func handle_input():
 		if(Input.is_action_just_pressed("up")):
 			if(selected_index >= 1):
 				selected_index = selected_index - 1
-				audio_player.stream = load("res://audio/effects/brush_snare.ogg")
+				audio_player.stream = load("res://audio/effects/click.ogg")
 				update_selected()
 			else:
 				audio_player.stream = load("res://audio/effects/short_bell.ogg")
@@ -74,18 +74,26 @@ func handle_input():
 		elif(Input.is_action_just_pressed("down")):
 			if(selected_index < num_actions-1):
 				selected_index = selected_index + 1
-				audio_player.stream = load("res://audio/effects/brush_snare.ogg")
+				audio_player.stream = load("res://audio/effects/click.ogg")
 				update_selected()
 			else:
 				audio_player.stream = load("res://audio/effects/short_bell.ogg")
 			audio_player.play()
 		elif(Input.is_action_just_pressed("action_1")):
-			pass #TODO actions
+			set_inactive()
+			var chosen_action = tabs[selected_index].get_action()
+			var battle_system : BattleSystemManager
+			battle_system = get_tree().get_first_node_in_group("battle_system")
+			battle_system.start_target_process(chosen_action)
+			audio_player.stream = load("res://audio/effects/bell_first.ogg")
+			audio_player.play()
 		elif(Input.is_action_just_pressed("action_2")):
 			set_inactive()
 			var battle_system : BattleSystemManager
 			battle_system = get_tree().get_first_node_in_group("battle_system")
 			battle_system.reset_show_status()
+			audio_player.stream = load("res://audio/effects/click.ogg")
+			audio_player.play()
 
 func _physics_process(delta: float) -> void:
 	handle_input()

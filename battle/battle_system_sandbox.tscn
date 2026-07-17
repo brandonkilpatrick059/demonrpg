@@ -9,9 +9,11 @@
 [node name="BattleSystem" parent="." unique_id=415039822 node_paths=PackedStringArray("opponent_familiars", "player_familiars") instance=ExtResource("1_13ec6")]
 position = Vector2(160, 90)
 opponent_familiars = [NodePath("L1martyr"), NodePath("L1martyr2")]
-player_familiars = [NodePath("L0Homunculus")]
+player_familiars = [NodePath("L0Homunculus"), NodePath("L1martyr3")]
 
 [node name="L0Homunculus" parent="BattleSystem" unique_id=246003526 instance=ExtResource("2_lx8k2")]
+
+[node name="L1martyr3" parent="BattleSystem" unique_id=665361896 instance=ExtResource("3_8kxpe")]
 
 [node name="L1martyr" parent="BattleSystem" unique_id=1144399326 instance=ExtResource("3_8kxpe")]
 

@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://i0phegh6h7l1" path="res://sprites/spritesheets/familiars/homunculus.tres" id="2_wdsci"]
 [ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_u4urq"]
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_pswk3"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_pswk3"]
 
 [node name="L0Homunculus" type="Node2D" unique_id=246003526]
 script = ExtResource("1_vn800")
@@ -21,14 +22,4 @@ sprite_frames = ExtResource("2_wdsci")
 
 [node name="ActionDefend" parent="actions" unique_id=354772795 instance=ExtResource("4_pswk3")]
 
-[node name="ActionAttack2" parent="actions" unique_id=96533742 instance=ExtResource("3_u4urq")]
-
-[node name="ActionDefend2" parent="actions" unique_id=1565314145 instance=ExtResource("4_pswk3")]
-
-[node name="ActionAttack3" parent="actions" unique_id=1369652066 instance=ExtResource("3_u4urq")]
-
-[node name="ActionDefend3" parent="actions" unique_id=942789358 instance=ExtResource("4_pswk3")]
-
-[node name="ActionAttack4" parent="actions" unique_id=676684616 instance=ExtResource("3_u4urq")]
-
-[node name="ActionDefend4" parent="actions" unique_id=384106264 instance=ExtResource("4_pswk3")]
+[node name="ActionFeed" parent="actions" unique_id=261862437 instance=ExtResource("5_pswk3")]

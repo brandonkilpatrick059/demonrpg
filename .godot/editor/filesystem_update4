@@ -9,3 +9,13 @@ res://scripts/battle_system/action_menu_tab.gd
 res://sprites/spritesheets/battle/interface/action_tab.tres
 res://battle/battle_system.tscn
 res://familiars/L0_homunculus.tscn
+res://battle/actions/action_feed.tscn
+res://scripts/battle_system/actions/action_feed.gd
+res://sprites/spritesheets/battle/interface/select_arrow.tres
+res://battle/interface/familiar_slot.gd
+res://scripts/battle_system/actions/battle_action.gd
+res://scripts/battle_system/battle_message.gd
+res://scripts/battle_system/actions/action_attack.gd
+res://scripts/battle_system/actions/action_defend.gd
+res://scripts/utility/play_default_animation.gd
+res://battle/battle_system_sandbox.tscn
