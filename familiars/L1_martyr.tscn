@@ -2,12 +2,21 @@
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_7bugr"]
 [ext_resource type="SpriteFrames" uid="uid://dsew6vh6f7yp7" path="res://sprites/spritesheets/familiars/L1_martyr.tres" id="2_p0s8o"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_a4pue"]
+[ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_4u7hw"]
 
 [node name="L1martyr" type="Node2D" unique_id=246003526]
 script = ExtResource("1_7bugr")
+familiar_name = "Martyr"
 max_hp = 10
 current_hp = 10
 attack = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
 sprite_frames = ExtResource("2_p0s8o")
+
+[node name="actions" type="Node" parent="." unique_id=437306310]
+
+[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_a4pue")]
+
+[node name="ActionDefend" parent="actions" unique_id=1145210079 instance=ExtResource("4_4u7hw")]

@@ -1,6 +1,6 @@
-Polygon2D
 AnimatedSprite2D
+Node
+Polygon2D
 RichTextLabel
 Sprite2D
 Node2D
-Node

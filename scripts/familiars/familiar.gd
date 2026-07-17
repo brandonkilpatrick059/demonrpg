@@ -1,6 +1,7 @@
 class_name Familiar extends Node
 
 #STATS
+@export var familiar_name : String = ""
 @export var max_hp : int = 1
 @export var current_hp : int = 1
 @export var attack : int = 1
@@ -9,11 +10,17 @@ class_name Familiar extends Node
 @export var magic : int = 1
 
 @export var level : int = 1
-@export var exp : int = 0
+@export var experience : int = 0
 
-@export var actions : Array[BattleAction] = []
+var actions : Array[BattleAction] = []
 
 @export var battle_sprite : AnimatedSprite2D
+
+@onready var actions_parent : Node = $actions
+
+func _ready() -> void:
+	for action_node in actions_parent.get_children():
+		actions.append(action_node)
 
 func get_max_hp() -> int:
 	return max_hp
@@ -39,6 +46,12 @@ func get_defense() -> int:
 func set_defense(num : int):
 	defense = num
 
+func set_familiar_name (in_name : String):
+	familiar_name = in_name
+
+func get_familiar_name() -> String:
+	return familiar_name
+
 func get_speed() -> int:
 	return speed
 
@@ -50,6 +63,9 @@ func get_magic() -> int:
 
 func set_magic(num : int):
 	magic = num
+
+func get_actions():
+	return actions
 
 func get_battle_sprite() -> AnimatedSprite2D:
 	return battle_sprite

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1yksn1grty30"]
 
 [ext_resource type="Script" uid="uid://dhfls34gu62yx" path="res://scripts/battle_system/battle_system_manager.gd" id="1_m8o33"]
-[ext_resource type="PackedScene" uid="uid://rgdy6g0uqvfp" path="res://battle/interface/battle_action_menu/battle_action_menu.tscn" id="2_5ix18"]
+[ext_resource type="PackedScene" uid="uid://rgdy6g0uqvfp" path="res://battle/interface/battle_input/battle_action_menu/battle_action_menu.tscn" id="2_5ix18"]
 [ext_resource type="Script" uid="uid://brgs1kvfm7ojc" path="res://scripts/utility/invisible_on_ready.gd" id="2_44d04"]
 [ext_resource type="Texture2D" uid="uid://b3nr6mi40doim" path="res://sprites/battle/guides/battle_system_grid.png" id="2_o4lua"]
 [ext_resource type="Texture2D" uid="uid://b2pjdkrdni3vv" path="res://sprites/battle/guides/battle_system_player_boundaries.png" id="3_7mede"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://mpaantth3vv6" path="res://sprites/battle/background/background_shadow.png" id="5_7mede"]
 [ext_resource type="Texture2D" uid="uid://2lqbl3gvcy5b" path="res://sprites/battle/background/background_floor_test.png" id="6_72ene"]
 [ext_resource type="PackedScene" uid="uid://bfh5a8mgq3k77" path="res://battle/interface/battle_message.tscn" id="12_sycs1"]
-[ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_status.tscn" id="13_qcet8"]
+[ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_input/battle_status.tscn" id="13_qcet8"]
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="15_qcet8"]
 
 [node name="BattleSystem" type="Node2D" unique_id=415039822]
@@ -78,6 +78,8 @@ texture = ExtResource("6_72ene")
 z_index = 5
 
 [node name="BattleStatus" parent="." unique_id=2019142930 instance=ExtResource("13_qcet8")]
+z_index = 5
+position = Vector2(-108, -15)
 
 [node name="BattleActionMenu" parent="." unique_id=1589695393 instance=ExtResource("2_5ix18")]
 z_index = 5

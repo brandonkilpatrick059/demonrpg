@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://44eyh733n12d"]
-
-[ext_resource type="SpriteFrames" uid="uid://i0phegh6h7l1" path="res://sprites/spritesheets/familiars/homunculus.tres" id="1_l8e2d"]
-
-[node name="L0Homunculus" type="Node2D" unique_id=246003526]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
-sprite_frames = ExtResource("1_l8e2d")

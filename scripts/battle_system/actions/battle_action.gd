@@ -1,16 +1,16 @@
 class_name BattleAction extends Node
 
-enum target_type {NO_TARGET,SELF,ANY_ALLY,ANY_OPPONENT,ALL_ALLIES,ALL_OPPONENTS,
+enum TargetType {NO_TARGET,SELF,ANY_ALLY,ANY_OPPONENT,ALL_ALLIES,ALL_OPPONENTS,
 HALF_ALLIES,HALF_OPPONENTS,ALL,ANY,ANY_DEAD}
 
 @export var action_name : String = "blank_action"
-@export var type : target_type = target_type.NO_TARGET
+@export var type : TargetType = TargetType.NO_TARGET
 
-func get_type() -> target_type:
+func get_type() -> TargetType:
 	return type
 
 func get_action_name() -> String:
 	return action_name
 
-func run_action():
+func run_action(actor : Familiar, targets : Array[Familiar]):
 	pass

@@ -7,12 +7,14 @@ var action_node : BattleAction = null
 var text : String = ""
 
 func set_inactive():
+	visible = false
 	sprite.play("inactive")
 
 func set_selected():
 	sprite.play("selected")
 
 func set_active():
+	visible = true
 	sprite.play("active")
 
 func set_tab(action : BattleAction):

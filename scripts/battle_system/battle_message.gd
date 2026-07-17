@@ -74,13 +74,14 @@ func handle_input():
 			current_text = full_text
 			update_label()
 			finished_writing = true
-		if(finished_writing):
+		elif(finished_writing):
 			if(text_queue.size() > 0):
 				play_next_text()
 			else:
 				set_inactive()
-				get_parent().end_awaiting_input()
-	
+				var battle_system : BattleSystemManager
+				battle_system = get_tree().get_first_node_in_group("battle_system")
+				battle_system.end_awaiting_input()
 
 func _physics_process(_delta: float) -> void:
 	if(not finished_writing):

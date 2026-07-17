@@ -2,12 +2,21 @@
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_am811"]
 [ext_resource type="SpriteFrames" uid="uid://coywtc41abane" path="res://sprites/spritesheets/familiars/L1_gark.tres" id="2_01o8p"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_c388a"]
+[ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_77ode"]
 
 [node name="L1gark" type="Node2D" unique_id=246003526]
 script = ExtResource("1_am811")
+familiar_name = "Gark"
 max_hp = 10
 current_hp = 10
 magic = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
 sprite_frames = ExtResource("2_01o8p")
+
+[node name="actions" type="Node" parent="." unique_id=1087267566]
+
+[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_c388a")]
+
+[node name="ActionDefend" parent="actions" unique_id=650851647 instance=ExtResource("4_77ode")]

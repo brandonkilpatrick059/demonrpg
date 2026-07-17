@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d1hwdmd2h6inw"]
 
 [ext_resource type="PackedScene" uid="uid://d1yksn1grty30" path="res://battle/battle_system.tscn" id="1_13ec6"]
-[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/L1_martyr.tscn" id="2_ckvru"]
-[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/L0_homunculus.tscn" id="3_lx8k2"]
+[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/L0_homunculus.tscn" id="2_lx8k2"]
+[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/L1_martyr.tscn" id="3_8kxpe"]
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=405016994]
 
@@ -11,8 +11,8 @@ position = Vector2(160, 90)
 opponent_familiars = [NodePath("L1martyr"), NodePath("L1martyr2")]
 player_familiars = [NodePath("L0Homunculus")]
 
-[node name="L1martyr" parent="BattleSystem" unique_id=246003526 instance=ExtResource("2_ckvru")]
+[node name="L0Homunculus" parent="BattleSystem" unique_id=246003526 instance=ExtResource("2_lx8k2")]
 
-[node name="L1martyr2" parent="BattleSystem" unique_id=1085445368 instance=ExtResource("2_ckvru")]
+[node name="L1martyr" parent="BattleSystem" unique_id=1144399326 instance=ExtResource("3_8kxpe")]
 
-[node name="L0Homunculus" parent="BattleSystem" unique_id=1172971971 instance=ExtResource("3_lx8k2")]
+[node name="L1martyr2" parent="BattleSystem" unique_id=84993766 instance=ExtResource("3_8kxpe")]
