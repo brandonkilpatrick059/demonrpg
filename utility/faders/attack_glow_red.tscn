@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cfnngmhc0qaat"]
 
-[ext_resource type="Script" uid="uid://clm4enx7fqkjw" path="res://scripts/utility/fade_node.gd" id="1_mrpmf"]
+[ext_resource type="Script" uid="uid://clm4enx7fqkjw" path="res://scripts/utility/fade_node.gd" id="1_cb666"]
 
 [node name="FadeNode_GlowRed" type="Node2D" unique_id=2013521448]
-script = ExtResource("1_mrpmf")
+script = ExtResource("1_cb666")
 return_when_done = true
 target_modulate = Color(1, 0, 0, 1)
 modulate_step = 0.4

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bfh5a8mgq3k77" path="res://battle/interface/battle_message.tscn" id="12_sycs1"]
 [ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_input/battle_status.tscn" id="13_qcet8"]
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="15_qcet8"]
+[ext_resource type="SpriteFrames" uid="uid://b7kuox6c5v233" path="res://sprites/spritesheets/familiars/L1_braim.tres" id="15_tv3fy"]
 
 [node name="BattleSystem" type="Node2D" unique_id=415039822]
 script = ExtResource("1_m8o33")
@@ -176,3 +177,9 @@ position = Vector2(-108, -29)
 z_index = 4
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=364775759]
+position = Vector2(-349, -28)
+sprite_frames = ExtResource("15_tv3fy")
+animation = &"die"
+frame_progress = 0.8427655

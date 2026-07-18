@@ -74,7 +74,7 @@ set_opponent_familiars : Array[Familiar]):
 	initialize_familiars()
 
 func fade_in():
-	var fade_node : FadeNode = load("res://utility/fade_node.tscn").instantiate()
+	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
 	var fade_out = Color(1,1,1,0)
 	fade_node.set_target_modulate(fade_out,0.2,0.2)
 	$fade_to_black.add_child(fade_node)
@@ -279,11 +279,12 @@ func handle_target_input():
 
 func handle_single_target_input():
 	var current_target : Familiar
-	if(targeted_familiars.size() == 0):
+	if(targeted_familiars.size() == 0 &&
+	targetable_familiars.size() > 0):
 		current_target = targetable_familiars[0]
 		targeted_familiars.append(current_target)
 		update_sel_arrows()
-	else:
+	elif(targetable_familiars.size() > 0):
 		current_target = targeted_familiars[0]
 		update_sel_arrows()
 	if(Input.is_action_just_pressed("left") ||
@@ -388,10 +389,14 @@ func reset_message_position():
 func get_next_action():
 	if(combined_action_queue.size() > 0):
 		var current_action : ActionQueueItem = combined_action_queue.pop_front()
-		current_battle_action = current_action.get_action()
-		current_actor = current_action.get_actor()
-		current_targets = current_action.get_targets()
-	else:
+		while(current_action != null && 
+			current_action.get_actor().is_dead()):
+			current_action = combined_action_queue.pop_front()
+		if(current_action != null):
+			current_battle_action = current_action.get_action()
+			current_actor = current_action.get_actor()
+			current_targets = current_action.get_targets()
+	elif(combined_action_queue.size() <= 0):
 		wait_timer.start(2.0)
 		return_to_input_phase()
 

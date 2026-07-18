@@ -21,15 +21,27 @@ var actions : Array[BattleAction] = []
 var hostile : bool = false
 var dead : bool = false
 
+@export var battle_buffs : Array[BattleBuff] = []
+
+var one_shot_animating : bool = false
+
 func _ready() -> void:
 	for action_node in actions_parent.get_children():
 		actions.append(action_node)
+	sprite.play("default")
+	sprite.frame = randi_range(0,sprite.sprite_frames.get_frame_count("default")-1)
 
 func get_max_hp() -> int:
 	return max_hp
 
 func is_hostile():
 	return hostile
+
+func add_battle_buff(buff : BattleBuff):
+	battle_buffs.append(buff)
+
+func get_battle_buffs() -> Array[BattleBuff]:
+	return battle_buffs
 
 func mark_hostile():
 	hostile = true
@@ -50,7 +62,7 @@ func is_dead():
 	return dead
 
 func kill():
-	sprite.play("dead")
+	play_one_shot_animation("die")
 	dead = true
 
 func get_attack() -> int:
@@ -85,3 +97,16 @@ func set_magic(num : int):
 
 func get_actions():
 	return actions
+
+func play_one_shot_animation(name : String):
+	sprite.play(name)
+	one_shot_animating = true
+
+func _physics_process(delta: float) -> void:
+	if(one_shot_animating &&
+	sprite.frame == sprite.sprite_frames.get_frame_count(sprite.animation)-1):
+		if(is_dead()):
+			sprite.play("dead")
+		else:
+			sprite.play("default")
+		one_shot_animating = false

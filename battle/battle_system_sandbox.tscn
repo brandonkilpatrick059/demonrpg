@@ -2,15 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://d1yksn1grty30" path="res://battle/battle_system.tscn" id="1_13ec6"]
 [ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/L1_martyr.tscn" id="3_8kxpe"]
+[ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/L1_gark.tscn" id="4_ogmts"]
 [ext_resource type="PackedScene" uid="uid://be8nahf55fp0p" path="res://familiars/L1_braim.tscn" id="5_f717y"]
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=405016994]
 
 [node name="BattleSystem" parent="." unique_id=415039822 node_paths=PackedStringArray("opponent_familiars", "player_familiars") instance=ExtResource("1_13ec6")]
 position = Vector2(160, 90)
-opponent_familiars = [NodePath("L1martyr3")]
-player_familiars = [NodePath("L1braim")]
+opponent_familiars = [NodePath("L1martyr3"), NodePath("L1gark")]
+player_familiars = [NodePath("L1braim"), NodePath("L1gark2")]
 
 [node name="L1martyr3" parent="BattleSystem" unique_id=665361896 instance=ExtResource("3_8kxpe")]
 
 [node name="L1braim" parent="BattleSystem" unique_id=775875402 instance=ExtResource("5_f717y")]
+
+[node name="L1gark" parent="BattleSystem" unique_id=246003526 instance=ExtResource("4_ogmts")]
+
+[node name="L1gark2" parent="BattleSystem" unique_id=2125534241 instance=ExtResource("4_ogmts")]

@@ -7,7 +7,7 @@ var text_speed : float = 0.02
 
 var current_text : String = ""
 var full_text : String = ""
-var finished_writing : bool = false
+var finished_writing : bool = true
 var text_index : int = 0
 
 var audio_player := AudioStreamPlayer.new() 
@@ -36,7 +36,8 @@ func set_inactive():
 func queue_text(texts : Array[String]):
 	for text in texts:
 		text_queue.append(text)
-	play_next_text()
+	if(finished_writing):
+		play_next_text()
 
 func play_next_text():
 	var text = text_queue.pop_front()

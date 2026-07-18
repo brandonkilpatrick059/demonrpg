@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bm7o0kgyrv8oh" path="res://sprites/battle/interface/battle_num_act_tab.png" id="3_nsi0d"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="4_nsi0d"]
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="6_2sibk"]
+[ext_resource type="Texture2D" uid="uid://b5itq2bbe8xam" path="res://sprites/battle/interface/buff_symbols/shield_symbol.png" id="7_n1hur"]
 
 [node name="BattleStatus" type="Node2D" unique_id=2019142930]
 script = ExtResource("1_75mxf")
@@ -32,3 +33,23 @@ text = "\"homunculus\""
 horizontal_alignment = 1
 
 [node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("6_2sibk")]
+
+[node name="status_1" type="Sprite2D" parent="." unique_id=141459405]
+visible = false
+position = Vector2(-23, 12)
+texture = ExtResource("7_n1hur")
+
+[node name="status_2" type="Sprite2D" parent="." unique_id=589507116]
+visible = false
+position = Vector2(-10, 12)
+texture = ExtResource("7_n1hur")
+
+[node name="status_3" type="Sprite2D" parent="." unique_id=915182777]
+visible = false
+position = Vector2(3, 12)
+texture = ExtResource("7_n1hur")
+
+[node name="status_4" type="Sprite2D" parent="." unique_id=1693837577]
+visible = false
+position = Vector2(16, 12)
+texture = ExtResource("7_n1hur")
