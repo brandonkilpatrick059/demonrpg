@@ -158,7 +158,6 @@ z_index = -2
 texture = ExtResource("6_72ene")
 
 [node name="BattleMessage" parent="." unique_id=836972938 instance=ExtResource("12_sycs1")]
-visible = false
 z_index = 5
 
 [node name="BattleStatus" parent="." unique_id=2019142930 instance=ExtResource("13_qcet8")]

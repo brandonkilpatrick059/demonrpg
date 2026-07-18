@@ -1,4 +1,4 @@
-class_name BattleSystemManager extends Node
+class_name BattleSystemManager extends Node2D
 
 @onready var action_menu : BattleActionMenu = $BattleActionMenu
 @onready var message : BattleMessage = $BattleMessage
@@ -355,7 +355,35 @@ func battle_process():
 
 func run_actions_process():
 	if(!awaiting_input):
+		position_message()
 		current_battle_action.action_process(current_actor,current_targets)
+
+func position_message():
+	var slot = current_actor.get_parent()
+	var slot_index : int = 0
+	if(current_actor.is_hostile()):
+		slot_index = opponent_positions.find(slot)
+	else:
+		slot_index = player_positions.find(slot)
+	var position_at_slot : int = 0
+	match slot_index:
+		0:
+			position_at_slot = 3
+		1:
+			position_at_slot = 3
+		2:
+			position_at_slot = 0
+		3:
+			position_at_slot = 0
+	var pos_slot : Node2D
+	if(current_actor.is_hostile()):
+		pos_slot = opponent_positions[position_at_slot]
+	else:
+		pos_slot = player_positions[position_at_slot]
+	message.global_position = pos_slot.global_position
+
+func reset_message_position():
+	message.global_position = global_position
 
 func get_next_action():
 	if(combined_action_queue.size() > 0):
