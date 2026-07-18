@@ -45,7 +45,7 @@ class ActionQueueItem:
 	in_targets : Array[Familiar]) -> void:
 		actor = in_actor
 		action = in_action
-		targets = in_targets
+		targets.append_array(in_targets)
 	
 	func get_actor() -> Familiar:
 		return actor
@@ -124,6 +124,7 @@ func initialize_familiars():
 		familiar.reparent(opponent_positions[pos])
 		familiar.position= Vector2(0,0)
 		familiar.modulate.a = 0.5
+		familiar.mark_hostile()
 	
 	index = 0
 	for familiar in player_familiars:
@@ -132,6 +133,13 @@ func initialize_familiars():
 		index = index + 1
 	
 	familiars_initialized = true
+
+func play_messages(text_queue : Array[String]):
+	message.queue_text(text_queue)
+	awaiting_input = true
+
+func start_wait_timer(time : float):
+	wait_timer.start(time)
 
 #region Process
 func _physics_process(delta: float) -> void:
@@ -148,6 +156,8 @@ func process_battle():
 				input_process()
 			BattlePhase.INPUT_TARGET:
 				target_process()
+			BattlePhase.BATTLE:
+				battle_process()
 
 #region Start Phase
 var battle_started : bool = false
@@ -159,8 +169,7 @@ func start_process():
 			intro_text = text.get_text("intro_single")
 		elif(opponent_familiars.size() > 1):
 			intro_text = text.get_text("intro_mult")
-		message.queue_text([intro_text])
-		awaiting_input = true
+		play_messages([intro_text])
 	if(not awaiting_input):
 		current_phase = BattlePhase.INPUT
 		wait_timer.start(3.0)
@@ -209,7 +218,7 @@ func familiar_in_action_queue(familiar : Familiar) -> bool:
 			return true
 	return false
 #endregion
-#region Input_Target Phase
+#region Input Target Phase
 var targeted_familiars : Array[Familiar] = []
 var targetable_familiars: Array[Familiar] = []
 var targeting_action : BattleAction
@@ -232,11 +241,9 @@ func get_targetable_familiars(action : BattleAction):
 		BattleAction.TargetType.NO_TARGET:
 			pass
 		BattleAction.TargetType.ANY_OPPONENT:
-			for opponent in opponent_familiars:
-				targetable_familiars.append(opponent)
+			targetable_familiars.append_array(opponent_familiars)
 		BattleAction.TargetType.ANY_ALLY:
-			for familiar in player_familiars:
-				targetable_familiars.append(familiar)
+			targetable_familiars.append_array(player_familiars)
 		BattleAction.TargetType.ANY_DEAD:
 			pass
 
@@ -266,6 +273,7 @@ func handle_single_target_input():
 		update_sel_arrows()
 	else:
 		current_target = targeted_familiars[0]
+		update_sel_arrows()
 	if(Input.is_action_just_pressed("left") ||
 	 Input.is_action_just_pressed("right")):
 		play_sound(load("res://audio/effects/bell_first.ogg"))
@@ -312,5 +320,129 @@ func hide_all_sel_arrows():
 		slot.hide_select_arrow()
 	for slot : FamiliarSlot in player_positions:
 		slot.hide_select_arrow()
+#endregion
+#region Battle Phase
+var current_battle_action : BattleAction
+var current_actor : Familiar
+var current_targets: Array[Familiar]
+var first_action : bool = true
+
+func battle_process():
+	if(opponent_action_queue.size() == 0):
+		get_opponent_actions()
+		get_combined_action_queue()
+		first_action = true
+	elif(first_action):
+		get_next_action()
+		first_action = false
+	else:
+		run_actions_process()
+
+func run_actions_process():
+	if(!awaiting_input):
+		current_battle_action.action_process(current_actor,current_targets)
+
+func get_next_action():
+	if(combined_action_queue.size() > 0):
+		var current_action : ActionQueueItem = combined_action_queue.pop_front()
+		current_battle_action = current_action.get_action()
+		current_actor = current_action.get_actor()
+		current_targets = current_action.get_targets()
+	else:
+		wait_timer.start(2.0)
+		return_to_input_phase()
+
+func return_to_input_phase():
+	reset_show_status()
+	reset_input_phase()
+	player_action_queue.clear()
+	opponent_action_queue.clear()
+	player_familiar_index = 0
+
+func get_combined_action_queue():
+	combined_action_queue.clear()
+	for opponent_action in opponent_action_queue:
+		insert_into_combined_action_queue(opponent_action)
+	for player_action in player_action_queue:
+		insert_into_combined_action_queue(player_action)
+
+func insert_into_combined_action_queue(insert_item : ActionQueueItem):
+	var new_combined_action_queue : Array[ActionQueueItem] = []
+	if(combined_action_queue.size() == 0):
+		new_combined_action_queue.append(insert_item)
+	else:
+		var item_appended : bool = false
+		#check if it is faster or as fast as anything else already in the queue
+		for item : ActionQueueItem in combined_action_queue:
+			if (item_appended || #if we've already inserted the item, just add the rest
+			#otherwise, the given actor with higher speed acts first
+			item.get_actor().get_speed() > insert_item.get_actor().get_speed()):
+				new_combined_action_queue.append(item)
+			#if speed of insert actor beats the speed of given actor, their action is inserted
+			#before the action of given actor
+			elif item.get_actor().get_speed() < insert_item.get_actor().get_speed():
+				new_combined_action_queue.append(insert_item)
+				new_combined_action_queue.append(item)
+				item_appended = true
+			#if they have equal speed, choose randomly between them
+			elif(item.get_actor().get_speed() == insert_item.get_actor().get_speed()):
+				if(randi_range(0,1.0) < 0.5 ): #coin toss
+					new_combined_action_queue.append(insert_item)
+					item_appended = true
+				new_combined_action_queue.append(item)
+		#if it wasn't faster than anything in the queue, add it last
+		if(!item_appended):
+			new_combined_action_queue.append(insert_item)
+	combined_action_queue.clear()
+	combined_action_queue.append_array(new_combined_action_queue)
+
+func get_opponent_actions():
+	for opponent : Familiar in opponent_familiars:
+		#TODO: more complex decision making process
+		#perhaps an call an overridable decision-making
+		#function per familiar?
+		var opponent_actions : Array[BattleAction] = opponent.get_actions()
+		var acts_num = opponent_actions.size() - 1
+		var chosen_action : BattleAction = opponent_actions[randi_range(0,acts_num)]
+		var potential_targets : Array[Familiar] = get_opponent_targetable_familiars(chosen_action)
+		var chosen_targets : Array[Familiar] = get_targets(chosen_action, potential_targets)
+		var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
+		opponent_action_queue.append(opponent_action_item)
+
+func get_targets(action : BattleAction,
+potential_targets : Array[Familiar]) -> Array[Familiar]:
+	var target_type : BattleAction.TargetType = action.get_target_type()
+	var ret_array : Array[Familiar] = []
+	match target_type:
+		BattleAction.TargetType.ANY_OPPONENT:
+			ret_array.append_array(opponent_select_single_target(potential_targets))
+		BattleAction.TargetType.ANY_ALLY:
+			ret_array.append_array(opponent_select_single_target(potential_targets))
+		BattleAction.TargetType.ANY_DEAD:
+			pass
+	return ret_array
+
+func opponent_select_single_target(potential_targets : Array[Familiar]) -> Array[Familiar]:
+	var p_targets_num = potential_targets.size() - 1
+	var chosen_target = potential_targets[randi_range(0,p_targets_num)]
+	var ret_array : Array[Familiar] = [chosen_target]
+	return ret_array
+
+func get_opponent_targetable_familiars(action : BattleAction) -> Array[Familiar]:
+	var target_type : BattleAction.TargetType = action.get_target_type()
+	var opponent_targetable_familiars : Array[Familiar] = []
+	match target_type:
+		BattleAction.TargetType.NO_TARGET:
+			pass
+		BattleAction.TargetType.ANY_OPPONENT:
+			for opponent in player_familiars:
+				opponent_targetable_familiars.append(opponent)
+		BattleAction.TargetType.ANY_ALLY:
+			for familiar in opponent_familiars:
+				opponent_targetable_familiars.append(familiar)
+		BattleAction.TargetType.ANY_DEAD:
+			pass
+	return opponent_targetable_familiars
+
 #endregion
 #endregion

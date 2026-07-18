@@ -65,7 +65,7 @@ visible = false
 z_index = 5
 position = Vector2(-107, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.026412489
+frame_progress = 0.8852909
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=738696610]

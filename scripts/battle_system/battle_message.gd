@@ -3,7 +3,7 @@ class_name BattleMessage extends Node2D
 @onready var label : RichTextLabel = $RichTextLabel
 
 var timer := Timer.new()
-var text_speed : float = 0.04
+var text_speed : float = 0.02
 
 var current_text : String = ""
 var full_text : String = ""

@@ -18,12 +18,23 @@ var actions : Array[BattleAction] = []
 
 @onready var actions_parent : Node = $actions
 
+var hostile : bool = false
+
 func _ready() -> void:
 	for action_node in actions_parent.get_children():
 		actions.append(action_node)
 
 func get_max_hp() -> int:
 	return max_hp
+
+func is_hostile():
+	return hostile
+
+func mark_hostile():
+	hostile = true
+
+func mark_friendly():
+	hostile = false
 
 func set_max_hp(num : int):
 	max_hp = num

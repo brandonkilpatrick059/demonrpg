@@ -12,5 +12,8 @@ func get_target_type() -> TargetType:
 func get_action_name() -> String:
 	return action_name
 
-func run_action(actor : Familiar, targets : Array[Familiar]):
+func clean_up():
+	pass
+
+func action_process(actor : Familiar, targets : Array[Familiar]):
 	pass
