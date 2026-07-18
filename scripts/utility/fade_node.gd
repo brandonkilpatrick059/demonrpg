@@ -1,14 +1,20 @@
 class_name FadeNode extends Node
 
+@export var return_when_done : bool = false
+@export var target_modulate_queue : Array[Color] = []
 @export var target_modulate : Color = Color(0,0,0,0)
 @export var modulate_step : float = 0.2
 @export var time_step : float = 0.5
+
+var return_modulate : Color 
 
 var timer := Timer.new()
 
 func _ready() -> void:
 	timer.one_shot = true
 	add_child(timer)
+	if(return_when_done):
+		return_modulate = get_parent().modulate
 
 func set_target_modulate(color : Color, mod_step : float, set_time_step : float):
 	target_modulate = color
@@ -48,7 +54,13 @@ func handle_modulate_step():
 	
 	parent.modulate = new_modulate
 	if(new_modulate == target_modulate):
-		queue_free()
+		if(target_modulate_queue.size() > 0):
+			target_modulate = target_modulate_queue.pop_front()
+		elif(return_when_done):
+			target_modulate = return_modulate
+			return_when_done = false
+		else:
+			queue_free()
 	else:
 		timer.start(time_step)
 

@@ -1,9 +1,18 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://cy248d0mn3m8u"]
 
 [ext_resource type="Texture2D" uid="uid://ccqq8yfrj4sw7" path="res://sprites/spritesheets/familiars/L2_shax.png" id="1_cvbjh"]
+[ext_resource type="Texture2D" uid="uid://dmuwd34igs3nq" path="res://sprites/spritesheets/familiars/gore.png" id="1_dlj7d"]
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dlj7d")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_cvbjh")

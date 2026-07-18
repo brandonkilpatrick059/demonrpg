@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rgdy6g0uqvfp"]
 
-[ext_resource type="Script" uid="uid://ci0tv247mfmri" path="res://scripts/battle_system/battle_action_menu.gd" id="1_ae6hk"]
+[ext_resource type="Script" uid="uid://ci0tv247mfmri" path="res://scripts/battle_system/interface/battle_action_menu.gd" id="1_ae6hk"]
 [ext_resource type="PackedScene" uid="uid://b3dnjyow36a8x" path="res://battle/interface/battle_input/battle_action_menu/action_menu_tab.tscn" id="2_5vl7x"]
 [ext_resource type="SpriteFrames" uid="uid://xng0w2ulb4wl" path="res://sprites/spritesheets/battle/interface/battle_energy_bar.tres" id="3_5vl7x"]
 [ext_resource type="Texture2D" uid="uid://bm7o0kgyrv8oh" path="res://sprites/battle/interface/battle_num_act_tab.png" id="4_xukji"]

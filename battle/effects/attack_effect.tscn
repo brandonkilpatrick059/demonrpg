@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://27jilt8utipy"]
+
+[ext_resource type="SpriteFrames" uid="uid://dui2hlil1ouu0" path="res://sprites/spritesheets/battle/actions/attack.tres" id="1_8b0oy"]
+[ext_resource type="Script" uid="uid://3ro3pqt7whqn" path="res://utility/queu_free_child_animation_end.gd" id="1_di5rw"]
+[ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="2_di5rw"]
+
+[node name="AttackEffect" type="Node2D" unique_id=1543929402]
+script = ExtResource("1_di5rw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1114734886]
+sprite_frames = ExtResource("1_8b0oy")
+script = ExtResource("2_di5rw")

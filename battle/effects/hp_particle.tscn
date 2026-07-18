@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://oc38nohenrmy"]
+
+[ext_resource type="Script" uid="uid://dr1garu4ltdmj" path="res://scripts/battle_system/effects/hp_particle.gd" id="1_a24ms"]
+[ext_resource type="FontFile" uid="uid://bimdomgyc2vy7" path="res://fonts/Silkscreen-Regular.ttf" id="1_vfaml"]
+[ext_resource type="PackedScene" uid="uid://dmkucvdeg44w8" path="res://utility/fade_node.tscn" id="2_xa0vf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("1_vfaml")
+
+[node name="HpParticle" type="Node2D" unique_id=1930997917]
+z_index = 2
+script = ExtResource("1_a24ms")
+
+[node name="Label" type="Label" parent="." unique_id=1942084806]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FadeNode" parent="." unique_id=2013521448 instance=ExtResource("2_xa0vf")]

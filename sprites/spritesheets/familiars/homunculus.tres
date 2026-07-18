@@ -1,9 +1,18 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://i0phegh6h7l1"]
 
 [ext_resource type="Texture2D" uid="uid://b6xgkkvlh6231" path="res://sprites/spritesheets/familiars/homunculus.png" id="1_q6bx3"]
+[ext_resource type="Texture2D" uid="uid://dmuwd34igs3nq" path="res://sprites/spritesheets/familiars/gore.png" id="1_yb3be"]
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yb3be")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_q6bx3")

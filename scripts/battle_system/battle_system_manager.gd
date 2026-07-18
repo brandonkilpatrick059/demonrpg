@@ -112,6 +112,9 @@ func end_awaiting_input():
 func start_awaiting_input():
 	awaiting_input = true
 
+func is_awaiting_input():
+	return awaiting_input
+
 func initialize_familiars():
 	var open_positions : Array[int] = []
 	var index = 0
@@ -196,7 +199,7 @@ func show_status(familiar : Familiar):
 	status.set_name_label(familiar.get_familiar_name())
 	var current_hp = familiar.get_current_hp()
 	var max_hp = familiar.get_max_hp()
-	var hp_fraction : float = float(current_hp / max_hp)
+	var hp_fraction : float = float(current_hp) / float(max_hp)
 	var dont_animate : bool = true
 	status.set_hp_gauge(hp_fraction,dont_animate)
 	status.set_active()
@@ -241,11 +244,20 @@ func get_targetable_familiars(action : BattleAction):
 		BattleAction.TargetType.NO_TARGET:
 			pass
 		BattleAction.TargetType.ANY_OPPONENT:
-			targetable_familiars.append_array(opponent_familiars)
+			for opponent in opponent_familiars:
+				if(not opponent.is_dead()):
+					targetable_familiars.append(opponent)
 		BattleAction.TargetType.ANY_ALLY:
-			targetable_familiars.append_array(player_familiars)
+			for familiar in player_familiars:
+				if(not familiar.is_dead()):
+					targetable_familiars.append(familiar)
 		BattleAction.TargetType.ANY_DEAD:
-			pass
+			for opponent in opponent_familiars:
+				if(opponent.is_dead()):
+					targetable_familiars.append(opponent)
+			for familiar in player_familiars:
+				if(familiar.is_dead()):
+					targetable_familiars.append(familiar)
 
 func handle_target_input():
 	var target_type : BattleAction.TargetType = targeting_action.get_target_type()
@@ -302,6 +314,9 @@ func queue_player_action():
 
 func advance_player_familiar_index():
 	player_familiar_index = player_familiar_index + 1
+	while(player_familiar_index < player_familiars.size() &&
+	player_familiars[player_familiar_index].is_dead()): #skip dead ones
+		player_familiar_index = player_familiar_index + 1
 	if(player_familiar_index >= player_familiars.size()):
 		current_phase = BattlePhase.BATTLE
 		player_familiar_index = 0
@@ -398,16 +413,19 @@ func insert_into_combined_action_queue(insert_item : ActionQueueItem):
 
 func get_opponent_actions():
 	for opponent : Familiar in opponent_familiars:
-		#TODO: more complex decision making process
-		#perhaps an call an overridable decision-making
-		#function per familiar?
-		var opponent_actions : Array[BattleAction] = opponent.get_actions()
-		var acts_num = opponent_actions.size() - 1
-		var chosen_action : BattleAction = opponent_actions[randi_range(0,acts_num)]
-		var potential_targets : Array[Familiar] = get_opponent_targetable_familiars(chosen_action)
-		var chosen_targets : Array[Familiar] = get_targets(chosen_action, potential_targets)
-		var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
-		opponent_action_queue.append(opponent_action_item)
+		if(opponent.is_dead()):
+			continue
+		else:
+			#TODO: more complex decision making process
+			#perhaps an call an overridable decision-making
+			#function per familiar?
+			var opponent_actions : Array[BattleAction] = opponent.get_actions()
+			var acts_num = opponent_actions.size() - 1
+			var chosen_action : BattleAction = opponent_actions[randi_range(0,acts_num)]
+			var potential_targets : Array[Familiar] = get_opponent_targetable_familiars(chosen_action)
+			var chosen_targets : Array[Familiar] = get_targets(chosen_action, potential_targets)
+			var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
+			opponent_action_queue.append(opponent_action_item)
 
 func get_targets(action : BattleAction,
 potential_targets : Array[Familiar]) -> Array[Familiar]:
@@ -436,10 +454,12 @@ func get_opponent_targetable_familiars(action : BattleAction) -> Array[Familiar]
 			pass
 		BattleAction.TargetType.ANY_OPPONENT:
 			for opponent in player_familiars:
-				opponent_targetable_familiars.append(opponent)
+				if(not opponent.is_dead()):
+					opponent_targetable_familiars.append(opponent)
 		BattleAction.TargetType.ANY_ALLY:
 			for familiar in opponent_familiars:
-				opponent_targetable_familiars.append(familiar)
+				if(not familiar.is_dead()):
+					opponent_targetable_familiars.append(familiar)
 		BattleAction.TargetType.ANY_DEAD:
 			pass
 	return opponent_targetable_familiars

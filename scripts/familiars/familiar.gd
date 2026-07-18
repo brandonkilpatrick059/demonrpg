@@ -14,11 +14,12 @@ class_name Familiar extends Node
 
 var actions : Array[BattleAction] = []
 
-@export var battle_sprite : AnimatedSprite2D
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var actions_parent : Node = $actions
 
 var hostile : bool = false
+var dead : bool = false
 
 func _ready() -> void:
 	for action_node in actions_parent.get_children():
@@ -44,6 +45,13 @@ func get_current_hp() -> int:
 
 func set_current_hp(num : int):
 	current_hp = num
+
+func is_dead():
+	return dead
+
+func kill():
+	sprite.play("dead")
+	dead = true
 
 func get_attack() -> int:
 	return attack
@@ -77,9 +85,3 @@ func set_magic(num : int):
 
 func get_actions():
 	return actions
-
-func get_battle_sprite() -> AnimatedSprite2D:
-	return battle_sprite
-
-func set_battle_sprite(sprite : AnimatedSprite2D):
-	battle_sprite = sprite

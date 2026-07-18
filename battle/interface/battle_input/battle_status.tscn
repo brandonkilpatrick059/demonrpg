@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bi4xmaplnycfb"]
 
-[ext_resource type="Script" uid="uid://bk18bu16oykj0" path="res://scripts/battle_system/battle_status.gd" id="1_75mxf"]
+[ext_resource type="Script" uid="uid://bk18bu16oykj0" path="res://scripts/battle_system/interface/battle_status.gd" id="1_75mxf"]
 [ext_resource type="Texture2D" uid="uid://bkclg804ah3sd" path="res://sprites/battle/interface/battle_status_menu.png" id="1_qenhj"]
 [ext_resource type="SpriteFrames" uid="uid://xng0w2ulb4wl" path="res://sprites/spritesheets/battle/interface/battle_energy_bar.tres" id="2_lfhr3"]
 [ext_resource type="Texture2D" uid="uid://bm7o0kgyrv8oh" path="res://sprites/battle/interface/battle_num_act_tab.png" id="3_nsi0d"]
