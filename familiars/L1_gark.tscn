@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://coywtc41abane" path="res://sprites/spritesheets/familiars/L1_gark.tres" id="2_01o8p"]
 [ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_c388a"]
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_77ode"]
+[ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="5_77ode"]
 
 [node name="L1gark" type="Node2D" unique_id=246003526]
 script = ExtResource("1_am811")
@@ -20,3 +21,5 @@ sprite_frames = ExtResource("2_01o8p")
 [node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_c388a")]
 
 [node name="ActionDefend" parent="actions" unique_id=650851647 instance=ExtResource("4_77ode")]
+
+[node name="EvilEye" parent="actions" unique_id=2103181957 instance=ExtResource("5_77ode")]

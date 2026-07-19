@@ -83,7 +83,7 @@ func apply_pkg_to_target(pkg : BattlePkg):
 	var target : Familiar = pkg.get_targets()[0]
 	var target_hp = target.current_hp
 	var new_target_hp = target_hp - final_damage
-	if(new_target_hp < 0):
+	if(new_target_hp <= 0):
 		new_target_hp = 0
 		if(!target.is_dead()):
 			target.kill()

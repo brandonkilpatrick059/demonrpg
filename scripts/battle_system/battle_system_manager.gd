@@ -235,6 +235,10 @@ func start_target_process(action : BattleAction):
 	targeting_action = action
 	end_awaiting_input()
 	get_targetable_familiars(targeting_action)
+	if(targetable_familiars.size() == 0):
+		var no_targets : String = text.get_text("no_targets")
+		play_messages([no_targets])
+		reset_input_phase()
 
 func reset_input_phase():
 	hide_all_sel_arrows()

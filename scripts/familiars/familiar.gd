@@ -38,6 +38,7 @@ func is_hostile():
 	return hostile
 
 func add_battle_buff(new_buff : BattleBuff):
+	clean_buffs_list()
 	var stacked : bool = false
 	for buff in battle_buffs:
 		if buff != null:
@@ -45,11 +46,30 @@ func add_battle_buff(new_buff : BattleBuff):
 				buff.stack(new_buff)
 				stacked = true
 				new_buff.queue_free()
-	if(not stacked):
+	if(not stacked && battle_buffs.size() < 4):
 		var battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 		battle_sys_ref.add_child(new_buff)
 		battle_buffs.append(new_buff)
-		new_buff.global_position = global_position
+		arrange_buffs()
+
+func arrange_buffs():
+	clean_buffs_list()
+	match battle_buffs.size():
+		1:
+			battle_buffs[0].global_position = global_position
+		2:
+			battle_buffs[0].global_position = global_position + Vector2(-8,0)
+			battle_buffs[1].global_position = global_position + Vector2(8,0)
+		3:
+			battle_buffs[0].global_position = global_position + Vector2(-12,0)
+			battle_buffs[1].global_position = global_position + Vector2(0,0)
+			battle_buffs[2].global_position = global_position + Vector2(12,0)
+		4:
+			battle_buffs[0].global_position = global_position + Vector2(-16,0)
+			battle_buffs[1].global_position = global_position + Vector2(-8,0)
+			battle_buffs[2].global_position = global_position + Vector2(8,0)
+			battle_buffs[4].global_position = global_position + Vector2(16,0)
+	
 
 func get_battle_buffs() -> Array[BattleBuff]:
 	return battle_buffs
@@ -109,11 +129,20 @@ func set_magic(num : int):
 func get_actions():
 	return actions
 
+func clean_buffs_list():
+	var new_buffs_list : Array[BattleBuff] = []
+	for buff in battle_buffs:
+		if(buff != null):
+			new_buffs_list.append(buff)
+	battle_buffs.clear()
+	battle_buffs.append_array(new_buffs_list)
 
 func update_buffs():
 	for buff : BattleBuff in battle_buffs:
 		if(buff != null):
 			buff.add_round_active()
+	clean_buffs_list()
+	arrange_buffs()
 
 func play_one_shot_animation(name : String):
 	sprite.play(name)

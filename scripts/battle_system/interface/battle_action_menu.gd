@@ -50,6 +50,7 @@ func update_selected():
 		index = index + 1
 
 func set_actions(actions : Array[BattleAction]):
+	selected_index = 0
 	num_actions = actions.size()
 	var index = 0
 	for tab in tabs:

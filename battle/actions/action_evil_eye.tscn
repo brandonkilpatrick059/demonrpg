@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bougunxplhn1t"]
+
+[ext_resource type="Script" uid="uid://bu4fgwjrs6j2h" path="res://scripts/battle_system/actions/action_evil_eye.gd" id="1_u6dce"]
+
+[node name="EvilEye" type="Node" unique_id=918915832]
+script = ExtResource("1_u6dce")

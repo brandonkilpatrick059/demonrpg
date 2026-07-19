@@ -8,6 +8,10 @@ var intro_mult_eng : Array[String] = [
 	"Figures emerge from shadow..."
 ]
 
+var no_targets_eng : Array[String] = [
+	"There are no targets."
+]
+
 func get_text(code : String) -> String:
 	var ret_string : String = ""
 	match code:
@@ -15,6 +19,8 @@ func get_text(code : String) -> String:
 			ret_string = random_string(intro_single_eng)
 		"intro_mult":
 			ret_string = random_string(intro_mult_eng)
+		"no_targets":
+			ret_string = random_string(no_targets_eng)
 	return ret_string
 
 func random_string(from_array : Array[String]) -> String:
