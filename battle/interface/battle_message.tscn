@@ -1,23 +1,22 @@
 [gd_scene format=3 uid="uid://bfh5a8mgq3k77"]
 
 [ext_resource type="Script" uid="uid://bukyv1ya42oa2" path="res://scripts/battle_system/interface/battle_message.gd" id="1_oe7gc"]
-[ext_resource type="Texture2D" uid="uid://bw4lf4x51geq" path="res://sprites/battle/interface/battle_message.png" id="1_yk004"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="2_m6m26"]
+[ext_resource type="Texture2D" uid="uid://bkclg804ah3sd" path="res://sprites/battle/interface/battle_status_menu.png" id="2_oe7gc"]
 
 [node name="BattleMessage" type="Node2D" unique_id=836972938]
 script = ExtResource("1_oe7gc")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1959372842]
-texture = ExtResource("1_yk004")
+texture = ExtResource("2_oe7gc")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1447160935]
-offset_left = -42.0
+offset_left = -30.0
 offset_top = -18.0
-offset_right = 42.0
+offset_right = 30.0
 offset_bottom = 18.0
 theme_override_fonts/normal_font = ExtResource("2_m6m26")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "Byle casts FIRE"
 horizontal_alignment = 1
 vertical_alignment = 1

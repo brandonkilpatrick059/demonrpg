@@ -61,7 +61,7 @@ func write_text():
 			current_text = full_text.substr(0,text_index)
 			timer.start(text_speed)
 			update_label()
-			audio_player.stream = load("res://audio/effects/click.ogg")
+			audio_player.stream = load("res://audio/effects/bell_first_low.ogg")
 			audio_player.play()
 	else:
 		finished_writing = true
@@ -84,8 +84,6 @@ func handle_input():
 					var battle_system : BattleSystemManager
 					battle_system = get_tree().get_first_node_in_group("battle_system")
 					battle_system.end_awaiting_input()
-					audio_player.stream = load("res://audio/effects/brush_snare.ogg")
-				audio_player.play()
 
 func _physics_process(_delta: float) -> void:
 	if(not finished_writing):

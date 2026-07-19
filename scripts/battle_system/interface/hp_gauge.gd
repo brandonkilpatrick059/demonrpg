@@ -15,6 +15,8 @@ func _ready() -> void:
 func set_gauge(fraction : float, no_animate : bool = false):
 	var num_frames = sprite_frames.get_frame_count("default")
 	set_level = (fraction * num_frames)
+	if(fraction > 0 && set_level == 0):
+		set_level = 1
 	if(no_animate):
 		display_level = set_level
 		update_gauge()

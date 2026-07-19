@@ -240,24 +240,40 @@ func get_targetable_familiars(action : BattleAction):
 	targetable_familiars.clear()
 	targeted_familiars.clear()
 	var target_type : BattleAction.TargetType = action.get_target_type()
+	var unsorted_targets : Array[Familiar]
 	match target_type:
 		BattleAction.TargetType.NO_TARGET:
 			pass
 		BattleAction.TargetType.ANY_OPPONENT:
 			for opponent in opponent_familiars:
 				if(not opponent.is_dead()):
-					targetable_familiars.append(opponent)
+					unsorted_targets.append(opponent)
 		BattleAction.TargetType.ANY_ALLY:
 			for familiar in player_familiars:
 				if(not familiar.is_dead()):
-					targetable_familiars.append(familiar)
+					unsorted_targets.append(familiar)
 		BattleAction.TargetType.ANY_DEAD:
 			for opponent in opponent_familiars:
 				if(opponent.is_dead()):
-					targetable_familiars.append(opponent)
+					unsorted_targets.append(opponent)
 			for familiar in player_familiars:
 				if(familiar.is_dead()):
-					targetable_familiars.append(familiar)
+					unsorted_targets.append(familiar)
+	if(unsorted_targets.size() > 0):
+		var sorted_targets : Array[Familiar] = []
+		while(unsorted_targets.size() > 0):
+			var sort_target = unsorted_targets.pop_back()
+			if(sorted_targets.size() == 0):
+				sorted_targets.append(sort_target)
+			else:
+				var index = 0
+				while(index < sorted_targets.size()):
+					var sorted_x = sorted_targets[index].global_position.x
+					if(sort_target.global_position.x < sorted_x):
+						break
+					index = index + 1
+				sorted_targets.insert(index,sort_target)
+		targetable_familiars.append_array(sorted_targets)
 
 func handle_target_input():
 	var target_type : BattleAction.TargetType = targeting_action.get_target_type()

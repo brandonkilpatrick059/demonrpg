@@ -10,3 +10,10 @@ res://sprites/spritesheets/familiars/L1_martyr.tres
 res://sprites/spritesheets/battle/actions/attack.tres
 res://scripts/battle_system/actions/action_attack.gd
 res://sprites/spritesheets/familiars/L1_braim.tres
+res://battle/battle_system_sandbox.tscn
+res://familiars/L0_homunculus.tscn
+res://scripts/battle_system/interface/battle_message.gd
+res://battle/interface/battle_message.tscn
+res://battle/interface/hp_gauge.tscn
+res://scripts/battle_system/interface/hp_gauge.gd
+res://scripts/battle_system/battle_system_manager.gd
