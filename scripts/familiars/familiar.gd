@@ -1,4 +1,4 @@
-class_name Familiar extends Node
+class_name Familiar extends Node2D
 
 #STATS
 @export var familiar_name : String = ""
@@ -37,8 +37,19 @@ func get_max_hp() -> int:
 func is_hostile():
 	return hostile
 
-func add_battle_buff(buff : BattleBuff):
-	battle_buffs.append(buff)
+func add_battle_buff(new_buff : BattleBuff):
+	var stacked : bool = false
+	for buff in battle_buffs:
+		if buff != null:
+			if buff.get_type() == new_buff.get_type():
+				buff.stack(new_buff)
+				stacked = true
+				new_buff.queue_free()
+	if(not stacked):
+		var battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+		battle_sys_ref.add_child(new_buff)
+		battle_buffs.append(new_buff)
+		new_buff.global_position = global_position
 
 func get_battle_buffs() -> Array[BattleBuff]:
 	return battle_buffs
@@ -97,6 +108,12 @@ func set_magic(num : int):
 
 func get_actions():
 	return actions
+
+
+func update_buffs():
+	for buff : BattleBuff in battle_buffs:
+		if(buff != null):
+			buff.add_round_active()
 
 func play_one_shot_animation(name : String):
 	sprite.play(name)

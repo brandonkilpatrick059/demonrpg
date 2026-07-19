@@ -17,3 +17,10 @@ res://battle/interface/battle_message.tscn
 res://battle/interface/hp_gauge.tscn
 res://scripts/battle_system/interface/hp_gauge.gd
 res://scripts/battle_system/battle_system_manager.gd
+res://scripts/battle_system/buffs/battle_buff.gd
+res://scripts/battle_system/buffs/defend_buff.gd
+res://scripts/familiars/familiar.gd
+res://battle/actions/buffs/buff_defend.tscn
+res://battle/actions/buffs/defend_buff.tscn
+res://scripts/battle_system/actions/action_defend.gd
+res://utility/faders/fade_node.tscn

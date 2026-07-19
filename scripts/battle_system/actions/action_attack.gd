@@ -96,9 +96,11 @@ func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
 	for buff : BattleBuff in actor.get_battle_buffs():
-		pkg = buff.apply_to_pkg(pkg)
+		if(buff != null):
+			pkg = buff.apply_to_pkg(actor,pkg)
 	for buff : BattleBuff in target.get_battle_buffs(): 
-		pkg = buff.apply_to_pkg(pkg)
+		if(buff != null):
+			pkg = buff.apply_to_pkg(target,pkg)
 	return pkg
 
 func action_process(actor : Familiar, targets : Array[Familiar]):

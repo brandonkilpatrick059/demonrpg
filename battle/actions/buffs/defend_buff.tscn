@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bkxajhprgidh6"]
+
+[ext_resource type="Script" uid="uid://chowowcieepxr" path="res://scripts/battle_system/buffs/defend_buff.gd" id="1_vi3dl"]
+[ext_resource type="Texture2D" uid="uid://b5itq2bbe8xam" path="res://sprites/battle/interface/buff_symbols/shield_symbol.png" id="2_p8a4a"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="3_dvs57"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("3_dvs57")
+font_color = Color(1, 0, 0, 1)
+
+[node name="DefendBuff" type="Node2D" unique_id=1994436220]
+script = ExtResource("1_vi3dl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1941476371]
+position = Vector2(0, -32)
+texture = ExtResource("2_p8a4a")
+
+[node name="Label" type="Label" parent="." unique_id=449188339]
+offset_left = -19.0
+offset_top = -43.0
+offset_right = 21.0
+offset_bottom = -20.0
+text = "500"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1

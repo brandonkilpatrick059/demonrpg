@@ -34,6 +34,7 @@ enum BattlePhase {START,INPUT,INPUT_TARGET,BATTLE,END}
 var current_phase : BattlePhase = BattlePhase.START
 var awaiting_input : bool = false
 var familiars_initialized : bool = false
+var input_phase_entered : bool = false
 
 class ActionQueueItem:
 	var actor : Familiar = null
@@ -184,7 +185,10 @@ var status_shown : bool = false
 func input_process():
 	if(player_familiar_index < player_familiars.size()):
 		var current_familiar = player_familiars[player_familiar_index]
-		if(not familiar_in_action_queue(current_familiar)):
+		if(not input_phase_entered):
+			update_buffs()
+			input_phase_entered = true
+		elif(not familiar_in_action_queue(current_familiar)):
 			if(not status_shown):
 				show_status(current_familiar)
 				status_shown = true
@@ -416,12 +420,19 @@ func get_next_action():
 		wait_timer.start(2.0)
 		return_to_input_phase()
 
+func update_buffs():
+	for familiar in player_familiars:
+		familiar.update_buffs()
+	for familiar in opponent_familiars:
+		familiar.update_buffs()
+
 func return_to_input_phase():
 	reset_show_status()
 	reset_input_phase()
 	player_action_queue.clear()
 	opponent_action_queue.clear()
 	player_familiar_index = 0
+	input_phase_entered = false
 
 func get_combined_action_queue():
 	combined_action_queue.clear()
