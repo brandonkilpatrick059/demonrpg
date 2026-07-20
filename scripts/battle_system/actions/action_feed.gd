@@ -120,20 +120,28 @@ func visual_effects(actor : Familiar, target : Familiar):
 	feed_effect.global_position = target.global_position
 	battle_sys_ref.play_sound(load("res://audio/effects/feed.ogg"))
 
+func exit_action():
+	battle_sys_ref.start_wait_timer(0.5)
+	battle_sys_ref.get_next_action()
+	clean_up()
+
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_feed):
-		var announcement : String = get_announcement(actor,targets[0])
-		battle_sys_ref.play_messages([announcement])
-		determine_feed_success(actor,targets[0])
-		announced_feed = true
+		if(targets[0] != null):
+			var announcement : String = get_announcement(actor,targets[0])
+			battle_sys_ref.play_messages([announcement])
+			determine_feed_success(actor,targets[0])
+			announced_feed = true
+		else:
+			exit_action()
 	elif(not commenced_feed && feed_succeeded):
 		battle_sys_ref.start_wait_timer(1)
 		var target : Familiar = targets[0]
 		if(not target.is_dead()):
 			target.kill()
 		visual_effects(actor,target)
-		var heal_for = target.get_max_hp()
+		var heal_for = target.get_max_hp() / 2
 		var actor_hp = actor.get_current_hp()
 		actor_hp = actor_hp + heal_for
 		actor.set_current_hp(actor_hp)
@@ -149,6 +157,4 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		battle_sys_ref.play_messages([comment])
 		comment_feed = true
 	else:
-		battle_sys_ref.start_wait_timer(0.5)
-		battle_sys_ref.get_next_action()
-		clean_up()
+		exit_action()

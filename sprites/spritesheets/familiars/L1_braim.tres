@@ -36,7 +36,7 @@ region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nw6ks"]
 atlas = ExtResource("1_m60wm")
-region = Rect2(240, 96, 48, 48)
+region = Rect2(288, 96, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ltqjv"]
 atlas = ExtResource("1_m60wm")

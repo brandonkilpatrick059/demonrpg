@@ -19,7 +19,10 @@ sprite_frames = ExtResource("2_p0s8o")
 [node name="actions" type="Node" parent="." unique_id=437306310]
 
 [node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_a4pue")]
+opponent_choice_weight = 0.5
 
 [node name="ActionDefend" parent="actions" unique_id=1145210079 instance=ExtResource("4_4u7hw")]
+opponent_choice_weight = 0.4
 
 [node name="ActionFeed" parent="actions" unique_id=1424710821 instance=ExtResource("5_4u7hw")]
+opponent_choice_weight = 0.2

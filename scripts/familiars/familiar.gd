@@ -38,19 +38,20 @@ func is_hostile():
 	return hostile
 
 func add_battle_buff(new_buff : BattleBuff):
-	clean_buffs_list()
-	var stacked : bool = false
-	for buff in battle_buffs:
-		if buff != null:
-			if buff.get_type() == new_buff.get_type():
-				buff.stack(new_buff)
-				stacked = true
-				new_buff.queue_free()
-	if(not stacked && battle_buffs.size() < 4):
-		var battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-		battle_sys_ref.add_child(new_buff)
-		battle_buffs.append(new_buff)
-		arrange_buffs()
+	if(not is_dead()):
+		clean_buffs_list()
+		var stacked : bool = false
+		for buff in battle_buffs:
+			if buff != null:
+				if buff.get_type() == new_buff.get_type():
+					buff.stack(new_buff)
+					stacked = true
+					new_buff.queue_free()
+		if(not stacked && battle_buffs.size() < 4):
+			var battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+			battle_sys_ref.add_child(new_buff)
+			battle_buffs.append(new_buff)
+			arrange_buffs()
 
 func arrange_buffs():
 	clean_buffs_list()

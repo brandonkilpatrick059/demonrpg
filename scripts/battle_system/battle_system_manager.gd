@@ -25,6 +25,7 @@ var text := BattleText.new()
 ]
 
 var wait_timer := Timer.new()
+var input_gate_timer := Timer.new()
 
 var music_player := AudioStreamPlayer.new()
 var audio_players : Array[AudioStreamPlayer] = []
@@ -64,7 +65,9 @@ var combined_action_queue : Array[ActionQueueItem] = []
 
 func _ready() -> void:
 	wait_timer.one_shot = true
+	input_gate_timer.one_shot = true
 	add_child(wait_timer)
+	add_child(input_gate_timer)
 	hide_all_interface()
 	set_up_audio()
 	add_to_group("battle_system")
@@ -195,18 +198,21 @@ var status_shown : bool = false
 func input_process():
 	if(player_familiar_index < player_familiars.size()):
 		var current_familiar = player_familiars[player_familiar_index]
-		if(not input_phase_entered):
-			update_buffs()
-			input_phase_entered = true
-		elif(not familiar_in_action_queue(current_familiar)):
-			if(not status_shown):
-				show_status(current_familiar)
-				status_shown = true
-			elif(status_shown && not awaiting_input):
-				show_action_menu(current_familiar)
-				awaiting_input = true
+		if(current_familiar != null && not current_familiar.is_dead()):
+			if(not input_phase_entered):
+				update_buffs()
+				input_phase_entered = true
+			elif(not familiar_in_action_queue(current_familiar)):
+				if(not status_shown):
+					show_status(current_familiar)
+					status_shown = true
+				elif(status_shown && not awaiting_input):
+					show_action_menu(current_familiar)
+					awaiting_input = true
+			else:
+				advance_player_familiar_index()
 		else:
-			player_familiar_index = player_familiar_index + 1
+			advance_player_familiar_index()
 
 func show_status(familiar : Familiar): 
 	status.global_position = familiar.global_position + Vector2(0,-64)
@@ -308,14 +314,16 @@ func handle_target_input():
 			handle_single_target_input()
 		BattleAction.TargetType.ANY_BUT_SELF:
 			handle_single_target_input()
-	if(Input.is_action_just_pressed("action_1")):
-		play_sound(load("res://audio/effects/bell_quicker.ogg"))
-		reset_input_phase()
-		reset_show_status()
-		queue_player_action()
-	elif(Input.is_action_just_pressed("action_2")):
-		reset_input_phase()
-		play_sound(load("res://audio/effects/brush_snare.ogg"))
+	if(input_gate_timer.is_stopped()):
+		if(Input.is_action_just_pressed("action_1")):
+			play_sound(load("res://audio/effects/bell_quicker.ogg"))
+			reset_input_phase()
+			reset_show_status()
+			queue_player_action()
+			input_gate_timer.start(0.5)
+		elif(Input.is_action_just_pressed("action_2")):
+			reset_input_phase()
+			play_sound(load("res://audio/effects/brush_snare.ogg"))
 
 func handle_single_target_input():
 	var current_target : Familiar
@@ -458,16 +466,20 @@ func reset_message_position():
 func get_next_action():
 	if(combined_action_queue.size() > 0):
 		var current_action : ActionQueueItem = combined_action_queue.pop_front()
-		while(current_action != null && 
-			current_action.get_actor() != null &&
+		while(current_action == null || 
+			current_action.get_actor() == null ||
 			current_action.get_actor().is_dead()):
 			current_action = combined_action_queue.pop_front()
+			if(combined_action_queue.size() == 0):
+				wait_timer.start(1.0)
+				return_to_input_phase()
+				break
 		if(current_action != null):
 			current_battle_action = current_action.get_action()
 			current_actor = current_action.get_actor()
 			current_targets = current_action.get_targets()
-	elif(combined_action_queue.size() <= 0):
-		wait_timer.start(2.0)
+	elif(combined_action_queue.size() == 0):
+		wait_timer.start(1.0)
 		return_to_input_phase()
 
 func update_buffs():
@@ -521,17 +533,19 @@ func insert_into_combined_action_queue(insert_item : ActionQueueItem):
 			#if speed of insert actor beats the speed of given actor, their action is inserted
 			#before the action of given actor
 			elif item.get_actor().get_speed() < insert_item.get_actor().get_speed():
-				new_combined_action_queue.append(insert_item)
-				new_combined_action_queue.append(item)
-				item_appended = true
-			#if they have equal speed, choose randomly between them
-			elif(item.get_actor().get_speed() == insert_item.get_actor().get_speed()):
-				if(randi_range(0,1.0) < 0.5 ): #coin toss
+				if(not new_combined_action_queue.has(insert_item)):
 					new_combined_action_queue.append(insert_item)
 					item_appended = true
 				new_combined_action_queue.append(item)
+			#if they have equal speed, choose randomly between them
+			elif(item.get_actor().get_speed() == insert_item.get_actor().get_speed()):
+				if(randi_range(0,1.0) < 0.5 ): #coin toss
+					if(not new_combined_action_queue.has(insert_item)):
+						new_combined_action_queue.append(insert_item)
+						item_appended = true
+				new_combined_action_queue.append(item)
 		#if it wasn't faster than anything in the queue, add it last
-		if(!item_appended):
+		if(!item_appended && not new_combined_action_queue.has(insert_item)):
 			new_combined_action_queue.append(insert_item)
 	combined_action_queue.clear()
 	combined_action_queue.append_array(new_combined_action_queue)

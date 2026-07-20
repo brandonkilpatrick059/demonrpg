@@ -33,12 +33,20 @@ func clean_up():
 	cast_magic = false
 	announced_magic = false
 
+func exit_action():
+	battle_sys_ref.start_wait_timer(1.0)
+	battle_sys_ref.get_next_action()
+	clean_up()
+
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_magic):
-		var announcement : String = get_announcement(actor,targets[0])
-		battle_sys_ref.play_messages([announcement])
-		announced_magic = true
+		if(targets[0] != null):
+			var announcement : String = get_announcement(actor,targets[0])
+			battle_sys_ref.play_messages([announcement])
+			announced_magic = true
+		else:
+			exit_action()
 	elif(not cast_magic):
 		var target : Familiar = targets[0]
 		var evil_eye_buff = load("res://battle/actions/buffs/evil_eye_buff.tscn").instantiate()
@@ -53,6 +61,4 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
 		cast_magic = true
 	else:
-		battle_sys_ref.start_wait_timer(1.0)
-		battle_sys_ref.get_next_action()
-		clean_up()
+		exit_action()

@@ -69,8 +69,8 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var reduction_half : int = target.get_defense()/2
 	var defense_reduction : int = reduction_half + randi_range(0,reduction_half)
 	var final_damage = damage - defense_reduction
-	if(final_damage < 0):
-		final_damage = 0
+	if(final_damage <= 0):
+		final_damage = 1
 	var pkg := BattlePkg.new()
 	pkg.set_final_damage(final_damage)
 	pkg.set_actor(actor)
@@ -103,12 +103,20 @@ func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 			pkg = buff.apply_to_pkg(target,pkg)
 	return pkg
 
+func exit_action():
+	battle_sys_ref.start_wait_timer(0.5)
+	battle_sys_ref.get_next_action()
+	clean_up()
+
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(!announced_attack):
-		var announcement : String = get_announcement(actor,targets[0])
-		battle_sys_ref.play_messages([announcement])
-		announced_attack = true
+		if(targets[0] != null):
+			var announcement : String = get_announcement(actor,targets[0])
+			battle_sys_ref.play_messages([announcement])
+			announced_attack = true
+		else:
+			exit_action()
 	if(!made_attack):
 		battle_sys_ref.start_wait_timer(0.5)
 		var target : Familiar = targets[0]
@@ -118,6 +126,4 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		visual_effects(pkg)
 		made_attack = true
 	else:
-		battle_sys_ref.start_wait_timer(0.5)
-		battle_sys_ref.get_next_action()
-		clean_up()
+		exit_action()

@@ -22,7 +22,7 @@ sprite_frames = ExtResource("2_bk1nj")
 opponent_choice_weight = 0.4
 
 [node name="ActionDefend" parent="actions" unique_id=2091972827 instance=ExtResource("4_4crl0")]
-opponent_choice_weight = 0.7
+opponent_choice_weight = 0.5
 
 [node name="ActionFeed" parent="actions" unique_id=1039797395 instance=ExtResource("5_4crl0")]
 opponent_choice_weight = 0.1
