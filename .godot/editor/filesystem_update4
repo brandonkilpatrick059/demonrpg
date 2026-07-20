@@ -38,3 +38,4 @@ res://scripts/battle_system/actions/action_feed.gd
 res://scripts/battle_system/actions/battle_action.gd
 res://scripts/battle_system/effects/feed_effect.gd
 res://familiars/L1_braim.tscn
+res://familiars/L1_martyr.tscn

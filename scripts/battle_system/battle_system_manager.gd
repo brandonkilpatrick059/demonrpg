@@ -541,12 +541,28 @@ func get_opponent_actions():
 		if(opponent.is_dead()):
 			continue
 		else:
-			#TODO: more complex decision making process
-			#perhaps an call an overridable decision-making
-			#function per familiar?
 			var opponent_actions : Array[BattleAction] = opponent.get_actions()
-			var acts_num = opponent_actions.size() - 1
-			var chosen_action : BattleAction = opponent_actions[randi_range(0,acts_num)]
+			var potential_actions : Array[BattleAction] = []
+			#opponents should only choose actions where there are valid targets
+			for action in opponent_actions:
+				if(get_opponent_targetable_familiars(action).size() > 0):
+					potential_actions.append(action)
+			var chosen_action : BattleAction
+			var action_chosen : bool = false
+			#try rolling for each action
+			for action : BattleAction in potential_actions:
+				var roll = randf_range(0.0,1.0)
+				if roll < action.get_choice_weight():
+					action_chosen = true
+					chosen_action = action
+			#if we didn't roll one, just take the highest
+			if(not action_chosen):
+				for action : BattleAction in potential_actions:
+					if(chosen_action == null):
+						chosen_action = action
+					else:
+						if action.get_choice_weight() > chosen_action.get_choice_weight():
+							chosen_action = action
 			var potential_targets : Array[Familiar] = get_opponent_targetable_familiars(chosen_action)
 			var chosen_targets : Array[Familiar] = get_targets(chosen_action, potential_targets)
 			var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
