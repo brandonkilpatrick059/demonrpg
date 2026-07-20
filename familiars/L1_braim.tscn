@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b7kuox6c5v233" path="res://sprites/spritesheets/familiars/L1_braim.tres" id="2_bk1nj"]
 [ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_r2x2v"]
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_4crl0"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_4crl0"]
 
 [node name="L1braim" type="Node2D" unique_id=246003526]
 script = ExtResource("1_bk1nj")
@@ -20,3 +21,5 @@ sprite_frames = ExtResource("2_bk1nj")
 [node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_r2x2v")]
 
 [node name="ActionDefend" parent="actions" unique_id=2091972827 instance=ExtResource("4_4crl0")]
+
+[node name="ActionFeed" parent="actions" unique_id=1039797395 instance=ExtResource("5_4crl0")]

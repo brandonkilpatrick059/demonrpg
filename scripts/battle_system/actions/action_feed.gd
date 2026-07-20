@@ -1,10 +1,154 @@
 extends BattleAction
 
-func get_type() -> TargetType:
-	return TargetType.ANY_DEAD
+var announced_feed : bool = false
+var commenced_feed : bool = false
+var comment_feed : bool = false
+var announced_failure : bool = false
 
-func get_action_name() -> String:
-	return "[color=red]FEED[/color]"
+var battle_sys_ref : BattleSystemManager
 
-func run_action(actor : Familiar, targets : Array[Familiar]):
-	pass
+var friendly_english : String = "your "
+var hostile_english : String = "hostile "
+var announcment_english : String = "[TEAM][ACTOR] wants to eat [TEAM2][TARGET]..."
+var success_english : String = "[TEAM][ACTOR] eats [TEAM2][TARGET]"
+var failure_english : String = "but [TEAM][ACTOR] cannot eat [TEAM2][TARGET]"
+var comment_english : String = "[TEAM][ACTOR] grows more powerful..."
+
+var feed_succeeded : bool = false
+
+var success_message : String = ""
+
+func get_announcement(actor : Familiar, target : Familiar) -> String:
+	var ret_string = announcment_english.replace("[ACTOR]",actor.get_familiar_name())
+	ret_string = ret_string.replace("[TARGET]",target.get_familiar_name())
+	var team : String = ""
+	var team2 : String = ""
+	if (actor.is_hostile()):
+		team = hostile_english
+	else:
+		team = friendly_english
+	if (target.is_hostile()):
+		team2 = hostile_english
+	else:
+		team2 = friendly_english
+	ret_string = ret_string.replace("[TEAM]",team)
+	ret_string = ret_string.replace("[TEAM2]",team2)
+	return ret_string
+
+func determine_feed_success(actor : Familiar, target : Familiar):
+	success_message = get_comment_message(actor)
+	if(target.is_dead()):
+		feed_succeeded = true
+	else:
+		var actor_roll_total : int = 0
+		actor_roll_total = actor_roll_total + actor.get_current_hp()
+		actor_roll_total = actor_roll_total + actor.get_attack()
+		actor_roll_total = actor_roll_total + actor.get_defense()
+		actor_roll_total = actor_roll_total + actor.get_magic()
+		actor_roll_total = actor_roll_total + actor.get_speed()
+		var target_roll_total : int = 0
+		target_roll_total = target_roll_total + target.get_current_hp()
+		target_roll_total = target_roll_total + target.get_attack()
+		target_roll_total = target_roll_total + target.get_defense()
+		target_roll_total = target_roll_total + target.get_magic()
+		target_roll_total = target_roll_total + target.get_speed()
+		
+		var actor_roll : int = randi_range(1,actor_roll_total)
+		if(actor_roll > target_roll_total):
+			feed_succeeded = true
+		else:
+			feed_succeeded = false
+
+func get_success_message(actor : Familiar, target : Familiar) -> String:
+	var ret_string = success_english.replace("[ACTOR]",actor.get_familiar_name())
+	ret_string = success_english.replace("[TARGET]",target.get_familiar_name())
+	var team : String = ""
+	var team2 : String = ""
+	if (actor.is_hostile()):
+		team = hostile_english
+	else:
+		team = friendly_english
+	if (target.is_hostile()):
+		team2 = hostile_english
+	else:
+		team2 = friendly_english
+	ret_string = ret_string.replace("[TEAM]",team)
+	ret_string = ret_string.replace("[TEAM2]",team2)
+	return ret_string
+
+func get_failure_message(actor : Familiar, target : Familiar) -> String:
+	var ret_string = failure_english.replace("[ACTOR]",actor.get_familiar_name())
+	ret_string = ret_string.replace("[TARGET]",target.get_familiar_name())
+	var team : String = ""
+	var team2 : String = ""
+	if (actor.is_hostile()):
+		team = hostile_english
+	else:
+		team = friendly_english
+	if (target.is_hostile()):
+		team2 = hostile_english
+	else:
+		team2 = friendly_english
+	ret_string = ret_string.replace("[TEAM]",team)
+	ret_string = ret_string.replace("[TEAM2]",team2)
+	return ret_string
+
+func get_comment_message(actor : Familiar) -> String:
+	var ret_string = comment_english.replace("[ACTOR]",actor.get_familiar_name())
+	var team : String = ""
+	if (actor.is_hostile()):
+		team = hostile_english
+	else:
+		team = friendly_english
+	ret_string = ret_string.replace("[TEAM]",team)
+	return ret_string
+
+func _ready() -> void:
+	action_name = "[color=red]FEED[/color]"
+	target_type = TargetType.ANY_BUT_SELF
+
+func clean_up():
+	announced_feed = false
+	commenced_feed = false
+	comment_feed  = false
+	announced_failure = false
+
+func visual_effects(actor : Familiar, target : Familiar):
+	var feed_effect = load("res://battle/effects/feed_effect.tscn").instantiate()
+	battle_sys_ref.add_child(feed_effect)
+	feed_effect.set_kill_node(target)
+	feed_effect.global_position = target.global_position
+	battle_sys_ref.play_sound(load("res://audio/effects/feed.ogg"))
+
+func action_process(actor : Familiar, targets : Array[Familiar]):
+	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+	if(not announced_feed):
+		var announcement : String = get_announcement(actor,targets[0])
+		battle_sys_ref.play_messages([announcement])
+		determine_feed_success(actor,targets[0])
+		announced_feed = true
+	elif(not commenced_feed && feed_succeeded):
+		battle_sys_ref.start_wait_timer(1)
+		var target : Familiar = targets[0]
+		if(not target.is_dead()):
+			target.kill()
+		visual_effects(actor,target)
+		var heal_for = target.get_max_hp()
+		var actor_hp = actor.get_current_hp()
+		actor_hp = actor_hp + heal_for
+		actor.set_current_hp(actor_hp)
+		if(actor.get_current_hp() > actor.get_max_hp()):
+			actor.set_current_hp(actor.get_max_hp())
+		commenced_feed = true
+	elif(not announced_failure && not feed_succeeded):
+		var comment : String = get_failure_message(actor,targets[0])
+		battle_sys_ref.play_messages([comment])
+		announced_failure = true
+	elif(not comment_feed && feed_succeeded):
+		var comment : String = success_message
+		battle_sys_ref.play_messages([comment])
+		comment_feed = true
+	else:
+		battle_sys_ref.start_wait_timer(0.5)
+		battle_sys_ref.get_next_action()
+		clean_up()

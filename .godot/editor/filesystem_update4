@@ -32,3 +32,9 @@ res://battle/actions/action_evil_eye.tscn
 res://scripts/battle_system/buffs/evil_eye_buff.gd
 res://scripts/battle_system/interface/battle_action_menu.gd
 res://scripts/battle_system/battle_text_manager.gd
+res://sprites/spritesheets/battle/actions/feed.tres
+res://battle/effects/feed_effect.tscn
+res://scripts/battle_system/actions/action_feed.gd
+res://scripts/battle_system/actions/battle_action.gd
+res://scripts/battle_system/effects/feed_effect.gd
+res://familiars/L1_braim.tscn

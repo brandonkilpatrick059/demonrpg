@@ -36,9 +36,13 @@ func clean_up():
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_defense):
-		var announcement : String = get_announcement(actor,targets[0])
-		battle_sys_ref.play_messages([announcement])
-		announced_defense = true
+		if(targets[0] != null):
+			var announcement : String = get_announcement(actor,targets[0])
+			battle_sys_ref.play_messages([announcement])
+			announced_defense = true
+		else:
+			battle_sys_ref.get_next_action()
+			clean_up()
 	elif(not made_defense):
 		var target : Familiar = targets[0]
 		var defense_buff = load("res://battle/actions/buffs/defend_buff.tscn").instantiate()

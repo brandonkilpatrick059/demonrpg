@@ -1,7 +1,7 @@
 class_name BattleAction extends Node
 
 enum TargetType {NO_TARGET,SELF,ANY_ALLY,ANY_OPPONENT,
-ALL_ALLIES,ALL_OPPONENTS,ALL,ANY,ANY_DEAD}
+ALL_ALLIES,ALL_OPPONENTS,ALL,ANY,ANY_BUT_SELF,ANY_DEAD}
 
 var action_name : String = "blank_action"
 var target_type : TargetType = TargetType.NO_TARGET

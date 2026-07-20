@@ -35,6 +35,7 @@ var current_phase : BattlePhase = BattlePhase.START
 var awaiting_input : bool = false
 var familiars_initialized : bool = false
 var input_phase_entered : bool = false
+var battle_closed : bool = false
 
 class ActionQueueItem:
 	var actor : Familiar = null
@@ -77,6 +78,12 @@ set_opponent_familiars : Array[Familiar]):
 func fade_in():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
 	var fade_out = Color(1,1,1,0)
+	fade_node.set_target_modulate(fade_out,0.2,0.2)
+	$fade_to_black.add_child(fade_node)
+
+func fade_out():
+	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
+	var fade_out = Color(1,1,1,1)
 	fade_node.set_target_modulate(fade_out,0.2,0.2)
 	$fade_to_black.add_child(fade_node)
 
@@ -152,6 +159,7 @@ func _physics_process(delta: float) -> void:
 	process_battle()
 
 func process_battle():
+	clean_familiars()
 	if(wait_timer.is_stopped()):
 		match(current_phase):
 			BattlePhase.START:
@@ -162,6 +170,8 @@ func process_battle():
 				target_process()
 			BattlePhase.BATTLE:
 				battle_process()
+			BattlePhase.END:
+				end_process()
 
 #region Start Phase
 var battle_started : bool = false
@@ -267,6 +277,12 @@ func get_targetable_familiars(action : BattleAction):
 			for familiar in player_familiars:
 				if(familiar.is_dead()):
 					unsorted_targets.append(familiar)
+		BattleAction.TargetType.ANY_BUT_SELF:
+			for opponent in opponent_familiars:
+				unsorted_targets.append(opponent)
+			for familiar in player_familiars:
+				if(familiar != player_familiars[player_familiar_index]):
+					unsorted_targets.append(familiar)
 	if(unsorted_targets.size() > 0):
 		var sorted_targets : Array[Familiar] = []
 		while(unsorted_targets.size() > 0):
@@ -277,7 +293,7 @@ func get_targetable_familiars(action : BattleAction):
 				var index = 0
 				while(index < sorted_targets.size()):
 					var sorted_x = sorted_targets[index].global_position.x
-					if(sort_target.global_position.x < sorted_x):
+					if(sort_target.global_position.x <= sorted_x):
 						break
 					index = index + 1
 				sorted_targets.insert(index,sort_target)
@@ -290,8 +306,8 @@ func handle_target_input():
 			handle_single_target_input()
 		BattleAction.TargetType.ANY_ALLY:
 			handle_single_target_input()
-		BattleAction.TargetType.ANY_DEAD:
-			pass
+		BattleAction.TargetType.ANY_BUT_SELF:
+			handle_single_target_input()
 	if(Input.is_action_just_pressed("action_1")):
 		play_sound(load("res://audio/effects/bell_quicker.ogg"))
 		reset_input_phase()
@@ -366,11 +382,16 @@ var current_battle_action : BattleAction
 var current_actor : Familiar
 var current_targets: Array[Familiar]
 var first_action : bool = true
+var have_combined_queue : bool = false
 
 func battle_process():
-	if(opponent_action_queue.size() == 0):
+	if(opponent_familiars.size() == 0 or player_is_dead()):
+		end_battle()
+	elif(opponent_action_queue.size() == 0 && not opponent_is_dead()):
 		get_opponent_actions()
+	elif(not have_combined_queue):
 		get_combined_action_queue()
+		have_combined_queue = true
 		first_action = true
 	elif(first_action):
 		get_next_action()
@@ -378,34 +399,58 @@ func battle_process():
 	else:
 		run_actions_process()
 
+func end_battle():
+	current_phase = BattlePhase.END
+
+func player_is_dead() -> bool:
+	return side_is_dead(player_familiars)
+
+func opponent_is_dead() -> bool:
+	return side_is_dead(opponent_familiars)
+
+func side_is_dead(side_familiars : Array[Familiar]) -> bool:
+	var side_is_dead = true
+	if(side_familiars.size() == 0):
+		side_is_dead = true
+		return side_is_dead
+	else:
+		for familiar in side_familiars:
+			if(not familiar.is_dead()):
+				side_is_dead = false
+				return side_is_dead
+	return side_is_dead
+
 func run_actions_process():
-	if(!awaiting_input):
+	if(!awaiting_input && current_battle_action != null):
 		position_message()
 		current_battle_action.action_process(current_actor,current_targets)
+	elif(current_battle_action == null):
+		get_next_action()
 
 func position_message():
-	var slot = current_actor.get_parent()
-	var slot_index : int = 0
-	if(current_actor.is_hostile()):
-		slot_index = opponent_positions.find(slot)
-	else:
-		slot_index = player_positions.find(slot)
-	var position_at_slot : int = 0
-	match slot_index:
-		0:
-			position_at_slot = 3
-		1:
-			position_at_slot = 3
-		2:
-			position_at_slot = 0
-		3:
-			position_at_slot = 0
-	var pos_slot : Node2D
-	if(current_actor.is_hostile()):
-		pos_slot = opponent_positions[position_at_slot]
-	else:
-		pos_slot = player_positions[position_at_slot]
-	message.global_position = pos_slot.global_position
+	if(current_actor != null):
+		var slot = current_actor.get_parent()
+		var slot_index : int = 0
+		if(current_actor.is_hostile()):
+			slot_index = opponent_positions.find(slot)
+		else:
+			slot_index = player_positions.find(slot)
+		var position_at_slot : int = 0
+		match slot_index:
+			0:
+				position_at_slot = 3
+			1:
+				position_at_slot = 3
+			2:
+				position_at_slot = 0
+			3:
+				position_at_slot = 0
+		var pos_slot : Node2D
+		if(current_actor.is_hostile()):
+			pos_slot = opponent_positions[position_at_slot]
+		else:
+			pos_slot = player_positions[position_at_slot]
+		message.global_position = pos_slot.global_position
 
 func reset_message_position():
 	message.global_position = global_position
@@ -414,6 +459,7 @@ func get_next_action():
 	if(combined_action_queue.size() > 0):
 		var current_action : ActionQueueItem = combined_action_queue.pop_front()
 		while(current_action != null && 
+			current_action.get_actor() != null &&
 			current_action.get_actor().is_dead()):
 			current_action = combined_action_queue.pop_front()
 		if(current_action != null):
@@ -430,6 +476,20 @@ func update_buffs():
 	for familiar in opponent_familiars:
 		familiar.update_buffs()
 
+func clean_familiars():
+	var new_player_familiars : Array[Familiar] = []
+	for familiar in player_familiars:
+		if(familiar != null):
+			new_player_familiars.append(familiar)
+	var new_opponent_familiars : Array[Familiar] = []
+	for familiar in opponent_familiars:
+		if(familiar != null):
+			new_opponent_familiars.append(familiar)
+	player_familiars.clear()
+	player_familiars.append_array(new_player_familiars)
+	opponent_familiars.clear()
+	opponent_familiars.append_array(new_opponent_familiars)
+
 func return_to_input_phase():
 	reset_show_status()
 	reset_input_phase()
@@ -437,6 +497,7 @@ func return_to_input_phase():
 	opponent_action_queue.clear()
 	player_familiar_index = 0
 	input_phase_entered = false
+	have_combined_queue = false
 
 func get_combined_action_queue():
 	combined_action_queue.clear()
@@ -528,5 +589,24 @@ func get_opponent_targetable_familiars(action : BattleAction) -> Array[Familiar]
 			pass
 	return opponent_targetable_familiars
 
+#endregion
+#region End Phase
+func end_process():
+	if(not battle_closed):
+		close_battle()
+	elif(battle_closed and not awaiting_input):
+		awaiting_input = true
+		fade_out()
+
+func close_battle():
+	message.global_position = global_position
+	var victory : bool = not player_is_dead()
+	if(victory):
+		var victory_message : String = text.get_text("end_victory")
+		play_messages([victory_message])
+	else:
+		var defeat_message : String = text.get_text("end_defeat")
+		play_messages([defeat_message])
+	battle_closed = true
 #endregion
 #endregion

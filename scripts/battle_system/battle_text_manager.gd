@@ -12,6 +12,14 @@ var no_targets_eng : Array[String] = [
 	"There are no targets."
 ]
 
+var battle_end_victory : Array[String] = [
+	"Your enemies are defeated."
+]
+
+var battle_end_loss : Array[String] = [
+	"You will soon die."
+]
+
 func get_text(code : String) -> String:
 	var ret_string : String = ""
 	match code:
@@ -21,6 +29,10 @@ func get_text(code : String) -> String:
 			ret_string = random_string(intro_mult_eng)
 		"no_targets":
 			ret_string = random_string(no_targets_eng)
+		"end_victory":
+			ret_string = random_string(battle_end_victory)
+		"end_defeat":
+			ret_string = random_string(battle_end_loss)
 	return ret_string
 
 func random_string(from_array : Array[String]) -> String:

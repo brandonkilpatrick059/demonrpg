@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dcy4h5aag4s1j"]
+
+[ext_resource type="Script" uid="uid://bgars8ojfig77" path="res://scripts/battle_system/effects/feed_effect.gd" id="1_cpqwd"]
+[ext_resource type="SpriteFrames" uid="uid://cm17av2hv5ngg" path="res://sprites/spritesheets/battle/actions/feed.tres" id="2_cpqwd"]
+[ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="3_r2nfj"]
+
+[node name="FeedEffect" type="Node2D" unique_id=1543929402]
+z_index = 1
+script = ExtResource("1_cpqwd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1114734886]
+sprite_frames = ExtResource("2_cpqwd")
+frame_progress = 0.66718465
+script = ExtResource("3_r2nfj")
