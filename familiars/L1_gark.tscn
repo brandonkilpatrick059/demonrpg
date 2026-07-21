@@ -12,7 +12,9 @@ script = ExtResource("1_am811")
 familiar_name = "Gark"
 max_hp = 10
 current_hp = 10
-magic = 5
+attack = 2
+defense = 2
+magic = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
 sprite_frames = ExtResource("2_01o8p")
@@ -20,13 +22,13 @@ sprite_frames = ExtResource("2_01o8p")
 [node name="actions" type="Node" parent="." unique_id=1087267566]
 
 [node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_c388a")]
-opponent_choice_weight = 0.3
+opponent_choice_weight = 0.5
 
 [node name="ActionDefend" parent="actions" unique_id=650851647 instance=ExtResource("4_77ode")]
-opponent_choice_weight = 0.3
+opponent_choice_weight = 0.1
 
 [node name="ActionFeed" parent="actions" unique_id=1893116652 instance=ExtResource("5_3a1ff")]
 opponent_choice_weight = 0.1
 
 [node name="EvilEye" parent="actions" unique_id=2103181957 instance=ExtResource("5_77ode")]
-opponent_choice_weight = 0.7
+opponent_choice_weight = 0.4

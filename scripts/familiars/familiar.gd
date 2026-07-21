@@ -8,11 +8,16 @@ class_name Familiar extends Node2D
 @export var defense : int = 1
 @export var speed : int = 1
 @export var magic : int = 1
+@export var num_actions : int = 1
+
+var max_energy = 4
+var current_energy = 4
 
 @export var level : int = 1
 @export var experience : int = 0
 
 var actions : Array[BattleAction] = []
+
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -69,8 +74,17 @@ func arrange_buffs():
 			battle_buffs[0].global_position = global_position + Vector2(-16,0)
 			battle_buffs[1].global_position = global_position + Vector2(-8,0)
 			battle_buffs[2].global_position = global_position + Vector2(8,0)
-			battle_buffs[4].global_position = global_position + Vector2(16,0)
+			battle_buffs[3].global_position = global_position + Vector2(16,0)
 	
+
+func get_max_energy() -> int:
+	return max_energy
+
+func get_current_energy() -> int:
+	return current_energy
+
+func set_current_energy(num : int):
+	current_energy = num
 
 func get_battle_buffs() -> Array[BattleBuff]:
 	return battle_buffs

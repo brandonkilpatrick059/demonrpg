@@ -5,13 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_a4pue"]
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_4u7hw"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_4u7hw"]
+[ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_0yn73"]
 
 [node name="L1martyr" type="Node2D" unique_id=246003526]
 script = ExtResource("1_7bugr")
 familiar_name = "Martyr"
-max_hp = 10
-current_hp = 10
+max_hp = 8
+current_hp = 8
 attack = 5
+defense = 2
+speed = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
 sprite_frames = ExtResource("2_p0s8o")
@@ -26,3 +29,6 @@ opponent_choice_weight = 0.4
 
 [node name="ActionFeed" parent="actions" unique_id=1424710821 instance=ExtResource("5_4u7hw")]
 opponent_choice_weight = 0.2
+
+[node name="ActionStab" parent="actions" unique_id=1508152227 instance=ExtResource("6_0yn73")]
+opponent_choice_weight = 0.7

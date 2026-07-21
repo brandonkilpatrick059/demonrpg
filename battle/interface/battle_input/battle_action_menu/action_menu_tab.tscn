@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cdyhr3ui7k3vk" path="res://scripts/battle_system/interface/action_menu_tab.gd" id="1_2cs40"]
 [ext_resource type="SpriteFrames" uid="uid://b5fvxik0lh6x0" path="res://sprites/spritesheets/battle/interface/battle_action_tab.tres" id="1_wc4vb"]
 [ext_resource type="FontFile" uid="uid://bimdomgyc2vy7" path="res://fonts/Silkscreen-Regular.ttf" id="3_at2ls"]
+[ext_resource type="SpriteFrames" uid="uid://cl54bhecgyn8d" path="res://sprites/spritesheets/battle/interface/energy_cost.tres" id="4_5ch7a"]
 
 [node name="ActionMenuTab" type="Node2D" unique_id=483760171]
 script = ExtResource("1_2cs40")
@@ -13,11 +14,16 @@ animation = &"active"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=671290606]
 offset_left = -35.0
-offset_top = -7.0
+offset_top = -6.0
 offset_right = 40.0
-offset_bottom = 4.0
+offset_bottom = 5.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_at2ls")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "attack"
+
+[node name="energy_cost" type="AnimatedSprite2D" parent="." unique_id=2002060161]
+position = Vector2(25, -3)
+sprite_frames = ExtResource("4_5ch7a")
+frame = 4

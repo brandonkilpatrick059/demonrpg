@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bxqm2o3k1cdx3"]
+
+[ext_resource type="Script" uid="uid://3ro3pqt7whqn" path="res://utility/queu_free_child_animation_end.gd" id="1_xd35p"]
+[ext_resource type="SpriteFrames" uid="uid://cpm7i1wwsen1r" path="res://sprites/spritesheets/battle/actions/stab.tres" id="2_xd35p"]
+[ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="3_pvlav"]
+
+[node name="StabEffect" type="Node2D" unique_id=1543929402]
+script = ExtResource("1_xd35p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1114734886]
+sprite_frames = ExtResource("2_xd35p")
+frame = 1
+frame_progress = 0.7143433
+script = ExtResource("3_pvlav")

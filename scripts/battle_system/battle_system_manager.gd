@@ -137,13 +137,15 @@ func initialize_familiars():
 		open_positions.erase(pos)
 		familiar.reparent(opponent_positions[pos])
 		familiar.position= Vector2(0,0)
-		familiar.modulate.a = 0.5
+		familiar.modulate.a = 0.85
 		familiar.mark_hostile()
+		familiar.set_current_energy(0)
 	
 	index = 0
 	for familiar in player_familiars:
 		familiar.reparent(player_positions[index])
 		familiar.position= Vector2(0,0)
+		familiar.set_current_energy(0)
 		index = index + 1
 	
 	familiars_initialized = true
@@ -213,6 +215,8 @@ func input_process():
 				advance_player_familiar_index()
 		else:
 			advance_player_familiar_index()
+	else:
+		advance_player_familiar_index()
 
 func show_status(familiar : Familiar): 
 	status.global_position = familiar.global_position + Vector2(0,-64)
@@ -222,6 +226,7 @@ func show_status(familiar : Familiar):
 	var hp_fraction : float = float(current_hp) / float(max_hp)
 	var dont_animate : bool = true
 	status.set_hp_gauge(hp_fraction,dont_animate)
+	status.set_energy_gauge(familiar.get_current_energy())
 	status.set_active()
 	awaiting_input = true
 
@@ -229,6 +234,7 @@ func show_action_menu(familiar : Familiar):
 	action_menu.set_actions(familiar.get_actions())
 	var height = -16 - action_menu.get_height()
 	action_menu.global_position = familiar.global_position + Vector2(0,height)
+	action_menu.set_energy_gauge(familiar.get_current_energy())
 	action_menu.set_active()
 
 func reset_show_status():
@@ -505,11 +511,22 @@ func clean_familiars():
 func return_to_input_phase():
 	reset_show_status()
 	reset_input_phase()
+	increment_all_energies()
 	player_action_queue.clear()
 	opponent_action_queue.clear()
 	player_familiar_index = 0
 	input_phase_entered = false
 	have_combined_queue = false
+
+func increment_all_energies():
+	increment_energies(player_familiars)
+	increment_energies(opponent_familiars)
+
+func increment_energies(familiars : Array[Familiar]):
+	for familiar in familiars:
+		if(familiar != null && not familiar.is_dead()):
+			var energy = familiar.get_current_energy()
+			familiar.set_current_energy(energy + 1)
 
 func get_combined_action_queue():
 	combined_action_queue.clear()
@@ -559,7 +576,8 @@ func get_opponent_actions():
 			var potential_actions : Array[BattleAction] = []
 			#opponents should only choose actions where there are valid targets
 			for action in opponent_actions:
-				if(get_opponent_targetable_familiars(action).size() > 0):
+				if(get_opponent_targetable_familiars(action).size() > 0 &&
+				opponent.current_energy >= action.get_energy_cost()):
 					potential_actions.append(action)
 			var chosen_action : BattleAction
 			var action_chosen : bool = false

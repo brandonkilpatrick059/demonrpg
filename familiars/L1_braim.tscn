@@ -9,9 +9,9 @@
 [node name="L1braim" type="Node2D" unique_id=246003526]
 script = ExtResource("1_bk1nj")
 familiar_name = "Braim"
-max_hp = 10
-current_hp = 10
-defense = 5
+max_hp = 11
+current_hp = 11
+defense = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
 sprite_frames = ExtResource("2_bk1nj")

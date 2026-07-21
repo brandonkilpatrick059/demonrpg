@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqqcssxtldqrg"]
+
+[ext_resource type="Script" uid="uid://45lxkeunmfci" path="res://scripts/battle_system/actions/action_stab.gd" id="1_uc80t"]
+
+[node name="ActionStab" type="Node" unique_id=918915832]
+script = ExtResource("1_uc80t")

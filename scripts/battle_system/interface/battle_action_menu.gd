@@ -1,7 +1,7 @@
 class_name BattleActionMenu extends Node2D
 
 @onready var background : AnimatedSprite2D = $background
-@onready var energy_bar : AnimatedSprite2D = $energy_bar
+@onready var energy_gauge : AnimatedSprite2D = $energy_bar
 @onready var num_act_tab : Sprite2D = $num_act_tab
 
 var tabs : Array[ActionMenuTab] = []
@@ -13,20 +13,26 @@ var active : bool = false
 
 var audio_player := AudioStreamPlayer.new()
 
+var energy : int = 0
+
 func _ready() -> void:
 	#set up action tabs
 	for child in $tabs.get_children():
 		tabs.append(child)
-		
-	#energy bar and action number tabs are off by default
-	energy_bar.visible = false
+
+	#action number tabs are off by default
 	num_act_tab.visible = false
 	
 	#TODO: buses and stuff
 	add_child(audio_player)
 
+func set_energy_gauge(num : int):
+	energy_gauge.frame = num
+	energy = num
+
 func get_height():
 	return num_actions * 8
+
 func is_active() -> bool:
 	return active
 
@@ -81,13 +87,17 @@ func handle_input():
 				audio_player.stream = load("res://audio/effects/short_bell.ogg")
 			audio_player.play()
 		elif(Input.is_action_just_pressed("action_1")):
-			set_inactive()
-			var chosen_action = tabs[selected_index].get_action()
-			var battle_system : BattleSystemManager
-			battle_system = get_tree().get_first_node_in_group("battle_system")
-			battle_system.start_target_process(chosen_action)
-			audio_player.stream = load("res://audio/effects/bell_first.ogg")
-			audio_player.play()
+			var chosen_action : BattleAction = tabs[selected_index].get_action()
+			if(energy >= chosen_action.get_energy_cost()):
+				set_inactive()
+				var battle_system : BattleSystemManager
+				battle_system = get_tree().get_first_node_in_group("battle_system")
+				battle_system.start_target_process(chosen_action)
+				audio_player.stream = load("res://audio/effects/bell_first.ogg")
+				audio_player.play()
+			else:
+				audio_player.stream = load("res://audio/effects/short_bell.ogg")
+				audio_player.play()
 		elif(Input.is_action_just_pressed("action_2")):
 			set_inactive()
 			var battle_system : BattleSystemManager

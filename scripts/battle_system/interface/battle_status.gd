@@ -10,7 +10,7 @@ var active : bool = false
 var audio_player := AudioStreamPlayer.new()
 
 func _ready():
-	energy_gauge.visible = false
+	#energy_gauge.visible = false
 	num_acts_tab.visible = false
 	#TODO: buses
 	add_child(audio_player)
@@ -25,6 +25,9 @@ func set_active():
 func set_inactive():
 	visible = false
 	active = false
+
+func set_energy_gauge(num : int):
+	energy_gauge.frame = num
 
 func set_hp_gauge(fraction : float, no_animate : bool = false):
 	hp_gauge.set_gauge(fraction,no_animate)

@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cl54bhecgyn8d"]
+
+[ext_resource type="Texture2D" uid="uid://ds8u5pwvrsrqb" path="res://sprites/spritesheets/battle/interface/tab_energy_cost.png" id="1_vldab"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpe3u"]
+atlas = ExtResource("1_vldab")
+region = Rect2(0, 64, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fk0d"]
+atlas = ExtResource("1_vldab")
+region = Rect2(0, 48, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycuoy"]
+atlas = ExtResource("1_vldab")
+region = Rect2(0, 32, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svq6q"]
+atlas = ExtResource("1_vldab")
+region = Rect2(0, 16, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipwfs"]
+atlas = ExtResource("1_vldab")
+region = Rect2(0, 0, 48, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpe3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fk0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycuoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svq6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipwfs")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

@@ -39,3 +39,14 @@ res://scripts/battle_system/actions/battle_action.gd
 res://scripts/battle_system/effects/feed_effect.gd
 res://familiars/L1_braim.tscn
 res://familiars/L1_martyr.tscn
+res://battle/actions/action_attack.tscn
+res://scripts/battle_system/interface/battle_status.gd
+res://battle/interface/battle_input/battle_status.tscn
+res://battle/interface/battle_input/battle_action_menu/battle_action_menu.tscn
+res://battle/interface/battle_input/battle_action_menu/action_menu_tab.tscn
+res://sprites/spritesheets/battle/interface/energy_cost.tres
+res://scripts/battle_system/interface/action_menu_tab.gd
+res://scripts/battle_system/actions/action_stab.gd
+res://battle/effects/stab_effect.tscn
+res://sprites/spritesheets/battle/actions/stab.tres
+res://battle/actions/action_stab.tscn
