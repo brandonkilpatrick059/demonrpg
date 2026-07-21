@@ -13,7 +13,9 @@ var no_targets_eng : Array[String] = [
 ]
 
 var battle_end_victory : Array[String] = [
-	"Your enemies are defeated."
+	"Nothing remains of your enemies.",
+	"Your enemies are defeated.",
+	"You have destroyed your enemies."
 ]
 
 var battle_end_loss : Array[String] = [

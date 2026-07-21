@@ -10,10 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://2lqbl3gvcy5b" path="res://sprites/battle/background/background_floor_test.png" id="6_72ene"]
 [ext_resource type="Script" uid="uid://dapw787rh5bjf" path="res://battle/interface/familiar_slot.gd" id="6_sycs1"]
 [ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="7_213sk"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="9_qcet8"]
 [ext_resource type="SpriteFrames" uid="uid://ls8yujdwrhbu" path="res://sprites/spritesheets/battle/interface/select_arrow.tres" id="12_5ix18"]
 [ext_resource type="PackedScene" uid="uid://bfh5a8mgq3k77" path="res://battle/interface/battle_message.tscn" id="12_sycs1"]
 [ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_input/battle_status.tscn" id="13_qcet8"]
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="15_qcet8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("9_qcet8")
+font_size = 8
+font_color = Color(1, 0, 0, 1)
 
 [node name="BattleSystem" type="Node2D" unique_id=415039822]
 script = ExtResource("1_m8o33")
@@ -37,29 +43,33 @@ texture = ExtResource("4_72ene")
 
 [node name="opponent" type="Node2D" parent="familiars" unique_id=1861458970]
 
-[node name="1" type="Node2D" parent="familiars/opponent" unique_id=1349854130 node_paths=PackedStringArray("select_arrow")]
+[node name="1" type="Node2D" parent="familiars/opponent" unique_id=1349854130 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(-108, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow1")
+upgrade_label = NodePath("../upgrade_label1")
 
-[node name="2" type="Node2D" parent="familiars/opponent" unique_id=1575615225 node_paths=PackedStringArray("select_arrow")]
+[node name="2" type="Node2D" parent="familiars/opponent" unique_id=1575615225 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(-36, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow2")
+upgrade_label = NodePath("../upgrade_label2")
 
-[node name="3" type="Node2D" parent="familiars/opponent" unique_id=1013699245 node_paths=PackedStringArray("select_arrow")]
+[node name="3" type="Node2D" parent="familiars/opponent" unique_id=1013699245 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(36, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow3")
+upgrade_label = NodePath("../upgrade_label3")
 
-[node name="4" type="Node2D" parent="familiars/opponent" unique_id=1440403003 node_paths=PackedStringArray("select_arrow")]
+[node name="4" type="Node2D" parent="familiars/opponent" unique_id=1440403003 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 modulate = Color(1, 1, 1, 0.2509804)
 position = Vector2(108, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow4")
+upgrade_label = NodePath("../upgrade_label4")
 
 [node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1237670864]
 visible = false
@@ -93,28 +103,76 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.09231411
 script = ExtResource("7_213sk")
 
+[node name="upgrade_label1" type="Label" parent="familiars/opponent" unique_id=481609616]
+visible = false
+offset_left = -153.0
+offset_top = -65.0
+offset_right = -55.0
+offset_bottom = -42.0
+text = "max health + 1"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgrade_label2" type="Label" parent="familiars/opponent" unique_id=47974718]
+visible = false
+offset_left = -85.0
+offset_top = -65.0
+offset_right = 13.0
+offset_bottom = -42.0
+text = "max health + 1"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgrade_label3" type="Label" parent="familiars/opponent" unique_id=1808585292]
+visible = false
+offset_left = -14.0
+offset_top = -65.0
+offset_right = 84.0
+offset_bottom = -42.0
+text = "max health + 1"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgrade_label4" type="Label" parent="familiars/opponent" unique_id=2132022631]
+visible = false
+offset_left = 58.0
+offset_top = -65.0
+offset_right = 156.0
+offset_bottom = -42.0
+text = "max health + 1"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="player" type="Node2D" parent="familiars" unique_id=138781909]
 position = Vector2(0, -8)
 
-[node name="1" type="Node2D" parent="familiars/player" unique_id=1693108586 node_paths=PackedStringArray("select_arrow")]
+[node name="1" type="Node2D" parent="familiars/player" unique_id=1693108586 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 position = Vector2(-108, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow1")
+upgrade_label = NodePath("../upgrade_label1")
 
-[node name="2" type="Node2D" parent="familiars/player" unique_id=100473518 node_paths=PackedStringArray("select_arrow")]
+[node name="2" type="Node2D" parent="familiars/player" unique_id=100473518 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 position = Vector2(-36, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow2")
+upgrade_label = NodePath("../upgrade_label2")
 
-[node name="3" type="Node2D" parent="familiars/player" unique_id=350009502 node_paths=PackedStringArray("select_arrow")]
+[node name="3" type="Node2D" parent="familiars/player" unique_id=350009502 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 position = Vector2(36, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow3")
+upgrade_label = NodePath("../upgrade_label3")
 
-[node name="4" type="Node2D" parent="familiars/player" unique_id=1361610248 node_paths=PackedStringArray("select_arrow")]
+[node name="4" type="Node2D" parent="familiars/player" unique_id=1361610248 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 position = Vector2(108, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow4")
+upgrade_label = NodePath("../upgrade_label4")
 
 [node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/player" unique_id=1082058211]
 visible = false
@@ -148,6 +206,50 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.09231411
 script = ExtResource("7_213sk")
 
+[node name="upgrade_label1" type="Label" parent="familiars/player" unique_id=1427788794]
+visible = false
+offset_left = -153.0
+offset_top = 15.0
+offset_right = -55.0
+offset_bottom = 38.0
+text = "max health + 1"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgrade_label2" type="Label" parent="familiars/player" unique_id=778120899]
+visible = false
+offset_left = -85.0
+offset_top = 15.0
+offset_right = 13.0
+offset_bottom = 38.0
+text = "max health + 1"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgrade_label3" type="Label" parent="familiars/player" unique_id=1500004460]
+visible = false
+offset_left = -14.0
+offset_top = 15.0
+offset_right = 84.0
+offset_bottom = 38.0
+text = "max health + 1"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgrade_label4" type="Label" parent="familiars/player" unique_id=1651554125]
+visible = false
+offset_left = 58.0
+offset_top = 15.0
+offset_right = 156.0
+offset_bottom = 38.0
+text = "max health + 1"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="background" type="Node2D" parent="." unique_id=1093393912]
 z_index = -5
 
@@ -175,6 +277,7 @@ position = Vector2(-108, -29)
 [node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("15_qcet8")]
 
 [node name="fade_to_black" type="Polygon2D" parent="." unique_id=1399459263]
+visible = false
 z_index = 4
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)

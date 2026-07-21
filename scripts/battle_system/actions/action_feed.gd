@@ -140,6 +140,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		var target : Familiar = targets[0]
 		if(not target.is_dead()):
 			target.kill()
+		actor.consume_familiar(target)
 		visual_effects(actor,target)
 		var heal_for = target.get_max_hp() / 2
 		var actor_hp = actor.get_current_hp()

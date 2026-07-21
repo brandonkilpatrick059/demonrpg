@@ -1,6 +1,14 @@
 class_name Familiar extends Node2D
 
 #STATS
+var stats : Array[String] =[
+	"max health",
+	"attack",
+	"defense",
+	"speed",
+	"magic",
+	"num_actions"
+]
 @export var familiar_name : String = ""
 @export var max_hp : int = 1
 @export var current_hp : int = 1
@@ -11,10 +19,18 @@ class_name Familiar extends Node2D
 @export var num_actions : int = 1
 
 var max_energy = 4
-var current_energy = 4
+var current_energy = 0
+var energy_depleted : bool = false
 
 @export var level : int = 1
-@export var experience : int = 0
+var experience : int = 0
+
+var exp_req_for_level_up : Array[int] = [
+	50, #Level 0 -> Level 1
+	500, #Level 1 -> Level 2
+	5000, #Level 2 -> level 3
+	50000, #Level 3 -> Level 4
+]
 
 var actions : Array[BattleAction] = []
 
@@ -29,6 +45,46 @@ var dead : bool = false
 @export var battle_buffs : Array[BattleBuff] = []
 
 var one_shot_animating : bool = false
+
+var stat_increase_value : int = 0
+var stat_increase : String = ""
+
+func gen_stat_increase():
+	var random_index = randi_range(0,stats.size()-2)
+	stat_increase = stats[random_index]
+	stat_increase_value = randi_range(1,3)
+
+func get_exp_value() -> int:
+	var total = max_hp
+	total = total + attack
+	total = total + defense
+	total = total + speed
+	total = total + magic
+	return total
+
+func get_stat_increase() -> String:
+	return stat_increase
+
+func get_stat_increase_value() -> int:
+	return stat_increase_value
+
+func consume_familiar(familiar : Familiar):
+	var increase_stat : String = familiar.get_stat_increase()
+	var value : int = familiar.get_stat_increase_value()
+	match(increase_stat):
+		"max health":
+			max_hp = max_hp + value
+		"attack":
+			attack = attack + value
+		"defense":
+			defense = defense + value
+		"speed":
+			speed = speed + value
+		"magic":
+			magic = magic + value
+		"num_actions":
+			num_actions = num_actions + value
+	experience = experience + familiar.get_exp_value()
 
 func _ready() -> void:
 	for action_node in actions_parent.get_children():
@@ -83,8 +139,16 @@ func get_max_energy() -> int:
 func get_current_energy() -> int:
 	return current_energy
 
+func energy_is_depleted() -> bool:
+	return energy_depleted
+
 func set_current_energy(num : int):
 	current_energy = num
+	if (num == 0):
+		energy_depleted = true
+
+func reset_energy():
+	energy_depleted = false
 
 func get_battle_buffs() -> Array[BattleBuff]:
 	return battle_buffs
@@ -109,6 +173,7 @@ func is_dead():
 
 func kill():
 	play_one_shot_animation("die")
+	gen_stat_increase()
 	dead = true
 
 func get_attack() -> int:

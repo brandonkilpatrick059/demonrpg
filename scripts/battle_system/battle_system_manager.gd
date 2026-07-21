@@ -140,12 +140,14 @@ func initialize_familiars():
 		familiar.modulate.a = 0.85
 		familiar.mark_hostile()
 		familiar.set_current_energy(0)
+		familiar.reset_energy()
 	
 	index = 0
 	for familiar in player_familiars:
 		familiar.reparent(player_positions[index])
 		familiar.position= Vector2(0,0)
 		familiar.set_current_energy(0)
+		familiar.reset_energy()
 		index = index + 1
 	
 	familiars_initialized = true
@@ -384,6 +386,11 @@ func update_sel_arrows():
 	for familiar in targeted_familiars:
 		var slot : FamiliarSlot = familiar.get_parent()
 		slot.show_select_arrow()
+		if(familiar.is_dead()):
+			var stat : String = familiar.get_stat_increase()
+			var value : int = familiar.get_stat_increase_value()
+			var label = str(str(familiar.get_stat_increase()," + "),value)
+			slot.show_upgrade_label(label)
 
 func hide_all_sel_arrows():
 	for slot : FamiliarSlot in opponent_positions:
@@ -526,7 +533,10 @@ func increment_energies(familiars : Array[Familiar]):
 	for familiar in familiars:
 		if(familiar != null && not familiar.is_dead()):
 			var energy = familiar.get_current_energy()
-			familiar.set_current_energy(energy + 1)
+			if(familiar.energy_is_depleted()):
+				familiar.reset_energy()
+			else:
+				familiar.set_current_energy(energy + 1)
 
 func get_combined_action_queue():
 	combined_action_queue.clear()

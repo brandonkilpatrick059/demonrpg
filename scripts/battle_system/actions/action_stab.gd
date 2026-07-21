@@ -65,7 +65,8 @@ func visual_effects(pkg : BattlePkg):
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
-	var damage : int = actor.get_attack() + actor.get_attack()/2
+	var full_damage : int = actor.get_attack()
+	var damage : int = full_damage + randi_range(0,actor.get_attack())
 	var reduction_half : int = target.get_defense()/2
 	var defense_reduction : int = reduction_half #+ randi_range(0,reduction_half)
 	var final_damage = damage - defense_reduction
