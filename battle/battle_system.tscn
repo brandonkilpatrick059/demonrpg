@@ -8,13 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://817fddi07fi8" path="res://sprites/battle/guides/battle_system_opponent_boundaries.png" id="4_72ene"]
 [ext_resource type="Texture2D" uid="uid://mpaantth3vv6" path="res://sprites/battle/background/background_shadow.png" id="5_7mede"]
 [ext_resource type="Texture2D" uid="uid://2lqbl3gvcy5b" path="res://sprites/battle/background/background_floor_test.png" id="6_72ene"]
-[ext_resource type="Script" uid="uid://dapw787rh5bjf" path="res://battle/interface/familiar_slot.gd" id="6_sycs1"]
+[ext_resource type="Script" uid="uid://dapw787rh5bjf" path="res://scripts/battle_system/interface/familiar_slot.gd" id="6_sycs1"]
 [ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="7_213sk"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="9_qcet8"]
 [ext_resource type="SpriteFrames" uid="uid://ls8yujdwrhbu" path="res://sprites/spritesheets/battle/interface/select_arrow.tres" id="12_5ix18"]
 [ext_resource type="PackedScene" uid="uid://bfh5a8mgq3k77" path="res://battle/interface/battle_message.tscn" id="12_sycs1"]
 [ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_input/battle_status.tscn" id="13_qcet8"]
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="15_qcet8"]
+[ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="16_tv3fy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cea73"]
 font = ExtResource("9_qcet8")
@@ -277,7 +278,7 @@ position = Vector2(-108, -29)
 [node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("15_qcet8")]
 
 [node name="fade_to_black" type="Polygon2D" parent="." unique_id=1399459263]
-visible = false
 z_index = 4
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+script = ExtResource("16_tv3fy")

@@ -38,6 +38,7 @@ func get_slain_message(actor : Familiar, target : Familiar) -> String:
 func _ready() -> void:
 	action_name = "ATTACK"
 	target_type = TargetType.ANY_OPPONENT
+	damage_type = DamageType.PHYSICAL
 
 func clean_up():
 	announced_attack = false
@@ -72,6 +73,7 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	if(final_damage <= 0):
 		final_damage = 1
 	var pkg := BattlePkg.new()
+	pkg.set_damage_type(get_damage_type())
 	pkg.set_final_damage(final_damage)
 	pkg.set_actor(actor)
 	pkg.set_targets(targets)

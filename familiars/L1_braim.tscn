@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_r2x2v"]
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_4crl0"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_4crl0"]
+[ext_resource type="PackedScene" uid="uid://bfnuubvl43rki" path="res://battle/actions/action_reflect.tscn" id="6_muj1r"]
 
 [node name="L1braim" type="Node2D" unique_id=246003526]
 script = ExtResource("1_bk1nj")
@@ -26,3 +27,6 @@ opponent_choice_weight = 0.5
 
 [node name="ActionFeed" parent="actions" unique_id=1039797395 instance=ExtResource("5_4crl0")]
 opponent_choice_weight = 0.1
+
+[node name="ActionReflect" parent="actions" unique_id=242118586 instance=ExtResource("6_muj1r")]
+opponent_choice_weight = 0.7

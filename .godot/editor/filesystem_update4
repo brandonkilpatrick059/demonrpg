@@ -51,3 +51,9 @@ res://battle/effects/stab_effect.tscn
 res://sprites/spritesheets/battle/actions/stab.tres
 res://battle/actions/action_stab.tscn
 res://battle/interface/familiar_slot.gd
+res://scripts/utility/visible_on_ready.gd
+res://scripts/battle_system/buffs/reflect_buff.gd
+res://scripts/battle_system/actions/battle_pkg.gd
+res://battle/actions/buffs/reflect_buff.tscn
+res://battle/actions/action_reflect.tscn
+res://scripts/battle_system/actions/action_reflect.gd

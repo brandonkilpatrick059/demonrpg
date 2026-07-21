@@ -28,7 +28,8 @@ func stack(stack_buff : BattleBuff):
 	battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
 
 func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
-	if(buff_holder in pkg.targets):
+	if(buff_holder in pkg.targets && 
+	pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
 		var new_final_damage = pkg.get_final_damage()
 		new_final_damage = new_final_damage - damage_reduction
 		if(new_final_damage < 0):

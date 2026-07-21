@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://krfew2miip5w"]
+
+[ext_resource type="Script" uid="uid://cvr7ds41anwij" path="res://scripts/battle_system/buffs/reflect_buff.gd" id="1_yxna5"]
+[ext_resource type="Texture2D" uid="uid://cbh46yypj5vio" path="res://sprites/battle/interface/buff_symbols/reflect_symbol.png" id="2_yxna5"]
+
+[node name="ReflectBuff" type="Node2D" unique_id=1994436220]
+script = ExtResource("1_yxna5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1941476371]
+position = Vector2(0, -32)
+texture = ExtResource("2_yxna5")

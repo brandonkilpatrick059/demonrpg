@@ -5,14 +5,20 @@ class_name BattleAction extends Node
 enum TargetType {NO_TARGET,SELF,ANY_ALLY,ANY_OPPONENT,
 ALL_ALLIES,ALL_OPPONENTS,ALL,ANY,ANY_BUT_SELF,ANY_DEAD}
 
+enum DamageType {NONE,PHYSICAL,MAGIC}
+
 var action_name : String = "blank_action"
 var target_type : TargetType = TargetType.NO_TARGET
 var energy_cost : int = 0
+var damage_type : DamageType = DamageType.NONE
 
-func get_choice_weight()->float:
+func get_choice_weight() -> float:
 	return opponent_choice_weight
 
-func get_energy_cost()-> int:
+func get_damage_type() -> DamageType:
+	return damage_type
+
+func get_energy_cost() -> int:
 	return energy_cost
 
 func get_target_type() -> TargetType:
