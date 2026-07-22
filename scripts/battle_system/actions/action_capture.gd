@@ -27,8 +27,9 @@ func clean_up():
 	made_switch = false
 
 func visual_effects(target : Familiar):
-	var glow_purple_node = load("res://utility/faders/capture_glow_purple.tscn").instantiate()
-	target.add_child(glow_purple_node)
+	target.modulate = Color(1,1,1,0)
+	var fade_in_node = load("res://utility/faders/capture_fade.tscn").instantiate()
+	target.add_child(fade_in_node)
 	var capture_effect = load("res://battle/effects/capture_effect.tscn").instantiate()
 	battle_sys_ref.add_child(capture_effect)
 	capture_effect.global_position = target.global_position

@@ -66,3 +66,8 @@ res://battle/effects/capture_effect.tscn
 res://utility/faders/capture_glow_purple.tscn
 res://sprites/spritesheets/battle/actions/pentacle_seal.tres
 res://battle/actions/action_capture.tscn
+res://utility/faders/capture_fade.tscn
+res://familiars/L2_stalf.tscn
+res://sprites/spritesheets/familiars/L2_stalf.tres
+res://familiars/L2_byle.tscn
+res://sprites/spritesheets/familiars/L2_byle.tres

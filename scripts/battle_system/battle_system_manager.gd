@@ -96,7 +96,7 @@ func fade_out():
 func set_up_audio():
 	#TODO: handle buses, dynamic music loading, etc
 	add_child(music_player)
-	music_player.stream = load("res://audio/music/battle_1.ogg")
+	music_player.stream = load("res://audio/music/battle_2.ogg")
 	music_player.play()
 	
 	var index : int = 0
@@ -557,6 +557,7 @@ func reset_message_position():
 	message.global_position = global_position
 
 func get_next_action():
+	update_buff_positions()
 	if(combined_action_queue.size() > 0):
 		var current_action : ActionQueueItem = combined_action_queue.pop_front()
 		while(current_action == null || 
@@ -580,6 +581,12 @@ func update_buffs():
 		familiar.update_buffs()
 	for familiar in opponent_familiars:
 		familiar.update_buffs()
+
+func update_buff_positions():
+	for familiar in player_familiars:
+		familiar.arrange_buffs()
+	for familiar in opponent_familiars:
+		familiar.arrange_buffs()
 
 func clean_familiars():
 	var new_player_familiars : Array[Familiar] = []

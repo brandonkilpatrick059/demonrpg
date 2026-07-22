@@ -20,6 +20,8 @@ var audio_player := AudioStreamPlayer.new()
 
 var target_familiar : Familiar = null
 
+var input_timer := Timer.new()
+
 func set_target(familiar : Familiar):
 	var name : String = familiar.get_familiar_name().to_upper()
 	var text : String = label_english.replace("[NAME]",name)
@@ -33,6 +35,8 @@ func _ready() -> void:
 	var num_charms = player.get_pentacle_charms()
 	seal_label.text = str("x",str(num_charms))
 	add_child(audio_player)
+	input_timer.one_shot = true
+	add_child(input_timer)
 
 func update_selected():
 	if(yes_selected):
@@ -46,13 +50,14 @@ func set_active():
 	visible = true
 	active = true
 	update_selected()
+	input_timer.start(1.0)
 
 func set_inactive():
 	visible = false
 	active = false
 
 func handle_input():
-	if(active):
+	if(active && input_timer.is_stopped()):
 		if(Input.is_action_just_pressed("up")):
 			if(not yes_selected):
 				yes_selected = true

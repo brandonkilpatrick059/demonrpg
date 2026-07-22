@@ -11,7 +11,7 @@ func _ready():
 	add_child(fade_node)
 	var battle_sys_ref : BattleSystemManager = get_tree().get_first_node_in_group("battle_system")
 	battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
-	inactive_after_rounds = 3
+	inactive_after_rounds = 2
 
 func get_announcement_english(buff_holder : Familiar) -> String:
 	var name = buff_holder.get_familiar_name()
