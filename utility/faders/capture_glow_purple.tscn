@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bu3b4dq06ojkq"]
+
+[ext_resource type="Script" uid="uid://clm4enx7fqkjw" path="res://scripts/utility/fade_node.gd" id="1_pdf8o"]
+
+[node name="FadeNode_GlowPurple" type="Node2D" unique_id=2013521448]
+script = ExtResource("1_pdf8o")
+return_when_done = true
+target_modulate = Color(1, 0, 1, 1)
+time_step = 0.2

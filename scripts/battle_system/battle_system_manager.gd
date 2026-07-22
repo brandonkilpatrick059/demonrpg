@@ -4,11 +4,14 @@ class_name BattleSystemManager extends Node2D
 @onready var message : BattleMessage = $BattleMessage
 @onready var status : BattleStatus = $BattleStatus
 @onready var hp_gauge : HPGauge = $hp_gauge
+@onready var capture_dialog : CaptureDialog = $CaptureDialog
 
 @export var opponent_familiars : Array[Familiar] = []
 @export var player_familiars : Array[Familiar] = []
 
 var text := BattleText.new()
+
+@onready var action_capture = $ActionCapture
 
 @onready var opponent_positions : Array[FamiliarSlot] = [
 	$"familiars/opponent/1",
@@ -31,7 +34,7 @@ var music_player := AudioStreamPlayer.new()
 var audio_players : Array[AudioStreamPlayer] = []
 
 #STATE INFO
-enum BattlePhase {START,INPUT,INPUT_TARGET,BATTLE,END}
+enum BattlePhase {START,INPUT,INPUT_TARGET,INPUT_CAPTURE,BATTLE,END}
 var current_phase : BattlePhase = BattlePhase.START
 var awaiting_input : bool = false
 var familiars_initialized : bool = false
@@ -116,6 +119,7 @@ func hide_all_interface():
 	message.visible = false
 	status.visible = false
 	hp_gauge.visible = false
+	capture_dialog.visible = false
 
 func end_awaiting_input():
 	awaiting_input = false
@@ -159,6 +163,35 @@ func play_messages(text_queue : Array[String]):
 func start_wait_timer(time : float):
 	wait_timer.start(time)
 
+func is_waiting() -> bool:
+	return wait_timer.is_stopped()
+
+func switch_familiar_to_player_familiars(familiar : Familiar):
+	opponent_familiars.erase(familiar)
+	player_familiars.append(familiar)
+	for slot in player_positions:
+		if(slot.get_child_count() == 0):
+			familiar.reparent(slot)
+			familiar.position = Vector2(0,0)
+			break
+	familiar.mark_friendly()
+
+func add_capture_action(familiar : Familiar):
+	var new_combined_action_queue : Array[ActionQueueItem]
+	for action_item : ActionQueueItem in combined_action_queue:
+		if(action_item.get_actor() != familiar and
+		not action_item.get_targets().has(familiar)):
+			new_combined_action_queue.append(action_item)
+	combined_action_queue.clear()
+	combined_action_queue.append_array(new_combined_action_queue)
+	var dummy_actor := Familiar.new()
+	var capture_queue_item := ActionQueueItem.new(dummy_actor,action_capture,[familiar])
+	combined_action_queue.push_front(capture_queue_item)
+	capture_accepted = false
+
+func set_capture_accepted():
+	capture_accepted = true
+
 #region Process
 func _physics_process(delta: float) -> void:
 	if(not familiars_initialized):
@@ -173,6 +206,8 @@ func process_battle():
 				start_process()
 			BattlePhase.INPUT:
 				input_process()
+			BattlePhase.INPUT_CAPTURE:
+				offer_capture_process()
 			BattlePhase.INPUT_TARGET:
 				target_process()
 			BattlePhase.BATTLE:
@@ -248,6 +283,34 @@ func familiar_in_action_queue(familiar : Familiar) -> bool:
 		if(action_item.actor == familiar):
 			return true
 	return false
+#endregion
+#region Input Capture Phase
+var begin_capture_offered : bool = false
+var capture_offered : bool = false
+var target_capture : Familiar
+var capture_accepted : bool = false
+
+func offer_capture_process():
+	if(not begin_capture_offered):
+		target_capture = can_offer_capture()
+		var target_name : String = target_capture.get_familiar_name()
+		var capture_available : String = text.get_text("capture_available")
+		capture_available = capture_available.replace("[TARGET]",target_name)
+		play_messages([capture_available])
+		begin_capture_offered = true
+	elif(begin_capture_offered 
+	and not capture_offered 
+	and not awaiting_input):
+		capture_dialog.set_target(target_capture)
+		capture_dialog.set_active()
+		start_awaiting_input()
+		capture_offered = true
+	elif(begin_capture_offered 
+	and capture_offered 
+	and not awaiting_input):
+		begin_capture_offered = false
+		capture_offered = false
+		current_phase = BattlePhase.BATTLE
 #endregion
 #region Input Target Phase
 var targeted_familiars : Array[Familiar] = []
@@ -375,8 +438,25 @@ func advance_player_familiar_index():
 	player_familiars[player_familiar_index].is_dead()): #skip dead ones
 		player_familiar_index = player_familiar_index + 1
 	if(player_familiar_index >= player_familiars.size()):
-		current_phase = BattlePhase.BATTLE
+		if(can_offer_capture() != null):
+			current_phase = BattlePhase.INPUT_CAPTURE
+		else:
+			current_phase = BattlePhase.BATTLE
 		player_familiar_index = 0
+
+func can_offer_capture() -> Familiar:
+	var player : Player = get_tree().get_first_node_in_group("player")
+	var pentacles = player.get_pentacle_charms()
+	var null_familiar : Familiar = null
+	if(pentacles > 0 && player_familiars.size() < 4):
+		for familiar in opponent_familiars:
+			var hp_fraction : int = familiar.get_max_hp()/3
+			var current_hp = familiar.get_current_hp()
+			if(current_hp <= hp_fraction and
+			not familiar.is_dead() and
+			not familiar.is_capture_offered()):
+				return familiar
+	return null_familiar
 
 func target_process():
 	handle_target_input()
@@ -544,6 +624,8 @@ func get_combined_action_queue():
 		insert_into_combined_action_queue(opponent_action)
 	for player_action in player_action_queue:
 		insert_into_combined_action_queue(player_action)
+	if(capture_accepted):
+		add_capture_action(target_capture)
 
 func insert_into_combined_action_queue(insert_item : ActionQueueItem):
 	var new_combined_action_queue : Array[ActionQueueItem] = []

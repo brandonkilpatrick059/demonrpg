@@ -25,6 +25,8 @@ var energy_depleted : bool = false
 @export var level : int = 1
 var experience : int = 0
 
+var capture_offered : bool = false
+
 var exp_req_for_level_up : Array[int] = [
 	50, #Level 0 -> Level 1
 	500, #Level 1 -> Level 2
@@ -33,7 +35,6 @@ var exp_req_for_level_up : Array[int] = [
 ]
 
 var actions : Array[BattleAction] = []
-
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -61,6 +62,12 @@ func get_exp_value() -> int:
 	total = total + speed
 	total = total + magic
 	return total
+
+func is_capture_offered() -> bool:
+	return capture_offered
+
+func set_capture_offered():
+	capture_offered = true
 
 func get_stat_increase() -> String:
 	return stat_increase

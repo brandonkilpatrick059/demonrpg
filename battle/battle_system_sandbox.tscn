@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/L1_gark.tscn" id="4_ogmts"]
 [ext_resource type="PackedScene" uid="uid://be8nahf55fp0p" path="res://familiars/L1_braim.tscn" id="5_f717y"]
 [ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/girl.tres" id="5_ogmts"]
+[ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="6_f717y"]
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=405016994]
 
 [node name="BattleSystem" parent="." unique_id=415039822 node_paths=PackedStringArray("opponent_familiars", "player_familiars") instance=ExtResource("1_13ec6")]
 position = Vector2(160, 90)
-opponent_familiars = [NodePath("L1gark"), NodePath("L1gark2"), NodePath("L1gark3"), NodePath("L1martyr2")]
+opponent_familiars = [NodePath("L1gark"), NodePath("L1gark2"), NodePath("L1braim2"), NodePath("L1martyr2")]
 player_familiars = [NodePath("L1martyr3"), NodePath("L1martyr"), NodePath("L1braim")]
 
 [node name="L1martyr3" parent="BattleSystem" unique_id=665361896 instance=ExtResource("3_8kxpe")]
@@ -19,13 +20,13 @@ player_familiars = [NodePath("L1martyr3"), NodePath("L1martyr"), NodePath("L1bra
 
 [node name="L1gark2" parent="BattleSystem" unique_id=309316995 instance=ExtResource("4_ogmts")]
 
-[node name="L1gark3" parent="BattleSystem" unique_id=688398941 instance=ExtResource("4_ogmts")]
-
 [node name="L1martyr" parent="BattleSystem" unique_id=1738851193 instance=ExtResource("3_8kxpe")]
 
 [node name="L1martyr2" parent="BattleSystem" unique_id=286245097 instance=ExtResource("3_8kxpe")]
 
 [node name="L1braim" parent="BattleSystem" unique_id=1049657967 instance=ExtResource("5_f717y")]
+
+[node name="L1braim2" parent="BattleSystem" unique_id=457270446 instance=ExtResource("5_f717y")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=284835023]
 position = Vector2(160, 90)
@@ -33,3 +34,6 @@ position = Vector2(160, 90)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=536485986]
 position = Vector2(-260, 54)
 sprite_frames = ExtResource("5_ogmts")
+
+[node name="Player" parent="." unique_id=1870943045 instance=ExtResource("6_f717y")]
+pentacle_charms = 3

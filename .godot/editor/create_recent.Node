@@ -1,8 +1,8 @@
-Label
 AnimatedSprite2D
 Sprite2D
+Label
+RichTextLabel
 Camera2D
 Node
 Polygon2D
-RichTextLabel
 Node2D

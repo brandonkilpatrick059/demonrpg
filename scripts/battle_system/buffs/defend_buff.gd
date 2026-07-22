@@ -13,6 +13,7 @@ func _ready():
 	add_child(fade_node)
 	var battle_sys_ref : BattleSystemManager = get_tree().get_first_node_in_group("battle_system")
 	battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
+	inactive_after_rounds = 2
 
 func get_type():
 	return "defend"
@@ -35,7 +36,7 @@ func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
 		if(new_final_damage < 0):
 			new_final_damage = 0
 		pkg.set_final_damage(new_final_damage)
-		active = false
+		#active = false
 	return pkg
 
 func _physics_process(delta: float) -> void:

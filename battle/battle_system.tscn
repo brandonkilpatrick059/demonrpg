@@ -14,8 +14,10 @@
 [ext_resource type="SpriteFrames" uid="uid://ls8yujdwrhbu" path="res://sprites/spritesheets/battle/interface/select_arrow.tres" id="12_5ix18"]
 [ext_resource type="PackedScene" uid="uid://bfh5a8mgq3k77" path="res://battle/interface/battle_message.tscn" id="12_sycs1"]
 [ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_input/battle_status.tscn" id="13_qcet8"]
+[ext_resource type="PackedScene" uid="uid://ckq4ayki75rtw" path="res://battle/interface/capture_dialog.tscn" id="15_8e777"]
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="15_qcet8"]
 [ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="16_tv3fy"]
+[ext_resource type="PackedScene" uid="uid://clwvu1po4lp86" path="res://battle/actions/action_capture.tscn" id="18_p0q2p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cea73"]
 font = ExtResource("9_qcet8")
@@ -275,6 +277,10 @@ visible = false
 z_index = 5
 position = Vector2(-108, -29)
 
+[node name="CaptureDialog" parent="." unique_id=1487250976 instance=ExtResource("15_8e777")]
+visible = false
+z_index = 5
+
 [node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("15_qcet8")]
 
 [node name="fade_to_black" type="Polygon2D" parent="." unique_id=1399459263]
@@ -282,3 +288,5 @@ z_index = 4
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 script = ExtResource("16_tv3fy")
+
+[node name="ActionCapture" parent="." unique_id=918915832 instance=ExtResource("18_p0q2p")]

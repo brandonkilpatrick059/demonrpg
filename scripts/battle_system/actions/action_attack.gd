@@ -67,9 +67,10 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
 	var half_damage : int = actor.get_attack()/2 + 1
 	var damage : int = half_damage + randi_range(0,half_damage)
-	var reduction_half : int = target.get_defense()/2
-	var defense_reduction : int = reduction_half #+ randi_range(0,reduction_half)
-	var final_damage = damage - defense_reduction
+	#var reduction_half : int = target.get_defense()/2
+	#var defense_reduction : int = reduction_half #+ randi_range(0,reduction_half)
+	#var final_damage = damage - defense_reduction
+	var final_damage = damage
 	if(final_damage <= 0):
 		final_damage = 1
 	var pkg := BattlePkg.new()
