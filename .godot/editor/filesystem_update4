@@ -71,3 +71,6 @@ res://familiars/L2_stalf.tscn
 res://sprites/spritesheets/familiars/L2_stalf.tres
 res://familiars/L2_byle.tscn
 res://sprites/spritesheets/familiars/L2_byle.tres
+res://scripts/battle_system/actions/action_heal.gd
+res://utility/faders/heal_glow_blue.tscn
+res://battle/actions/action_heal.tscn

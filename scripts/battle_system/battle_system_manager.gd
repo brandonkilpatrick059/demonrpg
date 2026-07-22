@@ -547,11 +547,20 @@ func position_message():
 			3:
 				position_at_slot = 0
 		var pos_slot : Node2D
-		if(current_actor.is_hostile()):
-			pos_slot = opponent_positions[position_at_slot]
-		else:
-			pos_slot = player_positions[position_at_slot]
-		message.global_position = pos_slot.global_position
+		if(current_actor != null &&
+		current_targets != null &&
+		current_targets[0] != null):
+			if((current_actor.is_hostile() &&
+			not current_targets[0].is_hostile()) ||
+			(not current_actor.is_hostile() &&
+			not current_targets[0].is_hostile())):
+				pos_slot = opponent_positions[position_at_slot]
+			elif((not current_actor.is_hostile() &&
+			current_targets[0].is_hostile()) ||
+			(current_actor.is_hostile() &&
+			current_targets[0].is_hostile())):
+				pos_slot = player_positions[position_at_slot]
+			message.global_position = pos_slot.global_position
 
 func reset_message_position():
 	message.global_position = global_position

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cwaw606w62g4y"]
+
+[ext_resource type="Script" uid="uid://u0krtg1oviy0" path="res://scripts/battle_system/actions/action_heal.gd" id="1_ytr6v"]
+
+[node name="ActionHeal" type="Node" unique_id=918915832]
+script = ExtResource("1_ytr6v")
