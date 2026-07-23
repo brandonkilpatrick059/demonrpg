@@ -74,3 +74,17 @@ res://sprites/spritesheets/familiars/L2_byle.tres
 res://scripts/battle_system/actions/action_heal.gd
 res://utility/faders/heal_glow_blue.tscn
 res://battle/actions/action_heal.tscn
+res://sprites/spritesheets/battle/actions/fire.tres
+res://battle/effects/fire_main_effect.tscn
+res://scripts/utility/queue_free_after_seconds.gd
+res://battle/effects/fire_second_effect.tscn
+res://scripts/utility/particle_drift.gd
+res://battle/effects/attack_effect.tscn
+res://scripts/battle_system/actions/action_fire.gd
+res://battle/actions/action_fire.tscn
+res://battle/actions/action_burn.tscn
+res://scripts/utility/play_default_animation.gd
+res://scripts/battle_system/actions/action_burn.gd
+res://scripts/battle_system/buffs/burn_buff_Effect.gd
+res://scripts/battle_system/buffs/burn_buff_effect.gd
+res://battle/actions/buffs/burn_buff_effect.tscn

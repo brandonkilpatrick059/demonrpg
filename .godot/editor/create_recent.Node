@@ -1,8 +1,9 @@
+Node
+FadeNode
 AnimatedSprite2D
+Node2D
 Sprite2D
 Label
 RichTextLabel
 Camera2D
-Node
 Polygon2D
-Node2D

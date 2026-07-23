@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://liljiant507k"]
+
+[ext_resource type="Script" uid="uid://dai4wq0igjpw3" path="res://scripts/battle_system/buffs/burn_buff_effect.gd" id="1_5gsqx"]
+[ext_resource type="Texture2D" uid="uid://coh1ovivpqfs6" path="res://sprites/battle/interface/buff_symbols/burn.png" id="2_5gsqx"]
+[ext_resource type="PackedScene" uid="uid://b1qqq4o0wvert" path="res://battle/actions/action_burn.tscn" id="3_5gorm"]
+
+[node name="BurnBuffEffect" type="Node2D" unique_id=1994436220]
+script = ExtResource("1_5gsqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1941476371]
+position = Vector2(0, -32)
+texture = ExtResource("2_5gsqx")
+
+[node name="ActionBurn" parent="." unique_id=918915832 instance=ExtResource("3_5gorm")]

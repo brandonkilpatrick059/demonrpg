@@ -47,8 +47,8 @@ func visual_effects(pkg : BattlePkg):
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
-	var half_magic : int = actor.get_magic()/2 + 1
-	var heal : int = half_magic + randi_range(0,half_magic)
+	var base_heal : int = actor.get_magic()/2 + 1
+	var heal : int = base_heal + randi_range(0,base_heal)
 	var final_damage = heal
 	if(final_damage <= 0):
 		final_damage = 1

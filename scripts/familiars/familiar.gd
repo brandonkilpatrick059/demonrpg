@@ -228,8 +228,15 @@ func update_buffs():
 	for buff : BattleBuff in battle_buffs:
 		if(buff != null):
 			buff.add_round_active()
+	run_status_effects()
 	clean_buffs_list()
 	arrange_buffs()
+
+func run_status_effects():
+	for buff : BattleBuff in battle_buffs:
+		if(buff != null &&
+		buff.is_status_effect()):
+			buff.apply_status_effect()
 
 func play_one_shot_animation(name : String):
 	sprite.play(name)

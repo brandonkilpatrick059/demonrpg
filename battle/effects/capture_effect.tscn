@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1secp4b88arp"]
 
-[ext_resource type="Script" uid="uid://3ro3pqt7whqn" path="res://utility/queu_free_child_animation_end.gd" id="1_1bew1"]
+[ext_resource type="Script" uid="uid://3ro3pqt7whqn" path="res://scripts/utility/queue_free_child_animation_end.gd" id="1_1bew1"]
 [ext_resource type="SpriteFrames" uid="uid://dxaiodo5xkil7" path="res://sprites/spritesheets/battle/actions/pentacle_seal.tres" id="2_w173s"]
 [ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="3_quc68"]
 
@@ -9,5 +9,5 @@ script = ExtResource("1_1bew1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=370593356]
 sprite_frames = ExtResource("2_w173s")
-frame_progress = 0.061104298
+frame_progress = 0.75323933
 script = ExtResource("3_quc68")

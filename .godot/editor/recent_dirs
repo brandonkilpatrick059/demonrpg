@@ -1,5 +1,7 @@
-res://sprites/spritesheets/familiars/
+res://scripts/utility/
 res://sprites/spritesheets/battle/actions/
+res://
+res://sprites/spritesheets/familiars/
 res://scripts/battle_system/interface/
 res://sprites/spritesheets/battle/interface/
 res://sprites/spritesheets/player/
@@ -8,4 +10,3 @@ res://battle/interface/
 res://battle/actions/
 res://scripts/battle_system/
 res://familiars/
-res://scripts/utility/

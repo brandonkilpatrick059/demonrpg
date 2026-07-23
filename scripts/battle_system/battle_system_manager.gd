@@ -65,6 +65,7 @@ class ActionQueueItem:
 var player_action_queue : Array[ActionQueueItem] = []
 var opponent_action_queue : Array[ActionQueueItem] = []
 var combined_action_queue : Array[ActionQueueItem] = []
+var special_action_queue : Array[ActionQueueItem] = []
 
 func _ready() -> void:
 	wait_timer.one_shot = true
@@ -80,6 +81,31 @@ set_opponent_familiars : Array[Familiar]):
 	player_familiars = set_player_familiars
 	opponent_familiars = set_opponent_familiars
 	initialize_familiars()
+
+func get_adjacent_familiars(to_familiar : Familiar) -> Array[Familiar]:
+	var adjacent_familiars : Array[Familiar] = []
+	var index = 0
+	if(to_familiar.is_hostile()):
+		index = opponent_positions.find(to_familiar.get_parent())
+		var left_index = index - 1
+		var right_index = index + 1
+		if(left_index >= 0):
+			if(opponent_positions[left_index].get_child_count() > 0):
+				adjacent_familiars.append(opponent_positions[left_index].get_child(0))
+		if(right_index < opponent_positions.size()):
+			if(opponent_positions[right_index].get_child_count() > 0):
+				adjacent_familiars.append(opponent_positions[right_index])
+	else:
+		index = player_positions.find(to_familiar.get_parent().get_child(0))
+		var left_index = index - 1
+		var right_index = index + 1
+		if(left_index >= 0):
+			if(player_positions[left_index].get_child_count() > 0):
+				adjacent_familiars.append(player_positions[left_index].get_child(0))
+		if(right_index < player_positions.size()):
+			if(player_positions[right_index].get_child_count() > 0):
+				adjacent_familiars.append(player_positions[right_index].get_child(0))
+	return adjacent_familiars
 
 func fade_in():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
@@ -191,6 +217,9 @@ func add_capture_action(familiar : Familiar):
 
 func set_capture_accepted():
 	capture_accepted = true
+
+func append_special_action_queue(action : ActionQueueItem):
+	special_action_queue.append(action)
 
 #region Process
 func _physics_process(delta: float) -> void:
@@ -640,6 +669,10 @@ func get_combined_action_queue():
 		insert_into_combined_action_queue(opponent_action)
 	for player_action in player_action_queue:
 		insert_into_combined_action_queue(player_action)
+	if(special_action_queue.size() > 0):
+		while(special_action_queue.size() > 0):
+			var special_action = special_action_queue.pop_front()
+			combined_action_queue.append(special_action)
 	if(capture_accepted):
 		add_capture_action(target_capture)
 

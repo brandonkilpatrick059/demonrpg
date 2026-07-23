@@ -6,20 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_o8krk"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_36hl5"]
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_5osgx"]
+[ext_resource type="PackedScene" uid="uid://hrqg21n0eng2" path="res://battle/actions/action_fire.tscn" id="7_s3hwt"]
 
 [node name="L2stalf" type="Node2D" unique_id=246003526]
 script = ExtResource("1_3pkbe")
 familiar_name = "Stalf"
-max_hp = 10
-current_hp = 10
+max_hp = 15
+current_hp = 15
 attack = 2
 defense = 2
-magic = 3
+magic = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
 sprite_frames = ExtResource("2_3pkbe")
 animation = &"magic"
-frame_progress = 0.97269076
+frame_progress = 0.2664876
 
 [node name="actions" type="Node" parent="." unique_id=1087267566]
 
@@ -34,3 +35,6 @@ opponent_choice_weight = 0.1
 
 [node name="EvilEye" parent="actions" unique_id=2103181957 instance=ExtResource("6_5osgx")]
 opponent_choice_weight = 0.4
+
+[node name="ActionFire" parent="actions" unique_id=2035244666 instance=ExtResource("7_s3hwt")]
+opponent_choice_weight = 0.7
