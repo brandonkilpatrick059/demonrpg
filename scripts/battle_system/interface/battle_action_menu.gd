@@ -2,7 +2,7 @@ class_name BattleActionMenu extends Node2D
 
 @onready var background : AnimatedSprite2D = $background
 @onready var energy_gauge : AnimatedSprite2D = $energy_bar
-@onready var num_act_tab : Sprite2D = $num_act_tab
+@onready var num_acts_tab : Sprite2D = $num_act_tab
 
 var tabs : Array[ActionMenuTab] = []
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 		tabs.append(child)
 
 	#action number tabs are off by default
-	num_act_tab.visible = false
+	num_acts_tab.visible = false
 	
 	#TODO: buses and stuff
 	add_child(audio_player)
@@ -44,6 +44,7 @@ func set_active():
 func set_inactive():
 	visible = false
 	active = false
+	num_acts_tab.visible = false
 
 func update_selected():
 	var index = 0
@@ -67,6 +68,11 @@ func set_actions(actions : Array[BattleAction]):
 			tabs[index].set_inactive()
 		index = index + 1
 	background.frame = actions.size() - 1
+
+func set_num_turns_label(current_turn : int, total_turns: int):
+	var text = str(str(current_turn,"/"),total_turns)
+	$num_act_tab/Label.text = text
+	num_acts_tab.visible = true
 
 func handle_input():
 	if(active):

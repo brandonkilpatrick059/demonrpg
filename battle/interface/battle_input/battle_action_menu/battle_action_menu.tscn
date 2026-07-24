@@ -4,7 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://b3dnjyow36a8x" path="res://battle/interface/battle_input/battle_action_menu/action_menu_tab.tscn" id="2_5vl7x"]
 [ext_resource type="SpriteFrames" uid="uid://xng0w2ulb4wl" path="res://sprites/spritesheets/battle/interface/battle_energy_bar.tres" id="3_5vl7x"]
 [ext_resource type="Texture2D" uid="uid://bm7o0kgyrv8oh" path="res://sprites/battle/interface/battle_num_act_tab.png" id="4_xukji"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="5_0gv78"]
 [ext_resource type="SpriteFrames" uid="uid://4ci8hesla7cn" path="res://sprites/spritesheets/battle/interface/battle_action_menu.tres" id="6_0gv78"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("5_0gv78")
+font_size = 8
 
 [node name="BattleActionMenu" type="Node2D" unique_id=1589695393]
 script = ExtResource("1_ae6hk")
@@ -42,6 +47,14 @@ sprite_frames = ExtResource("3_5vl7x")
 [node name="num_act_tab" type="Sprite2D" parent="." unique_id=1489898208]
 position = Vector2(28, -44)
 texture = ExtResource("4_xukji")
+
+[node name="Label" type="Label" parent="num_act_tab" unique_id=1331639499]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1/1"
+label_settings = SubResource("LabelSettings_cea73")
 
 [node name="background" type="AnimatedSprite2D" parent="." unique_id=638594432]
 z_index = -1

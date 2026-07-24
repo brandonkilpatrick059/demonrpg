@@ -24,6 +24,7 @@ func set_active():
 
 func set_inactive():
 	visible = false
+	num_acts_tab.visible = false
 	active = false
 
 func set_energy_gauge(num : int):
@@ -39,6 +40,11 @@ func is_finished_animating() -> bool:
 
 func set_name_label(text : String):
 	label.parse_bbcode(text)
+
+func set_num_turns_label(current_turn : int, total_turns: int):
+	var text = str(str(current_turn,"/"),total_turns)
+	$num_acts_tab/Label.text = text
+	num_acts_tab.visible = true
 
 func handle_input():
 	if(active):

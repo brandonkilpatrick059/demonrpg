@@ -266,11 +266,12 @@ var status_shown : bool = false
 func input_process():
 	if(player_familiar_index < player_familiars.size()):
 		var current_familiar = player_familiars[player_familiar_index]
+		var num_actions : int = current_familiar.get_num_actions()
 		if(current_familiar != null && not current_familiar.is_dead()):
 			if(not input_phase_entered):
 				update_buffs()
 				input_phase_entered = true
-			elif(not familiar_in_action_queue(current_familiar)):
+			elif(familiar_actions_in_queue(current_familiar) != num_actions):
 				if(not status_shown):
 					show_status(current_familiar)
 					status_shown = true
@@ -293,6 +294,9 @@ func show_status(familiar : Familiar):
 	var dont_animate : bool = true
 	status.set_hp_gauge(hp_fraction,current_hp,max_hp,dont_animate)
 	status.set_energy_gauge(familiar.get_current_energy())
+	if(familiar.get_num_actions() > 1):
+		var current_turns = familiar.get_actions_taken() + 1
+		status.set_num_turns_label(current_turns,familiar.get_num_actions())
 	status.set_active()
 	awaiting_input = true
 
@@ -301,6 +305,9 @@ func show_action_menu(familiar : Familiar):
 	var height = -16 - action_menu.get_height()
 	action_menu.global_position = familiar.global_position + Vector2(0,height)
 	action_menu.set_energy_gauge(familiar.get_current_energy())
+	if(familiar.get_num_actions() > 1):
+		var current_turns = familiar.get_actions_taken() + 1
+		action_menu.set_num_turns_label(current_turns,familiar.get_num_actions())
 	action_menu.set_active()
 
 func reset_show_status():
@@ -312,6 +319,13 @@ func familiar_in_action_queue(familiar : Familiar) -> bool:
 		if(action_item.actor == familiar):
 			return true
 	return false
+
+func familiar_actions_in_queue(familiar : Familiar) -> int:
+	var num_actions : int = 0
+	for action_item : ActionQueueItem in player_action_queue:
+		if(action_item.actor == familiar):
+			num_actions = num_actions + 1
+	return num_actions
 #endregion
 #region Input Capture Phase
 var begin_capture_offered : bool = false
@@ -460,18 +474,25 @@ func queue_player_action():
 	var new_action = ActionQueueItem.new(actor,action,targets)
 	player_action_queue.append(new_action)
 	advance_player_familiar_index()
-
+ 
 func advance_player_familiar_index():
-	player_familiar_index = player_familiar_index + 1
-	while(player_familiar_index < player_familiars.size() &&
-	player_familiars[player_familiar_index].is_dead()): #skip dead ones
+	var current_familiar : Familiar = player_familiars[player_familiar_index]
+	var actions_taken : int = current_familiar.get_actions_taken()
+	var num_actions : int = current_familiar.get_num_actions()
+	if(actions_taken < num_actions):
+		current_familiar.action_taken()
+	else:
+		current_familiar.reset_actions_taken()
 		player_familiar_index = player_familiar_index + 1
-	if(player_familiar_index >= player_familiars.size()):
-		if(can_offer_capture() != null):
-			current_phase = BattlePhase.INPUT_CAPTURE
-		else:
-			current_phase = BattlePhase.BATTLE
-		player_familiar_index = 0
+		while(player_familiar_index < player_familiars.size() &&
+		player_familiars[player_familiar_index].is_dead()): #skip dead ones
+			player_familiar_index = player_familiar_index + 1
+		if(player_familiar_index >= player_familiars.size()):
+			if(can_offer_capture() != null):
+				current_phase = BattlePhase.INPUT_CAPTURE
+			else:
+				current_phase = BattlePhase.BATTLE
+			player_familiar_index = 0
 
 func can_offer_capture() -> Familiar:
 	var player : Player = get_tree().get_first_node_in_group("player")
@@ -724,23 +745,26 @@ func get_opponent_actions():
 		if(opponent.is_dead()):
 			continue
 		else:
-			var opponent_actions : Array[BattleAction] = opponent.get_actions()
-			var potential_actions : Array[BattleAction] = []
-			#opponents should only choose actions where there are valid targets
-			for action in opponent_actions:
-				if(get_opponent_targetable_familiars(action).size() > 0 &&
-				opponent.current_energy >= action.get_energy_cost()):
-					potential_actions.append(action)
-			var chosen_action : BattleAction
-			var cadence_action : BattleAction = opponent.get_next_action()
-			if(cadence_action in potential_actions):
-				chosen_action = cadence_action
-			else:
-				chosen_action = get_randomized_action(potential_actions)
-			var potential_targets : Array[Familiar] = get_opponent_targetable_familiars(chosen_action)
-			var chosen_targets : Array[Familiar] = get_targets(chosen_action, potential_targets)
-			var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
-			opponent_action_queue.append(opponent_action_item)
+			while(opponent.get_actions_taken() < opponent.get_num_actions()):
+				var opponent_actions : Array[BattleAction] = opponent.get_actions()
+				var potential_actions : Array[BattleAction] = []
+				#opponents should only choose actions where there are valid targets
+				for action in opponent_actions:
+					if(get_opponent_targetable_familiars(action).size() > 0 &&
+					opponent.current_energy >= action.get_energy_cost()):
+						potential_actions.append(action)
+				var chosen_action : BattleAction
+				var cadence_action : BattleAction = opponent.get_next_action()
+				if(cadence_action in potential_actions):
+					chosen_action = cadence_action
+				else:
+					chosen_action = get_randomized_action(potential_actions)
+				var potential_targets : Array[Familiar] = get_opponent_targetable_familiars(chosen_action)
+				var chosen_targets : Array[Familiar] = get_targets(chosen_action, potential_targets)
+				var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
+				opponent_action_queue.append(opponent_action_item)
+				opponent.action_taken()
+			opponent.reset_actions_taken()
 
 func get_randomized_action(potential_actions : Array[BattleAction]) -> BattleAction:
 	var chosen_action : BattleAction

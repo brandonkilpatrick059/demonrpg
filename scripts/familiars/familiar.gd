@@ -18,6 +18,7 @@ var stats : Array[String] =[
 @export var speed : int = 1
 @export var magic : int = 1
 @export var num_actions : int = 1
+var actions_taken = 0
 
 var max_energy = 4
 var current_energy = 0
@@ -72,6 +73,15 @@ func get_exp_value() -> int:
 	total = total + speed
 	total = total + magic
 	return total
+
+func get_actions_taken() -> int:
+	return actions_taken
+
+func action_taken():
+	actions_taken = actions_taken + 1
+
+func reset_actions_taken():
+	actions_taken = 0
 
 func get_next_action() -> BattleAction:
 	var current_cadence : Array[String] = get_action_cadence(current_action_cadence)
@@ -296,6 +306,12 @@ func run_status_effects():
 func play_one_shot_animation(name : String):
 	sprite.play(name)
 	one_shot_animating = true
+
+func get_num_actions() -> int:
+	return num_actions
+
+func set_num_actions(num : int):
+	num_actions = num
 
 func _physics_process(delta: float) -> void:
 	if(one_shot_animating &&

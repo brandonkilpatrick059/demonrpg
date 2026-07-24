@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="6_2sibk"]
 [ext_resource type="Texture2D" uid="uid://b5itq2bbe8xam" path="res://sprites/battle/interface/buff_symbols/shield_symbol.png" id="7_n1hur"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("4_nsi0d")
+font_size = 8
+
 [node name="BattleStatus" type="Node2D" unique_id=2019142930]
 script = ExtResource("1_75mxf")
 
@@ -21,6 +25,14 @@ sprite_frames = ExtResource("2_lfhr3")
 [node name="num_acts_tab" type="Sprite2D" parent="." unique_id=1219094693]
 position = Vector2(24, -28)
 texture = ExtResource("3_nsi0d")
+
+[node name="Label" type="Label" parent="num_acts_tab" unique_id=378710741]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "2/2"
+label_settings = SubResource("LabelSettings_cea73")
 
 [node name="name_label" type="RichTextLabel" parent="." unique_id=578644034]
 offset_left = -30.0
