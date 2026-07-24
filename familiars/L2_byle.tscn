@@ -11,8 +11,8 @@
 [node name="L2byle" type="Node2D" unique_id=246003526]
 script = ExtResource("1_wqke7")
 familiar_name = "Byle"
-max_hp = 10
-current_hp = 10
+max_hp = 15
+current_hp = 15
 attack = 2
 defense = 2
 magic = 5

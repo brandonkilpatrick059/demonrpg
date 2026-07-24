@@ -9,6 +9,7 @@ var stats : Array[String] =[
 	"magic",
 	"num_actions"
 ]
+
 @export var familiar_name : String = ""
 @export var max_hp : int = 1
 @export var current_hp : int = 1
@@ -51,8 +52,12 @@ var stat_increase_value : int = 0
 var stat_increase : String = ""
 
 func gen_stat_increase():
-	var random_index = randi_range(0,stats.size()-2)
-	stat_increase = stats[random_index]
+	#max health is twice as likely as all others
+	if(randf_range(0.0,1.0) < 0.5):
+		stat_increase = stats[0]
+	else:
+		var random_index = randi_range(0,stats.size()-2)
+		stat_increase = stats[random_index]
 	stat_increase_value = randi_range(1,3)
 
 func get_exp_value() -> int:
@@ -119,25 +124,28 @@ func add_battle_buff(new_buff : BattleBuff):
 			var battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 			battle_sys_ref.add_child(new_buff)
 			battle_buffs.append(new_buff)
-			arrange_buffs()
+		arrange_buffs()
 
 func arrange_buffs():
 	clean_buffs_list()
+	var buff_y = -32
+	if(not is_hostile()):
+		buff_y = 32
 	match battle_buffs.size():
 		1:
-			battle_buffs[0].global_position = global_position
+			battle_buffs[0].global_position = global_position + Vector2(0,buff_y)
 		2:
-			battle_buffs[0].global_position = global_position + Vector2(-8,0)
-			battle_buffs[1].global_position = global_position + Vector2(8,0)
+			battle_buffs[0].global_position = global_position + Vector2(-8,buff_y)
+			battle_buffs[1].global_position = global_position + Vector2(8,buff_y)
 		3:
-			battle_buffs[0].global_position = global_position + Vector2(-12,0)
-			battle_buffs[1].global_position = global_position + Vector2(0,0)
-			battle_buffs[2].global_position = global_position + Vector2(12,0)
+			battle_buffs[0].global_position = global_position + Vector2(-12,buff_y)
+			battle_buffs[1].global_position = global_position + Vector2(0,buff_y)
+			battle_buffs[2].global_position = global_position + Vector2(12,buff_y)
 		4:
-			battle_buffs[0].global_position = global_position + Vector2(-16,0)
-			battle_buffs[1].global_position = global_position + Vector2(-8,0)
-			battle_buffs[2].global_position = global_position + Vector2(8,0)
-			battle_buffs[3].global_position = global_position + Vector2(16,0)
+			battle_buffs[0].global_position = global_position + Vector2(-16,buff_y)
+			battle_buffs[1].global_position = global_position + Vector2(-8,buff_y)
+			battle_buffs[2].global_position = global_position + Vector2(8,buff_y)
+			battle_buffs[3].global_position = global_position + Vector2(16,buff_y)
 	
 
 func get_max_energy() -> int:

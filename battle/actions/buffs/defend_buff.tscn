@@ -12,14 +12,13 @@ font_color = Color(1, 0, 0, 1)
 script = ExtResource("1_vi3dl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1941476371]
-position = Vector2(0, -32)
 texture = ExtResource("2_p8a4a")
 
 [node name="Label" type="Label" parent="." unique_id=449188339]
 offset_left = -19.0
-offset_top = -43.0
+offset_top = -11.0
 offset_right = 21.0
-offset_bottom = -20.0
+offset_bottom = 12.0
 text = "500"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1

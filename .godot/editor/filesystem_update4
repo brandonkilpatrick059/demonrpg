@@ -88,3 +88,7 @@ res://scripts/battle_system/actions/action_burn.gd
 res://scripts/battle_system/buffs/burn_buff_Effect.gd
 res://scripts/battle_system/buffs/burn_buff_effect.gd
 res://battle/actions/buffs/burn_buff_effect.tscn
+res://scripts/battle_system/actions/action_block.gd
+res://battle/actions/action_block.tscn
+res://familiars/L2_dylith.tscn
+res://sprites/spritesheets/familiars/L2_dylith.tres

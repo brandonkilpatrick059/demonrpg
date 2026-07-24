@@ -130,6 +130,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		burn.set_source_and_target(actor,target)
 		target.add_battle_buff(burn)
 		visual_effects(pkg)
+		pay_energy_cost(actor)
 		made_attack = true
 	else:
 		exit_action()

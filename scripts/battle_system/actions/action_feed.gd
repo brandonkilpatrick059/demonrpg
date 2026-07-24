@@ -136,7 +136,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		else:
 			exit_action()
 	elif(not commenced_feed && feed_succeeded):
-		battle_sys_ref.start_wait_timer(1)
+		battle_sys_ref.start_wait_timer(0.5)
 		var target : Familiar = targets[0]
 		if(not target.is_dead()):
 			target.kill()

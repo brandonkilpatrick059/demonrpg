@@ -29,8 +29,10 @@ func set_inactive():
 func set_energy_gauge(num : int):
 	energy_gauge.frame = num
 
-func set_hp_gauge(fraction : float, no_animate : bool = false):
+func set_hp_gauge(fraction : float, current_hp : int, max_hp : int, no_animate : bool = false):
 	hp_gauge.set_gauge(fraction,no_animate)
+	var health_string = str(str(str(current_hp),"/"),max_hp)
+	$hp_label.parse_bbcode(health_string)
 
 func is_finished_animating() -> bool:
 	return hp_gauge.is_finished_animating()

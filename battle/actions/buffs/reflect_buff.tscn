@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cvr7ds41anwij" path="res://scripts/battle_system/buffs/reflect_buff.gd" id="1_yxna5"]
 [ext_resource type="Texture2D" uid="uid://cbh46yypj5vio" path="res://sprites/battle/interface/buff_symbols/reflect_symbol.png" id="2_yxna5"]
+[ext_resource type="Texture2D" uid="uid://b5itq2bbe8xam" path="res://sprites/battle/interface/buff_symbols/shield_symbol.png" id="3_jk85o"]
 
 [node name="ReflectBuff" type="Node2D" unique_id=1994436220]
 script = ExtResource("1_yxna5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1941476371]
-position = Vector2(0, -32)
+z_index = 1
+position = Vector2(0, -2)
 texture = ExtResource("2_yxna5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=808307057]
+texture = ExtResource("3_jk85o")

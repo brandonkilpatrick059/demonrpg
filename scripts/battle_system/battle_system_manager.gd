@@ -96,7 +96,7 @@ func get_adjacent_familiars(to_familiar : Familiar) -> Array[Familiar]:
 			if(opponent_positions[right_index].get_child_count() > 0):
 				adjacent_familiars.append(opponent_positions[right_index])
 	else:
-		index = player_positions.find(to_familiar.get_parent().get_child(0))
+		index = player_positions.find(to_familiar.get_parent())
 		var left_index = index - 1
 		var right_index = index + 1
 		if(left_index >= 0):
@@ -291,7 +291,7 @@ func show_status(familiar : Familiar):
 	var max_hp = familiar.get_max_hp()
 	var hp_fraction : float = float(current_hp) / float(max_hp)
 	var dont_animate : bool = true
-	status.set_hp_gauge(hp_fraction,dont_animate)
+	status.set_hp_gauge(hp_fraction,current_hp,max_hp,dont_animate)
 	status.set_energy_gauge(familiar.get_current_energy())
 	status.set_active()
 	awaiting_input = true
