@@ -9,7 +9,7 @@
 
 [node name="L2dylith" type="Node2D" unique_id=246003526]
 script = ExtResource("1_xrpie")
-familiar_name = "Braim"
+familiar_name = "Dylith"
 max_hp = 15
 current_hp = 15
 attack = 4
@@ -19,7 +19,7 @@ speed = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
 sprite_frames = ExtResource("2_xrpie")
 animation = &"die"
-frame_progress = 0.8417899
+frame_progress = 0.060583673
 
 [node name="actions" type="Node" parent="." unique_id=1697022532]
 

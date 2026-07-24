@@ -92,3 +92,5 @@ res://scripts/battle_system/actions/action_block.gd
 res://battle/actions/action_block.tscn
 res://familiars/L2_dylith.tscn
 res://sprites/spritesheets/familiars/L2_dylith.tres
+res://sprites/spritesheets/familiars/L2_gorgon.tres
+res://familiars/L2_gorgon.tscn
