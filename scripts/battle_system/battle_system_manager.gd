@@ -610,6 +610,17 @@ func get_next_action():
 			current_battle_action = current_action.get_action()
 			current_actor = current_action.get_actor()
 			current_targets = current_action.get_targets()
+			#get a new target for opoonent if their intended
+			#target has died
+			if((current_actor.is_hostile() &&
+			current_targets.size() == 1) &&
+			(current_targets[0] == null ||
+			current_targets[0].is_dead())):
+				var potential_targets: Array[Familiar] = []
+				potential_targets.append(get_opponent_targetable_familiars(current_battle_action))
+				var new_target = randi_range(0,potential_targets.size())
+				current_targets = [new_target]
+				
 	elif(combined_action_queue.size() == 0):
 		wait_timer.start(1.0)
 		return_to_input_phase()
@@ -721,25 +732,34 @@ func get_opponent_actions():
 				opponent.current_energy >= action.get_energy_cost()):
 					potential_actions.append(action)
 			var chosen_action : BattleAction
-			var action_chosen : bool = false
-			#try rolling for each action
-			for action : BattleAction in potential_actions:
-				var roll = randf_range(0.0,1.0)
-				if roll < action.get_choice_weight():
-					action_chosen = true
-					chosen_action = action
-			#if we didn't roll one, just take the highest
-			if(not action_chosen):
-				for action : BattleAction in potential_actions:
-					if(chosen_action == null):
-						chosen_action = action
-					else:
-						if action.get_choice_weight() > chosen_action.get_choice_weight():
-							chosen_action = action
+			var cadence_action : BattleAction = opponent.get_next_action()
+			if(cadence_action in potential_actions):
+				chosen_action = cadence_action
+			else:
+				chosen_action = get_randomized_action(potential_actions)
 			var potential_targets : Array[Familiar] = get_opponent_targetable_familiars(chosen_action)
 			var chosen_targets : Array[Familiar] = get_targets(chosen_action, potential_targets)
 			var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
 			opponent_action_queue.append(opponent_action_item)
+
+func get_randomized_action(potential_actions : Array[BattleAction]) -> BattleAction:
+	var chosen_action : BattleAction
+	var action_chosen : bool = false
+	#try rolling for each action
+	for action : BattleAction in potential_actions:
+		var roll = randf_range(0.0,1.0)
+		if roll < action.get_choice_weight():
+			action_chosen = true
+			chosen_action = action
+	#if we didn't roll one, just take the highest
+	if(not action_chosen):
+		for action : BattleAction in potential_actions:
+			if(chosen_action == null):
+				chosen_action = action
+			else:
+				if action.get_choice_weight() > chosen_action.get_choice_weight():
+					chosen_action = action
+	return chosen_action
 
 func get_targets(action : BattleAction,
 potential_targets : Array[Familiar]) -> Array[Familiar]:

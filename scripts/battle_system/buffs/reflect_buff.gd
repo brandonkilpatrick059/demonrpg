@@ -43,7 +43,7 @@ func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
 		battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 		battle_sys_ref.play_messages([get_announcement_english(buff_holder)])
 		battle_sys_ref.start_awaiting_input()
-		active = false
+		#active = false
 	return pkg
 
 func _physics_process(delta: float) -> void:

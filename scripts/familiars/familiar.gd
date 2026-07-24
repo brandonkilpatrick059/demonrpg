@@ -40,6 +40,11 @@ var actions : Array[BattleAction] = []
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var actions_parent : Node = $actions
+@export var action_cadence_0 : Array[String]
+@export var action_cadence_1 : Array[String]
+@export var action_cadence_2 : Array[String]
+var current_action_cadence : int = 0
+var action_cadence_index : int = 0
 
 var hostile : bool = false
 var dead : bool = false
@@ -67,6 +72,48 @@ func get_exp_value() -> int:
 	total = total + speed
 	total = total + magic
 	return total
+
+func get_next_action() -> BattleAction:
+	var current_cadence : Array[String] = get_action_cadence(current_action_cadence)
+	var ret_action : BattleAction
+	if(action_cadence_index < current_cadence.size()):
+		var action_name = current_cadence[action_cadence_index]
+		ret_action = get_action_by_name(action_name)
+		action_cadence_index = action_cadence_index + 1
+	else:
+		action_cadence_index = 0
+		randomize_action_cadence()
+		current_cadence = get_action_cadence(current_action_cadence)
+		var action_name = current_cadence[action_cadence_index]
+		ret_action = get_action_by_name(action_name)
+		action_cadence_index = action_cadence_index + 1
+	return ret_action
+
+func randomize_action_cadence():
+	var num_cadences = 0
+	#always at least one cadence
+	if(action_cadence_1.size() > 0):
+		num_cadences = num_cadences + 1
+	if(action_cadence_2.size() > 0):
+		num_cadences = num_cadences + 1
+	action_cadence_index = randi_range(0,num_cadences)
+
+func get_action_by_name(name : String) -> BattleAction:
+	for action : BattleAction in actions:
+		if(action.get_action_name() == name):
+			return action
+	return null
+
+func get_action_cadence(index : int) -> Array[String]:
+	match index:
+		0:
+			return action_cadence_0
+		1:
+			return action_cadence_1
+		2:
+			return action_cadence_2
+		_:
+			return action_cadence_0
 
 func is_capture_offered() -> bool:
 	return capture_offered

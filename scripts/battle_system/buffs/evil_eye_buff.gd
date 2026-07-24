@@ -22,7 +22,8 @@ func stack(stack_buff : BattleBuff):
 	return
 
 func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
-	if(buff_holder in pkg.targets):
+	if(buff_holder in pkg.targets &&
+	pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
 		var new_final_damage = pkg.get_final_damage()
 		new_final_damage = new_final_damage * 2
 		pkg.set_final_damage(new_final_damage)

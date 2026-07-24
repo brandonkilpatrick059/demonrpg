@@ -25,7 +25,7 @@ frame_progress = 0.2664876
 [node name="actions" type="Node" parent="." unique_id=1087267566]
 
 [node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_yrp47")]
-opponent_choice_weight = 0.5
+opponent_choice_weight = 0.4
 
 [node name="ActionDefend" parent="actions" unique_id=650851647 instance=ExtResource("4_o8krk")]
 opponent_choice_weight = 0.1
