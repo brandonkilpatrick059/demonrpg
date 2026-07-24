@@ -99,6 +99,24 @@ func get_next_action() -> BattleAction:
 		action_cadence_index = action_cadence_index + 1
 	return ret_action
 
+func get_capture_range() -> int:
+	if(max_hp <= 5):
+		return 3
+	elif(max_hp <= 10):
+		return 5
+	elif(max_hp <= 20):
+		return 5
+	elif(max_hp <= 30):
+		return 6
+	elif(max_hp <= 40):
+		return 6
+	elif(max_hp <= 50):
+		return 7
+	elif(max_hp <= 60):
+		return 7
+	else:
+		return 8
+
 func randomize_action_cadence():
 	var num_cadences = 0
 	#always at least one cadence

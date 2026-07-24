@@ -52,7 +52,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		var battle_sys_ref : BattleSystemManager
 		battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 		battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
-		pay_energy_cost(actor)
+		#pay_energy_cost(actor)
 		made_defense = true
 	else:
 		battle_sys_ref.start_wait_timer(1.0)

@@ -28,8 +28,9 @@ func get_action_name() -> String:
 	return action_name
 
 func pay_energy_cost(actor : Familiar):
-	var current_energy = actor.get_current_energy()
-	actor.set_current_energy(current_energy - energy_cost)
+	if(energy_cost > 0):
+		var current_energy = actor.get_current_energy()
+		actor.set_current_energy(current_energy - energy_cost)
 
 func clean_up():
 	pass

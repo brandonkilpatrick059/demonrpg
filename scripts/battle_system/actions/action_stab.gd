@@ -128,7 +128,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		pkg = apply_buffs_to_pkg(pkg)
 		apply_pkg_to_target(pkg)
 		visual_effects(pkg)
-		pay_energy_cost(actor)
+		#pay_energy_cost(actor)
 		made_attack = true
 	else:
 		exit_action()

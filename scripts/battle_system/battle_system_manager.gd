@@ -471,6 +471,7 @@ func queue_player_action():
 	var actor : Familiar = player_familiars[player_familiar_index]
 	var action : BattleAction = targeting_action
 	var targets : Array[Familiar] = targeted_familiars
+	action.pay_energy_cost(actor)
 	var new_action = ActionQueueItem.new(actor,action,targets)
 	player_action_queue.append(new_action)
 	advance_player_familiar_index()
@@ -500,7 +501,7 @@ func can_offer_capture() -> Familiar:
 	var null_familiar : Familiar = null
 	if(pentacles > 0 && player_familiars.size() < 4):
 		for familiar in opponent_familiars:
-			var hp_fraction : int = familiar.get_max_hp()/3
+			var hp_fraction : int = familiar.get_capture_range()
 			var current_hp = familiar.get_current_hp()
 			if(current_hp <= hp_fraction and
 			not familiar.is_dead() and
