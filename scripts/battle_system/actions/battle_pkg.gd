@@ -4,13 +4,14 @@ var actor : Familiar
 var targets : Array[Familiar] = []
 var damage_type : BattleAction.DamageType = BattleAction.DamageType.NONE
 
-var final_damage : int = 0
+var final_damages : Array[int] = [0]
 
-func set_final_damage(num : int):
-	final_damage = num
+func set_final_damages(num : Array[int]):
+	final_damages.clear()
+	final_damages.append_array(num)
 
-func get_final_damage() -> int:
-	return final_damage
+func get_final_damages() -> Array[int]:
+	return final_damages
 
 func set_damage_type(type : BattleAction.DamageType):
 	damage_type = type

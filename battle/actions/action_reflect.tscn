@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfnuubvl43rki"]
 
-[ext_resource type="Script" uid="uid://b0er8e8h04bqv" path="res://scripts/battle_system/actions/action_reflect.gd" id="1_ichpy"]
+[ext_resource type="Script" uid="uid://b0er8e8h04bqv" path="res://scripts/battle_system/actions/buff/action_reflect.gd" id="1_ichpy"]
 
 [node name="ActionReflect" type="Node" unique_id=918915832]
 script = ExtResource("1_ichpy")

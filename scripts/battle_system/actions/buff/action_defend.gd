@@ -3,8 +3,6 @@ extends BattleAction
 var announced_defense : bool = false
 var made_defense : bool = false
 
-var friendly_english : String = "your "
-var hostile_english : String = "hostile "
 var announcment_english : String = "[TEAM][ACTOR] defends [TEAM][TARGET]"
 var announcment_english_reflexive : String = "[TEAM][ACTOR] defends itself"
 
@@ -26,7 +24,7 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 	return ret_string
 
 func _ready() -> void:
-	action_name = "BLOCK"
+	action_name = "DEFEND"
 	target_type = TargetType.ANY_ALLY
 
 func clean_up():
@@ -46,8 +44,8 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 	elif(not made_defense):
 		var target : Familiar = targets[0]
 		var defense_buff = load("res://battle/actions/buffs/defend_buff.tscn").instantiate()
-		var base_defense : int = actor.get_defense()
-		var damage_reduction : int = base_defense + randi_range(0,base_defense)
+		var half_defense : int = (actor.get_defense() / 2)
+		var damage_reduction : int = half_defense + randi_range(0,half_defense)
 		if(damage_reduction == 0):
 			damage_reduction = 1
 		defense_buff.set_damage_reduction(damage_reduction)

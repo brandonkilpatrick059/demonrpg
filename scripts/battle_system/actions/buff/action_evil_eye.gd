@@ -3,8 +3,6 @@ extends BattleAction
 var announced_magic : bool = false
 var cast_magic : bool = false
 
-var friendly_english : String = "your "
-var hostile_english : String = "hostile "
 var announcment_english : String = "[TEAM][ACTOR] curses [TEAM2][TARGET]"
 
 var battle_sys_ref : BattleSystemManager

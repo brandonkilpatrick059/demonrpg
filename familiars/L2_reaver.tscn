@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://2kvawkd11f4"]
+
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_0vh1m"]
+[ext_resource type="SpriteFrames" uid="uid://ugsh5mkugroi" path="res://sprites/spritesheets/familiars/L2_reaver.tres" id="2_0vh1m"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_hbid2"]
+[ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_ghff4"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_q2ri4"]
+[ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_4pvi6"]
+[ext_resource type="PackedScene" uid="uid://crvk28vjomaix" path="res://battle/actions/action_slice.tscn" id="7_0emw3"]
+
+[node name="L2reaver" type="Node2D" unique_id=246003526]
+script = ExtResource("1_0vh1m")
+familiar_name = "Reaver"
+max_hp = 15
+current_hp = 15
+attack = 8
+defense = 2
+speed = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
+sprite_frames = ExtResource("2_0vh1m")
+frame_progress = 0.30761135
+
+[node name="actions" type="Node" parent="." unique_id=1697022532]
+
+[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_hbid2")]
+opponent_choice_weight = 0.4
+
+[node name="ActionDefend" parent="actions" unique_id=1518047527 instance=ExtResource("4_ghff4")]
+
+[node name="ActionFeed" parent="actions" unique_id=1039797395 instance=ExtResource("5_q2ri4")]
+opponent_choice_weight = 0.1
+
+[node name="ActionStab" parent="actions" unique_id=716614691 instance=ExtResource("6_4pvi6")]
+opponent_choice_weight = 0.6
+
+[node name="ActionSlice" parent="actions" unique_id=1101241536 instance=ExtResource("7_0emw3")]

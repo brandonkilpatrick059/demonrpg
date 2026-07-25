@@ -7,8 +7,6 @@ var announced_failure : bool = false
 
 var battle_sys_ref : BattleSystemManager
 
-var friendly_english : String = "your "
-var hostile_english : String = "hostile "
 var announcment_english : String = "[TEAM][ACTOR] wants to eat [TEAM2][TARGET]..."
 var success_english : String = "[TEAM][ACTOR] eats [TEAM2][TARGET]"
 var failure_english : String = "but [TEAM][ACTOR] cannot eat [TEAM2][TARGET]"

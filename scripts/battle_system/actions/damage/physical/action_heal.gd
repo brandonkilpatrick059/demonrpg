@@ -5,8 +5,6 @@ var made_heal : bool = false
 
 var battle_sys_ref : BattleSystemManager
 
-var friendly_english : String = "your "
-var hostile_english : String = "hostile "
 var announcment_english : String = "[TEAM][ACTOR] heals [TEAM][TARGET]"
 
 func get_announcement(actor : Familiar, target : Familiar) -> String:
@@ -54,7 +52,7 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 		final_damage = 1
 	var pkg := BattlePkg.new()
 	pkg.set_damage_type(get_damage_type())
-	pkg.set_final_damage(final_damage)
+	pkg.set_final_damages([final_damage])
 	pkg.set_actor(actor)
 	pkg.set_targets(targets)
 	return pkg

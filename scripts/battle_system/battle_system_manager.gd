@@ -82,7 +82,7 @@ set_opponent_familiars : Array[Familiar]):
 	opponent_familiars = set_opponent_familiars
 	initialize_familiars()
 
-func get_adjacent_familiars(to_familiar : Familiar) -> Array[Familiar]:
+func get_adjacent_familiars(to_familiar : Familiar, left_only : bool = false) -> Array[Familiar]:
 	var adjacent_familiars : Array[Familiar] = []
 	var index = 0
 	if(to_familiar.is_hostile()):
@@ -92,7 +92,7 @@ func get_adjacent_familiars(to_familiar : Familiar) -> Array[Familiar]:
 		if(left_index >= 0):
 			if(opponent_positions[left_index].get_child_count() > 0):
 				adjacent_familiars.append(opponent_positions[left_index].get_child(0))
-		if(right_index < opponent_positions.size()):
+		if(right_index < opponent_positions.size() && not left_only):
 			if(opponent_positions[right_index].get_child_count() > 0):
 				adjacent_familiars.append(opponent_positions[right_index])
 	else:
@@ -102,10 +102,11 @@ func get_adjacent_familiars(to_familiar : Familiar) -> Array[Familiar]:
 		if(left_index >= 0):
 			if(player_positions[left_index].get_child_count() > 0):
 				adjacent_familiars.append(player_positions[left_index].get_child(0))
-		if(right_index < player_positions.size()):
+		if(right_index < player_positions.size() && not left_only):
 			if(player_positions[right_index].get_child_count() > 0):
 				adjacent_familiars.append(player_positions[right_index].get_child(0))
 	return adjacent_familiars
+	
 
 func fade_in():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
@@ -390,6 +391,10 @@ func get_targetable_familiars(action : BattleAction):
 			for familiar in player_familiars:
 				if(not familiar.is_dead()):
 					unsorted_targets.append(familiar)
+		BattleAction.TargetType.TWO_ADJACENT_OPPONENT:
+			for opponent in opponent_familiars:
+				if(not opponent.is_dead()):
+					unsorted_targets.append(opponent)
 		BattleAction.TargetType.ANY_DEAD:
 			for opponent in opponent_familiars:
 				if(opponent.is_dead()):
@@ -428,6 +433,8 @@ func handle_target_input():
 			handle_single_target_input()
 		BattleAction.TargetType.ANY_BUT_SELF:
 			handle_single_target_input()
+		BattleAction.TargetType.TWO_ADJACENT_OPPONENT:
+			handle_two_adjacent_target_input()
 	if(input_gate_timer.is_stopped()):
 		if(Input.is_action_just_pressed("action_1")):
 			play_sound(load("res://audio/effects/bell_quicker.ogg"))
@@ -465,6 +472,40 @@ func handle_single_target_input():
 			current_target = targetable_familiars[index]
 		targeted_familiars.clear()
 		targeted_familiars.append(current_target)
+		update_sel_arrows()
+
+func handle_two_adjacent_target_input():
+	var current_target : Familiar
+	if(targeted_familiars.size() == 0 &&
+	targetable_familiars.size() > 0):
+		current_target = targetable_familiars[1]
+		targeted_familiars.append(current_target)
+		var left_familiar = get_adjacent_familiars(current_target,true)
+		targeted_familiars.append_array(left_familiar)
+		update_sel_arrows()
+	elif(targetable_familiars.size() > 0):
+		current_target = targeted_familiars[0]
+		var left_familiar = get_adjacent_familiars(current_target,true)
+		targeted_familiars.append_array(left_familiar)
+		update_sel_arrows()
+	if(Input.is_action_just_pressed("left") ||
+	 Input.is_action_just_pressed("right")):
+		play_sound(load("res://audio/effects/bell_first.ogg"))
+		var index = targetable_familiars.find(current_target)
+		if(Input.is_action_just_pressed("left")):
+			index = index - 1
+			if(index < 1):
+				index = targetable_familiars.size() - 1
+			current_target = targetable_familiars[index]
+		elif(Input.is_action_just_pressed("right")):
+			index = index + 1
+			if(index >= targetable_familiars.size()):
+				index = 1
+			current_target = targetable_familiars[index]
+		targeted_familiars.clear()
+		targeted_familiars.append(current_target)
+		var left_familiar : Array[Familiar] = get_adjacent_familiars(current_target,true)
+		targeted_familiars.append_array(left_familiar)
 		update_sel_arrows()
 
 func queue_player_action():
@@ -795,7 +836,7 @@ potential_targets : Array[Familiar]) -> Array[Familiar]:
 			ret_array.append_array(opponent_select_single_target(potential_targets))
 		BattleAction.TargetType.ANY_ALLY:
 			ret_array.append_array(opponent_select_single_target(potential_targets))
-		BattleAction.TargetType.ANY_DEAD:
+		BattleAction.TargetType.TWO_ADJACENT_OPPONENT:
 			pass
 	return ret_array
 

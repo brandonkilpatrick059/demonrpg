@@ -5,10 +5,7 @@ var made_attack : bool = false
 
 var battle_sys_ref : BattleSystemManager
 
-var friendly_english : String = "your "
-var hostile_english : String = "hostile "
-var announcment_english : String = "[TEAM2][TARGET] is burned"
-var slain_english : String = "[TEAM][TARGET] is slain"
+var announcment_english : String = "[TEAM][ACTOR] stabs [TEAM2][TARGET]"
 
 func get_announcement(actor : Familiar, target : Familiar) -> String:
 	var ret_string = announcment_english.replace("[ACTOR]",actor.get_familiar_name())
@@ -36,10 +33,10 @@ func get_slain_message(actor : Familiar, target : Familiar) -> String:
 	return ret_string
 
 func _ready() -> void:
-	action_name = "BURN"
+	action_name = "STAB"
 	target_type = TargetType.ANY_OPPONENT
-	damage_type = DamageType.MAGIC
-	energy_cost = 0
+	energy_cost = 2
+	damage_type = DamageType.PHYSICAL
 
 func clean_up():
 	announced_attack = false
@@ -49,29 +46,34 @@ func visual_effects(pkg : BattlePkg):
 	var final_damage : int = pkg.get_final_damage()
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
-	if(target != null):
-		actor.play_one_shot_animation("magic")
-		var glow_red_node = load("res://utility/faders/attack_glow_red.tscn").instantiate()
-		target.add_child(glow_red_node)
-		var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
-		battle_sys_ref.add_child(hp_particle)
-		var attack_effect = load("res://battle/effects/fire_main_effect.tscn").instantiate()
-		battle_sys_ref.add_child(attack_effect)
-		hp_particle.global_position = target.global_position
-		attack_effect.global_position = target.global_position
-		hp_particle.set_particle(str(final_damage),Color(1.0, 0.26, 0.201, 1.0))
-		battle_sys_ref.play_sound(load("res://audio/effects/fire.ogg"))
+	actor.play_one_shot_animation("attack")
+	var glow_red_node = load("res://utility/faders/attack_glow_red.tscn").instantiate()
+	target.add_child(glow_red_node)
+	if(actor.is_hostile()):
+		var emerge_node = load("res://utility/faders/fade_in_and_back.tscn").instantiate()
+		actor.add_child(emerge_node)
+	var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
+	battle_sys_ref.add_child(hp_particle)
+	var attack_effect = load("res://battle/effects/stab_effect.tscn").instantiate()
+	battle_sys_ref.add_child(attack_effect)
+	hp_particle.global_position = target.global_position
+	attack_effect.global_position = target.global_position
+	hp_particle.set_particle(str(final_damage),Color(1.0, 0.26, 0.201, 1.0))
+	battle_sys_ref.play_sound(load("res://audio/effects/hit_2.ogg"))
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
-	var base_damage : int = (actor.get_magic() / 2) + 1
-	var damage : int = base_damage + randi_range(0,base_damage)
+	var full_damage : int = actor.get_attack()
+	var damage : int = full_damage + randi_range(0,actor.get_attack())
+	#var reduction_half : int = target.get_defense()/2
+	#var defense_reduction : int = reduction_half #+ randi_range(0,reduction_half)
+	#var final_damage = damage - defense_reduction
 	var final_damage = damage
 	if(final_damage <= 0):
 		final_damage = 1
 	var pkg := BattlePkg.new()
 	pkg.set_damage_type(get_damage_type())
-	pkg.set_final_damage(final_damage)
+	pkg.set_final_damages([final_damage])
 	pkg.set_actor(actor)
 	pkg.set_targets(targets)
 	return pkg
@@ -80,28 +82,23 @@ func apply_pkg_to_target(pkg : BattlePkg):
 	var final_damage : int = pkg.get_final_damage()
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
-	if(target != null):
-		var target_hp = target.current_hp
-		var new_target_hp = target_hp - final_damage
-		if(new_target_hp <= 0):
-			new_target_hp = 0
-			if(!target.is_dead()):
-				target.kill()
-				battle_sys_ref.play_sound(load("res://audio/effects/die.ogg"))
-				var slain_message : String = get_slain_message(actor, target)
-				battle_sys_ref.play_messages([slain_message])
-		target.set_current_hp(new_target_hp)
+	var target_hp = target.current_hp
+	var new_target_hp = target_hp - final_damage
+	if(new_target_hp <= 0):
+		new_target_hp = 0
+		if(!target.is_dead()):
+			kill_target(actor,target)
+	target.set_current_hp(new_target_hp)
 
 func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
-	if(target != null && actor != null):
-		for buff : BattleBuff in actor.get_battle_buffs():
-			if(buff != null):
-				pkg = buff.apply_to_pkg(actor,pkg)
-		for buff : BattleBuff in target.get_battle_buffs(): 
-			if(buff != null):
-				pkg = buff.apply_to_pkg(target,pkg)
+	for buff : BattleBuff in actor.get_battle_buffs():
+		if(buff != null):
+			pkg = buff.apply_to_pkg(actor,pkg)
+	for buff : BattleBuff in target.get_battle_buffs(): 
+		if(buff != null):
+			pkg = buff.apply_to_pkg(target,pkg)
 	return pkg
 
 func exit_action():
@@ -125,6 +122,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		pkg = apply_buffs_to_pkg(pkg)
 		apply_pkg_to_target(pkg)
 		visual_effects(pkg)
+		#pay_energy_cost(actor)
 		made_attack = true
 	else:
 		exit_action()

@@ -24,9 +24,13 @@ func stack(stack_buff : BattleBuff):
 func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
 	if(buff_holder in pkg.targets &&
 	pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
-		var new_final_damage = pkg.get_final_damage()
+		var buff_holder_index = pkg.get_targets().find(buff_holder)
+		var new_final_damage = pkg.get_final_damages()[buff_holder_index]
 		new_final_damage = new_final_damage * 2
-		pkg.set_final_damage(new_final_damage)
+		var new_final_damages = []
+		new_final_damages.append_array(pkg.get_final_damages())
+		new_final_damages.set(buff_holder_index,new_final_damage)
+		pkg.set_final_damages(new_final_damages)
 		var battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 		battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
 		active = false

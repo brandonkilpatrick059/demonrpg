@@ -5,10 +5,7 @@ var made_attack : bool = false
 
 var battle_sys_ref : BattleSystemManager
 
-var friendly_english : String = "your "
-var hostile_english : String = "hostile "
 var announcment_english : String = "[TEAM][ACTOR] burns [TEAM2][TARGET]"
-var slain_english : String = "[TEAM][TARGET] is slain"
 
 func get_announcement(actor : Familiar, target : Familiar) -> String:
 	var ret_string = announcment_english.replace("[ACTOR]",actor.get_familiar_name())
@@ -68,9 +65,10 @@ func visual_effects(pkg : BattlePkg):
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
-	var base_damage : int = actor.get_magic() / 2
+	var base_damage : int = actor.get_magic()
+	var damage_reduction : int = target.get_magic() / 2
 	var damage : int = base_damage + randi_range(0,base_damage)
-	var final_damage = damage
+	var final_damage = damage - randi_range(0,damage_reduction)
 	if(final_damage <= 0):
 		final_damage = 1
 	var pkg := BattlePkg.new()
@@ -89,10 +87,7 @@ func apply_pkg_to_target(pkg : BattlePkg):
 	if(new_target_hp <= 0):
 		new_target_hp = 0
 		if(!target.is_dead()):
-			target.kill()
-			battle_sys_ref.play_sound(load("res://audio/effects/die.ogg"))
-			var slain_message : String = get_slain_message(actor, target)
-			battle_sys_ref.play_messages([slain_message])
+			kill_target(actor,target)
 	target.set_current_hp(new_target_hp)
 
 func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
