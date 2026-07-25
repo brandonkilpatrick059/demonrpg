@@ -41,6 +41,8 @@ var familiars_initialized : bool = false
 var input_phase_entered : bool = false
 var battle_closed : bool = false
 
+var player_deployed : bool = false
+
 class ActionQueueItem:
 	var actor : Familiar = null
 	var action : BattleAction = null
@@ -673,7 +675,7 @@ func get_next_action():
 			current_battle_action = current_action.get_action()
 			current_actor = current_action.get_actor()
 			current_targets = current_action.get_targets()
-			#get a new target for opoonent if their intended
+			#get a new target for opponent if their intended
 			#target has died
 			if((current_actor.is_hostile() &&
 			current_targets.size() == 1) &&
@@ -771,7 +773,7 @@ func insert_into_combined_action_queue(insert_item : ActionQueueItem):
 				new_combined_action_queue.append(item)
 			#if they have equal speed, choose randomly between them
 			elif(item.get_actor().get_speed() == insert_item.get_actor().get_speed()):
-				if(randi_range(0,1.0) < 0.5 ): #coin toss
+				if(randi_range(0.0,1.0) < 0.5 ): #coin toss
 					if(not new_combined_action_queue.has(insert_item)):
 						new_combined_action_queue.append(insert_item)
 						item_appended = true
@@ -837,13 +839,34 @@ potential_targets : Array[Familiar]) -> Array[Familiar]:
 		BattleAction.TargetType.ANY_ALLY:
 			ret_array.append_array(opponent_select_single_target(potential_targets))
 		BattleAction.TargetType.TWO_ADJACENT_OPPONENT:
-			pass
+			ret_array.append_array(opponent_select_two_adjacent_targets(potential_targets))
 	return ret_array
 
 func opponent_select_single_target(potential_targets : Array[Familiar]) -> Array[Familiar]:
 	var p_targets_num = potential_targets.size() - 1
 	var chosen_target = potential_targets[randi_range(0,p_targets_num)]
 	var ret_array : Array[Familiar] = [chosen_target]
+	return ret_array
+
+func opponent_select_two_adjacent_targets(potential_targets : Array[Familiar]) -> Array[Familiar]:
+	var index = 0
+	#prefer to return two adjacent targets if possible
+	var preferred_target_indexes : Array[int]
+	for target in potential_targets:
+		var left_adjacent : Array[Familiar] = []
+		left_adjacent.append_array(get_adjacent_familiars(target,true))
+		if(left_adjacent.size() > 0 && not left_adjacent[0].is_dead()):
+			preferred_target_indexes.append(index)
+		index = index + 1
+	var target_index = 1
+	if(preferred_target_indexes.size() > 0):
+		target_index = preferred_target_indexes[randi_range(0,preferred_target_indexes.size()-1)]
+	else:
+		target_index = randi_range(0,potential_targets.size())
+	var ret_array : Array[Familiar] = []
+	var root_target : Familiar = potential_targets[target_index]
+	ret_array.append(root_target)
+	ret_array.append_array(get_adjacent_familiars(root_target,true))
 	return ret_array
 
 func get_opponent_targetable_familiars(action : BattleAction) -> Array[Familiar]:
@@ -860,6 +883,10 @@ func get_opponent_targetable_familiars(action : BattleAction) -> Array[Familiar]
 			for familiar in opponent_familiars:
 				if(not familiar.is_dead()):
 					opponent_targetable_familiars.append(familiar)
+		BattleAction.TargetType.TWO_ADJACENT_OPPONENT:
+			for opponent in player_familiars:
+				if(not opponent.is_dead()):
+					opponent_targetable_familiars.append(opponent)
 		BattleAction.TargetType.ANY_DEAD:
 			pass
 	return opponent_targetable_familiars

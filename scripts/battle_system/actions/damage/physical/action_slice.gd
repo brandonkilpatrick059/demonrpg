@@ -76,7 +76,7 @@ func visual_effects(pkg : BattlePkg):
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var index : int = 0
 	var new_damages : Array[int] = []
-	while(index < 2):
+	while(index < targets.size()):
 		var target : Familiar = targets[index]
 		var full_damage : int = actor.get_attack()
 		var damage : int = full_damage + randi_range(0,actor.get_attack())
