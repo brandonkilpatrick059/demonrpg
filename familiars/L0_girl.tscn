@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_sbjf8"]
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_422nj"]
 
-[node name="L0girl" type="Node2D" unique_id=246003526 groups=["player"]]
+[node name="L0girl" type="Node2D" unique_id=246003526 groups=["player_familiar"]]
 script = ExtResource("1_kc233")
 familiar_name = "Girl"
 max_hp = 10
@@ -14,7 +14,7 @@ level = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
 sprite_frames = ExtResource("2_hlbq4")
-frame_progress = 0.041766454
+frame_progress = 0.6194002
 
 [node name="actions" type="Node" parent="." unique_id=1006645435]
 

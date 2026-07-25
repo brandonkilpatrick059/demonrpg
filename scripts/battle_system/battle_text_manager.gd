@@ -26,6 +26,14 @@ var capture_available_eng : Array[String] = [
 	"The [TARGET] is weak..."
 ]
 
+var player_deploy_eng : Array[String] = [
+	"You are alone and defenseless..."
+]
+
+var player_withdraw_eng : Array[String] = [
+	"Your familiars defend you."
+]
+
 func get_text(code : String) -> String:
 	var ret_string : String = ""
 	match code:
@@ -41,6 +49,10 @@ func get_text(code : String) -> String:
 			ret_string = random_string(battle_end_loss_eng)
 		"capture_available":
 			ret_string = random_string(capture_available_eng)
+		"player_deploy":
+			ret_string = random_string(player_deploy_eng)
+		"player_withdraw":
+			ret_string = random_string(player_withdraw_eng)
 	return ret_string
 
 func random_string(from_array : Array[String]) -> String:

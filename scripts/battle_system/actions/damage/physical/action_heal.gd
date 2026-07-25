@@ -73,9 +73,10 @@ func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	for buff : BattleBuff in actor.get_battle_buffs():
 		if(buff != null):
 			pkg = buff.apply_to_pkg(actor,pkg)
-	for buff : BattleBuff in target.get_battle_buffs(): 
-		if(buff != null):
-			pkg = buff.apply_to_pkg(target,pkg)
+	if(target != null):
+		for buff : BattleBuff in target.get_battle_buffs(): 
+			if(buff != null):
+				pkg = buff.apply_to_pkg(target,pkg)
 	return pkg
 
 func exit_action():

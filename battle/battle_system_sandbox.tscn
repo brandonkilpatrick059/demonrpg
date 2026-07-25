@@ -1,33 +1,22 @@
 [gd_scene format=3 uid="uid://d1hwdmd2h6inw"]
 
 [ext_resource type="PackedScene" uid="uid://d1yksn1grty30" path="res://battle/battle_system.tscn" id="1_13ec6"]
-[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/L1_martyr.tscn" id="3_8kxpe"]
-[ext_resource type="PackedScene" uid="uid://73r7ol0x5qyq" path="res://familiars/L2_shax.tscn" id="4_f717y"]
-[ext_resource type="PackedScene" uid="uid://2kvawkd11f4" path="res://familiars/L2_reaver.tscn" id="5_k5gt0"]
+[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/L0_homunculus.tscn" id="2_8kxpe"]
 [ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/girl.tres" id="5_ogmts"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="6_f717y"]
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=405016994]
 
-[node name="BattleSystem" parent="." unique_id=415039822 node_paths=PackedStringArray("opponent_familiars", "player_familiars") instance=ExtResource("1_13ec6")]
+[node name="BattleSystem" parent="." unique_id=415039822 node_paths=PackedStringArray("opponent_familiars") instance=ExtResource("1_13ec6")]
 position = Vector2(160, 90)
-opponent_familiars = [NodePath("opponents/L2reaver")]
-player_familiars = [NodePath("player/L2reaver"), NodePath("player/L1martyr"), NodePath("player/L1martyr4"), NodePath("player/L2shax")]
+opponent_familiars = [NodePath("opponents/L0Homunculus")]
 
 [node name="opponents" type="Node2D" parent="BattleSystem" unique_id=1262521247]
 
-[node name="L2reaver" parent="BattleSystem/opponents" unique_id=246003526 instance=ExtResource("5_k5gt0")]
-action_cadence_0 = Array[String](["SLICE", "SLICE", "SLICE", "SLICE"])
+[node name="L0Homunculus" parent="BattleSystem/opponents" unique_id=246003526 instance=ExtResource("2_8kxpe")]
+action_cadence_0 = Array[String](["FEED", "DEFEND", "FEED", "ATTACK"])
 
 [node name="player" type="Node2D" parent="BattleSystem" unique_id=212837606]
-
-[node name="L1martyr" parent="BattleSystem/player" unique_id=140442360 instance=ExtResource("3_8kxpe")]
-
-[node name="L1martyr4" parent="BattleSystem/player" unique_id=1086203573 instance=ExtResource("3_8kxpe")]
-
-[node name="L2shax" parent="BattleSystem/player" unique_id=1101931605 instance=ExtResource("4_f717y")]
-
-[node name="L2reaver" parent="BattleSystem/player" unique_id=424936337 instance=ExtResource("5_k5gt0")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=284835023]
 position = Vector2(160, 90)

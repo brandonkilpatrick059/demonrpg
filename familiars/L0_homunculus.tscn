@@ -8,7 +8,7 @@
 
 [node name="L0Homunculus" type="Node2D" unique_id=246003526]
 script = ExtResource("1_vn800")
-familiar_name = "Homunculus"
+familiar_name = "Soul"
 max_hp = 10
 current_hp = 10
 level = 0

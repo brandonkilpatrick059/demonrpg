@@ -55,3 +55,8 @@ res://scripts/battle_system/buffs/defend_buff.gd
 res://scripts/battle_system/buffs/evil_eye_buff.gd
 res://scripts/battle_system/actions/damage/physical/action_heal.gd
 res://scripts/battle_system/actions/damage/physical/action_slice.gd
+res://scripts/battle_system/battle_text_manager.gd
+res://scripts/battle_system/actions/damage/physical/action_stab.gd
+res://scripts/familiars/familiar.gd
+res://scripts/battle_system/actions/damage/magic/action_fire.gd
+res://familiars/L0_homunculus.tscn

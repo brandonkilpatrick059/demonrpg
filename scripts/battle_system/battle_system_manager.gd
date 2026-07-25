@@ -175,13 +175,16 @@ func initialize_familiars():
 		familiar.set_current_energy(0)
 		familiar.reset_energy()
 	
-	index = 0
-	for familiar in player_familiars:
-		familiar.reparent(player_positions[index])
-		familiar.position= Vector2(0,0)
-		familiar.set_current_energy(0)
-		familiar.reset_energy()
-		index = index + 1
+	if(player_familiars.size() == 0):
+		deploy_player()
+	else:
+		index = 0
+		for familiar in player_familiars:
+			familiar.reparent(player_positions[index])
+			familiar.position= Vector2(0,0)
+			familiar.set_current_energy(0)
+			familiar.reset_energy()
+			index = index + 1
 	
 	familiars_initialized = true
 
@@ -581,7 +584,12 @@ var have_combined_queue : bool = false
 
 func battle_process():
 	if(opponent_familiars.size() == 0 or player_is_dead()):
-		end_battle()
+		if(player_is_dead() && not player_deployed):
+			deploy_player()
+		elif(opponent_familiars.size() == 0 || (player_is_dead() && player_deployed)):
+			end_battle()
+	elif(count_living_on_side(player_familiars) > 1 && player_deployed):
+		withdraw_player()
 	elif(opponent_action_queue.size() == 0 && not opponent_is_dead()):
 		get_opponent_actions()
 	elif(not have_combined_queue):
@@ -594,6 +602,26 @@ func battle_process():
 	else:
 		run_actions_process()
 
+func deploy_player():
+	if player_positions[1].get_child_count() > 0:
+		player_positions[1].get_child(0).queue_free()
+	var player_familiar = load("res://familiars/L0_girl.tscn").instantiate()
+	player_familiars.append(player_familiar)
+	player_positions[1].add_child(player_familiar)
+	player_familiar.position = Vector2(0,0)
+	player_deployed = true
+	if(battle_started):
+		play_messages([text.get_text("player_deploy")])
+	clean_familiars()
+
+func withdraw_player():
+	player_deployed = false
+	player_familiars.erase(player_positions[1].get_child(0))
+	player_positions[1].get_child(0).queue_free()
+	if(battle_started):
+		play_messages([text.get_text("player_withdraw")])
+	clean_familiars()
+
 func end_battle():
 	current_phase = BattlePhase.END
 
@@ -602,6 +630,13 @@ func player_is_dead() -> bool:
 
 func opponent_is_dead() -> bool:
 	return side_is_dead(opponent_familiars)
+
+func count_living_on_side(side_familiars : Array[Familiar]) -> int:
+	var count : int = 0
+	for familiar in side_familiars:
+		if(not familiar.is_dead()):
+			count = count + 1
+	return count
 
 func side_is_dead(side_familiars : Array[Familiar]) -> bool:
 	var side_is_dead = true
@@ -675,6 +710,7 @@ func get_next_action():
 			current_battle_action = current_action.get_action()
 			current_actor = current_action.get_actor()
 			current_targets = current_action.get_targets()
+			current_battle_action.clean_up()
 			#get a new target for opponent if their intended
 			#target has died
 			if((current_actor.is_hostile() &&
@@ -840,6 +876,8 @@ potential_targets : Array[Familiar]) -> Array[Familiar]:
 			ret_array.append_array(opponent_select_single_target(potential_targets))
 		BattleAction.TargetType.TWO_ADJACENT_OPPONENT:
 			ret_array.append_array(opponent_select_two_adjacent_targets(potential_targets))
+		BattleAction.TargetType.ANY_BUT_SELF:
+			ret_array.append_array(opponent_select_single_target(potential_targets))
 	return ret_array
 
 func opponent_select_single_target(potential_targets : Array[Familiar]) -> Array[Familiar]:
@@ -858,7 +896,7 @@ func opponent_select_two_adjacent_targets(potential_targets : Array[Familiar]) -
 		if(left_adjacent.size() > 0 && not left_adjacent[0].is_dead()):
 			preferred_target_indexes.append(index)
 		index = index + 1
-	var target_index = 1
+	var target_index = 0
 	if(preferred_target_indexes.size() > 0):
 		target_index = preferred_target_indexes[randi_range(0,preferred_target_indexes.size()-1)]
 	else:
@@ -887,8 +925,12 @@ func get_opponent_targetable_familiars(action : BattleAction) -> Array[Familiar]
 			for opponent in player_familiars:
 				if(not opponent.is_dead()):
 					opponent_targetable_familiars.append(opponent)
-		BattleAction.TargetType.ANY_DEAD:
-			pass
+		BattleAction.TargetType.ANY_BUT_SELF:
+			for opponent in player_familiars:
+				opponent_targetable_familiars.append(opponent)
+			for familiar in opponent_familiars:
+				if(familiar != current_actor):
+					opponent_targetable_familiars.append(familiar)
 	return opponent_targetable_familiars
 
 #endregion

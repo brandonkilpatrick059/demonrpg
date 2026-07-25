@@ -94,9 +94,9 @@ func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	return pkg
 
 func exit_action():
+	clean_up()
 	battle_sys_ref.start_wait_timer(0.5)
 	battle_sys_ref.get_next_action()
-	clean_up()
 
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")

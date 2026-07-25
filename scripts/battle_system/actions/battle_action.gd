@@ -43,7 +43,7 @@ func get_action_name() -> String:
 
 func kill_target(actor: Familiar, target : Familiar):
 	target.kill()
-	if(not target.is_in_group("player")):
+	if(not target.is_in_group("player_familiar")):
 		var battle_sys_ref : BattleSystemManager
 		battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 		battle_sys_ref.play_sound(load("res://audio/effects/die.ogg"))
