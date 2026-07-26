@@ -33,7 +33,7 @@ var player_withdraw_eng : Array[String] = [
 ]
 
 var run_eng : Array[String] = [
-	"You manage to escape your enemies."
+	"You manage to escape."
 ]
 
 func get_text(code : String) -> String:

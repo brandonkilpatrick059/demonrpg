@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqw6cl8i2r2yy"
-path="res://.godot/imported/girl_spritesheet.png-ac1b0d16544be2002ea652e80b01ae31.ctex"
+uid="uid://bdheguljwsb3u"
+path="res://.godot/imported/player_head_spritesheet.png-d3114e8eab1d2d837a5439444ef0fc8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/player/girl_spritesheet.png"
-dest_files=["res://.godot/imported/girl_spritesheet.png-ac1b0d16544be2002ea652e80b01ae31.ctex"]
+source_file="res://sprites/spritesheets/player/player_head_spritesheet.png"
+dest_files=["res://.godot/imported/player_head_spritesheet.png-d3114e8eab1d2d837a5439444ef0fc8e.ctex"]
 
 [params]
 

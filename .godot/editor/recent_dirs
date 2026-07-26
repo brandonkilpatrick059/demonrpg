@@ -1,10 +1,11 @@
+res://sprites/spritesheets/player/
+res://sprites/
 res://sprites/spritesheets/familiars/
 res://scripts/utility/
 res://sprites/spritesheets/battle/actions/
 res://
 res://scripts/battle_system/interface/
 res://sprites/spritesheets/battle/interface/
-res://sprites/spritesheets/player/
 res://utility/
 res://battle/interface/
 res://battle/actions/

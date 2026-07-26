@@ -1,8 +1,24 @@
 [gd_scene format=3 uid="uid://bfr1438c6fbr0"]
 
 [ext_resource type="Script" uid="uid://deo8r5vnalunb" path="res://scripts/player/player.gd" id="1_oul6g"]
+[ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/player_body.tres" id="2_g1dw6"]
+[ext_resource type="SpriteFrames" uid="uid://cyivmganqtana" path="res://sprites/spritesheets/player/player_head.tres" id="3_yw30f"]
 
 [node name="Player" type="Node2D" unique_id=1870943045 groups=["player"]]
+z_index = 2
 script = ExtResource("1_oul6g")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052233739]
+[node name="body" type="AnimatedSprite2D" parent="." unique_id=1052233739]
+position = Vector2(12, -12)
+sprite_frames = ExtResource("2_g1dw6")
+animation = &"walk_down"
+frame_progress = 0.5140376
+
+[node name="head" type="AnimatedSprite2D" parent="." unique_id=84592426]
+position = Vector2(13, -12)
+sprite_frames = ExtResource("3_yw30f")
+animation = &"down"
+frame_progress = 0.2502282
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=935608453]
+position = Vector2(12, -12)

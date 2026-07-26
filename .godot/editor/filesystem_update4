@@ -67,3 +67,9 @@ res://scripts/battle_system/actions/buff/action_defend.gd
 res://scripts/battle_system/actions/special/action_feed.gd
 res://battle/actions/action_run.tscn
 res://scripts/battle_system/actions/special/action_run.gd
+res://locations/test_location.tscn
+res://sprites/tile_atlas.tres
+res://sprites/spritesheets/player/player_body.tres
+res://player/player.tscn
+res://sprites/spritesheets/player/player_head.tres
+res://scripts/player/player.gd
