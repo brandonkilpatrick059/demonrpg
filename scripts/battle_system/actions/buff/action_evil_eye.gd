@@ -20,7 +20,8 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 		team = friendly_english
 		team2 = hostile_english
 	ret_string = ret_string.replace("[TEAM]",team)
-	ret_string = ret_string.replace("[TEAM2]",team2)
+	if(not target.is_in_group("player_familiar")):
+		ret_string = ret_string.replace("[TEAM2]",team2)
 	return ret_string
 
 func _ready() -> void:

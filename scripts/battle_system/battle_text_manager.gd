@@ -13,9 +13,7 @@ var no_targets_eng : Array[String] = [
 ]
 
 var battle_end_victory_eng : Array[String] = [
-	"Nothing remains of your enemies.",
-	"Your enemies are defeated.",
-	"You have destroyed your enemies."
+	"Nothing remains."
 ]
 
 var battle_end_loss_eng : Array[String] = [
@@ -32,6 +30,10 @@ var player_deploy_eng : Array[String] = [
 
 var player_withdraw_eng : Array[String] = [
 	"Your familiars defend you."
+]
+
+var run_eng : Array[String] = [
+	"You manage to escape your enemies."
 ]
 
 func get_text(code : String) -> String:
@@ -53,6 +55,8 @@ func get_text(code : String) -> String:
 			ret_string = random_string(player_deploy_eng)
 		"player_withdraw":
 			ret_string = random_string(player_withdraw_eng)
+		"run":
+			ret_string = random_string(run_eng)
 	return ret_string
 
 func random_string(from_array : Array[String]) -> String:

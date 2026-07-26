@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1yksn1grty30" path="res://battle/battle_system.tscn" id="1_13ec6"]
 [ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/L0_homunculus.tscn" id="2_8kxpe"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_ogmts"]
 [ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/girl.tres" id="5_ogmts"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="6_f717y"]
 
@@ -10,6 +11,7 @@
 [node name="BattleSystem" parent="." unique_id=415039822 node_paths=PackedStringArray("opponent_familiars") instance=ExtResource("1_13ec6")]
 position = Vector2(160, 90)
 opponent_familiars = [NodePath("opponents/L0Homunculus")]
+music = ExtResource("2_ogmts")
 
 [node name="opponents" type="Node2D" parent="BattleSystem" unique_id=1262521247]
 

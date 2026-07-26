@@ -3,8 +3,8 @@ extends BattleAction
 var announced_defense : bool = false
 var made_defense : bool = false
 
-var announcment_english : String = "[TEAM][ACTOR] defends [TEAM][TARGET]"
-var announcment_english_reflexive : String = "[TEAM][ACTOR] defends itself"
+var announcment_english : String = "[TEAM][ACTOR] defends [TEAM][TARGET]."
+var announcment_english_reflexive : String = "[TEAM][ACTOR] defends itself."
 
 var battle_sys_ref : BattleSystemManager
 

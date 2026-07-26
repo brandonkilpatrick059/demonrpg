@@ -41,6 +41,7 @@ func get_target_type() -> TargetType:
 func get_action_name() -> String:
 	return action_name
 
+
 func kill_target(actor: Familiar, target : Familiar):
 	target.kill()
 	if(not target.is_in_group("player_familiar")):

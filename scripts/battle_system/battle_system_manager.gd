@@ -8,6 +8,7 @@ class_name BattleSystemManager extends Node2D
 
 @export var opponent_familiars : Array[Familiar] = []
 @export var player_familiars : Array[Familiar] = []
+@export var music : AudioStream = null
 
 var text := BattleText.new()
 
@@ -77,6 +78,8 @@ func _ready() -> void:
 	hide_all_interface()
 	set_up_audio()
 	add_to_group("battle_system")
+	if(music != null):
+		play_music(music)
 
 func set_familiars(set_player_familiars : Array[Familiar], 
 set_opponent_familiars : Array[Familiar]):
@@ -123,11 +126,7 @@ func fade_out():
 	$fade_to_black.add_child(fade_node)
 
 func set_up_audio():
-	#TODO: handle buses, dynamic music loading, etc
-	add_child(music_player)
-	music_player.stream = load("res://audio/music/battle_2.ogg")
-	music_player.play()
-	
+	add_child(music_player)	
 	var index : int = 0
 	var num_sound_players = 8
 	while(index < num_sound_players):
@@ -135,6 +134,10 @@ func set_up_audio():
 		add_child(new_sound_player)
 		audio_players.append(new_sound_player)
 		index = index + 1
+
+func play_music(sound : AudioStream):
+	music_player.stream = sound
+	music_player.play()
 
 func play_sound(sound : AudioStream):
 	for audio_player in audio_players:
@@ -371,7 +374,8 @@ func start_target_process(action : BattleAction):
 	targeting_action = action
 	end_awaiting_input()
 	get_targetable_familiars(targeting_action)
-	if(targetable_familiars.size() == 0):
+	if(targeting_action.get_target_type() != BattleAction.TargetType.NO_TARGET &&
+	targetable_familiars.size() == 0):
 		var no_targets : String = text.get_text("no_targets")
 		play_messages([no_targets])
 		reset_input_phase()
@@ -440,16 +444,21 @@ func handle_target_input():
 			handle_single_target_input()
 		BattleAction.TargetType.TWO_ADJACENT_OPPONENT:
 			handle_two_adjacent_target_input()
+		BattleAction.TargetType.NO_TARGET:
+			select_targets()
 	if(input_gate_timer.is_stopped()):
 		if(Input.is_action_just_pressed("action_1")):
-			play_sound(load("res://audio/effects/bell_quicker.ogg"))
-			reset_input_phase()
-			reset_show_status()
-			queue_player_action()
-			input_gate_timer.start(0.5)
+			select_targets()
 		elif(Input.is_action_just_pressed("action_2")):
 			reset_input_phase()
 			play_sound(load("res://audio/effects/brush_snare.ogg"))
+
+func select_targets():
+	play_sound(load("res://audio/effects/bell_quicker.ogg"))
+	reset_input_phase()
+	reset_show_status()
+	queue_player_action()
+	input_gate_timer.start(0.5)
 
 func handle_single_target_input():
 	var current_target : Familiar
@@ -625,6 +634,10 @@ func withdraw_player():
 func end_battle():
 	current_phase = BattlePhase.END
 
+func run_away():
+	end_battle()
+	close_battle(true)
+
 func player_is_dead() -> bool:
 	return side_is_dead(player_familiars)
 
@@ -678,6 +691,7 @@ func position_message():
 		var pos_slot : Node2D
 		if(current_actor != null &&
 		current_targets != null &&
+		current_targets.size() > 0 &&
 		current_targets[0] != null):
 			if((current_actor.is_hostile() &&
 			not current_targets[0].is_hostile()) ||
@@ -942,15 +956,20 @@ func end_process():
 		awaiting_input = true
 		fade_out()
 
-func close_battle():
+func close_battle(ran_away = false):
 	message.global_position = global_position
-	var victory : bool = not player_is_dead()
-	if(victory):
-		var victory_message : String = text.get_text("end_victory")
-		play_messages([victory_message])
+	if(not ran_away):
+		var victory : bool = not player_is_dead()
+		if(victory):
+			var victory_message : String = text.get_text("end_victory")
+			play_messages([victory_message])
+		else:
+			var defeat_message : String = text.get_text("end_defeat")
+			play_messages([defeat_message])
+		battle_closed = true
 	else:
-		var defeat_message : String = text.get_text("end_defeat")
-		play_messages([defeat_message])
-	battle_closed = true
+		var run_message : String = text.get_text("run")
+		play_messages([run_message])
+		battle_closed = true
 #endregion
 #endregion

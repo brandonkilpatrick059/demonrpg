@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://mqwwndfj3sls"]
+
+[ext_resource type="Script" uid="uid://dsumanmqsgh2c" path="res://scripts/battle_system/actions/special/action_run.gd" id="1_xtfhk"]
+
+[node name="ActionRun" type="Node" unique_id=918915832]
+script = ExtResource("1_xtfhk")

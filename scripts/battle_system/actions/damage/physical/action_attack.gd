@@ -6,9 +6,12 @@ var made_attack : bool = false
 var battle_sys_ref : BattleSystemManager
 
 var announcment_english : String = "[TEAM][ACTOR] attacks [TEAM2][TARGET]"
+var announcment_english_first_person : String = "[TEAM][ACTOR] attack [TEAM2][TARGET]"
 
 func get_announcement(actor : Familiar, target : Familiar) -> String:
 	var ret_string = announcment_english.replace("[ACTOR]",actor.get_familiar_name())
+	if(actor.is_in_group("player_familiar")):
+		ret_string = announcment_english_first_person.replace("[ACTOR]",actor.get_familiar_name())
 	ret_string = ret_string.replace("[TARGET]",target.get_familiar_name())
 	var team : String = ""
 	var team2 : String = ""
@@ -18,8 +21,14 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 	else:
 		team = friendly_english
 		team2 = hostile_english
-	ret_string = ret_string.replace("[TEAM]",team)
-	ret_string = ret_string.replace("[TEAM2]",team2)
+	if(not actor.is_in_group("player_familiar")):
+		ret_string = ret_string.replace("[TEAM]",team)
+	else:
+		ret_string = ret_string.replace("[TEAM]","")
+	if(not target.is_in_group("player_familiar")):
+		ret_string = ret_string.replace("[TEAM2]",team2)
+	else:
+		ret_string = ret_string.replace("[TEAM2]","")
 	return ret_string
 
 func _ready() -> void:

@@ -5,6 +5,7 @@ var made_defense : bool = false
 
 var announcment_english : String = "[TEAM][ACTOR] defends [TEAM][TARGET]"
 var announcment_english_reflexive : String = "[TEAM][ACTOR] defends itself"
+var announcement_english_reflexive_player : String = "You defend yourself."
 
 var battle_sys_ref : BattleSystemManager
 
@@ -12,10 +13,11 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 	var announcement : String = announcment_english
 	if(actor == target):
 		announcement = announcment_english_reflexive
+	if(actor.is_in_group("player_familiar")):
+		announcement = announcement_english_reflexive_player
 	var ret_string = announcement.replace("[ACTOR]",actor.get_familiar_name())
 	ret_string = ret_string.replace("[TARGET]",target.get_familiar_name())
 	var team : String = ""
-	var team2 : String = ""
 	if (actor.is_hostile()):
 		team = hostile_english
 	else:

@@ -30,7 +30,10 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 	else:
 		team2 = friendly_english
 	ret_string = ret_string.replace("[TEAM]",team)
-	ret_string = ret_string.replace("[TEAM2]",team2)
+	if(not target.is_in_group("player_familiar")):
+		ret_string = ret_string.replace("[TEAM2]",team2)
+	else:
+		ret_string = ret_string.replace("[TEAM2]","")
 	return ret_string
 
 func determine_feed_success(actor : Familiar, target : Familiar):

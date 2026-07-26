@@ -60,3 +60,10 @@ res://scripts/battle_system/actions/damage/physical/action_stab.gd
 res://scripts/familiars/familiar.gd
 res://scripts/battle_system/actions/damage/magic/action_fire.gd
 res://familiars/L0_homunculus.tscn
+res://scripts/battle_system/actions/damage/magic/action_burn.gd
+res://scripts/battle_system/actions/buff/action_evil_eye.gd
+res://scripts/battle_system/actions/buff/action_reflect.gd
+res://scripts/battle_system/actions/buff/action_defend.gd
+res://scripts/battle_system/actions/special/action_feed.gd
+res://battle/actions/action_run.tscn
+res://scripts/battle_system/actions/special/action_run.gd
