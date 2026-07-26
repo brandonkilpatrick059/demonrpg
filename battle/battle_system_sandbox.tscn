@@ -26,6 +26,7 @@ position = Vector2(160, 90)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=536485986]
 position = Vector2(-260, 54)
 sprite_frames = ExtResource("5_ogmts")
+animation = &"stand_left"
 
 [node name="Player" parent="." unique_id=1870943045 instance=ExtResource("6_f717y")]
 pentacle_charms = 3

@@ -10,8 +10,15 @@ var moving : bool = false
 
 @onready var body : AnimatedSprite2D = $body
 @onready var head : AnimatedSprite2D = $head
+@onready var flash_light : PointLight2D = $PointLight2D
+@onready var move_collider : Area2D = $move_collider
 
 var move_speed_vect : Vector2 = Vector2(0,0)
+
+@export var active : bool = false
+
+func _ready() -> void:
+	head.play(facing_direction)
 
 func get_familiars_team() -> Array[Familiar]:
 	return familiar_team
@@ -34,7 +41,6 @@ func set_pentacle_charms(num : int):
 	pentacle_charms = num
 
 func handle_input():
-	
 	if(Input.is_action_pressed("up")):
 		if(grid_aligned()):
 			walking = true
@@ -57,11 +63,18 @@ func handle_input():
 func handle_animation():
 	if(moving):
 		var animation_name : String =str("walk_",facing_direction)
-		body.play(animation_name)
+		if(body.animation != animation_name):
+			body.play(animation_name)
 	else:
 		var animation_name : String =str("stand_",facing_direction)
-		body.play(animation_name)
-	head.play(facing_direction)
+		if(body.animation != animation_name):
+			body.play(animation_name)
+	if(head.animation != facing_direction):
+		var keep_frame : int = head.frame
+		var keep_progress : float = head.frame_progress 
+		head.play(facing_direction)
+		head.frame = keep_frame
+		head.frame_progress = keep_progress
 
 func handle_movement():
 	if(walking):
@@ -69,14 +82,29 @@ func handle_movement():
 		if(grid_aligned()):
 			match facing_direction:
 				"up":
-					move_speed_vect = Vector2(0,-speed)
+					if($move_collider_up.get_overlapping_bodies().size() == 0):
+						move_speed_vect = Vector2(0,-speed)
+						moving = true
+					else:
+						move_speed_vect = Vector2(0,0)
 				"down":
-					move_speed_vect = Vector2(0,speed)
+					if($move_collider_down.get_overlapping_bodies().size() == 0):
+						move_speed_vect = Vector2(0,speed)
+						moving = true
+					else:
+						move_speed_vect = Vector2(0,0)
 				"left":
-					move_speed_vect = Vector2(-speed,0)
+					if($move_collider_left.get_overlapping_bodies().size() == 0):
+						move_speed_vect = Vector2(-speed,0)
+						moving = true
+					else:
+						move_speed_vect = Vector2(0,0)
 				"right":
-					move_speed_vect = Vector2(speed,0)
-		moving = true
+					if($move_collider_right.get_overlapping_bodies().size() == 0):
+						move_speed_vect = Vector2(speed,0)
+						moving = true
+					else:
+						move_speed_vect = Vector2(0,0)
 	else:
 		if(grid_aligned()):
 			move_speed_vect = Vector2(0,0)
@@ -86,8 +114,15 @@ func handle_movement():
 func grid_aligned() -> bool:
 	return fmod(global_position.x,24) == 0 && fmod(global_position.y,24) == 0
 
+func set_active():
+	active = true
+
+func set_inactive():
+	active = false
+
 func _physics_process(delta: float) -> void:
-	handle_input()
-	handle_animation()
-	handle_movement()
+	if(active):
+		handle_input()
+		handle_animation()
+		handle_movement()
 	
