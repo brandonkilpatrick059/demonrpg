@@ -127,7 +127,7 @@ func _physics_process(delta: float) -> void:
 				new_evolution = chosen_evolution.get_evolved_familiar(evolving_familiar)
 				new_evolution.modulate = Color(1,1,1,0)
 				add_child(new_evolution)
-				new_evolution.position = Vector2(0,0)
+				new_evolution.position = Vector2(0,-6)
 				start_evolving = false
 			elif($Timer.is_stopped() && !evolved):
 				evolving_familiar.kill()

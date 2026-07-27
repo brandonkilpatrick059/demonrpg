@@ -1,34 +1,61 @@
 [gd_scene format=3 uid="uid://c2fp2021t2vq8"]
 
-[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_am811"]
-[ext_resource type="SpriteFrames" uid="uid://coywtc41abane" path="res://sprites/spritesheets/familiars/L1_gark.tres" id="2_01o8p"]
-[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_c388a"]
-[ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_77ode"]
-[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_3a1ff"]
-[ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="5_77ode"]
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_ibjir"]
+[ext_resource type="SpriteFrames" uid="uid://coywtc41abane" path="res://sprites/spritesheets/familiars/L1_gark.tres" id="2_4v8pp"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_7tstx"]
+[ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_1iyrd"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_2gn7t"]
+[ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_gverm"]
+[ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_4rfjb"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_ord3u"]
 
-[node name="L1gark" type="Node2D" unique_id=246003526]
-script = ExtResource("1_am811")
+[node name="L1gark" type="Node2D" unique_id=246003526 node_paths=PackedStringArray("evolutions")]
+script = ExtResource("1_ibjir")
 familiar_name = "Gark"
 max_hp = 10
 current_hp = 10
 attack = 2
 defense = 2
 magic = 3
+evolutions = [NodePath("evolutions/stalf"), NodePath("evolutions/byle")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
-sprite_frames = ExtResource("2_01o8p")
+sprite_frames = ExtResource("2_4v8pp")
 
 [node name="actions" type="Node" parent="." unique_id=1087267566]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_c388a")]
+[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_7tstx")]
 opponent_choice_weight = 0.5
 
-[node name="ActionDefend" parent="actions" unique_id=650851647 instance=ExtResource("4_77ode")]
+[node name="ActionDefend" parent="actions" unique_id=650851647 instance=ExtResource("4_1iyrd")]
 opponent_choice_weight = 0.1
 
-[node name="ActionFeed" parent="actions" unique_id=1893116652 instance=ExtResource("5_3a1ff")]
+[node name="ActionFeed" parent="actions" unique_id=1893116652 instance=ExtResource("5_2gn7t")]
 opponent_choice_weight = 0.1
 
-[node name="EvilEye" parent="actions" unique_id=2103181957 instance=ExtResource("5_77ode")]
+[node name="EvilEye" parent="actions" unique_id=2103181957 instance=ExtResource("6_gverm")]
 opponent_choice_weight = 0.4
+
+[node name="evolutions" type="Node" parent="." unique_id=1871513216]
+
+[node name="stalf" type="Node" parent="evolutions" unique_id=303361924 node_paths=PackedStringArray("path_text")]
+script = ExtResource("7_4rfjb")
+path_text = NodePath("path_text")
+new_base_path = "res://familiars/base/L2_stalf.tscn"
+plus_magic = 5
+
+[node name="path_text" type="Node" parent="evolutions/stalf" unique_id=139569267]
+script = ExtResource("8_ord3u")
+language_map = Array[String](["english"])
+text = Array[String](["Path of Fire"])
+
+[node name="byle" type="Node" parent="evolutions" unique_id=2119832174 node_paths=PackedStringArray("path_text")]
+script = ExtResource("7_4rfjb")
+path_text = NodePath("path_text")
+new_base_path = "res://familiars/base/L2_byle.tscn"
+plus_magic = 5
+
+[node name="path_text" type="Node" parent="evolutions/byle" unique_id=2131172899]
+script = ExtResource("8_ord3u")
+language_map = Array[String](["english"])
+text = Array[String](["Path of Healing"])

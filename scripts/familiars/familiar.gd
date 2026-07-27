@@ -69,7 +69,7 @@ var stat_increase_value : int = 0
 var stat_increase : String = ""
 
 func is_ready_to_evolve() -> bool:
-	if(experience >= exp_req_for_level_up[level]):
+	if(experience >= exp_req_for_level_up[level] && evolutions.size() > 0):
 		return true
 	else:
 		return false

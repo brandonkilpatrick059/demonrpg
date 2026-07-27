@@ -87,3 +87,7 @@ res://interface/interface_message.tscn
 res://scripts/interface/interface_message.gd
 res://scripts/interface/familiar_evolve.gd
 res://scripts/battle_system/interface/battle_message.gd
+res://familiars/base/L1_braim.tscn
+res://familiars/base/L1_gark.tscn
+res://familiars/base/L1_martyr.tscn
+res://familiars/base/L2_stalf.tscn

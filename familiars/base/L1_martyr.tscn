@@ -1,34 +1,61 @@
 [gd_scene format=3 uid="uid://cji52mlwppvu1"]
 
-[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_7bugr"]
-[ext_resource type="SpriteFrames" uid="uid://dsew6vh6f7yp7" path="res://sprites/spritesheets/familiars/L1_martyr.tres" id="2_p0s8o"]
-[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_a4pue"]
-[ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_4u7hw"]
-[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_4u7hw"]
-[ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_0yn73"]
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_8xs36"]
+[ext_resource type="SpriteFrames" uid="uid://dsew6vh6f7yp7" path="res://sprites/spritesheets/familiars/L1_martyr.tres" id="2_6l1du"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_3amv8"]
+[ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_xfasu"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_krugs"]
+[ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_5hcx6"]
+[ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_0x1nh"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_16rrk"]
 
-[node name="L1martyr" type="Node2D" unique_id=246003526]
-script = ExtResource("1_7bugr")
+[node name="L1martyr" type="Node2D" unique_id=246003526 node_paths=PackedStringArray("evolutions")]
+script = ExtResource("1_8xs36")
 familiar_name = "Martyr"
 max_hp = 8
 current_hp = 8
 attack = 5
 defense = 2
 speed = 2
+evolutions = [NodePath("evolutions/reaver"), NodePath("evolutions/shax")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
-sprite_frames = ExtResource("2_p0s8o")
+sprite_frames = ExtResource("2_6l1du")
 
 [node name="actions" type="Node" parent="." unique_id=437306310]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_a4pue")]
+[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_3amv8")]
 opponent_choice_weight = 0.5
 
-[node name="ActionDefend" parent="actions" unique_id=1145210079 instance=ExtResource("4_4u7hw")]
+[node name="ActionDefend" parent="actions" unique_id=1145210079 instance=ExtResource("4_xfasu")]
 opponent_choice_weight = 0.4
 
-[node name="ActionFeed" parent="actions" unique_id=1424710821 instance=ExtResource("5_4u7hw")]
+[node name="ActionFeed" parent="actions" unique_id=1424710821 instance=ExtResource("5_krugs")]
 opponent_choice_weight = 0.2
 
-[node name="ActionStab" parent="actions" unique_id=1508152227 instance=ExtResource("6_0yn73")]
+[node name="ActionStab" parent="actions" unique_id=1508152227 instance=ExtResource("6_5hcx6")]
 opponent_choice_weight = 0.7
+
+[node name="evolutions" type="Node" parent="." unique_id=1237950952]
+
+[node name="reaver" type="Node" parent="evolutions" unique_id=475253229 node_paths=PackedStringArray("path_text")]
+script = ExtResource("7_0x1nh")
+path_text = NodePath("path_text")
+new_base_path = "res://familiars/base/L2_reaver.tscn"
+plus_attack = 5
+
+[node name="path_text" type="Node" parent="evolutions/reaver" unique_id=2144741759]
+script = ExtResource("8_16rrk")
+language_map = Array[String](["english"])
+text = Array[String](["Path of the Blade"])
+
+[node name="shax" type="Node" parent="evolutions" unique_id=154189146 node_paths=PackedStringArray("path_text")]
+script = ExtResource("7_0x1nh")
+path_text = NodePath("path_text")
+new_base_path = "res://familiars/base/L2_shax.tscn"
+plus_speed = 5
+
+[node name="path_text" type="Node" parent="evolutions/shax" unique_id=2142234483]
+script = ExtResource("8_16rrk")
+language_map = Array[String](["english"])
+text = Array[String](["Path of the Jackal"])

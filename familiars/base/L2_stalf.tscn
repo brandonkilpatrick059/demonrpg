@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://chd5ugll25mm6"]
 
-[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_3pkbe"]
-[ext_resource type="SpriteFrames" uid="uid://bmkudtatw844u" path="res://sprites/spritesheets/familiars/L2_stalf.tres" id="2_3pkbe"]
-[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_yrp47"]
-[ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_o8krk"]
-[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_36hl5"]
-[ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_5osgx"]
-[ext_resource type="PackedScene" uid="uid://hrqg21n0eng2" path="res://battle/actions/action_fire.tscn" id="7_s3hwt"]
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_b87nx"]
+[ext_resource type="SpriteFrames" uid="uid://bmkudtatw844u" path="res://sprites/spritesheets/familiars/L2_stalf.tres" id="2_0aapv"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_nijxc"]
+[ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_goa2t"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_dh08l"]
+[ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_olic2"]
+[ext_resource type="PackedScene" uid="uid://hrqg21n0eng2" path="res://battle/actions/action_fire.tscn" id="7_htyhr"]
 
 [node name="L2stalf" type="Node2D" unique_id=246003526]
-script = ExtResource("1_3pkbe")
+script = ExtResource("1_b87nx")
 familiar_name = "Stalf"
 max_hp = 15
 current_hp = 15
@@ -18,23 +18,23 @@ defense = 2
 magic = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
-sprite_frames = ExtResource("2_3pkbe")
+sprite_frames = ExtResource("2_0aapv")
 animation = &"magic"
 frame_progress = 0.2664876
 
 [node name="actions" type="Node" parent="." unique_id=1087267566]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_yrp47")]
+[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_nijxc")]
 opponent_choice_weight = 0.4
 
-[node name="ActionDefend" parent="actions" unique_id=650851647 instance=ExtResource("4_o8krk")]
+[node name="ActionDefend" parent="actions" unique_id=650851647 instance=ExtResource("4_goa2t")]
 opponent_choice_weight = 0.1
 
-[node name="ActionFeed" parent="actions" unique_id=1893116652 instance=ExtResource("5_36hl5")]
+[node name="ActionFeed" parent="actions" unique_id=1893116652 instance=ExtResource("5_dh08l")]
 opponent_choice_weight = 0.1
 
-[node name="EvilEye" parent="actions" unique_id=2103181957 instance=ExtResource("6_5osgx")]
+[node name="EvilEye" parent="actions" unique_id=2103181957 instance=ExtResource("6_olic2")]
 opponent_choice_weight = 0.4
 
-[node name="ActionFire" parent="actions" unique_id=2035244666 instance=ExtResource("7_s3hwt")]
+[node name="ActionFire" parent="actions" unique_id=2035244666 instance=ExtResource("7_htyhr")]
 opponent_choice_weight = 0.7
