@@ -42,6 +42,9 @@ func exit_action():
 
 func switch_to_player_familiars(target : Familiar):
 	battle_sys_ref.switch_familiar_to_player_familiars(target)
+	var player : Player = get_tree().get_first_node_in_group("player")
+	var charms : int = player.get_pentacle_charms() - 1
+	player.set_pentacle_charms(charms)
 	battle_sys_ref.play_sound(load("res://audio/effects/bell_full_low.ogg"))
 
 func action_process(actor : Familiar, targets : Array[Familiar]):
@@ -49,6 +52,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 	if(!announced_capture):
 		if(targets[0] != null):
 			var announcement : String = get_announcement()
+			battle_sys_ref.center_message()
 			battle_sys_ref.play_messages([announcement])
 			announced_capture = true
 		else:

@@ -20,6 +20,8 @@ var stats : Array[String] =[
 @export var num_actions : int = 1
 var actions_taken = 0
 
+@export var evolutions : Array[Evolution] = []
+
 var max_energy = 4
 var current_energy = 0
 var energy_depleted : bool = false
@@ -32,11 +34,18 @@ var capture_offered : bool = false
 var active : bool = false
 
 var exp_req_for_level_up : Array[int] = [
-	50, #Level 0 -> Level 1
-	500, #Level 1 -> Level 2
-	5000, #Level 2 -> level 3
-	50000, #Level 3 -> Level 4
+	10, #Level 0 -> Level 1
+	20, #Level 1 -> Level 2
+	30, #Level 2 -> level 3
+	40, #Level 3 -> Level 4
 ]
+
+#var exp_req_for_level_up : Array[int] = [
+	#50, #Level 0 -> Level 1
+	#500, #Level 1 -> Level 2
+	#5000, #Level 2 -> level 3
+	#50000, #Level 3 -> Level 4
+#]
 
 var actions : Array[BattleAction] = []
 
@@ -58,6 +67,15 @@ var one_shot_animating : bool = false
 
 var stat_increase_value : int = 0
 var stat_increase : String = ""
+
+func is_ready_to_evolve() -> bool:
+	if(experience >= exp_req_for_level_up[level]):
+		return true
+	else:
+		return false
+
+func get_evolutions() -> Array[Evolution]:
+	return evolutions
 
 func gen_stat_increase():
 	#max health is twice as likely as all others

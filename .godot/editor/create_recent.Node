@@ -1,4 +1,10 @@
+Timer
+AudioStreamPlayer
 Sprite2D
+Node
+Node2D
+Label
+RichTextLabel
 CollisionShape2D
 Area2D
 CollisionPolygon2D
@@ -7,9 +13,3 @@ PointLight2D
 CanvasModulate
 RigidBody2D
 Camera2D
-AnimatedSprite2D
-TileMap
-TileMapLayer
-Label
-Node2D
-Node

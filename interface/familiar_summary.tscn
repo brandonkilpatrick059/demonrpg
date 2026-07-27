@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://c1lfqegt2qsda"]
+
+[ext_resource type="Texture2D" uid="uid://dkfl8rq81sovm" path="res://sprites/interface/familiar_summary.png" id="1_bnoyi"]
+[ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="2_4kfdn"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="3_poctu"]
+[ext_resource type="Texture2D" uid="uid://b3nr6mi40doim" path="res://sprites/battle/guides/battle_system_grid.png" id="4_xbbee"]
+[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="5_poctu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("3_poctu")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_n3wst"]
+font = ExtResource("3_poctu")
+font_size = 8
+
+[node name="FamiliarSummary" type="Node2D" unique_id=2083043538]
+
+[node name="background" type="Sprite2D" parent="." unique_id=57485867]
+z_index = -2
+texture = ExtResource("1_bnoyi")
+
+[node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("2_4kfdn")]
+position = Vector2(-2, -91)
+
+[node name="hp" type="Label" parent="." unique_id=1168973327]
+offset_left = -31.0
+offset_top = -86.0
+offset_right = 27.0
+offset_bottom = -77.0
+text = "999/999"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+
+[node name="attack" type="Label" parent="." unique_id=746749340]
+offset_left = 48.0
+offset_top = -119.0
+offset_right = 94.0
+offset_bottom = -110.0
+text = "ATTACK : 999"
+label_settings = SubResource("LabelSettings_n3wst")
+
+[node name="magic" type="Label" parent="." unique_id=913464018]
+offset_left = 48.0
+offset_top = -71.0
+offset_right = 94.0
+offset_bottom = -62.0
+text = "MAGIC : 999"
+label_settings = SubResource("LabelSettings_n3wst")
+
+[node name="speed" type="Label" parent="." unique_id=698499109]
+offset_left = 48.0
+offset_top = -87.0
+offset_right = 94.0
+offset_bottom = -78.0
+text = "SPEED : 999"
+label_settings = SubResource("LabelSettings_n3wst")
+
+[node name="actions" type="Label" parent="." unique_id=194686743]
+offset_left = 48.0
+offset_top = -55.0
+offset_right = 94.0
+offset_bottom = -34.0
+text = "ACTIONS : 4
+"
+label_settings = SubResource("LabelSettings_n3wst")
+
+[node name="defense" type="Label" parent="." unique_id=1794196678]
+offset_left = 48.0
+offset_top = -103.0
+offset_right = 101.0
+offset_bottom = -94.0
+text = "DEFENSE : 999"
+label_settings = SubResource("LabelSettings_n3wst")
+
+[node name="name_label" type="Label" parent="." unique_id=1433903520]
+offset_left = -31.0
+offset_top = -106.0
+offset_right = 27.0
+offset_bottom = -97.0
+text = "ANGEL"
+label_settings = SubResource("LabelSettings_n3wst")
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1758986711]
+visible = false
+z_index = -1
+position = Vector2(0, -38)
+texture = ExtResource("4_xbbee")
+
+[node name="familiar_slot" type="Node2D" parent="." unique_id=152298899]
+position = Vector2(-83, -84)
+
+[node name="L0Homunculus" parent="familiar_slot" unique_id=246003526 instance=ExtResource("5_poctu")]

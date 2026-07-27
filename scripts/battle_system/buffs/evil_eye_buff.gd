@@ -27,7 +27,7 @@ func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
 		var buff_holder_index = pkg.get_targets().find(buff_holder)
 		var new_final_damage = pkg.get_final_damages()[buff_holder_index]
 		new_final_damage = new_final_damage * 2
-		var new_final_damages = []
+		var new_final_damages : Array[int] = []
 		new_final_damages.append_array(pkg.get_final_damages())
 		new_final_damages.set(buff_holder_index,new_final_damage)
 		pkg.set_final_damages(new_final_damages)

@@ -1,6 +1,6 @@
 class_name Player extends Node2D
 
-var familiar_team : Array[Familiar] = []
+@export var familiar_team : Array[Familiar] = []
 var stored_familiars : Array[Familiar] = []
 @export var pentacle_charms : int = 0
 
@@ -126,12 +126,29 @@ func end_battle(end_player_familiars : Array[Familiar]):
 		familiar_team.append(familiar)
 		familiar.reparent(self)
 		familiar.set_inactive()
-	set_active()
 	var battle_system : = get_tree().get_first_node_in_group("battle_system")
 	battle_system.queue_free()
 	staged_encounter.queue_free()
+	var evolving_familiars : Array[Familiar] = []
+	for familiar in familiar_team:
+		if(familiar.is_ready_to_evolve()):
+			evolving_familiars.append(familiar)
+	if(evolving_familiars.size() > 0):
+		var evolution_interface : FamiliarEvolve
+		evolution_interface = load("res://interface/familiar_evolve.tscn").instantiate()
+		get_parent().add_child(evolution_interface)
+		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+		var pos : Vector2 = camera.get_screen_center_position()
+		evolution_interface.global_position = pos
+		evolution_interface.set_evolving_familiars(evolving_familiars)
+	else:
+		return_to_overworld()
+
+func return_to_overworld():
+	set_active()
 	can_move = true
 	fade_in()
+
 
 func fade_in():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()

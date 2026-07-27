@@ -680,6 +680,9 @@ func run_actions_process():
 	elif(current_battle_action == null):
 		get_next_action()
 
+func center_message():
+	message.global_position = global_position
+
 func position_message():
 	if(current_actor != null):
 		var slot = current_actor.get_parent()

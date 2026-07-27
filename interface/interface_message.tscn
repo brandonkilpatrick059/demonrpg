@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://chbod35yvcurh"]
+
+[ext_resource type="Script" uid="uid://c50bv5f3ojxgn" path="res://scripts/interface/interface_message.gd" id="1_1yhxh"]
+[ext_resource type="Texture2D" uid="uid://bkclg804ah3sd" path="res://sprites/battle/interface/battle_status_menu.png" id="2_qnxqw"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="3_loosb"]
+
+[node name="InterfaceMessage" type="Node2D" unique_id=836972938]
+script = ExtResource("1_1yhxh")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1959372842]
+texture = ExtResource("2_qnxqw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1447160935]
+offset_left = -30.0
+offset_top = -18.0
+offset_right = 30.0
+offset_bottom = 18.0
+theme_override_fonts/normal_font = ExtResource("3_loosb")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1

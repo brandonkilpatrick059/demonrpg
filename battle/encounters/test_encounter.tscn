@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://deksc8s8347mc"]
 
 [ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_jbilg"]
-[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/L0_homunculus.tscn" id="2_pwda5"]
+[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="2_pwda5"]
 [ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_vlagp"]
 
 [node name="TestEncounter" type="Node2D" unique_id=1440957085 node_paths=PackedStringArray("opponents")]

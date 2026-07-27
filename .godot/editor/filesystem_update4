@@ -75,3 +75,15 @@ res://sprites/spritesheets/player/player_head.tres
 res://scripts/player/player.gd
 res://scripts/battle_system/encounter.gd
 res://battle/encounters/test_encounter.tscn
+res://scripts/battle_system/actions/special/action_capture.gd
+res://interface/familiar_summary.tscn
+res://scripts/familiars/evolution.gd
+res://scripts/familiars/evolutions.gd
+res://familiars/base/L0_homunculus.tscn
+res://utility/text.gd
+res://scripts/utility/text.gd
+res://interface/familiar_evolve.tscn
+res://interface/interface_message.tscn
+res://scripts/interface/interface_message.gd
+res://scripts/interface/familiar_evolve.gd
+res://scripts/battle_system/interface/battle_message.gd
