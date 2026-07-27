@@ -25,6 +25,8 @@ font_size = 8
 font_color = Color(1, 0, 0, 1)
 
 [node name="BattleSystem" type="Node2D" unique_id=415039822]
+z_index = 10
+z_as_relative = false
 script = ExtResource("1_m8o33")
 
 [node name="guides" type="Node2D" parent="." unique_id=1166741683]
@@ -284,6 +286,7 @@ z_index = 5
 [node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("15_qcet8")]
 
 [node name="fade_to_black" type="Polygon2D" parent="." unique_id=1399459263]
+visible = false
 z_index = 4
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)

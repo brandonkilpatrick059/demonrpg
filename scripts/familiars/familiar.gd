@@ -29,6 +29,8 @@ var experience : int = 0
 
 var capture_offered : bool = false
 
+var active : bool = false
+
 var exp_req_for_level_up : Array[int] = [
 	50, #Level 0 -> Level 1
 	500, #Level 1 -> Level 2
@@ -331,11 +333,20 @@ func get_num_actions() -> int:
 func set_num_actions(num : int):
 	num_actions = num
 
+func set_active():
+	active = true
+	visible = true
+
+func set_inactive():
+	active = false
+	visible = false
+
 func _physics_process(delta: float) -> void:
-	if(one_shot_animating &&
-	sprite.frame == sprite.sprite_frames.get_frame_count(sprite.animation)-1):
-		if(is_dead()):
-			sprite.play("dead")
-		else:
-			sprite.play("default")
-		one_shot_animating = false
+	if(active):
+		if(one_shot_animating &&
+		sprite.frame == sprite.sprite_frames.get_frame_count(sprite.animation)-1):
+			if(is_dead()):
+				sprite.play("dead")
+			else:
+				sprite.play("default")
+			one_shot_animating = false

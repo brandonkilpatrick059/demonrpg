@@ -73,3 +73,5 @@ res://sprites/spritesheets/player/player_body.tres
 res://player/player.tscn
 res://sprites/spritesheets/player/player_head.tres
 res://scripts/player/player.gd
+res://scripts/battle_system/encounter.gd
+res://battle/encounters/test_encounter.tscn

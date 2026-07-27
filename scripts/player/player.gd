@@ -14,11 +14,16 @@ var moving : bool = false
 @onready var move_collider : Area2D = $move_collider
 
 var move_speed_vect : Vector2 = Vector2(0,0)
+var can_move = true
 
-@export var active : bool = false
+var starting_battle : bool = false
+var staged_encounter : Encounter = null
+
+@export var active : bool = true
 
 func _ready() -> void:
 	head.play(facing_direction)
+	fade_in()
 
 func get_familiars_team() -> Array[Familiar]:
 	return familiar_team
@@ -41,24 +46,30 @@ func set_pentacle_charms(num : int):
 	pentacle_charms = num
 
 func handle_input():
-	if(Input.is_action_pressed("up")):
-		if(grid_aligned()):
-			walking = true
-			facing_direction = "up"
-	elif(Input.is_action_pressed("down")):
-		if(grid_aligned()):
-			walking = true
-			facing_direction = "down"
-	elif(Input.is_action_pressed("left")):
-		if(grid_aligned()):
-			walking = true
-			facing_direction = "left"
-	elif(Input.is_action_pressed("right")):
-		if(grid_aligned()):
-			walking = true
-			facing_direction = "right"
-	else:
-		walking = false
+	if(not fader_is_fading()):
+		if(Input.is_action_pressed("up")):
+			if(grid_aligned()):
+				walking = true
+				facing_direction = "up"
+		elif(Input.is_action_pressed("down")):
+			if(grid_aligned()):
+				walking = true
+				facing_direction = "down"
+		elif(Input.is_action_pressed("left")):
+			if(grid_aligned()):
+				walking = true
+				facing_direction = "left"
+		elif(Input.is_action_pressed("right")):
+			if(grid_aligned()):
+				walking = true
+				facing_direction = "right"
+		else:
+			walking = false
+			
+		if(Input.is_action_just_pressed("dev")):
+			var encounter = load("res://battle/encounters/test_encounter.tscn").instantiate()
+			add_child(encounter)
+			start_encounter(encounter)
 
 func handle_animation():
 	if(moving):
@@ -76,10 +87,68 @@ func handle_animation():
 		head.frame = keep_frame
 		head.frame_progress = keep_progress
 
+func start_encounter(encounter :Encounter):
+	starting_battle = true
+	staged_encounter = encounter
+	can_move = false
+	fade_out()
+
+func fader_is_fading() -> bool:
+	var is_fading : bool = false
+	if($fade_to_black.get_child_count() > 0):
+		is_fading = true
+	return is_fading
+
+func start_battle():
+	var opponent_familiars : Array[Familiar] = staged_encounter.get_opponents()
+	starting_battle = false
+	var input_familiars : Array[Familiar] = []
+	for familiar in opponent_familiars:
+		add_child(familiar)
+		input_familiars.append(familiar)
+	#for familiar in familiar_team:
+		#add_child(familiar)
+	var battle_system : BattleSystemManager = load("res://battle/battle_system.tscn").instantiate()
+	get_parent().add_child(battle_system)
+	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+	var pos : Vector2 = camera.get_screen_center_position()
+	battle_system.global_position = pos
+	battle_system.play_music(staged_encounter.get_music())
+	var player_input_familiars : Array[Familiar] = []
+	for familiar in familiar_team:
+		player_input_familiars.append(familiar)
+	battle_system.set_familiars(player_input_familiars,input_familiars)
+	set_inactive()
+
+func end_battle(end_player_familiars : Array[Familiar]):
+	familiar_team.clear()
+	for familiar in end_player_familiars:
+		familiar_team.append(familiar)
+		familiar.reparent(self)
+		familiar.set_inactive()
+	set_active()
+	var battle_system : = get_tree().get_first_node_in_group("battle_system")
+	battle_system.queue_free()
+	staged_encounter.queue_free()
+	can_move = true
+	fade_in()
+
+func fade_in():
+	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
+	var fade_out = Color(1,1,1,0)
+	fade_node.set_target_modulate(fade_out,0.2,0.2)
+	$fade_to_black.add_child(fade_node)
+
+func fade_out():
+	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
+	var fade_out = Color(1,1,1,1)
+	fade_node.set_target_modulate(fade_out,0.2,0.2)
+	$fade_to_black.add_child(fade_node)
+
 func handle_movement():
-	if(walking):
+	if(walking && can_move):
 		var speed : int = 1
-		if(grid_aligned()):
+		if(grid_aligned() && can_move):
 			match facing_direction:
 				"up":
 					if($move_collider_up.get_overlapping_bodies().size() == 0):
@@ -125,4 +194,7 @@ func _physics_process(delta: float) -> void:
 		handle_input()
 		handle_animation()
 		handle_movement()
+	if(starting_battle && not fader_is_fading()):
+		start_battle()
+	
 	

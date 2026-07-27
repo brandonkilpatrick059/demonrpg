@@ -80,6 +80,7 @@ func _ready() -> void:
 	add_to_group("battle_system")
 	if(music != null):
 		play_music(music)
+	wait_timer.start(1.5)
 
 func set_familiars(set_player_familiars : Array[Familiar], 
 set_opponent_familiars : Array[Familiar]):
@@ -173,10 +174,11 @@ func initialize_familiars():
 		open_positions.erase(pos)
 		familiar.reparent(opponent_positions[pos])
 		familiar.position= Vector2(0,0)
-		familiar.modulate.a = 0.85
+		familiar.modulate.a = 0.95
 		familiar.mark_hostile()
 		familiar.set_current_energy(0)
 		familiar.reset_energy()
+		familiar.set_active()
 	
 	if(player_familiars.size() == 0):
 		deploy_player()
@@ -187,6 +189,7 @@ func initialize_familiars():
 			familiar.position= Vector2(0,0)
 			familiar.set_current_energy(0)
 			familiar.reset_energy()
+			familiar.set_active()
 			index = index + 1
 	
 	familiars_initialized = true
@@ -208,6 +211,7 @@ func switch_familiar_to_player_familiars(familiar : Familiar):
 		if(slot.get_child_count() == 0):
 			familiar.reparent(slot)
 			familiar.position = Vector2(0,0)
+			familiar.arrange_buffs()
 			break
 	familiar.mark_friendly()
 
@@ -232,9 +236,8 @@ func append_special_action_queue(action : ActionQueueItem):
 
 #region Process
 func _physics_process(delta: float) -> void:
-	if(not familiars_initialized):
-		initialize_familiars()
-	process_battle()
+	if(familiars_initialized):
+		process_battle()
 
 func process_battle():
 	clean_familiars()
@@ -617,6 +620,7 @@ func deploy_player():
 	var player_familiar = load("res://familiars/L0_girl.tscn").instantiate()
 	player_familiars.append(player_familiar)
 	player_positions[1].add_child(player_familiar)
+	player_familiar.set_active()
 	player_familiar.position = Vector2(0,0)
 	player_deployed = true
 	if(battle_started):
@@ -627,7 +631,7 @@ func withdraw_player():
 	player_deployed = false
 	player_familiars.erase(player_positions[1].get_child(0))
 	player_positions[1].get_child(0).queue_free()
-	if(battle_started):
+	if(battle_started && current_phase != BattlePhase.END):
 		play_messages([text.get_text("player_withdraw")])
 	clean_familiars()
 
@@ -637,6 +641,12 @@ func end_battle():
 func run_away():
 	end_battle()
 	close_battle(true)
+
+func fader_is_fading() -> bool:
+	var is_fading : bool = false
+	if($fade_to_black.get_child_count() > 0):
+		is_fading = true
+	return is_fading
 
 func player_is_dead() -> bool:
 	return side_is_dead(player_familiars)
@@ -949,12 +959,19 @@ func get_opponent_targetable_familiars(action : BattleAction) -> Array[Familiar]
 
 #endregion
 #region End Phase
+var waiting_to_fade : bool = false
 func end_process():
 	if(not battle_closed):
 		close_battle()
 	elif(battle_closed and not awaiting_input):
 		awaiting_input = true
+		waiting_to_fade = true
 		fade_out()
+	elif(waiting_to_fade and not fader_is_fading()):
+		if(player_deployed):
+			withdraw_player()
+		var player : Player = get_tree().get_first_node_in_group("player")
+		player.end_battle(player_familiars)
 
 func close_battle(ran_away = false):
 	message.global_position = global_position
