@@ -68,6 +68,7 @@ func handle_movement():
 		if(grid_aligned() and colliders_detect_solid()):
 			charging = false
 			grid_velocity = Vector2(0,0)
+			global_position = global_position.snapped(Vector2(24,24))
 	elif($Timer.is_stopped() and not charging and not moving):
 		get_free_facing_direction()
 		moving = true
@@ -84,10 +85,11 @@ func handle_movement():
 		global_position = global_position + grid_velocity
 		$Timer.start(randf_range(3.0,8.0))
 	if(grid_aligned()):
-		if(not charging and moving):
-			grid_velocity = Vector2(0,0)
-			moving = false
-		check_charge_player()
+		if(not charging):
+			if(moving):
+				grid_velocity = Vector2(0,0)
+				moving = false
+			check_charge_player()
 
 func grid_aligned() -> bool:
 	return fmod(global_position.x,24) == 0 && fmod(global_position.y,24) == 0
@@ -134,7 +136,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("player")):
-		var new_encounter : Encounter = encounter.instantiate()
 		var player : Player = body
-		player.start_encounter(new_encounter)
-		queue_free()
+		if(player.is_active()):
+			var new_encounter : Encounter = encounter.instantiate()
+			player.start_encounter(new_encounter)
+			queue_free()

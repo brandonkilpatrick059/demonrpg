@@ -40,6 +40,8 @@ func determine_feed_success(actor : Familiar, target : Familiar):
 	success_message = get_comment_message(actor)
 	if(target.is_dead()):
 		feed_succeeded = true
+	elif(target.is_in_group("player_familiar")):
+		feed_succeeded = false
 	else:
 		var actor_roll_total : int = 0
 		actor_roll_total = actor_roll_total + actor.get_current_hp()
@@ -108,8 +110,10 @@ func get_comment_message(actor : Familiar) -> String:
 	return ret_string
 
 func _ready() -> void:
-	action_name = "[color=red]FEED[/color]"
+	action_name = "FEED"
+	display_color = "red"
 	target_type = TargetType.ANY_BUT_SELF
+	energy_cost = 0
 
 func clean_up():
 	announced_feed = false

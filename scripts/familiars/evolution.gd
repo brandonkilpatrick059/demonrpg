@@ -23,6 +23,7 @@ func get_evolved_familiar(familiar : Familiar) -> Familiar:
 	var speed : int = familiar.get_speed()
 	var num_actions : int = familiar.get_num_actions()
 	var max_hp : int =familiar.get_max_hp()
+	var sigil : String = familiar.get_sigil()
 	attack = attack + plus_attack
 	defense = defense + plus_defense
 	magic = magic + plus_magic
@@ -36,5 +37,6 @@ func get_evolved_familiar(familiar : Familiar) -> Familiar:
 	new_base.set_max_hp(max_hp)
 	new_base.set_current_hp(max_hp)
 	new_base.set_num_actions(num_actions)
+	new_base.set_sigil(sigil)
 	return new_base
 	

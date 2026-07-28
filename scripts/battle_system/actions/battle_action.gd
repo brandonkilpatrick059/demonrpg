@@ -15,6 +15,7 @@ var damage_type : DamageType = DamageType.NONE
 var slain_english : String = "[TEAM][TARGET] is slain"
 var friendly_english : String = "your "
 var hostile_english : String = "hostile "
+var display_color : String = ""
 
 func get_slain_message(actor : Familiar, target : Familiar) -> String:
 	var ret_string = slain_english.replace("[TARGET]",target.get_familiar_name())
@@ -28,6 +29,9 @@ func get_slain_message(actor : Familiar, target : Familiar) -> String:
 
 func get_choice_weight() -> float:
 	return opponent_choice_weight
+
+func get_display_color() -> String:
+	return display_color
 
 func get_damage_type() -> DamageType:
 	return damage_type

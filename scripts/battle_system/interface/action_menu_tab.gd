@@ -24,6 +24,10 @@ func set_energy_cost(num : int):
 func set_tab(input_action : BattleAction):
 	action = input_action
 	text = action.get_action_name()
+	if(action.get_display_color() != ""):
+		var color_tag = str(str("[color=",action.get_display_color()),"]")
+		var end_color_tag = str("[/color]")
+		text = str(str(color_tag,action.get_action_name()),end_color_tag)
 	label.parse_bbcode(text)
 	set_energy_cost(input_action.get_energy_cost())
 

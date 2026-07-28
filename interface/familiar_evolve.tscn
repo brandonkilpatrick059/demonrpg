@@ -21,7 +21,7 @@ report_interface = NodePath("..")
 [node name="intro_text_1" type="Node" parent="." unique_id=1887056535]
 script = ExtResource("4_xfiuu")
 language_map = Array[String](["english"])
-text = Array[String](["The [NAME]'s power has outgrown this form."])
+text = Array[String](["The [NAME]'s power has outgrown this form"])
 
 [node name="intro_text_2" type="Node" parent="." unique_id=683154288]
 script = ExtResource("4_xfiuu")
@@ -31,7 +31,7 @@ text = Array[String](["Which path shall it take forward?"])
 [node name="close_text_1" type="Node" parent="." unique_id=1573760235]
 script = ExtResource("4_xfiuu")
 language_map = Array[String](["english"])
-text = Array[String](["The [NAME1] became a [NAME2]."])
+text = Array[String](["The [NAME1] became a [NAME2]"])
 
 [node name="arrow_1" type="Sprite2D" parent="." unique_id=523637638]
 position = Vector2(-48, 57)

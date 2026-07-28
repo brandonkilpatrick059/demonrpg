@@ -22,6 +22,8 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 	ret_string = ret_string.replace("[TEAM]",team)
 	if(not target.is_in_group("player_familiar")):
 		ret_string = ret_string.replace("[TEAM2]",team2)
+	else:
+		ret_string = ret_string.replace("[TEAM2]","")
 	return ret_string
 
 func _ready() -> void:

@@ -11,6 +11,7 @@ script = ExtResource("1_kc233")
 familiar_name = "You"
 max_hp = 10
 current_hp = 10
+no_sigil = true
 level = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]

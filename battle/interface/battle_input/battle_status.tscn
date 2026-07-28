@@ -41,7 +41,7 @@ offset_right = 29.0
 offset_bottom = 18.0
 theme_override_fonts/normal_font = ExtResource("4_nsi0d")
 theme_override_font_sizes/normal_font_size = 8
-text = "\"homunculus\""
+text = "HOMUNCULUS"
 horizontal_alignment = 1
 
 [node name="hp_label" type="RichTextLabel" parent="." unique_id=1347341895]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://1bv8rorir2k0"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_dxusc"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_u5cou"]
+[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="3_dfqwl"]
+
+[node name="TestEncounter" type="Node2D" unique_id=1440957085 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_dxusc")
+opponents = [NodePath("L0Homunculus")]
+music = ExtResource("2_u5cou")
+
+[node name="L0Homunculus" parent="." unique_id=246003526 instance=ExtResource("3_dfqwl")]
+visible = false
+action_cadence_0 = Array[String](["FEED", "ATTACK", "FEED", "DEFEND"])

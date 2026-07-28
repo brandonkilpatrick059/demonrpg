@@ -19,6 +19,7 @@ var stats : Array[String] =[
 @export var magic : int = 1
 @export var num_actions : int = 1
 var actions_taken = 0
+@export var no_sigil : bool = false
 
 @export var evolutions : Array[Evolution] = []
 
@@ -32,20 +33,21 @@ var experience : int = 0
 var capture_offered : bool = false
 
 var active : bool = false
-
-var exp_req_for_level_up : Array[int] = [
-	10, #Level 0 -> Level 1
-	20, #Level 1 -> Level 2
-	30, #Level 2 -> level 3
-	40, #Level 3 -> Level 4
-]
+var sigil : String = ""
 
 #var exp_req_for_level_up : Array[int] = [
-	#30, #Level 0 -> Level 1
-	#500, #Level 1 -> Level 2
-	#5000, #Level 2 -> level 3
-	#15000, #Level 3 -> Level 4
+	#10, #Level 0 -> Level 1
+	#20, #Level 1 -> Level 2
+	#30, #Level 2 -> level 3
+	#40, #Level 3 -> Level 4
 #]
+
+var exp_req_for_level_up : Array[int] = [
+	30, #Level 0 -> Level 1
+	500, #Level 1 -> Level 2
+	5000, #Level 2 -> level 3
+	15000, #Level 3 -> Level 4
+]
 
 var actions : Array[BattleAction] = []
 
@@ -200,6 +202,14 @@ func _ready() -> void:
 		actions.append(action_node)
 	sprite.play("default")
 	sprite.frame = randi_range(0,sprite.sprite_frames.get_frame_count("default")-1)
+	if(sigil == "" && not no_sigil):
+		sigil = Sigil.get_unused_sigil()
+
+func get_sigil() -> String:
+	return sigil
+
+func set_sigil(in_sigil : String):
+	sigil = in_sigil
 
 func get_max_hp() -> int:
 	return max_hp
@@ -283,10 +293,21 @@ func set_current_hp(num : int):
 func is_dead():
 	return dead
 
-func kill():
+func kill(return_sigil : bool = true):
 	play_one_shot_animation("die")
 	gen_stat_increase()
+	clear_buffs()
+	if(return_sigil):
+		Sigil.return_sigil(sigil)
 	dead = true
+
+
+
+func clear_buffs():
+	for buff in battle_buffs:
+		if(buff != null):
+			buff.queue_free()
+	battle_buffs.clear()
 
 func get_attack() -> int:
 	return attack
@@ -303,8 +324,13 @@ func set_defense(num : int):
 func set_familiar_name (in_name : String):
 	familiar_name = in_name
 
-func get_familiar_name() -> String:
-	return familiar_name
+func get_familiar_name(exclude_sigil : bool = false) -> String:
+	var ret_name = familiar_name
+	if(not no_sigil && not exclude_sigil):
+		var img_bbcode = "[img]{path}[/img]"
+		img_bbcode = img_bbcode.replace("{path}",sigil)
+		ret_name = str(ret_name,img_bbcode)
+	return ret_name
 
 func get_speed() -> int:
 	return speed

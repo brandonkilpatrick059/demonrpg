@@ -256,6 +256,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="background" type="Node2D" parent="." unique_id=1093393912]
+visible = false
 z_index = -5
 
 [node name="background_shadow" type="Sprite2D" parent="background" unique_id=1353990384]

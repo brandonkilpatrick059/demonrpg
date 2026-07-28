@@ -101,3 +101,13 @@ res://locations/test_woods.tscn
 res://sprites/spritesheets/monsters/homunculus_monster.tres
 res://monsters/homunculus_monster.tscn
 res://scripts/monster/monster.gd
+res://battle/encounters/homunculus_encounter_2.tscn
+res://battle/encounters/gark_encounter_1.tscn
+res://battle/encounters/gark_encounter_2.tscn
+res://battle/encounters/martyr_encounter_1.tscn
+res://battle/interface/battle_input/battle_action_menu/battle_action_menu.tscn
+res://scripts/battle_system/interface/action_menu_tab.gd
+res://battle/interface/battle_input/battle_status.tscn
+res://scripts/utility/sigil_manager.gd
+res://battle/interface/capture_dialog.tscn
+res://scripts/battle_system/interface/capture_dialog.gd

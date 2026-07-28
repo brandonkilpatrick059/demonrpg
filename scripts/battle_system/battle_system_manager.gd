@@ -745,7 +745,9 @@ func get_next_action():
 			(current_targets[0] == null ||
 			current_targets[0].is_dead())):
 				var potential_targets: Array[Familiar] = []
-				potential_targets.append(get_opponent_targetable_familiars(current_battle_action))
+				var actor = current_action.get_actor()
+				var valid_targets = get_opponent_targetable_familiars(actor,current_battle_action)
+				potential_targets.append(valid_targets)
 				var new_target = randi_range(0,potential_targets.size())
 				current_targets = [new_target]
 				
@@ -799,7 +801,7 @@ func increment_energies(familiars : Array[Familiar]):
 			var energy = familiar.get_current_energy()
 			if(familiar.energy_is_depleted()):
 				familiar.reset_energy()
-			else:
+			elif(energy < 4):
 				familiar.set_current_energy(energy + 1)
 
 func get_combined_action_queue():
@@ -857,7 +859,7 @@ func get_opponent_actions():
 				var potential_actions : Array[BattleAction] = []
 				#opponents should only choose actions where there are valid targets
 				for action in opponent_actions:
-					if(get_opponent_targetable_familiars(action).size() > 0 &&
+					if(get_opponent_targetable_familiars(opponent, action).size() > 0 &&
 					opponent.current_energy >= action.get_energy_cost()):
 						potential_actions.append(action)
 				var chosen_action : BattleAction
@@ -866,7 +868,8 @@ func get_opponent_actions():
 					chosen_action = cadence_action
 				else:
 					chosen_action = get_randomized_action(potential_actions)
-				var potential_targets : Array[Familiar] = get_opponent_targetable_familiars(chosen_action)
+				var potential_targets : Array[Familiar]
+				potential_targets = get_opponent_targetable_familiars(opponent,chosen_action)
 				var chosen_targets : Array[Familiar] = get_targets(chosen_action, potential_targets)
 				var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
 				opponent_action_queue.append(opponent_action_item)
@@ -934,7 +937,7 @@ func opponent_select_two_adjacent_targets(potential_targets : Array[Familiar]) -
 	ret_array.append_array(get_adjacent_familiars(root_target,true))
 	return ret_array
 
-func get_opponent_targetable_familiars(action : BattleAction) -> Array[Familiar]:
+func get_opponent_targetable_familiars(actor : Familiar, action : BattleAction) -> Array[Familiar]:
 	var target_type : BattleAction.TargetType = action.get_target_type()
 	var opponent_targetable_familiars : Array[Familiar] = []
 	match target_type:
@@ -956,7 +959,7 @@ func get_opponent_targetable_familiars(action : BattleAction) -> Array[Familiar]
 			for opponent in player_familiars:
 				opponent_targetable_familiars.append(opponent)
 			for familiar in opponent_familiars:
-				if(familiar != current_actor):
+				if(familiar != actor):
 					opponent_targetable_familiars.append(familiar)
 	return opponent_targetable_familiars
 

@@ -23,7 +23,7 @@ var target_familiar : Familiar = null
 var input_timer := Timer.new()
 
 func set_target(familiar : Familiar):
-	var name : String = familiar.get_familiar_name().to_upper()
+	var name : String = familiar.get_familiar_name()
 	var text : String = label_english.replace("[NAME]",name)
 	target_familiar = familiar
 	label.parse_bbcode(text)

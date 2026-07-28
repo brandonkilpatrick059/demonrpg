@@ -57,7 +57,12 @@ func update_label():
 func write_text():
 	if(current_text != full_text):
 		if(timer.is_stopped()):
+			
 			text_index = text_index + 1
+			#skip image paths
+			if(full_text.findn("[img]",text_index) == text_index):
+				text_index = full_text.findn("[/img]",text_index)
+				text_index = text_index + "[/img]".length()
 			current_text = full_text.substr(0,text_index)
 			timer.start(text_speed)
 			update_label()

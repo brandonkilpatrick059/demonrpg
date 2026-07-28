@@ -2,9 +2,14 @@
 
 [ext_resource type="TileSet" uid="uid://bt7hn1n005r8q" path="res://sprites/tile_atlas.tres" id="1_u8quu"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="2_hb66n"]
+[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="3_2e7yq"]
 [ext_resource type="AudioStream" uid="uid://dmwb2u8xa7t0e" path="res://audio/music/drone_1.ogg" id="3_hb66n"]
 [ext_resource type="PackedScene" uid="uid://dgpw6dtgoolyn" path="res://monsters/homunculus_monster.tscn" id="4_bdurg"]
 [ext_resource type="PackedScene" uid="uid://deksc8s8347mc" path="res://battle/encounters/test_encounter.tscn" id="5_ndhr1"]
+[ext_resource type="PackedScene" uid="uid://dxnoqj25neeu5" path="res://battle/encounters/homunculus_encounter_2.tscn" id="6_31awq"]
+[ext_resource type="PackedScene" uid="uid://2yrht2mwt7i7" path="res://battle/encounters/gark_encounter_1.tscn" id="7_2e7yq"]
+[ext_resource type="PackedScene" uid="uid://bv2lu1cqenfuq" path="res://battle/encounters/gark_encounter_2.tscn" id="8_uwkas"]
+[ext_resource type="PackedScene" uid="uid://cip4dkb2egmnv" path="res://battle/encounters/martyr_encounter_1.tscn" id="9_t51qw"]
 
 [node name="TestLocation" type="Node2D" unique_id=1318375055]
 
@@ -27,12 +32,16 @@ tile_map_data = PackedByteArray("AAD///7/AAABAAEAACAAAP7/AAABAAEAACABAP7/AAABAAE
 tile_set = ExtResource("1_u8quu")
 collision_enabled = false
 
-[node name="Player" parent="." unique_id=1870943045 instance=ExtResource("2_hb66n")]
+[node name="Player" parent="." unique_id=1870943045 node_paths=PackedStringArray("familiar_team") instance=ExtResource("2_hb66n")]
 position = Vector2(24, 24)
+familiar_team = [NodePath("L0Homunculus")]
 pentacle_charms = 4
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1290752624 groups=["camera"]]
 position = Vector2(12, -12)
+
+[node name="L0Homunculus" parent="Player" unique_id=246003526 instance=ExtResource("3_2e7yq")]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=245073191]
 
@@ -56,7 +65,7 @@ stream = ExtResource("3_hb66n")
 autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=942910306 groups=["global_modulate"]]
-color = Color(0, 0, 0, 1)
+color = Color(0.44677722, 0.44677693, 0.4467771, 1)
 
 [node name="HomunculusMonster" parent="." unique_id=1470921805 instance=ExtResource("4_bdurg")]
 position = Vector2(-48, 216)
@@ -64,15 +73,15 @@ encounter = ExtResource("5_ndhr1")
 
 [node name="HomunculusMonster2" parent="." unique_id=758774517 instance=ExtResource("4_bdurg")]
 position = Vector2(144, 576)
-encounter = ExtResource("5_ndhr1")
+encounter = ExtResource("6_31awq")
 
 [node name="HomunculusMonster3" parent="." unique_id=1540915580 instance=ExtResource("4_bdurg")]
 position = Vector2(-168, 768)
-encounter = ExtResource("5_ndhr1")
+encounter = ExtResource("7_2e7yq")
 
 [node name="HomunculusMonster4" parent="." unique_id=881473937 instance=ExtResource("4_bdurg")]
 position = Vector2(384, 528)
-encounter = ExtResource("5_ndhr1")
+encounter = ExtResource("6_31awq")
 
 [node name="HomunculusMonster5" parent="." unique_id=1577397914 instance=ExtResource("4_bdurg")]
 position = Vector2(-288, 576)
@@ -80,20 +89,24 @@ encounter = ExtResource("5_ndhr1")
 
 [node name="HomunculusMonster6" parent="." unique_id=737011816 instance=ExtResource("4_bdurg")]
 position = Vector2(-312, 936)
-encounter = ExtResource("5_ndhr1")
+encounter = ExtResource("7_2e7yq")
 
 [node name="HomunculusMonster7" parent="." unique_id=1782480689 instance=ExtResource("4_bdurg")]
 position = Vector2(264, 816)
-encounter = ExtResource("5_ndhr1")
+encounter = ExtResource("7_2e7yq")
+
+[node name="HomunculusMonster11" parent="." unique_id=575517810 instance=ExtResource("4_bdurg")]
+position = Vector2(288, 1176)
+encounter = ExtResource("8_uwkas")
 
 [node name="HomunculusMonster8" parent="." unique_id=1991146299 instance=ExtResource("4_bdurg")]
-position = Vector2(-24, 1248)
-encounter = ExtResource("5_ndhr1")
+position = Vector2(-24, 1368)
+encounter = ExtResource("9_t51qw")
 
 [node name="HomunculusMonster9" parent="." unique_id=2133481356 instance=ExtResource("4_bdurg")]
 position = Vector2(-360, 1200)
-encounter = ExtResource("5_ndhr1")
+encounter = ExtResource("9_t51qw")
 
 [node name="HomunculusMonster10" parent="." unique_id=2070469910 instance=ExtResource("4_bdurg")]
 position = Vector2(-456, 1080)
-encounter = ExtResource("5_ndhr1")
+encounter = ExtResource("8_uwkas")

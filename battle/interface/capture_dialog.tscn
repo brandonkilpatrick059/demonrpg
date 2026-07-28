@@ -29,7 +29,7 @@ theme_override_fonts/normal_font = ExtResource("2_vasal")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "Use a [color=purple]PENTACLE SEAL[/color] to bring
-the [color=red][NAME][/color] under your control?"
+the [NAME] under your control?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
