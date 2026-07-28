@@ -91,3 +91,13 @@ res://familiars/base/L1_braim.tscn
 res://familiars/base/L1_gark.tscn
 res://familiars/base/L1_martyr.tscn
 res://familiars/base/L2_stalf.tscn
+res://familiars/base/L2_dylith.tscn
+res://familiars/base/L2_gorgon.tscn
+res://familiars/base/L2_reaver.tscn
+res://familiars/base/L2_shax.tscn
+res://familiars/base/L2_byle.tscn
+res://locations/gloomy_wood.tscn
+res://locations/test_woods.tscn
+res://sprites/spritesheets/monsters/homunculus_monster.tres
+res://monsters/homunculus_monster.tscn
+res://scripts/monster/monster.gd

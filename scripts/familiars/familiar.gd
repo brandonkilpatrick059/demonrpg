@@ -41,10 +41,10 @@ var exp_req_for_level_up : Array[int] = [
 ]
 
 #var exp_req_for_level_up : Array[int] = [
-	#50, #Level 0 -> Level 1
+	#30, #Level 0 -> Level 1
 	#500, #Level 1 -> Level 2
 	#5000, #Level 2 -> level 3
-	#50000, #Level 3 -> Level 4
+	#15000, #Level 3 -> Level 4
 #]
 
 var actions : Array[BattleAction] = []
@@ -69,7 +69,9 @@ var stat_increase_value : int = 0
 var stat_increase : String = ""
 
 func is_ready_to_evolve() -> bool:
-	if(experience >= exp_req_for_level_up[level] && evolutions.size() > 0):
+	if(experience >= exp_req_for_level_up[level] && 
+	evolutions.size() > 0 &&
+	not is_dead()):
 		return true
 	else:
 		return false

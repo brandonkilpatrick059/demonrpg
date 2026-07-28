@@ -74,7 +74,7 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 		final_damage = 1
 	var pkg := BattlePkg.new()
 	pkg.set_damage_type(get_damage_type())
-	pkg.set_final_damage(final_damage)
+	pkg.set_final_damages([final_damage])
 	pkg.set_actor(actor)
 	pkg.set_targets(targets)
 	return pkg

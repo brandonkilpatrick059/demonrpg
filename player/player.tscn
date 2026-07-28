@@ -36,7 +36,6 @@ position = Vector2(12, -12)
 shape = SubResource("RectangleShape2D_cea73")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1637035636]
-visible = false
 position = Vector2(12, -12)
 energy = 0.75
 texture = ExtResource("4_yw30f")
@@ -74,3 +73,5 @@ z_index = 4
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 script = ExtResource("5_qjkh3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=311425431]

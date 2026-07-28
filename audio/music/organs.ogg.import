@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/organs.ogg-b1a90cb61608bf717b812bcdb380783f.o
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

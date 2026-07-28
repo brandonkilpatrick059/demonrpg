@@ -2,7 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://bt7hn1n005r8q" path="res://sprites/tile_atlas.tres" id="1_w6qnt"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="2_8ijd7"]
-[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="3_b3q3j"]
 
 [node name="TestLocation" type="Node2D" unique_id=1318375055]
 
@@ -25,17 +24,12 @@ tile_map_data = PackedByteArray("AAD3//v/AAABAAEAAAD4//v/AAABAAEAAAD5//v/AAABAAE
 tile_set = ExtResource("1_w6qnt")
 collision_enabled = false
 
-[node name="Player" parent="." unique_id=1870943045 node_paths=PackedStringArray("familiar_team") instance=ExtResource("2_8ijd7")]
+[node name="Player" parent="." unique_id=1870943045 instance=ExtResource("2_8ijd7")]
 position = Vector2(24, 24)
-familiar_team = [NodePath("L0Homunculus")]
 pentacle_charms = 4
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1290752624 groups=["camera"]]
 position = Vector2(12, -12)
-
-[node name="L0Homunculus" parent="Player" unique_id=246003526 instance=ExtResource("3_b3q3j")]
-visible = false
-attack = 20
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=942910306]
 visible = false

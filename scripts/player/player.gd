@@ -21,6 +21,8 @@ var staged_encounter : Encounter = null
 
 @export var active : bool = true
 
+var can_play_step_sound : bool = true
+
 func _ready() -> void:
 	head.play(facing_direction)
 	fade_in()
@@ -76,6 +78,13 @@ func handle_animation():
 		var animation_name : String =str("walk_",facing_direction)
 		if(body.animation != animation_name):
 			body.play(animation_name)
+		if(body.frame == 1 || body.frame == 3):
+			if(can_play_step_sound):
+				$AudioStreamPlayer.stream = load("res://audio/music/step.ogg")
+				$AudioStreamPlayer.play()
+				can_play_step_sound = false
+		else:
+			can_play_step_sound = true
 	else:
 		var animation_name : String =str("stand_",facing_direction)
 		if(body.animation != animation_name):
@@ -92,6 +101,8 @@ func start_encounter(encounter :Encounter):
 	staged_encounter = encounter
 	can_move = false
 	fade_out()
+	$AudioStreamPlayer.stream = load("res://audio/effects/encounter.ogg")
+	$AudioStreamPlayer.play()
 
 func fader_is_fading() -> bool:
 	var is_fading : bool = false
@@ -100,6 +111,7 @@ func fader_is_fading() -> bool:
 	return is_fading
 
 func start_battle():
+	disable_overworld()
 	var opponent_familiars : Array[Familiar] = staged_encounter.get_opponents()
 	starting_battle = false
 	var input_familiars : Array[Familiar] = []
@@ -145,10 +157,19 @@ func end_battle(end_player_familiars : Array[Familiar]):
 		return_to_overworld()
 
 func return_to_overworld():
+	var global_modulate = get_tree().get_first_node_in_group("global_modulate")
+	global_modulate.visible = true
+	var global_music = get_tree().get_first_node_in_group("global_music_player")
+	global_music.play()
 	set_active()
 	can_move = true
 	fade_in()
 
+func disable_overworld():
+	var global_modulate = get_tree().get_first_node_in_group("global_modulate")
+	global_modulate.visible = false
+	var global_music = get_tree().get_first_node_in_group("global_music_player")
+	global_music.stop()
 
 func fade_in():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
@@ -202,9 +223,11 @@ func grid_aligned() -> bool:
 
 func set_active():
 	active = true
+	$PointLight2D.enabled = true
 
 func set_inactive():
 	active = false
+	$PointLight2D.enabled = false
 
 func _physics_process(delta: float) -> void:
 	if(active):

@@ -1,36 +1,37 @@
 [gd_scene format=3 uid="uid://bsfd15u6rxo6h"]
 
-[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_thwvo"]
-[ext_resource type="SpriteFrames" uid="uid://clrnhvdy6nfvn" path="res://sprites/spritesheets/familiars/L2_gorgon.tres" id="2_thwvo"]
-[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_k78mg"]
-[ext_resource type="PackedScene" uid="uid://bhfmqt6lxewql" path="res://battle/actions/action_block.tscn" id="4_jhj7v"]
-[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_noqco"]
-[ext_resource type="PackedScene" uid="uid://bfnuubvl43rki" path="res://battle/actions/action_reflect.tscn" id="6_thwvo"]
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_wt7d1"]
+[ext_resource type="SpriteFrames" uid="uid://clrnhvdy6nfvn" path="res://sprites/spritesheets/familiars/L2_gorgon.tres" id="2_2nqfb"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_3uouk"]
+[ext_resource type="PackedScene" uid="uid://bhfmqt6lxewql" path="res://battle/actions/action_block.tscn" id="4_ey5uy"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_618r6"]
+[ext_resource type="PackedScene" uid="uid://bfnuubvl43rki" path="res://battle/actions/action_reflect.tscn" id="6_2deja"]
 
 [node name="L2gorgon" type="Node2D" unique_id=246003526]
-script = ExtResource("1_thwvo")
+script = ExtResource("1_wt7d1")
 familiar_name = "Gorgon"
 max_hp = 15
 current_hp = 15
 attack = 4
 defense = 5
 speed = 2
+level = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
-sprite_frames = ExtResource("2_thwvo")
+sprite_frames = ExtResource("2_2nqfb")
 animation = &"attack"
 frame_progress = 0.29847014
 
 [node name="actions" type="Node" parent="." unique_id=1697022532]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_k78mg")]
+[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_3uouk")]
 opponent_choice_weight = 0.4
 
-[node name="ActionBlock" parent="actions" unique_id=1367453700 instance=ExtResource("4_jhj7v")]
+[node name="ActionBlock" parent="actions" unique_id=1367453700 instance=ExtResource("4_ey5uy")]
 opponent_choice_weight = 0.5
 
-[node name="ActionFeed" parent="actions" unique_id=1039797395 instance=ExtResource("5_noqco")]
+[node name="ActionFeed" parent="actions" unique_id=1039797395 instance=ExtResource("5_618r6")]
 opponent_choice_weight = 0.1
 
-[node name="ActionReflect" parent="actions" unique_id=2122131480 instance=ExtResource("6_thwvo")]
+[node name="ActionReflect" parent="actions" unique_id=2122131480 instance=ExtResource("6_2deja")]
 opponent_choice_weight = 0.6

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="demonrpg"
-run/main_scene="uid://b6qtdn1ghco26"
+run/main_scene="uid://c461ek1pu7td4"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/image="uid://dmdkaas75v4jb"
 config/icon="res://icon.svg"
