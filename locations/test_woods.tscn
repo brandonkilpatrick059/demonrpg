@@ -56,8 +56,44 @@ stream = ExtResource("3_hb66n")
 autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=942910306 groups=["global_modulate"]]
-color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="HomunculusMonster" parent="." unique_id=1470921805 instance=ExtResource("4_bdurg")]
 position = Vector2(-48, 216)
+encounter = ExtResource("5_ndhr1")
+
+[node name="HomunculusMonster2" parent="." unique_id=758774517 instance=ExtResource("4_bdurg")]
+position = Vector2(144, 576)
+encounter = ExtResource("5_ndhr1")
+
+[node name="HomunculusMonster3" parent="." unique_id=1540915580 instance=ExtResource("4_bdurg")]
+position = Vector2(-168, 768)
+encounter = ExtResource("5_ndhr1")
+
+[node name="HomunculusMonster4" parent="." unique_id=881473937 instance=ExtResource("4_bdurg")]
+position = Vector2(384, 528)
+encounter = ExtResource("5_ndhr1")
+
+[node name="HomunculusMonster5" parent="." unique_id=1577397914 instance=ExtResource("4_bdurg")]
+position = Vector2(-288, 576)
+encounter = ExtResource("5_ndhr1")
+
+[node name="HomunculusMonster6" parent="." unique_id=737011816 instance=ExtResource("4_bdurg")]
+position = Vector2(-312, 936)
+encounter = ExtResource("5_ndhr1")
+
+[node name="HomunculusMonster7" parent="." unique_id=1782480689 instance=ExtResource("4_bdurg")]
+position = Vector2(264, 816)
+encounter = ExtResource("5_ndhr1")
+
+[node name="HomunculusMonster8" parent="." unique_id=1991146299 instance=ExtResource("4_bdurg")]
+position = Vector2(-24, 1248)
+encounter = ExtResource("5_ndhr1")
+
+[node name="HomunculusMonster9" parent="." unique_id=2133481356 instance=ExtResource("4_bdurg")]
+position = Vector2(-360, 1200)
+encounter = ExtResource("5_ndhr1")
+
+[node name="HomunculusMonster10" parent="." unique_id=2070469910 instance=ExtResource("4_bdurg")]
+position = Vector2(-456, 1080)
 encounter = ExtResource("5_ndhr1")

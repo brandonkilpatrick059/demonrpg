@@ -221,6 +221,9 @@ func handle_movement():
 func grid_aligned() -> bool:
 	return fmod(global_position.x,24) == 0 && fmod(global_position.y,24) == 0
 
+func is_active() -> bool:
+	return active
+
 func set_active():
 	active = true
 	$PointLight2D.enabled = true

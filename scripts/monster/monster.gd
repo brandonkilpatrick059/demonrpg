@@ -25,35 +25,36 @@ func handle_animation():
 
 func check_charge_player():
 	var player : Player = get_tree().get_first_node_in_group("player")
-	if (global_position.distance_to(player.global_position) < 264):
-		if(grid_aligned() && 
-		global_position.x == player.global_position.x):
-			if(player.global_position.y > global_position.y):
-				if(facing_direction == "down"):
-					grid_velocity = Vector2(0,charge_speed)
-					charging = true
-					moving = false
-					make_noise()
-			else:
-				if(facing_direction == "up"):
-					grid_velocity = Vector2(0,-charge_speed)
-					charging = true
-					moving = false
-					make_noise()
-		elif(grid_aligned() &&
-		global_position.y == player.global_position.y):
-			if(player.global_position.x > global_position.x):
-				if(facing_direction == "right"):
-					grid_velocity = Vector2(charge_speed,0)
-					charging = true
-					moving = false
-					make_noise()
-			else:
-				if(facing_direction == "left"):
-					grid_velocity = Vector2(-charge_speed,0)
-					charging = true
-					moving = false
-					make_noise()
+	if(player.is_active()):
+		if (global_position.distance_to(player.global_position) < 264):
+			if(grid_aligned() && 
+			global_position.x == player.global_position.x):
+				if(player.global_position.y > global_position.y):
+					if(facing_direction == "down"):
+						grid_velocity = Vector2(0,charge_speed)
+						charging = true
+						moving = false
+						make_noise()
+				else:
+					if(facing_direction == "up"):
+						grid_velocity = Vector2(0,-charge_speed)
+						charging = true
+						moving = false
+						make_noise()
+			elif(grid_aligned() &&
+			global_position.y == player.global_position.y):
+				if(player.global_position.x > global_position.x):
+					if(facing_direction == "right"):
+						grid_velocity = Vector2(charge_speed,0)
+						charging = true
+						moving = false
+						make_noise()
+				else:
+					if(facing_direction == "left"):
+						grid_velocity = Vector2(-charge_speed,0)
+						charging = true
+						moving = false
+						make_noise()
 
 func make_noise():
 	var noise : int = randi_range(1,3)
