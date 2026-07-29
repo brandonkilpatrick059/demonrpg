@@ -8,6 +8,13 @@ var announcment_english_reflexive : String = "[TEAM][ACTOR] defends itself."
 
 var battle_sys_ref : BattleSystemManager
 
+func get_summary(actor : Familiar)-> String:
+	var summary : String = ""
+	summary = str(summary,str(summary,get_action_name()))
+	summary = str(summary,"-[color=white]REFLECTS ")
+	summary = str(summary,str("[/color][color=darkred] PHYSICAL DAMAGE [/color]"))
+	return summary
+
 func get_announcement(actor : Familiar, target : Familiar) -> String:
 	var announcement : String = announcment_english
 	if(actor == target):

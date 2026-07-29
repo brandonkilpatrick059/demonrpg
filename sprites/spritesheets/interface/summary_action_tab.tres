@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bx45u602ur20q"]
+
+[ext_resource type="Texture2D" uid="uid://chfwsrfwlq0we" path="res://sprites/spritesheets/interface/summary_action_tab.png" id="1_gbj2j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbj2j"]
+atlas = ExtResource("1_gbj2j")
+region = Rect2(0, 0, 228, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o75vw"]
+atlas = ExtResource("1_gbj2j")
+region = Rect2(0, 8, 228, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbj2j")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o75vw")
+}],
+"loop": 1,
+"name": &"inactive",
+"speed": 5.0
+}]

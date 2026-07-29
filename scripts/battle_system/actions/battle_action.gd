@@ -1,6 +1,7 @@
 class_name BattleAction extends Node
 
 @export var opponent_choice_weight : float = 0.0
+@export var summary : Text
 
 enum TargetType {NO_TARGET,SELF,ANY_ALLY,ANY_OPPONENT,TWO_ADJACENT_OPPONENT,
 ALL_ALLIES,ALL_OPPONENTS,ALL,ANY,ANY_BUT_SELF,ANY_DEAD}
@@ -26,6 +27,19 @@ func get_slain_message(actor : Familiar, target : Familiar) -> String:
 		team = friendly_english
 	ret_string = ret_string.replace("[TEAM]",team)
 	return ret_string
+
+func get_summary(actor : Familiar) -> String:
+	return ""
+
+func get_min_max_string(min : int, max : int) -> String:
+	var concat_str = ""
+	concat_str = str("[color=yellow]",min)
+	concat_str = str(concat_str,"[/color]")
+	concat_str = str(concat_str,"[color=white] TO ")
+	concat_str = str(concat_str,"[/color]")
+	concat_str = str(concat_str,str("[color=yellow]",max))
+	concat_str = str(concat_str,"[/color]")
+	return concat_str
 
 func get_choice_weight() -> float:
 	return opponent_choice_weight

@@ -25,6 +25,17 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 	ret_string = ret_string.replace("[TEAM]",team)
 	return ret_string
 
+func get_summary(actor : Familiar)-> String:
+	var summary : String = ""
+	summary = str(summary,str(summary,get_action_name()))
+	summary = str(summary,"-[color=white]SHIELDS ")
+	var half_damage = get_half_defense(actor)
+	if(half_damage == 0):
+		half_damage = 1
+	summary = str(summary,get_min_max_string(half_damage,half_damage+half_damage))
+	summary = str(summary,str("[color=darkred] PHYSICAL DAMAGE [/color]"))
+	return summary
+
 func _ready() -> void:
 	action_name = "DEFEND"
 	target_type = TargetType.ANY_ALLY
@@ -32,6 +43,10 @@ func _ready() -> void:
 func clean_up():
 	made_defense = false
 	announced_defense = false
+
+func get_half_defense(actor : Familiar) -> int:
+	return (actor.get_defense() / 2)
+
 
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
@@ -46,7 +61,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 	elif(not made_defense):
 		var target : Familiar = targets[0]
 		var defense_buff = load("res://battle/actions/buffs/defend_buff.tscn").instantiate()
-		var half_defense : int = (actor.get_defense() / 2)
+		var half_defense : int = get_half_defense(actor)
 		var damage_reduction : int = half_defense + randi_range(0,half_defense)
 		if(damage_reduction == 0):
 			damage_reduction = 1

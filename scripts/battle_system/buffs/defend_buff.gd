@@ -33,7 +33,11 @@ func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
 	pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
 		var index = pkg.targets.find(buff_holder)
 		var new_final_damage = pkg.get_final_damages()[index]
+		var damage_diff : int = 0
+		if(new_final_damage < damage_reduction):
+			damage_diff = damage_reduction - new_final_damage
 		new_final_damage = new_final_damage - damage_reduction
+		set_damage_reduction(damage_diff)
 		if(new_final_damage < 0):
 			new_final_damage = 0
 		var new_final_damages : Array[int] = []

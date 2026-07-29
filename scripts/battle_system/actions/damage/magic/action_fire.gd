@@ -43,6 +43,16 @@ func clean_up():
 	announced_attack = false
 	made_attack = false
 
+func get_summary(actor : Familiar)-> String:
+	var summary : String = ""
+	summary = str(summary,get_action_name())
+	summary = str(summary,"-[color=white]DEALS " )
+	summary = str(summary,get_min_max_string(actor.get_magic(),actor.get_magic()+actor.get_magic()))
+	summary = str(summary,str("[color=darkblue] MAGIC DAMAGE [/color]"))
+	summary = str(summary,str("[color=white] PLUS [/color]"))
+	summary = str(summary,str("[color=darkblue] BURN [/color]"))
+	return summary
+
 func visual_effects(pkg : BattlePkg):
 	var final_damage : int = pkg.get_final_damage()
 	var actor : Familiar = pkg.get_actor()

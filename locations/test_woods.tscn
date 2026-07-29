@@ -2,11 +2,14 @@
 
 [ext_resource type="TileSet" uid="uid://bt7hn1n005r8q" path="res://sprites/tile_atlas.tres" id="1_u8quu"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="2_hb66n"]
-[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="3_2e7yq"]
 [ext_resource type="AudioStream" uid="uid://dmwb2u8xa7t0e" path="res://audio/music/drone_1.ogg" id="3_hb66n"]
+[ext_resource type="PackedScene" uid="uid://2kvawkd11f4" path="res://familiars/base/L2_reaver.tscn" id="3_t51qw"]
+[ext_resource type="PackedScene" uid="uid://bsfd15u6rxo6h" path="res://familiars/base/L2_gorgon.tscn" id="4_126gb"]
 [ext_resource type="PackedScene" uid="uid://dgpw6dtgoolyn" path="res://monsters/homunculus_monster.tscn" id="4_bdurg"]
+[ext_resource type="PackedScene" uid="uid://dogiaxmsxt1y8" path="res://familiars/base/L2_byle.tscn" id="5_b4b2o"]
 [ext_resource type="PackedScene" uid="uid://deksc8s8347mc" path="res://battle/encounters/test_encounter.tscn" id="5_ndhr1"]
 [ext_resource type="PackedScene" uid="uid://dxnoqj25neeu5" path="res://battle/encounters/homunculus_encounter_2.tscn" id="6_31awq"]
+[ext_resource type="PackedScene" uid="uid://chd5ugll25mm6" path="res://familiars/base/L2_stalf.tscn" id="6_126gb"]
 [ext_resource type="PackedScene" uid="uid://2yrht2mwt7i7" path="res://battle/encounters/gark_encounter_1.tscn" id="7_2e7yq"]
 [ext_resource type="PackedScene" uid="uid://bv2lu1cqenfuq" path="res://battle/encounters/gark_encounter_2.tscn" id="8_uwkas"]
 [ext_resource type="PackedScene" uid="uid://cip4dkb2egmnv" path="res://battle/encounters/martyr_encounter_1.tscn" id="9_t51qw"]
@@ -34,13 +37,22 @@ collision_enabled = false
 
 [node name="Player" parent="." unique_id=1870943045 node_paths=PackedStringArray("familiar_team") instance=ExtResource("2_hb66n")]
 position = Vector2(24, 24)
-familiar_team = [NodePath("L0Homunculus")]
+familiar_team = [NodePath("L2reaver"), NodePath("L2gorgon"), NodePath("L2byle"), NodePath("L2stalf")]
 pentacle_charms = 4
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1290752624 groups=["camera"]]
 position = Vector2(12, -12)
 
-[node name="L0Homunculus" parent="Player" unique_id=246003526 instance=ExtResource("3_2e7yq")]
+[node name="L2reaver" parent="Player" unique_id=246003526 instance=ExtResource("3_t51qw")]
+visible = false
+
+[node name="L2gorgon" parent="Player" unique_id=324948831 instance=ExtResource("4_126gb")]
+visible = false
+
+[node name="L2byle" parent="Player" unique_id=526453999 instance=ExtResource("5_b4b2o")]
+visible = false
+
+[node name="L2stalf" parent="Player" unique_id=32726482 instance=ExtResource("6_126gb")]
 visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=245073191]

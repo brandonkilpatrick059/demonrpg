@@ -40,6 +40,15 @@ func clean_up():
 	announced_attack = false
 	made_attack = false
 
+func get_summary(actor : Familiar)-> String:
+	var summary : String = ""
+	summary = str(summary,get_action_name())
+	summary = str(summary,"-[color=white]DEALS " )
+	var half_damage = get_half_damage(actor)
+	summary = str(summary,get_min_max_string(half_damage,half_damage+half_damage))
+	summary = str(summary,str("[color=darkred] PHYSICAL DAMAGE [/color]"))
+	return summary
+
 func visual_effects(pkg : BattlePkg):
 	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
@@ -60,13 +69,13 @@ func visual_effects(pkg : BattlePkg):
 		hp_particle.set_particle(str(final_damage),Color(1.0, 0.26, 0.201, 1.0))
 		battle_sys_ref.play_sound(load("res://audio/effects/hit_1.ogg"))
 
+func get_half_damage(actor : Familiar) -> int:
+	return actor.get_attack()/2 + 1
+
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
-	var half_damage : int = actor.get_attack()/2 + 1
+	var half_damage : int = get_half_damage(actor)
 	var damage : int = half_damage + randi_range(0,half_damage)
-	#var reduction_half : int = target.get_defense()/2
-	#var defense_reduction : int = reduction_half #+ randi_range(0,reduction_half)
-	#var final_damage = damage - defense_reduction
 	var final_damage = damage
 	if(final_damage <= 0):
 		final_damage = 1

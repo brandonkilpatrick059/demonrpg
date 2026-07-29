@@ -7,6 +7,15 @@ var battle_sys_ref : BattleSystemManager
 
 var announcment_english : String = "[TEAM][ACTOR] slices the enemy."
 
+func get_summary(actor : Familiar)-> String:
+	var summary : String = ""
+	summary = str(summary,str(summary,get_action_name()))
+	summary = str(summary,"-[color=white]DEALS ")
+	summary = str(summary,get_min_max_string(actor.get_attack(),actor.get_attack()+actor.get_attack()))
+	summary = str(summary,str("[color=darkred] PHYSICAL DAMAGE [/color]"))
+	summary = str(summary,str("[color=white] TO 2 [/color]"))
+	return summary
+
 func get_announcement(actor : Familiar, target : Familiar) -> String:
 	var ret_string = announcment_english.replace("[ACTOR]",actor.get_familiar_name())
 	ret_string = ret_string.replace("[TARGET]",target.get_familiar_name())

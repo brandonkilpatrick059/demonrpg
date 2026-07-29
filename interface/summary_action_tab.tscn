@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b8pynlcnn2j07"]
+
+[ext_resource type="SpriteFrames" uid="uid://bx45u602ur20q" path="res://sprites/spritesheets/interface/summary_action_tab.tres" id="1_ycw1g"]
+[ext_resource type="Script" uid="uid://bu4btb8ryo0w6" path="res://scripts/interface/summary_action_tab.gd" id="2_vtul0"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="2_wulx7"]
+[ext_resource type="SpriteFrames" uid="uid://cl54bhecgyn8d" path="res://sprites/spritesheets/battle/interface/energy_cost.tres" id="3_vtul0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8h1s"]
+light_mode = 1
+
+[node name="summary_action_tab" type="AnimatedSprite2D" unique_id=685189857]
+process_mode = 3
+sprite_frames = ExtResource("1_ycw1g")
+animation = &"active"
+script = ExtResource("2_vtul0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1028252438]
+material = SubResource("CanvasItemMaterial_k8h1s")
+offset_left = -112.0
+offset_top = -4.0
+offset_right = 79.0
+offset_bottom = 6.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_wulx7")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "ATTACK  |   DEALS 9999 TO 9999 [color=red]PHYSICAL DAMAGE[/color]"
+
+[node name="energy_cost" type="AnimatedSprite2D" parent="." unique_id=497122606]
+material = SubResource("CanvasItemMaterial_k8h1s")
+position = Vector2(102, -3)
+sprite_frames = ExtResource("3_vtul0")
+frame = 4

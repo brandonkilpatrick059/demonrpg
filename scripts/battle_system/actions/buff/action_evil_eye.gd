@@ -39,6 +39,23 @@ func exit_action():
 	battle_sys_ref.get_next_action()
 	clean_up()
 
+func get_summary(actor : Familiar)-> String:
+	var summary : String = ""
+	summary = str(summary,str(summary,get_action_name()))
+	summary = str(summary,"-[color=yellow]x2[/color][color=darkred] PHYSICAL DAMAGE [/color][color=white] FOR ")
+	var base : int = get_base()
+	var max : int = get_divided_magic(actor)
+	summary = str(summary,str(base," TO "))
+	summary = str(summary,str(base + get_divided_magic(actor)))
+	summary = str(summary,str("[color=white] TURNS [/color]"))
+	return summary
+
+func get_base() -> int:
+	return 2
+
+func get_divided_magic(actor : Familiar) -> int:
+	return actor.get_magic() / 5
+
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_magic):
@@ -51,9 +68,9 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 	elif(not cast_magic):
 		var target : Familiar = targets[0]
 		var evil_eye_buff = load("res://battle/actions/buffs/evil_eye_buff.tscn").instantiate()
-		var divided_magic = actor.get_magic() / 5
+		var divided_magic = get_divided_magic(actor)
 		var extra_turns : int = randi_range(0,divided_magic)
-		var lifetime : int = 2 + extra_turns
+		var lifetime : int = get_base() + extra_turns
 		evil_eye_buff.set_lifetime(lifetime)
 		target.add_battle_buff(evil_eye_buff)
 		actor.play_one_shot_animation("magic")

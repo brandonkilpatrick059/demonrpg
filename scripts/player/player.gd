@@ -19,6 +19,8 @@ var can_move = true
 var starting_battle : bool = false
 var staged_encounter : Encounter = null
 
+var showing_summary = false
+
 @export var active : bool = true
 
 var can_play_step_sound : bool = true
@@ -67,11 +69,28 @@ func handle_input():
 				facing_direction = "right"
 		else:
 			walking = false
-			
 		if(Input.is_action_just_pressed("dev")):
 			var encounter = load("res://battle/encounters/test_encounter.tscn").instantiate()
 			add_child(encounter)
 			start_encounter(encounter)
+		if(Input.is_action_pressed("select")):
+			if(not showing_summary && $input_timer.is_stopped()):
+				showing_summary = true
+				show_summary()
+				get_tree().paused = true
+				$input_timer.start(0.5)
+			elif(showing_summary):
+				showing_summary = false
+				$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
+				$AudioStreamPlayer.play()
+
+func show_summary():
+	var summary : FamiliarSummary = load("res://interface/familiar_summary.tscn").instantiate()
+	get_parent().add_child(summary)
+	summary.set_familiars(familiar_team)
+	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+	var pos : Vector2 = camera.get_screen_center_position()
+	summary.global_position = pos
 
 func handle_animation():
 	if(moving):

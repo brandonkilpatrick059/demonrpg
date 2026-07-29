@@ -111,3 +111,8 @@ res://battle/interface/battle_input/battle_status.tscn
 res://scripts/utility/sigil_manager.gd
 res://battle/interface/capture_dialog.tscn
 res://scripts/battle_system/interface/capture_dialog.gd
+res://sprites/spritesheets/interface/summary_action_tab.tres
+res://interface/summary_action_tab.tscn
+res://scripts/interface/summary_action_tab.gd
+res://scripts/interface/familiar_summary.gd
+res://scripts/battle_system/actions/buff/action_block.gd

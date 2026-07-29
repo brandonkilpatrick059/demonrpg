@@ -75,3 +75,6 @@ polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 script = ExtResource("5_qjkh3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=311425431]
+
+[node name="input_timer" type="Timer" parent="." unique_id=685028976]
+one_shot = true

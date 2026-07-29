@@ -23,6 +23,17 @@ func _ready() -> void:
 	target_type = TargetType.ANY_ALLY
 	damage_type = DamageType.NONE
 
+func get_summary(actor : Familiar)-> String:
+	var summary : String = ""
+	summary = str(summary,str(summary,get_action_name()))
+	summary = str(summary,"-[color=lightblue]HEALS [/color][color=white]")
+	summary = str(summary,get_min_max_string(get_base_heal(actor),get_base_heal(actor)+get_base_heal(actor)))
+	summary = str(summary,str("[color=darkred] DAMAGE [/color]"))
+	return summary
+
+func get_base_heal(actor : Familiar) -> int:
+	return actor.get_magic()/2 + 1
+
 func clean_up():
 	announced_heal = false
 	made_heal = false
@@ -45,7 +56,7 @@ func visual_effects(pkg : BattlePkg):
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
-	var base_heal : int = actor.get_magic()/2 + 1
+	var base_heal : int = get_base_heal(actor)
 	var heal : int = base_heal + randi_range(0,base_heal)
 	var final_damage = heal
 	if(final_damage <= 0):

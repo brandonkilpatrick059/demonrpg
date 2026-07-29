@@ -196,7 +196,6 @@ func consume_familiar(familiar : Familiar):
 		"num_actions":
 			num_actions = num_actions + value
 	experience = experience + familiar.get_exp_value()
-
 func _ready() -> void:
 	for action_node in actions_parent.get_children():
 		actions.append(action_node)
@@ -204,6 +203,8 @@ func _ready() -> void:
 	sprite.frame = randi_range(0,sprite.sprite_frames.get_frame_count("default")-1)
 	if(sigil == "" && not no_sigil):
 		sigil = Sigil.get_unused_sigil()
+	use_parent_material = true
+	$AnimatedSprite2D.use_parent_material = true
 
 func get_sigil() -> String:
 	return sigil
@@ -301,7 +302,11 @@ func kill(return_sigil : bool = true):
 		Sigil.return_sigil(sigil)
 	dead = true
 
+func get_exp() -> int:
+	return experience
 
+func get_exp_to_next() -> int:
+	return exp_req_for_level_up[level]
 
 func clear_buffs():
 	for buff in battle_buffs:
