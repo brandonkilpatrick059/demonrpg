@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5e1w7vfebiaw"]
+
+[ext_resource type="Script" uid="uid://daelackmt2i7c" path="res://scripts/locations/zone_link.gd" id="1_7667h"]
+
+[node name="ZoneLink" type="Area2D" unique_id=1767686081]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_7667h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

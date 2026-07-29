@@ -45,8 +45,7 @@ func get_summary(actor : Familiar)-> String:
 	summary = str(summary,"-[color=yellow]x2[/color][color=darkred] PHYSICAL DAMAGE [/color][color=white] FOR ")
 	var base : int = get_base()
 	var max : int = get_divided_magic(actor)
-	summary = str(summary,str(base," TO "))
-	summary = str(summary,str(base + get_divided_magic(actor)))
+	summary = str(summary,get_min_max_string(base,base + get_divided_magic(actor)))
 	summary = str(summary,str("[color=white] TURNS [/color]"))
 	return summary
 

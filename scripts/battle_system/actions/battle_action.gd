@@ -35,10 +35,11 @@ func get_min_max_string(min : int, max : int) -> String:
 	var concat_str = ""
 	concat_str = str("[color=yellow]",min)
 	concat_str = str(concat_str,"[/color]")
-	concat_str = str(concat_str,"[color=white] TO ")
-	concat_str = str(concat_str,"[/color]")
-	concat_str = str(concat_str,str("[color=yellow]",max))
-	concat_str = str(concat_str,"[/color]")
+	if(min != max):
+		concat_str = str(concat_str,"[color=white] TO ")
+		concat_str = str(concat_str,"[/color]")
+		concat_str = str(concat_str,str("[color=yellow]",max))
+		concat_str = str(concat_str,"[/color]")
 	return concat_str
 
 func get_choice_weight() -> float:

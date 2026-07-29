@@ -14,6 +14,7 @@ var moving : bool = false
 @onready var move_collider : Area2D = $move_collider
 
 var move_speed_vect : Vector2 = Vector2(0,0)
+var input_frozen = false
 var can_move = true
 
 var starting_battle : bool = false
@@ -49,8 +50,17 @@ func get_pentacle_charms() -> int:
 func set_pentacle_charms(num : int):
 	pentacle_charms = num
 
+func freeze_input():
+	input_frozen = true
+
+func unfreeze_input():
+	input_frozen = false
+
+func input_is_frozen() -> bool:
+	return input_frozen
+
 func handle_input():
-	if(not fader_is_fading()):
+	if(not input_is_frozen() and not fader_is_fading()):
 		if(Input.is_action_pressed("up")):
 			if(grid_aligned()):
 				walking = true

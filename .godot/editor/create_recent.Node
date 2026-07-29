@@ -1,14 +1,14 @@
+Area2D
+Node2D
+CollisionShape2D
 Timer
 AudioStreamPlayer
 Sprite2D
 AnimatedSprite2D
 RichTextLabel
 Label
-Area2D
 AudioStreamPlayer2D
-CollisionShape2D
 RigidBody2D
 CanvasLayer
 CollisionPolygon2D
 Node
-Node2D
