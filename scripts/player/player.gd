@@ -74,15 +74,16 @@ func handle_input():
 			add_child(encounter)
 			start_encounter(encounter)
 		if(Input.is_action_pressed("select")):
-			if(not showing_summary && $input_timer.is_stopped()):
-				showing_summary = true
-				show_summary()
-				get_tree().paused = true
-				$input_timer.start(0.5)
-			elif(showing_summary):
-				showing_summary = false
-				$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
-				$AudioStreamPlayer.play()
+			if(familiar_team.size() > 0):
+				if(not showing_summary && $input_timer.is_stopped()):
+					showing_summary = true
+					show_summary()
+					get_tree().paused = true
+					$input_timer.start(0.5)
+				elif(showing_summary):
+					showing_summary = false
+					$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
+					$AudioStreamPlayer.play()
 
 func show_summary():
 	var summary : FamiliarSummary = load("res://interface/familiar_summary.tscn").instantiate()

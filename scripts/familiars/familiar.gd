@@ -270,6 +270,10 @@ func set_current_energy(num : int):
 	if (num == 0):
 		energy_depleted = true
 
+func use_energy(num : int):
+	current_energy = current_energy - num
+	energy_depleted = true
+
 func reset_energy():
 	energy_depleted = false
 

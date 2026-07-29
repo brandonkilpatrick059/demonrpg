@@ -72,7 +72,7 @@ func kill_target(actor: Familiar, target : Familiar):
 func pay_energy_cost(actor : Familiar):
 	if(energy_cost > 0):
 		var current_energy = actor.get_current_energy()
-		actor.set_current_energy(current_energy - energy_cost)
+		actor.use_energy(energy_cost)
 
 func clean_up():
 	pass

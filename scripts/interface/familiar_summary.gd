@@ -39,7 +39,7 @@ func set_familiar(familiar : Familiar):
 	familiar.position = Vector2(0,0)
 	$name_label.parse_bbcode(familiar.get_familiar_name())
 	var hp_gauge : HPGauge = $hp_gauge
-	var hp_fraction = familiar.get_current_hp()/familiar.get_max_hp()
+	var hp_fraction : float = float(familiar.get_current_hp())/float(familiar.get_max_hp())
 	var no_animate : bool = true
 	hp_gauge.set_gauge(hp_fraction, no_animate)
 	$hp.text = str(str(familiar.get_current_hp(),"/"),familiar.get_max_hp())

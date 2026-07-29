@@ -13,7 +13,7 @@ func get_summary(actor : Familiar)-> String:
 	summary = str(summary,"-[color=white]DEALS ")
 	summary = str(summary,get_min_max_string(actor.get_attack(),actor.get_attack()+actor.get_attack()))
 	summary = str(summary,str("[color=darkred] PHYSICAL DAMAGE [/color]"))
-	summary = str(summary,str("[color=white] TO 2 [/color]"))
+	summary = str(summary,str("[color=white]TO 2 [/color]"))
 	return summary
 
 func get_announcement(actor : Familiar, target : Familiar) -> String:

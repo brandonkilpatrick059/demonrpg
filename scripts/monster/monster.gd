@@ -30,13 +30,15 @@ func check_charge_player():
 			if(grid_aligned() && 
 			global_position.x == player.global_position.x):
 				if(player.global_position.y > global_position.y):
-					if(facing_direction == "down"):
+					if(facing_direction == "down" 
+					&& not colliders_detect_solid()):
 						grid_velocity = Vector2(0,charge_speed)
 						charging = true
 						moving = false
 						make_noise()
 				else:
-					if(facing_direction == "up"):
+					if(facing_direction == "up"
+					&& not colliders_detect_solid()):
 						grid_velocity = Vector2(0,-charge_speed)
 						charging = true
 						moving = false
@@ -44,13 +46,15 @@ func check_charge_player():
 			elif(grid_aligned() &&
 			global_position.y == player.global_position.y):
 				if(player.global_position.x > global_position.x):
-					if(facing_direction == "right"):
+					if(facing_direction == "right"
+					&& not colliders_detect_solid()):
 						grid_velocity = Vector2(charge_speed,0)
 						charging = true
 						moving = false
 						make_noise()
 				else:
-					if(facing_direction == "left"):
+					if(facing_direction == "left"
+					&& not colliders_detect_solid()):
 						grid_velocity = Vector2(-charge_speed,0)
 						charging = true
 						moving = false

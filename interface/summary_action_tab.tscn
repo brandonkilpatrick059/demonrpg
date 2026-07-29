@@ -28,6 +28,7 @@ text = "ATTACK  |   DEALS 9999 TO 9999 [color=red]PHYSICAL DAMAGE[/color]"
 
 [node name="energy_cost" type="AnimatedSprite2D" parent="." unique_id=497122606]
 material = SubResource("CanvasItemMaterial_k8h1s")
-position = Vector2(102, -3)
+position = Vector2(90, -3)
+scale = Vector2(-1, 1)
 sprite_frames = ExtResource("3_vtul0")
 frame = 4
