@@ -50,6 +50,12 @@ func get_pentacle_charms() -> int:
 func set_pentacle_charms(num : int):
 	pentacle_charms = num
 
+func turn_on_flashlight():
+	flash_light.enabled = true
+
+func turn_off_flashlight():
+	flash_light.enabled = false
+
 func freeze_input():
 	input_frozen = true
 
@@ -105,6 +111,7 @@ func show_summary():
 
 func handle_animation():
 	if(moving):
+		head.speed_scale = 3.0
 		var animation_name : String =str("walk_",facing_direction)
 		if(body.animation != animation_name):
 			body.play(animation_name)
@@ -116,6 +123,7 @@ func handle_animation():
 		else:
 			can_play_step_sound = true
 	else:
+		head.speed_scale = 1.0
 		var animation_name : String =str("stand_",facing_direction)
 		if(body.animation != animation_name):
 			body.play(animation_name)

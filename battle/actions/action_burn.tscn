@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b1qqq4o0wvert"]
+[gd_scene load_steps=2 format=3 uid="uid://b1qqq4o0wvert"]
 
 [ext_resource type="Script" uid="uid://bugfk16iepn5v" path="res://scripts/battle_system/actions/damage/magic/action_burn.gd" id="1_3axx0"]
 
-[node name="ActionBurn" type="Node" unique_id=918915832]
+[node name="ActionBurn" type="Node"]
 script = ExtResource("1_3axx0")

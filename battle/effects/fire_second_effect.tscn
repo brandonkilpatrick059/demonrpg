@@ -1,21 +1,21 @@
-[gd_scene format=3 uid="uid://bqycv85po5pdb"]
+[gd_scene load_steps=5 format=3 uid="uid://bqycv85po5pdb"]
 
 [ext_resource type="SpriteFrames" uid="uid://v0to6i8110f3" path="res://sprites/spritesheets/battle/actions/fire.tres" id="1_6wxi1"]
 [ext_resource type="Script" uid="uid://bsihdk40fybqv" path="res://scripts/utility/queue_free_after_seconds.gd" id="1_ciec7"]
 [ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="3_uvyx8"]
 [ext_resource type="Script" uid="uid://bgofy2is84hbf" path="res://scripts/utility/particle_drift.gd" id="4_uvyx8"]
 
-[node name="FireSecondEffect" type="Node2D" unique_id=1465392933]
+[node name="FireSecondEffect" type="Node2D"]
 script = ExtResource("1_ciec7")
 wait_time = 2.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1648382955]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = ExtResource("1_6wxi1")
 script = ExtResource("3_uvyx8")
 random_frame = true
 
-[node name="drift" type="Node" parent="." unique_id=2098788657]
+[node name="drift" type="Node" parent="."]
 script = ExtResource("4_uvyx8")
 min_speed = -0.08
 max_speed = 0.08

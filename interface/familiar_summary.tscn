@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c1lfqegt2qsda"]
+[gd_scene load_steps=12 format=3 uid="uid://c1lfqegt2qsda"]
 
 [ext_resource type="Texture2D" uid="uid://dkfl8rq81sovm" path="res://sprites/interface/familiar_summary.png" id="1_bnoyi"]
 [ext_resource type="Script" uid="uid://b7vxywpuu002j" path="res://scripts/interface/familiar_summary.gd" id="1_wblr4"]
@@ -22,21 +22,21 @@ font_size = 8
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wblr4"]
 light_mode = 1
 
-[node name="FamiliarSummary" type="Node2D" unique_id=2083043538]
+[node name="FamiliarSummary" type="Node2D"]
 process_mode = 3
 z_index = 5
 script = ExtResource("1_wblr4")
 
-[node name="background" type="Sprite2D" parent="." unique_id=57485867]
+[node name="background" type="Sprite2D" parent="."]
 z_index = -2
 material = SubResource("CanvasItemMaterial_k8h1s")
 texture = ExtResource("1_bnoyi")
 
-[node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("2_4kfdn")]
+[node name="hp_gauge" parent="." instance=ExtResource("2_4kfdn")]
 material = SubResource("CanvasItemMaterial_k8h1s")
 position = Vector2(-4, -58)
 
-[node name="hp" type="Label" parent="." unique_id=1168973327]
+[node name="hp" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = -33.0
 offset_top = -53.0
@@ -46,7 +46,7 @@ text = "999/999"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 
-[node name="attack" type="Label" parent="." unique_id=746749340]
+[node name="attack" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
 offset_top = -77.0
@@ -55,7 +55,7 @@ offset_bottom = -68.0
 text = "ATTACK : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
-[node name="power" type="Label" parent="." unique_id=1006898997]
+[node name="power" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = -33.0
 offset_top = -39.0
@@ -64,7 +64,7 @@ offset_bottom = -30.0
 text = "POWER : 99999"
 label_settings = SubResource("LabelSettings_n3wst")
 
-[node name="to_next" type="Label" parent="." unique_id=87924320]
+[node name="to_next" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = -33.0
 offset_top = -21.0
@@ -73,7 +73,7 @@ offset_bottom = -12.0
 text = "NEXT : 99999"
 label_settings = SubResource("LabelSettings_n3wst")
 
-[node name="magic" type="Label" parent="." unique_id=913464018]
+[node name="magic" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
 offset_top = -29.0
@@ -82,7 +82,7 @@ offset_bottom = -20.0
 text = "MAGIC : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
-[node name="speed" type="Label" parent="." unique_id=698499109]
+[node name="speed" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
 offset_top = -45.0
@@ -91,7 +91,7 @@ offset_bottom = -36.0
 text = "SPEED : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
-[node name="actions" type="Label" parent="." unique_id=194686743]
+[node name="actions" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
 offset_top = -13.0
@@ -101,7 +101,7 @@ text = "ACTIONS : 4
 "
 label_settings = SubResource("LabelSettings_n3wst")
 
-[node name="defense" type="Label" parent="." unique_id=1794196678]
+[node name="defense" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
 offset_top = -61.0
@@ -110,7 +110,7 @@ offset_bottom = -52.0
 text = "DEFENSE : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
-[node name="name_label" type="RichTextLabel" parent="." unique_id=1408278283]
+[node name="name_label" type="RichTextLabel" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = -33.0
 offset_top = -73.0
@@ -121,62 +121,62 @@ theme_override_font_sizes/normal_font_size = 8
 text = "ANGEL"
 horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1758986711]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 z_index = -1
 material = SubResource("CanvasItemMaterial_k8h1s")
 position = Vector2(0, -38)
 texture = ExtResource("4_xbbee")
 
-[node name="familiar_slot" type="Node2D" parent="." unique_id=152298899]
+[node name="familiar_slot" type="Node2D" parent="."]
 z_index = 6
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(-87, -41)
 
-[node name="summary_action_tab" parent="." unique_id=685189857 instance=ExtResource("6_xbbee")]
+[node name="summary_action_tab" parent="." instance=ExtResource("6_xbbee")]
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(1, 4)
 
-[node name="summary_action_tab2" parent="." unique_id=1687187304 instance=ExtResource("6_xbbee")]
+[node name="summary_action_tab2" parent="." instance=ExtResource("6_xbbee")]
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(1, 13)
 
-[node name="summary_action_tab3" parent="." unique_id=160674033 instance=ExtResource("6_xbbee")]
+[node name="summary_action_tab3" parent="." instance=ExtResource("6_xbbee")]
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(1, 22)
 
-[node name="summary_action_tab4" parent="." unique_id=2052932573 instance=ExtResource("6_xbbee")]
+[node name="summary_action_tab4" parent="." instance=ExtResource("6_xbbee")]
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(1, 31)
 
-[node name="summary_action_tab5" parent="." unique_id=1274493608 instance=ExtResource("6_xbbee")]
+[node name="summary_action_tab5" parent="." instance=ExtResource("6_xbbee")]
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(1, 40)
 
-[node name="summary_action_tab6" parent="." unique_id=1902173486 instance=ExtResource("6_xbbee")]
+[node name="summary_action_tab6" parent="." instance=ExtResource("6_xbbee")]
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(1, 49)
 
-[node name="summary_action_tab7" parent="." unique_id=708614610 instance=ExtResource("6_xbbee")]
+[node name="summary_action_tab7" parent="." instance=ExtResource("6_xbbee")]
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(1, 58)
 
-[node name="summary_action_tab8" parent="." unique_id=1552457258 instance=ExtResource("6_xbbee")]
+[node name="summary_action_tab8" parent="." instance=ExtResource("6_xbbee")]
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(1, 67)
 
-[node name="arrow_left" type="Sprite2D" parent="." unique_id=2053068204]
+[node name="arrow_left" type="Sprite2D" parent="."]
 visible = false
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(-140, 0)
-rotation = 1.5707964
+rotation = 1.5708
 texture = ExtResource("7_k8h1s")
 
-[node name="arrow_right" type="Sprite2D" parent="." unique_id=691924749]
+[node name="arrow_right" type="Sprite2D" parent="."]
 visible = false
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(140, 0)
-rotation = 4.712389
+rotation = 4.71239
 texture = ExtResource("7_k8h1s")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1927176357]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

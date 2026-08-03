@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cji52mlwppvu1"]
+[gd_scene load_steps=9 format=3 uid="uid://cji52mlwppvu1"]
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_8xs36"]
 [ext_resource type="SpriteFrames" uid="uid://dsew6vh6f7yp7" path="res://sprites/spritesheets/familiars/L1_martyr.tres" id="2_6l1du"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_0x1nh"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_16rrk"]
 
-[node name="L1martyr" type="Node2D" unique_id=246003526 node_paths=PackedStringArray("evolutions")]
+[node name="L1martyr" type="Node2D" node_paths=PackedStringArray("evolutions")]
 script = ExtResource("1_8xs36")
 familiar_name = "Martyr"
 max_hp = 8
@@ -19,43 +19,43 @@ defense = 2
 speed = 2
 evolutions = [NodePath("evolutions/reaver"), NodePath("evolutions/shax")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_6l1du")
 
-[node name="actions" type="Node" parent="." unique_id=437306310]
+[node name="actions" type="Node" parent="."]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_3amv8")]
+[node name="ActionAttack" parent="actions" instance=ExtResource("3_3amv8")]
 opponent_choice_weight = 0.5
 
-[node name="ActionDefend" parent="actions" unique_id=1145210079 instance=ExtResource("4_xfasu")]
+[node name="ActionDefend" parent="actions" instance=ExtResource("4_xfasu")]
 opponent_choice_weight = 0.4
 
-[node name="ActionFeed" parent="actions" unique_id=1424710821 instance=ExtResource("5_krugs")]
+[node name="ActionFeed" parent="actions" instance=ExtResource("5_krugs")]
 opponent_choice_weight = 0.2
 
-[node name="ActionStab" parent="actions" unique_id=1508152227 instance=ExtResource("6_5hcx6")]
+[node name="ActionStab" parent="actions" instance=ExtResource("6_5hcx6")]
 opponent_choice_weight = 0.7
 
-[node name="evolutions" type="Node" parent="." unique_id=1237950952]
+[node name="evolutions" type="Node" parent="."]
 
-[node name="reaver" type="Node" parent="evolutions" unique_id=475253229 node_paths=PackedStringArray("path_text")]
+[node name="reaver" type="Node" parent="evolutions" node_paths=PackedStringArray("path_text")]
 script = ExtResource("7_0x1nh")
 path_text = NodePath("path_text")
 new_base_path = "res://familiars/base/L2_reaver.tscn"
 plus_attack = 5
 
-[node name="path_text" type="Node" parent="evolutions/reaver" unique_id=2144741759]
+[node name="path_text" type="Node" parent="evolutions/reaver"]
 script = ExtResource("8_16rrk")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Blade"])
 
-[node name="shax" type="Node" parent="evolutions" unique_id=154189146 node_paths=PackedStringArray("path_text")]
+[node name="shax" type="Node" parent="evolutions" node_paths=PackedStringArray("path_text")]
 script = ExtResource("7_0x1nh")
 path_text = NodePath("path_text")
 new_base_path = "res://familiars/base/L2_shax.tscn"
 plus_speed = 5
 
-[node name="path_text" type="Node" parent="evolutions/shax" unique_id=2142234483]
+[node name="path_text" type="Node" parent="evolutions/shax"]
 script = ExtResource("8_16rrk")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Jackal"])

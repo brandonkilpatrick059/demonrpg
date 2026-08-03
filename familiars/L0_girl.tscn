@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://qmunr8sxvpse"]
+[gd_scene load_steps=6 format=3 uid="uid://qmunr8sxvpse"]
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_kc233"]
 [ext_resource type="SpriteFrames" uid="uid://f42u8yc78p57" path="res://sprites/spritesheets/familiars/girl_battle.tres" id="2_hlbq4"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_422nj"]
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="5_kc233"]
 
-[node name="L0girl" type="Node2D" unique_id=246003526 groups=["player_familiar"]]
+[node name="L0girl" type="Node2D" groups=["player_familiar"]]
 script = ExtResource("1_kc233")
 familiar_name = "You"
 max_hp = 10
@@ -14,15 +14,15 @@ current_hp = 10
 no_sigil = true
 level = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_hlbq4")
-frame_progress = 0.6194002
+frame_progress = 0.6194
 
-[node name="actions" type="Node" parent="." unique_id=1006645435]
+[node name="actions" type="Node" parent="."]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_sbjf8")]
+[node name="ActionAttack" parent="actions" instance=ExtResource("3_sbjf8")]
 
-[node name="ActionDefend" parent="actions" unique_id=354772795 instance=ExtResource("4_422nj")]
+[node name="ActionDefend" parent="actions" instance=ExtResource("4_422nj")]
 opponent_choice_weight = 0.3
 
-[node name="ActionRun" parent="actions" unique_id=1018795265 instance=ExtResource("5_kc233")]
+[node name="ActionRun" parent="actions" instance=ExtResource("5_kc233")]

@@ -1,33 +1,33 @@
-[gd_scene format=3 uid="uid://dob3yvgftbkr8"]
+[gd_scene load_steps=5 format=3 uid="uid://dob3yvgftbkr8"]
 
 [ext_resource type="SpriteFrames" uid="uid://v0to6i8110f3" path="res://sprites/spritesheets/battle/actions/fire.tres" id="1_frfau"]
 [ext_resource type="Script" uid="uid://bsihdk40fybqv" path="res://scripts/utility/queue_free_after_seconds.gd" id="1_ynrj6"]
 [ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="2_62rsh"]
 [ext_resource type="PackedScene" uid="uid://bqycv85po5pdb" path="res://battle/effects/fire_second_effect.tscn" id="5_8shcb"]
 
-[node name="FireMainEffect" type="Node2D" unique_id=768347536]
+[node name="FireMainEffect" type="Node2D"]
 script = ExtResource("1_ynrj6")
 wait_time = 2.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=969716747]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = ExtResource("1_frfau")
-frame_progress = 0.23654705
+frame_progress = 0.236547
 script = ExtResource("2_62rsh")
 random_frame = true
 
-[node name="FireSecondEffect" parent="." unique_id=1465392933 instance=ExtResource("5_8shcb")]
+[node name="FireSecondEffect" parent="." instance=ExtResource("5_8shcb")]
 
-[node name="FireSecondEffect2" parent="." unique_id=308859978 instance=ExtResource("5_8shcb")]
+[node name="FireSecondEffect2" parent="." instance=ExtResource("5_8shcb")]
 
-[node name="FireSecondEffect3" parent="." unique_id=532828286 instance=ExtResource("5_8shcb")]
+[node name="FireSecondEffect3" parent="." instance=ExtResource("5_8shcb")]
 
-[node name="FireSecondEffect4" parent="." unique_id=129710183 instance=ExtResource("5_8shcb")]
+[node name="FireSecondEffect4" parent="." instance=ExtResource("5_8shcb")]
 
-[node name="FireSecondEffect5" parent="." unique_id=1383582359 instance=ExtResource("5_8shcb")]
+[node name="FireSecondEffect5" parent="." instance=ExtResource("5_8shcb")]
 
-[node name="FireSecondEffect6" parent="." unique_id=1539239063 instance=ExtResource("5_8shcb")]
+[node name="FireSecondEffect6" parent="." instance=ExtResource("5_8shcb")]
 
-[node name="FireSecondEffect7" parent="." unique_id=1590231677 instance=ExtResource("5_8shcb")]
+[node name="FireSecondEffect7" parent="." instance=ExtResource("5_8shcb")]
 
-[node name="FireSecondEffect8" parent="." unique_id=999852055 instance=ExtResource("5_8shcb")]
+[node name="FireSecondEffect8" parent="." instance=ExtResource("5_8shcb")]

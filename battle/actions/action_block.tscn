@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bhfmqt6lxewql"]
+[gd_scene load_steps=2 format=3 uid="uid://bhfmqt6lxewql"]
 
 [ext_resource type="Script" uid="uid://b32irljlgl4ph" path="res://scripts/battle_system/actions/buff/action_block.gd" id="1_5p3ps"]
 
-[node name="ActionBlock" type="Node" unique_id=918915832]
+[node name="ActionBlock" type="Node"]
 script = ExtResource("1_5p3ps")

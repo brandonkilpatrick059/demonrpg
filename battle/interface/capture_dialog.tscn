@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ckq4ayki75rtw"]
+[gd_scene load_steps=8 format=3 uid="uid://ckq4ayki75rtw"]
 
 [ext_resource type="Texture2D" uid="uid://b8gvcmlmd2ukx" path="res://sprites/battle/interface/capture_dialog.png" id="1_avjla"]
 [ext_resource type="Script" uid="uid://co468k2pujlmr" path="res://scripts/battle_system/interface/capture_dialog.gd" id="1_m3fmd"]
@@ -14,13 +14,13 @@ font_size = 8
 font = ExtResource("2_vasal")
 font_size = 8
 
-[node name="CaptureDialog" type="Node2D" unique_id=1487250976]
+[node name="CaptureDialog" type="Node2D"]
 script = ExtResource("1_m3fmd")
 
-[node name="background" type="Sprite2D" parent="." unique_id=1690842336]
+[node name="background" type="Sprite2D" parent="."]
 texture = ExtResource("1_avjla")
 
-[node name="Label" type="RichTextLabel" parent="." unique_id=247113534]
+[node name="Label" type="RichTextLabel" parent="."]
 offset_left = -64.0
 offset_top = -26.0
 offset_right = 64.0
@@ -33,14 +33,14 @@ the [NAME] under your control?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="yes_label" type="Label" parent="." unique_id=162072180]
+[node name="yes_label" type="Label" parent="."]
 offset_left = 23.0
 offset_right = 63.0
 offset_bottom = 23.0
 text = "YES"
 label_settings = SubResource("LabelSettings_n3wst")
 
-[node name="no_label" type="Label" parent="." unique_id=1398810018]
+[node name="no_label" type="Label" parent="."]
 offset_left = 25.0
 offset_top = 11.0
 offset_right = 65.0
@@ -48,11 +48,11 @@ offset_bottom = 34.0
 text = "NO"
 label_settings = SubResource("LabelSettings_n3wst")
 
-[node name="seal" type="Sprite2D" parent="." unique_id=1267049489]
+[node name="seal" type="Sprite2D" parent="."]
 position = Vector2(-37, 11)
 texture = ExtResource("3_i11li")
 
-[node name="seal_label" type="Label" parent="." unique_id=1134788282]
+[node name="seal_label" type="Label" parent="."]
 offset_left = -23.0
 offset_top = 11.0
 offset_right = 17.0
@@ -60,12 +60,12 @@ offset_bottom = 34.0
 text = "x2"
 label_settings = SubResource("LabelSettings_1ty7w")
 
-[node name="yes_arrow" type="Sprite2D" parent="." unique_id=56542210]
+[node name="yes_arrow" type="Sprite2D" parent="."]
 position = Vector2(9, 4)
-rotation = 4.712389
+rotation = 4.71239
 texture = ExtResource("4_m3fmd")
 
-[node name="no_arrow" type="Sprite2D" parent="." unique_id=413321040]
+[node name="no_arrow" type="Sprite2D" parent="."]
 position = Vector2(9, 15)
-rotation = 4.712389
+rotation = 4.71239
 texture = ExtResource("4_m3fmd")

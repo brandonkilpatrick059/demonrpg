@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://crvk28vjomaix"]
+[gd_scene load_steps=2 format=3 uid="uid://crvk28vjomaix"]
 
 [ext_resource type="Script" uid="uid://r1snqbo5o1fb" path="res://scripts/battle_system/actions/damage/physical/action_slice.gd" id="1_s0wcn"]
 
-[node name="ActionSlice" type="Node" unique_id=918915832]
+[node name="ActionSlice" type="Node"]
 script = ExtResource("1_s0wcn")

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://qota78qdnkyd"]
+[gd_scene load_steps=2 format=3 uid="uid://qota78qdnkyd"]
 
 [ext_resource type="Script" uid="uid://c10bgg3slcsjc" path="res://scripts/battle_system/actions/buff/action_defend.gd" id="1_bb5vh"]
 
-[node name="ActionDefend" type="Node" unique_id=918915832]
+[node name="ActionDefend" type="Node"]
 script = ExtResource("1_bb5vh")

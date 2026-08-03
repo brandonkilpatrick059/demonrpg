@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://73r7ol0x5qyq"]
+[gd_scene load_steps=7 format=3 uid="uid://73r7ol0x5qyq"]
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_0cws7"]
 [ext_resource type="SpriteFrames" uid="uid://cy248d0mn3m8u" path="res://sprites/spritesheets/familiars/L2_shax.tres" id="2_ytd8o"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_nuwxe"]
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_q316e"]
 
-[node name="L2shax" type="Node2D" unique_id=246003526]
+[node name="L2shax" type="Node2D"]
 script = ExtResource("1_0cws7")
 familiar_name = "Shax"
 max_hp = 15
@@ -18,19 +18,19 @@ speed = 2
 num_actions = 2
 level = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_ytd8o")
-frame_progress = 0.24050707
+frame_progress = 0.240507
 
-[node name="actions" type="Node" parent="." unique_id=1697022532]
+[node name="actions" type="Node" parent="."]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_ffhtu")]
+[node name="ActionAttack" parent="actions" instance=ExtResource("3_ffhtu")]
 opponent_choice_weight = 0.4
 
-[node name="ActionDefend" parent="actions" unique_id=1518047527 instance=ExtResource("4_c52lt")]
+[node name="ActionDefend" parent="actions" instance=ExtResource("4_c52lt")]
 
-[node name="ActionFeed" parent="actions" unique_id=1039797395 instance=ExtResource("5_nuwxe")]
+[node name="ActionFeed" parent="actions" instance=ExtResource("5_nuwxe")]
 opponent_choice_weight = 0.1
 
-[node name="ActionStab" parent="actions" unique_id=716614691 instance=ExtResource("6_q316e")]
+[node name="ActionStab" parent="actions" instance=ExtResource("6_q316e")]
 opponent_choice_weight = 0.6

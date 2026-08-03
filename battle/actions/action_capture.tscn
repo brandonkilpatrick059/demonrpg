@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://clwvu1po4lp86"]
+[gd_scene load_steps=2 format=3 uid="uid://clwvu1po4lp86"]
 
 [ext_resource type="Script" uid="uid://c346422q18x7w" path="res://scripts/battle_system/actions/special/action_capture.gd" id="1_2tfh0"]
 
-[node name="ActionCapture" type="Node" unique_id=918915832]
+[node name="ActionCapture" type="Node"]
 script = ExtResource("1_2tfh0")

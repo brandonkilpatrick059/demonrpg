@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://c0gb20r7oawgo"]
+[gd_scene load_steps=3 format=3 uid="uid://c0gb20r7oawgo"]
 
 [ext_resource type="SpriteFrames" uid="uid://cp01e8rlq1htc" path="res://sprites/spritesheets/battle/interface/hp_bar.tres" id="1_qqk8g"]
 [ext_resource type="Script" uid="uid://ds2ndqn4hvty" path="res://scripts/battle_system/interface/hp_gauge.gd" id="2_b6kk1"]
 
-[node name="hp_gauge" type="AnimatedSprite2D" unique_id=771338093]
+[node name="hp_gauge" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_qqk8g")
 script = ExtResource("2_b6kk1")

@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://2yrht2mwt7i7"]
+[gd_scene load_steps=5 format=3 uid="uid://2yrht2mwt7i7"]
 
 [ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_gcamg"]
 [ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_mrena"]
 [ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="3_wlid5"]
 [ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/base/L1_gark.tscn" id="4_mrena"]
 
-[node name="TestEncounter" type="Node2D" unique_id=1440957085 node_paths=PackedStringArray("opponents")]
+[node name="TestEncounter" type="Node2D" node_paths=PackedStringArray("opponents")]
 script = ExtResource("1_gcamg")
 opponents = [NodePath("L1gark"), NodePath("L0Homunculus2")]
 music = ExtResource("2_mrena")
 
-[node name="L0Homunculus2" parent="." unique_id=1082613240 instance=ExtResource("3_wlid5")]
+[node name="L0Homunculus2" parent="." instance=ExtResource("3_wlid5")]
 visible = false
 action_cadence_0 = Array[String](["FEED", "ATTACK", "FEED", "DEFEND"])
 
-[node name="L1gark" parent="." unique_id=246003526 instance=ExtResource("4_mrena")]
-position = Vector2(63.679993, 585.98)
+[node name="L1gark" parent="." instance=ExtResource("4_mrena")]
+position = Vector2(63.68, 585.98)
 action_cadence_0 = Array[String](["EVIL EYE", "DEFEND", "EVIL EYE", "ATTACK"])

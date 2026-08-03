@@ -31,6 +31,10 @@ func swap_zones():
 	player_ref.reparent(self)
 	current_zone.queue_free()
 	current_zone = switching_to_zone.instantiate()
+	if(current_zone.is_dark()):
+		player_ref.turn_on_flashlight()
+	else:
+		player_ref.turn_off_flashlight()
 	add_child(current_zone)
 	player_ref.reparent(current_zone)
 	var destination_link : ZoneLink = current_zone.get_link_by_name(to_link_name)

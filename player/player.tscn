@@ -12,69 +12,70 @@ size = Vector2(24, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3wst"]
 size = Vector2(10, 10)
 
-[node name="Player" type="RigidBody2D" unique_id=218156707 groups=["player"]]
+[node name="Player" type="RigidBody2D" unique_id=122139857 groups=["player"]]
 z_index = 2
 collision_layer = 2
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_oul6g")
 
-[node name="body" type="AnimatedSprite2D" parent="." unique_id=1052233739]
+[node name="body" type="AnimatedSprite2D" parent="." unique_id=702121969]
 position = Vector2(12, -12)
 sprite_frames = ExtResource("2_g1dw6")
 animation = &"walk_down"
-frame_progress = 0.25336128
+frame_progress = 0.253361
 
-[node name="head" type="AnimatedSprite2D" parent="." unique_id=84592426]
+[node name="head" type="AnimatedSprite2D" parent="." unique_id=1986915846]
 position = Vector2(13, -12)
 sprite_frames = ExtResource("3_yw30f")
 animation = &"down"
-frame_progress = 0.07617751
+frame_progress = 0.0761775
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499405692]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=606394124]
 position = Vector2(12, -12)
 shape = SubResource("RectangleShape2D_cea73")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1637035636]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=707682217]
 position = Vector2(12, -12)
-energy = 0.75
+enabled = false
+energy = 0.4
 texture = ExtResource("4_yw30f")
 
-[node name="move_collider_left" type="Area2D" parent="." unique_id=1995344358]
+[node name="move_collider_left" type="Area2D" parent="." unique_id=970158218]
 position = Vector2(0, -12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_left" unique_id=850729640]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_left" unique_id=1384144024]
 shape = SubResource("RectangleShape2D_n3wst")
 
-[node name="move_collider_up" type="Area2D" parent="." unique_id=1383845486]
+[node name="move_collider_up" type="Area2D" parent="." unique_id=1136582038]
 position = Vector2(0, -12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_up" unique_id=270276608]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_up" unique_id=2105999044]
 position = Vector2(12, -12)
 shape = SubResource("RectangleShape2D_n3wst")
 
-[node name="move_collider_down" type="Area2D" parent="." unique_id=417854417]
+[node name="move_collider_down" type="Area2D" parent="." unique_id=722684923]
 position = Vector2(0, -12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_down" unique_id=1517732272]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_down" unique_id=22517137]
 position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_n3wst")
 
-[node name="move_collider_right" type="Area2D" parent="." unique_id=193359722]
+[node name="move_collider_right" type="Area2D" parent="." unique_id=1921293397]
 position = Vector2(0, -12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_right" unique_id=644333614]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_right" unique_id=1814650510]
 position = Vector2(24, 0)
 shape = SubResource("RectangleShape2D_n3wst")
 
-[node name="fade_to_black" type="Polygon2D" parent="." unique_id=1556494314]
+[node name="fade_to_black" type="Polygon2D" parent="." unique_id=1427363493]
 visible = false
 z_index = 4
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 script = ExtResource("5_qjkh3")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=311425431]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1908641525]
 
-[node name="input_timer" type="Timer" parent="." unique_id=685028976]
+[node name="input_timer" type="Timer" parent="." unique_id=215837338]
 one_shot = true

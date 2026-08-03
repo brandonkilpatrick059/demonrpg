@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bi4xmaplnycfb"]
+[gd_scene load_steps=9 format=3 uid="uid://bi4xmaplnycfb"]
 
 [ext_resource type="Script" uid="uid://bk18bu16oykj0" path="res://scripts/battle_system/interface/battle_status.gd" id="1_75mxf"]
 [ext_resource type="Texture2D" uid="uid://bkclg804ah3sd" path="res://sprites/battle/interface/battle_status_menu.png" id="1_qenhj"]
@@ -12,21 +12,21 @@
 font = ExtResource("4_nsi0d")
 font_size = 8
 
-[node name="BattleStatus" type="Node2D" unique_id=2019142930]
+[node name="BattleStatus" type="Node2D"]
 script = ExtResource("1_75mxf")
 
-[node name="background" type="Sprite2D" parent="." unique_id=718694262]
+[node name="background" type="Sprite2D" parent="."]
 texture = ExtResource("1_qenhj")
 
-[node name="energy_gauge" type="AnimatedSprite2D" parent="." unique_id=663034186]
+[node name="energy_gauge" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = ExtResource("2_lfhr3")
 
-[node name="num_acts_tab" type="Sprite2D" parent="." unique_id=1219094693]
+[node name="num_acts_tab" type="Sprite2D" parent="."]
 position = Vector2(24, -28)
 texture = ExtResource("3_nsi0d")
 
-[node name="Label" type="Label" parent="num_acts_tab" unique_id=378710741]
+[node name="Label" type="Label" parent="num_acts_tab"]
 offset_left = -5.0
 offset_top = -5.0
 offset_right = 40.0
@@ -34,7 +34,7 @@ offset_bottom = 23.0
 text = "2/2"
 label_settings = SubResource("LabelSettings_cea73")
 
-[node name="name_label" type="RichTextLabel" parent="." unique_id=578644034]
+[node name="name_label" type="RichTextLabel" parent="."]
 offset_left = -30.0
 offset_top = -18.0
 offset_right = 29.0
@@ -44,7 +44,7 @@ theme_override_font_sizes/normal_font_size = 8
 text = "HOMUNCULUS"
 horizontal_alignment = 1
 
-[node name="hp_label" type="RichTextLabel" parent="." unique_id=1347341895]
+[node name="hp_label" type="RichTextLabel" parent="."]
 offset_left = -29.0
 offset_top = 7.0
 offset_right = 29.0
@@ -54,24 +54,24 @@ theme_override_font_sizes/normal_font_size = 8
 text = "40/40"
 horizontal_alignment = 1
 
-[node name="hp_gauge" parent="." unique_id=771338093 instance=ExtResource("6_2sibk")]
+[node name="hp_gauge" parent="." instance=ExtResource("6_2sibk")]
 
-[node name="status_1" type="Sprite2D" parent="." unique_id=141459405]
+[node name="status_1" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-23, 12)
 texture = ExtResource("7_n1hur")
 
-[node name="status_2" type="Sprite2D" parent="." unique_id=589507116]
+[node name="status_2" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-10, 12)
 texture = ExtResource("7_n1hur")
 
-[node name="status_3" type="Sprite2D" parent="." unique_id=915182777]
+[node name="status_3" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(3, 12)
 texture = ExtResource("7_n1hur")
 
-[node name="status_4" type="Sprite2D" parent="." unique_id=1693837577]
+[node name="status_4" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(16, 12)
 texture = ExtResource("7_n1hur")

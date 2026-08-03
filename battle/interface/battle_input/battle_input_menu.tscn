@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://c3duf4vdofyh"]
+[gd_scene load_steps=3 format=3 uid="uid://c3duf4vdofyh"]
 
 [ext_resource type="PackedScene" uid="uid://rgdy6g0uqvfp" path="res://battle/interface/battle_input/battle_action_menu/battle_action_menu.tscn" id="1_lbkux"]
 [ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_input/battle_status.tscn" id="2_oohew"]
 
-[node name="BattleInputMenu" type="Node2D" unique_id=1436151058]
+[node name="BattleInputMenu" type="Node2D"]
 
-[node name="BattleActionMenu" parent="." unique_id=1589695393 instance=ExtResource("1_lbkux")]
+[node name="BattleActionMenu" parent="." instance=ExtResource("1_lbkux")]
 position = Vector2(0, -14)
 
-[node name="BattleStatus" parent="." unique_id=2019142930 instance=ExtResource("2_oohew")]
+[node name="BattleStatus" parent="." instance=ExtResource("2_oohew")]

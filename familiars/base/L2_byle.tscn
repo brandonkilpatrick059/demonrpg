@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dogiaxmsxt1y8"]
+[gd_scene load_steps=8 format=3 uid="uid://dogiaxmsxt1y8"]
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_5vyt4"]
 [ext_resource type="SpriteFrames" uid="uid://bbbf7yp3wdb2k" path="res://sprites/spritesheets/familiars/L2_byle.tres" id="2_56qed"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_d11f7"]
 [ext_resource type="PackedScene" uid="uid://cwaw606w62g4y" path="res://battle/actions/action_heal.tscn" id="7_15da5"]
 
-[node name="L2byle" type="Node2D" unique_id=246003526]
+[node name="L2byle" type="Node2D"]
 script = ExtResource("1_5vyt4")
 familiar_name = "Byle"
 max_hp = 15
@@ -18,24 +18,24 @@ defense = 2
 magic = 5
 level = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_56qed")
 animation = &"magic"
-frame_progress = 0.74900675
+frame_progress = 0.749007
 
-[node name="actions" type="Node" parent="." unique_id=1087267566]
+[node name="actions" type="Node" parent="."]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_nvpi5")]
+[node name="ActionAttack" parent="actions" instance=ExtResource("3_nvpi5")]
 opponent_choice_weight = 0.3
 
-[node name="ActionDefend" parent="actions" unique_id=650851647 instance=ExtResource("4_uyvc8")]
+[node name="ActionDefend" parent="actions" instance=ExtResource("4_uyvc8")]
 opponent_choice_weight = 0.1
 
-[node name="ActionFeed" parent="actions" unique_id=1893116652 instance=ExtResource("5_mx2nn")]
+[node name="ActionFeed" parent="actions" instance=ExtResource("5_mx2nn")]
 opponent_choice_weight = 0.1
 
-[node name="EvilEye" parent="actions" unique_id=2103181957 instance=ExtResource("6_d11f7")]
+[node name="EvilEye" parent="actions" instance=ExtResource("6_d11f7")]
 opponent_choice_weight = 0.4
 
-[node name="ActionHeal" parent="actions" unique_id=2142354482 instance=ExtResource("7_15da5")]
+[node name="ActionHeal" parent="actions" instance=ExtResource("7_15da5")]
 opponent_choice_weight = 0.5

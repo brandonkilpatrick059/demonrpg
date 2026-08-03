@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dl1ocarny4af2"]
+[gd_scene load_steps=7 format=3 uid="uid://dl1ocarny4af2"]
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_p0itq"]
 [ext_resource type="SpriteFrames" uid="uid://5nlryqdef2ss" path="res://sprites/spritesheets/familiars/L2_dylith.tres" id="2_jiltr"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_dfook"]
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_w7itd"]
 
-[node name="L2dylith" type="Node2D" unique_id=246003526]
+[node name="L2dylith" type="Node2D"]
 script = ExtResource("1_p0itq")
 familiar_name = "Dylith"
 max_hp = 15
@@ -17,21 +17,21 @@ defense = 4
 speed = 2
 level = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_jiltr")
 animation = &"die"
-frame_progress = 0.060583673
+frame_progress = 0.0605837
 
-[node name="actions" type="Node" parent="." unique_id=1697022532]
+[node name="actions" type="Node" parent="."]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_ses2p")]
+[node name="ActionAttack" parent="actions" instance=ExtResource("3_ses2p")]
 opponent_choice_weight = 0.4
 
-[node name="ActionBlock" parent="actions" unique_id=1367453700 instance=ExtResource("4_oyh1r")]
+[node name="ActionBlock" parent="actions" instance=ExtResource("4_oyh1r")]
 opponent_choice_weight = 0.5
 
-[node name="ActionFeed" parent="actions" unique_id=1039797395 instance=ExtResource("5_dfook")]
+[node name="ActionFeed" parent="actions" instance=ExtResource("5_dfook")]
 opponent_choice_weight = 0.1
 
-[node name="ActionStab" parent="actions" unique_id=716614691 instance=ExtResource("6_w7itd")]
+[node name="ActionStab" parent="actions" instance=ExtResource("6_w7itd")]
 opponent_choice_weight = 0.6

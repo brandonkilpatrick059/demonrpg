@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://eeptr7lbsouc"]
+[gd_scene load_steps=3 format=3 uid="uid://eeptr7lbsouc"]
 
 [ext_resource type="Script" uid="uid://vhncdgc6bng0" path="res://scripts/battle_system/buffs/evil_eye_buff.gd" id="1_rs3ew"]
 [ext_resource type="Texture2D" uid="uid://u5ypaq3kawi2" path="res://sprites/battle/interface/buff_symbols/evil_eye.png" id="2_rs3ew"]
 
-[node name="EvilEyeBuff" type="Node2D" unique_id=1994436220]
+[node name="EvilEyeBuff" type="Node2D"]
 script = ExtResource("1_rs3ew")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1941476371]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_rs3ew")

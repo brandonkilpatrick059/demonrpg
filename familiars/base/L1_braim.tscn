@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://be8nahf55fp0p"]
+[gd_scene load_steps=8 format=3 uid="uid://be8nahf55fp0p"]
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_bkqs8"]
 [ext_resource type="SpriteFrames" uid="uid://b7kuox6c5v233" path="res://sprites/spritesheets/familiars/L1_braim.tres" id="2_fqvrx"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="6_86yxp"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="7_gsyfw"]
 
-[node name="L1braim" type="Node2D" unique_id=246003526 node_paths=PackedStringArray("evolutions")]
+[node name="L1braim" type="Node2D" node_paths=PackedStringArray("evolutions")]
 script = ExtResource("1_bkqs8")
 familiar_name = "Braim"
 max_hp = 11
@@ -16,40 +16,40 @@ current_hp = 11
 defense = 4
 evolutions = [NodePath("evolutions/gorgon"), NodePath("evolutions/dylith")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082216655]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_fqvrx")
 
-[node name="actions" type="Node" parent="." unique_id=1697022532]
+[node name="actions" type="Node" parent="."]
 
-[node name="ActionAttack" parent="actions" unique_id=918915832 instance=ExtResource("3_4m0g1")]
+[node name="ActionAttack" parent="actions" instance=ExtResource("3_4m0g1")]
 opponent_choice_weight = 0.4
 
-[node name="ActionBlock" parent="actions" unique_id=1367453700 instance=ExtResource("4_5eoka")]
+[node name="ActionBlock" parent="actions" instance=ExtResource("4_5eoka")]
 opponent_choice_weight = 0.5
 
-[node name="ActionFeed" parent="actions" unique_id=1039797395 instance=ExtResource("5_io2pg")]
+[node name="ActionFeed" parent="actions" instance=ExtResource("5_io2pg")]
 opponent_choice_weight = 0.1
 
-[node name="evolutions" type="Node" parent="." unique_id=1505172156]
+[node name="evolutions" type="Node" parent="."]
 
-[node name="gorgon" type="Node" parent="evolutions" unique_id=305111590 node_paths=PackedStringArray("path_text")]
+[node name="gorgon" type="Node" parent="evolutions" node_paths=PackedStringArray("path_text")]
 script = ExtResource("6_86yxp")
 path_text = NodePath("path_text")
 new_base_path = "res://familiars/base/L2_gorgon.tscn"
 plus_defense = 5
 
-[node name="path_text" type="Node" parent="evolutions/gorgon" unique_id=1314850611]
+[node name="path_text" type="Node" parent="evolutions/gorgon"]
 script = ExtResource("7_gsyfw")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Elephant"])
 
-[node name="dylith" type="Node" parent="evolutions" unique_id=703574457 node_paths=PackedStringArray("path_text")]
+[node name="dylith" type="Node" parent="evolutions" node_paths=PackedStringArray("path_text")]
 script = ExtResource("6_86yxp")
 path_text = NodePath("path_text")
 new_base_path = "res://familiars/base/L2_dylith.tscn"
 plus_attack = 5
 
-[node name="path_text" type="Node" parent="evolutions/dylith" unique_id=1456606271]
+[node name="path_text" type="Node" parent="evolutions/dylith"]
 script = ExtResource("7_gsyfw")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Ox"])

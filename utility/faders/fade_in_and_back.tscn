@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bkeu8pnnxijyh"]
+[gd_scene load_steps=2 format=3 uid="uid://bkeu8pnnxijyh"]
 
 [ext_resource type="Script" uid="uid://clm4enx7fqkjw" path="res://scripts/utility/fade_node.gd" id="1_i0hng"]
 
-[node name="FadeInAndBack" type="Node2D" unique_id=2013521448]
+[node name="FadeInAndBack" type="Node2D"]
 script = ExtResource("1_i0hng")
 return_when_done = true
 target_modulate = Color(1, 1, 1, 1)

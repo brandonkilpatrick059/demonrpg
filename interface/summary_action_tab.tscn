@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b8pynlcnn2j07"]
+[gd_scene load_steps=6 format=3 uid="uid://b8pynlcnn2j07"]
 
 [ext_resource type="SpriteFrames" uid="uid://bx45u602ur20q" path="res://sprites/spritesheets/interface/summary_action_tab.tres" id="1_ycw1g"]
 [ext_resource type="Script" uid="uid://bu4btb8ryo0w6" path="res://scripts/interface/summary_action_tab.gd" id="2_vtul0"]
@@ -8,13 +8,13 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8h1s"]
 light_mode = 1
 
-[node name="summary_action_tab" type="AnimatedSprite2D" unique_id=685189857]
+[node name="summary_action_tab" type="AnimatedSprite2D"]
 process_mode = 3
 sprite_frames = ExtResource("1_ycw1g")
 animation = &"active"
 script = ExtResource("2_vtul0")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1028252438]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = -112.0
 offset_top = -4.0
@@ -26,7 +26,7 @@ theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "ATTACK  |   DEALS 9999 TO 9999 [color=red]PHYSICAL DAMAGE[/color]"
 
-[node name="energy_cost" type="AnimatedSprite2D" parent="." unique_id=497122606]
+[node name="energy_cost" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_k8h1s")
 position = Vector2(90, -3)
 scale = Vector2(-1, 1)
