@@ -313,7 +313,11 @@ func show_status(familiar : Familiar):
 	awaiting_input = true
 
 func show_action_menu(familiar : Familiar):
-	action_menu.set_actions(familiar.get_actions())
+	if(not familiar.is_in_group("player_familiar") and
+	side_is_dead(opponent_familiars)):
+		action_menu.set_actions([$ActionPass,$ActionFeed])
+	else:
+		action_menu.set_actions(familiar.get_actions())
 	var height = -16 - action_menu.get_height()
 	action_menu.global_position = familiar.global_position + Vector2(0,height)
 	action_menu.set_energy_gauge(familiar.get_current_energy())

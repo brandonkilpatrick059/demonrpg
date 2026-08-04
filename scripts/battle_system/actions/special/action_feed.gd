@@ -144,10 +144,11 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_feed):
 		if(targets[0] != null):
-			var announcement : String = get_announcement(actor,targets[0])
-			battle_sys_ref.play_messages([announcement])
 			determine_feed_success(actor,targets[0])
 			announced_feed = true
+			if(not targets[0].is_dead()):
+				var announcement : String = get_announcement(actor,targets[0])
+				battle_sys_ref.play_messages([announcement])
 		else:
 			exit_action()
 	elif(not commenced_feed && feed_succeeded):

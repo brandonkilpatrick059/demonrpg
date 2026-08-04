@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://be35ujtdjuaob"]
+
+[ext_resource type="Script" uid="uid://0gs1dyr5foew" path="res://scripts/battle_system/actions/damage/physical/action_pass.gd" id="1_r5r2b"]
+
+[node name="ActionPass" type="Node" unique_id=183086136]
+script = ExtResource("1_r5r2b")

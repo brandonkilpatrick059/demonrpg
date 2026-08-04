@@ -61,7 +61,7 @@ autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1558102333 groups=["global_modulate"]]
 z_index = 50
-color = Color(0.61339027, 0.61339027, 0.61339027, 1)
+color = Color(0.11119685, 0.11119684, 0.11119684, 1)
 
 [node name="monsters" type="Node2D" parent="." unique_id=333401073]
 

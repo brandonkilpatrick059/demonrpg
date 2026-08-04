@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1yksn1grty30"]
+[gd_scene format=3 uid="uid://d1yksn1grty30"]
 
 [ext_resource type="Script" uid="uid://dhfls34gu62yx" path="res://scripts/battle_system/battle_system_manager.gd" id="1_m8o33"]
 [ext_resource type="PackedScene" uid="uid://rgdy6g0uqvfp" path="res://battle/interface/battle_input/battle_action_menu/battle_action_menu.tscn" id="2_5ix18"]
@@ -18,65 +18,67 @@
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="15_qcet8"]
 [ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="16_tv3fy"]
 [ext_resource type="PackedScene" uid="uid://clwvu1po4lp86" path="res://battle/actions/action_capture.tscn" id="18_p0q2p"]
+[ext_resource type="PackedScene" uid="uid://be35ujtdjuaob" path="res://battle/actions/action_pass.tscn" id="19_fak6n"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="20_j1qn7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cea73"]
 font = ExtResource("9_qcet8")
 font_size = 8
 font_color = Color(1, 0, 0, 1)
 
-[node name="BattleSystem" type="Node2D"]
+[node name="BattleSystem" type="Node2D" unique_id=1451338702]
 z_index = 10
 z_as_relative = false
 script = ExtResource("1_m8o33")
 
-[node name="guides" type="Node2D" parent="."]
+[node name="guides" type="Node2D" parent="." unique_id=62600206]
 modulate = Color(1, 1, 1, 0.513726)
 z_index = 10
 script = ExtResource("2_44d04")
 
-[node name="grid" type="Sprite2D" parent="guides"]
+[node name="grid" type="Sprite2D" parent="guides" unique_id=1355735441]
 texture = ExtResource("2_o4lua")
 
-[node name="player_boundaries" type="Sprite2D" parent="guides"]
+[node name="player_boundaries" type="Sprite2D" parent="guides" unique_id=568140691]
 position = Vector2(0, -8)
 texture = ExtResource("3_7mede")
 
-[node name="opponent_boundaries" type="Sprite2D" parent="guides"]
+[node name="opponent_boundaries" type="Sprite2D" parent="guides" unique_id=1992040631]
 texture = ExtResource("4_72ene")
 
-[node name="familiars" type="Node2D" parent="."]
+[node name="familiars" type="Node2D" parent="." unique_id=1190782223]
 
-[node name="opponent" type="Node2D" parent="familiars"]
+[node name="opponent" type="Node2D" parent="familiars" unique_id=1919850254]
 
-[node name="1" type="Node2D" parent="familiars/opponent" node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="1" type="Node2D" parent="familiars/opponent" unique_id=2031482404 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(-108, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow1")
 upgrade_label = NodePath("../upgrade_label1")
 
-[node name="2" type="Node2D" parent="familiars/opponent" node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="2" type="Node2D" parent="familiars/opponent" unique_id=1229794576 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(-36, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow2")
 upgrade_label = NodePath("../upgrade_label2")
 
-[node name="3" type="Node2D" parent="familiars/opponent" node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="3" type="Node2D" parent="familiars/opponent" unique_id=1450257773 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(36, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow3")
 upgrade_label = NodePath("../upgrade_label3")
 
-[node name="4" type="Node2D" parent="familiars/opponent" node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="4" type="Node2D" parent="familiars/opponent" unique_id=61218693 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(108, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow4")
 upgrade_label = NodePath("../upgrade_label4")
 
-[node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/opponent"]
+[node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=2020381808]
 visible = false
 z_index = 5
 position = Vector2(-107, -73)
@@ -84,7 +86,7 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.900233
 script = ExtResource("7_213sk")
 
-[node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/opponent"]
+[node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1886551892]
 visible = false
 z_index = 5
 position = Vector2(-35, -73)
@@ -92,7 +94,7 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.0923141
 script = ExtResource("7_213sk")
 
-[node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/opponent"]
+[node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1162962541]
 visible = false
 z_index = 5
 position = Vector2(36, -73)
@@ -100,7 +102,7 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.0923141
 script = ExtResource("7_213sk")
 
-[node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/opponent"]
+[node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=477634836]
 visible = false
 z_index = 5
 position = Vector2(108, -73)
@@ -108,7 +110,7 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.0923141
 script = ExtResource("7_213sk")
 
-[node name="upgrade_label1" type="Label" parent="familiars/opponent"]
+[node name="upgrade_label1" type="Label" parent="familiars/opponent" unique_id=450660838]
 visible = false
 offset_left = -153.0
 offset_top = -65.0
@@ -119,7 +121,7 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="upgrade_label2" type="Label" parent="familiars/opponent"]
+[node name="upgrade_label2" type="Label" parent="familiars/opponent" unique_id=1436770394]
 visible = false
 offset_left = -85.0
 offset_top = -65.0
@@ -130,7 +132,7 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="upgrade_label3" type="Label" parent="familiars/opponent"]
+[node name="upgrade_label3" type="Label" parent="familiars/opponent" unique_id=1185723616]
 visible = false
 offset_left = -14.0
 offset_top = -65.0
@@ -141,7 +143,7 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="upgrade_label4" type="Label" parent="familiars/opponent"]
+[node name="upgrade_label4" type="Label" parent="familiars/opponent" unique_id=1224265324]
 visible = false
 offset_left = 58.0
 offset_top = -65.0
@@ -152,34 +154,34 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="player" type="Node2D" parent="familiars"]
+[node name="player" type="Node2D" parent="familiars" unique_id=109880480]
 position = Vector2(0, -8)
 
-[node name="1" type="Node2D" parent="familiars/player" node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="1" type="Node2D" parent="familiars/player" unique_id=436409953 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 position = Vector2(-108, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow1")
 upgrade_label = NodePath("../upgrade_label1")
 
-[node name="2" type="Node2D" parent="familiars/player" node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="2" type="Node2D" parent="familiars/player" unique_id=2123748859 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 position = Vector2(-36, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow2")
 upgrade_label = NodePath("../upgrade_label2")
 
-[node name="3" type="Node2D" parent="familiars/player" node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="3" type="Node2D" parent="familiars/player" unique_id=1947783539 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 position = Vector2(36, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow3")
 upgrade_label = NodePath("../upgrade_label3")
 
-[node name="4" type="Node2D" parent="familiars/player" node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="4" type="Node2D" parent="familiars/player" unique_id=1566813537 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
 position = Vector2(108, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow4")
 upgrade_label = NodePath("../upgrade_label4")
 
-[node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/player"]
+[node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/player" unique_id=1857399642]
 visible = false
 z_index = 5
 position = Vector2(-107, 7)
@@ -187,7 +189,7 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.776019
 script = ExtResource("7_213sk")
 
-[node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/player"]
+[node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/player" unique_id=962630628]
 visible = false
 z_index = 5
 position = Vector2(-35, 7)
@@ -195,7 +197,7 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.0923141
 script = ExtResource("7_213sk")
 
-[node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/player"]
+[node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/player" unique_id=529547038]
 visible = false
 z_index = 5
 position = Vector2(36, 7)
@@ -203,7 +205,7 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.0923141
 script = ExtResource("7_213sk")
 
-[node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/player"]
+[node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/player" unique_id=1867950404]
 visible = false
 z_index = 5
 position = Vector2(108, 7)
@@ -211,7 +213,7 @@ sprite_frames = ExtResource("12_5ix18")
 frame_progress = 0.0923141
 script = ExtResource("7_213sk")
 
-[node name="upgrade_label1" type="Label" parent="familiars/player"]
+[node name="upgrade_label1" type="Label" parent="familiars/player" unique_id=1761104360]
 visible = false
 offset_left = -153.0
 offset_top = 15.0
@@ -222,7 +224,7 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="upgrade_label2" type="Label" parent="familiars/player"]
+[node name="upgrade_label2" type="Label" parent="familiars/player" unique_id=1447258989]
 visible = false
 offset_left = -85.0
 offset_top = 15.0
@@ -233,7 +235,7 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="upgrade_label3" type="Label" parent="familiars/player"]
+[node name="upgrade_label3" type="Label" parent="familiars/player" unique_id=1848061649]
 visible = false
 offset_left = -14.0
 offset_top = 15.0
@@ -244,7 +246,7 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="upgrade_label4" type="Label" parent="familiars/player"]
+[node name="upgrade_label4" type="Label" parent="familiars/player" unique_id=1383066817]
 visible = false
 offset_left = 58.0
 offset_top = 15.0
@@ -255,42 +257,46 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="background" type="Node2D" parent="."]
+[node name="background" type="Node2D" parent="." unique_id=1709004281]
 visible = false
 z_index = -5
 
-[node name="background_shadow" type="Sprite2D" parent="background"]
+[node name="background_shadow" type="Sprite2D" parent="background" unique_id=791776207]
 z_index = -1
 texture = ExtResource("5_7mede")
 
-[node name="background_floor" type="Sprite2D" parent="background"]
+[node name="background_floor" type="Sprite2D" parent="background" unique_id=1594288952]
 z_index = -2
 texture = ExtResource("6_72ene")
 
-[node name="BattleMessage" parent="." instance=ExtResource("12_sycs1")]
+[node name="BattleMessage" parent="." unique_id=902517188 instance=ExtResource("12_sycs1")]
 z_index = 5
 
-[node name="BattleStatus" parent="." instance=ExtResource("13_qcet8")]
+[node name="BattleStatus" parent="." unique_id=68464375 instance=ExtResource("13_qcet8")]
 visible = false
 z_index = 5
 position = Vector2(-108, -15)
 
-[node name="BattleActionMenu" parent="." instance=ExtResource("2_5ix18")]
+[node name="BattleActionMenu" parent="." unique_id=1612824542 instance=ExtResource("2_5ix18")]
 visible = false
 z_index = 5
 position = Vector2(-108, -29)
 
-[node name="CaptureDialog" parent="." instance=ExtResource("15_8e777")]
+[node name="CaptureDialog" parent="." unique_id=1233963811 instance=ExtResource("15_8e777")]
 visible = false
 z_index = 5
 
-[node name="hp_gauge" parent="." instance=ExtResource("15_qcet8")]
+[node name="hp_gauge" parent="." unique_id=237665929 instance=ExtResource("15_qcet8")]
 
-[node name="fade_to_black" type="Polygon2D" parent="."]
+[node name="fade_to_black" type="Polygon2D" parent="." unique_id=1599393594]
 visible = false
 z_index = 4
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 script = ExtResource("16_tv3fy")
 
-[node name="ActionCapture" parent="." instance=ExtResource("18_p0q2p")]
+[node name="ActionCapture" parent="." unique_id=1686264748 instance=ExtResource("18_p0q2p")]
+
+[node name="ActionPass" parent="." unique_id=183086136 instance=ExtResource("19_fak6n")]
+
+[node name="ActionFeed" parent="." unique_id=1322979069 instance=ExtResource("20_j1qn7")]

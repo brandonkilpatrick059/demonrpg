@@ -32,3 +32,8 @@ res://shaders/screen_shader.gdshader
 res://locations/zones/test_woods_2.tscn
 res://locations/text_zone_sandbox.tscn
 res://locations/zone_manager.tscn
+res://scripts/battle_system/actions/special/action_feed.gd
+res://battle/actions/action_pass.tscn
+res://scripts/battle_system/actions/damage/physical/action_pass.gd
+res://battle/battle_system.tscn
+res://scripts/battle_system/battle_system_manager.gd
