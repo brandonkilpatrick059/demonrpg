@@ -11,6 +11,11 @@ var talking : bool = false
 var grid_velocity : Vector2 = Vector2(0,0)
 var move_speed : float = 1.0
 
+var up_colliding_bodies : Array[Node] = []
+var down_colliding_bodies : Array[Node] = []
+var left_colliding_bodies : Array[Node] = []
+var right_colliding_bodies : Array[Node] = []
+
 
 @onready var colliders : Array[Area2D] = [
 	$move_collider_left,
@@ -107,9 +112,14 @@ func interact(player_dir : String):
 
 func get_free_facing_direction():
 	var free_colliders : Array[Area2D] = []
-	for collider in colliders:
-		if(collider.get_overlapping_bodies().size() == 0):
-			free_colliders.append(collider)
+	if(up_colliding_bodies.size() == 0):
+		free_colliders.append(($move_collider_up))
+	if(down_colliding_bodies.size() == 0):
+		free_colliders.append(($move_collider_down))
+	if(left_colliding_bodies.size() == 0):
+		free_colliders.append(($move_collider_left))
+	if(right_colliding_bodies.size() == 0):
+		free_colliders.append(($move_collider_right))
 	if(free_colliders.size() > 0):
 		var collider = free_colliders[randi_range(0,free_colliders.size()-1)]
 		if(collider == $move_collider_down):
@@ -127,19 +137,51 @@ func get_free_facing_direction():
 func colliders_detect_solid() -> bool:
 	match facing_direction:
 		"up":
-			if($move_collider_up.get_overlapping_bodies().size() > 0):
+			if(up_colliding_bodies.size() > 0):
 				return true
 		"down":
-			if($move_collider_down.get_overlapping_bodies().size() > 0):
+			if(down_colliding_bodies.size() > 0):
 				return true
 		"left":
-			if($move_collider_left.get_overlapping_bodies().size() > 0):
+			if(left_colliding_bodies.size() > 0):
 				return true
 		"right":
-			if($move_collider_right.get_overlapping_bodies().size() > 0):
+			if(right_colliding_bodies.size() > 0):
 				return true
 	return false
 
 func _physics_process(delta: float) -> void:
 	handle_animation()
 	handle_movement()
+
+
+func _on_move_collider_left_body_entered(body: Node2D) -> void:
+	left_colliding_bodies.append(body)
+
+
+func _on_move_collider_left_body_exited(body: Node2D) -> void:
+	right_colliding_bodies.erase(body)
+
+
+func _on_move_collider_up_body_entered(body: Node2D) -> void:
+	up_colliding_bodies.append(body)
+
+
+func _on_move_collider_up_body_exited(body: Node2D) -> void:
+	up_colliding_bodies.erase(body)
+
+
+func _on_move_collider_down_body_entered(body: Node2D) -> void:
+	down_colliding_bodies.append(body)
+
+
+func _on_move_collider_down_body_exited(body: Node2D) -> void:
+	down_colliding_bodies.erase(body)
+
+
+func _on_move_collider_right_body_entered(body: Node2D) -> void:
+	right_colliding_bodies.append(body)
+
+
+func _on_move_collider_right_body_exited(body: Node2D) -> void:
+	right_colliding_bodies.erase(body)

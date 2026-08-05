@@ -140,3 +140,12 @@ script = ExtResource("6_24kwo")
 language_map = Array[String](["english"])
 text = Array[String](["Or there won't be enough buckwheat to take to market."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[connection signal="body_entered" from="move_collider_left" to="." method="_on_move_collider_left_body_entered"]
+[connection signal="body_exited" from="move_collider_left" to="." method="_on_move_collider_left_body_exited"]
+[connection signal="body_entered" from="move_collider_up" to="." method="_on_move_collider_up_body_entered"]
+[connection signal="body_exited" from="move_collider_up" to="." method="_on_move_collider_up_body_exited"]
+[connection signal="body_entered" from="move_collider_down" to="." method="_on_move_collider_down_body_entered"]
+[connection signal="body_exited" from="move_collider_down" to="." method="_on_move_collider_down_body_exited"]
+[connection signal="body_entered" from="move_collider_right" to="." method="_on_move_collider_right_body_entered"]
+[connection signal="body_exited" from="move_collider_right" to="." method="_on_move_collider_right_body_exited"]
