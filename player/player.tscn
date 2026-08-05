@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfr1438c6fbr0"]
 
-[ext_resource type="Script" uid="uid://deo8r5vnalunb" path="res://scripts/player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://deo8r5vnalunb" path="res://scripts/character/player/player.gd" id="1_oul6g"]
 [ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/player_body.tres" id="2_g1dw6"]
 [ext_resource type="SpriteFrames" uid="uid://cyivmganqtana" path="res://sprites/spritesheets/player/player_head.tres" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://dkgi27ooiydcj" path="res://sprites/spritesheets/player/flash_light.png" id="4_yw30f"]
@@ -79,3 +79,6 @@ script = ExtResource("5_qjkh3")
 
 [node name="input_timer" type="Timer" parent="." unique_id=215837338]
 one_shot = true
+
+[node name="footfall_player" type="AudioStreamPlayer" parent="." unique_id=619597763]
+volume_db = -12.0

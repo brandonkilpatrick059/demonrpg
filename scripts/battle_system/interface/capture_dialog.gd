@@ -23,8 +23,8 @@ var target_familiar : Familiar = null
 var input_timer := Timer.new()
 
 func set_target(familiar : Familiar):
-	var name : String = familiar.get_familiar_name()
-	var text : String = label_english.replace("[NAME]",name)
+	var familiar_name : String = familiar.get_familiar_name()
+	var text : String = label_english.replace("[NAME]",familiar_name)
 	target_familiar = familiar
 	label.parse_bbcode(text)
 
@@ -50,7 +50,7 @@ func set_active():
 	visible = true
 	active = true
 	update_selected()
-	input_timer.start(1.0)
+	input_timer.start(0.5)
 
 func set_inactive():
 	visible = false

@@ -87,6 +87,7 @@ select={
 
 2d_physics/layer_1="solid"
 2d_physics/layer_2="player"
+2d_physics/layer_3="npc_fence"
 
 [physics]
 

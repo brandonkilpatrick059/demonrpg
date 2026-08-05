@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b7xipb5743c43"]
+
+[ext_resource type="Script" uid="uid://d06xwmk44ogl5" path="res://scripts/character/npc/npc.gd" id="1_hirll"]
+[ext_resource type="SpriteFrames" uid="uid://qkimc3fprmcu" path="res://sprites/spritesheets/npc/father.tres" id="2_hirll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljuv1"]
+size = Vector2(10, 10)
+
+[node name="NPCFather" type="Area2D" unique_id=2084509043]
+script = ExtResource("1_hirll")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133978492]
+sprite_frames = ExtResource("2_hirll")
+animation = &"stand_down"
+frame_progress = 0.4158894
+offset = Vector2(12, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1722730895]
+position = Vector2(12, -12)
+shape = SubResource("RectangleShape2D_cea73")
+
+[node name="move_collider_left" type="Area2D" parent="." unique_id=1892937503]
+position = Vector2(0, -12)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_left" unique_id=1614369833]
+shape = SubResource("RectangleShape2D_ljuv1")
+
+[node name="move_collider_up" type="Area2D" parent="." unique_id=1062355945]
+position = Vector2(0, -12)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_up" unique_id=947609599]
+position = Vector2(12, -12)
+shape = SubResource("RectangleShape2D_ljuv1")
+
+[node name="move_collider_down" type="Area2D" parent="." unique_id=103563401]
+position = Vector2(0, -12)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_down" unique_id=1190705785]
+position = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_ljuv1")
+
+[node name="move_collider_right" type="Area2D" parent="." unique_id=1742685191]
+position = Vector2(0, -12)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_right" unique_id=1306612552]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_ljuv1")
+
+[node name="Timer" type="Timer" parent="." unique_id=1520419546]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2078774209]
+max_distance = 256.0
+attenuation = 2.14355
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

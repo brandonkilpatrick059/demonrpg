@@ -117,8 +117,8 @@ func handle_animation():
 			body.play(animation_name)
 		if(body.frame == 1 || body.frame == 3):
 			if(can_play_step_sound):
-				$AudioStreamPlayer.stream = load("res://audio/music/step.ogg")
-				$AudioStreamPlayer.play()
+				$footfall_player.stream = load("res://audio/effects/step.ogg")
+				$footfall_player.play()
 				can_play_step_sound = false
 		else:
 			can_play_step_sound = true

@@ -116,14 +116,14 @@ func get_adjacent_familiars(to_familiar : Familiar, left_only : bool = false) ->
 
 func fade_in():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
-	var fade_out = Color(1,1,1,0)
-	fade_node.set_target_modulate(fade_out,0.2,0.2)
+	var fade_to = Color(1,1,1,0)
+	fade_node.set_target_modulate(fade_to,0.2,0.2)
 	$fade_to_black.add_child(fade_node)
 
 func fade_out():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
-	var fade_out = Color(1,1,1,1)
-	fade_node.set_target_modulate(fade_out,0.2,0.2)
+	var fade_to = Color(1,1,1,1)
+	fade_node.set_target_modulate(fade_to,0.2,0.2)
 	$fade_to_black.add_child(fade_node)
 
 func set_up_audio():
@@ -582,7 +582,7 @@ func update_sel_arrows():
 		if(familiar.is_dead()):
 			var stat : String = familiar.get_stat_increase()
 			var value : int = familiar.get_stat_increase_value()
-			var label = str(str(familiar.get_stat_increase()," + "),value)
+			var label = str(str(stat," + "),value)
 			slot.show_upgrade_label(label)
 
 func hide_all_sel_arrows():
@@ -666,16 +666,16 @@ func count_living_on_side(side_familiars : Array[Familiar]) -> int:
 	return count
 
 func side_is_dead(side_familiars : Array[Familiar]) -> bool:
-	var side_is_dead = true
+	var is_dead = true
 	if(side_familiars.size() == 0):
-		side_is_dead = true
-		return side_is_dead
+		is_dead = true
+		return is_dead
 	else:
 		for familiar in side_familiars:
 			if(not familiar.is_dead()):
-				side_is_dead = false
-				return side_is_dead
-	return side_is_dead
+				is_dead = false
+				return is_dead
+	return is_dead
 
 func run_actions_process():
 	if(!awaiting_input && current_battle_action != null):

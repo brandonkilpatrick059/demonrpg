@@ -37,3 +37,16 @@ res://battle/actions/action_pass.tscn
 res://scripts/battle_system/actions/damage/physical/action_pass.gd
 res://battle/battle_system.tscn
 res://scripts/battle_system/battle_system_manager.gd
+res://scripts/battle_system/interface/capture_dialog.gd
+res://scripts/monster/monster.gd
+res://battle/interface/capture_dialog.tscn
+res://scripts/player/player.gd
+res://scripts/locations/zone_manager.gd
+res://locations/zones/location_homestead.tscn
+res://sprites/spritesheets/npc/father.tres
+res://npc/npc_father.tscn
+res://monsters/homunculus_monster.tscn
+res://scripts/character/npc/npc.gd
+res://scripts/character/monster/monster.gd
+res://interface/familiar_summary.tscn
+res://scripts/character/player/player.gd
