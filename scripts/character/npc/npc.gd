@@ -59,6 +59,7 @@ func end_awaiting_input():
 	var player : Player = get_tree().get_first_node_in_group("player")
 	player.unfreeze_input()
 	player.start_input_timer(0.5)
+	$Timer.start(randf_range(wander_wait_min,wander_wait_max))
 
 func handle_movement():
 	global_position = global_position + grid_velocity
@@ -66,19 +67,19 @@ func handle_movement():
 		stop()
 	elif($Timer.is_stopped()):
 		if(not moving):
-			get_free_facing_direction()
-			moving = true
-			match facing_direction:
-				"up":
-					grid_velocity = Vector2(0,-move_speed)
-				"down":
-					grid_velocity = Vector2(0,move_speed)
-				"left":
-					grid_velocity = Vector2(-move_speed,0)
-				"right":
-					grid_velocity = Vector2(move_speed,0)
-			activate_walk_collider(facing_direction)
-			$Timer.start(randf_range(wander_wait_min,wander_wait_max))
+			if(get_free_facing_direction()):
+				moving = true
+				match facing_direction:
+					"up":
+						grid_velocity = Vector2(0,-move_speed)
+					"down":
+						grid_velocity = Vector2(0,move_speed)
+					"left":
+						grid_velocity = Vector2(-move_speed,0)
+					"right":
+						grid_velocity = Vector2(move_speed,0)
+				activate_walk_collider(facing_direction)
+				$Timer.start(randf_range(wander_wait_min,wander_wait_max))
 		elif(grid_aligned()):
 			stop()
 	elif(grid_aligned() and colliders_detect_solid()):
@@ -110,16 +111,16 @@ func interact(player_dir : String):
 			"right":
 				facing_direction = "left"
 
-func get_free_facing_direction():
+func get_free_facing_direction() -> bool:
 	var free_colliders : Array[Area2D] = []
 	if(up_colliding_bodies.size() == 0):
 		free_colliders.append(($move_collider_up))
 	if(down_colliding_bodies.size() == 0):
 		free_colliders.append(($move_collider_down))
-	if(left_colliding_bodies.size() == 0):
-		free_colliders.append(($move_collider_left))
-	if(right_colliding_bodies.size() == 0):
-		free_colliders.append(($move_collider_right))
+	#if(left_colliding_bodies.size() == 0):
+		#free_colliders.append(($move_collider_left))
+	#if(right_colliding_bodies.size() == 0):
+		#free_colliders.append(($move_collider_right))
 	if(free_colliders.size() > 0):
 		var collider = free_colliders[randi_range(0,free_colliders.size()-1)]
 		if(collider == $move_collider_down):
@@ -130,9 +131,10 @@ func get_free_facing_direction():
 			facing_direction = "right"
 		elif(collider == $move_collider_left):
 			facing_direction = "left"
+		return true
 	else:
-		moving = false
-		grid_velocity = Vector2(0,0)
+		stop()
+		return false
 
 func colliders_detect_solid() -> bool:
 	match facing_direction:
@@ -160,7 +162,7 @@ func _on_move_collider_left_body_entered(body: Node2D) -> void:
 
 
 func _on_move_collider_left_body_exited(body: Node2D) -> void:
-	right_colliding_bodies.erase(body)
+	left_colliding_bodies.erase(body)
 
 
 func _on_move_collider_up_body_entered(body: Node2D) -> void:

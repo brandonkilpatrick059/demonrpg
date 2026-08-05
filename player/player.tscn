@@ -70,7 +70,7 @@ shape = SubResource("RectangleShape2D_n3wst")
 
 [node name="fade_to_black" type="Polygon2D" parent="." unique_id=1427363493]
 visible = false
-z_index = 4
+z_index = 50
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 script = ExtResource("5_qjkh3")
@@ -82,3 +82,23 @@ one_shot = true
 
 [node name="footfall_player" type="AudioStreamPlayer" parent="." unique_id=619597763]
 volume_db = -12.0
+
+[node name="npc_blocker" type="StaticBody2D" parent="." unique_id=1451224443]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc_blocker" unique_id=847966793]
+position = Vector2(-12, -12)
+shape = SubResource("RectangleShape2D_cea73")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="npc_blocker" unique_id=1990504631]
+position = Vector2(12, -36)
+shape = SubResource("RectangleShape2D_cea73")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="npc_blocker" unique_id=502215780]
+position = Vector2(36, -12)
+shape = SubResource("RectangleShape2D_cea73")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="npc_blocker" unique_id=1230600886]
+position = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_cea73")

@@ -159,7 +159,7 @@ func _on_move_collider_left_body_entered(body: Node2D) -> void:
 
 
 func _on_move_collider_left_body_exited(body: Node2D) -> void:
-	right_colliding_bodies.erase(body)
+	left_colliding_bodies.erase(body)
 
 
 func _on_move_collider_up_body_entered(body: Node2D) -> void:

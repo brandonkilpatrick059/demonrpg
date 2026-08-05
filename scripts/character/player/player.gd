@@ -234,24 +234,32 @@ func handle_interact():
 				for body in $move_collider_up.get_overlapping_bodies():
 					if body.is_in_group("npc"):
 						body.interact(facing_direction)
+						moving = false
+						move_speed_vect = Vector2(0,0)
 						return
 		"down":
 			if($move_collider_down.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_down.get_overlapping_bodies():
 					if body.is_in_group("npc"):
 						body.interact(facing_direction)
+						moving = false
+						move_speed_vect = Vector2(0,0)
 						return
 		"left":
 			if($move_collider_left.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_left.get_overlapping_bodies():
 					if body.is_in_group("npc"):
 						body.interact(facing_direction)
+						moving = false
+						move_speed_vect = Vector2(0,0)
 						return
 		"right":
 			if($move_collider_right.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_right.get_overlapping_bodies():
 					if body.is_in_group("npc"):
 						body.interact(facing_direction)
+						moving = false
+						move_speed_vect = Vector2(0,0)
 						return
 
 func handle_movement():

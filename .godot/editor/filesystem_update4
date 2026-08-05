@@ -53,3 +53,5 @@ res://scripts/character/player/player.gd
 res://interface/interface_message_speech.tscn
 res://scripts/character/npc/dialog.gd
 res://npc/text_queue.gd
+res://sprites/tile_atlas_terrain.tres
+res://sprites/tile_atlas_foliage.tres

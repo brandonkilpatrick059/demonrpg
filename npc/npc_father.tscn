@@ -102,6 +102,7 @@ attenuation = 2.14355
 
 [node name="InterfaceMessageSpeech" parent="." unique_id=1193849113 node_paths=PackedStringArray("report_interface") instance=ExtResource("3_sj241")]
 visible = false
+z_index = 20
 position = Vector2(-48, 48)
 report_interface = NodePath("..")
 

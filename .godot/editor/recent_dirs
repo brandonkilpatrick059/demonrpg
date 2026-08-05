@@ -1,3 +1,4 @@
+res://sprites/
 res://scripts/character/npc/
 res://sprites/spritesheets/npc/
 res://scripts/locations/
@@ -6,7 +7,6 @@ res://scripts/interface/
 res://interface/
 res://sprites/spritesheets/monsters/
 res://sprites/spritesheets/player/
-res://sprites/
 res://sprites/spritesheets/familiars/
 res://scripts/utility/
 res://sprites/spritesheets/battle/actions/
