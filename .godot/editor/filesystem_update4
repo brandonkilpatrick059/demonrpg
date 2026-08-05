@@ -50,3 +50,6 @@ res://scripts/character/npc/npc.gd
 res://scripts/character/monster/monster.gd
 res://interface/familiar_summary.tscn
 res://scripts/character/player/player.gd
+res://interface/interface_message_speech.tscn
+res://scripts/character/npc/dialog.gd
+res://npc/text_queue.gd

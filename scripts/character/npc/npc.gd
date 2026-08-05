@@ -6,6 +6,7 @@ class_name Monster extends StaticBody2D
 var facing_direction : String = "right"
 
 var moving : bool = false
+var talking : bool = false
 
 var grid_velocity : Vector2 = Vector2(0,0)
 var move_speed : float = 1.0
@@ -19,6 +20,7 @@ var move_speed : float = 1.0
 
 func _ready() -> void:
 	deactivate_walk_colliders()
+	add_to_group("npc")
 
 func deactivate_walk_colliders():
 	$walk_shape_down.disabled = true
@@ -47,9 +49,17 @@ func handle_animation():
 		if($AnimatedSprite2D.animation != name):
 			$AnimatedSprite2D.play(name)
 
+func end_awaiting_input():
+	talking = false
+	var player : Player = get_tree().get_first_node_in_group("player")
+	player.unfreeze_input()
+	player.start_input_timer(0.5)
+
 func handle_movement():
 	global_position = global_position + grid_velocity
-	if($Timer.is_stopped()):
+	if(talking):
+		stop()
+	elif($Timer.is_stopped()):
 		if(not moving):
 			get_free_facing_direction()
 			moving = true
@@ -76,6 +86,24 @@ func stop():
 
 func grid_aligned() -> bool:
 	return fmod(global_position.x,24) == 0 && fmod(global_position.y,24) == 0
+
+func interact(player_dir : String):
+	if(grid_aligned() and not talking and $dialog != null):
+		stop()
+		talking = true
+		var texts : Array[String] = $dialog.get_current_text()
+		$InterfaceMessageSpeech.queue_text(texts)
+		var player : Player = get_tree().get_first_node_in_group("player")
+		player.freeze_input()
+		match player_dir:
+			"up":
+				facing_direction = "down"
+			"down":
+				facing_direction = "up"
+			"left":
+				facing_direction = "right"
+			"right":
+				facing_direction = "left"
 
 func get_free_facing_direction():
 	var free_colliders : Array[Area2D] = []

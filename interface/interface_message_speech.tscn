@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dsk5qoj7icxf4"]
+
+[ext_resource type="Script" uid="uid://c50bv5f3ojxgn" path="res://scripts/interface/interface_message.gd" id="1_36rww"]
+[ext_resource type="Texture2D" uid="uid://d3ok233kk2wlr" path="res://sprites/interface/speech.png" id="2_36rww"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="3_ahoei"]
+
+[node name="InterfaceMessageSpeech" type="Node2D" unique_id=1193849113]
+script = ExtResource("1_36rww")
+
+[node name="background" type="Sprite2D" parent="." unique_id=846456450]
+texture = ExtResource("2_36rww")
+offset = Vector2(60, -24)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1220556423]
+offset_left = -18.0
+offset_top = -34.0
+offset_right = 138.0
+offset_bottom = -14.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_ahoei")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -100,6 +100,12 @@ func handle_input():
 					showing_summary = false
 					$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
 					$AudioStreamPlayer.play()
+		if(Input.is_action_just_pressed("action_1")):
+			if($input_timer.is_stopped()):
+				handle_interact()
+
+func start_input_timer(time : float):
+	$input_timer.start(time)
 
 func show_summary():
 	var summary : FamiliarSummary = load("res://interface/familiar_summary.tscn").instantiate()
@@ -220,6 +226,33 @@ func fade_out():
 	var fade_out = Color(1,1,1,1)
 	fade_node.set_target_modulate(fade_out,0.2,0.2)
 	$fade_to_black.add_child(fade_node)
+
+func handle_interact():
+	match facing_direction:
+		"up":
+			if($move_collider_up.get_overlapping_bodies().size() > 0):
+				for body in $move_collider_up.get_overlapping_bodies():
+					if body.is_in_group("npc"):
+						body.interact(facing_direction)
+						return
+		"down":
+			if($move_collider_down.get_overlapping_bodies().size() > 0):
+				for body in $move_collider_down.get_overlapping_bodies():
+					if body.is_in_group("npc"):
+						body.interact(facing_direction)
+						return
+		"left":
+			if($move_collider_left.get_overlapping_bodies().size() > 0):
+				for body in $move_collider_left.get_overlapping_bodies():
+					if body.is_in_group("npc"):
+						body.interact(facing_direction)
+						return
+		"right":
+			if($move_collider_right.get_overlapping_bodies().size() > 0):
+				for body in $move_collider_right.get_overlapping_bodies():
+					if body.is_in_group("npc"):
+						body.interact(facing_direction)
+						return
 
 func handle_movement():
 	if(walking && can_move):
