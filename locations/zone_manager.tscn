@@ -47,7 +47,7 @@ grow_vertical = 2
 [node name="location_homestead" parent="." unique_id=1169712370 instance=ExtResource("6_5ulbo")]
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
-position = Vector2(-96, 48)
+position = Vector2(-144, -168)
 familiar_team = [NodePath("L1martyr"), NodePath("L1martyr2"), NodePath("L1gark")]
 pentacle_charms = 4
 

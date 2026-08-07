@@ -31,3 +31,7 @@ res://sprites/tile_atlas_terrain.tres
 res://sprites/spritesheets/npc/father.tres
 res://sprites/tile_atlas_effects.tres
 res://shaders/screen_shader.gdshader
+res://locations/zone_manager.tscn
+res://sprites/spritesheets/npc/chicken.tres
+res://npc/npc_chicken.tscn
+res://scripts/character/npc/npc.gd

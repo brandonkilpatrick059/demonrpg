@@ -99,6 +99,9 @@ func interact(player_dir : String):
 		talking = true
 		var texts : Array[String] = $dialog.get_current_text()
 		$InterfaceMessageSpeech.queue_text(texts)
+		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+		var pos : Vector2 = camera.get_screen_center_position()
+		$InterfaceMessageSpeech.global_position = pos + Vector2(-64,80)
 		var player : Player = get_tree().get_first_node_in_group("player")
 		player.freeze_input()
 		match player_dir:
@@ -158,32 +161,40 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_move_collider_left_body_entered(body: Node2D) -> void:
-	left_colliding_bodies.append(body)
+	if(body!= self):
+		left_colliding_bodies.append(body)
 
 
 func _on_move_collider_left_body_exited(body: Node2D) -> void:
-	left_colliding_bodies.erase(body)
+	if(body!= self):
+		left_colliding_bodies.erase(body)
 
 
 func _on_move_collider_up_body_entered(body: Node2D) -> void:
-	up_colliding_bodies.append(body)
+	if(body!= self):
+		up_colliding_bodies.append(body)
 
 
 func _on_move_collider_up_body_exited(body: Node2D) -> void:
-	up_colliding_bodies.erase(body)
+	if(body!= self):
+		up_colliding_bodies.erase(body)
 
 
 func _on_move_collider_down_body_entered(body: Node2D) -> void:
-	down_colliding_bodies.append(body)
+	if(body!= self):
+		down_colliding_bodies.append(body)
 
 
 func _on_move_collider_down_body_exited(body: Node2D) -> void:
-	down_colliding_bodies.erase(body)
+	if(body!= self):
+		down_colliding_bodies.erase(body)
 
 
 func _on_move_collider_right_body_entered(body: Node2D) -> void:
-	right_colliding_bodies.append(body)
+	if(body!= self):
+		right_colliding_bodies.append(body)
 
 
 func _on_move_collider_right_body_exited(body: Node2D) -> void:
-	right_colliding_bodies.erase(body)
+	if(body!= self):
+		right_colliding_bodies.erase(body)
