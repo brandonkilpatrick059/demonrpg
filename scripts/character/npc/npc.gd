@@ -117,10 +117,10 @@ func get_free_facing_direction() -> bool:
 		free_colliders.append(($move_collider_up))
 	if(down_colliding_bodies.size() == 0):
 		free_colliders.append(($move_collider_down))
-	#if(left_colliding_bodies.size() == 0):
-		#free_colliders.append(($move_collider_left))
-	#if(right_colliding_bodies.size() == 0):
-		#free_colliders.append(($move_collider_right))
+	if(left_colliding_bodies.size() == 0):
+		free_colliders.append(($move_collider_left))
+	if(right_colliding_bodies.size() == 0):
+		free_colliders.append(($move_collider_right))
 	if(free_colliders.size() > 0):
 		var collider = free_colliders[randi_range(0,free_colliders.size()-1)]
 		if(collider == $move_collider_down):

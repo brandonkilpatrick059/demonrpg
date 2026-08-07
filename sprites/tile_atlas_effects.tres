@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" format=3 uid="uid://be4tfq16y1gax"]
+
+[ext_resource type="Texture2D" uid="uid://clg83dnlf8di5" path="res://sprites/tile_atlas_effects.png" id="1_23mg4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sidwd"]
+texture = ExtResource("1_23mg4")
+texture_region_size = Vector2i(24, 24)
+0:1/0 = 0
+1:1/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[resource]
+tile_size = Vector2i(24, 24)
+sources/0 = SubResource("TileSetAtlasSource_sidwd")

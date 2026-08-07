@@ -101,7 +101,7 @@ func handle_input():
 					$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
 					$AudioStreamPlayer.play()
 		if(Input.is_action_just_pressed("action_1")):
-			if($input_timer.is_stopped()):
+			if(grid_aligned() and $input_timer.is_stopped()):
 				handle_interact()
 
 func start_input_timer(time : float):

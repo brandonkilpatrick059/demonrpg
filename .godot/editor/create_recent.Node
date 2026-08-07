@@ -1,11 +1,11 @@
+CollisionPolygon2D
+AudioStreamPlayer
 StaticBody2D
 Node2D
 Sprite2D
 Text
 Node
-AudioStreamPlayer
 RigidBody2D
-CollisionPolygon2D
 CanvasLayer
 ColorRect
 Area2D
