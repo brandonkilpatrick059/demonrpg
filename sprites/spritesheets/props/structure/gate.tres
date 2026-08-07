@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b4x3sum4ufnw2"]
+
+[ext_resource type="Texture2D" uid="uid://cq0ditax8tyfa" path="res://sprites/spritesheets/props/structure/gate.png" id="1_lkhes"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cxlp"]
+atlas = ExtResource("1_lkhes")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nba33"]
+atlas = ExtResource("1_lkhes")
+region = Rect2(0, 48, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cxlp")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nba33")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 5.0
+}]

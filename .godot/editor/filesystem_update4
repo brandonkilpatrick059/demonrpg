@@ -35,3 +35,6 @@ res://locations/zone_manager.tscn
 res://sprites/spritesheets/npc/chicken.tres
 res://npc/npc_chicken.tscn
 res://scripts/character/npc/npc.gd
+res://sprites/spritesheets/props/structure/gate.tres
+res://mechanism/gate.tscn
+res://scripts/mechanism/gate.gd
