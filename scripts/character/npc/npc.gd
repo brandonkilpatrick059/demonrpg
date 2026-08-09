@@ -26,6 +26,7 @@ var right_colliding_bodies : Array[Node] = []
 func _ready() -> void:
 	deactivate_walk_colliders()
 	add_to_group("npc")
+	$Timer.start(randf_range(wander_wait_min,wander_wait_max))
 
 func deactivate_walk_colliders():
 	$walk_shape_down.disabled = true

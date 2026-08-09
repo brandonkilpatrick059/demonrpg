@@ -297,6 +297,9 @@ func handle_movement():
 			moving = false
 	global_position = global_position + move_speed_vect
 
+func stop():
+	walking = false
+
 func grid_aligned() -> bool:
 	return fmod(global_position.x,24) == 0 && fmod(global_position.y,24) == 0
 

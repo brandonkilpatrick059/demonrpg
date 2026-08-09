@@ -8,6 +8,7 @@ var to_link_name : String = ""
 var first_phase : bool = false
 var second_phase : bool = false
 var fading_in : bool = false
+var destination_link : ZoneLink
 
 var player_ref : Player
 
@@ -37,7 +38,7 @@ func swap_zones():
 		player_ref.turn_off_flashlight()
 	add_child(current_zone)
 	player_ref.reparent(current_zone)
-	var destination_link : ZoneLink = current_zone.get_link_by_name(to_link_name)
+	destination_link = current_zone.get_link_by_name(to_link_name)
 	player_ref.global_position = destination_link.get_teleport_position()
 	second_phase = true
 	timer.start(0.5)
@@ -49,6 +50,8 @@ func _physics_process(delta: float) -> void:
 				first_phase = false
 				swap_zones()
 		elif(second_phase):
+			if(player_ref.global_position == destination_link.get_stop_point()):
+				player_ref.stop()
 			if(timer.is_stopped() and not fading_in):
 				player_ref.fade_in()
 				fading_in = true

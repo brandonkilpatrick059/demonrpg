@@ -1,8 +1,9 @@
 Sprite2D
+AudioStreamPlayer
+TileMapLayer
 CollisionShape2D
 StaticBody2D
 AnimatedSprite2D
-AudioStreamPlayer
 CollisionPolygon2D
 Node2D
 Text
@@ -11,4 +12,3 @@ RigidBody2D
 CanvasLayer
 ColorRect
 Area2D
-Timer

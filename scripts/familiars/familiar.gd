@@ -96,6 +96,7 @@ func get_exp_value() -> int:
 	total = total + defense
 	total = total + speed
 	total = total + magic
+	total = total + experience
 	return total
 
 func get_actions_taken() -> int:

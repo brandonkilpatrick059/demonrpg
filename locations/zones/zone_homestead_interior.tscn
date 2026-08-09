@@ -1,0 +1,130 @@
+[gd_scene format=4 uid="uid://b3byqi3mwn2pn"]
+
+[ext_resource type="Script" uid="uid://v73shmuwmbhw" path="res://scripts/locations/location_zone.gd" id="1_1745c"]
+[ext_resource type="TileSet" uid="uid://45qv0vaq80jk" path="res://sprites/tile_atlas_interior.tres" id="2_d436m"]
+[ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="3_aown1"]
+[ext_resource type="TileSet" uid="uid://be4tfq16y1gax" path="res://sprites/tile_atlas_effects.tres" id="3_hpx6v"]
+[ext_resource type="PackedScene" uid="uid://cc1ok8fye6ynm" path="res://npc/npc_mother.tscn" id="5_hpx6v"]
+[ext_resource type="Texture2D" uid="uid://efgyfyxeh31c" path="res://sprites/props/interior/cross.png" id="6_dlfu1"]
+[ext_resource type="Texture2D" uid="uid://iphi2v0othgh" path="res://sprites/props/interior/bed.png" id="7_gylfh"]
+[ext_resource type="Texture2D" uid="uid://q5kpfxpf8v7q" path="res://sprites/props/interior/rug.png" id="8_5qp0l"]
+[ext_resource type="Texture2D" uid="uid://ckyygcbh2ppv7" path="res://sprites/props/interior/table.png" id="9_qd2mx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
+size = Vector2(24, 24)
+
+[node name="ZoneHomesteadInterior" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links")]
+script = ExtResource("1_1745c")
+zone_name = "Homestead Interior"
+zone_links = [NodePath("ZoneLink")]
+
+[node name="TileMapLayer_wall" type="TileMapLayer" parent="." unique_id=1591578392]
+modulate = Color(0.61806, 0.59782547, 0.5776148, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD9/wUAAAAAAAAAAAD9/wYAAAAAAAEAAAD+/wYAAAAAAAEAAAD//wUAAAAAAAAAAAD//wYAAAAAAAEAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAEAAAABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAADAAUAAAAAAAAAAAADAAYAAAAAAAEAAAD+/wUAAAAAAAAAAAD9////AAAAAAEAAAD+////AAABAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAP//AAAAAAEAAAACAP//AAABAAEAAAADAP//AAAAAAEAAAD9//7/AAAAAAAAAAD+//7/AAABAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAABAAAAAAADAP7/AAAAAAAAAAA=")
+tile_set = ExtResource("2_d436m")
+
+[node name="TileMapLayer_furniture" type="TileMapLayer" parent="." unique_id=817401735]
+modulate = Color(0.61806, 0.59782547, 0.5776148, 1)
+tile_map_data = PackedByteArray("AAD9/wUAAAAAAAAAAAD9/wYAAAAAAAEAAAD+/wYAAAAFAAEAAAD//wUAAAAAAAAAAAD//wYAAAAAAAEAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAEAAAABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAADAAUAAAAAAAAAAAADAAYAAAAAAAEAAAD+/wUAAAAAAAAAAAD9/wcAAAADAAIAAAD+/wcAAAAFAAIAAAAAAAcAAAADAAIAAAABAAcAAAADAAIAABA=")
+tile_set = ExtResource("2_d436m")
+
+[node name="TileMapLayer_floor" type="TileMapLayer" parent="." unique_id=1933344317]
+modulate = Color(0.6248867, 0.46903557, 0.34374842, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD9/wIAAAAAAAIAAAD+/wIAAAAAAAIAAAD//wIAAAAAAAIAAAAAAAIAAAAAAAIAAAABAAIAAAAAAAIAAAACAAIAAAAAAAIAAAD9/wMAAAAAAAIAAAD+/wMAAAAAAAIAAAD//wMAAAAAAAIAAAAAAAMAAAAAAAIAAAABAAMAAAAAAAIAAAACAAMAAAAAAAIAAAADAAIAAAAAAAIAAAADAAMAAAAAAAIAAAD+/wcAAAAAAAIAAAD//wcAAAAAAAIAAAAAAAcAAAAAAAIAAAABAAcAAAAAAAIAAAACAAcAAAAAAAIAAAADAAcAAAAAAAIAAAADAAgAAAAAAAIAAAACAAgAAAAAAAIAAAABAAgAAAAAAAIAAAAAAAgAAAAAAAIAAAD//wgAAAAAAAIAAAD+/wgAAAAAAAIAAAD9/wgAAAAAAAIAAAD9/wkAAAAAAAIAAAD+/wkAAAAAAAIAAAD//wkAAAAAAAIAAAAAAAkAAAAAAAIAAAABAAkAAAAAAAIAAAADAAkAAAAAAAIAAAACAAkAAAAAAAIAAAACAAYAAAAAAAIAAAACAAUAAAAAAAIAAAACAAQAAAAAAAIAAAD9/woAAAAAAAIAAAD+/woAAAAAAAIAAAD//woAAAAAAAIAAAAAAAoAAAAAAAIAAAABAAoAAAAAAAIAAAACAAoAAAAAAAIAAAADAAoAAAAAAAIAAAAAAAsAAAAAAAIAAAD9/wcAAAAAAAIAAAD9/wEAAAAAAAIAAAD+/wEAAAAAAAIAAAD//wEAAAAAAAIAAAAAAAEAAAAAAAIAAAABAAEAAAAAAAIAAAACAAEAAAAAAAIAAAADAAEAAAAAAAIAAAD9/wAAAAAAAAIAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAIAAAACAAAAAAAAAAIAAAADAAAAAAAAAAIAAAA=")
+tile_set = ExtResource("2_d436m")
+
+[node name="TileMapLayer_brown" type="TileMapLayer" parent="." unique_id=1265215159]
+modulate = Color(0.80513483, 0.6486396, 0.5226564, 1)
+tile_map_data = PackedByteArray("AAD//wcAAAACAAQAAAD//wYAAAACAAMAAAD//wUAAAACAAIAAAA=")
+tile_set = ExtResource("2_d436m")
+
+[node name="TileMapLayer_effect" type="TileMapLayer" parent="." unique_id=1312739034]
+modulate = Color(0.24840015, 0.24840018, 0.24840015, 0.25882354)
+z_index = -1
+tile_map_data = PackedByteArray("AAD//wYAAAACAAMAAAD//wUAAAACAAIAAAADAAIAAAAAAAIAADD9/wIAAAAAAAIAAAD9/wMAAAAAAAEAAGADAAMAAAAAAAEAADD+/wMAAAAAAAIAAGD//wMAAAAAAAIAAGAAAAMAAAAAAAIAAGABAAMAAAAAAAIAAGACAAQAAAAAAAIAAAACAAUAAAAAAAIAAAACAAYAAAAAAAIAAAD9/woAAAAAAAEAAGD+/woAAAAAAAIAAGD//woAAAAAAAIAAGABAAoAAAAAAAIAAGACAAoAAAAAAAIAAGADAAoAAAAAAAEAADD9/wkAAAAAAAIAAAD9/wgAAAAAAAEAAAADAAgAAAAAAAIAADADAAkAAAAAAAIAADADAAcAAAAAAAEAAFD9/wcAAAAAAAEAAAD+/wcAAAAAAAIAAFAAAAcAAAAAAAIAAFABAAcAAAAAAAIAAFD9/wAAAAAAAAEAAED+/wAAAAAAAAIAAFD//wAAAAAAAAIAAFAAAAAAAAAAAAIAAFABAAAAAAAAAAIAAFACAAAAAAAAAAIAAFADAAAAAAAAAAEAAFD9/wEAAAAAAAIAAAADAAEAAAAAAAIAABD+/wgAAAAAAAIAAFD//wgAAAAAAAIAAFAAAAgAAAAAAAIAAFABAAgAAAAAAAIAAFACAAcAAAAAAAIAAAA=")
+tile_set = ExtResource("3_hpx6v")
+
+[node name="ZoneLink" parent="." unique_id=1869762347 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("3_aown1")]
+link_zone_scene_path = "res://locations/zones/zone_homestead.tscn"
+link_name = "LINK"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "INTERIOR"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink" unique_id=833735083]
+position = Vector2(12, 300)
+shape = SubResource("RectangleShape2D_0qpjh")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink" unique_id=1416006420]
+position = Vector2(0, 264)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink" unique_id=88330025]
+position = Vector2(0, 240)
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=567641062]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=180928047]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(72, 168, 96, 168, 96, 216, 144, 216, 144, 168, 168, 168, 168, 216, 216, 216, 216, 168, 240, 168, 240, 264, 216, 264, 216, 336, 240, 336, 240, 384, 192, 384, 192, 432, 168, 432, 168, 504, 144, 504, 144, 432, 72, 432, 72, 360, 192, 360, 192, 264, 72, 264, 72, 192, 48, 192, 48, 456, 120, 456, 120, 528, 192, 528, 192, 456, 264, 456, 264, 120, 48, 120, 48, 192, 72, 192)
+
+[node name="npc_fence" type="StaticBody2D" parent="." unique_id=508513244]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc_fence" unique_id=1385165467]
+position = Vector2(-48, 0)
+polygon = PackedVector2Array(-24, 192, -24, 168, 96, 168, 96, 192, 0, 192, 0, 240, 72, 240, 72, 192, 96, 192, 96, 216, 96, 264, -24, 264)
+
+[node name="NPCMother" parent="." unique_id=1569602181 instance=ExtResource("5_hpx6v")]
+z_index = 3
+position = Vector2(-24, 216)
+
+[node name="cross_1" type="Sprite2D" parent="." unique_id=515619396]
+position = Vector2(0, -48)
+texture = ExtResource("6_dlfu1")
+offset = Vector2(12, 12)
+
+[node name="cross_2" type="Sprite2D" parent="." unique_id=550261480]
+position = Vector2(0, 120)
+texture = ExtResource("6_dlfu1")
+offset = Vector2(12, 12)
+
+[node name="bed_1" type="Sprite2D" parent="." unique_id=194679287]
+position = Vector2(-48, 0)
+texture = ExtResource("7_gylfh")
+offset = Vector2(24, 24)
+
+[node name="bed_2" type="Sprite2D" parent="." unique_id=1153472598]
+position = Vector2(24, 0)
+texture = ExtResource("7_gylfh")
+offset = Vector2(24, 24)
+
+[node name="rug_1" type="Sprite2D" parent="." unique_id=310852223]
+modulate = Color(0.58431375, 0.58431375, 0.80784315, 1)
+z_index = -1
+position = Vector2(-24, 24)
+texture = ExtResource("8_5qp0l")
+offset = Vector2(0, 24)
+
+[node name="rug_3" type="Sprite2D" parent="." unique_id=1700970191]
+modulate = Color(0.58431375, 0.58431375, 0.80784315, 1)
+z_index = -1
+position = Vector2(48, 24)
+texture = ExtResource("8_5qp0l")
+offset = Vector2(0, 24)
+
+[node name="rug_2" type="Sprite2D" parent="." unique_id=1263282387]
+modulate = Color(0.58431375, 0.58431375, 0.80784315, 1)
+z_index = -1
+position = Vector2(96, 216)
+texture = ExtResource("8_5qp0l")
+offset = Vector2(-32, 24)
+
+[node name="table" type="Sprite2D" parent="." unique_id=1223044532]
+z_index = -1
+position = Vector2(72, 216)
+texture = ExtResource("9_qd2mx")
+offset = Vector2(0, 24)

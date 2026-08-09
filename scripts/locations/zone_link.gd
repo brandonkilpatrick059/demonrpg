@@ -3,6 +3,7 @@ class_name ZoneLink extends Area2D
 @export var link_zone_scene_path : String
 @export var link_name : String = ""
 @export var teleport_spot : Node2D
+@export var stop_point : Node2D
 @export var to_link_name : String = ""
 
 func get_link_name() -> String:
@@ -17,3 +18,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 func get_teleport_position() -> Vector2:
 	return teleport_spot.global_position
+
+func get_stop_point() -> Vector2:
+	return stop_point.global_position

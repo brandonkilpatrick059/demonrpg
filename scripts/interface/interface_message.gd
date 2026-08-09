@@ -64,6 +64,12 @@ func write_text():
 			if(full_text.findn("[img]",text_index) == text_index):
 				text_index = full_text.findn("[/img]",text_index)
 				text_index = text_index + "[/img]".length()
+			elif(full_text.findn("[color=",text_index) == text_index):
+				text_index = full_text.findn("]",text_index)
+				text_index = text_index + 1
+			elif(full_text.findn("[/color]",text_index) == text_index):
+				text_index = full_text.findn("[/color]",text_index)
+				text_index = text_index + "[/color]".length()
 			current_text = full_text.substr(0,text_index)
 			timer.start(text_speed)
 			update_label()
