@@ -42,3 +42,12 @@ res://locations/zones/zone_homestead.tscn
 res://sprites/spritesheets/npc/mother.tres
 res://npc/npc_mother.tscn
 res://scripts/interface/interface_message.gd
+res://scripts/utility/global_gamestate.gd
+res://utility/interact_zone.gd
+res://utility/script_zone.gd
+res://scripts/utility/run_scripts/run_interact.gd
+res://scripts/character/npc/npc.gd
+res://scripts/character/player/player.gd
+res://scripts/utility/run_scripts/adjust_game_state.gd
+res://utility/script_area.gd
+res://player/player.tscn

@@ -16,6 +16,8 @@ var down_colliding_bodies : Array[Node] = []
 var left_colliding_bodies : Array[Node] = []
 var right_colliding_bodies : Array[Node] = []
 
+var interact_when_grid_aligned : bool = false
+
 
 @onready var colliders : Array[Area2D] = [
 	$move_collider_left,
@@ -26,6 +28,7 @@ var right_colliding_bodies : Array[Node] = []
 func _ready() -> void:
 	deactivate_walk_colliders()
 	add_to_group("npc")
+	add_to_group("interactable")
 	$Timer.start(randf_range(wander_wait_min,wander_wait_max))
 
 func deactivate_walk_colliders():
@@ -63,6 +66,8 @@ func end_awaiting_input():
 	$Timer.start(randf_range(wander_wait_min,wander_wait_max))
 
 func handle_movement():
+	if(grid_aligned()):
+		grid_aligned_interact()
 	global_position = global_position + grid_velocity
 	if(talking):
 		stop()
@@ -94,7 +99,8 @@ func stop():
 func grid_aligned() -> bool:
 	return fmod(global_position.x,24) == 0 && fmod(global_position.y,24) == 0
 
-func interact(player_dir : String):
+func interact():
+	var player : Player = get_tree().get_first_node_in_group("player")
 	if(grid_aligned() and not talking and $dialog != null):
 		stop()
 		talking = true
@@ -103,17 +109,28 @@ func interact(player_dir : String):
 		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 		var pos : Vector2 = camera.get_screen_center_position()
 		$InterfaceMessageSpeech.global_position = pos + Vector2(-64,80)
-		var player : Player = get_tree().get_first_node_in_group("player")
 		player.freeze_input()
-		match player_dir:
-			"up":
-				facing_direction = "down"
-			"down":
-				facing_direction = "up"
-			"left":
-				facing_direction = "right"
-			"right":
-				facing_direction = "left"
+		face_to_point(player.global_position)
+		interact_when_grid_aligned = false
+	else:
+		interact_when_grid_aligned = true
+
+func grid_aligned_interact():
+	if(interact_when_grid_aligned):
+		interact()
+
+func face_to_point(pos : Vector2):
+	var vector : Vector2 = pos - global_position
+	if(abs(vector.x) >= abs(vector.y)): 
+		if(vector.x > 0):
+			facing_direction = "right"
+		else: if (vector.x < 0):
+			facing_direction =  "left"
+	else: if (abs(vector.x) <= abs(vector.y)): 
+		if(vector.y > 0):
+			facing_direction = "down"
+		else: if (vector.y < 0):
+			facing_direction = "up"
 
 func get_free_facing_direction() -> bool:
 	var free_colliders : Array[Area2D] = []

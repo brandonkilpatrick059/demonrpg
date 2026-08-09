@@ -9,8 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://iphi2v0othgh" path="res://sprites/props/interior/bed.png" id="7_gylfh"]
 [ext_resource type="Texture2D" uid="uid://q5kpfxpf8v7q" path="res://sprites/props/interior/rug.png" id="8_5qp0l"]
 [ext_resource type="Texture2D" uid="uid://ckyygcbh2ppv7" path="res://sprites/props/interior/table.png" id="9_qd2mx"]
+[ext_resource type="Script" uid="uid://b688cwvrpugwh" path="res://utility/script_area.gd" id="10_ueda4"]
+[ext_resource type="Script" uid="uid://d0i5obw5cm50v" path="res://scripts/utility/run_scripts/run_interact.gd" id="11_chc5k"]
+[ext_resource type="Script" uid="uid://ujy8j2xhnrac" path="res://scripts/utility/run_scripts/adjust_game_state.gd" id="12_u7vsm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(24, 24)
 
 [node name="ZoneHomesteadInterior" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links")]
@@ -76,7 +82,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc_fence" unique_id=1385165467]
 position = Vector2(-48, 0)
-polygon = PackedVector2Array(-24, 192, -24, 168, 96, 168, 96, 192, 0, 192, 0, 240, 72, 240, 72, 192, 96, 192, 96, 216, 96, 264, -24, 264)
+polygon = PackedVector2Array(-24, 192, -24, 168, 96, 168, 96, 192, 0, 192, 0, 216, 72, 216, 72, 192, 96, 192, 96, 216, 96, 240, -24, 240)
 
 [node name="NPCMother" parent="." unique_id=1569602181 instance=ExtResource("5_hpx6v")]
 z_index = 3
@@ -128,3 +134,26 @@ z_index = -1
 position = Vector2(72, 216)
 texture = ExtResource("9_qd2mx")
 offset = Vector2(0, 24)
+
+[node name="interact_zone_1" type="Area2D" parent="." unique_id=2137968333 node_paths=PackedStringArray("run_scripts")]
+collision_mask = 2
+script = ExtResource("10_ueda4")
+gamestate_key = "AWAKE_CONVO"
+run_if_state = "OFF"
+default_state = "OFF"
+run_scripts = [NodePath("run_interact"), NodePath("adjust_gamestate")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_zone_1" unique_id=769100321]
+position = Vector2(60, 204)
+shape = SubResource("RectangleShape2D_cea73")
+
+[node name="run_interact" type="Node" parent="interact_zone_1" unique_id=714813663 node_paths=PackedStringArray("interact_node")]
+script = ExtResource("11_chc5k")
+interact_node = NodePath("../../NPCMother")
+
+[node name="adjust_gamestate" type="Node" parent="interact_zone_1" unique_id=1595859108]
+script = ExtResource("12_u7vsm")
+game_state_key = "AWAKE_CONVO"
+to_value = "ON"
+
+[connection signal="body_entered" from="interact_zone_1" to="interact_zone_1" method="_on_body_entered"]

@@ -26,6 +26,8 @@ var showing_summary = false
 
 var can_play_step_sound : bool = true
 
+var grid_aligned_callback_node : Node = null
+
 func _ready() -> void:
 	head.play(facing_direction)
 	fade_in()
@@ -232,37 +234,36 @@ func handle_interact():
 		"up":
 			if($move_collider_up.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_up.get_overlapping_bodies():
-					if body.is_in_group("npc"):
-						body.interact(facing_direction)
-						moving = false
-						move_speed_vect = Vector2(0,0)
+					if body.is_in_group("interactable"):
+						interact_with(body)
 						return
 		"down":
 			if($move_collider_down.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_down.get_overlapping_bodies():
-					if body.is_in_group("npc"):
-						body.interact(facing_direction)
-						moving = false
-						move_speed_vect = Vector2(0,0)
+					if body.is_in_group("interactable"):
+						interact_with(body)
 						return
 		"left":
 			if($move_collider_left.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_left.get_overlapping_bodies():
-					if body.is_in_group("npc"):
-						body.interact(facing_direction)
-						moving = false
-						move_speed_vect = Vector2(0,0)
+					if body.is_in_group("interactable"):
+						interact_with(body)
 						return
 		"right":
 			if($move_collider_right.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_right.get_overlapping_bodies():
-					if body.is_in_group("npc"):
-						body.interact(facing_direction)
-						moving = false
-						move_speed_vect = Vector2(0,0)
+					if body.is_in_group("interactable"):
+						interact_with(body)
 						return
 
+func interact_with(node : Node):
+	node.interact()
+	moving = false
+	move_speed_vect = Vector2(0,0)
+
 func handle_movement():
+	if(grid_aligned()):
+		grid_aligned_callback()
 	if(walking && can_move):
 		var speed : int = 1
 		if(grid_aligned() && can_move):
@@ -273,24 +274,28 @@ func handle_movement():
 						moving = true
 					else:
 						move_speed_vect = Vector2(0,0)
+						moving = false
 				"down":
 					if($move_collider_down.get_overlapping_bodies().size() == 0):
 						move_speed_vect = Vector2(0,speed)
 						moving = true
 					else:
 						move_speed_vect = Vector2(0,0)
+						moving = false
 				"left":
 					if($move_collider_left.get_overlapping_bodies().size() == 0):
 						move_speed_vect = Vector2(-speed,0)
 						moving = true
 					else:
 						move_speed_vect = Vector2(0,0)
+						moving = false
 				"right":
 					if($move_collider_right.get_overlapping_bodies().size() == 0):
 						move_speed_vect = Vector2(speed,0)
 						moving = true
 					else:
 						move_speed_vect = Vector2(0,0)
+						moving = false
 	else:
 		if(grid_aligned()):
 			move_speed_vect = Vector2(0,0)
@@ -313,6 +318,14 @@ func set_active():
 func set_inactive():
 	active = false
 	$PointLight2D.enabled = false
+
+func set_grid_aligned_callback(node : Node):
+	grid_aligned_callback_node = node
+
+func grid_aligned_callback():
+	if(grid_aligned_callback_node != null):
+		grid_aligned_callback_node.grid_aligned_callback()
+		grid_aligned_callback_node = null
 
 func _physics_process(delta: float) -> void:
 	if(active):
