@@ -18,6 +18,8 @@ var right_colliding_bodies : Array[Node] = []
 
 var interact_when_grid_aligned : bool = false
 
+var queued_texts : Array[String] = []
+
 
 @onready var colliders : Array[Area2D] = [
 	$move_collider_left,
@@ -36,6 +38,11 @@ func deactivate_walk_colliders():
 	$walk_shape_up.disabled = true
 	$walk_shape_left.disabled = true
 	$walk_shape_right.disabled = true
+
+func set_queued_texts(texts : Array[String]):
+	queued_texts.clear()
+	for text in texts:
+		queued_texts.append(text)
 
 func activate_walk_collider(direction : String):
 	match direction:
@@ -64,6 +71,7 @@ func end_awaiting_input():
 	player.unfreeze_input()
 	player.start_input_timer(0.5)
 	$Timer.start(randf_range(wander_wait_min,wander_wait_max))
+	queued_texts.clear()
 
 func handle_movement():
 	if(grid_aligned()):
@@ -103,9 +111,13 @@ func interact():
 	var player : Player = get_tree().get_first_node_in_group("player")
 	if(grid_aligned() and not talking and $dialog != null):
 		stop()
+		player.stop()
 		talking = true
-		var texts : Array[String] = $dialog.get_current_text()
-		$InterfaceMessageSpeech.queue_text(texts)
+		if(queued_texts.size() == 0):
+			var texts : Array[String] = $dialog.get_current_text()
+			$InterfaceMessageSpeech.queue_text(texts)
+		else:
+			$InterfaceMessageSpeech.queue_text(queued_texts)
 		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 		var pos : Vector2 = camera.get_screen_center_position()
 		$InterfaceMessageSpeech.global_position = pos + Vector2(-64,80)

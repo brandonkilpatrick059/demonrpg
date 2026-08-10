@@ -14,9 +14,30 @@
 [ext_resource type="AudioStream" uid="uid://djbverw0ax0ua" path="res://audio/effects/crickets_1.wav" id="12_gcecd"]
 [ext_resource type="PackedScene" uid="uid://psu5rylk358d" path="res://mechanism/gate.tscn" id="13_oxy48"]
 [ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="14_6qcli"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://utility/interactable_script_area.gd" id="15_0dkg3"]
+[ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="16_1alcv"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="17_yupxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0aow"]
 size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frbiv"]
+size = Vector2(48, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymtwb"]
+size = Vector2(48, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1alcv"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ydjh"]
+size = Vector2(48, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yupxm"]
+size = Vector2(48, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dkg3"]
+size = Vector2(120, 120)
 
 [node name="zone_homestead" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links")]
 script = ExtResource("1_qo434")
@@ -180,3 +201,125 @@ position = Vector2(-144, -168)
 
 [node name="stop_point" type="Node2D" parent="ZoneLinkInterior" unique_id=925835414]
 position = Vector2(-144, -120)
+
+[node name="interactable_area_1" type="StaticBody2D" parent="." unique_id=618759930 node_paths=PackedStringArray("scripts")]
+script = ExtResource("15_0dkg3")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_1" unique_id=122887433]
+position = Vector2(24, 84)
+shape = SubResource("RectangleShape2D_frbiv")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_1" unique_id=1329228845 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_1alcv")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_1/play_texts" unique_id=1023190904]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(This is Father's pickup truck)"])
+
+[node name="text2" type="Node" parent="interactable_area_1/play_texts" unique_id=1839962133]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(Sometimes he fills it up with excess crops to sell in town)"])
+
+[node name="interactable_area_5" type="StaticBody2D" parent="." unique_id=264200692 node_paths=PackedStringArray("scripts")]
+position = Vector2(0, 96)
+script = ExtResource("15_0dkg3")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_5" unique_id=1011638455]
+position = Vector2(24, 60)
+shape = SubResource("RectangleShape2D_ymtwb")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_5" unique_id=1752663181 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_1alcv")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_5/play_texts" unique_id=1821655573]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(Past this gate is the [color=blue]Country Road[/color])"])
+
+[node name="text2" type="Node" parent="interactable_area_5/play_texts" unique_id=437058711]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(It's too long a road to walk)"])
+
+[node name="interactable_area_3" type="StaticBody2D" parent="." unique_id=2144327306 node_paths=PackedStringArray("scripts")]
+script = ExtResource("15_0dkg3")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_3" unique_id=849624033]
+position = Vector2(0, -168)
+shape = SubResource("RectangleShape2D_1alcv")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_3" unique_id=563091824 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_1alcv")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_3/play_texts" unique_id=1457864198]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(The old chicken coop)"])
+
+[node name="text2" type="Node" parent="interactable_area_3/play_texts" unique_id=710988281]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(I wanted to live in here with the chickens when I was younger)"])
+
+[node name="interactable_area_4" type="StaticBody2D" parent="." unique_id=575641744 node_paths=PackedStringArray("scripts")]
+script = ExtResource("15_0dkg3")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_4" unique_id=482604639]
+position = Vector2(-168, -172.5)
+shape = SubResource("RectangleShape2D_3ydjh")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="interactable_area_4" unique_id=1337735208]
+position = Vector2(-96, -171)
+shape = SubResource("RectangleShape2D_yupxm")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_4" unique_id=1759585866 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_1alcv")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3")]
+
+[node name="text" type="Node" parent="interactable_area_4/play_texts" unique_id=2050380271]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(This is our house)"])
+
+[node name="text2" type="Node" parent="interactable_area_4/play_texts" unique_id=1185064853]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(It was abandoned when Father found it)"])
+
+[node name="text3" type="Node" parent="interactable_area_4/play_texts" unique_id=1459882063]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(That was before I was born)"])
+
+[node name="interactable_area_2" type="StaticBody2D" parent="." unique_id=1462568138 node_paths=PackedStringArray("scripts")]
+position = Vector2(-192, -120)
+script = ExtResource("15_0dkg3")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_2" unique_id=694167273]
+position = Vector2(60, 108)
+shape = SubResource("RectangleShape2D_0dkg3")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_2" unique_id=1524194778 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_1alcv")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_2/play_texts" unique_id=228264229]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(The crops aren't doing well...)"])

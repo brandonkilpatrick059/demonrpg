@@ -1,10 +1,10 @@
 Node
+StaticBody2D
 CollisionShape2D
 Area2D
 Sprite2D
 AudioStreamPlayer
 TileMapLayer
-StaticBody2D
 AnimatedSprite2D
 CollisionPolygon2D
 Node2D

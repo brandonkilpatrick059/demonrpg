@@ -51,3 +51,13 @@ res://scripts/character/player/player.gd
 res://scripts/utility/run_scripts/adjust_game_state.gd
 res://utility/script_area.gd
 res://player/player.tscn
+res://utility/interactable_script_area.gd
+res://npc/npc_father.tscn
+res://npc/npc_chicken.tscn
+res://scripts/utility/npc/npc_father.tscn
+res://scripts/utility/npc/npc_chicken.tscn
+res://scripts/utility/npc/npc_mother.tscn
+res://scripts/utility/run_scripts/play_texts.gd
+res://scripts/utility/run_scripts/q_free_nodes.gd
+res://scripts/utility/run_scripts/npc_queue_text.gd
+res://scripts/character/npc/dialog.gd

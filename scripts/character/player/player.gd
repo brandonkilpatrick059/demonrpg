@@ -53,7 +53,9 @@ func set_pentacle_charms(num : int):
 	pentacle_charms = num
 
 func turn_on_flashlight():
-	flash_light.enabled = true
+	var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")
+	if gamestate.get_state_map_value("HAS_LAMP") == "TRUE":
+		flash_light.enabled = true
 
 func turn_off_flashlight():
 	flash_light.enabled = false
@@ -258,6 +260,7 @@ func handle_interact():
 
 func interact_with(node : Node):
 	node.interact()
+	walking = false
 	moving = false
 	move_speed_vect = Vector2(0,0)
 
@@ -326,6 +329,22 @@ func grid_aligned_callback():
 	if(grid_aligned_callback_node != null):
 		grid_aligned_callback_node.grid_aligned_callback()
 		grid_aligned_callback_node = null
+
+func end_awaiting_input():
+	unfreeze_input()
+	start_input_timer(0.5)
+
+func play_texts(texts : Array[Text]):
+	stop()
+	var string_texts : Array[String]
+	for text : Text in texts:
+		var text_string : String = text.get_text("english")
+		string_texts.append(text_string)
+	freeze_input()
+	$InterfaceMessageSpeech.queue_text(string_texts)
+	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+	var pos : Vector2 = camera.get_screen_center_position()
+	$InterfaceMessageSpeech.global_position = pos + Vector2(-64,80)
 
 func _physics_process(delta: float) -> void:
 	if(active):

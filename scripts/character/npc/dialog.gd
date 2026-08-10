@@ -12,5 +12,7 @@ func get_current_text() -> Array[String]:
 		ret_array.append(text.get_text("english"))
 	if(current_index + 1 <= text_queues.size() - 1):
 		current_index = current_index + 1
+	else:
+		current_index = 0
 	return ret_array
 		

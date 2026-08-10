@@ -5,6 +5,7 @@ class_name InterfaceMessage extends Node2D
 @onready var label : RichTextLabel = $RichTextLabel
 
 var timer := Timer.new()
+var input_timer : = Timer.new()
 var text_speed : float = 0.02
 
 var current_text : String = ""
@@ -21,6 +22,8 @@ var text_queue : Array[String] = []
 func _ready() -> void:
 	timer.one_shot = true
 	add_child(timer)
+	input_timer.one_shot = true
+	add_child(input_timer)
 	#TODO: figure out audio bus 
 	add_child(audio_player)
 
@@ -52,6 +55,8 @@ func play_text(text : String):
 	current_text = ""
 	update_label()
 	text_index = 0
+	timer.start(text_speed)
+	input_timer.start(0.2)
 
 func update_label():
 	label.parse_bbcode(current_text)
@@ -82,7 +87,7 @@ func is_finished_writing() -> bool:
 	return finished_writing
 
 func handle_input():
-	if(is_active()):
+	if(is_active() and input_timer.is_stopped()):
 		if(Input.is_action_just_pressed("action_1")):
 			if(not finished_writing):
 				current_text = full_text

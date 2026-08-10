@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cc1ok8fye6ynm"]
 
-[ext_resource type="Script" uid="uid://d06xwmk44ogl5" path="res://scripts/character/npc/npc.gd" id="1_ims88"]
-[ext_resource type="SpriteFrames" uid="uid://bn8wytqhvl10r" path="res://sprites/spritesheets/npc/mother.tres" id="2_ims88"]
-[ext_resource type="PackedScene" uid="uid://dsk5qoj7icxf4" path="res://interface/interface_message_speech.tscn" id="3_dsq63"]
-[ext_resource type="Script" uid="uid://rnkf4nludtw8" path="res://scripts/character/npc/dialog.gd" id="4_ein1u"]
-[ext_resource type="Script" uid="uid://bobb0tru1osuh" path="res://npc/text_queue.gd" id="5_2jphb"]
-[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="6_8nu4l"]
+[ext_resource type="Script" uid="uid://d06xwmk44ogl5" path="res://scripts/character/npc/npc.gd" id="1_fga61"]
+[ext_resource type="SpriteFrames" uid="uid://bn8wytqhvl10r" path="res://sprites/spritesheets/npc/mother.tres" id="2_vb2j4"]
+[ext_resource type="PackedScene" uid="uid://dsk5qoj7icxf4" path="res://interface/interface_message_speech.tscn" id="3_j7pl2"]
+[ext_resource type="Script" uid="uid://rnkf4nludtw8" path="res://scripts/character/npc/dialog.gd" id="4_ksq5j"]
+[ext_resource type="Script" uid="uid://bobb0tru1osuh" path="res://scripts/utility/text_queue.gd" id="5_6t5rr"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="6_wqvfq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(24, 24)
@@ -27,13 +27,13 @@ size = Vector2(10, 10)
 
 [node name="NPCMother" type="StaticBody2D" unique_id=1569602181]
 y_sort_enabled = true
-script = ExtResource("1_ims88")
+script = ExtResource("1_fga61")
 wander_wait_min = 1.0
 wander_wait_max = 6.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133978492]
 y_sort_enabled = true
-sprite_frames = ExtResource("2_ims88")
+sprite_frames = ExtResource("2_vb2j4")
 animation = &"stand_down"
 offset = Vector2(12, -16)
 
@@ -99,62 +99,28 @@ one_shot = true
 max_distance = 256.0
 attenuation = 2.14355
 
-[node name="InterfaceMessageSpeech" parent="." unique_id=1193849113 node_paths=PackedStringArray("report_interface") instance=ExtResource("3_dsq63")]
+[node name="InterfaceMessageSpeech" parent="." unique_id=1193849113 node_paths=PackedStringArray("report_interface") instance=ExtResource("3_j7pl2")]
 visible = false
 z_index = 20
 position = Vector2(-48, 48)
 report_interface = NodePath("..")
 
 [node name="dialog" type="Node" parent="." unique_id=1437211647 node_paths=PackedStringArray("text_queues")]
-script = ExtResource("4_ein1u")
-text_queues = [NodePath("queue_1"), NodePath("queue_2")]
-
-[node name="queue_1" type="Node" parent="dialog" unique_id=634334134 node_paths=PackedStringArray("texts")]
-script = ExtResource("5_2jphb")
-texts = [NodePath("Text"), NodePath("Text2"), NodePath("Text3"), NodePath("Text4"), NodePath("Text5")]
-
-[node name="Text" type="Node" parent="dialog/queue_1" unique_id=949771329]
-script = ExtResource("6_8nu4l")
-language_map = Array[String](["english"])
-text = Array[String](["Oh, you're awake!"])
-metadata/_custom_type_script = "uid://xtykxchs28xu"
-
-[node name="Text2" type="Node" parent="dialog/queue_1" unique_id=1965039532]
-script = ExtResource("6_8nu4l")
-language_map = Array[String](["english"])
-text = Array[String](["Are you ready to visit your [color=red]Older Sister[/color] today?"])
-metadata/_custom_type_script = "uid://xtykxchs28xu"
-
-[node name="Text3" type="Node" parent="dialog/queue_1" unique_id=290732082]
-script = ExtResource("6_8nu4l")
-language_map = Array[String](["english"])
-text = Array[String](["She's been staying at [color=blue]Grandma's House[/color] for a week now."])
-metadata/_custom_type_script = "uid://xtykxchs28xu"
-
-[node name="Text4" type="Node" parent="dialog/queue_1" unique_id=1564204604]
-script = ExtResource("6_8nu4l")
-language_map = Array[String](["english"])
-text = Array[String](["...Your [color=red]Sister[/color] has strayed very far from the path of grace."])
-metadata/_custom_type_script = "uid://xtykxchs28xu"
-
-[node name="Text5" type="Node" parent="dialog/queue_1" unique_id=1731115773]
-script = ExtResource("6_8nu4l")
-language_map = Array[String](["english"])
-text = Array[String](["I hope she is accepted back into [color=red]The Church[/color]..."])
-metadata/_custom_type_script = "uid://xtykxchs28xu"
+script = ExtResource("4_ksq5j")
+text_queues = [NodePath("queue_2")]
 
 [node name="queue_2" type="Node" parent="dialog" unique_id=1064956983 node_paths=PackedStringArray("texts")]
-script = ExtResource("5_2jphb")
+script = ExtResource("5_6t5rr")
 texts = [NodePath("Text"), NodePath("Text2")]
 
 [node name="Text" type="Node" parent="dialog/queue_2" unique_id=1472150099]
-script = ExtResource("6_8nu4l")
+script = ExtResource("6_wqvfq")
 language_map = Array[String](["english"])
 text = Array[String](["This drought must end soon-"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text2" type="Node" parent="dialog/queue_2" unique_id=534809382]
-script = ExtResource("6_8nu4l")
+script = ExtResource("6_wqvfq")
 language_map = Array[String](["english"])
 text = Array[String](["Or there won't be enough buckwheat to take to market."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"

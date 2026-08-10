@@ -7,13 +7,13 @@ extends Area2D
 
 func _ready() -> void:
 	var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")
-	if(gamestate.get_state_map_value(gamestate_key) == "NONE"):
+	if(gamestate.get_state_map_value(gamestate_key) == "NONE" &&
+	default_state != ""):
 		gamestate.set_state_map_value(gamestate_key,default_state)
 
 func grid_aligned_callback():
 	for script in run_scripts:
 		script.run_script()
-	
 
 func _on_body_entered(body: Node2D) -> void:
 	var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")

@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://qkimc3fprmcu" path="res://sprites/spritesheets/npc/father.tres" id="2_hirll"]
 [ext_resource type="PackedScene" uid="uid://dsk5qoj7icxf4" path="res://interface/interface_message_speech.tscn" id="3_sj241"]
 [ext_resource type="Script" uid="uid://rnkf4nludtw8" path="res://scripts/character/npc/dialog.gd" id="4_6j50n"]
-[ext_resource type="Script" uid="uid://bobb0tru1osuh" path="res://npc/text_queue.gd" id="5_24kwo"]
+[ext_resource type="Script" uid="uid://bobb0tru1osuh" path="res://scripts/utility/text_queue.gd" id="5_24kwo"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="6_24kwo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]

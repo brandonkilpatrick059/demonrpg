@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cy0ohuhlirufs" path="res://sprites/spritesheets/npc/chicken.tres" id="2_v2s8p"]
 [ext_resource type="PackedScene" uid="uid://dsk5qoj7icxf4" path="res://interface/interface_message_speech.tscn" id="3_kdsbl"]
 [ext_resource type="Script" uid="uid://rnkf4nludtw8" path="res://scripts/character/npc/dialog.gd" id="4_3sllx"]
-[ext_resource type="Script" uid="uid://bobb0tru1osuh" path="res://npc/text_queue.gd" id="5_tsedb"]
+[ext_resource type="Script" uid="uid://bobb0tru1osuh" path="res://scripts/utility/text_queue.gd" id="5_tsedb"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="6_6n1v2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
