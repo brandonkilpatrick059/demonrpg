@@ -61,3 +61,4 @@ res://scripts/utility/run_scripts/play_texts.gd
 res://scripts/utility/run_scripts/q_free_nodes.gd
 res://scripts/utility/run_scripts/npc_queue_text.gd
 res://scripts/character/npc/dialog.gd
+res://scripts/utility/ready_run_scripts.gd

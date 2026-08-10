@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://djbverw0ax0ua" path="res://audio/effects/crickets_1.wav" id="12_gcecd"]
 [ext_resource type="PackedScene" uid="uid://psu5rylk358d" path="res://mechanism/gate.tscn" id="13_oxy48"]
 [ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="14_6qcli"]
-[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://utility/interactable_script_area.gd" id="15_0dkg3"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="15_0dkg3"]
 [ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="16_1alcv"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="17_yupxm"]
 

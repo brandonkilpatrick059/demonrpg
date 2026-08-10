@@ -10,14 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://q5kpfxpf8v7q" path="res://sprites/props/interior/rug.png" id="8_5qp0l"]
 [ext_resource type="Texture2D" uid="uid://dqy371ecndkqw" path="res://sprites/props/interior/end_table.png" id="8_d57fd"]
 [ext_resource type="Texture2D" uid="uid://ckyygcbh2ppv7" path="res://sprites/props/interior/table.png" id="9_qd2mx"]
-[ext_resource type="Script" uid="uid://b688cwvrpugwh" path="res://utility/script_area.gd" id="10_ueda4"]
+[ext_resource type="Script" uid="uid://b688cwvrpugwh" path="res://scripts/utility/script_area.gd" id="10_ueda4"]
 [ext_resource type="Script" uid="uid://1pyr3240l3xg" path="res://scripts/utility/run_scripts/npc_queue_text.gd" id="12_8wh00"]
 [ext_resource type="Script" uid="uid://ujy8j2xhnrac" path="res://scripts/utility/run_scripts/adjust_game_state.gd" id="12_u7vsm"]
-[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://utility/interactable_script_area.gd" id="13_7crqw"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="13_7crqw"]
 [ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="13_u7vsm"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="14_kpw7i"]
 [ext_resource type="Script" uid="uid://ctl8j5f47ohhg" path="res://scripts/utility/run_scripts/q_free_nodes.gd" id="17_3fm0o"]
 [ext_resource type="Texture2D" uid="uid://cvcgxpepgk68x" path="res://sprites/props/interior/lamp.png" id="17_40at6"]
+[ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="19_8wh00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -322,7 +323,7 @@ no_gamestate = false
 gamestate_key = "HAS_LAMP"
 run_if_state = "FALSE"
 default_state = "FALSE"
-scripts = [NodePath("play_texts"), NodePath("queue_free_lamp"), NodePath("obtain_lamp")]
+scripts = [NodePath("play_texts"), NodePath("queue_free_lamp"), NodePath("obtain_lamp"), NodePath("obtain_homestead_lamp")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_lamp" unique_id=2118602989]
 position = Vector2(156, 12)
@@ -347,10 +348,26 @@ script = ExtResource("12_u7vsm")
 game_state_key = "HAS_LAMP"
 to_value = "TRUE"
 
+[node name="obtain_homestead_lamp" type="Node" parent="interactable_area_lamp" unique_id=1803428198]
+script = ExtResource("12_u7vsm")
+game_state_key = "HAS_HOMESTEAD_LAMP"
+to_value = "TRUE"
+
 [node name="lamp" type="Sprite2D" parent="." unique_id=431360578]
+modulate = Color(0.6313726, 0.63529414, 1, 1)
 position = Vector2(72, 0)
 texture = ExtResource("17_40at6")
 offset = Vector2(8, 0)
+
+[node name="ready_run_scripts_lamp" type="Node" parent="." unique_id=512167057 node_paths=PackedStringArray("scripts")]
+script = ExtResource("19_8wh00")
+gamestate_key = "HAS_HOMESTEAD_LAMP"
+run_if_state = "TRUE"
+scripts = [NodePath("queue_free_lamp")]
+
+[node name="queue_free_lamp" type="Node" parent="ready_run_scripts_lamp" unique_id=1354192554 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../lamp")]
 
 [connection signal="body_entered" from="interact_zone_1" to="interact_zone_1" method="_on_body_entered"]
 [connection signal="body_entered" from="interact_zone_lamp_convo" to="interact_zone_lamp_convo" method="_on_body_entered"]
