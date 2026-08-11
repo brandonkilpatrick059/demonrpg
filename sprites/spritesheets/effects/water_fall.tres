@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b230og1weenfr"]
+
+[ext_resource type="Texture2D" uid="uid://kn0rmcb1becn" path="res://sprites/spritesheets/effects/water_fall.png" id="1_m8dmt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reufb"]
+atlas = ExtResource("1_m8dmt")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw5yb"]
+atlas = ExtResource("1_m8dmt")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2edb0"]
+atlas = ExtResource("1_m8dmt")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceowm"]
+atlas = ExtResource("1_m8dmt")
+region = Rect2(168, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reufb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw5yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2edb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceowm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

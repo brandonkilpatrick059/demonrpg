@@ -1,3 +1,4 @@
+res://sprites/spritesheets/effects/
 res://scripts/utility/
 res://utility/
 res://sprites/spritesheets/npc/
@@ -19,4 +20,3 @@ res://sprites/spritesheets/battle/interface/
 res://battle/interface/
 res://battle/actions/
 res://scripts/battle_system/
-res://familiars/

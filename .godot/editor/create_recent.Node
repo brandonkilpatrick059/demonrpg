@@ -1,3 +1,6 @@
+AudioStreamPlayer2D
+Node2D
+AnimatedSprite2D
 Sprite2D
 Parallax2D
 CollisionShape2D
@@ -7,8 +10,6 @@ StaticBody2D
 Area2D
 AudioStreamPlayer
 TileMapLayer
-AnimatedSprite2D
-Node2D
 Text
 RigidBody2D
 CanvasLayer

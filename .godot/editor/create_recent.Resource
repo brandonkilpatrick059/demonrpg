@@ -1,3 +1,3 @@
-TileSet
 SpriteFrames
+TileSet
 Shader

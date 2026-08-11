@@ -1,3 +1,4 @@
+@tool
 extends AnimatedSprite2D
 
 @export var random_frame : bool = false

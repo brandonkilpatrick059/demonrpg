@@ -35,3 +35,6 @@ res://sprites/tile_atlas_foliage.tres
 res://sprites/spritesheets/npc/father.tres
 res://sprites/spritesheets/npc/chicken.tres
 res://sprites/spritesheets/props/structure/gate.tres
+res://sprites/spritesheets/effects/water_fall.tres
+res://locations/zones/zone_grandmas_house.tscn
+res://scripts/utility/play_default_animation.gd
