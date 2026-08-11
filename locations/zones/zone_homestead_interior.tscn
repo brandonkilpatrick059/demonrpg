@@ -26,6 +26,9 @@ size = Vector2(24, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7crqw"]
 size = Vector2(24, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wh00"]
+size = Vector2(24, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(48, 48)
 
@@ -211,7 +214,7 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 [node name="Text6" type="Node" parent="interact_zone_1/run_interact" unique_id=795296125]
 script = ExtResource("14_kpw7i")
 language_map = Array[String](["english"])
-text = Array[String](["But I fear that she won't be accepted back into [color=red]The Church[/color]..."])
+text = Array[String](["But I fear that she won't be accepted back into [color=blue]The Church[/color]..."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="adjust_gamestate" type="Node" parent="interact_zone_1" unique_id=1595859108]
@@ -229,8 +232,8 @@ default_state = "OFF"
 run_scripts = [NodePath("run_interact"), NodePath("adjust_gamestate")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact_zone_lamp_convo" unique_id=1323966255]
-position = Vector2(60, 204)
-shape = SubResource("RectangleShape2D_7crqw")
+position = Vector2(60, 192)
+shape = SubResource("RectangleShape2D_8wh00")
 
 [node name="run_interact" type="Node" parent="interact_zone_lamp_convo" unique_id=878763360 node_paths=PackedStringArray("texts", "interact_node")]
 script = ExtResource("12_8wh00")

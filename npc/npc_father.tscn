@@ -117,7 +117,7 @@ texts = [NodePath("Text"), NodePath("Text2")]
 [node name="Text" type="Node" parent="dialog/queue_1" unique_id=949771329]
 script = ExtResource("6_24kwo")
 language_map = Array[String](["english"])
-text = Array[String](["Heading up the mountain today?"])
+text = Array[String](["Heading up [color=blue]The Mountain[/color] today?"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text2" type="Node" parent="dialog/queue_1" unique_id=1965039532]
