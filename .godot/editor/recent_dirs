@@ -1,10 +1,10 @@
-res://sprites/spritesheets/effects/
 res://scripts/utility/
+res://sprites/spritesheets/props/structure/
+res://sprites/spritesheets/effects/
 res://utility/
 res://sprites/spritesheets/npc/
 res://sprites/
 res://scripts/mechanism/
-res://sprites/spritesheets/props/structure/
 res://scripts/character/npc/
 res://scripts/locations/
 res://sprites/spritesheets/interface/

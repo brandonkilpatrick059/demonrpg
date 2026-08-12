@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://djw05xya3j8mi"]
 
 [ext_resource type="Script" uid="uid://c81wetankxf32" path="res://scripts/locations/zone_manager.gd" id="1_5ulbo"]
-[ext_resource type="PackedScene" uid="uid://b3byqi3mwn2pn" path="res://locations/zones/zone_homestead_interior.tscn" id="3_5ulbo"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
-[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/base/L1_martyr.tscn" id="4_182vb"]
-[ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/base/L1_gark.tscn" id="5_f7ow6"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
 [ext_resource type="Script" uid="uid://618urs27u4tv" path="res://scripts/utility/global_gamestate.gd" id="7_j6tkn"]
+[ext_resource type="PackedScene" uid="uid://br6gc0xmj5csb" path="res://locations/zones/zone_grandmas_house.tscn" id="8_r2q7f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]
 shader = ExtResource("6_je83m")
@@ -28,11 +26,11 @@ shader_parameter/pixel_strength = -4.0
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
 script = ExtResource("1_5ulbo")
-current_zone = NodePath("LocationHomesteadInterior")
+current_zone = NodePath("zone_grandmas_house")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1494413384]
+[node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=1494413384]
 
-[node name="screen_effect" type="ColorRect" parent="CanvasLayer" unique_id=503890868]
+[node name="screen_effect" type="ColorRect" parent="screen_effect_layer" unique_id=503890868]
 z_index = 50
 material = SubResource("ShaderMaterial_lc7g1")
 custom_minimum_size = Vector2(3840, 2160)
@@ -46,24 +44,14 @@ offset_bottom = 1170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LocationHomesteadInterior" parent="." unique_id=797840269 instance=ExtResource("3_5ulbo")]
-
-[node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
-position = Vector2(0, 24)
-familiar_team = [NodePath("L1martyr"), NodePath("L1martyr2"), NodePath("L1gark")]
+[node name="Player" parent="." unique_id=286954556 instance=ExtResource("3_r2q7f")]
+position = Vector2(1704, -1656)
 pentacle_charms = 4
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
 position = Vector2(12, -12)
 
-[node name="L1martyr" parent="Player" unique_id=1430392347 instance=ExtResource("4_182vb")]
-visible = false
-
-[node name="L1martyr2" parent="Player" unique_id=1277543090 instance=ExtResource("4_182vb")]
-visible = false
-
-[node name="L1gark" parent="Player" unique_id=1432736001 instance=ExtResource("5_f7ow6")]
-visible = false
-
 [node name="gamestate" type="Node" parent="." unique_id=1455637368 groups=["gamestate"]]
 script = ExtResource("7_j6tkn")
+
+[node name="zone_grandmas_house" parent="." unique_id=1169712370 instance=ExtResource("8_r2q7f")]

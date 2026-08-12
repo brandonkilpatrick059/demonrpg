@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bvx38kibrmwu8"]
+
+[ext_resource type="Script" uid="uid://dp5wqjdvpnvqx" path="res://scripts/mechanism/gate.gd" id="1_d2v0i"]
+[ext_resource type="SpriteFrames" uid="uid://dx7yuu1jkp1qm" path="res://sprites/spritesheets/props/structure/bridge.tres" id="2_d2v0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
+size = Vector2(48, 48)
+
+[node name="Bridge" type="Node2D" unique_id=1985675524]
+script = ExtResource("1_d2v0i")
+is_open = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1482740844]
+sprite_frames = ExtResource("2_d2v0i")
+animation = &"open"
+offset = Vector2(24, -12)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=968609869]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=575774807]
+position = Vector2(24, -24)
+shape = SubResource("RectangleShape2D_cea73")

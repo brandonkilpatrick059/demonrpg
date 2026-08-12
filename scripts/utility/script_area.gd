@@ -15,6 +15,12 @@ func grid_aligned_callback():
 	for script in run_scripts:
 		script.run_script()
 
+func run_script():
+	var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")
+	var map_value = gamestate.get_state_map_value(gamestate_key)
+	if(map_value == run_if_state):
+		grid_aligned_callback()
+
 func _on_body_entered(body: Node2D) -> void:
 	var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")
 	var map_value = gamestate.get_state_map_value(gamestate_key)

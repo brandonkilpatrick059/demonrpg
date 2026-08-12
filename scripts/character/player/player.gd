@@ -19,6 +19,7 @@ var can_move = true
 
 var starting_battle : bool = false
 var staged_encounter : Encounter = null
+var encounter_on_control_return : Encounter = null
 
 var showing_summary = false
 
@@ -65,6 +66,11 @@ func freeze_input():
 
 func unfreeze_input():
 	input_frozen = false
+	if(encounter_on_control_return != null):
+		start_encounter(encounter_on_control_return)
+
+func set_encounter_on_unfreeze_input(encounter : Encounter):
+	encounter_on_control_return = encounter
 
 func input_is_frozen() -> bool:
 	return input_frozen
@@ -96,11 +102,19 @@ func handle_input():
 		if(Input.is_action_pressed("select")):
 			if(familiar_team.size() > 0):
 				if(not showing_summary && $input_timer.is_stopped()):
+					if(get_tree().get_first_node_in_group("rain_effect") != null):
+						var rain_effect = get_tree().get_first_node_in_group("rain_effect")
+						if(rain_effect.is_active()):
+							rain_effect.visible = false
 					showing_summary = true
 					show_summary()
 					get_tree().paused = true
 					$input_timer.start(0.5)
 				elif(showing_summary):
+					if(get_tree().get_first_node_in_group("rain_effect") != null):
+						var rain_effect = get_tree().get_first_node_in_group("rain_effect")
+						if(rain_effect.is_active()):
+							rain_effect.visible = true
 					showing_summary = false
 					$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
 					$AudioStreamPlayer.play()
@@ -112,12 +126,13 @@ func start_input_timer(time : float):
 	$input_timer.start(time)
 
 func show_summary():
-	var summary : FamiliarSummary = load("res://interface/familiar_summary.tscn").instantiate()
-	get_parent().add_child(summary)
-	summary.set_familiars(familiar_team)
-	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
-	var pos : Vector2 = camera.get_screen_center_position()
-	summary.global_position = pos
+	if(familiar_team.size() > 0):
+		var summary : FamiliarSummary = load("res://interface/familiar_summary.tscn").instantiate()
+		get_parent().add_child(summary)
+		summary.set_familiars(familiar_team)
+		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+		var pos : Vector2 = camera.get_screen_center_position()
+		summary.global_position = pos
 
 func handle_animation():
 	if(moving):
@@ -139,7 +154,7 @@ func handle_animation():
 			body.play(animation_name)
 	if(head.animation != facing_direction):
 		var keep_frame : int = head.frame
-		var keep_progress : float = head.frame_progress 
+		var keep_progress : float = head.frame_progress
 		head.play(facing_direction)
 		head.frame = keep_frame
 		head.frame_progress = keep_progress
@@ -206,18 +221,22 @@ func end_battle(end_player_familiars : Array[Familiar]):
 
 func return_to_overworld():
 	var global_modulate = get_tree().get_first_node_in_group("global_modulate")
-	global_modulate.visible = true
+	if(global_modulate != null):
+		global_modulate.visible = true
 	var global_music = get_tree().get_first_node_in_group("global_music_player")
-	global_music.play()
+	if(global_music != null):
+		global_music.play()
 	set_active()
 	can_move = true
 	fade_in()
 
 func disable_overworld():
 	var global_modulate = get_tree().get_first_node_in_group("global_modulate")
-	global_modulate.visible = false
+	if(global_modulate != null):
+		global_modulate.visible = false
 	var global_music = get_tree().get_first_node_in_group("global_music_player")
-	global_music.stop()
+	if(global_music != null):
+		global_music.stop()
 
 func fade_in():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
@@ -238,25 +257,21 @@ func handle_interact():
 				for body in $move_collider_up.get_overlapping_bodies():
 					if body.is_in_group("interactable"):
 						interact_with(body)
-						return
 		"down":
 			if($move_collider_down.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_down.get_overlapping_bodies():
 					if body.is_in_group("interactable"):
 						interact_with(body)
-						return
 		"left":
 			if($move_collider_left.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_left.get_overlapping_bodies():
 					if body.is_in_group("interactable"):
 						interact_with(body)
-						return
 		"right":
 			if($move_collider_right.get_overlapping_bodies().size() > 0):
 				for body in $move_collider_right.get_overlapping_bodies():
 					if body.is_in_group("interactable"):
 						interact_with(body)
-						return
 
 func interact_with(node : Node):
 	node.interact()

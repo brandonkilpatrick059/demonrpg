@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dx7yuu1jkp1qm"]
+
+[ext_resource type="Texture2D" uid="uid://bvhboinwrm5an" path="res://sprites/spritesheets/props/structure/bridge.png" id="1_t2w7a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2w7a"]
+atlas = ExtResource("1_t2w7a")
+region = Rect2(0, 72, 48, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m3gn"]
+atlas = ExtResource("1_t2w7a")
+region = Rect2(0, 0, 48, 72)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2w7a")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m3gn")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 5.0
+}]

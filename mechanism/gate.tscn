@@ -10,7 +10,7 @@ size = Vector2(48, 24)
 script = ExtResource("1_w1t1w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1482740844]
-position = Vector2(24, -24)
+position = Vector2(20, -24)
 sprite_frames = ExtResource("2_rb87w")
 animation = &"closed"
 

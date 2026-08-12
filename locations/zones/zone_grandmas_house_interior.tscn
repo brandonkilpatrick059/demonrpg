@@ -1,0 +1,393 @@
+[gd_scene format=4 uid="uid://ct4le4jx6v0mj"]
+
+[ext_resource type="Script" uid="uid://v73shmuwmbhw" path="res://scripts/locations/location_zone.gd" id="1_rnrlx"]
+[ext_resource type="TileSet" uid="uid://45qv0vaq80jk" path="res://sprites/tile_atlas_interior.tres" id="2_nip27"]
+[ext_resource type="TileSet" uid="uid://be4tfq16y1gax" path="res://sprites/tile_atlas_effects.tres" id="3_naba0"]
+[ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="4_6ghoj"]
+[ext_resource type="Texture2D" uid="uid://efgyfyxeh31c" path="res://sprites/props/interior/cross.png" id="6_lvc0s"]
+[ext_resource type="Texture2D" uid="uid://iphi2v0othgh" path="res://sprites/props/interior/bed.png" id="7_o1n2s"]
+[ext_resource type="Texture2D" uid="uid://bqy7ywpjexju5" path="res://sprites/props/interior/end_table_overturned.png" id="7_odno2"]
+[ext_resource type="Texture2D" uid="uid://b53ln4rammyg4" path="res://sprites/props/interior/table_overturned.png" id="7_r7j5k"]
+[ext_resource type="Texture2D" uid="uid://dqy371ecndkqw" path="res://sprites/props/interior/end_table.png" id="8_233h6"]
+[ext_resource type="Texture2D" uid="uid://flbu4jsc2h2t" path="res://sprites/props/effects/blood_pool_1.png" id="9_6ghoj"]
+[ext_resource type="Texture2D" uid="uid://cmsg6nj1l3tqr" path="res://sprites/props/effects/blood_pool_2.png" id="10_i16yc"]
+[ext_resource type="Script" uid="uid://b688cwvrpugwh" path="res://scripts/utility/script_area.gd" id="11_7qqp6"]
+[ext_resource type="Texture2D" uid="uid://bpc83xbvb2m78" path="res://sprites/props/effects/blood_pool_4.png" id="11_lvc0s"]
+[ext_resource type="Texture2D" uid="uid://b7uqjpj13ocha" path="res://sprites/props/effects/blood_pool_3.png" id="12_o1n2s"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="13_6h6yh"]
+[ext_resource type="Texture2D" uid="uid://b23uiq5efpyk5" path="res://sprites/props/effects/blood_pentacle.png" id="13_233h6"]
+[ext_resource type="Script" uid="uid://ujy8j2xhnrac" path="res://scripts/utility/run_scripts/adjust_game_state.gd" id="14_m3ix2"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="15_i2ay8"]
+[ext_resource type="Texture2D" uid="uid://cicmq4ty7hb55" path="res://sprites/props/interior/open_book.png" id="15_lvc0s"]
+[ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="16_0l7i3"]
+[ext_resource type="Script" uid="uid://ctl8j5f47ohhg" path="res://scripts/utility/run_scripts/q_free_nodes.gd" id="17_1me3i"]
+[ext_resource type="Texture2D" uid="uid://cvcgxpepgk68x" path="res://sprites/props/interior/lamp.png" id="18_oyncm"]
+[ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="19_b3nw5"]
+[ext_resource type="Script" uid="uid://qow3wdm7tqsm" path="res://scripts/utility/run_scripts/set_unfreeze_input_encounter.gd" id="19_o1n2s"]
+[ext_resource type="PackedScene" uid="uid://1bv8rorir2k0" path="res://battle/encounters/homunculus_encounter_1.tscn" id="20_233h6"]
+[ext_resource type="AudioStream" uid="uid://deysb4q75hgex" path="res://audio/music/drone_2.ogg" id="22_mgjgc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3wst"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i16yc"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvc0s"]
+size = Vector2(24, 24)
+
+[node name="ZoneHomesteadInterior" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links")]
+script = ExtResource("1_rnrlx")
+zone_name = "Homestead Interior"
+zone_links = [NodePath("ZoneLink")]
+
+[node name="TileMapLayer_wall" type="TileMapLayer" parent="." unique_id=1591578392]
+modulate = Color(0.3788215, 0.3591835, 0.34278297, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD9/wUAAAAAAAAAAAD9/wYAAAAAAAEAAAD+/wYAAAAAAAEAAAD//wUAAAAAAAAAAAD//wYAAAAAAAEAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAEAAAABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAADAAUAAAAAAAAAAAADAAYAAAAAAAEAAAD+/wUAAAAAAAAAAAD9////AAAAAAEAAAD+////AAABAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAP//AAAAAAEAAAACAP//AAABAAEAAAADAP//AAAAAAEAAAD9//7/AAAAAAAAAAD+//7/AAABAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAABAAAAAAADAP7/AAAAAAAAAAA=")
+tile_set = ExtResource("2_nip27")
+
+[node name="TileMapLayer_furniture" type="TileMapLayer" parent="." unique_id=817401735]
+modulate = Color(0.61806, 0.59782547, 0.5776148, 1)
+tile_map_data = PackedByteArray("AAD9/wUAAAAAAAAAAAD9/wYAAAAAAAEAAAD+/wYAAAAFAAEAAAD//wUAAAAAAAAAAAD//wYAAAAAAAEAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAEAAAABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAADAAUAAAAAAAAAAAADAAYAAAAAAAEAAAD+/wUAAAAAAAAAAAD9/wcAAAADAAIAAAD+/wcAAAAFAAIAAAAAAAcAAAADAAIAAAABAAcAAAADAAIAABA=")
+tile_set = ExtResource("2_nip27")
+
+[node name="TileMapLayer_floor" type="TileMapLayer" parent="." unique_id=1933344317]
+modulate = Color(0.44452596, 0.32254463, 0.22588217, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD9/wIAAAAAAAIAAAD+/wIAAAAAAAIAAAD//wIAAAAAAAIAAAAAAAIAAAAAAAIAAAABAAIAAAAAAAIAAAACAAIAAAAAAAIAAAD9/wMAAAAAAAIAAAD+/wMAAAAAAAIAAAD//wMAAAAAAAIAAAAAAAMAAAAAAAIAAAABAAMAAAAAAAIAAAACAAMAAAAAAAIAAAADAAIAAAAAAAIAAAADAAMAAAAAAAIAAAD+/wcAAAAAAAIAAAD//wcAAAAAAAIAAAAAAAcAAAAAAAIAAAABAAcAAAAAAAIAAAACAAcAAAAAAAIAAAADAAcAAAAAAAIAAAADAAgAAAAAAAIAAAACAAgAAAAAAAIAAAABAAgAAAAAAAIAAAAAAAgAAAAAAAIAAAD//wgAAAAAAAIAAAD+/wgAAAAAAAIAAAD9/wgAAAAAAAIAAAD9/wkAAAAAAAIAAAD+/wkAAAAAAAIAAAD//wkAAAAAAAIAAAAAAAkAAAAAAAIAAAABAAkAAAAAAAIAAAADAAkAAAAAAAIAAAACAAkAAAAAAAIAAAACAAYAAAAAAAIAAAACAAUAAAAAAAIAAAACAAQAAAAAAAIAAAD9/woAAAAAAAIAAAD+/woAAAAAAAIAAAD//woAAAAAAAIAAAAAAAoAAAAAAAIAAAABAAoAAAAAAAIAAAACAAoAAAAAAAIAAAADAAoAAAAAAAIAAAAAAAsAAAAAAAIAAAD9/wcAAAAAAAIAAAD9/wEAAAAAAAIAAAD+/wEAAAAAAAIAAAD//wEAAAAAAAIAAAAAAAEAAAAAAAIAAAABAAEAAAAAAAIAAAACAAEAAAAAAAIAAAADAAEAAAAAAAIAAAD9/wAAAAAAAAIAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAIAAAACAAAAAAAAAAIAAAADAAAAAAAAAAIAAAA=")
+tile_set = ExtResource("2_nip27")
+
+[node name="TileMapLayer_brown" type="TileMapLayer" parent="." unique_id=1265215159]
+modulate = Color(0.80513483, 0.6486396, 0.5226564, 1)
+tile_map_data = PackedByteArray("AAD//wcAAAACAAQAAAD//wYAAAACAAMAAAD//wUAAAACAAIAAAA=")
+tile_set = ExtResource("2_nip27")
+
+[node name="TileMapLayer_effect" type="TileMapLayer" parent="." unique_id=1312739034]
+modulate = Color(0.24840015, 0.24840018, 0.24840015, 0.25882354)
+z_index = -1
+tile_map_data = PackedByteArray("AAD//wYAAAACAAMAAAD//wUAAAACAAIAAAADAAIAAAAAAAIAADD9/wIAAAAAAAIAAAD9/wMAAAAAAAEAAGADAAMAAAAAAAEAADD+/wMAAAAAAAIAAGD//wMAAAAAAAIAAGAAAAMAAAAAAAIAAGABAAMAAAAAAAIAAGACAAQAAAAAAAIAAAACAAUAAAAAAAIAAAACAAYAAAAAAAIAAAD9/woAAAAAAAEAAGD+/woAAAAAAAIAAGD//woAAAAAAAIAAGABAAoAAAAAAAIAAGACAAoAAAAAAAIAAGADAAoAAAAAAAEAADD9/wkAAAAAAAIAAAD9/wgAAAAAAAEAAAADAAgAAAAAAAIAADADAAkAAAAAAAIAADADAAcAAAAAAAEAAFD9/wcAAAAAAAEAAAD+/wcAAAAAAAIAAFAAAAcAAAAAAAIAAFABAAcAAAAAAAIAAFD9/wAAAAAAAAEAAED+/wAAAAAAAAIAAFD//wAAAAAAAAIAAFAAAAAAAAAAAAIAAFABAAAAAAAAAAIAAFACAAAAAAAAAAIAAFADAAAAAAAAAAEAAFD9/wEAAAAAAAIAAAADAAEAAAAAAAIAABD+/wgAAAAAAAIAAFD//wgAAAAAAAIAAFAAAAgAAAAAAAIAAFABAAgAAAAAAAIAAFACAAcAAAAAAAIAAAA=")
+tile_set = ExtResource("3_naba0")
+
+[node name="ZoneLink" parent="." unique_id=1869762347 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_6ghoj")]
+link_zone_scene_path = "res://locations/zones/zone_grandmas_house.tscn"
+link_name = "LINK"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "INTERIOR"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink" unique_id=833735083]
+position = Vector2(12, 300)
+shape = SubResource("RectangleShape2D_0qpjh")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink" unique_id=1416006420]
+position = Vector2(0, 264)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink" unique_id=88330025]
+position = Vector2(0, 240)
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=567641062]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=180928047]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(96, 192, 96, 168, 144, 168, 240, 168, 240, 192, 216, 192, 216, 216, 240, 216, 240, 264, 216, 264, 216, 336, 240, 336, 240, 384, 240, 432, 192, 432, 168, 432, 168, 504, 144, 504, 144, 432, 120, 432, 120, 384, 72, 384, 72, 360, 192, 360, 192, 264, 144, 264, 144, 192, 72, 192, 72, 216, 48, 216, 48, 456, 120, 456, 120, 528, 192, 528, 192, 456, 264, 456, 264, 120, 48, 120, 48, 192, 72, 192)
+
+[node name="cross_2" type="Sprite2D" parent="." unique_id=550261480]
+position = Vector2(-48, 192)
+rotation = 1.5707964
+texture = ExtResource("6_lvc0s")
+offset = Vector2(12, 12)
+
+[node name="end_table_2" type="Sprite2D" parent="." unique_id=434380656]
+position = Vector2(-72, 0)
+texture = ExtResource("8_233h6")
+offset = Vector2(12, 12)
+
+[node name="end_table_4" type="Sprite2D" parent="." unique_id=1755831030]
+position = Vector2(-48, 48)
+texture = ExtResource("7_o1n2s")
+offset = Vector2(12, 12)
+
+[node name="end_table_3" type="Sprite2D" parent="." unique_id=2142461010]
+position = Vector2(72, 24)
+texture = ExtResource("7_odno2")
+offset = Vector2(12, 12)
+
+[node name="blood_1" type="Sprite2D" parent="." unique_id=1443928203]
+position = Vector2(-24, 216)
+texture = ExtResource("9_6ghoj")
+offset = Vector2(12, 12)
+
+[node name="blood_2" type="Sprite2D" parent="." unique_id=1566587766]
+position = Vector2(48, 216)
+texture = ExtResource("10_i16yc")
+offset = Vector2(12, 12)
+
+[node name="blood_3" type="Sprite2D" parent="." unique_id=250062215]
+position = Vector2(48, 216)
+scale = Vector2(-1, -1)
+texture = ExtResource("11_lvc0s")
+offset = Vector2(12, 12)
+
+[node name="blood_4" type="Sprite2D" parent="." unique_id=1157723941]
+position = Vector2(72, 72)
+texture = ExtResource("12_o1n2s")
+offset = Vector2(12, 12)
+
+[node name="blood_6" type="Sprite2D" parent="." unique_id=446617802]
+position = Vector2(-24, 24)
+scale = Vector2(-1, -1)
+texture = ExtResource("12_o1n2s")
+offset = Vector2(12, 12)
+
+[node name="blood_5" type="Sprite2D" parent="." unique_id=810326354]
+position = Vector2(24, 24)
+texture = ExtResource("13_233h6")
+offset = Vector2(12, 12)
+
+[node name="table" type="Sprite2D" parent="." unique_id=1223044532]
+z_index = -1
+position = Vector2(-48, 216)
+texture = ExtResource("7_r7j5k")
+offset = Vector2(0, 24)
+
+[node name="open_book" type="Sprite2D" parent="." unique_id=212452740]
+position = Vector2(24, 48)
+texture = ExtResource("15_lvc0s")
+offset = Vector2(12, 12)
+
+[node name="interactable_area_book" type="StaticBody2D" parent="." unique_id=1399823096 node_paths=PackedStringArray("scripts")]
+script = ExtResource("15_i2ay8")
+no_gamestate = false
+gamestate_key = "HAS_MANDRAKE"
+run_if_state = "FALSE"
+default_state = "FALSE"
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book" unique_id=14964735]
+position = Vector2(36, 60)
+shape = SubResource("RectangleShape2D_n3wst")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book" unique_id=1540854759 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_0l7i3")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text10"), NodePath("text11")]
+
+[node name="text" type="Node" parent="interactable_area_book/play_texts2" unique_id=1716653917]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(It's my [color=red]Older Sister's[/color] handwriting...)"])
+
+[node name="text2" type="Node" parent="interactable_area_book/play_texts2" unique_id=1140513695]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"All suffering from this world flows into the next.\""])
+
+[node name="text3" type="Node" parent="interactable_area_book/play_texts2" unique_id=428942279]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"The next world overflows with all the violence and [color=red]power[/color] of history.\""])
+
+[node name="text4" type="Node" parent="interactable_area_book/play_texts2" unique_id=716482250]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"A ritual to bring forth a VESSEL to capture that power:\""])
+
+[node name="text5" type="Node" parent="interactable_area_book/play_texts2" unique_id=919732553]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"1. Create a pentacle of blood upon the ground\""])
+
+[node name="text6" type="Node" parent="interactable_area_book/play_texts2" unique_id=1736123439]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"2. Place in its center a [color=purple]Mandrake Root[/color] [img]res://sprites/props/exterior/mandrake_sym.png[/img]\""])
+
+[node name="text7" type="Node" parent="interactable_area_book/play_texts2" unique_id=437517935]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"3. Enter the shadows\""])
+
+[node name="text8" type="Node" parent="interactable_area_book/play_texts2" unique_id=1128277281]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"4. Weaken the demon\""])
+
+[node name="text9" type="Node" parent="interactable_area_book/play_texts2" unique_id=615926779]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"5. Bargain servitude for its life\""])
+
+[node name="text10" type="Node" parent="interactable_area_book/play_texts2" unique_id=911999303]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"6. Sign the contract with a [color=purple]Pentacle Seal[/color]\""])
+
+[node name="text11" type="Node" parent="interactable_area_book/play_texts2" unique_id=2063303513]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(There are several wax seals stamped with an upside-down star)"])
+
+[node name="interactable_area_book2" type="StaticBody2D" parent="." unique_id=1972438006 node_paths=PackedStringArray("scripts")]
+script = ExtResource("15_i2ay8")
+no_gamestate = false
+gamestate_key = "HAS_MANDRAKE"
+run_if_state = "TRUE"
+default_state = "FALSE"
+scripts = [NodePath("set_encounter"), NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book2" unique_id=1610107773]
+position = Vector2(36, 60)
+shape = SubResource("RectangleShape2D_n3wst")
+
+[node name="set_encounter" type="Node" parent="interactable_area_book2" unique_id=1398402696]
+script = ExtResource("19_o1n2s")
+encounter_scene = ExtResource("20_233h6")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book2" unique_id=114775842 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_0l7i3")
+texts = [NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text10"), NodePath("text11"), NodePath("text12"), NodePath("text13"), NodePath("text14")]
+
+[node name="text5" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1808089287]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"1. Create a pentacle of blood upon the ground\""])
+
+[node name="text6" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1705016421]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"2. Place in its center a [color=purple]Mandrake Root[/color] [img]res://sprites/props/exterior/mandrake_sym.png[/img]\""])
+
+[node name="text7" type="Node" parent="interactable_area_book2/play_texts2" unique_id=800554713]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"3. Enter the shadows\""])
+
+[node name="text8" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1253075471]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"4. Weaken the demon\""])
+
+[node name="text9" type="Node" parent="interactable_area_book2/play_texts2" unique_id=681448200]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"5. Bargain servitude for its life\""])
+
+[node name="text10" type="Node" parent="interactable_area_book2/play_texts2" unique_id=69806340]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["\"6. Sign the contract with a [color=purple]Pentacle Seal[/color]\""])
+
+[node name="text11" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1492411463]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(There are several wax seals stamped with an upside-down star)"])
+
+[node name="text12" type="Node" parent="interactable_area_book2/play_texts2" unique_id=509539950]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(I find myself moving as if some outside force is moving me)"])
+
+[node name="text13" type="Node" parent="interactable_area_book2/play_texts2" unique_id=232587790]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(I place the mandrake root in the center of the circle)"])
+
+[node name="text14" type="Node" parent="interactable_area_book2/play_texts2" unique_id=734884711]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(I speak words I do not understand...)"])
+
+[node name="interactable_area_bed_2" type="StaticBody2D" parent="." unique_id=397849837 node_paths=PackedStringArray("scripts")]
+position = Vector2(-72, 0)
+script = ExtResource("15_i2ay8")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_bed_2" unique_id=170592671 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_0l7i3")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_bed_2/play_texts" unique_id=365779010]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(This is my parents' bed)"])
+
+[node name="lamp" type="Sprite2D" parent="." unique_id=431360578]
+modulate = Color(0.6313726, 0.63529414, 1, 1)
+position = Vector2(-72, 0)
+texture = ExtResource("18_oyncm")
+offset = Vector2(8, 0)
+
+[node name="ready_run_scripts_lamp" type="Node" parent="." unique_id=512167057 node_paths=PackedStringArray("scripts")]
+script = ExtResource("19_b3nw5")
+gamestate_key = "HAS_HOMESTEAD_LAMP"
+run_if_state = "TRUE"
+scripts = [NodePath("queue_free_lamp")]
+
+[node name="queue_free_lamp" type="Node" parent="ready_run_scripts_lamp" unique_id=1354192554 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_1me3i")
+nodes = [NodePath("../../lamp")]
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1556662474 groups=["global_music_player"]]
+stream = ExtResource("22_mgjgc")
+autoplay = true
+
+[node name="interact_zone_entered_house" type="Area2D" parent="." unique_id=589240200 node_paths=PackedStringArray("run_scripts")]
+position = Vector2(-48, 72)
+collision_mask = 2
+script = ExtResource("11_7qqp6")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "FALSE"
+default_state = "FALSE"
+run_scripts = [NodePath("adjust_gamestate")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_zone_entered_house" unique_id=530277663]
+position = Vector2(60, 192)
+shape = SubResource("RectangleShape2D_i16yc")
+
+[node name="adjust_gamestate" type="Node" parent="interact_zone_entered_house" unique_id=1472836349]
+script = ExtResource("14_m3ix2")
+game_state_key = "HOUSE_ENTERED"
+to_value = "TRUE"
+
+[node name="interactable_area_lamp" type="StaticBody2D" parent="." unique_id=455350497 node_paths=PackedStringArray("scripts")]
+position = Vector2(-72, 0)
+script = ExtResource("15_i2ay8")
+no_gamestate = false
+gamestate_key = "HAS_LAMP"
+run_if_state = "FALSE"
+default_state = "FALSE"
+scripts = [NodePath("play_texts"), NodePath("queue_free_lamp"), NodePath("obtain_lamp"), NodePath("obtain_homestead_lamp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_lamp" unique_id=1813290743]
+position = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_lvc0s")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_lamp" unique_id=443262811 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_0l7i3")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_lamp/play_texts" unique_id=1791795887]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(I should take this [color=purple]Lantern[/color] with me)"])
+
+[node name="queue_free_lamp" type="Node" parent="interactable_area_lamp" unique_id=1343636260 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_1me3i")
+nodes = [NodePath("../../lamp")]
+
+[node name="obtain_lamp" type="Node" parent="interactable_area_lamp" unique_id=1546125210]
+script = ExtResource("14_m3ix2")
+game_state_key = "HAS_LAMP"
+to_value = "TRUE"
+
+[node name="obtain_homestead_lamp" type="Node" parent="interactable_area_lamp" unique_id=667494518]
+script = ExtResource("14_m3ix2")
+game_state_key = "HAS_HOMESTEAD_LAMP"
+to_value = "TRUE"
+
+[connection signal="body_entered" from="interact_zone_entered_house" to="interact_zone_entered_house" method="_on_body_entered"]

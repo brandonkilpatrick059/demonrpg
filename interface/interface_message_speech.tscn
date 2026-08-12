@@ -4,14 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://d3ok233kk2wlr" path="res://sprites/interface/speech.png" id="2_36rww"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="3_ahoei"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0c0vy"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_36rww"]
+light_mode = 1
+
 [node name="InterfaceMessageSpeech" type="Node2D" unique_id=1193849113]
 script = ExtResource("1_36rww")
 
 [node name="background" type="Sprite2D" parent="." unique_id=846456450]
+material = SubResource("CanvasItemMaterial_0c0vy")
 texture = ExtResource("2_36rww")
 offset = Vector2(60, -24)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1220556423]
+material = SubResource("CanvasItemMaterial_36rww")
 offset_left = -18.0
 offset_top = -34.0
 offset_right = 138.0
