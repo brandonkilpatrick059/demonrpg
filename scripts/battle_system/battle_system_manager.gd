@@ -602,8 +602,11 @@ func battle_process():
 	if(opponent_familiars.size() == 0 or player_is_dead()):
 		if(player_is_dead() && not player_deployed):
 			deploy_player()
-		elif(opponent_familiars.size() == 0 || (player_is_dead() && player_deployed)):
+		elif(opponent_familiars.size() == 0 || 
+		(player_is_dead() && player_deployed)):
 			end_battle()
+	elif(opponent_is_dead() && player_deployed):
+		end_battle()
 	elif(count_living_on_side(player_familiars) > 1 && player_deployed):
 		withdraw_player()
 	elif(opponent_action_queue.size() == 0 && not opponent_is_dead()):

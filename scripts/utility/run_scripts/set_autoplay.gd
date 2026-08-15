@@ -1,10 +1,10 @@
 extends Node
 
 @export var audio_player : AudioStreamPlayer
-@export var autoplay : bool = true
+@export var playing : bool = true
 
 func run_script():
-	if(autoplay):
+	if(playing):
 		audio_player.playing = true
 	else:
 		audio_player.playing = false

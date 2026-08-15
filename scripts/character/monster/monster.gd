@@ -30,7 +30,8 @@ func handle_animation():
 func check_charge_player():
 	var player : Player = get_tree().get_first_node_in_group("player")
 	if(player.is_active()):
-		if (global_position.distance_to(player.global_position) < 264):
+		if (global_position.distance_to(player.global_position) < 264 &&
+		global_position.distance_to(player.global_position) > 64):
 			if(grid_aligned() && 
 			global_position.x == player.global_position.x):
 				if(player.global_position.y > global_position.y):
@@ -39,6 +40,7 @@ func check_charge_player():
 						grid_velocity = Vector2(0,charge_speed)
 						charging = true
 						moving = false
+						fade_in()
 						make_noise()
 				else:
 					facing_direction = "up"
@@ -46,6 +48,7 @@ func check_charge_player():
 						grid_velocity = Vector2(0,-charge_speed)
 						charging = true
 						moving = false
+						fade_in()
 						make_noise()
 			elif(grid_aligned() &&
 			global_position.y == player.global_position.y):
@@ -55,6 +58,7 @@ func check_charge_player():
 						grid_velocity = Vector2(charge_speed,0)
 						charging = true
 						moving = false
+						fade_in()
 						make_noise()
 				else:
 					facing_direction = "left"
@@ -62,6 +66,7 @@ func check_charge_player():
 						grid_velocity = Vector2(-charge_speed,0)
 						charging = true
 						moving = false
+						fade_in()
 						make_noise()
 
 func make_noise():
@@ -69,6 +74,18 @@ func make_noise():
 	var path = str(str("res://audio/effects/monster_noise_",noise),".ogg")
 	$AudioStreamPlayer2D.stream = load(path)
 	$AudioStreamPlayer2D.play()
+
+func fade_out():
+	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
+	var fade_out = Color(1,1,1,0)
+	fade_node.set_target_modulate(fade_out,0.2,0.05)
+	add_child(fade_node)
+
+func fade_in():
+	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
+	var fade_out = Color(1,1,1,1)
+	fade_node.set_target_modulate(fade_out,0.2,0.05)
+	add_child(fade_node)
 
 func handle_movement():
 	global_position = global_position + grid_velocity
@@ -80,6 +97,7 @@ func handle_movement():
 	elif($Timer.is_stopped() and not charging and not moving):
 		get_free_facing_direction()
 		moving = true
+		fade_in()
 		charging = false
 		match facing_direction:
 			"up":
@@ -97,6 +115,7 @@ func handle_movement():
 			if(moving):
 				grid_velocity = Vector2(0,0)
 				moving = false
+				fade_out()
 			check_charge_player()
 
 func grid_aligned() -> bool:
@@ -124,6 +143,7 @@ func get_free_facing_direction():
 			facing_direction = "left"
 	else:
 		moving = false
+		fade_out()
 		grid_velocity = Vector2(0,0)
 
 func colliders_detect_solid() -> bool:
@@ -147,7 +167,7 @@ func _physics_process(delta: float) -> void:
 	handle_movement()
 
 func _on_body_entered(body: Node2D) -> void:
-	if(body.is_in_group("player")):
+	if(body.is_in_group("player") && (moving || charging)):
 		var player : Player = body
 		if(player.is_active()):
 			var new_encounter : Encounter = encounter.instantiate()

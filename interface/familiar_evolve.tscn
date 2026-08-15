@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc2l6xsqbbjdm"]
+[gd_scene format=3 uid="uid://cc2l6xsqbbjdm"]
 
 [ext_resource type="Texture2D" uid="uid://cdhy5n0bh8v6p" path="res://sprites/interface/large_pentagram.png" id="1_h6pxt"]
 [ext_resource type="Script" uid="uid://da2mxa82q6t8t" path="res://scripts/interface/familiar_evolve.gd" id="1_mqlfe"]
@@ -6,44 +6,44 @@
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="4_xfiuu"]
 [ext_resource type="Texture2D" uid="uid://6kebcbge2ihm" path="res://sprites/spritesheets/battle/interface/select_arrow_static.png" id="5_pi86r"]
 
-[node name="FamiliarEvolve" type="Node2D"]
-z_index = 10
+[node name="FamiliarEvolve" type="Node2D" unique_id=1977957376]
+z_index = 60
 script = ExtResource("1_mqlfe")
 
-[node name="pentagram" type="Sprite2D" parent="."]
+[node name="pentagram" type="Sprite2D" parent="." unique_id=1515770031]
 position = Vector2(0, -26)
 texture = ExtResource("1_h6pxt")
 
-[node name="InterfaceMessage" parent="." node_paths=PackedStringArray("report_interface") instance=ExtResource("2_7xaq3")]
+[node name="InterfaceMessage" parent="." unique_id=1719869855 node_paths=PackedStringArray("report_interface") instance=ExtResource("2_7xaq3")]
 position = Vector2(0, 57)
 report_interface = NodePath("..")
 
-[node name="intro_text_1" type="Node" parent="."]
+[node name="intro_text_1" type="Node" parent="." unique_id=1811645774]
 script = ExtResource("4_xfiuu")
 language_map = Array[String](["english"])
 text = Array[String](["The [NAME]'s power has outgrown this form"])
 
-[node name="intro_text_2" type="Node" parent="."]
+[node name="intro_text_2" type="Node" parent="." unique_id=108564081]
 script = ExtResource("4_xfiuu")
 language_map = Array[String](["english"])
 text = Array[String](["Which path shall it take forward?"])
 
-[node name="close_text_1" type="Node" parent="."]
+[node name="close_text_1" type="Node" parent="." unique_id=622770930]
 script = ExtResource("4_xfiuu")
 language_map = Array[String](["english"])
 text = Array[String](["The [NAME1] became a [NAME2]"])
 
-[node name="arrow_1" type="Sprite2D" parent="."]
+[node name="arrow_1" type="Sprite2D" parent="." unique_id=374125016]
 position = Vector2(-48, 57)
 rotation = 1.5708
 texture = ExtResource("5_pi86r")
 
-[node name="arrow_2" type="Sprite2D" parent="."]
+[node name="arrow_2" type="Sprite2D" parent="." unique_id=1206510492]
 position = Vector2(48, 57)
 rotation = 4.71239
 texture = ExtResource("5_pi86r")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2105005948]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=486765032]
 one_shot = true

@@ -28,6 +28,12 @@ func exit_action():
 	battle_sys_ref.get_next_action()
 	clean_up()
 
+func get_summary(actor : Familiar)-> String:
+	var summary : String = ""
+	summary = str(summary,get_action_name())
+	summary = str(summary,"-[color=white]ATTEMPT TO ESCAPE[/color]" )
+	return summary
+
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced):

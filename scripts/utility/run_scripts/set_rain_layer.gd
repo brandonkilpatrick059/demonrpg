@@ -1,6 +1,6 @@
 extends Node
 
-@export var rain_layer : CanvasLayer
+@export var rain_layer : Node2D
 @export var is_raining : bool = true
 
 func run_script():

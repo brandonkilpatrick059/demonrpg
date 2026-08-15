@@ -9,7 +9,7 @@ var battle_sys_ref : BattleSystemManager
 
 var announcment_english : String = "[TEAM][ACTOR] wants to eat [TEAM2][TARGET]..."
 var success_english : String = "[TEAM][ACTOR] eats [TEAM2][TARGET]"
-var failure_english : String = "but [TEAM][ACTOR] cannot eat [TEAM2][TARGET]"
+var failure_english : String = "but [TEAM][ACTOR] fails to eat [TEAM2][TARGET]"
 var comment_english : String = "[TEAM][ACTOR] grows more powerful..."
 
 var feed_succeeded : bool = false

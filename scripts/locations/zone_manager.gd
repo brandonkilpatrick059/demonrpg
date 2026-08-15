@@ -19,6 +19,10 @@ func _ready() -> void:
 	add_to_group("zone_manager")
 	timer.one_shot = true
 	add_child(timer)
+	if(current_zone.is_dark()):
+		player_ref.turn_on_flashlight()
+	else:
+		player_ref.turn_off_flashlight()
 
 func switch_zones(to_zone : PackedScene, to_link : String):
 	switching_to_zone = to_zone

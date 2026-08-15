@@ -1,7 +1,7 @@
 class_name GlobalGamestate extends Node
 
-var states_map_keys : Array[String] = []
-var states_map_values : Array[String] = []
+@export var states_map_keys : Array[String] = []
+@export var states_map_values : Array[String] = []
 
 func get_state_map_value(key : String) -> String:
 	var key_index = states_map_keys.find(key)

@@ -18,6 +18,7 @@ var input_frozen = false
 var can_move = true
 
 var starting_battle : bool = false
+var battle_underway : bool = false
 var staged_encounter : Encounter = null
 var encounter_on_control_return : Encounter = null
 
@@ -160,12 +161,13 @@ func handle_animation():
 		head.frame_progress = keep_progress
 
 func start_encounter(encounter :Encounter):
-	starting_battle = true
-	staged_encounter = encounter
-	can_move = false
-	fade_out()
-	$AudioStreamPlayer.stream = load("res://audio/effects/encounter.ogg")
-	$AudioStreamPlayer.play()
+	if(starting_battle == false):
+		starting_battle = true
+		staged_encounter = encounter
+		can_move = false
+		fade_out()
+		$AudioStreamPlayer.stream = load("res://audio/effects/encounter.ogg")
+		$AudioStreamPlayer.play()
 
 func fader_is_fading() -> bool:
 	var is_fading : bool = false
@@ -174,6 +176,7 @@ func fader_is_fading() -> bool:
 	return is_fading
 
 func start_battle():
+	battle_underway = true
 	disable_overworld()
 	var opponent_familiars : Array[Familiar] = staged_encounter.get_opponents()
 	starting_battle = false

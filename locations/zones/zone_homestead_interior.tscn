@@ -184,13 +184,13 @@ interact_node = NodePath("../../NPCMother")
 [node name="Text" type="Node" parent="interact_zone_1/run_interact" unique_id=478972146]
 script = ExtResource("14_kpw7i")
 language_map = Array[String](["english"])
-text = Array[String](["Oh, you're awake!"])
+text = Array[String](["Oh, there you are!"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text2" type="Node" parent="interact_zone_1/run_interact" unique_id=1809961601]
 script = ExtResource("14_kpw7i")
 language_map = Array[String](["english"])
-text = Array[String](["Are you ready to visit your [color=red]Older Sister[/color] today?"])
+text = Array[String](["Are you ready to visit your [color=red]Older Sister[/color] this afternoon?"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text3" type="Node" parent="interact_zone_1/run_interact" unique_id=1903189487]

@@ -14,6 +14,9 @@ tile_data = PackedInt32Array(0, 524288, 4, 65536, 524288, 5, 1, 196608, 4, 65537
 [sub_resource type="TileMapPattern" id="TileMapPattern_aybi8"]
 tile_data = PackedInt32Array(0, 196608, 4, 1, 262144, 4, 2, 327680, 4, 3, 393216, 4, 4, 458752, 4, 5, 524288, 4)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_rrng7"]
+tile_data = PackedInt32Array(0, 720896, 3, 65536, 720896, 4, 131072, 720896, 5, 1, 1179648, 3, 65537, 1179648, 4, 131073, 1179648, 5)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lf5jr"]
 texture = ExtResource("1_2p5r0")
 texture_region_size = Vector2i(24, 24)
@@ -69,6 +72,42 @@ texture_region_size = Vector2i(24, 24)
 6:7/0 = 0
 5:8/0 = 0
 4:8/0 = 0
+10:3/0 = 0
+10:4/0 = 0
+10:5/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+11:5/0 = 0
+11:4/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+12:4/0 = 0
+12:5/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+13:5/0 = 0
+13:3/0 = 0
+13:4/0 = 0
+14:3/0 = 0
+14:4/0 = 0
+14:5/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+15:5/0 = 0
+15:4/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+16:4/0 = 0
+16:5/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+17:5/0 = 0
+17:4/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+18:4/0 = 0
+18:5/0 = 0
+18:6/0 = 0
 
 [resource]
 tile_size = Vector2i(24, 24)
@@ -77,3 +116,4 @@ pattern_0 = SubResource("TileMapPattern_2p5r0")
 pattern_1 = SubResource("TileMapPattern_lf5jr")
 pattern_2 = SubResource("TileMapPattern_wg30b")
 pattern_3 = SubResource("TileMapPattern_aybi8")
+pattern_4 = SubResource("TileMapPattern_rrng7")
