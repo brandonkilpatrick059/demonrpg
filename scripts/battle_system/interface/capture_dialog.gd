@@ -50,6 +50,9 @@ func set_active():
 	visible = true
 	active = true
 	update_selected()
+	var player : Player = get_tree().get_first_node_in_group("player")
+	var num_charms = player.get_pentacle_charms()
+	seal_label.text = str("x",str(num_charms))
 	input_timer.start(0.5)
 
 func set_inactive():

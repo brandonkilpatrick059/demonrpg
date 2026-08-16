@@ -1,8 +1,9 @@
-Node2D
-CollisionShape2D
+Text
 StaticBody2D
-PointLight2D
+CollisionShape2D
 Sprite2D
+Node2D
+PointLight2D
 Node
 Polygon2D
 CanvasLayer

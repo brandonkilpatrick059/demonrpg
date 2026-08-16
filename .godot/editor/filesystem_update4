@@ -52,3 +52,7 @@ res://scripts/character/monster/monster.gd
 res://monsters/shade_monster.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn
 res://locations/zones/zone_grandmas_house.tscn
+res://item/pentacle_seal.tscn
+res://scripts/item/pentacle_seal.gd
+res://battle/interface/capture_dialog.tscn
+res://scripts/battle_system/interface/capture_dialog.gd

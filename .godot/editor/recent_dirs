@@ -1,3 +1,4 @@
+res://scripts/item/
 res://sprites/spritesheets/npc/
 res://scripts/utility/
 res://sprites/spritesheets/props/structure/
@@ -19,4 +20,3 @@ res://scripts/battle_system/interface/
 res://sprites/spritesheets/battle/interface/
 res://battle/interface/
 res://battle/actions/
-res://scripts/battle_system/

@@ -123,6 +123,10 @@ func handle_input():
 			if(grid_aligned() and $input_timer.is_stopped()):
 				handle_interact()
 
+func play_sound(stream : AudioStream):
+	$AudioStreamPlayer.stream = stream
+	$AudioStreamPlayer.play()
+
 func start_input_timer(time : float):
 	$input_timer.start(time)
 
