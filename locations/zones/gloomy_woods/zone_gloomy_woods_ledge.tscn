@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bt0sle02afbtq" path="res://sprites/effects/matte_painting_mounains_3.png" id="17_drh8j"]
 [ext_resource type="PackedScene" uid="uid://cdomxvm5i24y4" path="res://item/pentacle_seal.tscn" id="18_7s6od"]
 [ext_resource type="Texture2D" uid="uid://j2ab1gnhr703" path="res://sprites/effects/matte_painting_mounains_4.png" id="18_iqw58"]
+[ext_resource type="PackedScene" uid="uid://dg6tqi8plgqbm" path="res://item/healing_gore.tscn" id="19_2pnhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(48, 48)
@@ -240,10 +241,10 @@ scroll_scale = Vector2(0.2, 0)
 position = Vector2(744, 48)
 texture = ExtResource("18_iqw58")
 
-[node name="PentacleSeal" parent="." unique_id=1226598247 instance=ExtResource("18_7s6od")]
-position = Vector2(3072, -3864)
-seal_name = "LEDGE_1"
-
 [node name="PentacleSeal2" parent="." unique_id=1524589059 instance=ExtResource("18_7s6od")]
 position = Vector2(3360, -3768)
 seal_name = "LEDGE_2"
+
+[node name="HealingGore" parent="." unique_id=1226598247 instance=ExtResource("19_2pnhh")]
+position = Vector2(3240, -3768)
+gore_name = "LEDGE_1"

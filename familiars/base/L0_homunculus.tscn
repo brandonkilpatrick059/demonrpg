@@ -19,8 +19,8 @@ level = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
 sprite_frames = ExtResource("2_4ce68")
-animation = &"attack"
-frame_progress = 0.954417
+animation = &"die"
+frame_progress = 0.5916286
 
 [node name="actions" type="Node" parent="." unique_id=622052067]
 

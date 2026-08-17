@@ -1,3 +1,5 @@
+res://sprites/spritesheets/monsters/
+res://sprites/spritesheets/familiars/
 res://locations/
 res://scripts/item/
 res://sprites/spritesheets/npc/
@@ -12,9 +14,7 @@ res://scripts/locations/
 res://sprites/spritesheets/interface/
 res://scripts/interface/
 res://interface/
-res://sprites/spritesheets/monsters/
 res://sprites/spritesheets/player/
-res://sprites/spritesheets/familiars/
 res://sprites/spritesheets/battle/actions/
 res://
 res://scripts/battle_system/interface/

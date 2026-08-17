@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cam847702142m"]
+
+[ext_resource type="SpriteFrames" uid="uid://brmro10ys2ulc" path="res://sprites/spritesheets/monsters/damned.tres" id="1_728xk"]
+[ext_resource type="Script" uid="uid://r0xaof8mekqk" path="res://scripts/item/damned.gd" id="1_sjb1h"]
+[ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="3_1ptb8"]
+[ext_resource type="AudioStream" uid="uid://bd6u14ce2aicj" path="res://audio/effects/raspy_breathing.ogg" id="3_bfw0w"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="4_bfw0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
+size = Vector2(24, 24)
+
+[node name="Damned" type="StaticBody2D" unique_id=1590593699 groups=["interactable"]]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_sjb1h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=54775003]
+sprite_frames = ExtResource("1_728xk")
+frame_progress = 0.76888007
+offset = Vector2(12, -12)
+script = ExtResource("3_1ptb8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=273899044]
+stream = ExtResource("3_bfw0w")
+autoplay = true
+max_distance = 400.0
+attenuation = 4.594792
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=183537398]
+position = Vector2(12, -12)
+shape = SubResource("RectangleShape2D_cea73")
+
+[node name="Text1" type="Node" parent="." unique_id=1002007206]
+script = ExtResource("4_bfw0w")
+language_map = Array[String](["english"])
+text = Array[String](["(A pitiful face stares upward blankly from a pile of flesh)"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text2" type="Node" parent="." unique_id=1272391029]
+script = ExtResource("4_bfw0w")
+language_map = Array[String](["english"])
+text = Array[String](["(It quietly begs for death between rasps)"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="capture" type="Node" parent="." unique_id=1128028163]
+script = ExtResource("4_bfw0w")
+language_map = Array[String](["english"])
+text = Array[String](["(Before I can react, the creature clings to me, groveling)"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"

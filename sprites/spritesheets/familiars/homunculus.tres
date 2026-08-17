@@ -222,5 +222,5 @@ animations = [{
 }],
 "loop": 1,
 "name": &"die",
-"speed": 5.0
+"speed": 8.0
 }]

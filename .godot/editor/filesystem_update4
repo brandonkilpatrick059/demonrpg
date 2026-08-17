@@ -46,3 +46,15 @@ res://item/healing_gore.tscn
 res://scripts/item/pentacle_seal.gd
 res://scripts/item/healing_gore.gd
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn
+res://locations/zone_manager.tscn
+res://scripts/battle_system/actions/special/action_devour.gd
+res://sprites/spritesheets/familiars/L0_damned.tres
+res://battle/actions/action_devour.tscn
+res://familiars/base/L0_damned.tscn
+res://scripts/familiars/familiar.gd
+res://familiars/base/L0_homunculus.tscn
+res://sprites/spritesheets/monsters/damned.tres
+res://monsters/damned.tscn
+res://scripts/item/damned.gd
+res://locations/zones/gloomy_woods/zone_cliffs_house_interior_2.tscn

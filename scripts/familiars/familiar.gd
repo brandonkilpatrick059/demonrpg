@@ -180,7 +180,7 @@ func get_stat_increase() -> String:
 func get_stat_increase_value() -> int:
 	return stat_increase_value
 
-func consume_familiar(familiar : Familiar):
+func consume_familiar(familiar : Familiar, exp_multiplier : float = 1.0):
 	var increase_stat : String = familiar.get_stat_increase()
 	var value : int = familiar.get_stat_increase_value()
 	match(increase_stat):
@@ -196,7 +196,7 @@ func consume_familiar(familiar : Familiar):
 			magic = magic + value
 		"num_actions":
 			num_actions = num_actions + value
-	experience = experience + familiar.get_exp_value()
+	experience = experience + (familiar.get_exp_value() * exp_multiplier)
 func _ready() -> void:
 	for action_node in actions_parent.get_children():
 		actions.append(action_node)
@@ -310,8 +310,11 @@ func kill(return_sigil : bool = true):
 func get_exp() -> int:
 	return experience
 
-func get_exp_to_next() -> int:
-	return exp_req_for_level_up[level]
+func get_exp_to_next() -> String:
+	if(get_evolutions().size() > 0):
+		return str(exp_req_for_level_up[level])
+	else:
+		return "N/A"
 
 func clear_buffs():
 	for buff in battle_buffs:

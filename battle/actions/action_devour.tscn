@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dpv0uye5txnum"]
+
+[ext_resource type="Script" uid="uid://dyfhqalhti50d" path="res://scripts/battle_system/actions/special/action_devour.gd" id="1_r1k1i"]
+
+[node name="ActionDevour" type="Node" unique_id=1019681140]
+script = ExtResource("1_r1k1i")

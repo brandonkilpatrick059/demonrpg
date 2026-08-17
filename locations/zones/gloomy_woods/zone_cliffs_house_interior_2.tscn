@@ -1,0 +1,96 @@
+[gd_scene format=4 uid="uid://cj1a1kqk5j6d1"]
+
+[ext_resource type="Script" uid="uid://v73shmuwmbhw" path="res://scripts/locations/location_zone.gd" id="1_yrrhr"]
+[ext_resource type="TileSet" uid="uid://45qv0vaq80jk" path="res://sprites/tile_atlas_interior.tres" id="2_21qeh"]
+[ext_resource type="TileSet" uid="uid://be4tfq16y1gax" path="res://sprites/tile_atlas_effects.tres" id="3_eljfa"]
+[ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="4_dhw2a"]
+[ext_resource type="Texture2D" uid="uid://dqy371ecndkqw" path="res://sprites/props/interior/end_table.png" id="5_qx6po"]
+[ext_resource type="Texture2D" uid="uid://b53ln4rammyg4" path="res://sprites/props/interior/table_overturned.png" id="6_y8rhm"]
+[ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="7_yaicd"]
+[ext_resource type="PackedScene" uid="uid://cam847702142m" path="res://monsters/damned.tscn" id="8_yrrhr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
+size = Vector2(24, 24)
+
+[node name="ZoneCliffsHouseInterior1" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
+script = ExtResource("1_yrrhr")
+zone_name = "Homestead Interior"
+zone_links = [NodePath("ZoneLink")]
+dark = true
+dark_canvas_mod = NodePath("CanvasModulate")
+
+[node name="TileMapLayer_wall" type="TileMapLayer" parent="." unique_id=1591578392]
+modulate = Color(0.3788215, 0.3591835, 0.34278297, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD9/wUAAAAAAAAAAAD9/wYAAAAAAAEAAAD+/wYAAAAAAAEAAAD//wUAAAAAAAAAAAD//wYAAAAAAAEAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAEAAAABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAD+/wUAAAAAAAAAAAD9////AAAAAAEAAAD+////AAABAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAP//AAAAAAEAAAACAP//AAABAAEAAAADAP//AAAAAAEAAAD9//7/AAAAAAAAAAD+//7/AAABAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAABAAAAAAADAP7/AAAAAAAAAAA=")
+tile_set = ExtResource("2_21qeh")
+
+[node name="TileMapLayer_furniture" type="TileMapLayer" parent="." unique_id=817401735]
+modulate = Color(0.61806, 0.59782547, 0.5776148, 1)
+tile_map_data = PackedByteArray("AAD9/wUAAAAAAAAAAAD9/wYAAAAAAAEAAAD+/wYAAAAAAAEAAAD//wUAAAAAAAAAAAD//wYAAAAAAAEAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAEAAAABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAD+/wUAAAAAAAAAAAD9/wcAAAADAAIAAAD+/wcAAAAEAAIAAAAAAAcAAAADAAIAAAABAAcAAAADAAIAABACAAYAAAADAAEAAAACAAUAAAADAAAAAAA=")
+tile_set = ExtResource("2_21qeh")
+
+[node name="TileMapLayer_floor" type="TileMapLayer" parent="." unique_id=1933344317]
+modulate = Color(0.44452596, 0.32254463, 0.22588217, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD9/wIAAAAAAAIAAAD9/wMAAAAAAAIAAAADAAIAAAAAAAIAAAADAAMAAAAAAAIAAAD+/wcAAAAAAAIAAAD//wcAAAAAAAIAAAAAAAcAAAAAAAIAAAABAAcAAAAAAAIAAAACAAcAAAAAAAIAAAADAAcAAAAAAAIAAAADAAgAAAAAAAIAAAACAAgAAAAAAAIAAAABAAgAAAAAAAIAAAAAAAgAAAAAAAIAAAD//wgAAAAAAAIAAAD+/wgAAAAAAAIAAAD9/wgAAAAAAAIAAAD9/wkAAAAAAAIAAAABAAkAAAAAAAIAAAADAAkAAAAAAAIAAAACAAkAAAAAAAIAAAD9/woAAAAAAAIAAAD+/woAAAAAAAIAAAD//woAAAAAAAIAAAAAAAoAAAAAAAIAAAABAAoAAAAAAAIAAAACAAoAAAAAAAIAAAADAAoAAAAAAAIAAAAAAAsAAAAAAAIAAAD9/wcAAAAAAAIAAAD9/wEAAAAAAAIAAAADAAEAAAAAAAIAAAD9/wAAAAAAAAIAAAD+/wAAAAAAAAIAAAABAAAAAAAAAAIAAAACAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAAAAkAAAAAAAMAABD+/wkAAAAAAAMAAAD+/wEAAAAAAAIAAAABAAEAAAAAAAIAAAABAAIAAAAAAAIAAAABAAMAAAAAAAIAAAAAAAMAAAAAAAIAAAADAAYAAAAAAAIAAAADAAUAAAAAAAIAAAADAAQAAAAAAAIAAAD//wMAAAAAAAIAAAD+/wMAAAAAAAIAAAD+/wIAAAAAAAMAAAD//wAAAAAAAAMAAAD//wEAAAAAAAMAAAAAAAEAAAAAAAMAABAAAAAAAAAAAAMAABAAAAIAAAAAAAMAABACAAEAAAAAAAMAAAACAAIAAAAAAAMAAAACAAMAAAAAAAMAAAA=")
+tile_set = ExtResource("2_21qeh")
+
+[node name="TileMapLayer_brown" type="TileMapLayer" parent="." unique_id=1265215159]
+modulate = Color(0.80513483, 0.6486396, 0.5226564, 1)
+tile_map_data = PackedByteArray("AAD//wcAAAACAAQAAAD//wYAAAACAAMAAAD//wUAAAACAAIAAAA=")
+tile_set = ExtResource("2_21qeh")
+
+[node name="TileMapLayer_effect" type="TileMapLayer" parent="." unique_id=1312739034]
+modulate = Color(0.24840015, 0.24840018, 0.24840015, 0.25882354)
+z_index = -1
+tile_map_data = PackedByteArray("AAD//wYAAAACAAMAAAD//wUAAAACAAIAAAADAAIAAAAAAAIAADD9/wIAAAAAAAIAAAD9/wMAAAAAAAEAAGD+/wMAAAAAAAIAAGD//wMAAAAAAAIAAGAAAAMAAAAAAAIAAGABAAMAAAAAAAIAAGD9/woAAAAAAAEAAGD+/woAAAAAAAIAAGD//woAAAAAAAIAAGABAAoAAAAAAAIAAGACAAoAAAAAAAIAAGADAAoAAAAAAAEAADD9/wkAAAAAAAIAAAD9/wgAAAAAAAEAAAADAAgAAAAAAAIAADADAAkAAAAAAAIAADD9/wcAAAAAAAEAAAD+/wcAAAAAAAIAAFAAAAcAAAAAAAIAAFABAAcAAAAAAAIAAFD9/wAAAAAAAAEAAED+/wAAAAAAAAIAAFD//wAAAAAAAAIAAFAAAAAAAAAAAAIAAFABAAAAAAAAAAIAAFACAAAAAAAAAAIAAFADAAAAAAAAAAEAAFD9/wEAAAAAAAIAAAADAAEAAAAAAAIAABD+/wgAAAAAAAIAAFD//wgAAAAAAAIAAFAAAAgAAAAAAAIAAFABAAgAAAAAAAIAAFACAAcAAAAAAAEAAAADAAQAAAAAAAIAABADAAUAAAAAAAIAABADAAYAAAAAAAIAABADAAcAAAAAAAIAABACAAMAAAAAAAIAAGADAAMAAAAAAAIAABA=")
+tile_set = ExtResource("3_eljfa")
+
+[node name="ZoneLink" parent="." unique_id=1869762347 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_dhw2a")]
+link_zone_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn"
+link_name = "LINK"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "INTERIOR2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink" unique_id=833735083]
+position = Vector2(12, 300)
+shape = SubResource("RectangleShape2D_0qpjh")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink" unique_id=1416006420]
+position = Vector2(0, 264)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink" unique_id=88330025]
+position = Vector2(0, 240)
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=567641062]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=180928047]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(96, 192, 96, 168, 120, 168, 120, 216, 96, 216, 96, 240, 168, 240, 168, 216, 168, 168, 240, 168, 240, 192, 240, 216, 240, 264, 240, 336, 240, 384, 240, 432, 204, 432, 204, 384, 180, 384, 96, 384, 96, 408, 168, 408, 168, 432, 168, 504, 144, 504, 144, 432, 120, 432, 72, 432, 72, 384, 72, 360, 192, 360, 192, 336, 216, 336, 216, 264, 216, 192, 192, 192, 192, 264, 144, 264, 72, 264, 72, 192, 72, 216, 48, 216, 48, 456, 120, 456, 120, 528, 192, 528, 192, 456, 264, 456, 264, 120, 48, 120, 48, 192, 72, 192)
+
+[node name="end_table_2" type="Sprite2D" parent="." unique_id=434380656]
+position = Vector2(-72, 0)
+texture = ExtResource("5_qx6po")
+offset = Vector2(12, 12)
+
+[node name="table" type="Sprite2D" parent="." unique_id=962274608]
+position = Vector2(24, 228)
+texture = ExtResource("6_y8rhm")
+offset = Vector2(12, 12)
+
+[node name="wind" type="AudioStreamPlayer" parent="." unique_id=1556662474 groups=["global_music_player"]]
+stream = ExtResource("7_yaicd")
+volume_db = -36.0
+autoplay = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2129903169 groups=["global_modulate"]]
+z_index = 50
+color = Color(0, 0, 0, 1)
+
+[node name="Damned" parent="." unique_id=1590593699 instance=ExtResource("8_yrrhr")]
+position = Vector2(-47.999992, 24)
+damned_name = "damned_1"
+familiar_path = "res://familiars/base/L0_damned.tscn"
