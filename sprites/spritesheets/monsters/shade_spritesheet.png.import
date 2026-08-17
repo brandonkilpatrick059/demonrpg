@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1pf0j7urvq5s"
-path="res://.godot/imported/shade_spritesheet.png-ef87c011cc83df46b08830e90d31ec25.ctex"
+path="res://.godot/imported/shade_spritesheet.png-45ce3324937aeb9aaac9642eb7fc2de4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/npc/shade_spritesheet.png"
-dest_files=["res://.godot/imported/shade_spritesheet.png-ef87c011cc83df46b08830e90d31ec25.ctex"]
+source_file="res://sprites/spritesheets/monsters/shade_spritesheet.png"
+dest_files=["res://.godot/imported/shade_spritesheet.png-45ce3324937aeb9aaac9642eb7fc2de4.ctex"]
 
 [params]
 

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://lbpqi6tmjey4"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_l8phb"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_d3o5j"]
+[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/base/L1_martyr.tscn" id="5_icd3h"]
+
+[node name="TestEncounter" type="Node2D" unique_id=353714598 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_l8phb")
+opponents = [NodePath("L1martyr")]
+music = ExtResource("2_d3o5j")
+
+[node name="L1martyr" parent="." unique_id=922928255 instance=ExtResource("5_icd3h")]
+visible = false
+max_hp = 18
+current_hp = 18
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "DEFEND", "STAB"])

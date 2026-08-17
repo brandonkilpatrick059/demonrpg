@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dg6tqi8plgqbm"]
+
+[ext_resource type="Script" uid="uid://pe60y6p0hang" path="res://scripts/item/healing_gore.gd" id="1_sfsvy"]
+[ext_resource type="Texture2D" uid="uid://dmuwd34igs3nq" path="res://sprites/spritesheets/familiars/gore.png" id="2_sfsvy"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="3_lp31s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
+size = Vector2(24, 24)
+
+[node name="HealingGore" type="StaticBody2D" unique_id=1226598247 groups=["interactable"]]
+script = ExtResource("1_sfsvy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=126056293]
+texture = ExtResource("2_sfsvy")
+offset = Vector2(12, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=564112850]
+position = Vector2(12, -12)
+shape = SubResource("RectangleShape2D_cea73")
+
+[node name="Text" type="Node" parent="." unique_id=1445249529]
+script = ExtResource("3_lp31s")
+language_map = Array[String](["english"])
+text = Array[String](["(Your familiars feed upon the [color=purple]Mangled Corpse[/color])"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"

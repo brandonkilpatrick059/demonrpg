@@ -42,7 +42,7 @@ shader_parameter/slant = 4.7499999933364734e-08
 [node name="zone_gloomy_woods_ledge" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_vkly4")
 zone_name = "Gloomy Wood Entrance"
-zone_links = [NodePath("ZoneLinkGloomyWoodEntrance")]
+zone_links = [NodePath("ZoneLinkGloomyWoodEntrance"), NodePath("ZoneLinkGloomyWoodEntrance2")]
 dark_canvas_mod = NodePath("CanvasModulate")
 
 [node name="TileMapLayer_blue" type="TileMapLayer" parent="." unique_id=1392867317]
@@ -153,6 +153,26 @@ debug_color = Color(1, 0.836507, 0.421465, 0.713726)
 position = Vector2(3024, -3696)
 
 [node name="stop_point" type="Node2D" parent="ZoneLinkGloomyWoodEntrance" unique_id=925835414]
+position = Vector2(3024, -3816)
+
+[node name="ZoneLinkGloomyWoodEntrance2" parent="." unique_id=514851389 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("7_x370s")]
+position = Vector2(648, -24)
+link_zone_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn"
+link_name = "EAST"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "LEDGE_EAST"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkGloomyWoodEntrance2" unique_id=134694722]
+z_index = 20
+position = Vector2(3024, -3624)
+shape = SubResource("RectangleShape2D_u0aow")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLinkGloomyWoodEntrance2" unique_id=1866906713]
+position = Vector2(3024, -3696)
+
+[node name="stop_point" type="Node2D" parent="ZoneLinkGloomyWoodEntrance2" unique_id=985712454]
 position = Vector2(3024, -3816)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=347672605 groups=["global_modulate"]]

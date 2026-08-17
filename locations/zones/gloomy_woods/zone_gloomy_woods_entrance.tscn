@@ -7,16 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://l77vpgovl8o0" path="res://sprites/props/exterior/altar.png" id="5_du6yr"]
 [ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="10_3b3m2"]
 [ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="12_timf0"]
+[ext_resource type="PackedScene" uid="uid://bobt6ayrrvw40" path="res://battle/encounters/gark_encounter_solo.tscn" id="18_5h15d"]
 [ext_resource type="PackedScene" uid="uid://dxnoqj25neeu5" path="res://battle/encounters/homunculus_encounter_2.tscn" id="18_8sdyc"]
 [ext_resource type="SpriteFrames" uid="uid://b230og1weenfr" path="res://sprites/spritesheets/effects/water_fall.tres" id="18_llkrw"]
+[ext_resource type="PackedScene" uid="uid://lbpqi6tmjey4" path="res://battle/encounters/martyr_encounter_solo.tscn" id="19_5h15d"]
 [ext_resource type="PackedScene" uid="uid://bv2lu1cqenfuq" path="res://battle/encounters/gark_encounter_2.tscn" id="19_eoj06"]
 [ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="19_tvyam"]
-[ext_resource type="PackedScene" uid="uid://cip4dkb2egmnv" path="res://battle/encounters/martyr_encounter_1.tscn" id="20_5h15d"]
 [ext_resource type="AudioStream" uid="uid://dtmah4txyup3j" path="res://audio/effects/pink_noise.wav" id="20_v31sx"]
+[ext_resource type="PackedScene" uid="uid://cdomxvm5i24y4" path="res://item/pentacle_seal.tscn" id="24_5h15d"]
 [ext_resource type="PackedScene" uid="uid://ckrpapyrt703p" path="res://monsters/shade_monster.tscn" id="24_eoj06"]
 [ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="24_g7f5n"]
 [ext_resource type="PackedScene" uid="uid://1bv8rorir2k0" path="res://battle/encounters/homunculus_encounter_1.tscn" id="25_5h15d"]
 [ext_resource type="Script" uid="uid://cvycaadlsfhey" path="res://scripts/utility/run_scripts/set_rain_layer.gd" id="25_7kx4q"]
+[ext_resource type="PackedScene" uid="uid://dg6tqi8plgqbm" path="res://item/healing_gore.tscn" id="26_ifphs"]
 [ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="26_jesci"]
 [ext_resource type="Script" uid="uid://8nn10dgx4nmb" path="res://scripts/utility/run_scripts/set_autoplay.gd" id="27_7g3re"]
 [ext_resource type="Script" uid="uid://caj1c1txcrjev" path="res://scripts/utility/run_scripts/set_zone_dark.gd" id="29_luh6k"]
@@ -36,9 +39,6 @@ size = Vector2(48, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0aow"]
 size = Vector2(90, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_twfek"]
-size = Vector2(24, 24)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twfek"]
 shader = ExtResource("31_bof43")
 shader_parameter/rain_amount = 100.0
@@ -56,7 +56,7 @@ shader_parameter/slant = 4.7499999933364734e-08
 [node name="zone_gloomy_woods_entrance" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_uhdqb")
 zone_name = "Gloomy Wood Entrance"
-zone_links = [NodePath("ZoneLinkGrandmas"), NodePath("ZoneLinkInterior"), NodePath("ZoneLinkLedgeWest")]
+zone_links = [NodePath("ZoneLinkGrandmas"), NodePath("ZoneLinkLedgeWest"), NodePath("ZoneLinkLedgeEast"), NodePath("ZoneLinkGloomyWoodsCliffs")]
 dark = true
 dark_canvas_mod = NodePath("CanvasModulate")
 
@@ -316,7 +316,27 @@ position = Vector2(1704, -2280)
 [node name="stop_point" type="Node2D" parent="ZoneLinkGrandmas" unique_id=925835414]
 position = Vector2(1704, -2424)
 
-[node name="ZoneLinkLedgeWest" parent="." unique_id=514851389 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("12_timf0")]
+[node name="ZoneLinkGloomyWoodsCliffs" parent="." unique_id=514851389 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("12_timf0")]
+position = Vector2(2712, -696)
+link_zone_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn"
+link_name = "EXIT"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "ENTRANCE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkGloomyWoodsCliffs" unique_id=394178319]
+z_index = 20
+position = Vector2(1710, -2208)
+shape = SubResource("RectangleShape2D_u0aow")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLinkGloomyWoodsCliffs" unique_id=592596233]
+position = Vector2(1704, -2280)
+
+[node name="stop_point" type="Node2D" parent="ZoneLinkGloomyWoodsCliffs" unique_id=1484354313]
+position = Vector2(1704, -2424)
+
+[node name="ZoneLinkLedgeWest" parent="." unique_id=977048445 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("12_timf0")]
 position = Vector2(1320, -1200)
 link_zone_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn"
 link_name = "LEDGE_WEST"
@@ -336,24 +356,25 @@ position = Vector2(1704, -2208)
 [node name="stop_point" type="Node2D" parent="ZoneLinkLedgeWest" unique_id=1561841258]
 position = Vector2(1704, -2136)
 
-[node name="ZoneLinkInterior" parent="." unique_id=303791146 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("12_timf0")]
-position = Vector2(1752, -2064)
-link_zone_scene_path = "res://locations/zones/zone_grandmas_house_interior.tscn"
-link_name = "INTERIOR"
+[node name="ZoneLinkLedgeEast" parent="." unique_id=2085538527 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("12_timf0")]
+position = Vector2(1968, -1224)
+link_zone_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn"
+link_name = "LEDGE_EAST"
 teleport_spot = NodePath("load_in")
 stop_point = NodePath("stop_point")
-to_link_name = "LINK"
+to_link_name = "EAST"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkInterior" unique_id=1260878136]
-position = Vector2(12, 300)
-shape = SubResource("RectangleShape2D_twfek")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkLedgeEast" unique_id=948732084]
+z_index = 20
+position = Vector2(1707, -2280)
+shape = SubResource("RectangleShape2D_u0aow")
 debug_color = Color(1, 0.836507, 0.421465, 0.713726)
 
-[node name="load_in" type="Node2D" parent="ZoneLinkInterior" unique_id=1303311109]
-position = Vector2(0, 312)
+[node name="load_in" type="Node2D" parent="ZoneLinkLedgeEast" unique_id=710250811]
+position = Vector2(1704, -2208)
 
-[node name="stop_point" type="Node2D" parent="ZoneLinkInterior" unique_id=1554178523]
-position = Vector2(0, 360)
+[node name="stop_point" type="Node2D" parent="ZoneLinkLedgeEast" unique_id=1592106698]
+position = Vector2(1704, -2136)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=347672605 groups=["global_modulate"]]
 visible = false
@@ -389,8 +410,36 @@ position = Vector2(1752, -1656)
 texture = ExtResource("32_h76um")
 script = ExtResource("33_ricd8")
 
-[node name="ShadeMonster_vessel" parent="." unique_id=331820355 instance=ExtResource("24_eoj06")]
-position = Vector2(2256, -2736)
+[node name="ShadeMonster_martyr_solo2" parent="." unique_id=1453344121 instance=ExtResource("24_eoj06")]
+position = Vector2(3192, -3168)
+encounter = ExtResource("19_5h15d")
+
+[node name="ShadeMonster_gark_solo" parent="." unique_id=522936212 instance=ExtResource("24_eoj06")]
+position = Vector2(2808, -3096)
+encounter = ExtResource("18_5h15d")
+
+[node name="ShadeMonster_vessel12" parent="." unique_id=373013718 instance=ExtResource("24_eoj06")]
+position = Vector2(3528, -3144)
+encounter = ExtResource("25_5h15d")
+
+[node name="ShadeMonster_vessel13" parent="." unique_id=1405619130 instance=ExtResource("24_eoj06")]
+position = Vector2(3984, -3264)
+encounter = ExtResource("25_5h15d")
+
+[node name="ShadeMonster_gark_solo2" parent="." unique_id=682452460 instance=ExtResource("24_eoj06")]
+position = Vector2(3840, -2924)
+encounter = ExtResource("18_5h15d")
+
+[node name="ShadeMonster_vessel15" parent="." unique_id=1979119891 instance=ExtResource("24_eoj06")]
+position = Vector2(4272, -3028)
+encounter = ExtResource("25_5h15d")
+
+[node name="ShadeMonster_vessel16" parent="." unique_id=1872221249 instance=ExtResource("24_eoj06")]
+position = Vector2(4344, -3336)
+encounter = ExtResource("25_5h15d")
+
+[node name="ShadeMonster_vessel8" parent="." unique_id=567957529 instance=ExtResource("24_eoj06")]
+position = Vector2(2136, -2700)
 encounter = ExtResource("25_5h15d")
 
 [node name="ShadeMonster_vessel2" parent="." unique_id=2006406931 instance=ExtResource("24_eoj06")]
@@ -405,33 +454,61 @@ encounter = ExtResource("25_5h15d")
 position = Vector2(3000, -3288)
 encounter = ExtResource("18_8sdyc")
 
+[node name="ShadeMonster_vessel_two2" parent="." unique_id=421800104 instance=ExtResource("24_eoj06")]
+position = Vector2(2762, -2944)
+encounter = ExtResource("18_8sdyc")
+
+[node name="ShadeMonster_vessel_two3" parent="." unique_id=1473614146 instance=ExtResource("24_eoj06")]
+position = Vector2(3000, -2990)
+encounter = ExtResource("18_8sdyc")
+
+[node name="ShadeMonster_vessel_two4" parent="." unique_id=868189549 instance=ExtResource("24_eoj06")]
+position = Vector2(2808, -3188)
+encounter = ExtResource("18_8sdyc")
+
+[node name="ShadeMonster_vessel_two5" parent="." unique_id=165410913 instance=ExtResource("24_eoj06")]
+position = Vector2(3600, -3240)
+encounter = ExtResource("18_8sdyc")
+
+[node name="ShadeMonster_vessel_two6" parent="." unique_id=528802419 instance=ExtResource("24_eoj06")]
+position = Vector2(3528, -2928)
+encounter = ExtResource("18_8sdyc")
+
+[node name="ShadeMonster_vessel_two7" parent="." unique_id=1843803998 instance=ExtResource("24_eoj06")]
+position = Vector2(4422, -3284)
+encounter = ExtResource("18_8sdyc")
+
+[node name="ShadeMonster_martyr_solo" parent="." unique_id=1649112731 instance=ExtResource("24_eoj06")]
+position = Vector2(3888, -3268)
+encounter = ExtResource("19_5h15d")
+
 [node name="ShadeMonster_vessel_two_2" parent="." unique_id=18075372 instance=ExtResource("24_eoj06")]
 position = Vector2(3312, -3000)
 encounter = ExtResource("18_8sdyc")
 
-[node name="ShadeMonster_gark" parent="." unique_id=1338914953 instance=ExtResource("24_eoj06")]
-position = Vector2(2736, -2952)
-encounter = ExtResource("19_eoj06")
+[node name="ShadeMonster_vessel_two_3" parent="." unique_id=369250723 instance=ExtResource("24_eoj06")]
+position = Vector2(4272, -3316)
+encounter = ExtResource("18_8sdyc")
+
+[node name="ShadeMonster_vessel_two_4" parent="." unique_id=466398295 instance=ExtResource("24_eoj06")]
+position = Vector2(4128, -3120)
+encounter = ExtResource("18_8sdyc")
 
 [node name="ShadeMonster_gark2" parent="." unique_id=958222428 instance=ExtResource("24_eoj06")]
 position = Vector2(3768, -3300)
 encounter = ExtResource("19_eoj06")
 
-[node name="ShadeMonster_martyr" parent="." unique_id=21077696 instance=ExtResource("24_eoj06")]
-position = Vector2(4164, -3096)
-encounter = ExtResource("20_5h15d")
+[node name="ShadeMonster_gark3" parent="." unique_id=331820355 instance=ExtResource("24_eoj06")]
+position = Vector2(3696, -2920)
+encounter = ExtResource("19_eoj06")
 
-[node name="ShadeMonster_martyr2" parent="." unique_id=951186950 instance=ExtResource("24_eoj06")]
-position = Vector2(4296, -3336)
-encounter = ExtResource("20_5h15d")
+[node name="ShadeMonster_gark4" parent="." unique_id=1076123624 instance=ExtResource("24_eoj06")]
+position = Vector2(4512, -3132)
+encounter = ExtResource("19_eoj06")
 
-[node name="ShadeMonster_martyr3" parent="." unique_id=1591991708 instance=ExtResource("24_eoj06")]
-position = Vector2(4464, -2996)
-encounter = ExtResource("20_5h15d")
-
-[node name="ShadeMonster_martyr4" parent="." unique_id=349763446 instance=ExtResource("24_eoj06")]
-position = Vector2(3696, -2948)
-encounter = ExtResource("20_5h15d")
+[node name="ShadeMonster_gark5" parent="." unique_id=1667055176 instance=ExtResource("24_eoj06")]
+position = Vector2(4224, -3056)
+encounter = ExtResource("19_eoj06")
 
 [node name="water_fall" type="Node2D" parent="." unique_id=1560826217]
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
@@ -441,7 +518,7 @@ position = Vector2(1824, -1224)
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -449,49 +526,49 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="water_fall" unique_id=1288174380]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="water_fall" unique_id=1903701871]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="water_fall" unique_id=1707571961]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="water_fall" unique_id=771170838]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="water_fall" unique_id=209024506]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="water_fall" unique_id=2005903468]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -499,7 +576,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -507,7 +584,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -515,7 +592,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -523,7 +600,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -531,7 +608,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -539,7 +616,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -547,7 +624,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -555,7 +632,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -563,7 +640,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -571,7 +648,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -579,7 +656,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -587,7 +664,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -595,7 +672,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -603,7 +680,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -611,7 +688,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -619,63 +696,63 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="water_fall" unique_id=1583796499]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="water_fall" unique_id=468803678]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="water_fall" unique_id=2084269825]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="water_fall" unique_id=444021709]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="water_fall" unique_id=380141028]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="water_fall" unique_id=841872709]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="water_fall" unique_id=874208452]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="water_fall" unique_id=1739917726]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -683,7 +760,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -691,7 +768,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -699,7 +776,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -707,7 +784,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -715,7 +792,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -723,7 +800,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -731,7 +808,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -739,7 +816,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -747,7 +824,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -755,7 +832,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -763,7 +840,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -771,7 +848,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -779,7 +856,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -787,7 +864,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -795,7 +872,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -803,7 +880,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.5554066
+frame_progress = 0.7280405
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -814,3 +891,18 @@ stream = ExtResource("20_v31sx")
 volume_db = -24.0
 max_distance = 400.0
 attenuation = 4.756827
+
+[node name="PentacleSeal" parent="." unique_id=1226598247 instance=ExtResource("24_5h15d")]
+position = Vector2(2856, -2472)
+
+[node name="HealingGore" parent="." unique_id=2031394265 instance=ExtResource("26_ifphs")]
+position = Vector2(2928, -2640)
+gore_name = "WOODS_GORE_1"
+
+[node name="HealingGore2" parent="." unique_id=1985329454 instance=ExtResource("26_ifphs")]
+position = Vector2(4536, -3240)
+gore_name = "WOODS_GORE_3"
+
+[node name="HealingGore3" parent="." unique_id=1879646348 instance=ExtResource("26_ifphs")]
+position = Vector2(3864, -2976)
+gore_name = "WOODS_GORE_2"

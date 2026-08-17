@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c81wetankxf32" path="res://scripts/locations/zone_manager.gd" id="1_5ulbo"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
+[ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
 [ext_resource type="PackedScene" uid="uid://cm1hsy8epesue" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn" id="5_384qc"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
-[ext_resource type="Script" uid="uid://618urs27u4tv" path="res://scripts/utility/global_gamestate.gd" id="7_j6tkn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]
 shader = ExtResource("6_je83m")
@@ -45,15 +45,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" parent="." unique_id=286954556 instance=ExtResource("3_r2q7f")]
-position = Vector2(1704, -2448)
-pentacle_charms = 4
+position = Vector2(1704, -2304)
+pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
 position = Vector2(12, -12)
 
-[node name="gamestate" type="Node" parent="." unique_id=1455637368 groups=["gamestate"]]
-script = ExtResource("7_j6tkn")
-states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED"])
-states_map_values = Array[String](["TRUE", "TRUE"])
-
 [node name="zone_gloomy_woods_entrance" parent="." unique_id=1169712370 instance=ExtResource("5_384qc")]
+
+[node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]

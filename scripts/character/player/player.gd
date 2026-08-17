@@ -31,6 +31,7 @@ var can_play_step_sound : bool = true
 var grid_aligned_callback_node : Node = null
 
 func _ready() -> void:
+	RenderingServer.set_default_clear_color(Color(0,0,0,1))
 	head.play(facing_direction)
 	fade_in()
 
@@ -181,9 +182,9 @@ func fader_is_fading() -> bool:
 
 func start_battle():
 	battle_underway = true
+	starting_battle = false
 	disable_overworld()
 	var opponent_familiars : Array[Familiar] = staged_encounter.get_opponents()
-	starting_battle = false
 	var input_familiars : Array[Familiar] = []
 	for familiar in opponent_familiars:
 		add_child(familiar)

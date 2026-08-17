@@ -11,4 +11,5 @@ music = ExtResource("2_u5cou")
 
 [node name="L0Homunculus" parent="." unique_id=246003526 instance=ExtResource("3_dfqwl")]
 visible = false
-action_cadence_0 = Array[String](["FEED", "ATTACK", "FEED", "DEFEND"])
+action_cadence_0 = Array[String](["FEED", "ATTACK", "ATTACK", "DEFEND"])
+action_cadence_1 = Array[String](["DEFEND", "ATTACK", "DEFEND", "ATTACK"])

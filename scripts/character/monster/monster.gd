@@ -11,7 +11,7 @@ var charging : bool = false
 
 var grid_velocity : Vector2 = Vector2(0,0)
 var move_speed : float = 1.0
-var charge_speed : float = 2.0
+var charge_speed : float = 4.0
 
 var up_colliding_bodies : Array[Node] = []
 var down_colliding_bodies : Array[Node] = []
@@ -167,9 +167,9 @@ func _physics_process(delta: float) -> void:
 	handle_movement()
 
 func _on_body_entered(body: Node2D) -> void:
-	if(body.is_in_group("player") && (moving || charging)):
+	if(body.is_in_group("player") && charging):
 		var player : Player = body
-		if(player.is_active()):
+		if(player.is_active() and not player.fader_is_fading()):
 			var new_encounter : Encounter = encounter.instantiate()
 			player.start_encounter(new_encounter)
 			queue_free()

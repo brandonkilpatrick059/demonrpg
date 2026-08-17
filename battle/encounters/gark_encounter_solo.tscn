@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bobt6ayrrvw40"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_lu8p1"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_784ya"]
+[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="3_llwsq"]
+[ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/base/L1_gark.tscn" id="4_1bdni"]
+
+[node name="TestEncounter" type="Node2D" node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_lu8p1")
+opponents = [NodePath("L1gark"), NodePath("L0Homunculus2")]
+music = ExtResource("2_784ya")
+
+[node name="L0Homunculus2" parent="." instance=ExtResource("3_llwsq")]
+visible = false
+action_cadence_0 = Array[String](["FEED", "ATTACK", "FEED", "DEFEND"])
+
+[node name="L1gark" parent="." instance=ExtResource("4_1bdni")]
+position = Vector2(63.68, 585.98)
+action_cadence_0 = Array[String](["EVIL EYE", "DEFEND", "EVIL EYE", "ATTACK"])

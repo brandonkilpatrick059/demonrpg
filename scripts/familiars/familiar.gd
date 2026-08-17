@@ -130,17 +130,17 @@ func get_capture_range() -> int:
 	elif(max_hp <= 10):
 		return 5
 	elif(max_hp <= 20):
-		return 5
-	elif(max_hp <= 30):
-		return 6
-	elif(max_hp <= 40):
-		return 6
-	elif(max_hp <= 50):
-		return 7
-	elif(max_hp <= 60):
-		return 7
-	else:
 		return 8
+	elif(max_hp <= 30):
+		return 12
+	elif(max_hp <= 40):
+		return 14
+	elif(max_hp <= 50):
+		return 15
+	elif(max_hp <= 60):
+		return 20
+	else:
+		return 25
 
 func randomize_action_cadence():
 	var num_cadences = 0

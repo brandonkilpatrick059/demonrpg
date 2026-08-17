@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxnoqj25neeu5"]
+[gd_scene format=3 uid="uid://dxnoqj25neeu5"]
 
 [ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_p10lq"]
 [ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_p8lio"]
 [ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="3_dm3or"]
 
-[node name="TestEncounter" type="Node2D" node_paths=PackedStringArray("opponents")]
+[node name="TestEncounter" type="Node2D" unique_id=1513465893 node_paths=PackedStringArray("opponents")]
 script = ExtResource("1_p10lq")
 opponents = [NodePath("L0Homunculus"), NodePath("L0Homunculus2")]
 music = ExtResource("2_p8lio")
 
-[node name="L0Homunculus" parent="." instance=ExtResource("3_dm3or")]
+[node name="L0Homunculus" parent="." unique_id=1408129397 instance=ExtResource("3_dm3or")]
 visible = false
-action_cadence_0 = Array[String](["FEED", "ATTACK", "FEED", "DEFEND"])
+action_cadence_0 = Array[String](["FEED", "ATTACK", "DEFEND", "DEFEND"])
 
-[node name="L0Homunculus2" parent="." instance=ExtResource("3_dm3or")]
+[node name="L0Homunculus2" parent="." unique_id=329462254 instance=ExtResource("3_dm3or")]
 visible = false
-action_cadence_0 = Array[String](["FEED", "ATTACK", "FEED", "DEFEND"])
+action_cadence_0 = Array[String](["FEED", "ATTACK", "ATTACK", "DEFEND"])

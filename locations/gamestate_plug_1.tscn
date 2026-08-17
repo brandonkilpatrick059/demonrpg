@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://p1l1ljou3n3l"]
+
+[ext_resource type="Script" uid="uid://618urs27u4tv" path="res://scripts/utility/global_gamestate.gd" id="1_0wmqp"]
+
+[node name="gamestate" type="Node" unique_id=1216957 groups=["gamestate"]]
+script = ExtResource("1_0wmqp")
+states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED"])
+states_map_values = Array[String](["TRUE", "TRUE"])
