@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bobt6ayrrvw40" path="res://battle/encounters/gark_encounter_solo.tscn" id="18_5h15d"]
 [ext_resource type="PackedScene" uid="uid://dxnoqj25neeu5" path="res://battle/encounters/homunculus_encounter_2.tscn" id="18_8sdyc"]
 [ext_resource type="SpriteFrames" uid="uid://b230og1weenfr" path="res://sprites/spritesheets/effects/water_fall.tres" id="18_llkrw"]
-[ext_resource type="PackedScene" uid="uid://lbpqi6tmjey4" path="res://battle/encounters/martyr_encounter_solo.tscn" id="19_5h15d"]
 [ext_resource type="PackedScene" uid="uid://bv2lu1cqenfuq" path="res://battle/encounters/gark_encounter_2.tscn" id="19_eoj06"]
 [ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="19_tvyam"]
 [ext_resource type="AudioStream" uid="uid://dtmah4txyup3j" path="res://audio/effects/pink_noise.wav" id="20_v31sx"]
@@ -474,10 +473,6 @@ position = Vector2(1752, -1656)
 texture = ExtResource("32_h76um")
 script = ExtResource("33_ricd8")
 
-[node name="ShadeMonster_martyr_solo2" parent="." unique_id=1453344121 instance=ExtResource("24_eoj06")]
-position = Vector2(3192, -3168)
-encounter = ExtResource("19_5h15d")
-
 [node name="ShadeMonster_gark_solo" parent="." unique_id=522936212 instance=ExtResource("24_eoj06")]
 position = Vector2(2808, -3096)
 encounter = ExtResource("18_5h15d")
@@ -492,6 +487,14 @@ encounter = ExtResource("25_5h15d")
 
 [node name="ShadeMonster_gark_solo2" parent="." unique_id=682452460 instance=ExtResource("24_eoj06")]
 position = Vector2(3840, -2924)
+encounter = ExtResource("18_5h15d")
+
+[node name="ShadeMonster_gark_solo3" parent="." unique_id=331820355 instance=ExtResource("24_eoj06")]
+position = Vector2(3768, -3300)
+encounter = ExtResource("18_5h15d")
+
+[node name="ShadeMonster_gark_solo4" parent="." unique_id=1585618311 instance=ExtResource("24_eoj06")]
+position = Vector2(4200, -3072)
 encounter = ExtResource("18_5h15d")
 
 [node name="ShadeMonster_vessel15" parent="." unique_id=1979119891 instance=ExtResource("24_eoj06")]
@@ -512,6 +515,14 @@ encounter = ExtResource("25_5h15d")
 
 [node name="ShadeMonster_vessel3" parent="." unique_id=149704394 instance=ExtResource("24_eoj06")]
 position = Vector2(2424, -2640)
+encounter = ExtResource("25_5h15d")
+
+[node name="ShadeMonster_vessel4" parent="." unique_id=1940573514 instance=ExtResource("24_eoj06")]
+position = Vector2(2208, -2772)
+encounter = ExtResource("25_5h15d")
+
+[node name="ShadeMonster_vessel5" parent="." unique_id=567352856 instance=ExtResource("24_eoj06")]
+position = Vector2(2448, -2376)
 encounter = ExtResource("25_5h15d")
 
 [node name="ShadeMonster_vessel_two" parent="." unique_id=1492151163 instance=ExtResource("24_eoj06")]
@@ -542,10 +553,6 @@ encounter = ExtResource("18_8sdyc")
 position = Vector2(4422, -3284)
 encounter = ExtResource("18_8sdyc")
 
-[node name="ShadeMonster_martyr_solo" parent="." unique_id=1649112731 instance=ExtResource("24_eoj06")]
-position = Vector2(3888, -3268)
-encounter = ExtResource("19_5h15d")
-
 [node name="ShadeMonster_vessel_two_2" parent="." unique_id=18075372 instance=ExtResource("24_eoj06")]
 position = Vector2(3312, -3000)
 encounter = ExtResource("18_8sdyc")
@@ -558,20 +565,8 @@ encounter = ExtResource("18_8sdyc")
 position = Vector2(4128, -3120)
 encounter = ExtResource("18_8sdyc")
 
-[node name="ShadeMonster_gark2" parent="." unique_id=958222428 instance=ExtResource("24_eoj06")]
-position = Vector2(3768, -3300)
-encounter = ExtResource("19_eoj06")
-
-[node name="ShadeMonster_gark3" parent="." unique_id=331820355 instance=ExtResource("24_eoj06")]
-position = Vector2(3696, -2920)
-encounter = ExtResource("19_eoj06")
-
 [node name="ShadeMonster_gark4" parent="." unique_id=1076123624 instance=ExtResource("24_eoj06")]
 position = Vector2(4512, -3132)
-encounter = ExtResource("19_eoj06")
-
-[node name="ShadeMonster_gark5" parent="." unique_id=1667055176 instance=ExtResource("24_eoj06")]
-position = Vector2(4224, -3056)
 encounter = ExtResource("19_eoj06")
 
 [node name="ShadeMonster_gark6" parent="." unique_id=119067637 instance=ExtResource("24_eoj06")]
@@ -602,7 +597,7 @@ position = Vector2(1824, -1224)
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -610,49 +605,49 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="water_fall" unique_id=1288174380]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="water_fall" unique_id=1903701871]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="water_fall" unique_id=1707571961]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="water_fall" unique_id=771170838]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="water_fall" unique_id=209024506]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="water_fall" unique_id=2005903468]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -660,7 +655,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -668,7 +663,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -676,7 +671,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -684,7 +679,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -692,7 +687,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -700,7 +695,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -708,7 +703,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -716,7 +711,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -724,7 +719,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -732,7 +727,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -740,7 +735,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -748,7 +743,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -756,7 +751,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -764,7 +759,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -772,7 +767,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -780,7 +775,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -788,7 +783,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -796,7 +791,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -804,7 +799,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -812,7 +807,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -820,7 +815,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -828,105 +823,105 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="water_fall" unique_id=1583796499]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="water_fall" unique_id=468803678]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="water_fall" unique_id=2084269825]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="water_fall" unique_id=444021709]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="water_fall" unique_id=380141028]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="water_fall" unique_id=841872709]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="water_fall" unique_id=874208452]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="water_fall" unique_id=1739917726]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="water_fall" unique_id=1659876462]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="water_fall" unique_id=1722585529]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="water_fall" unique_id=198053837]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="water_fall" unique_id=840747895]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="water_fall" unique_id=1135573964]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="water_fall" unique_id=1260777906]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -934,7 +929,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -942,7 +937,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -950,7 +945,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -958,7 +953,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -966,7 +961,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -974,7 +969,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -982,7 +977,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -990,7 +985,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -998,7 +993,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1006,7 +1001,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1014,7 +1009,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1022,7 +1017,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1030,7 +1025,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1038,7 +1033,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1046,7 +1041,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1054,7 +1049,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1062,7 +1057,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1070,7 +1065,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1078,7 +1073,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1086,7 +1081,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1094,7 +1089,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1102,7 +1097,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1110,7 +1105,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1118,7 +1113,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1126,7 +1121,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1134,7 +1129,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1142,7 +1137,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1150,7 +1145,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.059492484
+frame_progress = 0.4099425
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 

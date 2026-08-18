@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmkucvdeg44w8"]
+[gd_scene format=3 uid="uid://dmkucvdeg44w8"]
 
 [ext_resource type="Script" uid="uid://clm4enx7fqkjw" path="res://scripts/utility/fade_node.gd" id="1_2yd2p"]
 
-[node name="FadeNode" type="Node2D"]
+[node name="FadeNode" type="Node2D" unique_id=1611771507]
 script = ExtResource("1_2yd2p")

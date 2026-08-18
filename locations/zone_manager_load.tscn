@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://5xt5ss05cmj8"]
+
+[ext_resource type="Script" uid="uid://c81wetankxf32" path="res://scripts/locations/zone_manager.gd" id="1_muj5q"]
+[ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="2_8fo6w"]
+[ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_0wst5"]
+[ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="4_4le7o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]
+shader = ExtResource("2_8fo6w")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.50000002375
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/noise_amount = 0.02000000095
+shader_parameter/interference_amount = 0.2050000097375
+shader_parameter/grille_amount = 0.0
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.3590000170525
+shader_parameter/vignette_intensity = 0.36800001748
+shader_parameter/aberation_amount = 0.25200001197
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = -8.0
+shader_parameter/scan_line_strength = -7.99999981
+shader_parameter/pixel_strength = -4.0
+
+[node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
+y_sort_enabled = true
+script = ExtResource("1_muj5q")
+current_zone = NodePath("")
+
+[node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=1494413384]
+
+[node name="screen_effect" type="ColorRect" parent="screen_effect_layer" unique_id=503890868]
+z_index = 50
+material = SubResource("ShaderMaterial_lc7g1")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" parent="." unique_id=286954556 instance=ExtResource("3_0wst5")]
+position = Vector2(0, 24)
+pentacle_charms = 3
+
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
+position = Vector2(12, -12)
+
+[node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("4_4le7o")]
+states_map_keys = Array[String]([])
+states_map_values = Array[String]([])

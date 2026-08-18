@@ -1,3 +1,5 @@
+res://scripts/menu/
+res://utility/
 res://sprites/spritesheets/props/structure/
 res://sprites/spritesheets/monsters/
 res://sprites/spritesheets/familiars/
@@ -6,7 +8,6 @@ res://scripts/item/
 res://sprites/spritesheets/npc/
 res://scripts/utility/
 res://sprites/spritesheets/effects/
-res://utility/
 res://sprites/
 res://scripts/mechanism/
 res://scripts/character/npc/
@@ -19,4 +20,3 @@ res://sprites/spritesheets/battle/actions/
 res://
 res://scripts/battle_system/interface/
 res://sprites/spritesheets/battle/interface/
-res://battle/interface/

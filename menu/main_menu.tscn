@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://crn4l16pq44k7"]
+
+[ext_resource type="Shader" uid="uid://ctbt1f24kbll6" path="res://shaders/rain_shader.gdshader" id="1_0tw43"]
+[ext_resource type="Texture2D" uid="uid://6ot81g5ari8g" path="res://sprites/effects/matte_painting_mounains_1.png" id="1_1x3cv"]
+[ext_resource type="Texture2D" uid="uid://dpchc17d1oghr" path="res://sprites/effects/matte_painting_mounains_2.png" id="2_jc45y"]
+[ext_resource type="Texture2D" uid="uid://5rlts5urifo0" path="res://sprites/effects/empty_screen_sprite.png" id="2_youj7"]
+[ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="3_l5uyn"]
+[ext_resource type="Texture2D" uid="uid://bt0sle02afbtq" path="res://sprites/effects/matte_painting_mounains_3.png" id="3_s8mfa"]
+[ext_resource type="Texture2D" uid="uid://j2ab1gnhr703" path="res://sprites/effects/matte_painting_mounains_4.png" id="4_0tw43"]
+[ext_resource type="Texture2D" uid="uid://bfankuubfx8ur" path="res://sprites/menu/title.png" id="8_youj7"]
+[ext_resource type="AudioStream" uid="uid://drsxbgp5c36c5" path="res://audio/music/menu_theme_mix_2.ogg" id="9_l5uyn"]
+[ext_resource type="Script" uid="uid://clm4enx7fqkjw" path="res://scripts/utility/fade_node.gd" id="10_8qj3r"]
+[ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="11_k5y3h"]
+[ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="12_k17ts"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="13_1vfm6"]
+[ext_resource type="Script" uid="uid://ivnywvdeyp6d" path="res://scripts/menu/main_menu.gd" id="13_23ste"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8qj3r"]
+shader = ExtResource("1_0tw43")
+shader_parameter/rain_amount = 100.0
+shader_parameter/near_rain_length = 0.10000000405148
+shader_parameter/far_rain_length = 0.02500000048898
+shader_parameter/near_rain_width = 0.23100000771262
+shader_parameter/far_rain_width = 0.17300000495762002
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.003921569, 0.22745098, 0.36862746, 1)
+shader_parameter/base_rain_speed = 0.32400001213012
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 4.7499999933364734e-08
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1vfm6"]
+shader = ExtResource("12_k17ts")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.50000002375
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/noise_amount = 0.02000000095
+shader_parameter/interference_amount = 0.2050000097375
+shader_parameter/grille_amount = 0.0
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.3590000170525
+shader_parameter/vignette_intensity = 0.36800001748
+shader_parameter/aberation_amount = 0.25200001197
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = -8.0
+shader_parameter/scan_line_strength = -7.99999981
+shader_parameter/pixel_strength = -4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("13_1vfm6")
+font_size = 8
+
+[node name="MainMenu" type="Node2D" unique_id=332996665]
+
+[node name="back_ground" type="Node2D" parent="." unique_id=1541775376]
+modulate = Color(1, 0, 0.38431373, 1)
+
+[node name="rain_effect_sprite" type="Sprite2D" parent="back_ground" unique_id=90654814 groups=["rain_effect"]]
+z_index = 5
+material = SubResource("ShaderMaterial_8qj3r")
+position = Vector2(160, 97)
+texture = ExtResource("2_youj7")
+script = ExtResource("3_l5uyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="back_ground" unique_id=697125880]
+z_index = 3
+position = Vector2(159, 109)
+texture = ExtResource("1_1x3cv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="back_ground" unique_id=745189113]
+z_index = 2
+position = Vector2(189, 105)
+texture = ExtResource("2_jc45y")
+
+[node name="Sprite2D3" type="Sprite2D" parent="back_ground" unique_id=1110683544]
+position = Vector2(117, 107)
+texture = ExtResource("3_s8mfa")
+
+[node name="Sprite2D4" type="Sprite2D" parent="back_ground" unique_id=620389498]
+z_index = -4
+position = Vector2(144, 96)
+texture = ExtResource("4_0tw43")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=990943171 groups=["camera"]]
+position = Vector2(160, 90)
+
+[node name="name" type="Sprite2D" parent="." unique_id=1006686213]
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+position = Vector2(160, 39)
+texture = ExtResource("8_youj7")
+
+[node name="fade_node" type="Node" parent="name" unique_id=556966397]
+script = ExtResource("10_8qj3r")
+target_modulate = Color(1, 1, 1, 1)
+modulate_step = 0.1
+time_step = 0.2
+start_after_wait = 3.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1448296567 groups=["music_player"]]
+stream = ExtResource("9_l5uyn")
+autoplay = true
+
+[node name="fade_black" type="Polygon2D" parent="." unique_id=937905613 groups=["fade_black"]]
+visible = false
+z_index = 10
+position = Vector2(-5, 43)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-40, -122, 386, -122, 385, 211, -39, 211)
+script = ExtResource("11_k5y3h")
+
+[node name="fade_node" type="Node" parent="fade_black" unique_id=926369346]
+script = ExtResource("10_8qj3r")
+modulate_step = 0.1
+time_step = 0.2
+start_after_wait = 1.0
+
+[node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=143238938]
+
+[node name="screen_effect" type="ColorRect" parent="screen_effect_layer" unique_id=144133890]
+z_index = 50
+material = SubResource("ShaderMaterial_1vfm6")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu" type="Node2D" parent="." unique_id=425591769]
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+script = ExtResource("13_23ste")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu" unique_id=1731047303]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_right = 21.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="new_game" type="Label" parent="menu/VBoxContainer" unique_id=1839424870]
+layout_mode = 2
+text = "NEW GAME"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+
+[node name="load_game" type="Label" parent="menu/VBoxContainer" unique_id=556193774]
+layout_mode = 2
+text = "LOAD GAME"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+
+[node name="options" type="Label" parent="menu/VBoxContainer" unique_id=797690870]
+layout_mode = 2
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+
+[node name="exit" type="Label" parent="menu/VBoxContainer" unique_id=1713229136]
+layout_mode = 2
+text = "EXIT"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+
+[node name="fade_node" type="Node" parent="menu" unique_id=2030131204]
+script = ExtResource("10_8qj3r")
+target_modulate = Color(1, 1, 1, 1)
+modulate_step = 0.1
+time_step = 0.2
+start_after_wait = 5.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="menu" unique_id=885429640]
