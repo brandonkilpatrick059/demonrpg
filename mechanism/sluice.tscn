@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c38pxtj15ydpt"]
+
+[ext_resource type="Script" uid="uid://dp5wqjdvpnvqx" path="res://scripts/mechanism/gate.gd" id="1_7isa5"]
+[ext_resource type="SpriteFrames" uid="uid://c3q8au3d2www" path="res://sprites/spritesheets/props/structure/sluice.tres" id="2_7isa5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
+size = Vector2(48, 24)
+
+[node name="Sluice" type="Node2D" unique_id=1985675524]
+script = ExtResource("1_7isa5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1482740844]
+position = Vector2(20, -24)
+sprite_frames = ExtResource("2_7isa5")
+animation = &"closed"
+offset = Vector2(4, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=968609869]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=575774807]
+position = Vector2(24, -36)
+shape = SubResource("RectangleShape2D_cea73")

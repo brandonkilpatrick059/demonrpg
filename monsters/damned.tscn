@@ -16,7 +16,7 @@ script = ExtResource("1_sjb1h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=54775003]
 sprite_frames = ExtResource("1_728xk")
-frame_progress = 0.76888007
+frame_progress = 0.7632901
 offset = Vector2(12, -12)
 script = ExtResource("3_1ptb8")
 

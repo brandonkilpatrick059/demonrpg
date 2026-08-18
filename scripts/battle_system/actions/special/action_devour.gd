@@ -19,7 +19,7 @@ var success_message : String = ""
 func get_summary(actor : Familiar)-> String:
 	var summary : String = "[color=red]"
 	summary = str(summary,get_action_name())
-	summary = str(summary,"[/color]-[color=white]ATTEMPT TO CONSUME [color=yellow]x2[/color] TARGET'S [/color]")
+	summary = str(summary,"[/color]-[color=white] FEED for [color=yellow]x2[/color] TARGET'S [/color]")
 	summary = str(summary,str("[color=darkred]POWER [/color]"))
 	return summary
 
@@ -117,7 +117,7 @@ func get_comment_message(actor : Familiar) -> String:
 	return ret_string
 
 func _ready() -> void:
-	action_name = "FEED"
+	action_name = "DEVOUR"
 	display_color = "red"
 	target_type = TargetType.ANY_BUT_SELF
 	energy_cost = 0

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c6vmnaxwwmsrx"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_wahs4"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_vs6v5"]
+[ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/base/L1_gark.tscn" id="4_0tcqa"]
+[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/base/L1_martyr.tscn" id="5_nj4m5"]
+[ext_resource type="PackedScene" uid="uid://be8nahf55fp0p" path="res://familiars/base/L1_braim.tscn" id="5_wahs4"]
+
+[node name="TestEncounter" type="Node2D" unique_id=885234304 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_wahs4")
+opponents = [NodePath("L1gark"), NodePath("L1martyr"), NodePath("L1braim")]
+music = ExtResource("2_vs6v5")
+
+[node name="L1gark" parent="." unique_id=332639386 instance=ExtResource("4_0tcqa")]
+visible = false
+position = Vector2(63.68, 585.98)
+max_hp = 15
+current_hp = 15
+magic = 5
+action_cadence_0 = Array[String](["EVIL EYE", "ATTACK", "EVIL EYE", "ATTACK"])
+
+[node name="L1martyr" parent="." unique_id=1186111173 instance=ExtResource("5_nj4m5")]
+visible = false
+max_hp = 18
+current_hp = 18
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "DEFEND", "STAB"])
+
+[node name="L1braim" parent="." unique_id=1658016037 instance=ExtResource("5_wahs4")]
+max_hp = 15
+current_hp = 15
+action_cadence_0 = Array[String](["BLOCK", "BLOCK", "FEED", "ATTACK"])

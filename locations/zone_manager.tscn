@@ -52,5 +52,6 @@ pentacle_charms = 3
 position = Vector2(12, -12)
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
+states_map_values = Array[String](["FALSE", "TRUE"])
 
 [node name="zone_gloomy_woods_cliffs" parent="." unique_id=298582258 instance=ExtResource("7_f7ow6")]

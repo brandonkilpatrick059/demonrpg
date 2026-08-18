@@ -47,6 +47,9 @@ func swap_zones():
 	second_phase = true
 	timer.start(0.5)
 
+func get_current_zone() -> LocationZone:
+	return current_zone
+
 func _physics_process(delta: float) -> void:
 	if(switching_zones):
 		if(first_phase):

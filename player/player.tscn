@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/player_body.tres" id="2_g1dw6"]
 [ext_resource type="SpriteFrames" uid="uid://cyivmganqtana" path="res://sprites/spritesheets/player/player_head.tres" id="3_yw30f"]
 [ext_resource type="Texture2D" uid="uid://dkgi27ooiydcj" path="res://sprites/spritesheets/player/flash_light.png" id="4_yw30f"]
+[ext_resource type="Texture2D" uid="uid://cqrsao04ikl5c" path="res://sprites/spritesheets/player/no_light.png" id="5_boad6"]
 [ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="5_qjkh3"]
 [ext_resource type="PackedScene" uid="uid://dsk5qoj7icxf4" path="res://interface/interface_message_speech.tscn" id="6_g6k8r"]
 
@@ -36,11 +37,17 @@ frame_progress = 0.0761775
 position = Vector2(12, -12)
 shape = SubResource("RectangleShape2D_cea73")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=707682217]
+[node name="flashlight" type="PointLight2D" parent="." unique_id=707682217]
 position = Vector2(12, -12)
 enabled = false
 energy = 0.4
 texture = ExtResource("4_yw30f")
+
+[node name="nolight" type="PointLight2D" parent="." unique_id=213573058]
+position = Vector2(12, -12)
+enabled = false
+energy = 0.4
+texture = ExtResource("5_boad6")
 
 [node name="move_collider_left" type="Area2D" parent="." unique_id=970158218]
 position = Vector2(0, -12)

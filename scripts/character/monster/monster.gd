@@ -18,6 +18,8 @@ var down_colliding_bodies : Array[Node] = []
 var left_colliding_bodies : Array[Node] = []
 var right_colliding_bodies : Array[Node] = []
 
+var active : bool = true
+
 @onready var colliders : Array[Area2D] = [
 	$move_collider_left,
 	$move_collider_down,
@@ -163,16 +165,21 @@ func colliders_detect_solid() -> bool:
 	return false
 
 func _physics_process(delta: float) -> void:
-	handle_animation()
-	handle_movement()
+	if(active):
+		handle_animation()
+		handle_movement()
+	elif($Timer.is_stopped()):
+		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if(body.is_in_group("player") && charging):
+	if(active && body.is_in_group("player") && charging):
 		var player : Player = body
 		if(player.is_active() and not player.fader_is_fading()):
 			var new_encounter : Encounter = encounter.instantiate()
 			player.start_encounter(new_encounter)
-			queue_free()
+			$Timer.start(3.0)
+			fade_in()
+			active = false
 
 func _on_move_collider_left_body_entered(body: Node2D) -> void:
 	left_colliding_bodies.append(body)

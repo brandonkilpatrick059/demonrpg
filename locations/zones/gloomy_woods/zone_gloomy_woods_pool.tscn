@@ -1,0 +1,403 @@
+[gd_scene format=4 uid="uid://c0incscuabqtx"]
+
+[ext_resource type="Script" uid="uid://v73shmuwmbhw" path="res://scripts/locations/location_zone.gd" id="1_23gkh"]
+[ext_resource type="TileSet" uid="uid://cn8j6o1opxy46" path="res://sprites/tile_atlas_terrain.tres" id="2_nj4nl"]
+[ext_resource type="TileSet" uid="uid://oaaawdggdxv5" path="res://sprites/tile_atlas_foliage.tres" id="3_0l88g"]
+[ext_resource type="TileSet" uid="uid://be4tfq16y1gax" path="res://sprites/tile_atlas_effects.tres" id="4_fwvta"]
+[ext_resource type="Texture2D" uid="uid://dxq73qsejv0oe" path="res://sprites/props/mechanisms/valve.png" id="5_3e6ho"]
+[ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="6_teiyu"]
+[ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="7_cp0xp"]
+[ext_resource type="Shader" uid="uid://ctbt1f24kbll6" path="res://shaders/rain_shader.gdshader" id="8_rnmbv"]
+[ext_resource type="Texture2D" uid="uid://5rlts5urifo0" path="res://sprites/effects/empty_screen_sprite.png" id="9_5j4ge"]
+[ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="10_oxxrg"]
+[ext_resource type="SpriteFrames" uid="uid://b230og1weenfr" path="res://sprites/spritesheets/effects/water_fall.tres" id="18_ipu5t"]
+[ext_resource type="PackedScene" uid="uid://c38pxtj15ydpt" path="res://mechanism/sluice.tscn" id="19_0nuoc"]
+[ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="19_gntnr"]
+[ext_resource type="AudioStream" uid="uid://dtmah4txyup3j" path="res://audio/effects/pink_noise.wav" id="20_07aa7"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="21_1a42s"]
+[ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="22_h08om"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="23_2t2jc"]
+[ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="23_xdu60"]
+[ext_resource type="Script" uid="uid://ujy8j2xhnrac" path="res://scripts/utility/run_scripts/adjust_game_state.gd" id="24_4rak8"]
+[ext_resource type="Script" uid="uid://d226twibnsv4w" path="res://scripts/utility/run_scripts/run_gate.gd" id="24_h08om"]
+[ext_resource type="Script" uid="uid://cvycaadlsfhey" path="res://scripts/utility/run_scripts/set_rain_layer.gd" id="24_ux6cf"]
+[ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="25_38hre"]
+[ext_resource type="Script" uid="uid://8nn10dgx4nmb" path="res://scripts/utility/run_scripts/set_autoplay.gd" id="26_3kcy4"]
+[ext_resource type="Script" uid="uid://caj1c1txcrjev" path="res://scripts/utility/run_scripts/set_zone_dark.gd" id="27_iafmk"]
+[ext_resource type="Script" uid="uid://ctl8j5f47ohhg" path="res://scripts/utility/run_scripts/q_free_nodes.gd" id="28_drm6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0aow"]
+size = Vector2(24, 24)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twfek"]
+shader = ExtResource("8_rnmbv")
+shader_parameter/rain_amount = 100.0
+shader_parameter/near_rain_length = 0.10000000405148
+shader_parameter/far_rain_length = 0.02500000048898
+shader_parameter/near_rain_width = 0.23100000771262
+shader_parameter/far_rain_width = 0.17300000495762002
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.003921569, 0.22745098, 0.36862746, 1)
+shader_parameter/base_rain_speed = 1.0
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 4.7499999933364734e-08
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23gkh"]
+size = Vector2(24, 24)
+
+[node name="zone_gloomy_woods_entrance" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
+script = ExtResource("1_23gkh")
+zone_name = "Gloomy Wood Entrance"
+zone_links = [NodePath("ZoneLinkGloomyWoodsEntrance")]
+dark_canvas_mod = NodePath("CanvasModulate")
+
+[node name="TileMapLayer_blue" type="TileMapLayer" parent="." unique_id=1392867317]
+modulate = Color(0.36796123, 0.49450415, 0.56646395, 1)
+tile_map_data = PackedByteArray("AACFAJf/AQAAAAUAAACFAJb/AQAAAAQAAACFAJX/AQAAAAQAAACCAJT/AQAAAAUAABCCAJX/AQAAAAcAABCCAJb/AQAAAAcAABCCAJf/AQAAAAcAABCFAJj/AQAAAAYAAACFAJn/AQAAAAYAAACFAJr/AQAAAAYAAACCAJr/AQAAAAcAABCCAJn/AQAAAAcAABCCAJj/AQAAAAcAABCGAJj/AQACAAYAAACGAJn/AQACAAYAAACGAJr/AQACAAYAAACHAJr/AQABAAYAAACHAJn/AQABAAYAAACHAJj/AQABAAYAAACIAJj/AQABAAYAAACIAJn/AQABAAYAAACIAJr/AQABAAYAAACJAJj/AQABAAYAAACJAJn/AQABAAYAAACJAJr/AQABAAYAAACJAJf/AQABAAYAAACIAJf/AQAAAAYAAACGAJf/AQABAAUAAACJAJb/AQABAAYAAACJAJX/AQABAAYAAACJAJT/AQABAAUAAACIAJT/AQAAAAUAAACGAJT/AQABAAMAAACHAJT/AQABAAMAAACHAJf/AQABAAUAAACIAJX/AQAAAAYAAACIAJb/AQAAAAYAAACHAJb/AQABAAQAAACGAJb/AQABAAQAAACGAJX/AQABAAQAAACHAJX/AQABAAQAAAB+AJT/AQAAAAUAAAB+AJX/AQAAAAYAAAB+AJb/AQAAAAYAAAB+AJf/AQAAAAYAAAB+AJj/AQAAAAYAAAB+AJn/AQAAAAYAAAB+AJr/AQAAAAYAAAB/AJT/AQABAAUAAAB/AJX/AQABAAYAAAB/AJb/AQABAAYAAAB/AJf/AQABAAYAAAB/AJj/AQABAAYAAAB/AJn/AQABAAYAAAB/AJr/AQABAAYAAACAAJT/AQABAAUAAACAAJX/AQABAAYAAACAAJb/AQABAAYAAACAAJf/AQABAAYAAACAAJj/AQABAAYAAACAAJn/AQABAAYAAACAAJr/AQABAAYAAACBAJT/AQABAAUAAACBAJX/AQABAAYAAACBAJb/AQABAAYAAACBAJf/AQABAAYAAACBAJj/AQABAAYAAACBAJn/AQABAAYAAACBAJr/AQABAAYAAACIAJH/AQAAAAMAAACIAJL/AQAAAAQAAACIAJP/AQAAAAQAAACJAJH/AQABAAMAAACJAJL/AQABAAQAAACJAJP/AQABAAQAAACKAJH/AQABAAMAAACKAJL/AQABAAQAAACKAJP/AQABAAQAAACKAJT/AQABAAUAAACKAJX/AQABAAYAAACKAJb/AQABAAYAAACKAJf/AQABAAYAAACLAJH/AQABAAMAAACLAJL/AQABAAQAAACLAJP/AQABAAQAAACLAJT/AQABAAUAAACLAJX/AQABAAYAAACLAJb/AQABAAYAAACLAJf/AQABAAYAAACMAJH/AQABAAMAAACMAJL/AQABAAQAAACMAJP/AQABAAQAAACMAJT/AQABAAUAAACMAJX/AQABAAYAAACMAJb/AQABAAYAAACMAJf/AQABAAYAAAB+AJH/AQAAAAMAAAB+AJL/AQAAAAQAAAB+AJP/AQAAAAQAAAB/AJH/AQABAAMAAAB/AJL/AQABAAQAAAB/AJP/AQABAAQAAACAAJH/AQABAAMAAACAAJL/AQABAAQAAACAAJP/AQABAAQAAACBAJH/AQABAAMAAACBAJL/AQABAAQAAACBAJP/AQABAAQAAACCAJH/AQAAAAMAABCCAJL/AQAAAAQAABCCAJP/AQAAAAQAABCKAJj/AQABAAYAAACKAJn/AQABAAYAAACLAJj/AQABAAYAAACLAJn/AQABAAYAAACMAJj/AQABAAYAAACMAJn/AQABAAYAAACKAJr/AQABAAYAAACLAJr/AQABAAYAAACMAJr/AQABAAYAAACFAJT/AQAAAAMAAACNAJH/AQABAAMAAACNAJL/AQABAAQAAACNAJP/AQABAAQAAACNAJT/AQABAAUAAACNAJX/AQABAAYAAACNAJb/AQABAAYAAACNAJf/AQABAAYAAACNAJj/AQABAAYAAACNAJn/AQABAAYAAACNAJr/AQABAAYAAACOAJH/AQABAAMAAACOAJL/AQABAAQAAACOAJP/AQABAAQAAACOAJT/AQABAAUAAACOAJX/AQABAAYAAACOAJb/AQABAAYAAACOAJf/AQABAAYAAACOAJj/AQABAAYAAACOAJn/AQABAAYAAACOAJr/AQABAAYAAACPAJH/AQABAAMAAACPAJL/AQABAAQAAACPAJP/AQABAAQAAACPAJT/AQABAAUAAACPAJX/AQABAAYAAACPAJb/AQABAAYAAACPAJf/AQABAAYAAACPAJj/AQABAAYAAACPAJn/AQABAAYAAACPAJr/AQABAAYAAACQAJH/AQABAAMAAACQAJL/AQABAAQAAACQAJP/AQABAAQAAACQAJT/AQABAAUAAACQAJX/AQABAAYAAACQAJb/AQABAAYAAACQAJf/AQABAAYAAACQAJj/AQABAAYAAACQAJn/AQABAAYAAACQAJr/AQABAAYAAACRAJH/AQABAAMAAACRAJL/AQABAAQAAACRAJP/AQABAAQAAACRAJT/AQABAAUAAACRAJX/AQABAAYAAACRAJb/AQABAAYAAACRAJf/AQABAAYAAACRAJj/AQABAAYAAACRAJn/AQABAAYAAACRAJr/AQABAAYAAACEAJf/AQABAAYAAACDAJf/AQABAAYAAACDAJj/AQABAAYAAACEAJj/AQABAAYAAACEAJn/AQABAAYAAACDAJn/AQABAAYAAACDAJr/AQABAAYAAACEAJr/AQABAAYAAAA=")
+tile_set = ExtResource("2_nj4nl")
+
+[node name="TileMapLayer_water" type="TileMapLayer" parent="." unique_id=1465578885]
+modulate = Color(0.22368968, 0.524908, 0.5662427, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AACEAJX/AQACAAAAAACEAJT/AQACAAAAAACDAJT/AQACAAAAAACFAJT/AQACAAAAAACDAJP/AQACAAAAAACEAJP/AQACAAAAAACFAJP/AQACAAAAAACGAJP/AQACAAAAAACHAJP/AQACAAAAAACHAJL/AQACAAAAAACGAJL/AQACAAAAAACFAJL/AQACAAAAAACEAJL/AQACAAAAAACDAJL/AQACAAAAAACIAJH/AQACAAAAAACHAJH/AQACAAAAAACGAJH/AQACAAAAAACFAJH/AQACAAAAAACEAJH/AQACAAAAAACDAJH/AQACAAAAAACCAJH/AQACAAAAAACBAJH/AQACAAAAAAB+AJD/AQACAAAAAAB/AJD/AQACAAAAAACAAJD/AQACAAAAAACBAJD/AQACAAAAAACCAJD/AQACAAAAAACDAJD/AQACAAAAAACEAJD/AQACAAAAAACFAJD/AQACAAAAAACGAJD/AQACAAAAAACHAJD/AQACAAAAAACIAJD/AQACAAAAAACJAJD/AQACAAAAAACKAJD/AQACAAAAAACLAJD/AQACAAAAAACMAJD/AQACAAAAAAB+AI//AQACAAAAAAB/AI//AQACAAAAAACAAI//AQACAAAAAACBAI//AQACAAAAAACCAI//AQACAAAAAACDAI//AQACAAAAAACEAI//AQACAAAAAACFAI//AQACAAAAAACGAI//AQACAAAAAACHAI//AQACAAAAAACIAI//AQACAAAAAACJAI//AQACAAAAAACKAI//AQACAAAAAACLAI//AQACAAAAAACMAI//AQACAAAAAACMAI7/AQACAAAAAACLAI7/AQACAAAAAACKAI7/AQACAAAAAACJAI7/AQACAAAAAACIAI7/AQACAAAAAACHAI7/AQACAAAAAACGAI7/AQACAAAAAACFAI7/AQACAAAAAACEAI7/AQACAAAAAACDAI7/AQACAAAAAACCAI7/AQACAAAAAACBAI7/AQACAAAAAACAAI7/AQACAAAAAAB/AI7/AQACAAAAAAB+AI7/AQACAAAAAAB+AI3/AQACAAAAAAB/AI3/AQACAAAAAACAAI3/AQACAAAAAACBAI3/AQACAAAAAACCAI3/AQACAAAAAACDAI3/AQACAAAAAACEAI3/AQACAAAAAACFAI3/AQACAAAAAACGAI3/AQACAAAAAACHAI3/AQACAAAAAACIAI3/AQACAAAAAACJAI3/AQACAAAAAACKAI3/AQACAAAAAACLAI3/AQACAAAAAACMAI3/AQACAAAAAACNAI3/AQACAAAAAACNAI7/AQACAAAAAACNAI//AQACAAAAAACNAJD/AQACAAAAAACOAI3/AQACAAAAAACOAI7/AQACAAAAAACOAI//AQACAAAAAACOAJD/AQACAAAAAACPAI3/AQACAAAAAACPAI7/AQACAAAAAACPAI//AQACAAAAAACPAJD/AQACAAAAAACQAI3/AQACAAAAAACQAI7/AQACAAAAAACQAI//AQACAAAAAACQAJD/AQACAAAAAACEAJb/AQACAAAAAACDAJb/AQACAAAAAACDAJX/AQACAAAAAAA=")
+tile_set = ExtResource("2_nj4nl")
+
+[node name="TileMapLayer_green_above" type="TileMapLayer" parent="." unique_id=185627252]
+modulate = Color(0.55766916, 0.66572356, 0.59391767, 1)
+z_index = 1
+tile_map_data = PackedByteArray("AACFAJf/AQACAAUAAACFAJb/AQACAAQAAACFAJX/AQACAAQAAACFAJT/AQACAAMAAACGAJT/AQADAAMAAACHAJT/AQADAAMAAACHAJf/AQADAAUAAACGAJf/AQADAAUAAACHAJX/AQADAAQAAACHAJb/AQADAAQAAACGAJb/AQADAAQAAACGAJX/AQADAAQAAAA=")
+tile_set = ExtResource("2_nj4nl")
+collision_enabled = false
+
+[node name="TileMapLayer_green" type="TileMapLayer" parent="." unique_id=746749733]
+modulate = Color(0.45490196, 0.56078434, 0.49019608, 1)
+z_index = -1
+tile_set = ExtResource("2_nj4nl")
+collision_enabled = false
+
+[node name="TileMapLayer_black" type="TileMapLayer" parent="." unique_id=713215046]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+tile_set = ExtResource("2_nj4nl")
+collision_enabled = false
+
+[node name="TileMapLayer_trees" type="TileMapLayer" parent="." unique_id=394864160]
+modulate = Color(0.59607846, 0.5254902, 0.69803923, 1)
+z_index = 3
+tile_set = ExtResource("3_0l88g")
+collision_enabled = false
+
+[node name="TileMapLayer_plants" type="TileMapLayer" parent="." unique_id=2138807132]
+modulate = Color(0, 0.78039217, 0.6627451, 1)
+z_index = 1
+tile_set = ExtResource("3_0l88g")
+collision_enabled = false
+
+[node name="TileMapLayer_trees_below" type="TileMapLayer" parent="." unique_id=1265306119]
+modulate = Color(0.59607846, 0.5254902, 0.69803923, 1)
+z_index = -1
+tile_set = ExtResource("3_0l88g")
+collision_enabled = false
+
+[node name="TileMapLayer_transparent" type="TileMapLayer" parent="." unique_id=1988770141]
+modulate = Color(0.463838, 0.635312, 1, 1)
+z_index = 1
+tile_map_data = PackedByteArray("AAAPAOX/AAACAAAAABAPAOT/AAACAAAAABAgAOH/AAABAAAAADAgAOD/AAABAAAAABCGAJr/AAAEAAAAAACGAJn/AAAEAAAAAACGAJj/AAAEAAAAAACEAJr/AAACAAAAAACEAJn/AAACAAAAAACEAJj/AAACAAAAAACEAJf/AAACAAAAAACEAJb/AAAAAAAAAACDAJr/AAACAAAAABCDAJn/AAACAAAAABCDAJj/AAACAAAAABCDAJf/AAACAAAAABCDAJb/AAAAAAAAAACDAJX/AAACAAAAABCDAJT/AAACAAAAABCDAJP/AAACAAAAABCHAJf/AAACAAAAAACHAJb/AAACAAAAAACHAJX/AAACAAAAAACHAJT/AAACAAAAAACMAJr/AAAEAAAAAACMAJn/AAAEAAAAAACLAJn/AAAEAAAAAACLAJj/AAAEAAAAAACLAJr/AAAEAAAAAACMAJj/AAAEAAAAAACKAJj/AAAEAAAAAACKAJn/AAAEAAAAAACKAJr/AAAEAAAAAACJAJr/AAAEAAAAAACJAJn/AAAEAAAAAACJAJj/AAAEAAAAAACIAJj/AAAEAAAAAACIAJn/AAAEAAAAAACIAJr/AAAEAAAAAACHAJr/AAAEAAAAAACHAJn/AAAEAAAAAACHAJj/AAAEAAAAAACFAJj/AAAEAAAAAACFAJn/AAAEAAAAAACFAJr/AAAEAAAAAACCAJr/AAAEAAAAAACCAJn/AAAEAAAAAACCAJj/AAAEAAAAAACBAJj/AAAEAAAAAACAAJj/AAAEAAAAAAB/AJj/AAAEAAAAAAB+AJj/AAAEAAAAAAB+AJn/AAAEAAAAAAB/AJn/AAAEAAAAAACAAJn/AAAEAAAAAACBAJn/AAAEAAAAAACBAJr/AAAEAAAAAACAAJr/AAAEAAAAAAB/AJr/AAAEAAAAAAB+AJr/AAAEAAAAAACNAJj/AAAEAAAAAACNAJn/AAAEAAAAAACNAJr/AAAEAAAAAACOAJj/AAAEAAAAAACOAJn/AAAEAAAAAACOAJr/AAAEAAAAAACPAJj/AAAEAAAAAACPAJn/AAAEAAAAAACPAJr/AAAEAAAAAACQAJj/AAAEAAAAAACQAJn/AAAEAAAAAACQAJr/AAAEAAAAAACRAJj/AAAEAAAAAACRAJn/AAAEAAAAAACRAJr/AAAEAAAAAAA=")
+tile_set = ExtResource("4_fwvta")
+collision_enabled = false
+
+[node name="TileMapLayer_transparent2" type="TileMapLayer" parent="." unique_id=1280116747]
+modulate = Color(0.463838, 0.635312, 1, 1)
+z_index = 1
+tile_map_data = PackedByteArray("AAAPAOX/AAACAAAAABAPAOT/AAACAAAAABAgAOH/AAABAAAAADAgAOD/AAABAAAAABB+AJn/AAAEAAAAAAB+AJr/AAAEAAAAAAB/AJn/AAAEAAAAAAB/AJr/AAAEAAAAAACAAJn/AAAEAAAAAACAAJr/AAAEAAAAAACBAJn/AAAEAAAAAACBAJr/AAAEAAAAAACCAJn/AAAEAAAAAACCAJr/AAAEAAAAAACDAJn/AAAEAAAAAACDAJr/AAAEAAAAAACEAJn/AAAEAAAAAACEAJr/AAAEAAAAAACFAJn/AAAEAAAAAACFAJr/AAAEAAAAAACGAJn/AAAEAAAAAACGAJr/AAAEAAAAAACHAJn/AAAEAAAAAACHAJr/AAAEAAAAAACIAJn/AAAEAAAAAACIAJr/AAAEAAAAAACJAJn/AAAEAAAAAACJAJr/AAAEAAAAAACKAJn/AAAEAAAAAACKAJr/AAAEAAAAAACLAJn/AAAEAAAAAACLAJr/AAAEAAAAAACMAJn/AAAEAAAAAACMAJr/AAAEAAAAAACNAJn/AAAEAAAAAACNAJr/AAAEAAAAAACOAJn/AAAEAAAAAACOAJr/AAAEAAAAAACPAJn/AAAEAAAAAACPAJr/AAAEAAAAAACQAJn/AAAEAAAAAACQAJr/AAAEAAAAAACRAJn/AAAEAAAAAACRAJr/AAAEAAAAAAA=")
+tile_set = ExtResource("4_fwvta")
+collision_enabled = false
+
+[node name="TileMapLayer_transparent3" type="TileMapLayer" parent="." unique_id=268031867]
+modulate = Color(0.463838, 0.635312, 1, 1)
+z_index = 1
+tile_map_data = PackedByteArray("AAAPAOX/AAACAAAAABAPAOT/AAACAAAAABAgAOH/AAABAAAAADAgAOD/AAABAAAAABB+AJr/AAAEAAAAAAB/AJr/AAAEAAAAAACAAJr/AAAEAAAAAACBAJr/AAAEAAAAAACCAJr/AAAEAAAAAACDAJr/AAAEAAAAAACEAJr/AAAEAAAAAACFAJr/AAAEAAAAAACGAJr/AAAEAAAAAACHAJr/AAAEAAAAAACIAJr/AAAEAAAAAACJAJr/AAAEAAAAAACKAJr/AAAEAAAAAACLAJr/AAAEAAAAAACMAJr/AAAEAAAAAACNAJr/AAAEAAAAAACOAJr/AAAEAAAAAACPAJr/AAAEAAAAAACQAJr/AAAEAAAAAACRAJr/AAAEAAAAAAA=")
+tile_set = ExtResource("4_fwvta")
+collision_enabled = false
+
+[node name="monster_fence" type="StaticBody2D" parent="." unique_id=1716141219]
+collision_layer = 16
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=444147778]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=1479752820]
+polygon = PackedVector2Array(3192, -2592, 3192, -2496, 3216, -2496, 3216, -2352, 3192, -2352, 3120, -2448, 3120, -2640, 3312, -2640, 3312, -2424, 3264, -2352, 3240, -2352, 3216, -2352, 3216, -2376, 3240, -2376, 3240, -2496, 3264, -2496, 3264, -2592)
+
+[node name="props" type="Node2D" parent="." unique_id=1693047477]
+
+[node name="valve" type="Sprite2D" parent="props" unique_id=884796419]
+z_index = 1
+position = Vector2(3192, -2568)
+texture = ExtResource("5_3e6ho")
+offset = Vector2(12, 12)
+
+[node name="wind" type="AudioStreamPlayer" parent="." unique_id=1567964404]
+stream = ExtResource("6_teiyu")
+volume_db = -24.0
+
+[node name="ZoneLinkGloomyWoodsEntrance" parent="." unique_id=1258795655 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("7_cp0xp")]
+position = Vector2(1512, -264)
+link_zone_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn"
+link_name = "LINK"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "POOL"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkGloomyWoodsEntrance" unique_id=123228502]
+z_index = 20
+position = Vector2(1716, -2196)
+shape = SubResource("RectangleShape2D_u0aow")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLinkGloomyWoodsEntrance" unique_id=1487816971]
+position = Vector2(1704, -2256)
+
+[node name="stop_point" type="Node2D" parent="ZoneLinkGloomyWoodsEntrance" unique_id=1636457670]
+position = Vector2(1704, -2280)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=347672605 groups=["global_modulate"]]
+visible = false
+z_index = 50
+color = Color(0.2901961, 0.2901961, 0.2901961, 1)
+
+[node name="rain_effect_sprite" type="Sprite2D" parent="." unique_id=76078293 groups=["rain_effect"]]
+z_index = 5
+material = SubResource("ShaderMaterial_twfek")
+position = Vector2(1752, -1656)
+texture = ExtResource("9_5j4ge")
+script = ExtResource("10_oxxrg")
+
+[node name="water_fall" type="Node2D" parent="." unique_id=1560826217]
+modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
+position = Vector2(1824, -1224)
+
+[node name="water_fall_water3" type="AnimatedSprite2D" parent="water_fall" unique_id=1288174380]
+position = Vector2(1320, -1272)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water4" type="AnimatedSprite2D" parent="water_fall" unique_id=1903701871]
+position = Vector2(1344, -1272)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water5" type="AnimatedSprite2D" parent="water_fall" unique_id=1707571961]
+position = Vector2(1320, -1296)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water6" type="AnimatedSprite2D" parent="water_fall" unique_id=771170838]
+position = Vector2(1344, -1296)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water7" type="AnimatedSprite2D" parent="water_fall" unique_id=209024506]
+position = Vector2(1320, -1320)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water8" type="AnimatedSprite2D" parent="water_fall" unique_id=2005903468]
+position = Vector2(1344, -1320)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water67" type="AnimatedSprite2D" parent="water_fall" unique_id=1912723323]
+modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
+position = Vector2(1320, -1176)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water68" type="AnimatedSprite2D" parent="water_fall" unique_id=106484837]
+modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
+position = Vector2(1344, -1176)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water71" type="AnimatedSprite2D" parent="water_fall" unique_id=1773353664]
+modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
+position = Vector2(1320, -1152)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water72" type="AnimatedSprite2D" parent="water_fall" unique_id=2089731960]
+modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
+position = Vector2(1344, -1152)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water69" type="AnimatedSprite2D" parent="water_fall" unique_id=1760100036]
+modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
+position = Vector2(1320, -1128)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water70" type="AnimatedSprite2D" parent="water_fall" unique_id=1072552084]
+modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
+position = Vector2(1344, -1128)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water63" type="AnimatedSprite2D" parent="water_fall" unique_id=198053837]
+position = Vector2(1320, -1224)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water64" type="AnimatedSprite2D" parent="water_fall" unique_id=840747895]
+position = Vector2(1344, -1224)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water65" type="AnimatedSprite2D" parent="water_fall" unique_id=1135573964]
+position = Vector2(1320, -1200)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water66" type="AnimatedSprite2D" parent="water_fall" unique_id=1260777906]
+position = Vector2(1344, -1200)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.15745974
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="water_fall" unique_id=1942680693]
+
+[node name="water_fall_noise6" type="AudioStreamPlayer2D" parent="water_fall" unique_id=1976632400]
+modulate = Color(0, 0.69803923, 0.73333335, 1)
+position = Vector2(1344, -1212)
+stream = ExtResource("20_07aa7")
+volume_db = -24.0
+autoplay = true
+max_distance = 400.0
+attenuation = 4.756827
+
+[node name="water_fall_water61" type="AnimatedSprite2D" parent="water_fall" unique_id=1659876462]
+position = Vector2(1320, -1248)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.6349112
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="water_fall_water62" type="AnimatedSprite2D" parent="water_fall" unique_id=1722585529]
+position = Vector2(1344, -1248)
+sprite_frames = ExtResource("18_ipu5t")
+frame_progress = 0.6349112
+offset = Vector2(12, 12)
+script = ExtResource("19_gntnr")
+
+[node name="entered_house_ready_scripts" type="Node" parent="." unique_id=2022489894 node_paths=PackedStringArray("scripts")]
+script = ExtResource("23_xdu60")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "TRUE"
+scripts = [NodePath("start_raining"), NodePath("set_modulate_visible"), NodePath("set_zone_dark"), NodePath("play_wind_sound")]
+
+[node name="start_raining" type="Node" parent="entered_house_ready_scripts" unique_id=75584112 node_paths=PackedStringArray("rain_layer")]
+script = ExtResource("24_ux6cf")
+rain_layer = NodePath("../../rain_effect_sprite")
+
+[node name="set_modulate_visible" type="Node" parent="entered_house_ready_scripts" unique_id=88196269 node_paths=PackedStringArray("node")]
+script = ExtResource("25_38hre")
+node = NodePath("../../CanvasModulate")
+
+[node name="play_wind_sound" type="Node" parent="entered_house_ready_scripts" unique_id=856203308 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("26_3kcy4")
+audio_player = NodePath("../../wind")
+
+[node name="set_zone_dark" type="Node" parent="entered_house_ready_scripts" unique_id=2091092830 node_paths=PackedStringArray("zone")]
+script = ExtResource("27_iafmk")
+zone = NodePath("../..")
+is_dark = false
+
+[node name="water_stopped_ready_scripts" type="Node" parent="." unique_id=1324359280 node_paths=PackedStringArray("scripts")]
+script = ExtResource("23_xdu60")
+gamestate_key = "WATER"
+run_if_state = "STOPPED"
+scripts = [NodePath("q_free_waterfall"), NodePath("close_sluice")]
+
+[node name="q_free_waterfall" type="Node" parent="water_stopped_ready_scripts" unique_id=647328540 node_paths=PackedStringArray("nodes")]
+script = ExtResource("28_drm6p")
+nodes = [NodePath("../../water_fall")]
+
+[node name="close_sluice" type="Node" parent="water_stopped_ready_scripts" unique_id=1957372272 node_paths=PackedStringArray("gate")]
+script = ExtResource("24_h08om")
+gate = NodePath("../../Sluice")
+open = false
+
+[node name="Sluice" parent="." unique_id=1985675524 instance=ExtResource("19_0nuoc")]
+z_index = 3
+position = Vector2(3144, -2520)
+is_open = true
+
+[node name="interactable_area_valve" type="StaticBody2D" parent="." unique_id=461430 node_paths=PackedStringArray("scripts") groups=["interactable"]]
+z_index = 3
+position = Vector2(3192, -2568)
+script = ExtResource("21_1a42s")
+no_gamestate = false
+gamestate_key = "WATER"
+run_if_state = "TRUE"
+default_state = "TRUE"
+scripts = [NodePath("play_texts"), NodePath("water_stopped"), NodePath("../water_stopped_ready_scripts/close_sluice"), NodePath("q_free_waterfall")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_valve" unique_id=1326153649]
+position = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_23gkh")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_valve" unique_id=1250917172 node_paths=PackedStringArray("texts")]
+script = ExtResource("22_h08om")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_valve/play_texts" unique_id=1153651752]
+script = ExtResource("23_2t2jc")
+language_map = Array[String](["english"])
+text = Array[String](["(The valve closes the sluice gate)"])
+
+[node name="water_stopped" type="Node" parent="interactable_area_valve" unique_id=305195247]
+script = ExtResource("24_4rak8")
+game_state_key = "WATER"
+to_value = "STOPPED"
+
+[node name="close_gate" type="Node" parent="interactable_area_valve" unique_id=341132278 node_paths=PackedStringArray("gate")]
+script = ExtResource("24_h08om")
+gate = NodePath("../../Sluice")
+open = false
+
+[node name="q_free_waterfall" type="Node" parent="interactable_area_valve" unique_id=1736255928 node_paths=PackedStringArray("nodes")]
+script = ExtResource("28_drm6p")
+nodes = [NodePath("../../water_fall")]

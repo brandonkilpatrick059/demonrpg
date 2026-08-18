@@ -1,3 +1,5 @@
+
+@tool
 class_name Gate extends Node2D
 
 @export var is_open : bool = false

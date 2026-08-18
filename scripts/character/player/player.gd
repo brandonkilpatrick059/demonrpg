@@ -10,7 +10,8 @@ var moving : bool = false
 
 @onready var body : AnimatedSprite2D = $body
 @onready var head : AnimatedSprite2D = $head
-@onready var flash_light : PointLight2D = $PointLight2D
+@onready var flash_light : PointLight2D = $flashlight
+@onready var no_light : PointLight2D = $nolight
 @onready var move_collider : Area2D = $move_collider
 
 var move_speed_vect : Vector2 = Vector2(0,0)
@@ -59,9 +60,12 @@ func turn_on_flashlight():
 	var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")
 	if gamestate.get_state_map_value("HAS_LAMP") == "TRUE":
 		flash_light.enabled = true
+	else:
+		no_light.enabled = true
 
 func turn_off_flashlight():
 	flash_light.enabled = false
+	no_light.enabled = false
 
 func freeze_input():
 	input_frozen = true
@@ -339,11 +343,14 @@ func is_active() -> bool:
 
 func set_active():
 	active = true
-	$PointLight2D.enabled = true
+	var zone_manager : ZoneManager = get_tree().get_first_node_in_group("zone_manager")
+	var zone : LocationZone = zone_manager.get_current_zone()
+	if(zone.is_dark()):
+		turn_on_flashlight()
 
 func set_inactive():
 	active = false
-	$PointLight2D.enabled = false
+	turn_off_flashlight()
 
 func set_grid_aligned_callback(node : Node):
 	grid_aligned_callback_node = node

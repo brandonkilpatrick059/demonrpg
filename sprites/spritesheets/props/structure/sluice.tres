@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c3q8au3d2www"]
+
+[ext_resource type="Texture2D" uid="uid://cri8jcox463eh" path="res://sprites/spritesheets/props/structure/sluice.png" id="1_g1erq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_717ip"]
+atlas = ExtResource("1_g1erq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6um0d"]
+atlas = ExtResource("1_g1erq")
+region = Rect2(0, 48, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_717ip")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6um0d")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 5.0
+}]

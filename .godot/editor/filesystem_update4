@@ -58,3 +58,14 @@ res://sprites/spritesheets/monsters/damned.tres
 res://monsters/damned.tscn
 res://scripts/item/damned.gd
 res://locations/zones/gloomy_woods/zone_cliffs_house_interior_2.tscn
+res://battle/encounters/martyr_encounter_gark_braim.tscn
+res://player/player.tscn
+res://scripts/character/player/player.gd
+res://scripts/locations/location_zone.gd
+res://scripts/locations/zone_manager.gd
+res://scripts/utility/destry_when_sound_done.gd
+res://monsters/shade_monster.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_pool.tscn
+res://sprites/spritesheets/props/structure/sluice.tres
+res://mechanism/sluice.tscn
+res://scripts/mechanism/gate.gd

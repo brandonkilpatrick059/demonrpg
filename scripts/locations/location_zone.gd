@@ -19,7 +19,7 @@ func set_is_dark():
 
 func set_is_not_dark():
 	dark = false
-	dark_canvas_mod.visible = false
+	#dark_canvas_mod.visible = false
 
 func is_dark() -> bool:
 	return dark

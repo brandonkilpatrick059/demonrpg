@@ -2,13 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://cxg87h670fq11" path="res://sprites/spritesheets/monsters/damned.png" id="1_bfvjh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r6oj1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfvjh"]
 atlas = ExtResource("1_bfvjh")
 region = Rect2(0, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3qiy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6oj1"]
 atlas = ExtResource("1_bfvjh")
 region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3qiy"]
+atlas = ExtResource("1_bfvjh")
+region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16c71"]
 atlas = ExtResource("1_bfvjh")
@@ -16,19 +20,18 @@ region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r56fm"]
 atlas = ExtResource("1_bfvjh")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lajap"]
-atlas = ExtResource("1_bfvjh")
 region = Rect2(24, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k835a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lajap"]
 atlas = ExtResource("1_bfvjh")
 region = Rect2(0, 0, 24, 24)
 
 [resource]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfvjh")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r6oj1")
 }, {
@@ -43,11 +46,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lajap")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k835a")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 2.0
+"speed": 1.0
 }]
