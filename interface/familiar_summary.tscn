@@ -46,6 +46,17 @@ text = "999/999"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 
+[node name="stored_label" type="Label" parent="." unique_id=1283287106]
+visible = false
+material = SubResource("CanvasItemMaterial_k8h1s")
+offset_left = -121.0
+offset_top = -75.0
+offset_right = -52.0
+offset_bottom = -66.0
+text = "STORED"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+
 [node name="attack" type="Label" parent="." unique_id=187377191]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0

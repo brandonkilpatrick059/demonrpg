@@ -37,6 +37,8 @@ func _ready() -> void:
 	fade_in()
 
 func get_familiars_team() -> Array[Familiar]:
+	for familiar in stored_familiars:
+		familiar.set_roused()
 	return familiar_team
 
 func set_familiars_team(in_team : Array[Familiar]):
@@ -44,6 +46,8 @@ func set_familiars_team(in_team : Array[Familiar]):
 	familiar_team.append_array(in_team)
 
 func get_stored_familiars() -> Array[Familiar]:
+	for familiar in stored_familiars:
+		familiar.set_stored()
 	return stored_familiars
 
 func set_stored_familiars(in_familiars : Array[Familiar]):

@@ -74,3 +74,5 @@ res://battle/encounters/empty_encounter.tscn
 res://scripts/battle_system/encounter.gd
 res://scripts/familiars/familiar.gd
 res://scripts/character/player/player.gd
+res://interface/familiar_summary.tscn
+res://scripts/interface/familiar_summary.gd
