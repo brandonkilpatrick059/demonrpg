@@ -31,5 +31,14 @@ func set_tab(input_action : BattleAction):
 	label.parse_bbcode(text)
 	set_energy_cost(input_action.get_energy_cost())
 
+func set_tab_name(name : String):
+	set_energy_cost(0)
+	text = name
+	label.parse_bbcode(text)
+
+func get_text()-> String:
+	return text
+	
+
 func get_action() -> BattleAction:
 	return action

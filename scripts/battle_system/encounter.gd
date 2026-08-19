@@ -10,5 +10,8 @@ func get_opponents() -> Array[Familiar]:
 func get_music() -> AudioStream:
 	return music
 
+func add_opponent(opponent : Familiar):
+	opponents.append(opponent)
+
 func get_background() -> Texture:
 	return background

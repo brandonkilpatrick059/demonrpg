@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://c81wetankxf32" path="res://scripts/locations/zone_manager.gd" id="1_5ulbo"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
+[ext_resource type="PackedScene" uid="uid://cm1hsy8epesue" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn" id="5_cpjx4"]
+[ext_resource type="PackedScene" uid="uid://be8nahf55fp0p" path="res://familiars/base/L1_braim.tscn" id="5_vlo4x"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
-[ext_resource type="PackedScene" uid="uid://dto0o6fl65v4p" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn" id="7_f7ow6"]
+[ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="6_pag8u"]
+[ext_resource type="PackedScene" uid="uid://c121x6li7hj1m" path="res://familiars/base/L0_damned.tscn" id="7_nn1l1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]
 shader = ExtResource("6_je83m")
@@ -25,8 +28,12 @@ shader_parameter/pixel_strength = -4.0
 
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
+position = Vector2(-24, -12)
 script = ExtResource("1_5ulbo")
-current_zone = NodePath("zone_gloomy_woods_cliffs")
+current_zone = NodePath("zone_gloomy_woods_entrance")
+
+[node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
+states_map_values = Array[String](["FALSE", "TRUE"])
 
 [node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=1494413384]
 
@@ -44,14 +51,23 @@ offset_bottom = 1170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Player" parent="." unique_id=286954556 instance=ExtResource("3_r2q7f")]
-position = Vector2(4320, -1584)
+[node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
+position = Vector2(2904, -2388)
+rotation = 0.007521447
+familiar_team = [NodePath("L1braim"), NodePath("L0Homunculus"), NodePath("L0Damned")]
 pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
 position = Vector2(12, -12)
 
-[node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
-states_map_values = Array[String](["FALSE", "TRUE"])
+[node name="L1braim" parent="Player" unique_id=1658016037 instance=ExtResource("5_vlo4x")]
+visible = false
 
-[node name="zone_gloomy_woods_cliffs" parent="." unique_id=298582258 instance=ExtResource("7_f7ow6")]
+[node name="L0Homunculus" parent="Player" unique_id=2025998125 instance=ExtResource("6_pag8u")]
+visible = false
+
+[node name="L0Damned" parent="Player" unique_id=1619839720 instance=ExtResource("7_nn1l1")]
+visible = false
+
+[node name="zone_gloomy_woods_entrance" parent="." unique_id=1169712370 instance=ExtResource("5_cpjx4")]
+position = Vector2(0, -12)

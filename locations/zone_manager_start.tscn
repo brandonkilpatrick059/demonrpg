@@ -4,10 +4,10 @@
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="2_xfaqi"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_u4pa0"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="4_5adro"]
-[ext_resource type="Script" uid="uid://ckvi7r3fcenhi" path="res://utility/control_lock_timer.gd" id="4_40xs0"]
+[ext_resource type="Script" uid="uid://ckvi7r3fcenhi" path="res://scripts/control_lock_timer.gd" id="4_40xs0"]
 [ext_resource type="PackedScene" uid="uid://b3byqi3mwn2pn" path="res://locations/zones/zone_homestead_interior.tscn" id="5_c34p3"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="6_xfaqi"]
-[ext_resource type="Script" uid="uid://drnh2avd41f10" path="res://utility/to_screen_center.gd" id="7_40xs0"]
+[ext_resource type="Script" uid="uid://drnh2avd41f10" path="res://scripts/to_screen_center.gd" id="7_40xs0"]
 [ext_resource type="Script" uid="uid://clm4enx7fqkjw" path="res://scripts/utility/fade_node.gd" id="7_u4pa0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]

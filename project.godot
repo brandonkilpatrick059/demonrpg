@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="demonrpg"
-run/main_scene="uid://crn4l16pq44k7"
+run/main_scene="uid://djw05xya3j8mi"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/image="uid://dmdkaas75v4jb"
 config/icon="res://icon.svg"

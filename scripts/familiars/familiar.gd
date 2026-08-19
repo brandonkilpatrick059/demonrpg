@@ -111,7 +111,11 @@ func reset_actions_taken():
 func get_next_action() -> BattleAction:
 	var current_cadence : Array[String] = get_action_cadence(current_action_cadence)
 	var ret_action : BattleAction
-	if(action_cadence_index < current_cadence.size()):
+	if(action_cadence_0.size() == 0 && 
+	action_cadence_1.size() == 0 && 
+	action_cadence_2.size() == 0):
+		return ret_action
+	elif(action_cadence_index < current_cadence.size()):
 		var action_name = current_cadence[action_cadence_index]
 		ret_action = get_action_by_name(action_name)
 		action_cadence_index = action_cadence_index + 1

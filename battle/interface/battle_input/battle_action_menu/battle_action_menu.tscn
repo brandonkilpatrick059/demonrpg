@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://rgdy6g0uqvfp"]
+[gd_scene format=3 uid="uid://rgdy6g0uqvfp"]
 
 [ext_resource type="Script" uid="uid://ci0tv247mfmri" path="res://scripts/battle_system/interface/battle_action_menu.gd" id="1_ae6hk"]
 [ext_resource type="PackedScene" uid="uid://b3dnjyow36a8x" path="res://battle/interface/battle_input/battle_action_menu/action_menu_tab.tscn" id="2_5vl7x"]
@@ -11,44 +11,44 @@
 font = ExtResource("5_0gv78")
 font_size = 8
 
-[node name="BattleActionMenu" type="Node2D"]
+[node name="BattleActionMenu" type="Node2D" unique_id=1032894491]
 script = ExtResource("1_ae6hk")
 
-[node name="tabs" type="Node2D" parent="."]
+[node name="tabs" type="Node2D" parent="." unique_id=769511855]
 
-[node name="ActionMenuTab" parent="tabs" instance=ExtResource("2_5vl7x")]
+[node name="ActionMenuTab" parent="tabs" unique_id=91032140 instance=ExtResource("2_5vl7x")]
 position = Vector2(0, -32)
 
-[node name="ActionMenuTab2" parent="tabs" instance=ExtResource("2_5vl7x")]
+[node name="ActionMenuTab2" parent="tabs" unique_id=1727876615 instance=ExtResource("2_5vl7x")]
 position = Vector2(0, -23)
 
-[node name="ActionMenuTab3" parent="tabs" instance=ExtResource("2_5vl7x")]
+[node name="ActionMenuTab3" parent="tabs" unique_id=1590443383 instance=ExtResource("2_5vl7x")]
 position = Vector2(0, -14)
 
-[node name="ActionMenuTab4" parent="tabs" instance=ExtResource("2_5vl7x")]
+[node name="ActionMenuTab4" parent="tabs" unique_id=1542797280 instance=ExtResource("2_5vl7x")]
 position = Vector2(0, -5)
 
-[node name="ActionMenuTab5" parent="tabs" instance=ExtResource("2_5vl7x")]
+[node name="ActionMenuTab5" parent="tabs" unique_id=1919661987 instance=ExtResource("2_5vl7x")]
 position = Vector2(0, 4)
 
-[node name="ActionMenuTab6" parent="tabs" instance=ExtResource("2_5vl7x")]
+[node name="ActionMenuTab6" parent="tabs" unique_id=1578391914 instance=ExtResource("2_5vl7x")]
 position = Vector2(0, 13)
 
-[node name="ActionMenuTab7" parent="tabs" instance=ExtResource("2_5vl7x")]
+[node name="ActionMenuTab7" parent="tabs" unique_id=1239261893 instance=ExtResource("2_5vl7x")]
 position = Vector2(0, 22)
 
-[node name="ActionMenuTab8" parent="tabs" instance=ExtResource("2_5vl7x")]
+[node name="ActionMenuTab8" parent="tabs" unique_id=1808342731 instance=ExtResource("2_5vl7x")]
 position = Vector2(0, 31)
 
-[node name="energy_bar" type="AnimatedSprite2D" parent="."]
+[node name="energy_bar" type="AnimatedSprite2D" parent="." unique_id=1629548719]
 position = Vector2(-4, -48)
 sprite_frames = ExtResource("3_5vl7x")
 
-[node name="num_act_tab" type="Sprite2D" parent="."]
+[node name="num_act_tab" type="Sprite2D" parent="." unique_id=1161475902]
 position = Vector2(28, -44)
 texture = ExtResource("4_xukji")
 
-[node name="Label" type="Label" parent="num_act_tab"]
+[node name="Label" type="Label" parent="num_act_tab" unique_id=568085288]
 offset_left = -5.0
 offset_top = -5.0
 offset_right = 40.0
@@ -56,7 +56,7 @@ offset_bottom = 23.0
 text = "1/1"
 label_settings = SubResource("LabelSettings_cea73")
 
-[node name="background" type="AnimatedSprite2D" parent="."]
+[node name="background" type="AnimatedSprite2D" parent="." unique_id=1590431551]
 z_index = -1
 sprite_frames = ExtResource("6_0gv78")
 frame = 7

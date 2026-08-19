@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://besfur6201ptv"]
+
+[ext_resource type="PackedScene" uid="uid://b0hr4h2r6k7i7" path="res://menu/save_load_tab.tscn" id="1_e2ta8"]
+[ext_resource type="Script" uid="uid://dkhqlujhmkvkl" path="res://scripts/menu/save_load_menu.gd" id="1_si1p2"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="2_jepdt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("2_jepdt")
+font_size = 8
+
+[node name="SaveLoadMenu" type="Node2D" unique_id=1002540959]
+script = ExtResource("1_si1p2")
+
+[node name="SaveLoadTab" parent="." unique_id=1080037547 instance=ExtResource("1_e2ta8")]
+z_index = 1
+position = Vector2(0, -48)
+
+[node name="SaveLoadTab2" parent="." unique_id=749113570 instance=ExtResource("1_e2ta8")]
+z_index = 1
+position = Vector2(0, -11)
+
+[node name="SaveLoadTab3" parent="." unique_id=691285769 instance=ExtResource("1_e2ta8")]
+z_index = 1
+position = Vector2(0, 26)
+
+[node name="SaveLoadTab4" parent="." unique_id=2032390082 instance=ExtResource("1_e2ta8")]
+z_index = 1
+position = Vector2(0, 63)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1726043755]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-192, -192, 192, -192, 192, 180, -192, 180)
+
+[node name="mode" type="Label" parent="." unique_id=233138788]
+z_index = 1
+offset_left = -20.0
+offset_top = -80.0
+offset_right = 20.0
+offset_bottom = -71.0
+text = "LOAD"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1

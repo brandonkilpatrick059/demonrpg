@@ -1,18 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3dnjyow36a8x"]
+[gd_scene format=3 uid="uid://b3dnjyow36a8x"]
 
 [ext_resource type="Script" uid="uid://cdyhr3ui7k3vk" path="res://scripts/battle_system/interface/action_menu_tab.gd" id="1_2cs40"]
 [ext_resource type="SpriteFrames" uid="uid://b5fvxik0lh6x0" path="res://sprites/spritesheets/battle/interface/battle_action_tab.tres" id="1_wc4vb"]
 [ext_resource type="FontFile" uid="uid://bimdomgyc2vy7" path="res://fonts/Silkscreen-Regular.ttf" id="3_at2ls"]
 [ext_resource type="SpriteFrames" uid="uid://cl54bhecgyn8d" path="res://sprites/spritesheets/battle/interface/energy_cost.tres" id="4_5ch7a"]
 
-[node name="ActionMenuTab" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fcnae"]
+light_mode = 1
+
+[node name="ActionMenuTab" type="Node2D" unique_id=2062891674]
+material = SubResource("CanvasItemMaterial_fcnae")
 script = ExtResource("1_2cs40")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1593921286]
+material = SubResource("CanvasItemMaterial_fcnae")
 sprite_frames = ExtResource("1_wc4vb")
 animation = &"active"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=9836357]
+material = SubResource("CanvasItemMaterial_fcnae")
 offset_left = -35.0
 offset_top = -6.0
 offset_right = 40.0
@@ -22,8 +28,10 @@ theme_override_fonts/normal_font = ExtResource("3_at2ls")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "attack"
+metadata/_edit_use_anchors_ = true
 
-[node name="energy_cost" type="AnimatedSprite2D" parent="."]
+[node name="energy_cost" type="AnimatedSprite2D" parent="." unique_id=1837169769]
+material = SubResource("CanvasItemMaterial_fcnae")
 position = Vector2(25, -3)
 sprite_frames = ExtResource("4_5ch7a")
 frame = 4

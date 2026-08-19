@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b0amba2vp6pte"]
+
+[ext_resource type="Script" uid="uid://cu66sup01g7h4" path="res://scripts/interface/generic_action_menu.gd" id="1_fcnae"]
+[ext_resource type="PackedScene" uid="uid://b3dnjyow36a8x" path="res://battle/interface/battle_input/battle_action_menu/action_menu_tab.tscn" id="2_2g5a5"]
+[ext_resource type="SpriteFrames" uid="uid://4ci8hesla7cn" path="res://sprites/spritesheets/battle/interface/battle_action_menu.tres" id="3_urvrm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fcnae"]
+light_mode = 1
+
+[node name="GenericActionMenu" type="Node2D" unique_id=1032894491]
+z_index = 10
+material = SubResource("CanvasItemMaterial_fcnae")
+script = ExtResource("1_fcnae")
+
+[node name="tabs" type="Node2D" parent="." unique_id=769511855]
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, -19)
+
+[node name="ActionMenuTab" parent="tabs" unique_id=91032140 instance=ExtResource("2_2g5a5")]
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, -32)
+
+[node name="ActionMenuTab2" parent="tabs" unique_id=1727876615 instance=ExtResource("2_2g5a5")]
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, -23)
+
+[node name="ActionMenuTab3" parent="tabs" unique_id=1590443383 instance=ExtResource("2_2g5a5")]
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, -14)
+
+[node name="ActionMenuTab4" parent="tabs" unique_id=1542797280 instance=ExtResource("2_2g5a5")]
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, -5)
+
+[node name="ActionMenuTab5" parent="tabs" unique_id=1919661987 instance=ExtResource("2_2g5a5")]
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, 4)
+
+[node name="ActionMenuTab6" parent="tabs" unique_id=1578391914 instance=ExtResource("2_2g5a5")]
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, 13)
+
+[node name="ActionMenuTab7" parent="tabs" unique_id=1239261893 instance=ExtResource("2_2g5a5")]
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, 22)
+
+[node name="ActionMenuTab8" parent="tabs" unique_id=1808342731 instance=ExtResource("2_2g5a5")]
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, 31)
+
+[node name="background" type="AnimatedSprite2D" parent="." unique_id=1590431551]
+z_index = -1
+material = SubResource("CanvasItemMaterial_fcnae")
+position = Vector2(0, -19)
+sprite_frames = ExtResource("3_urvrm")
+frame = 7

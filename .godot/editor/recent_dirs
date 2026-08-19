@@ -1,4 +1,6 @@
+res://scripts/interface/
 res://scripts/menu/
+res://sprites/spritesheets/interface/
 res://utility/
 res://sprites/spritesheets/props/structure/
 res://sprites/spritesheets/monsters/
@@ -12,8 +14,6 @@ res://sprites/
 res://scripts/mechanism/
 res://scripts/character/npc/
 res://scripts/locations/
-res://sprites/spritesheets/interface/
-res://scripts/interface/
 res://interface/
 res://sprites/spritesheets/player/
 res://sprites/spritesheets/battle/actions/

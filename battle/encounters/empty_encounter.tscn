@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b8maf66m5k23n"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_00ac4"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_hok5b"]
+
+[node name="EmptyEncounter" type="Node2D" unique_id=833454008]
+script = ExtResource("1_00ac4")
+music = ExtResource("2_hok5b")
