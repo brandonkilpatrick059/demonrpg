@@ -9,8 +9,13 @@
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="6_xfaqi"]
 [ext_resource type="Script" uid="uid://drnh2avd41f10" path="res://scripts/to_screen_center.gd" id="7_40xs0"]
 [ext_resource type="Script" uid="uid://clm4enx7fqkjw" path="res://scripts/utility/fade_node.gd" id="7_u4pa0"]
+[ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="9_vaw0c"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("6_xfaqi")
+font_size = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4d246"]
 shader = ExtResource("2_xfaqi")
 shader_parameter/resolution = Vector2(320, 180)
 shader_parameter/scan_line_amount = 0.50000002375
@@ -27,30 +32,10 @@ shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -7.99999981
 shader_parameter/pixel_strength = -4.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
-font = ExtResource("6_xfaqi")
-font_size = 8
-
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
 script = ExtResource("1_c34p3")
 current_zone = NodePath("ZoneHomesteadInterior")
-
-[node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=1494413384]
-
-[node name="screen_effect" type="ColorRect" parent="screen_effect_layer" unique_id=503890868]
-z_index = 50
-material = SubResource("ShaderMaterial_lc7g1")
-custom_minimum_size = Vector2(3840, 2160)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1760.0
-offset_top = -990.0
-offset_right = 2080.0
-offset_bottom = 1170.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Player" parent="." unique_id=286954556 instance=ExtResource("3_u4pa0")]
 position = Vector2(0, 24)
@@ -155,3 +140,51 @@ modulate_step = 0.1
 time_step = 0.2
 start_after_wait = 10.0
 q_free_parent_when_done = true
+
+[node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=783338348]
+script = ExtResource("9_vaw0c")
+
+[node name="screen_effect_320x180" type="ColorRect" parent="screen_effect_layer" unique_id=1752007159]
+z_index = 50
+material = SubResource("ShaderMaterial_4d246")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="screen_effect_300x180" type="ColorRect" parent="screen_effect_layer" unique_id=2031149312]
+visible = false
+z_index = 50
+material = SubResource("ShaderMaterial_4d246")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="screen_effect_316x160" type="ColorRect" parent="screen_effect_layer" unique_id=1511126847]
+visible = false
+z_index = 50
+material = SubResource("ShaderMaterial_4d246")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2

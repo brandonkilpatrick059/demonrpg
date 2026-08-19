@@ -1,3 +1,4 @@
+res://scripts/utility/
 res://scripts/interface/
 res://scripts/menu/
 res://sprites/spritesheets/interface/
@@ -8,7 +9,6 @@ res://sprites/spritesheets/familiars/
 res://locations/
 res://scripts/item/
 res://sprites/spritesheets/npc/
-res://scripts/utility/
 res://sprites/spritesheets/effects/
 res://sprites/
 res://scripts/mechanism/

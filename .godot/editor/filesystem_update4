@@ -76,3 +76,4 @@ res://scripts/familiars/familiar.gd
 res://scripts/character/player/player.gd
 res://interface/familiar_summary.tscn
 res://scripts/interface/familiar_summary.gd
+res://scripts/utility/choose_screen_effect.gd

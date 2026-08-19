@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djw05xya3j8mi"]
 
 [ext_resource type="Script" uid="uid://c81wetankxf32" path="res://scripts/locations/zone_manager.gd" id="1_5ulbo"]
+[ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="3_2gs5w"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
 [ext_resource type="PackedScene" uid="uid://cm1hsy8epesue" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn" id="5_cpjx4"]
@@ -28,6 +29,40 @@ shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -7.99999981
 shader_parameter/pixel_strength = -4.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2gs5w"]
+shader = ExtResource("6_je83m")
+shader_parameter/resolution = Vector2(300, 180)
+shader_parameter/scan_line_amount = 0.50000002375
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/noise_amount = 0.02000000095
+shader_parameter/interference_amount = 0.2050000097375
+shader_parameter/grille_amount = 0.0
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.3590000170525
+shader_parameter/vignette_intensity = 0.36800001748
+shader_parameter/aberation_amount = 0.25200001197
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = -8.0
+shader_parameter/scan_line_strength = -7.99999981
+shader_parameter/pixel_strength = -4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ri5ms"]
+shader = ExtResource("6_je83m")
+shader_parameter/resolution = Vector2(316, 160)
+shader_parameter/scan_line_amount = 0.50000002375
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/noise_amount = 0.02000000095
+shader_parameter/interference_amount = 0.2050000097375
+shader_parameter/grille_amount = 0.0
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.3590000170525
+shader_parameter/vignette_intensity = 0.36800001748
+shader_parameter/aberation_amount = 0.25200001197
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = -8.0
+shader_parameter/scan_line_strength = -7.99999981
+shader_parameter/pixel_strength = -4.0
+
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
 position = Vector2(-24, -12)
@@ -38,10 +73,43 @@ current_zone = NodePath("zone_gloomy_woods_entrance")
 states_map_values = Array[String](["FALSE", "TRUE"])
 
 [node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=1494413384]
+script = ExtResource("3_2gs5w")
 
-[node name="screen_effect" type="ColorRect" parent="screen_effect_layer" unique_id=503890868]
+[node name="screen_effect_320x180" type="ColorRect" parent="screen_effect_layer" unique_id=503890868]
 z_index = 50
 material = SubResource("ShaderMaterial_lc7g1")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="screen_effect_300x180" type="ColorRect" parent="screen_effect_layer" unique_id=1004175354]
+visible = false
+z_index = 50
+material = SubResource("ShaderMaterial_2gs5w")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="screen_effect_316x160" type="ColorRect" parent="screen_effect_layer" unique_id=1280321284]
+visible = false
+z_index = 50
+material = SubResource("ShaderMaterial_ri5ms")
 custom_minimum_size = Vector2(3840, 2160)
 anchors_preset = 15
 anchor_right = 1.0
