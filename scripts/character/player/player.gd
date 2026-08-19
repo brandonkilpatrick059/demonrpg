@@ -1,7 +1,7 @@
 class_name Player extends Node2D
 
 @export var familiar_team : Array[Familiar] = []
-var stored_familiars : Array[Familiar] = []
+@export var stored_familiars : Array[Familiar] = []
 @export var pentacle_charms : int = 0
 
 var facing_direction : String = "down"
@@ -128,6 +128,20 @@ func handle_input():
 			if(grid_aligned() and $input_timer.is_stopped()):
 				handle_interact()
 
+func show_full_summary():
+	if(not showing_summary && $input_timer.is_stopped()):
+		if(get_tree().get_first_node_in_group("rain_effect") != null):
+			var rain_effect = get_tree().get_first_node_in_group("rain_effect")
+			if(rain_effect.is_active()):
+				rain_effect.visible = false
+		showing_summary = true
+		var all_familiars : Array[Familiar] = []
+		all_familiars.append_array(familiar_team)
+		all_familiars.append_array(stored_familiars)
+		show_summary(all_familiars)
+		get_tree().paused = true
+		$input_timer.start(0.5)
+
 func play_sound(stream : AudioStream):
 	$AudioStreamPlayer.stream = stream
 	$AudioStreamPlayer.play()
@@ -135,11 +149,11 @@ func play_sound(stream : AudioStream):
 func start_input_timer(time : float):
 	$input_timer.start(time)
 
-func show_summary():
+func show_summary(familiars : Array[Familiar] = familiar_team):
 	if(familiar_team.size() > 0):
 		var summary : FamiliarSummary = load("res://interface/familiar_summary.tscn").instantiate()
 		get_parent().add_child(summary)
-		summary.set_familiars(familiar_team)
+		summary.set_familiars(familiars)
 		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 		var pos : Vector2 = camera.get_screen_center_position()
 		summary.global_position = pos

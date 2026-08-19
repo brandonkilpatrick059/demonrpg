@@ -86,11 +86,11 @@ func handle_input():
 		elif(Input.is_action_just_pressed("action_1")):
 			var chosen_action : String = tabs[selected_index].get_text()
 			parent_node.take_action(chosen_action)
-		elif(Input.is_action_just_pressed("action_2")):
-			set_inactive()
-			parent_node.action_menu_exit()
-			audio_player.stream = load("res://audio/effects/click.ogg")
-			audio_player.play()
+		#elif(Input.is_action_just_pressed("action_2")):
+			#set_inactive()
+			#parent_node.action_menu_exit()
+			#audio_player.stream = load("res://audio/effects/click.ogg")
+			#audio_player.play()
 
 func _physics_process(delta: float) -> void:
 	handle_input()

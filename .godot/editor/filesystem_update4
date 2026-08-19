@@ -73,3 +73,4 @@ res://scripts/interface/generic_action_menu.gd
 res://battle/encounters/empty_encounter.tscn
 res://scripts/battle_system/encounter.gd
 res://scripts/familiars/familiar.gd
+res://scripts/character/player/player.gd
