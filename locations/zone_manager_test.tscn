@@ -123,7 +123,6 @@ grow_vertical = 2
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team", "stored_familiars") instance=ExtResource("3_r2q7f")]
 position = Vector2(2904, -2388)
-rotation = 0.007521447
 familiar_team = [NodePath("L1braim"), NodePath("L0Homunculus"), NodePath("L0Damned")]
 stored_familiars = [NodePath("L1martyr"), NodePath("L1gark")]
 pentacle_charms = 3

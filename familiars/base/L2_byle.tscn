@@ -11,6 +11,7 @@
 
 [node name="L2byle" type="Node2D" unique_id=1170432072]
 script = ExtResource("1_5vyt4")
+packedscene_path = "res://familiars/base/L2_byle.tscn"
 familiar_name = "Byle"
 max_hp = 15
 current_hp = 15

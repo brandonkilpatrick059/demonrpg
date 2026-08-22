@@ -9,14 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="6_fqvrx"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="7_gsyfw"]
 
-[node name="L1braim" type="Node2D" unique_id=1658016037 node_paths=PackedStringArray("evolutions")]
+[node name="L1braim" type="Node2D" unique_id=1658016037]
 script = ExtResource("1_bkqs8")
+packedscene_path = "res://familiars/base/L1_braim.tscn"
 familiar_name = "Braim"
 max_hp = 10
 current_hp = 10
 attack = 3
 defense = 3
-evolutions = [NodePath("evolutions/gorgon"), NodePath("evolutions/dylith")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=317345956]
 sprite_frames = ExtResource("2_fqvrx")

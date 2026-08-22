@@ -17,3 +17,10 @@ func set_state_map_value(key : String, value : String):
 		states_map_values.append(value)
 	else:
 		states_map_values.set(key_index,value)
+
+func get_save_dictionary() -> Dictionary:
+	var ret_dictionary : Dictionary = {
+		"states_map_keys" : states_map_keys,
+		"states_map_values" : states_map_values
+	}
+	return ret_dictionary

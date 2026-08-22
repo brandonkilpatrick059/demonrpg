@@ -6,6 +6,7 @@
 
 [node name="L0Damned" type="Node2D" unique_id=2025998125]
 script = ExtResource("1_ljxrk")
+packedscene_path = "res://familiars/base/L0_damned.tscn"
 familiar_name = "Damned"
 max_hp = 10
 current_hp = 10

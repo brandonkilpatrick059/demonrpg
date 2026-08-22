@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://cnjorwr2476qu" path="res://scripts/menu/save_load_tab.gd" id="1_66q46"]
 [ext_resource type="SpriteFrames" uid="uid://bxjw33a1pnfmw" path="res://sprites/spritesheets/interface/save_load_tab.tres" id="1_dv1f8"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="2_f51xp"]
+[ext_resource type="Texture2D" uid="uid://muqy0y2yn2j1" path="res://sprites/items/pentacle_seal_16.png" id="4_fi0gi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si1p2"]
+light_mode = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_66q46"]
 font = ExtResource("2_f51xp")
@@ -13,16 +17,24 @@ font_color = Color(0.34618634, 0.54770494, 1, 1)
 font = ExtResource("2_f51xp")
 font_size = 8
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sp2d5"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_gu2cv"]
+font = ExtResource("2_f51xp")
+font_size = 8
+
 [node name="SaveLoadTab" type="Node2D" unique_id=1080037547]
 script = ExtResource("1_66q46")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=931616827]
+material = SubResource("CanvasItemMaterial_si1p2")
 position = Vector2(0, -5)
 sprite_frames = ExtResource("1_dv1f8")
 animation = &"active"
 
 [node name="location" type="Label" parent="." unique_id=1467155642]
-visible = false
+material = SubResource("CanvasItemMaterial_si1p2")
 offset_left = -58.0
 offset_top = -18.0
 offset_right = -1.0
@@ -31,7 +43,7 @@ text = "GLOOMY WOODS"
 label_settings = SubResource("LabelSettings_66q46")
 
 [node name="play_time" type="Label" parent="." unique_id=1643460660]
-visible = false
+material = SubResource("CanvasItemMaterial_si1p2")
 offset_left = 11.0
 offset_top = -18.0
 offset_right = 58.0
@@ -41,6 +53,8 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 2
 
 [node name="empty" type="Label" parent="." unique_id=684998516]
+visible = false
+material = SubResource("CanvasItemMaterial_si1p2")
 offset_left = -59.0
 offset_top = -18.0
 offset_right = 58.0
@@ -51,13 +65,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="familiars_label" type="RichTextLabel" parent="." unique_id=589435047]
-visible = false
+material = SubResource("CanvasItemMaterial_si1p2")
 offset_left = -58.0
 offset_top = -10.0
-offset_right = 56.0
-offset_bottom = 18.0
+offset_right = 18.0
+offset_bottom = 8.0
 theme_override_fonts/normal_font = ExtResource("2_f51xp")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "GarkX / VesselX / MartyrX / DylithX"
 scroll_active = false
+
+[node name="pentacle_charm" type="Sprite2D" parent="." unique_id=1901575985]
+material = SubResource("CanvasItemMaterial_sp2d5")
+position = Vector2(27, -1)
+texture = ExtResource("4_fi0gi")
+
+[node name="num_charms" type="Label" parent="." unique_id=656985412]
+material = SubResource("CanvasItemMaterial_sp2d5")
+offset_left = 36.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 6.0
+text = "x99"
+label_settings = SubResource("LabelSettings_gu2cv")

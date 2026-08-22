@@ -10,6 +10,7 @@
 
 [node name="L2dylith" type="Node2D" unique_id=1722867992]
 script = ExtResource("1_p0itq")
+packedscene_path = "res://familiars/base/L2_dylith.tscn"
 familiar_name = "Dylith"
 max_hp = 15
 current_hp = 15

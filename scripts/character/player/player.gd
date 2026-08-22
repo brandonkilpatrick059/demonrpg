@@ -380,6 +380,12 @@ func play_texts(texts : Array[Text]):
 	var pos : Vector2 = camera.get_screen_center_position()
 	$InterfaceMessageSpeech.global_position = pos + Vector2(-64,80)
 
+func get_save_dictionary() -> Dictionary:
+	var ret_dictionary : Dictionary = {
+		"pentacle_charms" : pentacle_charms
+	}
+	return ret_dictionary
+
 func _physics_process(delta: float) -> void:
 	if(active):
 		handle_input()

@@ -10,6 +10,7 @@ var stats : Array[String] =[
 	"num_actions"
 ]
 
+@export var packedscene_path : String = ""
 @export var familiar_name : String = ""
 @export var max_hp : int = 1
 @export var current_hp : int = 1
@@ -414,6 +415,23 @@ func set_active():
 func set_inactive():
 	active = false
 	visible = false
+
+func get_save_dictionary() -> Dictionary:
+	var ret_dictionary : Dictionary = {
+		"packedscene" : packedscene_path,
+		"name" : familiar_name,
+		"sigil" : sigil,
+		"max_hp" : max_hp,
+		"attack" : attack,
+		"defense" : defense,
+		"speed" : speed,
+		"magic" : magic,
+		"num_actions" : num_actions,
+		"level" : level,
+		"experience" : experience,
+		"stored" : stored
+	}
+	return ret_dictionary
 
 func _physics_process(delta: float) -> void:
 	if(active):

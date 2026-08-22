@@ -1,14 +1,14 @@
+Sprite2D
+Node
+AudioStreamPlayer
 CollisionShape2D
 StaticBody2D
 Label
 Polygon2D
 CollisionPolygon2D
 RichTextLabel
-Sprite2D
 AnimatedSprite2D
-AudioStreamPlayer
 Node2D
 VBoxContainer
 Control
-Node
 Camera2D

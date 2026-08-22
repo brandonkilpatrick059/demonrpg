@@ -11,6 +11,7 @@
 
 [node name="L2reaver" type="Node2D" unique_id=888126814]
 script = ExtResource("1_a4jfi")
+packedscene_path = "res://familiars/base/L2_reaver.tscn"
 familiar_name = "Reaver"
 max_hp = 15
 current_hp = 15

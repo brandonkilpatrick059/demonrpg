@@ -7,6 +7,8 @@ static var saves_location : String = "user://save_games"
 
 var loading_file_path : String = ""
 
+var num_save_slots : int = 4
+
 func _ready() -> void:
 	var dir : DirAccess = DirAccess.open("user://")
 	if(!dir.dir_exists(saves_location)):
@@ -15,44 +17,56 @@ func _ready() -> void:
 func settings_save_file_exists() -> bool:
 	return FileAccess.file_exists("user://settings.save")
 
-#func load_file(file_path : String):
-	#var temp_vol = AudioServer.get_bus_volume_db(0)
-	#var zero_volume : float = -60
-	#AudioServer.set_bus_volume_db(0,zero_volume)
-	#var grid_base : Grid_Base = get_tree().get_first_node_in_group("grid_base")
-	#grid_base.clear_grid()
-	#save_file = FileAccess.open(file_path, FileAccess.READ)
-	#while(save_file.get_position() < save_file.get_length()):
-		#var line = save_file.get_line()
-		#var dictionary : Dictionary = JSON.parse_string(line)
-		#var type = String(dictionary.get("type"))
-		#match type:
-			#"grid_entity":
-				#load_grid_entity(dictionary)
-			#"tree":
-				#load_tree(dictionary)
-	#save_file.close()
-	#grid_base.update()
-	#AudioServer.set_bus_volume_db(0,temp_vol)
+func game_save_file_exists(name : String) -> bool:
+	return FileAccess.file_exists(name)
 
-func save(file_name : String): 
-	var path = str(str(saves_location,file_name),extension)
+func get_load_tab(save_slot : int, tab : SaveLoadTab):
+	var file_path = str(str(saves_location,str("/save_",save_slot)),extension)
+	if(game_save_file_exists(file_path)):
+		save_file = FileAccess.open(file_path, FileAccess.READ)
+		var location_line : String = save_file.get_line()
+		save_file.get_line() #scenepath
+		save_file.get_line() #time played
+		save_file.get_line() #game state 
+		var player_line = save_file.get_line()
+		var player_dictionary : Dictionary = JSON.parse_string(player_line)
+		var num_charms : int = int(player_dictionary.get("pentacle_charms"))
+		var name_line : String = ""
+		while(save_file.get_position() < save_file.get_length()):
+			var line = save_file.get_line()
+			var dictionary : Dictionary = JSON.parse_string(line)
+			var stored : bool = bool(dictionary.get("stored"))
+			if(not stored):
+				var fam_name : String = dictionary.get("name")
+				var sigil : String = dictionary.get("sigil")
+				sigil = str("[img]",sigil)
+				sigil = str(sigil,"[/img]")
+				fam_name = str(fam_name,sigil)
+				name_line = str(name_line,str(fam_name," | "))
+		tab.set_tab(location_line,"",name_line,num_charms)
+		save_file.close()
+	else:
+		tab.set_empty()
+
+func save(slot : int, location : String, load_scene_path : String): 
+	var path = str(str(saves_location,str("/save_",slot)),extension)
 	save_file= FileAccess.open(path, FileAccess.WRITE)
-	save_game()
+	save_game(location,load_scene_path)
 	save_file.close()
 
-func save_game():
-	save_location()
-	save_total_time()
-	save_player()
+func save_game(location : String, load_scene_path : String):
+	save_location(location,load_scene_path)
+	save_total_time() #TODO: implement
 	save_game_state()
+	save_player()
 	save_familiars()
 
-func save_location():
-	var loc_name : String = "" #TODO: retrieve
-	save_file.store_line(loc_name)
+func save_location(location: String, load_scene_path : String):
+	save_file.store_line(location)
+	save_file.store_line(load_scene_path)
 
 func save_total_time():
+	pass
 	var time_secs : float = 0.0 #TODO: retrieve
 	save_file.store_line(str(time_secs))
 
@@ -66,18 +80,12 @@ func save_familiars():
 	var familiars : Array[Familiar] = player_ref.get_familiars_team()
 	for familiar in familiars:
 		var save_dict = familiar.get_save_dictionary()
-		save_file.store_line(save_dict)
+		save_file.store_line(JSON.stringify(save_dict))
+	for familiar in player_ref.get_stored_familiars():
+		var save_dict = familiar.get_save_dictionary()
+		save_file.store_line(JSON.stringify(save_dict)) 
 
 func save_player():
 	var player_ref : Player = get_tree().get_first_node_in_group("player")
 	var save_dict : Dictionary = player_ref.get_save_dictionary()
 	save_file.store_line(JSON.stringify(save_dict))
-
-#func get_grid_entity_dictionary(entity : Grid_Entity) -> Dictionary:
-	#var grid_entity_dictionary : Dictionary = {
-		#"type" : "grid_entity",
-		#"pos_x" : entity.global_position.x,
-		#"pos_y" : entity.global_position.y,
-		#"packedscene_path" : entity.get_packedscene_path()
-	#}
-	#return grid_entity_dictionary

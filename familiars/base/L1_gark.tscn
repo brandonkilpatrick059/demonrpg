@@ -10,14 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="7_4v8pp"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_ord3u"]
 
-[node name="L1gark" type="Node2D" unique_id=2120251354 node_paths=PackedStringArray("evolutions")]
+[node name="L1gark" type="Node2D" unique_id=2120251354]
 script = ExtResource("1_ibjir")
+packedscene_path = "res://familiars/base/L1_gark.tscn"
 familiar_name = "Gark"
 max_hp = 10
 current_hp = 10
 attack = 4
 magic = 2
-evolutions = [NodePath("evolutions/stalf"), NodePath("evolutions/byle")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
 sprite_frames = ExtResource("2_4v8pp")

@@ -10,6 +10,7 @@
 
 [node name="L2gorgon" type="Node2D" unique_id=350619396]
 script = ExtResource("1_wt7d1")
+packedscene_path = "res://familiars/base/L2_gorgon.tscn"
 familiar_name = "Gorgon"
 max_hp = 15
 current_hp = 15

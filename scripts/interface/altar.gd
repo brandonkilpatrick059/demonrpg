@@ -1,7 +1,8 @@
-extends StaticBody2D
+class_name Altar extends StaticBody2D
 
 var action_menu : GenericActionMenu = null
 var summary : FamiliarSummary = null
+var save_load_menu : SaveLoadMenu = null
 
 var audio_player := AudioStreamPlayer.new()
 
@@ -11,24 +12,33 @@ var view_all_familiars_mode : bool = false
 var store_familiars_mode : bool = false
 var summmon_familiars_mode : bool = false
 var main_mode : bool = true
+var save_game_mode : bool = false
+
+var interact_timer := Timer.new()
+
+@export var location_name : String = ""
+@export var location_scene_path : String = ""
 
 func _ready():
 	#TODO: buses and stuff
 	add_child(audio_player)
+	interact_timer.one_shot = true
+	add_child(interact_timer)
 
 func interact():
-	action_menu = load("res://interface/generic_action_menu.tscn").instantiate()
-	add_child(action_menu)
-	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
-	action_menu.global_position = camera.get_screen_center_position()
-	set_basic_actions()
-	main_mode = true
-	action_menu.set_active()
-	action_menu.set_parent_node(self)
-	var player_ref : Player = get_tree().get_first_node_in_group("player")
-	player_ref.freeze_input()
-	audio_player.stream = load("res://audio/effects/bell_full_low.ogg")
-	audio_player.play()
+	if(interact_timer.is_stopped()):
+		action_menu = load("res://interface/generic_action_menu.tscn").instantiate()
+		add_child(action_menu)
+		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+		action_menu.global_position = camera.get_screen_center_position()
+		set_basic_actions()
+		main_mode = true
+		action_menu.set_active()
+		action_menu.set_parent_node(self)
+		var player_ref : Player = get_tree().get_first_node_in_group("player")
+		player_ref.freeze_input()
+		audio_player.stream = load("res://audio/effects/bell_full_low.ogg")
+		audio_player.play()
 
 func set_basic_actions():
 	var player_ref : Player = get_tree().get_first_node_in_group("player")
@@ -48,6 +58,7 @@ func exit_altar():
 	player_ref.unfreeze_input()
 	audio_player.stream = load("res://audio/effects/brush_snare.ogg")
 	audio_player.play()
+	interact_timer.start(0.5)
 
 func list_team():
 	var player_ref : Player = get_tree().get_first_node_in_group("player")
@@ -217,6 +228,36 @@ func take_action(action : String):
 				list_team()
 				audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
 				audio_player.play()
+			"SAVE GAME":
+				main_mode = false
+				save_game_mode = true
+				save_load_menu = load("res://menu/save_load_menu.tscn").instantiate()
+				get_parent().add_child(save_load_menu)
+				var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+				save_load_menu.global_position = camera.get_screen_center_position()
+				audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
+				audio_player.play()
+				action_menu.set_inactive()
+				save_load_menu.set_mode_save()
+				save_load_menu.set_location(self)
+
+func handle_save_game():
+	action_menu.set_active()
+	save_game_mode = false
+	main_mode = true
+	audio_player.stream = load("res://audio/effects/bell_full_low.ogg")
+	audio_player.play()
+	
+
+func get_location_name() -> String:
+	return location_name
+
+func get_scene_path() -> String:
+	return location_scene_path
+
+func play_sound(stream : AudioStream):
+	audio_player.stream = stream
+	audio_player.play()
 
 func _physics_process(delta: float) -> void:
 	if(view_all_familiars_mode and (Input.is_action_just_pressed("action_2") || 
@@ -254,3 +295,10 @@ func _physics_process(delta: float) -> void:
 	elif(main_mode and Input.is_action_just_pressed("action_2")):
 		if(action_menu != null):
 			exit_altar()
+	elif(save_game_mode and Input.is_action_just_pressed("action_2")):
+		set_basic_actions()
+		main_mode = true
+		save_game_mode = false
+		audio_player.stream = load("res://audio/effects/brush_snare.ogg")
+		audio_player.play()
+		action_menu.set_active()
