@@ -11,10 +11,15 @@ var selected_index : int = 0
 var mode_save : bool = false
 var mode_load : bool = false
 
+var active : bool = true
+
 var altar_ref : Altar = null
 
 func _ready() -> void:
 	update_save_slots()
+
+func set_inactive():
+	active = false
 
 func set_mode_save():
 	mode_save = true
@@ -42,35 +47,36 @@ func update_selected():
 		index = index + 1
 
 func handle_input():
-	if(Input.is_action_just_pressed("up")):
-		if(selected_index >= 1):
-			selected_index = selected_index - 1
-			audio_player.stream = load("res://audio/effects/click.ogg")
-			update_selected()
-		else:
-			audio_player.stream = load("res://audio/effects/short_bell.ogg")
-		audio_player.play()
-	elif(Input.is_action_just_pressed("down")):
-		if(selected_index < 3):
-			selected_index = selected_index + 1
-			audio_player.stream = load("res://audio/effects/click.ogg")
-			update_selected()
-		else:
-			audio_player.stream = load("res://audio/effects/short_bell.ogg")
-		audio_player.play()
-	elif(Input.is_action_just_pressed("action_1")):
-		if(mode_save):
-			var location_name = altar_ref.get_location_name()
-			var scene_file_path = altar_ref .get_scene_path()
-			save_load_manager.save(selected_index,location_name,scene_file_path)
-			update_save_slots()
-			audio_player.stream = load("res://audio/effects/bell_full_low.ogg")
+	if(active):
+		if(Input.is_action_just_pressed("up")):
+			if(selected_index >= 1):
+				selected_index = selected_index - 1
+				audio_player.stream = load("res://audio/effects/click.ogg")
+				update_selected()
+			else:
+				audio_player.stream = load("res://audio/effects/short_bell.ogg")
 			audio_player.play()
-		elif(mode_load):
-			var zone_manager = get_tree().get_first_node_in_group("zone_manager")
-			zone_manager.load_game_from_file(selected_index)
-	elif(Input.is_action_just_pressed("action_2")):
-		queue_free()
+		elif(Input.is_action_just_pressed("down")):
+			if(selected_index < 3):
+				selected_index = selected_index + 1
+				audio_player.stream = load("res://audio/effects/click.ogg")
+				update_selected()
+			else:
+				audio_player.stream = load("res://audio/effects/short_bell.ogg")
+			audio_player.play()
+		elif(Input.is_action_just_pressed("action_1")):
+			if(mode_save):
+				var location_name = altar_ref.get_location_name()
+				var scene_file_path = altar_ref .get_scene_path()
+				save_load_manager.save(selected_index,location_name,scene_file_path)
+				update_save_slots()
+				audio_player.stream = load("res://audio/effects/bell_full_low.ogg")
+				audio_player.play()
+			elif(mode_load):
+				var zone_manager = get_tree().get_first_node_in_group("zone_manager")
+				zone_manager.load_game_from_file(selected_index)
+		elif(Input.is_action_just_pressed("action_2")):
+			queue_free()
 
 func set_location(altar : Altar):
 	altar_ref = altar

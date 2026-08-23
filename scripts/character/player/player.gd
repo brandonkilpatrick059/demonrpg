@@ -260,13 +260,17 @@ func disable_overworld():
 	if(global_music != null):
 		global_music.stop()
 
-func fade_in():
+func fade_in(start_faded_out : bool = false):
+	if(start_faded_out):
+		$fade_to_black.modulate = Color(1,1,1,1)
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
 	var fade_out = Color(1,1,1,0)
 	fade_node.set_target_modulate(fade_out,0.2,0.2)
 	$fade_to_black.add_child(fade_node)
 
-func fade_out():
+func fade_out(start_faded_in : bool = false):
+	if(start_faded_in):
+		$fade_to_black.modulate = Color(1,1,1,0)
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
 	var fade_out = Color(1,1,1,1)
 	fade_node.set_target_modulate(fade_out,0.2,0.2)

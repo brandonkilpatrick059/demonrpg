@@ -64,13 +64,13 @@ func get_current_zone() -> LocationZone:
 	return current_zone
 
 func load_game_from_file(file_slot : int):
-	$save_load_manager.setup_zone_manager_from_file(file_slot, self)
+	if(not player_ref.fader_is_fading()):
+		save_load_menu.set_inactive()
+		$save_load_manager.setup_zone_manager_from_file(file_slot, self)
 
 func load_game(load_scene_path : String, game_state_dictionary : Dictionary,
  	player_dictionary : Dictionary, familiars: Array[Familiar]):
 	var load_zone = load(load_scene_path).instantiate()
-	current_zone = load_zone
-	add_child(current_zone)
 	$Player.load_from_dictionary(player_dictionary)
 	$gamestate.load_from_dictionary(game_state_dictionary)
 	var familiar_team : Array[Familiar] = []
@@ -84,8 +84,13 @@ func load_game(load_scene_path : String, game_state_dictionary : Dictionary,
 		familiar.set_inactive()
 	player_ref.set_familiars_team(familiar_team)
 	player_ref.set_stored_familiars(stored_familiars)
-	player_ref.fade_out()
+	player_ref.play_sound(load("res://audio/effects/bell_full_low.ogg"))
+	current_zone = load_zone
+	add_child(current_zone)
+	current_zone.visible = false
+	player_ref.visible = false
 	game_loaded = true
+	timer.start(3.0)
 
 func _physics_process(delta: float) -> void:
 	if(switching_zones):
@@ -107,9 +112,13 @@ func _physics_process(delta: float) -> void:
 	if(not game_loaded and save_load_menu != null and Input.is_action_just_pressed("action_2")):
 		var main_menu : PackedScene = load("res://menu/main_menu.tscn")
 		get_tree().change_scene_to_packed(main_menu)
-	if(save_load_menu != null and game_loaded and not $Player.fader_is_fading()):
+	if(timer.is_stopped() and save_load_menu != null 
+	and game_loaded):
 		save_load_menu.queue_free()
-		player_ref.fade_in()
-	elif(not player_activated and save_load_menu == null and not $Player.fader_is_fading()):
+		player_ref.visible = true
+		var start_faded_out : bool = true
+		player_ref.fade_in(start_faded_out)
+		current_zone.visible = true
+	if(not player_activated and save_load_menu == null and not $Player.fader_is_fading()):
 		player_ref.unfreeze_input()
 		player_activated = true

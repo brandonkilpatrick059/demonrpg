@@ -29,6 +29,6 @@ func load_from_dictionary(dictionary : Dictionary):
 	var state_keys = dictionary.get("states_map_keys")
 	for key in state_keys:
 		states_map_keys.append(key)
-	var map_values = dictionary.get("states_map_keys")
+	var map_values = dictionary.get("states_map_values")
 	for value in map_values:
 		states_map_values.append(value)

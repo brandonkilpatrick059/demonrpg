@@ -73,6 +73,20 @@ var one_shot_animating : bool = false
 var stat_increase_value : int = 0
 var stat_increase : String = ""
 
+func _ready() -> void:
+	for action_node in actions_parent.get_children():
+		actions.append(action_node)
+	sprite.play("default")
+	sprite.frame = randi_range(0,sprite.sprite_frames.get_frame_count("default")-1)
+	if(sigil == "" && not no_sigil):
+		sigil = Sigil.get_unused_sigil()
+	use_parent_material = true
+	$AnimatedSprite2D.use_parent_material = true
+	
+	if($evolutions != null):
+		for child in $evolutions.get_children():
+			evolutions.append(child)
+
 func set_stored():
 	stored = true
 	
@@ -213,15 +227,6 @@ func consume_familiar(familiar : Familiar, exp_multiplier : float = 1.0):
 		"num_actions":
 			num_actions = num_actions + value
 	experience = experience + (familiar.get_exp_value() * exp_multiplier)
-func _ready() -> void:
-	for action_node in actions_parent.get_children():
-		actions.append(action_node)
-	sprite.play("default")
-	sprite.frame = randi_range(0,sprite.sprite_frames.get_frame_count("default")-1)
-	if(sigil == "" && not no_sigil):
-		sigil = Sigil.get_unused_sigil()
-	use_parent_material = true
-	$AnimatedSprite2D.use_parent_material = true
 
 func get_sigil() -> String:
 	return sigil

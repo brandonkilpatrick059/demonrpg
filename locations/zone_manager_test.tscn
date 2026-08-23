@@ -68,6 +68,7 @@ y_sort_enabled = true
 position = Vector2(-24, -12)
 script = ExtResource("1_5ulbo")
 current_zone = NodePath("zone_gloomy_woods_entrance")
+load_menu_on_ready = null
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
 states_map_values = Array[String](["FALSE", "TRUE"])
