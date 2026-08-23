@@ -433,6 +433,20 @@ func get_save_dictionary() -> Dictionary:
 	}
 	return ret_dictionary
 
+func load_from_dictionary(dictionary : Dictionary):
+	familiar_name = dictionary.get("name")
+	sigil = dictionary.get("sigil")
+	Sigil.checkout_sigil(sigil)
+	max_hp = int(dictionary.get("max_hp"))
+	attack = int(dictionary.get("attack"))
+	defense = int(dictionary.get("defense"))
+	speed = int(dictionary.get("speed"))
+	num_actions = int(dictionary.get("num_actions"))
+	magic = int(dictionary.get("magic"))
+	level = int(dictionary.get("level"))
+	experience = int(dictionary.get("experience"))
+	stored = bool(dictionary.get("stored"))
+
 func _physics_process(delta: float) -> void:
 	if(active):
 		if(one_shot_animating &&

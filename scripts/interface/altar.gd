@@ -247,7 +247,6 @@ func handle_save_game():
 	main_mode = true
 	audio_player.stream = load("res://audio/effects/bell_full_low.ogg")
 	audio_player.play()
-	
 
 func get_location_name() -> String:
 	return location_name

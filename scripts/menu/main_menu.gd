@@ -16,6 +16,7 @@ var active : bool = false
 
 func _ready() -> void:
 	var saves_exist : bool = false
+	saves_exist = $save_load_manager.saves_exist()
 	if(saves_exist):
 		menu_buttons = ["NEW","LOAD","OPTIONS","EXIT"]
 		menu_labels = [new_game,load_game,options,exit]
@@ -40,6 +41,13 @@ func handle_control():
 		match selection:
 			"NEW":
 				transition_to_scene = load("res://locations/zone_manager_start.tscn")
+				$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
+				$AudioStreamPlayer.play()
+				get_tree().get_first_node_in_group("music_player").stop()
+				active = false
+				fade_out()
+			"LOAD":
+				transition_to_scene = load("res://locations/zone_manager_load.tscn")
 				$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
 				$AudioStreamPlayer.play()
 				get_tree().get_first_node_in_group("music_player").stop()

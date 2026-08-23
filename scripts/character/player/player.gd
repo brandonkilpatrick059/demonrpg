@@ -31,10 +31,16 @@ var can_play_step_sound : bool = true
 
 var grid_aligned_callback_node : Node = null
 
+var play_time_timer := Timer.new()
+var play_time_seconds : int = 0
+
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color(0,0,0,1))
 	head.play(facing_direction)
 	fade_in()
+	add_child(play_time_timer)
+	play_time_timer.one_shot = true
+	play_time_timer.start(1.0)
 
 func get_familiars_team() -> Array[Familiar]:
 	for familiar in familiar_team:
@@ -382,9 +388,20 @@ func play_texts(texts : Array[Text]):
 
 func get_save_dictionary() -> Dictionary:
 	var ret_dictionary : Dictionary = {
-		"pentacle_charms" : pentacle_charms
-	}
+		"pentacle_charms" : pentacle_charms,
+		"play_time_secs" : play_time_seconds,
+		"pos_x" : global_position.x,
+		"pos_y" : global_position.y
+ 	}
 	return ret_dictionary
+
+func load_from_dictionary(dictionary : Dictionary):
+	pentacle_charms = dictionary.get("pentacle_charms")
+	play_time_seconds = dictionary.get("play_time_secs")
+	var pos_x : float = float(dictionary.get("pos_x"))
+	var pos_y : float = float(dictionary.get("pos_y"))
+	var pos : Vector2 = Vector2(pos_x,pos_y + 24)
+	global_position = pos
 
 func _physics_process(delta: float) -> void:
 	if(active):
@@ -393,5 +410,8 @@ func _physics_process(delta: float) -> void:
 		handle_movement()
 	if(starting_battle && not fader_is_fading()):
 		start_battle()
+	if(play_time_timer.is_stopped()):
+		play_time_timer.start(1.0)
+		play_time_seconds = play_time_seconds + 1
 	
 	

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_0wst5"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="4_4le7o"]
 [ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="4_muj5q"]
+[ext_resource type="Script" uid="uid://dp20msu5qynda" path="res://scripts/utility/save_load_manager.gd" id="6_8fo6w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8fo6w"]
 shader = ExtResource("2_8fo6w")
@@ -23,10 +24,10 @@ shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -7.99999981
 shader_parameter/pixel_strength = -4.0
 
-[node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
+[node name="zone_manager" type="Node2D" unique_id=576886889]
 y_sort_enabled = true
 script = ExtResource("1_muj5q")
-current_zone = NodePath("")
+load_menu_on_ready = true
 
 [node name="Player" parent="." unique_id=286954556 instance=ExtResource("3_0wst5")]
 position = Vector2(0, 24)
@@ -86,3 +87,6 @@ offset_right = 2080.0
 offset_bottom = 1170.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="save_load_manager" type="Node" parent="." unique_id=937024834]
+script = ExtResource("6_8fo6w")

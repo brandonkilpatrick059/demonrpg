@@ -27,8 +27,11 @@ static func get_unused_sigil() -> String:
 		if(used_sigils.find(sigil) < 0):
 			unused_sigils.append(sigil)
 	var unused_sigil = unused_sigils[randi_range(0,unused_sigils.size()-1)]
-	used_sigils.append(unused_sigil)
+	checkout_sigil(unused_sigil)
 	return unused_sigil
+
+static func checkout_sigil(sigil : String):
+	used_sigils.append(sigil)
 
 static func return_sigil(sigil : String):
 	used_sigils.erase(sigil)

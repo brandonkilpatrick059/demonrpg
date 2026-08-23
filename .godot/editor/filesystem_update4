@@ -66,3 +66,8 @@ res://familiars/base/L2_stalf.tscn
 res://player/player.tscn
 res://interface/interface_message_speech.tscn
 res://locations/zone_manager_test.tscn
+res://locations/zone_manager_load.tscn
+res://scripts/utility/sigil_manager.gd
+res://scripts/locations/zone_manager.gd
+res://menu/main_menu.tscn
+res://scripts/menu/main_menu.gd

@@ -14,6 +14,7 @@
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="12_k17ts"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="13_1vfm6"]
 [ext_resource type="Script" uid="uid://ivnywvdeyp6d" path="res://scripts/menu/main_menu.gd" id="13_23ste"]
+[ext_resource type="Script" uid="uid://dp20msu5qynda" path="res://scripts/utility/save_load_manager.gd" id="15_b06p2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8qj3r"]
 shader = ExtResource("1_0tw43")
@@ -181,3 +182,6 @@ time_step = 0.2
 start_after_wait = 5.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="menu" unique_id=885429640]
+
+[node name="save_load_manager" type="Node" parent="menu" unique_id=2053113335]
+script = ExtResource("15_b06p2")
