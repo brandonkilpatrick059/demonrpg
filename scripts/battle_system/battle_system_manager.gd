@@ -745,22 +745,23 @@ func get_next_action():
 				break
 		if(current_action != null):
 			current_battle_action = current_action.get_action()
-			if(current_actor != null and current_battle_action != null):
+			if(current_battle_action != null):
 				current_actor = current_action.get_actor()
 				current_targets = current_action.get_targets()
 				current_battle_action.clean_up()
 				#get a new target for opponent if their intended
 				#target has died
-				if((current_actor.is_hostile() &&
-				current_targets.size() == 1) &&
-				(current_targets[0] == null ||
-				current_targets[0].is_dead())):
-					var potential_targets: Array[Familiar] = []
-					var actor = current_action.get_actor()
-					var valid_targets = get_opponent_targetable_familiars(actor,current_battle_action)
-					potential_targets.append(valid_targets)
-					var new_target = randi_range(0,potential_targets.size())
-					current_targets = [new_target]
+				if(current_actor != null):
+					if((current_actor.is_hostile() &&
+					current_targets.size() == 1) &&
+					(current_targets[0] == null ||
+					current_targets[0].is_dead())):
+						var potential_targets: Array[Familiar] = []
+						var actor = current_action.get_actor()
+						var valid_targets = get_opponent_targetable_familiars(actor,current_battle_action)
+						potential_targets.append(valid_targets)
+						var new_target = randi_range(0,potential_targets.size())
+						current_targets = [new_target]
 				
 	elif(combined_action_queue.size() == 0):
 		wait_timer.start(1.0)

@@ -1,4 +1,4 @@
-res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
 res://sprites/spritesheets/battle/interface/battle_action_tab.tres
 res://sprites/spritesheets/battle/interface/energy_cost.tres
 res://sprites/spritesheets/battle/interface/battle_energy_bar.tres
@@ -44,15 +44,6 @@ res://sprites/spritesheets/monsters/damned.tres
 res://sprites/spritesheets/props/structure/sluice.tres
 res://sprites/spritesheets/interface/save_load_tab.tres
 res://sprites/spritesheets/familiars/L1_ghost.tres
-res://scripts/battle_system/actions/damage/physical/action_stab.gd
-res://scripts/battle_system/actions/damage/magic/action_burn.gd
-res://battle/battle_system.tscn
-res://scripts/battle_system/battle_system_manager.gd
-res://scripts/battle_system/actions/battle_action.gd
+res://battle/actions/action_heal.tscn
 res://scripts/battle_system/actions/damage/physical/action_heal.gd
-res://battle/encounters/reaver_encounter.tscn
-res://battle/encounters/stalf_encounter_solo.tscn
-res://battle/encounters/stalf_encounter_healer.tscn
-res://battle/encounters/martyr_encounter_healer.tscn
-res://scripts/item/healing_gore.gd
-res://scripts/battle_system/actions/damage/physical/action_attack.gd
+res://scripts/battle_system/battle_system_manager.gd

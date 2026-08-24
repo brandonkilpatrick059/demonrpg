@@ -22,6 +22,7 @@ func _ready() -> void:
 	action_name = "HEAL"
 	target_type = TargetType.ANY_ALLY
 	damage_type = DamageType.NONE
+	target_preference = true
 
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
@@ -86,7 +87,7 @@ func get_target_preference(targets : Array[Familiar]) -> Array[Familiar]:
 	for target in targets:
 		if(target.get_current_hp() < chosen_target.get_current_hp()):
 			chosen_target = target
-	return chosen_target
+	return [chosen_target]
 
 func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	var actor : Familiar = pkg.get_actor()

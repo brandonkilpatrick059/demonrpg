@@ -126,7 +126,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		else:
 			exit_action()
 	if(!made_attack):
-		if(targets.size() > 0 and targets[0] != null):
+		if(targets[0] != null):
 			battle_sys_ref.start_wait_timer(0.5)
 			var target : Familiar = targets[0]
 			var pkg : BattlePkg = get_battle_pkg(actor, targets)
