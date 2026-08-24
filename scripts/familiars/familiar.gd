@@ -21,6 +21,7 @@ var stats : Array[String] =[
 @export var num_actions : int = 1
 var actions_taken = 0
 @export var no_sigil : bool = false
+@export var incorporeal : bool = false
 
 @export var evolutions : Array[Evolution] = []
 
@@ -381,6 +382,9 @@ func set_magic(num : int):
 func get_actions():
 	return actions
 
+func is_incorporeal() -> bool:
+	return incorporeal
+
 func clean_buffs_list():
 	var new_buffs_list : Array[BattleBuff] = []
 	for buff in battle_buffs:
@@ -458,6 +462,8 @@ func _physics_process(delta: float) -> void:
 		sprite.frame == sprite.sprite_frames.get_frame_count(sprite.animation)-1):
 			if(is_dead()):
 				sprite.play("dead")
+				if(incorporeal):
+					queue_free()
 			else:
 				sprite.play("default")
 			one_shot_animating = false

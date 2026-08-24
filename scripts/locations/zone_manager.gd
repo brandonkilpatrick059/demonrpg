@@ -65,8 +65,9 @@ func get_current_zone() -> LocationZone:
 
 func load_game_from_file(file_slot : int):
 	if(not player_ref.fader_is_fading()):
-		save_load_menu.set_inactive()
-		$save_load_manager.setup_zone_manager_from_file(file_slot, self)
+		if($save_load_manager.save_slot_file_exists(file_slot)):
+			save_load_menu.set_inactive()
+			$save_load_manager.setup_zone_manager_from_file(file_slot, self)
 
 func load_game(load_scene_path : String, game_state_dictionary : Dictionary,
  	player_dictionary : Dictionary, familiars: Array[Familiar]):

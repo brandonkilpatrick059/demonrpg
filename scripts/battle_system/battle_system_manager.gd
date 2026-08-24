@@ -983,8 +983,13 @@ func end_process():
 	elif(waiting_to_fade and not fader_is_fading()):
 		if(player_deployed):
 			withdraw_player()
-		var player : Player = get_tree().get_first_node_in_group("player")
-		player.end_battle(player_familiars)
+		var victory : bool = not player_is_dead()
+		if(victory):
+			var player : Player = get_tree().get_first_node_in_group("player")
+			player.end_battle(player_familiars)
+		elif(not victory):
+			var main_menu : PackedScene = load("res://menu/main_menu.tscn")
+			get_tree().change_scene_to_packed(main_menu)
 
 func close_battle(ran_away = false):
 	message.global_position = global_position

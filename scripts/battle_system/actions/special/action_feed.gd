@@ -44,30 +44,33 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 	return ret_string
 
 func determine_feed_success(actor : Familiar, target : Familiar):
-	success_message = get_comment_message(actor)
-	if(target.is_dead()):
-		feed_succeeded = true
-	elif(target.is_in_group("player_familiar")):
-		feed_succeeded = false
-	else:
-		var actor_roll_total : int = 0
-		actor_roll_total = actor_roll_total + actor.get_current_hp()
-		actor_roll_total = actor_roll_total + actor.get_attack()
-		actor_roll_total = actor_roll_total + actor.get_defense()
-		actor_roll_total = actor_roll_total + actor.get_magic()
-		actor_roll_total = actor_roll_total + actor.get_speed()
-		var target_roll_total : int = 0
-		target_roll_total = target_roll_total + target.get_current_hp()
-		target_roll_total = target_roll_total + target.get_attack()
-		target_roll_total = target_roll_total + target.get_defense()
-		target_roll_total = target_roll_total + target.get_magic()
-		target_roll_total = target_roll_total + target.get_speed()
-		
-		var actor_roll : int = randi_range(1,actor_roll_total)
-		if(actor_roll > target_roll_total):
+	if(not target.is_incorporeal()):
+		success_message = get_comment_message(actor)
+		if(target.is_dead()):
 			feed_succeeded = true
-		else:
+		elif(target.is_in_group("player_familiar")):
 			feed_succeeded = false
+		else:
+			var actor_roll_total : int = 0
+			actor_roll_total = actor_roll_total + actor.get_current_hp()
+			actor_roll_total = actor_roll_total + actor.get_attack()
+			actor_roll_total = actor_roll_total + actor.get_defense()
+			actor_roll_total = actor_roll_total + actor.get_magic()
+			actor_roll_total = actor_roll_total + actor.get_speed()
+			var target_roll_total : int = 0
+			target_roll_total = target_roll_total + target.get_current_hp()
+			target_roll_total = target_roll_total + target.get_attack()
+			target_roll_total = target_roll_total + target.get_defense()
+			target_roll_total = target_roll_total + target.get_magic()
+			target_roll_total = target_roll_total + target.get_speed()
+			
+			var actor_roll : int = randi_range(1,actor_roll_total)
+			if(actor_roll > target_roll_total):
+				feed_succeeded = true
+			else:
+				feed_succeeded = false
+	else:
+		feed_succeeded = false
 
 func get_success_message(actor : Familiar, target : Familiar) -> String:
 	var ret_string = success_english.replace("[ACTOR]",actor.get_familiar_name())

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bf8mab0yx5hlh"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_8mu0n"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_u8mik"]
+[ext_resource type="PackedScene" uid="uid://ddlbmm6vmp03i" path="res://familiars/base/L1_ghost.tscn" id="3_l7swu"]
+
+[node name="ghost_encounter_1" type="Node2D" unique_id=1168779566 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_8mu0n")
+opponents = [NodePath("L1ghost"), NodePath("L1ghost2")]
+music = ExtResource("2_u8mik")
+
+[node name="L1ghost" parent="." unique_id=1657065563 instance=ExtResource("3_l7swu")]
+max_hp = 20
+current_hp = 20
+defense = 1
+speed = 1
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "ATTACK"])
+
+[node name="L1ghost2" parent="." unique_id=626026835 instance=ExtResource("3_l7swu")]
+max_hp = 20
+current_hp = 20
+defense = 1
+speed = 1
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "ATTACK"])

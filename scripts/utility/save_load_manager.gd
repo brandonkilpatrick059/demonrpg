@@ -51,6 +51,13 @@ func saves_exist() -> bool:
 		save_slot = save_slot + 1
 	return false
 
+func save_slot_file_exists(save_slot : int):
+	var file_path = str(str(saves_location,str("/save_",save_slot)),extension)
+	if(game_save_file_exists(file_path)):
+		return true
+	else:
+		return false
+
 func get_load_tab(save_slot : int, tab : SaveLoadTab):
 	var file_path = str(str(saves_location,str("/save_",save_slot)),extension)
 	if(game_save_file_exists(file_path)):
