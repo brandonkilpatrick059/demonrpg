@@ -54,7 +54,7 @@ func get_summary(actor : Familiar)-> String:
 	return summary
 
 func visual_effects(pkg : BattlePkg):
-	var final_damage : int = pkg.get_final_damage()
+	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
 	actor.play_one_shot_animation("magic")
@@ -90,7 +90,7 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	return pkg
 
 func apply_pkg_to_target(pkg : BattlePkg):
-	var final_damage : int = pkg.get_final_damage()
+	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
 	var target_hp = target.current_hp

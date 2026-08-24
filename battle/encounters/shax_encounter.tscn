@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d2rnd8yfyb30q"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_kagc8"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_ocw1e"]
+[ext_resource type="PackedScene" uid="uid://73r7ol0x5qyq" path="res://familiars/base/L2_shax.tscn" id="3_kagc8"]
+
+[node name="TestEncounter" type="Node2D" unique_id=490119256 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_kagc8")
+opponents = [NodePath("L2shax"), NodePath("L2shax2")]
+music = ExtResource("2_ocw1e")
+
+[node name="L2shax" parent="." unique_id=749472024 instance=ExtResource("3_kagc8")]
+visible = false
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "ATTACK", "STAB", "DEFEND", "DEFEND", "ATTACK", "ATTACK"])
+
+[node name="L2shax2" parent="." unique_id=242124282 instance=ExtResource("3_kagc8")]
+visible = false
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "ATTACK", "STAB", "DEFEND", "DEFEND", "ATTACK", "ATTACK"])

@@ -17,6 +17,7 @@ var slain_english : String = "[TEAM][TARGET] is slain"
 var friendly_english : String = "your "
 var hostile_english : String = "hostile "
 var display_color : String = ""
+var target_preference : bool = false
 
 func get_slain_message(actor : Familiar, target : Familiar) -> String:
 	var ret_string = slain_english.replace("[TARGET]",target.get_familiar_name())
@@ -30,6 +31,12 @@ func get_slain_message(actor : Familiar, target : Familiar) -> String:
 
 func get_summary(actor : Familiar) -> String:
 	return ""
+
+func get_target_preference(targets : Array[Familiar]) -> Array[Familiar]:
+	return []
+
+func has_target_preference() -> bool:
+	return target_preference
 
 func get_min_max_string(min : int, max : int) -> String:
 	var concat_str = ""

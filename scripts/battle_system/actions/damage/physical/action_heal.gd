@@ -39,20 +39,21 @@ func clean_up():
 	made_heal = false
 
 func visual_effects(pkg : BattlePkg):
-	var final_damage : int = pkg.get_final_damage()
+	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
-	actor.play_one_shot_animation("magic")
-	var glow_blue_node = load("res://utility/faders/heal_glow_blue.tscn").instantiate()
-	target.add_child(glow_blue_node)
-	if(actor.is_hostile()):
-		var emerge_node = load("res://utility/faders/fade_in_and_back.tscn").instantiate()
-		actor.add_child(emerge_node)
-	var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
-	battle_sys_ref.add_child(hp_particle)
-	hp_particle.global_position = target.global_position
-	hp_particle.set_particle(str(final_damage),Color(0.542, 0.691, 1.0, 1.0))
-	battle_sys_ref.play_sound(load("res://audio/effects/heal.ogg"))
+	if(target != null):
+		actor.play_one_shot_animation("magic")
+		var glow_blue_node = load("res://utility/faders/heal_glow_blue.tscn").instantiate()
+		target.add_child(glow_blue_node)
+		if(actor.is_hostile()):
+			var emerge_node = load("res://utility/faders/fade_in_and_back.tscn").instantiate()
+			actor.add_child(emerge_node)
+		var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
+		battle_sys_ref.add_child(hp_particle)
+		hp_particle.global_position = target.global_position
+		hp_particle.set_particle(str(final_damage),Color(0.542, 0.691, 1.0, 1.0))
+		battle_sys_ref.play_sound(load("res://audio/effects/heal.ogg"))
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
@@ -69,14 +70,23 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	return pkg
 
 func apply_pkg_to_target(pkg : BattlePkg):
-	var final_damage : int = pkg.get_final_damage()
+	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
-	var target_hp = target.current_hp
-	var new_target_hp = target_hp + final_damage
-	if(new_target_hp >= target.get_max_hp()):
-		new_target_hp = target.get_max_hp()
-	target.set_current_hp(new_target_hp)
+	if(target != null):
+		var target_hp = target.current_hp
+		var new_target_hp = target_hp + final_damage
+		if(new_target_hp >= target.get_max_hp()):
+			new_target_hp = target.get_max_hp()
+		target.set_current_hp(new_target_hp)
+
+func get_target_preference(targets : Array[Familiar]) -> Array[Familiar]:
+	var lowest_hp : int = targets[0].get_current_hp()
+	var chosen_target = targets[randi_range(0,targets.size()-1)]
+	for target in targets:
+		if(target.get_current_hp() < chosen_target.get_current_hp()):
+			chosen_target = target
+	return chosen_target
 
 func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	var actor : Familiar = pkg.get_actor()
@@ -106,7 +116,6 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			exit_action()
 	if(!made_heal):
 		battle_sys_ref.start_wait_timer(0.5)
-		var target : Familiar = targets[0]
 		var pkg : BattlePkg = get_battle_pkg(actor, targets)
 		#pkg = apply_buffs_to_pkg(pkg)
 		apply_pkg_to_target(pkg)

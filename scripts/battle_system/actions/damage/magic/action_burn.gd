@@ -46,7 +46,7 @@ func clean_up():
 	made_attack = false
 
 func visual_effects(pkg : BattlePkg):
-	var final_damage : int = pkg.get_final_damage()
+	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
 	if(target != null):
@@ -73,13 +73,13 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 		final_damage = 1
 	var pkg := BattlePkg.new()
 	pkg.set_damage_type(get_damage_type())
-	pkg.set_final_damage(final_damage)
+	pkg.set_final_damages([final_damage])
 	pkg.set_actor(actor)
 	pkg.set_targets(targets)
 	return pkg
 
 func apply_pkg_to_target(pkg : BattlePkg):
-	var final_damage : int = pkg.get_final_damage()
+	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
 	if(target != null):

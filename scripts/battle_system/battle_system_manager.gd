@@ -315,7 +315,10 @@ func show_status(familiar : Familiar):
 func show_action_menu(familiar : Familiar):
 	if(not familiar.is_in_group("player_familiar") and
 	side_is_dead(opponent_familiars)):
-		action_menu.set_actions([$ActionPass,$ActionFeed])
+		if(not familiar.is_incorporeal()):
+			action_menu.set_actions([$ActionPass,$ActionFeed])
+		else:
+			action_menu.set_actions([$ActionPass])
 	else:
 		action_menu.set_actions(familiar.get_actions())
 	var height = -16 - action_menu.get_height()
@@ -742,21 +745,22 @@ func get_next_action():
 				break
 		if(current_action != null):
 			current_battle_action = current_action.get_action()
-			current_actor = current_action.get_actor()
-			current_targets = current_action.get_targets()
-			current_battle_action.clean_up()
-			#get a new target for opponent if their intended
-			#target has died
-			if((current_actor.is_hostile() &&
-			current_targets.size() == 1) &&
-			(current_targets[0] == null ||
-			current_targets[0].is_dead())):
-				var potential_targets: Array[Familiar] = []
-				var actor = current_action.get_actor()
-				var valid_targets = get_opponent_targetable_familiars(actor,current_battle_action)
-				potential_targets.append(valid_targets)
-				var new_target = randi_range(0,potential_targets.size())
-				current_targets = [new_target]
+			if(current_actor != null and current_battle_action != null):
+				current_actor = current_action.get_actor()
+				current_targets = current_action.get_targets()
+				current_battle_action.clean_up()
+				#get a new target for opponent if their intended
+				#target has died
+				if((current_actor.is_hostile() &&
+				current_targets.size() == 1) &&
+				(current_targets[0] == null ||
+				current_targets[0].is_dead())):
+					var potential_targets: Array[Familiar] = []
+					var actor = current_action.get_actor()
+					var valid_targets = get_opponent_targetable_familiars(actor,current_battle_action)
+					potential_targets.append(valid_targets)
+					var new_target = randi_range(0,potential_targets.size())
+					current_targets = [new_target]
 				
 	elif(combined_action_queue.size() == 0):
 		wait_timer.start(1.0)
@@ -908,18 +912,22 @@ potential_targets : Array[Familiar]) -> Array[Familiar]:
 	var ret_array : Array[Familiar] = []
 	match target_type:
 		BattleAction.TargetType.ANY_OPPONENT:
-			ret_array.append_array(opponent_select_single_target(potential_targets))
+			ret_array.append_array(opponent_select_single_target(action, potential_targets))
 		BattleAction.TargetType.ANY_ALLY:
-			ret_array.append_array(opponent_select_single_target(potential_targets))
+			ret_array.append_array(opponent_select_single_target(action, potential_targets))
 		BattleAction.TargetType.TWO_ADJACENT_OPPONENT:
 			ret_array.append_array(opponent_select_two_adjacent_targets(potential_targets))
 		BattleAction.TargetType.ANY_BUT_SELF:
-			ret_array.append_array(opponent_select_single_target(potential_targets))
+			ret_array.append_array(opponent_select_single_target(action, potential_targets))
 	return ret_array
 
-func opponent_select_single_target(potential_targets : Array[Familiar]) -> Array[Familiar]:
+func opponent_select_single_target(action : BattleAction, potential_targets : Array[Familiar]) -> Array[Familiar]:
 	var p_targets_num = potential_targets.size() - 1
-	var chosen_target = potential_targets[randi_range(0,p_targets_num)]
+	var chosen_target : Familiar
+	if(action.has_target_preference()):
+		chosen_target = action.get_target_preference(potential_targets)[0]
+	else:
+		chosen_target = potential_targets[randi_range(0,p_targets_num)]
 	var ret_array : Array[Familiar] = [chosen_target]
 	return ret_array
 

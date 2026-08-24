@@ -40,7 +40,7 @@ shape = SubResource("RectangleShape2D_cea73")
 [node name="flashlight" type="PointLight2D" parent="." unique_id=707682217]
 position = Vector2(12, -12)
 enabled = false
-energy = 0.4
+energy = 0.6
 texture = ExtResource("4_yw30f")
 
 [node name="nolight" type="PointLight2D" parent="." unique_id=213573058]

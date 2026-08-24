@@ -130,11 +130,12 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 	if(!made_attack):
 		battle_sys_ref.start_wait_timer(0.5)
 		var target : Familiar = targets[0]
-		var pkg : BattlePkg = get_battle_pkg(actor, targets)
-		pkg = apply_buffs_to_pkg(pkg)
-		apply_pkg_to_target(pkg)
-		visual_effects(pkg)
-		#pay_energy_cost(actor)
-		made_attack = true
+		if(targets[0] != null):
+			var pkg : BattlePkg = get_battle_pkg(actor, targets)
+			pkg = apply_buffs_to_pkg(pkg)
+			apply_pkg_to_target(pkg)
+			visual_effects(pkg)
+			#pay_energy_cost(actor)
+			made_attack = true
 	else:
 		exit_action()

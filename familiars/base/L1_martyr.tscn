@@ -57,6 +57,7 @@ script = ExtResource("7_0x1nh")
 path_text = NodePath("path_text")
 new_base_path = "res://familiars/base/L2_shax.tscn"
 plus_speed = 5
+plus_num_acts = 1
 
 [node name="path_text" type="Node" parent="evolutions/shax" unique_id=1354943422]
 script = ExtResource("8_16rrk")

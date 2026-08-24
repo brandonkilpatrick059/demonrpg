@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://mlr7t35xmj11"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_s2soe"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_sjxrh"]
+[ext_resource type="PackedScene" uid="uid://2kvawkd11f4" path="res://familiars/base/L2_reaver.tscn" id="3_xlc4j"]
+
+[node name="TestEncounter" type="Node2D" unique_id=490119256 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_s2soe")
+opponents = [NodePath("L2reaver"), NodePath("L2reaver2")]
+music = ExtResource("2_sjxrh")
+
+[node name="L2reaver" parent="." unique_id=888126814 instance=ExtResource("3_xlc4j")]
+max_hp = 20
+current_hp = 20
+speed = 4
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
+action_cadence_1 = Array[String](["ATTACK", "ATTACK", "ATTACK", "SLICE"])
+
+[node name="L2reaver2" parent="." unique_id=245434526 instance=ExtResource("3_xlc4j")]
+max_hp = 20
+current_hp = 20
+speed = 4
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
+action_cadence_1 = Array[String](["ATTACK", "ATTACK", "ATTACK", "SLICE"])

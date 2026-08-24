@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dbepncake88ro"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_8hyxp"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_1lecb"]
+[ext_resource type="PackedScene" uid="uid://dogiaxmsxt1y8" path="res://familiars/base/L2_byle.tscn" id="4_o55ub"]
+[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/base/L1_martyr.tscn" id="5_pdq1r"]
+
+[node name="TestEncounter" type="Node2D" unique_id=1613970360 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_8hyxp")
+opponents = [NodePath("L1martyr"), NodePath("L1martyr2"), NodePath("L1martyr3"), NodePath("L2byle")]
+music = ExtResource("2_1lecb")
+
+[node name="L1martyr" parent="." unique_id=1826426800 instance=ExtResource("5_pdq1r")]
+visible = false
+max_hp = 25
+current_hp = 25
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
+
+[node name="L1martyr2" parent="." unique_id=1657065563 instance=ExtResource("5_pdq1r")]
+visible = false
+max_hp = 25
+current_hp = 25
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
+
+[node name="L1martyr3" parent="." unique_id=1361861654 instance=ExtResource("5_pdq1r")]
+visible = false
+max_hp = 25
+current_hp = 25
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
+
+[node name="L2byle" parent="." unique_id=1170432072 instance=ExtResource("4_o55ub")]
+max_hp = 60
+current_hp = 60
+magic = 10
+action_cadence_0 = Array[String](["HEAL", "HEAL", "HEAL", "ATTACK"])

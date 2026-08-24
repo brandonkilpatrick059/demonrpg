@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ca580qnxixksm"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_nf668"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_lvfbj"]
+[ext_resource type="PackedScene" uid="uid://chd5ugll25mm6" path="res://familiars/base/L2_stalf.tscn" id="5_dxu7j"]
+
+[node name="TestEncounter" type="Node2D" unique_id=1613970360 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_nf668")
+opponents = [NodePath("L2stalf")]
+music = ExtResource("2_lvfbj")
+
+[node name="L2stalf" parent="." unique_id=2121275838 instance=ExtResource("5_dxu7j")]
+visible = false
+max_hp = 45
+current_hp = 45
+attack = 8
+magic = 8
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "FIRE", "DEFEND"])

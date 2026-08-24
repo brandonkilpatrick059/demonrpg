@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ds3pq7xm6ewxe"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_02iki"]
+[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_4mhuy"]
+[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/base/L1_martyr.tscn" id="3_ykos4"]
+[ext_resource type="PackedScene" uid="uid://dogiaxmsxt1y8" path="res://familiars/base/L2_byle.tscn" id="4_05yus"]
+[ext_resource type="PackedScene" uid="uid://chd5ugll25mm6" path="res://familiars/base/L2_stalf.tscn" id="5_4mhuy"]
+
+[node name="TestEncounter" type="Node2D" unique_id=1613970360 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_02iki")
+opponents = [NodePath("L1martyr"), NodePath("L2stalf"), NodePath("L2byle")]
+music = ExtResource("2_4mhuy")
+
+[node name="L1martyr" parent="." unique_id=1826426800 instance=ExtResource("3_ykos4")]
+visible = false
+max_hp = 35
+current_hp = 35
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
+
+[node name="L2byle" parent="." unique_id=1170432072 instance=ExtResource("4_05yus")]
+visible = false
+max_hp = 50
+current_hp = 50
+magic = 10
+action_cadence_0 = Array[String](["HEAL", "HEAL", "HEAL", "ATTACK"])
+
+[node name="L2stalf" parent="." unique_id=2121275838 instance=ExtResource("5_4mhuy")]
+visible = false
+max_hp = 40
+current_hp = 40
+attack = 8
+magic = 8
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "FIRE", "DEFEND"])

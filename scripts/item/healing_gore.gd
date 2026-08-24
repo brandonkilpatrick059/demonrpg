@@ -10,8 +10,6 @@ func _ready() -> void:
 
 func interact():
 	var player_ref : Player = get_tree().get_first_node_in_group("player")
-	var num_charms = player_ref.get_pentacle_charms()
-	player_ref.set_pentacle_charms(num_charms + 1)
 	player_ref.play_texts([$Text])
 	player_ref.play_sound(load("res://audio/effects/feed.ogg"))
 	var familiars : Array[Familiar] = player_ref.get_familiars_team()
