@@ -650,6 +650,8 @@ func end_battle():
 
 func run_away():
 	end_battle()
+	for familiar in opponent_familiars:
+		Sigil.return_sigil(familiar.get_sigil())
 	close_battle(true)
 
 func fader_is_fading() -> bool:

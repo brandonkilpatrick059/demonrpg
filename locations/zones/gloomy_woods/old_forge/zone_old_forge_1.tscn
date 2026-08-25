@@ -120,14 +120,44 @@ z_index = 2
 position = Vector2(504, -96)
 encounter = ExtResource("7_u8oqv")
 
-[node name="ShadeMonster_ghost4" parent="." unique_id=649516502 instance=ExtResource("6_dynvb")]
+[node name="ShadeMonster_ghost6" parent="." unique_id=1825636231 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(1608, 96)
+position = Vector2(1632, 168)
 encounter = ExtResource("7_u8oqv")
 
-[node name="ShadeMonster_ghost5" parent="." unique_id=486956047 instance=ExtResource("6_dynvb")]
+[node name="ShadeMonster_ghost7" parent="." unique_id=441284959 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(1656, 456)
+position = Vector2(1680, 336)
+encounter = ExtResource("7_u8oqv")
+
+[node name="ShadeMonster_ghost9" parent="." unique_id=1811854068 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1584, 336)
+encounter = ExtResource("7_u8oqv")
+
+[node name="ShadeMonster_ghost10" parent="." unique_id=33253740 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1632, 408)
+encounter = ExtResource("7_u8oqv")
+
+[node name="ShadeMonster_ghost11" parent="." unique_id=620363438 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1560, 192)
+encounter = ExtResource("7_u8oqv")
+
+[node name="ShadeMonster_ghost12" parent="." unique_id=570401908 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1680, 432)
+encounter = ExtResource("7_u8oqv")
+
+[node name="ShadeMonster_ghost13" parent="." unique_id=273991544 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1680, 120)
+encounter = ExtResource("7_u8oqv")
+
+[node name="ShadeMonster_ghost8" parent="." unique_id=1861636342 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1584, 480)
 encounter = ExtResource("7_u8oqv")
 
 [node name="ShadeMonster_reaver" parent="." unique_id=1853776900 instance=ExtResource("6_dynvb")]
@@ -140,39 +170,24 @@ z_index = 2
 position = Vector2(720, 336)
 encounter = ExtResource("8_1sah4")
 
-[node name="ShadeMonster_reaver3" parent="." unique_id=425252610 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(696, 600)
-encounter = ExtResource("8_1sah4")
-
-[node name="ShadeMonster_reaver4" parent="." unique_id=1439168133 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1368, 144)
-encounter = ExtResource("8_1sah4")
-
-[node name="ShadeMonster_reaver5" parent="." unique_id=1008821055 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(456, 312)
-encounter = ExtResource("8_1sah4")
-
-[node name="ShadeMonster_reaver6" parent="." unique_id=696168928 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(216, 504)
-encounter = ExtResource("8_1sah4")
-
-[node name="ShadeMonster_reaver7" parent="." unique_id=11008028 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1584, 360)
-encounter = ExtResource("8_1sah4")
-
-[node name="ShadeMonster_martyr_healer" parent="." unique_id=840447059 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(456, 528)
-encounter = ExtResource("9_y6ppr")
-
 [node name="ShadeMonster_martyr_healer2" parent="." unique_id=1830364791 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(1152, 48)
+encounter = ExtResource("9_y6ppr")
+
+[node name="ShadeMonster_martyr_healer5" parent="." unique_id=1285850586 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1392, 96)
+encounter = ExtResource("9_y6ppr")
+
+[node name="ShadeMonster_martyr_healer3" parent="." unique_id=958100286 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(672, 552)
+encounter = ExtResource("9_y6ppr")
+
+[node name="ShadeMonster_martyr_healer4" parent="." unique_id=706960519 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1368, 144)
 encounter = ExtResource("9_y6ppr")
 
 [node name="ShadeMonster_stalf_healer" parent="." unique_id=342191184 instance=ExtResource("6_dynvb")]
@@ -182,17 +197,17 @@ encounter = ExtResource("11_u8oqv")
 
 [node name="ShadeMonster_stalf_healer3" parent="." unique_id=1942000967 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(1128, 240)
+position = Vector2(936, 480)
 encounter = ExtResource("11_u8oqv")
-
-[node name="ShadeMonster_stalf_solo" parent="." unique_id=2117103626 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(912, 456)
-encounter = ExtResource("12_xj6y8")
 
 [node name="ShadeMonster_stalf_solo2" parent="." unique_id=500440634 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(720, 48)
+encounter = ExtResource("12_xj6y8")
+
+[node name="ShadeMonster_stalf_solo3" parent="." unique_id=1576966602 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(432, 288)
 encounter = ExtResource("12_xj6y8")
 
 [node name="monster_fence" type="StaticBody2D" parent="." unique_id=109096]
@@ -222,11 +237,10 @@ position = Vector2(1152, 288)
 gore_name = "FORGE4"
 heal_amount = 10
 
-[node name="HealingGore2" parent="." unique_id=887397621 instance=ExtResource("13_u8oqv")]
-position = Vector2(1368, 432)
-gore_name = "FORGE2"
-heal_amount = 10
-
 [node name="PentacleSeal" parent="." unique_id=301785333 instance=ExtResource("14_xj6y8")]
 position = Vector2(504, -48)
+seal_name = "FORGESEAL1"
+
+[node name="PentacleSeal2" parent="." unique_id=1833276722 instance=ExtResource("14_xj6y8")]
+position = Vector2(1344, 456)
 seal_name = "FORGESEAL1"

@@ -47,3 +47,8 @@ res://sprites/spritesheets/familiars/L1_ghost.tres
 res://battle/actions/action_heal.tscn
 res://scripts/battle_system/actions/damage/physical/action_heal.gd
 res://scripts/battle_system/battle_system_manager.gd
+res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
+res://scripts/battle_system/actions/special/action_feed.gd
+res://scripts/battle_system/actions/special/action_devour.gd
+res://battle/battle_system.tscn
+res://scripts/battle_system/actions/damage/magic/action_fire.gd

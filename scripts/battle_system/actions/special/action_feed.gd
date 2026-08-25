@@ -161,7 +161,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			target.kill()
 		actor.consume_familiar(target)
 		visual_effects(actor,target)
-		var heal_for = target.get_max_hp() / 2
+		var heal_for = int(target.get_max_hp() * 0.75)
 		var actor_hp = actor.get_current_hp()
 		actor_hp = actor_hp + heal_for
 		actor.set_current_hp(actor_hp)

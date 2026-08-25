@@ -76,18 +76,23 @@ func visual_effects(pkg : BattlePkg):
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
-	var base_damage : int = actor.get_magic()
-	var damage_reduction : int = target.get_magic() / 2
-	var damage : int = base_damage + randi_range(0,base_damage)
-	var final_damage = damage - randi_range(0,damage_reduction)
-	if(final_damage <= 0):
-		final_damage = 1
-	var pkg := BattlePkg.new()
-	pkg.set_damage_type(get_damage_type())
-	pkg.set_final_damages([final_damage])
-	pkg.set_actor(actor)
-	pkg.set_targets(targets)
-	return pkg
+	if(target != null):
+		var base_damage : int = actor.get_magic()
+		var damage_reduction : int = target.get_magic() / 2
+		var damage : int = base_damage + randi_range(0,base_damage)
+		var final_damage = damage - randi_range(0,damage_reduction)
+		if(final_damage <= 0):
+			final_damage = 1
+		var pkg := BattlePkg.new()
+		pkg.set_damage_type(get_damage_type())
+		pkg.set_final_damages([final_damage])
+		pkg.set_actor(actor)
+		pkg.set_targets(targets)
+		return pkg
+	else:
+		exit_action()
+		var pkg := BattlePkg.new()
+		return pkg
 
 func apply_pkg_to_target(pkg : BattlePkg):
 	var final_damage : int = pkg.get_final_damages()[0]
