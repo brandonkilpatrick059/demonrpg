@@ -9,10 +9,22 @@
 [ext_resource type="Texture2D" uid="uid://dpchc17d1oghr" path="res://sprites/effects/matte_painting_mounains_2.png" id="11_d1h0c"]
 [ext_resource type="Texture2D" uid="uid://bt0sle02afbtq" path="res://sprites/effects/matte_painting_mounains_3.png" id="12_s65dd"]
 [ext_resource type="Texture2D" uid="uid://j2ab1gnhr703" path="res://sprites/effects/matte_painting_mounains_4.png" id="13_50d4d"]
+[ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="14_kaqxi"]
 [ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="14_xc567"]
 [ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="15_1vn0e"]
+[ext_resource type="Script" uid="uid://cvycaadlsfhey" path="res://scripts/utility/run_scripts/set_rain_layer.gd" id="15_ukrpy"]
+[ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="16_4y1gr"]
 [ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="16_qwsoq"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="17_3ulon"]
+[ext_resource type="Script" uid="uid://8nn10dgx4nmb" path="res://scripts/utility/run_scripts/set_autoplay.gd" id="17_csdqf"]
+[ext_resource type="Script" uid="uid://caj1c1txcrjev" path="res://scripts/utility/run_scripts/set_zone_dark.gd" id="19_xc567"]
+[ext_resource type="Script" uid="uid://ctl8j5f47ohhg" path="res://scripts/utility/run_scripts/q_free_nodes.gd" id="20_1vn0e"]
+[ext_resource type="Script" uid="uid://s8xm5avkm34g" path="res://scripts/utility/run_scripts/set_modulate.gd" id="21_qwsoq"]
+[ext_resource type="Shader" uid="uid://ctbt1f24kbll6" path="res://shaders/rain_shader.gdshader" id="22_3ulon"]
+[ext_resource type="Texture2D" uid="uid://5rlts5urifo0" path="res://sprites/effects/empty_screen_sprite.png" id="23_y56b6"]
+[ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="24_l775m"]
+[ext_resource type="PackedScene" uid="uid://cdomxvm5i24y4" path="res://item/pentacle_seal.tscn" id="24_u7uqs"]
+[ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="25_pvdmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0aow"]
 size = Vector2(24, 24)
@@ -20,10 +32,25 @@ size = Vector2(24, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1h0c"]
 size = Vector2(24, 48)
 
-[node name="zone_mountain" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lu1q"]
+shader = ExtResource("22_3ulon")
+shader_parameter/rain_amount = 100.0
+shader_parameter/near_rain_length = 0.10000000405148
+shader_parameter/far_rain_length = 0.02500000048898
+shader_parameter/near_rain_width = 0.23100000771262
+shader_parameter/far_rain_width = 0.17300000495762002
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.003921569, 0.22745098, 0.36862746, 1)
+shader_parameter/base_rain_speed = 1.0
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 4.7499999933364734e-08
+
+[node name="zone_mountain" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_8b8s7")
 zone_name = "The Mountain"
 zone_links = [NodePath("ZoneLinkHomestead"), NodePath("ZoneLinkGrandmas")]
+dark_canvas_mod = NodePath("CanvasModulate")
 
 [node name="TileMapLayer_blue" type="TileMapLayer" parent="." unique_id=1392867317]
 modulate = Color(0.36796123, 0.49450415, 0.56646395, 1)
@@ -89,7 +116,6 @@ polygon = PackedVector2Array(144, -144, 168, -144, 168, -216, 192, -216, 192, -4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1207380185]
 stream = ExtResource("10_50d4d")
-volume_db = -26.0
 autoplay = true
 
 [node name="ZoneLinkHomestead" parent="." unique_id=2082811522 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("14_xc567")]
@@ -179,3 +205,76 @@ position = Vector2(960, -1080)
 
 [node name="stop_point" type="Node2D" parent="ZoneLinkGrandmas" unique_id=2086299143]
 position = Vector2(912, -1080)
+
+[node name="entered_house_ready_scripts" type="Node" parent="." unique_id=15434054 node_paths=PackedStringArray("scripts")]
+script = ExtResource("14_kaqxi")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "TRUE"
+scripts = [NodePath("start_raining"), NodePath("set_modulate_visible"), NodePath("set_zone_dark"), NodePath("play_wind_sound"), NodePath("change_mod_trees"), NodePath("change_mod_green"), NodePath("change_mod_green_above"), NodePath("set_parallax_modulate")]
+
+[node name="start_raining" type="Node" parent="entered_house_ready_scripts" unique_id=1740796639 node_paths=PackedStringArray("rain_layer")]
+script = ExtResource("15_ukrpy")
+rain_layer = NodePath("../../rain_effect_sprite")
+
+[node name="set_modulate_visible" type="Node" parent="entered_house_ready_scripts" unique_id=2066562328 node_paths=PackedStringArray("node")]
+script = ExtResource("16_4y1gr")
+node = NodePath("../../CanvasModulate")
+
+[node name="play_wind_sound" type="Node" parent="entered_house_ready_scripts" unique_id=1305591687 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("17_csdqf")
+audio_player = NodePath("../../wind")
+
+[node name="set_zone_dark" type="Node" parent="entered_house_ready_scripts" unique_id=2088805846 node_paths=PackedStringArray("zone")]
+script = ExtResource("19_xc567")
+zone = NodePath("../..")
+
+[node name="change_mod_trees" type="Node" parent="entered_house_ready_scripts" unique_id=1348136875 node_paths=PackedStringArray("nodes")]
+script = ExtResource("21_qwsoq")
+nodes = [NodePath("../../TileMapLayer_trees"), NodePath("../../TileMapLayer_trees_below")]
+mod = Color(0.59607846, 0.5254902, 0.69803923, 1)
+
+[node name="change_mod_green" type="Node" parent="entered_house_ready_scripts" unique_id=302328997 node_paths=PackedStringArray("nodes")]
+script = ExtResource("21_qwsoq")
+nodes = [NodePath("../../TileMapLayer_green")]
+mod = Color(0.38207632, 0.5888074, 0.40622416, 1)
+
+[node name="change_mod_green_above" type="Node" parent="entered_house_ready_scripts" unique_id=557050544 node_paths=PackedStringArray("nodes")]
+script = ExtResource("21_qwsoq")
+nodes = [NodePath("../../TileMapLayer_green_above")]
+mod = Color(0.4398843, 0.70296973, 0.5428955, 1)
+
+[node name="set_parallax_modulate" type="Node" parent="entered_house_ready_scripts" unique_id=886965508 node_paths=PackedStringArray("nodes")]
+script = ExtResource("21_qwsoq")
+nodes = [NodePath("../../Parallax2D"), NodePath("../../Parallax2D2"), NodePath("../../Parallax2D3"), NodePath("../../Parallax2D4")]
+mod = Color(1, 0, 0.38431373, 1)
+
+[node name="entered_house_ready_scripts2" type="Node" parent="." unique_id=1819358125 node_paths=PackedStringArray("scripts")]
+script = ExtResource("14_kaqxi")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "NONE"
+scripts = [NodePath("q_free_seal")]
+
+[node name="q_free_seal" type="Node" parent="entered_house_ready_scripts2" unique_id=1741891933 node_paths=PackedStringArray("nodes")]
+script = ExtResource("20_1vn0e")
+nodes = [NodePath("../../PentacleSeal")]
+
+[node name="rain_effect_sprite" type="Sprite2D" parent="." unique_id=1489596788 groups=["rain_effect"]]
+visible = false
+z_index = 5
+material = SubResource("ShaderMaterial_1lu1q")
+position = Vector2(1752, -1656)
+texture = ExtResource("23_y56b6")
+script = ExtResource("24_l775m")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1722275132 groups=["global_modulate"]]
+visible = false
+z_index = 50
+color = Color(0.44313726, 0.44313726, 0.44313726, 1)
+
+[node name="wind" type="AudioStreamPlayer" parent="." unique_id=1122983893]
+stream = ExtResource("25_pvdmi")
+volume_db = -24.0
+
+[node name="PentacleSeal" parent="." unique_id=1226598247 instance=ExtResource("24_u7uqs")]
+z_index = 2
+position = Vector2(792, -1176)

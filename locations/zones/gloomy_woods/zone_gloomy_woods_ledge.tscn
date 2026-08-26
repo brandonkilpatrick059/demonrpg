@@ -179,7 +179,7 @@ position = Vector2(3024, -3816)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=347672605 groups=["global_modulate"]]
 visible = false
 z_index = 50
-color = Color(0.43904927, 0.4390491, 0.43904895, 1)
+color = Color(0.61339027, 0.61339027, 0.61339027, 1)
 
 [node name="entered_house_ready_scripts" type="Node" parent="." unique_id=2022489894 node_paths=PackedStringArray("scripts")]
 script = ExtResource("8_trx8j")

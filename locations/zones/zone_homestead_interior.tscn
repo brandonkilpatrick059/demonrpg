@@ -372,5 +372,23 @@ scripts = [NodePath("queue_free_lamp")]
 script = ExtResource("17_3fm0o")
 nodes = [NodePath("../../lamp")]
 
+[node name="entered_house_ready_scripts" type="Node" parent="." unique_id=1834656580 node_paths=PackedStringArray("scripts")]
+script = ExtResource("19_8wh00")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "TRUE"
+scripts = [NodePath("q_free_mother"), NodePath("q_free_interact_2"), NodePath("q_free_interact_1")]
+
+[node name="q_free_mother" type="Node" parent="entered_house_ready_scripts" unique_id=2036259913 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../NPCMother")]
+
+[node name="q_free_interact_1" type="Node" parent="entered_house_ready_scripts" unique_id=1428540111 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../interact_zone_1")]
+
+[node name="q_free_interact_2" type="Node" parent="entered_house_ready_scripts" unique_id=319306365 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../interact_zone_lamp_convo")]
+
 [connection signal="body_entered" from="interact_zone_1" to="interact_zone_1" method="_on_body_entered"]
 [connection signal="body_entered" from="interact_zone_lamp_convo" to="interact_zone_lamp_convo" method="_on_body_entered"]

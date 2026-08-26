@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="3_2gs5w"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
-[ext_resource type="PackedScene" uid="uid://cm1hsy8epesue" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn" id="5_cpjx4"]
 [ext_resource type="PackedScene" uid="uid://be8nahf55fp0p" path="res://familiars/base/L1_braim.tscn" id="5_vlo4x"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
 [ext_resource type="PackedScene" uid="uid://kljr0hxngqkg" path="res://familiars/base/L0_homunculus.tscn" id="6_pag8u"]
 [ext_resource type="PackedScene" uid="uid://c121x6li7hj1m" path="res://familiars/base/L0_damned.tscn" id="7_nn1l1"]
 [ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/base/L1_martyr.tscn" id="8_nn1l1"]
 [ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/base/L1_gark.tscn" id="9_2gs5w"]
+[ext_resource type="PackedScene" uid="uid://dp5o3s2y8hr7w" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn" id="11_2gs5w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]
 shader = ExtResource("6_je83m")
@@ -65,9 +65,8 @@ shader_parameter/pixel_strength = -4.0
 
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
-position = Vector2(-24, -12)
 script = ExtResource("1_5ulbo")
-current_zone = NodePath("zone_gloomy_woods_entrance")
+current_zone = NodePath("zone_gloomy_woods_exit")
 load_menu_on_ready = null
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
@@ -123,7 +122,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team", "stored_familiars") instance=ExtResource("3_r2q7f")]
-position = Vector2(2904, -2388)
+position = Vector2(2280, -600)
 familiar_team = [NodePath("L1braim"), NodePath("L0Homunculus"), NodePath("L0Damned")]
 stored_familiars = [NodePath("L1martyr"), NodePath("L1gark")]
 pentacle_charms = 3
@@ -146,5 +145,4 @@ visible = false
 [node name="L1gark" parent="Player" unique_id=2120251354 instance=ExtResource("9_2gs5w")]
 visible = false
 
-[node name="zone_gloomy_woods_entrance" parent="." unique_id=1169712370 instance=ExtResource("5_cpjx4")]
-position = Vector2(0, -12)
+[node name="zone_gloomy_woods_exit" parent="." unique_id=1169712370 instance=ExtResource("11_2gs5w")]

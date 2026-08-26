@@ -39,7 +39,7 @@ current_zone = NodePath("ZoneHomesteadInterior")
 
 [node name="Player" parent="." unique_id=286954556 instance=ExtResource("3_u4pa0")]
 position = Vector2(0, 24)
-pentacle_charms = 2
+pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
 position = Vector2(12, -12)

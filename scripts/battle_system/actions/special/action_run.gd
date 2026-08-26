@@ -13,7 +13,7 @@ var success_message : String = ""
 var run_succeeded: bool = false
 
 func determine_run_success():
-	run_succeeded =  randf_range(0.0,1.0) < 0.5
+	run_succeeded =  randf_range(0.0,1.0) < 0.25
 
 func _ready() -> void:
 	action_name = "RUN"

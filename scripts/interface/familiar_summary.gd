@@ -89,7 +89,6 @@ func handle_input():
 		$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
 		$AudioStreamPlayer.play()
 	if(Input.is_action_just_pressed("select") || 
-	Input.is_action_just_pressed("action_1") ||
 	Input.is_action_just_pressed("action_2")):
 		if(current_familiar != null):
 			current_familiar.set_inactive()

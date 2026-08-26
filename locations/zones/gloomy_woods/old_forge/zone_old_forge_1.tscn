@@ -18,13 +18,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj6y8"]
+size = Vector2(24, 24)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6ppr"]
 size = Vector2(24, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vh4j8"]
+size = Vector2(276, 24)
 
 [node name="ZoneOldForge" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_5bsea")
 zone_name = "Homestead Interior"
-zone_links = [NodePath("ZoneLinkGloomyWoodsEntrance")]
+zone_links = [NodePath("ZoneLinkGloomyWoodsEntrance"), NodePath("ZoneLinkExit")]
 dark = true
 dark_canvas_mod = NodePath("CanvasModulate")
 
@@ -82,6 +88,25 @@ position = Vector2(0, 264)
 
 [node name="stop_point" type="Node2D" parent="ZoneLinkGloomyWoodsEntrance" unique_id=88330025]
 position = Vector2(0, 240)
+
+[node name="ZoneLinkExit" parent="." unique_id=514851389 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_bcxat")]
+position = Vector2(1608, 600)
+link_zone_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn"
+link_name = "EXIT"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "FORGE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkExit" unique_id=880650040]
+position = Vector2(12, -12)
+shape = SubResource("RectangleShape2D_xj6y8")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLinkExit" unique_id=1845585968]
+position = Vector2(0, -72)
+
+[node name="stop_point" type="Node2D" parent="ZoneLinkExit" unique_id=855395693]
+position = Vector2(0, -96)
 
 [node name="walls" type="StaticBody2D" parent="." unique_id=567641062]
 
@@ -157,7 +182,7 @@ encounter = ExtResource("7_u8oqv")
 
 [node name="ShadeMonster_ghost8" parent="." unique_id=1861636342 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(1584, 480)
+position = Vector2(1560, 408)
 encounter = ExtResource("7_u8oqv")
 
 [node name="ShadeMonster_reaver" parent="." unique_id=1853776900 instance=ExtResource("6_dynvb")]
@@ -216,6 +241,10 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="monster_fence" unique_id=360084445]
 position = Vector2(1020, 72)
 shape = SubResource("RectangleShape2D_y6ppr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="monster_fence" unique_id=2138768863]
+position = Vector2(1614, 492)
+shape = SubResource("RectangleShape2D_vh4j8")
 
 [node name="Damned" parent="." unique_id=1590593699 instance=ExtResource("10_77ach")]
 position = Vector2(912, 48)

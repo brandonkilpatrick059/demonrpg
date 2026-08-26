@@ -431,6 +431,7 @@ func get_save_dictionary() -> Dictionary:
 		"name" : familiar_name,
 		"sigil" : sigil,
 		"max_hp" : max_hp,
+		"current_hp" : current_hp,
 		"attack" : attack,
 		"defense" : defense,
 		"speed" : speed,
@@ -447,6 +448,7 @@ func load_from_dictionary(dictionary : Dictionary):
 	sigil = dictionary.get("sigil")
 	Sigil.checkout_sigil(sigil)
 	max_hp = int(dictionary.get("max_hp"))
+	current_hp = int(dictionary.get("current_hp"))
 	attack = int(dictionary.get("attack"))
 	defense = int(dictionary.get("defense"))
 	speed = int(dictionary.get("speed"))

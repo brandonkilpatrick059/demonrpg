@@ -17,6 +17,19 @@
 [ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="15_0dkg3"]
 [ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="16_1alcv"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="17_yupxm"]
+[ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="18_6qcli"]
+[ext_resource type="Script" uid="uid://cvycaadlsfhey" path="res://scripts/utility/run_scripts/set_rain_layer.gd" id="19_d20f1"]
+[ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="20_mur1e"]
+[ext_resource type="Script" uid="uid://8nn10dgx4nmb" path="res://scripts/utility/run_scripts/set_autoplay.gd" id="21_ivfa5"]
+[ext_resource type="Script" uid="uid://d226twibnsv4w" path="res://scripts/utility/run_scripts/run_gate.gd" id="23_4ktpp"]
+[ext_resource type="Script" uid="uid://ctl8j5f47ohhg" path="res://scripts/utility/run_scripts/q_free_nodes.gd" id="24_d20f1"]
+[ext_resource type="Script" uid="uid://caj1c1txcrjev" path="res://scripts/utility/run_scripts/set_zone_dark.gd" id="24_xwq3w"]
+[ext_resource type="Script" uid="uid://s8xm5avkm34g" path="res://scripts/utility/run_scripts/set_modulate.gd" id="25_ivfa5"]
+[ext_resource type="Shader" uid="uid://ctbt1f24kbll6" path="res://shaders/rain_shader.gdshader" id="25_x5mje"]
+[ext_resource type="Texture2D" uid="uid://5rlts5urifo0" path="res://sprites/effects/empty_screen_sprite.png" id="26_h628r"]
+[ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="27_mbog8"]
+[ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="28_d20f1"]
+[ext_resource type="AudioStream" uid="uid://dg2soaxe4w3lj" path="res://audio/music/organs.ogg" id="29_mur1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0aow"]
 size = Vector2(24, 24)
@@ -39,10 +52,25 @@ size = Vector2(48, 54)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dkg3"]
 size = Vector2(120, 120)
 
-[node name="zone_homestead" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyohr"]
+shader = ExtResource("25_x5mje")
+shader_parameter/rain_amount = 100.0
+shader_parameter/near_rain_length = 0.10000000405148
+shader_parameter/far_rain_length = 0.02500000048898
+shader_parameter/near_rain_width = 0.23100000771262
+shader_parameter/far_rain_width = 0.17300000495762002
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.003921569, 0.22745098, 0.36862746, 1)
+shader_parameter/base_rain_speed = 1.0
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 4.7499999933364734e-08
+
+[node name="zone_homestead" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_qo434")
 zone_name = "The Homestead"
-zone_links = [NodePath("ZoneLinkInterior"), NodePath("ZoneLinkMountain")]
+zone_links = [NodePath("ZoneLinkInterior"), NodePath("ZoneLinkMountain"), NodePath("ZoneLinkGloomyWoodsExit")]
+dark_canvas_mod = NodePath("CanvasModulate")
 
 [node name="TileMapLayer_blue" type="TileMapLayer" parent="." unique_id=686741633]
 modulate = Color(0.36796123, 0.49450415, 0.56646395, 1)
@@ -52,7 +80,7 @@ tile_set = ExtResource("2_xbq5y")
 
 [node name="TileMapLayer_blue_below" type="TileMapLayer" parent="." unique_id=1392867317]
 modulate = Color(0.36796123, 0.49450415, 0.56646395, 1)
-tile_map_data = PackedByteArray("AAADAP3/AQAAAAcAAAAEAP3/AQACAAYAAAAFAP3/AQABAAcAAAAGAAIAAQAAAAcAAAAHAAIAAQABAAcAAAAIAP//AQAAAAcAAAAIAAAAAQABAAQAAAAJAAIAAQAAAAcAAAAJAAMAAQABAAUAAAAKAAIAAQABAAcAAAAKAAMAAQABAAUAAAALAAIAAQABAAcAAAALAAMAAQABAAQAAAAMAAIAAQABAAcAAAAMAAMAAQABAAQAAAANAAIAAQABAAcAAAANAAMAAQABAAQAAAAIAAUAAQAAAAcAAAADAPz/AQAAAAYAAAAEAPz/AQACAAYAAAAFAPz/AQABAAYAAAADAPv/AQAAAAUAAAADAPr/AQAAAAQAAAADAPn/AQAAAAQAAAADAPj/AQAAAAMAAAAEAPv/AQABAAUAAAAFAPv/AQABAAUAAAAGAPz/AQAAAAQAAAAGAP3/AQAAAAQAAAAGAP7/AQAAAAQAAAAGAP//AQAAAAQAAAAGAAAAAQAAAAUAAAAGAAEAAQAAAAYAAAAHAAEAAQABAAYAAAAHAAAAAQABAAUAAAAHAP//AQABAAQAAAAHAP7/AQABAAQAAAAHAP3/AQABAAQAAAAHAPz/AQABAAQAAAAHAPv/AQABAAQAAAAGAPv/AQABAAQAAAAIAAEAAQAAAAQAAAAIAAIAAQAAAAQAAAAIAAMAAQAAAAUAAAAIAAQAAQAAAAYAAAAEAPr/AQAAAAcAAAAEAPn/AQAAAAUAAAAEAPb/AQAAAAQAAAAEAPX/AQAAAAQAAAAFAPX/AQAAAAQAAAAGAPX/AQABAAQAAAAHAPX/AQABAAQAAAAGAPr/AQABAAYAAAAHAPr/AQABAAYAAAAHAPn/AQABAAUAAAAGAPn/AQABAAUAAAAFAPb/AQAAAAUAAAAGAPb/AQABAAUAAAAHAPb/AQABAAUAAAAEAPP/AQAAAAMAAAAEAPT/AQAAAAQAAAAFAPP/AQABAAMAAAAFAPT/AQAAAAQAAAAGAPP/AQABAAMAAAAGAPT/AQABAAQAAAAHAPD/AQAAAAQAAAAHAPH/AQAAAAQAAAAHAPL/AQAAAAQAAAAHAPP/AQABAAQAAAAHAPT/AQABAAQAAAAFAPr/AQACAAYAAAAFAPn/AQABAAUAAAAEAPj/AQAAAAQAAAAEAPf/AQAAAAQAAAAJAAQAAQABAAYAAAAJAAUAAQABAAcAAAAKAAQAAQABAAYAAAAKAAUAAQABAAcAAAALAAQAAQABAAYAAAALAAUAAQABAAcAAAAMAAQAAQABAAYAAAAMAAUAAQABAAcAAAANAAQAAQABAAYAAAANAAUAAQABAAcAAAAOAAQAAQABAAYAAAAOAAUAAQABAAcAAAAPAAQAAQABAAYAAAAPAAUAAQABAAcAAAAJAPX/AQABAAUAAAAJAPb/AQABAAYAAAAJAPf/AQABAAcAAAAJAPj/AQABAAcAAAAJAPn/AQABAAcAAAAJAPr/AQABAAcAAAAJAPv/AQABAAcAAAAJAPz/AQABAAcAAAAJAP3/AQABAAcAAAAJAP7/AQAAAAQAAAAKAPX/AQABAAQAAAAKAPb/AQAAAAUAAAAKAPf/AQAAAAYAAAAKAPj/AQAAAAYAAAAKAPn/AQAAAAYAAAAKAPr/AQAAAAYAAAAKAPv/AQAAAAYAAAAKAPz/AQAAAAYAAAAKAP3/AQAAAAYAAAAKAP7/AQAAAAcAAAALAPX/AQABAAQAAAALAPb/AQABAAUAAAALAPf/AQABAAcAAAALAPj/AQABAAcAAAALAPn/AQABAAcAAAALAPr/AQABAAcAAAALAPv/AQABAAcAAAALAPz/AQABAAcAAAALAP3/AQABAAcAAAALAP7/AQABAAcAAAAMAPX/AQABAAQAAAAMAPb/AQAAAAUAABAMAPf/AQAAAAYAABAMAPj/AQAAAAYAABAMAPn/AQAAAAYAABAMAPr/AQAAAAYAABAMAPv/AQAAAAYAABAMAPz/AQAAAAYAABAMAP3/AQAAAAYAABAMAP7/AQAAAAcAABANAPX/AQABAAUAAAANAPb/AQABAAYAAAANAPf/AQABAAcAAAANAPj/AQABAAcAAAANAPn/AQABAAcAAAANAPr/AQABAAcAAAANAPv/AQABAAcAAAANAPz/AQABAAcAAAANAP3/AQABAAcAAAANAP7/AQABAAQAAAAOAPX/AQABAAUAAAAOAPb/AQABAAYAAAAOAPf/AQABAAcAAAAOAPj/AQABAAcAAAAOAPn/AQABAAcAAAAOAPr/AQABAAcAAAAOAPv/AQABAAcAAAAOAPz/AQABAAcAAAAOAP3/AQABAAcAAAAOAP7/AQABAAQAAAAIAPX/AQAAAAUAAAAIAPb/AQAAAAYAAAAIAPf/AQAAAAYAAAAIAPj/AQAAAAYAAAAIAPn/AQAAAAYAAAAIAPr/AQAAAAYAAAAIAPv/AQAAAAYAAAAIAPz/AQAAAAYAAAAIAP3/AQAAAAYAAAAIAP7/AQAAAAYAAAADAAEAAQAAAAMAAAADAAIAAQAAAAUAAAADAAMAAQAAAAcAAAAEAAEAAQAAAAMAABAEAAIAAQAAAAUAABAEAAMAAQAAAAcAABAFAPf/AQAAAAcAAAAGAPf/AQACAAYAAAAHAPf/AQABAAYAAAA=")
+tile_map_data = PackedByteArray("AAADAP3/AQAAAAcAAAAEAP3/AQACAAYAAAAFAP3/AQABAAcAAAAGAAIAAQAAAAcAAAAHAAIAAQABAAcAAAAIAP//AQAAAAcAAAAIAAAAAQABAAQAAAAJAAIAAQAAAAcAAAAJAAMAAQABAAUAAAAKAAIAAQABAAcAAAAKAAMAAQABAAUAAAALAAIAAQABAAcAAAALAAMAAQABAAUAAAAMAAIAAQABAAcAAAAMAAMAAQABAAUAAAANAAIAAQABAAcAAAANAAMAAQABAAUAAAAIAAUAAQAAAAcAAAADAPz/AQAAAAYAAAAEAPz/AQACAAYAAAAFAPz/AQABAAYAAAADAPv/AQAAAAUAAAADAPr/AQAAAAQAAAADAPn/AQAAAAQAAAADAPj/AQAAAAMAAAAEAPv/AQABAAUAAAAFAPv/AQABAAUAAAAGAPz/AQAAAAQAAAAGAP3/AQAAAAQAAAAGAP7/AQAAAAQAAAAGAP//AQAAAAQAAAAGAAAAAQAAAAUAAAAGAAEAAQAAAAYAAAAHAAEAAQABAAYAAAAHAAAAAQABAAUAAAAHAP//AQABAAQAAAAHAP7/AQABAAQAAAAHAP3/AQABAAQAAAAHAPz/AQABAAQAAAAHAPv/AQABAAQAAAAGAPv/AQABAAQAAAAIAAEAAQAAAAQAAAAIAAIAAQAAAAQAAAAIAAMAAQAAAAUAAAAIAAQAAQAAAAYAAAAEAPr/AQAAAAcAAAAEAPn/AQAAAAUAAAAEAPb/AQAAAAQAAAAEAPX/AQAAAAQAAAAFAPX/AQAAAAQAAAAGAPX/AQABAAQAAAAHAPX/AQABAAQAAAAGAPr/AQABAAYAAAAHAPr/AQABAAYAAAAHAPn/AQABAAUAAAAGAPn/AQABAAUAAAAFAPb/AQAAAAUAAAAGAPb/AQABAAUAAAAHAPb/AQABAAUAAAAEAPP/AQAAAAMAAAAEAPT/AQAAAAQAAAAFAPP/AQABAAMAAAAFAPT/AQAAAAQAAAAGAPP/AQABAAMAAAAGAPT/AQABAAQAAAAHAPD/AQAAAAQAAAAHAPH/AQAAAAQAAAAHAPL/AQAAAAQAAAAHAPP/AQABAAQAAAAHAPT/AQABAAQAAAAFAPr/AQACAAYAAAAFAPn/AQABAAUAAAAEAPj/AQAAAAQAAAAEAPf/AQAAAAQAAAAJAAQAAQABAAYAAAAJAAUAAQABAAcAAAAKAAQAAQABAAYAAAAKAAUAAQABAAcAAAALAAQAAQABAAYAAAALAAUAAQABAAcAAAAMAAQAAQABAAYAAAAMAAUAAQABAAcAAAANAAQAAQABAAYAAAANAAUAAQABAAcAAAAOAAQAAQABAAYAAAAOAAUAAQABAAcAAAAPAAQAAQABAAYAAAAPAAUAAQABAAcAAAAJAPX/AQABAAUAAAAJAPb/AQABAAYAAAAJAPf/AQABAAcAAAAJAPj/AQABAAcAAAAJAPn/AQABAAcAAAAJAPr/AQABAAcAAAAJAPv/AQABAAcAAAAJAPz/AQABAAcAAAAJAP3/AQABAAcAAAAJAP7/AQAAAAQAAAAKAPX/AQABAAQAAAAKAPb/AQAAAAUAAAAKAPf/AQAAAAYAAAAKAPj/AQAAAAYAAAAKAPn/AQAAAAYAAAAKAPr/AQAAAAYAAAAKAPv/AQAAAAYAAAAKAPz/AQAAAAYAAAAKAP3/AQAAAAYAAAAKAP7/AQAAAAcAAAALAPX/AQABAAQAAAALAPb/AQABAAUAAAALAPf/AQABAAcAAAALAPj/AQABAAcAAAALAPn/AQABAAcAAAALAPr/AQABAAcAAAALAPv/AQABAAcAAAALAPz/AQABAAcAAAALAP3/AQABAAcAAAALAP7/AQABAAcAAAAMAPX/AQABAAQAAAAMAPb/AQAAAAUAABAMAPf/AQAAAAYAABAMAPj/AQAAAAYAABAMAPn/AQAAAAYAABAMAPr/AQAAAAYAABAMAPv/AQAAAAYAABAMAPz/AQAAAAYAABAMAP3/AQAAAAYAABAMAP7/AQAAAAcAABANAPX/AQABAAUAAAANAPb/AQABAAYAAAANAPf/AQABAAcAAAANAPj/AQABAAcAAAANAPn/AQABAAcAAAANAPr/AQABAAcAAAANAPv/AQABAAcAAAANAPz/AQABAAcAAAANAP3/AQABAAcAAAANAP7/AQABAAQAAAAOAPX/AQABAAUAAAAOAPb/AQABAAYAAAAOAPf/AQABAAcAAAAOAPj/AQABAAcAAAAOAPn/AQABAAcAAAAOAPr/AQABAAcAAAAOAPv/AQABAAcAAAAOAPz/AQABAAcAAAAOAP3/AQABAAcAAAAOAP7/AQABAAQAAAAIAPX/AQAAAAUAAAAIAPb/AQAAAAYAAAAIAPf/AQAAAAYAAAAIAPj/AQAAAAYAAAAIAPn/AQAAAAYAAAAIAPr/AQAAAAYAAAAIAPv/AQAAAAYAAAAIAPz/AQAAAAYAAAAIAP3/AQAAAAYAAAAIAP7/AQAAAAYAAAADAAEAAQAAAAMAAAADAAIAAQAAAAUAAAADAAMAAQAAAAcAAAAEAAEAAQAAAAMAABAEAAIAAQAAAAUAABAEAAMAAQAAAAcAABAFAPf/AQAAAAcAAAAGAPf/AQACAAYAAAAHAPf/AQABAAYAAAAOAAMAAQABAAUAAAAPAAMAAQABAAUAAAAQAAMAAQABAAUAAAA=")
 tile_set = ExtResource("2_xbq5y")
 
 [node name="TileMapLayer_green_above" type="TileMapLayer" parent="." unique_id=185627252]
@@ -97,7 +125,6 @@ tile_set = ExtResource("4_0dkg3")
 collision_enabled = false
 
 [node name="walls" type="StaticBody2D" parent="." unique_id=444147778]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=936180831]
 position = Vector2(-144, -168)
@@ -109,10 +136,6 @@ polygon = PackedVector2Array(192, 240, 288, 240, 288, 216, 336, 216, 336, 168, 3
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="walls" unique_id=1270062144]
 position = Vector2(48, 24)
-polygon = PackedVector2Array(24, 0, 72, 0, 72, 72, 24, 72)
-
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="walls" unique_id=1360503441]
-position = Vector2(-24, 48)
 polygon = PackedVector2Array(24, 0, 72, 0, 72, 72, 24, 72)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="walls" unique_id=1539072651]
@@ -222,6 +245,28 @@ position = Vector2(-144, -144)
 
 [node name="stop_point" type="Node2D" parent="ZoneLinkMountain" unique_id=864029780]
 position = Vector2(-144, -144)
+
+[node name="ZoneLinkGloomyWoodsExit" parent="." unique_id=579312645 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("14_6qcli")]
+position = Vector2(312, 288)
+link_zone_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn"
+link_name = "WOODS"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "EXIT"
+state_check = "HOUSE_ENTERED"
+state_check_val = "TRUE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkGloomyWoodsExit" unique_id=328025041]
+z_index = 20
+position = Vector2(-132, -204)
+shape = SubResource("RectangleShape2D_u0aow")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLinkGloomyWoodsExit" unique_id=183092747]
+position = Vector2(-192, -192)
+
+[node name="stop_point" type="Node2D" parent="ZoneLinkGloomyWoodsExit" unique_id=399613800]
+position = Vector2(-192, -192)
 
 [node name="interactable_area_1" type="StaticBody2D" parent="." unique_id=618759930 node_paths=PackedStringArray("scripts")]
 script = ExtResource("15_0dkg3")
@@ -344,3 +389,94 @@ texts = [NodePath("text")]
 script = ExtResource("17_yupxm")
 language_map = Array[String](["english"])
 text = Array[String](["(The crops aren't doing well...)"])
+
+[node name="entered_house_ready_scripts" type="Node" parent="." unique_id=648322260 node_paths=PackedStringArray("scripts")]
+script = ExtResource("18_6qcli")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "TRUE"
+scripts = [NodePath("start_raining"), NodePath("set_modulate_visible"), NodePath("gate_open"), NodePath("play_organ_music"), NodePath("set_zone_dark"), NodePath("play_wind_sound"), NodePath("stop_cricket_sound"), NodePath("q_free_truck"), NodePath("q_free_father"), NodePath("q_free_chicken"), NodePath("q_free_chicken2"), NodePath("change_mod_trees"), NodePath("change_mod_green"), NodePath("change_mod_green_above"), NodePath("q_free_gate")]
+
+[node name="start_raining" type="Node" parent="entered_house_ready_scripts" unique_id=842511683 node_paths=PackedStringArray("rain_layer")]
+script = ExtResource("19_d20f1")
+rain_layer = NodePath("../../rain_effect_sprite")
+
+[node name="set_modulate_visible" type="Node" parent="entered_house_ready_scripts" unique_id=1482796037 node_paths=PackedStringArray("node")]
+script = ExtResource("20_mur1e")
+node = NodePath("../../CanvasModulate")
+
+[node name="play_organ_music" type="Node" parent="entered_house_ready_scripts" unique_id=73039122 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("21_ivfa5")
+audio_player = NodePath("../../organ_music")
+
+[node name="play_wind_sound" type="Node" parent="entered_house_ready_scripts" unique_id=754031512 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("21_ivfa5")
+audio_player = NodePath("../../wind")
+
+[node name="stop_cricket_sound" type="Node" parent="entered_house_ready_scripts" unique_id=402685073 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("21_ivfa5")
+audio_player = NodePath("../../AudioStreamPlayer")
+playing = false
+
+[node name="gate_open" type="Node" parent="entered_house_ready_scripts" unique_id=963125642 node_paths=PackedStringArray("gate")]
+script = ExtResource("23_4ktpp")
+gate = NodePath("../../Gate")
+
+[node name="set_zone_dark" type="Node" parent="entered_house_ready_scripts" unique_id=1614846519 node_paths=PackedStringArray("zone")]
+script = ExtResource("24_xwq3w")
+zone = NodePath("../..")
+
+[node name="q_free_truck" type="Node" parent="entered_house_ready_scripts" unique_id=813638516 node_paths=PackedStringArray("nodes")]
+script = ExtResource("24_d20f1")
+nodes = [NodePath("../../props/old_truck"), NodePath("../../interactable_area_1")]
+
+[node name="q_free_gate" type="Node" parent="entered_house_ready_scripts" unique_id=331226191 node_paths=PackedStringArray("nodes")]
+script = ExtResource("24_d20f1")
+nodes = [NodePath("../../interactable_area_5")]
+
+[node name="q_free_father" type="Node" parent="entered_house_ready_scripts" unique_id=1374597513 node_paths=PackedStringArray("nodes")]
+script = ExtResource("24_d20f1")
+nodes = [NodePath("../../NPCFather")]
+
+[node name="q_free_chicken" type="Node" parent="entered_house_ready_scripts" unique_id=1732667840 node_paths=PackedStringArray("nodes")]
+script = ExtResource("24_d20f1")
+nodes = [NodePath("../../NPCChicken")]
+
+[node name="q_free_chicken2" type="Node" parent="entered_house_ready_scripts" unique_id=136355658 node_paths=PackedStringArray("nodes")]
+script = ExtResource("24_d20f1")
+nodes = [NodePath("../../NPCChicken2")]
+
+[node name="change_mod_trees" type="Node" parent="entered_house_ready_scripts" unique_id=1219242395 node_paths=PackedStringArray("nodes")]
+script = ExtResource("25_ivfa5")
+nodes = [NodePath("../../TileMapLayer_trees")]
+mod = Color(0.59607846, 0.5254902, 0.69803923, 1)
+
+[node name="change_mod_green" type="Node" parent="entered_house_ready_scripts" unique_id=1474237754 node_paths=PackedStringArray("nodes")]
+script = ExtResource("25_ivfa5")
+nodes = [NodePath("../../TileMapLayer_green")]
+mod = Color(0.45490196, 0.56078434, 0.49019608, 1)
+
+[node name="change_mod_green_above" type="Node" parent="entered_house_ready_scripts" unique_id=1043492207 node_paths=PackedStringArray("nodes")]
+script = ExtResource("25_ivfa5")
+nodes = [NodePath("../../TileMapLayer_green_above")]
+mod = Color(0.5568628, 0.6666667, 0.5921569, 1)
+
+[node name="rain_effect_sprite" type="Sprite2D" parent="." unique_id=1174978829 groups=["rain_effect"]]
+visible = false
+z_index = 5
+material = SubResource("ShaderMaterial_uyohr")
+position = Vector2(1752, -1656)
+texture = ExtResource("26_h628r")
+script = ExtResource("27_mbog8")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1833118149 groups=["global_modulate"]]
+visible = false
+z_index = 50
+color = Color(0.44313726, 0.44313726, 0.44313726, 1)
+
+[node name="wind" type="AudioStreamPlayer" parent="." unique_id=579480358]
+stream = ExtResource("28_d20f1")
+volume_db = -24.0
+
+[node name="organ_music" type="AudioStreamPlayer" parent="." unique_id=482488475]
+stream = ExtResource("29_mur1e")
+volume_db = -6.0
