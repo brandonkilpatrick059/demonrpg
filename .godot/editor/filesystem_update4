@@ -71,3 +71,6 @@ res://locations/zones/zone_homestead.tscn
 res://scripts/utility/run_scripts/set_modulate.gd
 res://locations/zones/zone_homestead_interior.tscn
 res://scripts/locations/zone_link.gd
+res://battle/battle_system_sandbox.tscn
+res://scripts/battle_system/buffs/battle_buff.gd
+res://scripts/battle_system/buffs/burn_buff_effect.gd

@@ -15,6 +15,7 @@ func _ready():
 	fade_node.set_target_modulate(Color(1,1,1,1),0.2,0.2)
 	add_child(fade_node)
 	status_effect = true
+	cured_by_heal = true
 	inactive_after_rounds = randi_range(2,4)
 
 #func set_lifetime(rounds : int):
@@ -28,7 +29,7 @@ func apply_status_effect():
 	var source = source_familiar
 	var act = burn_action
 	var target = target_familiar
-	if(target != null):
+	if(target != null and source != null):
 		action_item = BattleSystemManager.ActionQueueItem.new(source,act,[target])
 		var battle_system_ref : BattleSystemManager
 		battle_system_ref = get_tree().get_first_node_in_group("battle_system")
@@ -42,6 +43,8 @@ func apply_status_effect():
 				var burn = load("res://battle/actions/buffs/burn_buff_effect.tscn").instantiate()
 				burn.set_source_and_target(source,familiar)
 				familiar.add_battle_buff(burn)
+	else:
+		queue_free()
 
 func stack(stack_buff : BattleBuff):
 	return

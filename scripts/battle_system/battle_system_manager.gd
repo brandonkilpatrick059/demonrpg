@@ -9,6 +9,7 @@ class_name BattleSystemManager extends Node2D
 @export var opponent_familiars : Array[Familiar] = []
 @export var player_familiars : Array[Familiar] = []
 @export var music : AudioStream = null
+@export var is_sandbox : bool = false
 
 var text := BattleText.new()
 
@@ -81,6 +82,8 @@ func _ready() -> void:
 	if(music != null):
 		play_music(music)
 	wait_timer.start(1.5)
+	if(is_sandbox):
+		initialize_familiars()
 
 func set_familiars(set_player_familiars : Array[Familiar], 
 set_opponent_familiars : Array[Familiar]):
@@ -90,29 +93,25 @@ set_opponent_familiars : Array[Familiar]):
 
 func get_adjacent_familiars(to_familiar : Familiar, left_only : bool = false) -> Array[Familiar]:
 	var adjacent_familiars : Array[Familiar] = []
-	var index = 0
 	if(to_familiar.is_hostile()):
-		index = opponent_positions.find(to_familiar.get_parent())
-		var left_index = index - 1
-		var right_index = index + 1
-		if(left_index >= 0):
-			if(opponent_positions[left_index].get_child_count() > 0):
-				adjacent_familiars.append(opponent_positions[left_index].get_child(0))
-		if(right_index < opponent_positions.size() && not left_only):
-			if(opponent_positions[right_index].get_child_count() > 0):
-				adjacent_familiars.append(opponent_positions[right_index])
+		adjacent_familiars = get_adjacent(opponent_positions,to_familiar,left_only)
 	else:
-		index = player_positions.find(to_familiar.get_parent())
-		var left_index = index - 1
-		var right_index = index + 1
-		if(left_index >= 0):
-			if(player_positions[left_index].get_child_count() > 0):
-				adjacent_familiars.append(player_positions[left_index].get_child(0))
-		if(right_index < player_positions.size() && not left_only):
-			if(player_positions[right_index].get_child_count() > 0):
-				adjacent_familiars.append(player_positions[right_index].get_child(0))
+		adjacent_familiars = get_adjacent(player_positions,to_familiar,left_only)
 	return adjacent_familiars
-	
+
+func get_adjacent(positions : Array[FamiliarSlot], 
+to_familiar : Familiar, left_only : bool = false) -> Array[Familiar]:
+	var adjacent_familiars : Array[Familiar] = []
+	var index = positions.find(to_familiar.get_parent())
+	var left_index = index - 1
+	var right_index = index + 1
+	if(left_index >= 0):
+		if(positions[left_index].get_child_count() > 0):
+			adjacent_familiars.append(positions[left_index].get_child(0))
+	if(right_index < positions.size() && not left_only):
+		if(positions[right_index].get_child_count() > 0):
+			adjacent_familiars.append(positions[right_index].get_child(0))
+	return adjacent_familiars
 
 func fade_in():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
@@ -518,13 +517,13 @@ func handle_two_adjacent_target_input():
 		var index = targetable_familiars.find(current_target)
 		if(Input.is_action_just_pressed("left")):
 			index = index - 1
-			if(index < 1):
+			if(index < 0):
 				index = targetable_familiars.size() - 1
 			current_target = targetable_familiars[index]
 		elif(Input.is_action_just_pressed("right")):
 			index = index + 1
 			if(index >= targetable_familiars.size()):
-				index = 1
+				index = 0
 			current_target = targetable_familiars[index]
 		targeted_familiars.clear()
 		targeted_familiars.append(current_target)

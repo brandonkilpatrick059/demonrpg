@@ -8,9 +8,13 @@ var rounds_active : int = 0
 var type : String = "blank"
 
 var status_effect : bool = false
+var cured_by_heal : bool = false
 
 func is_status_effect() -> bool:
 	return status_effect
+
+func is_cured_by_heal() -> bool:
+	return cured_by_heal
 
 func is_active():
 	return active

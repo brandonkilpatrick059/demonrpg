@@ -401,6 +401,18 @@ func update_buffs():
 	clean_buffs_list()
 	arrange_buffs()
 
+func heal_status_effects():
+	var new_buffs : Array[BattleBuff] = []
+	for buff : BattleBuff in battle_buffs:
+		if(not buff.is_status_effect() or 
+		(buff.is_status_effect() and not buff.is_cured_by_heal())):
+			new_buffs.append(buff)
+		else:
+			buff.queue_free()
+	battle_buffs.clear()
+	battle_buffs.append_array(new_buffs)
+	arrange_buffs()
+
 func run_status_effects():
 	for buff : BattleBuff in battle_buffs:
 		if(buff != null &&

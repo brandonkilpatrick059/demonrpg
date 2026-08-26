@@ -79,6 +79,7 @@ func apply_pkg_to_target(pkg : BattlePkg):
 		var new_target_hp = target_hp + final_damage
 		if(new_target_hp >= target.get_max_hp()):
 			new_target_hp = target.get_max_hp()
+		target.heal_status_effects()
 		target.set_current_hp(new_target_hp)
 
 func get_target_preference(targets : Array[Familiar]) -> Array[Familiar]:
