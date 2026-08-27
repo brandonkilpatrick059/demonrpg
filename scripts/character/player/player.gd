@@ -404,7 +404,7 @@ func load_from_dictionary(dictionary : Dictionary):
 	play_time_seconds = dictionary.get("play_time_secs")
 	var pos_x : float = float(dictionary.get("pos_x"))
 	var pos_y : float = float(dictionary.get("pos_y"))
-	var pos : Vector2 = Vector2(pos_x,pos_y + 24)
+	var pos : Vector2 = Vector2(pos_x,pos_y)
 	global_position = pos
 
 func _physics_process(delta: float) -> void:

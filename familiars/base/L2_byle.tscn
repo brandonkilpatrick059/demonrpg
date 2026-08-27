@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_mx2nn"]
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_d11f7"]
 [ext_resource type="PackedScene" uid="uid://cwaw606w62g4y" path="res://battle/actions/action_heal.tscn" id="7_15da5"]
-[ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="8_56qed"]
 
 [node name="L2byle" type="Node2D" unique_id=1170432072]
 script = ExtResource("1_5vyt4")
@@ -41,5 +40,3 @@ opponent_choice_weight = 0.4
 
 [node name="ActionHeal" parent="actions" unique_id=752021787 instance=ExtResource("7_15da5")]
 opponent_choice_weight = 0.5
-
-[node name="ActionRun" parent="actions" unique_id=300921763 instance=ExtResource("8_56qed")]

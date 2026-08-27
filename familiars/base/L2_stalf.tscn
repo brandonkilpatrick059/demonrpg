@@ -11,7 +11,7 @@
 
 [node name="L2stalf" type="Node2D" unique_id=2121275838]
 script = ExtResource("1_b87nx")
-packedscene_path = "res://familiars/base/L2_reaver.tscn"
+packedscene_path = "res://familiars/base/L2_stalf.tscn"
 familiar_name = "Stalf"
 max_hp = 15
 current_hp = 15

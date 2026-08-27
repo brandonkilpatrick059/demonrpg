@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bhfmqt6lxewql" path="res://battle/actions/action_block.tscn" id="4_ey5uy"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_618r6"]
 [ext_resource type="PackedScene" uid="uid://bfnuubvl43rki" path="res://battle/actions/action_reflect.tscn" id="6_2deja"]
-[ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="7_2nqfb"]
 
 [node name="L2gorgon" type="Node2D" unique_id=350619396]
 script = ExtResource("1_wt7d1")
@@ -37,5 +36,3 @@ opponent_choice_weight = 0.1
 
 [node name="ActionReflect" parent="actions" unique_id=1102425551 instance=ExtResource("6_2deja")]
 opponent_choice_weight = 0.6
-
-[node name="ActionRun" parent="actions" unique_id=432895155 instance=ExtResource("7_2nqfb")]

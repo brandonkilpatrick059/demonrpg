@@ -10,7 +10,7 @@
 
 [node name="L2shax" type="Node2D" unique_id=749472024]
 script = ExtResource("1_0cws7")
-packedscene_path = "res://familiars/base/L2_reaver.tscn"
+packedscene_path = "res://familiars/base/L2_shax.tscn"
 familiar_name = "Shax"
 max_hp = 15
 current_hp = 15

@@ -191,6 +191,7 @@ func initialize_familiars():
 			familiar.set_active()
 			index = index + 1
 	
+	player_familiar_index = get_fastest_player_familiar_index()
 	familiars_initialized = true
 
 func play_messages(text_queue : Array[String]):
@@ -268,11 +269,13 @@ func start_process():
 		play_messages([intro_text])
 	if(not awaiting_input):
 		current_phase = BattlePhase.INPUT
+		finished_input_indexes.clear()
 		wait_timer.start(3.0)
 		fade_in()
 #endregion
 #region Input Phase
 var player_familiar_index : int = 0
+var finished_input_indexes : Array[int] = []
 var status_shown : bool = false
 func input_process():
 	if(player_familiar_index < player_familiars.size()):
@@ -290,11 +293,11 @@ func input_process():
 					show_action_menu(current_familiar)
 					awaiting_input = true
 			else:
-				advance_player_familiar_index()
+				next_player_familiar()#advance_player_familiar_index()
 		else:
-			advance_player_familiar_index()
+			next_player_familiar()#advance_player_familiar_index()
 	else:
-		advance_player_familiar_index()
+		next_player_familiar()#advance_player_familiar_index()
 
 func show_status(familiar : Familiar): 
 	status.global_position = familiar.global_position + Vector2(0,-64)
@@ -311,13 +314,27 @@ func show_status(familiar : Familiar):
 	status.set_active()
 	awaiting_input = true
 
+func get_action_by_name(name : String, actions : Array[BattleAction]):
+	var ret_action : BattleAction = null
+	for action : BattleAction in actions:
+		if action.action_name == name:
+			ret_action = action
+		break
+	return ret_action
+
 func show_action_menu(familiar : Familiar):
 	if(not familiar.is_in_group("player_familiar") and
 	side_is_dead(opponent_familiars)):
+		var set_actions : Array[BattleAction] = []
 		if(not familiar.is_incorporeal()):
-			action_menu.set_actions([$ActionPass,$ActionFeed])
+			set_actions.append_array([$ActionPass,$ActionFeed])
 		else:
-			action_menu.set_actions([$ActionPass])
+			set_actions.append_array([$ActionPass])
+		if(familiar.get_action_by_name("DEVOUR") != null):
+			set_actions.append(familiar.get_action_by_name("DEVOUR"))
+		if(familiar.get_action_by_name("HEAL") != null):
+			set_actions.append(familiar.get_action_by_name("HEAL"))
+		action_menu.set_actions(set_actions)
 	else:
 		action_menu.set_actions(familiar.get_actions())
 	var height = -16 - action_menu.get_height()
@@ -392,6 +409,7 @@ func start_target_process(action : BattleAction):
 func reset_input_phase():
 	hide_all_sel_arrows()
 	current_phase = BattlePhase.INPUT
+	finished_input_indexes.clear()
 
 func get_targetable_familiars(action : BattleAction):
 	targetable_familiars.clear()
@@ -538,8 +556,44 @@ func queue_player_action():
 	action.pay_energy_cost(actor)
 	var new_action = ActionQueueItem.new(actor,action,targets)
 	player_action_queue.append(new_action)
-	advance_player_familiar_index()
+	next_player_familiar()#advance_player_familiar_index()
  
+func get_fastest_player_familiar_index() -> int:
+	var index = 0
+	var max_speed = 0
+	var chosen_index = 0
+	while(index < player_familiars.size()):
+		if(player_familiars[index].is_dead() and 
+		not finished_input_indexes.has(index)):
+			finished_input_indexes.append(index)
+		elif(not finished_input_indexes.has(index)):
+			var check_speed : int = player_familiars[index].get_speed()
+			if(check_speed > max_speed):
+				max_speed = check_speed
+				chosen_index = index
+		index = index + 1
+	return chosen_index
+
+#gets the next fastest player familiar
+func next_player_familiar():
+	var current_familiar : Familiar = player_familiars[player_familiar_index]
+	var actions_taken : int = current_familiar.get_actions_taken()
+	var num_actions : int = current_familiar.get_num_actions()
+	if(actions_taken < num_actions):
+		current_familiar.action_taken()
+	else:
+		finished_input_indexes.append(player_familiar_index)
+		current_familiar.reset_actions_taken()
+		player_familiar_index = get_fastest_player_familiar_index()
+		if(finished_input_indexes.size() == player_familiars.size()):
+			if(can_offer_capture() != null):
+				current_phase = BattlePhase.INPUT_CAPTURE
+			else:
+				current_phase = BattlePhase.BATTLE
+			player_familiar_index = get_fastest_player_familiar_index()
+			finished_input_indexes.clear()
+		
+
 func advance_player_familiar_index():
 	var current_familiar : Familiar = player_familiars[player_familiar_index]
 	var actions_taken : int = current_familiar.get_actions_taken()
@@ -557,7 +611,7 @@ func advance_player_familiar_index():
 				current_phase = BattlePhase.INPUT_CAPTURE
 			else:
 				current_phase = BattlePhase.BATTLE
-			player_familiar_index = 0
+			player_familiar_index = get_fastest_player_familiar_index()
 
 func can_offer_capture() -> Familiar:
 	var player : Player = get_tree().get_first_node_in_group("player")
@@ -685,7 +739,8 @@ func side_is_dead(side_familiars : Array[Familiar]) -> bool:
 	return is_dead
 
 func run_actions_process():
-	if(!awaiting_input && current_battle_action != null):
+	if(!awaiting_input && 
+	current_battle_action != null):
 		position_message()
 		current_battle_action.action_process(current_actor,current_targets)
 	elif(current_battle_action == null):
@@ -732,6 +787,18 @@ func position_message():
 func reset_message_position():
 	message.global_position = global_position
 
+func any_familiars_null(familiars : Array[Familiar]) -> bool:
+	for familiar in familiars:
+		if familiar == null:
+			return true
+	return false
+
+func any_familiars_dead(familiars : Array[Familiar]) -> bool:
+	for familiar in familiars:
+		if familiar.is_dead():
+			return true
+	return false
+
 func get_next_action():
 	update_buff_positions()
 	if(combined_action_queue.size() > 0):
@@ -739,9 +806,10 @@ func get_next_action():
 		while(current_action == null || 
 			current_action.get_actor() == null ||
 			current_action.get_actor().is_dead()):
-			current_action = combined_action_queue.pop_front()
-			if(combined_action_queue.size() == 0):
-				wait_timer.start(1.0)
+			if(combined_action_queue.size() > 0):
+				current_action = combined_action_queue.pop_front()
+			else:
+				wait_timer.start(0.5)
 				return_to_input_phase()
 				break
 		if(current_action != null):
@@ -749,24 +817,28 @@ func get_next_action():
 			if(current_battle_action != null):
 				current_actor = current_action.get_actor()
 				current_targets = current_action.get_targets()
-				current_battle_action.clean_up()
+				current_battle_action.clean_up() #make sure the action is reset and ready
 				#get a new target for opponent if their intended
 				#target has died
-				if(current_actor != null):
-					if((current_actor.is_hostile() &&
-					current_targets.size() == 1) &&
-					(current_targets[0] == null ||
-					current_targets[0].is_dead())):
-						var potential_targets: Array[Familiar] = []
-						var actor = current_action.get_actor()
-						var valid_targets = get_opponent_targetable_familiars(actor,current_battle_action)
-						potential_targets.append(valid_targets)
-						var new_target = randi_range(0,potential_targets.size())
-						current_targets = [new_target]
-				
+				check_and_replace_targets(current_action)
 	elif(combined_action_queue.size() == 0):
-		wait_timer.start(1.0)
+		wait_timer.start(0.5)
 		return_to_input_phase()
+
+#double-checks that single targets of the current opponent are alive
+#and replaces them if they are dead or null
+func check_and_replace_targets(current_action : ActionQueueItem):
+	if(current_actor != null):
+		if((current_actor.is_hostile() &&
+		current_targets.size() == 1) &&
+		(current_targets[0] == null ||
+		current_targets[0].is_dead())):
+			var potential_targets: Array[Familiar] = []
+			var actor = current_action.get_actor()
+			var valid_targets = get_opponent_targetable_familiars(actor,current_battle_action)
+			potential_targets.append(valid_targets)
+			var new_target = potential_targets[randi_range(0,potential_targets.size()-1)]
+			current_targets = [new_target]
 
 func update_buffs():
 	for familiar in player_familiars:
@@ -800,7 +872,7 @@ func return_to_input_phase():
 	increment_all_energies()
 	player_action_queue.clear()
 	opponent_action_queue.clear()
-	player_familiar_index = 0
+	player_familiar_index = get_fastest_player_familiar_index()
 	input_phase_entered = false
 	have_combined_queue = false
 

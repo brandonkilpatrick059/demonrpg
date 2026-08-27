@@ -87,7 +87,6 @@ volume_db = -36.0
 autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2129903169 groups=["global_modulate"]]
-visible = false
 z_index = 50
 color = Color(0, 0, 0, 1)
 
