@@ -35,6 +35,8 @@ var input_gate_timer := Timer.new()
 var music_player := AudioStreamPlayer.new()
 var audio_players : Array[AudioStreamPlayer] = []
 
+var is_escapable : bool = false
+
 #STATE INFO
 enum BattlePhase {START,INPUT,INPUT_TARGET,INPUT_CAPTURE,BATTLE,END}
 var current_phase : BattlePhase = BattlePhase.START
@@ -90,6 +92,12 @@ set_opponent_familiars : Array[Familiar]):
 	player_familiars = set_player_familiars
 	opponent_familiars = set_opponent_familiars
 	initialize_familiars()
+
+func set_is_escapable(escapable : bool):
+	is_escapable = escapable
+
+func battle_is_escapable() -> bool:
+	return is_escapable
 
 func get_adjacent_familiars(to_familiar : Familiar, left_only : bool = false) -> Array[Familiar]:
 	var adjacent_familiars : Array[Familiar] = []
@@ -214,6 +222,23 @@ func switch_familiar_to_player_familiars(familiar : Familiar):
 			familiar.arrange_buffs()
 			break
 	familiar.mark_friendly()
+	
+func add_familiar(familiar : Familiar, hostile : bool):
+	var positions : Array[FamiliarSlot] = []
+	if(hostile):
+		opponent_familiars.append(familiar)
+		positions = opponent_positions
+		familiar.mark_hostile()
+	else:
+		player_familiars.append(familiar)
+		positions = player_positions
+		familiar.mark_friendly()
+	for slot in positions:
+		if(slot.get_child_count() == 0):
+			slot.add_child(familiar)
+			familiar.position = Vector2(0,0)
+			familiar.arrange_buffs()
+			break
 
 func add_capture_action(familiar : Familiar):
 	var new_combined_action_queue : Array[ActionQueueItem]
@@ -332,6 +357,7 @@ func show_action_menu(familiar : Familiar):
 			set_actions.append_array([$ActionPass])
 		if(familiar.get_action_by_name("DEVOUR") != null):
 			set_actions.append(familiar.get_action_by_name("DEVOUR"))
+			set_actions.erase($ActionFeed)
 		if(familiar.get_action_by_name("HEAL") != null):
 			set_actions.append(familiar.get_action_by_name("HEAL"))
 		action_menu.set_actions(set_actions)
@@ -418,7 +444,9 @@ func get_targetable_familiars(action : BattleAction):
 	var unsorted_targets : Array[Familiar]
 	match target_type:
 		BattleAction.TargetType.NO_TARGET:
-			pass
+			unsorted_targets.append(self) #theoretically it shouldn't matter so long as it != null
+		BattleAction.TargetType.SELF:
+			unsorted_targets.append(player_familiars[player_familiar_index])
 		BattleAction.TargetType.ANY_OPPONENT:
 			for opponent in opponent_familiars:
 				if(not opponent.is_dead()):
@@ -463,6 +491,9 @@ func get_targetable_familiars(action : BattleAction):
 func handle_target_input():
 	var target_type : BattleAction.TargetType = targeting_action.get_target_type()
 	match target_type:
+		BattleAction.TargetType.SELF:
+			targeted_familiars.append(self)
+			select_targets()
 		BattleAction.TargetType.ANY_OPPONENT:
 			handle_single_target_input()
 		BattleAction.TargetType.ANY_ALLY:
@@ -830,13 +861,14 @@ func get_next_action():
 func check_and_replace_targets(current_action : ActionQueueItem):
 	if(current_actor != null):
 		if((current_actor.is_hostile() &&
+		not current_actor.is_dead() &&
 		current_targets.size() == 1) &&
 		(current_targets[0] == null ||
 		current_targets[0].is_dead())):
 			var potential_targets: Array[Familiar] = []
 			var actor = current_action.get_actor()
 			var valid_targets = get_opponent_targetable_familiars(actor,current_battle_action)
-			potential_targets.append(valid_targets)
+			potential_targets.append_array(valid_targets)
 			var new_target = potential_targets[randi_range(0,potential_targets.size()-1)]
 			current_targets = [new_target]
 
@@ -944,7 +976,8 @@ func get_opponent_actions():
 				var potential_actions : Array[BattleAction] = []
 				#opponents should only choose actions where there are valid targets
 				for action in opponent_actions:
-					if(get_opponent_targetable_familiars(opponent, action).size() > 0 &&
+					if((get_opponent_targetable_familiars(opponent, action).size() > 0 || 
+					action.get_target_type() == BattleAction.TargetType.NO_TARGET) &&
 					opponent.current_energy >= action.get_energy_cost()):
 						potential_actions.append(action)
 				var chosen_action : BattleAction
@@ -955,7 +988,7 @@ func get_opponent_actions():
 					chosen_action = get_randomized_action(potential_actions)
 				var potential_targets : Array[Familiar]
 				potential_targets = get_opponent_targetable_familiars(opponent,chosen_action)
-				var chosen_targets : Array[Familiar] = get_targets(chosen_action, potential_targets)
+				var chosen_targets : Array[Familiar] = get_targets(opponent, chosen_action, potential_targets)
 				var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
 				opponent_action_queue.append(opponent_action_item)
 				opponent.action_taken()
@@ -980,7 +1013,7 @@ func get_randomized_action(potential_actions : Array[BattleAction]) -> BattleAct
 					chosen_action = action
 	return chosen_action
 
-func get_targets(action : BattleAction,
+func get_targets(actor : Familiar, action : BattleAction,
 potential_targets : Array[Familiar]) -> Array[Familiar]:
 	var target_type : BattleAction.TargetType = action.get_target_type()
 	var ret_array : Array[Familiar] = []
@@ -993,6 +1026,8 @@ potential_targets : Array[Familiar]) -> Array[Familiar]:
 			ret_array.append_array(opponent_select_two_adjacent_targets(potential_targets))
 		BattleAction.TargetType.ANY_BUT_SELF:
 			ret_array.append_array(opponent_select_single_target(action, potential_targets))
+		BattleAction.TargetType.SELF:
+			ret_array.append_array([actor])
 	return ret_array
 
 func opponent_select_single_target(action : BattleAction, potential_targets : Array[Familiar]) -> Array[Familiar]:
@@ -1032,6 +1067,8 @@ func get_opponent_targetable_familiars(actor : Familiar, action : BattleAction) 
 	match target_type:
 		BattleAction.TargetType.NO_TARGET:
 			pass
+		BattleAction.TargetType.SELF:
+			opponent_targetable_familiars.append(actor)
 		BattleAction.TargetType.ANY_OPPONENT:
 			for opponent in player_familiars:
 				if(not opponent.is_dead()):

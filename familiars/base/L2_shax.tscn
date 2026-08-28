@@ -22,7 +22,9 @@ level = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=181287248]
 sprite_frames = ExtResource("2_ytd8o")
-frame_progress = 0.240507
+animation = &"die"
+frame = 1
+frame_progress = 0.53289765
 
 [node name="actions" type="Node" parent="." unique_id=938827805]
 

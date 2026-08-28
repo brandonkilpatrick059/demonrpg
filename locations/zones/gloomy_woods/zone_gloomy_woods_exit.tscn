@@ -4,7 +4,6 @@
 [ext_resource type="TileSet" uid="uid://cn8j6o1opxy46" path="res://sprites/tile_atlas_terrain.tres" id="2_4tmnb"]
 [ext_resource type="TileSet" uid="uid://oaaawdggdxv5" path="res://sprites/tile_atlas_foliage.tres" id="3_6ivdi"]
 [ext_resource type="TileSet" uid="uid://be4tfq16y1gax" path="res://sprites/tile_atlas_effects.tres" id="4_35roi"]
-[ext_resource type="Texture2D" uid="uid://l77vpgovl8o0" path="res://sprites/props/exterior/altar.png" id="5_26p60"]
 [ext_resource type="Texture2D" uid="uid://dbfk47oomg56r" path="res://sprites/props/structure/roof_no_chimney.png" id="6_87l47"]
 [ext_resource type="Texture2D" uid="uid://6ksaomhm8dfa" path="res://sprites/props/structure/water_mill_top.png" id="7_mfkr2"]
 [ext_resource type="Texture2D" uid="uid://chy7mup7f4tte" path="res://sprites/props/structure/water_mill_bottom.png" id="8_8luc2"]
@@ -23,7 +22,6 @@
 [ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="29_5ef6f"]
 [ext_resource type="Script" uid="uid://8nn10dgx4nmb" path="res://scripts/utility/run_scripts/set_autoplay.gd" id="30_gvyke"]
 [ext_resource type="Script" uid="uid://caj1c1txcrjev" path="res://scripts/utility/run_scripts/set_zone_dark.gd" id="31_awrit"]
-[ext_resource type="Script" uid="uid://jmycwf28f4i8" path="res://scripts/interface/altar.gd" id="33_54mbt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7kcx"]
 size = Vector2(24, 24)
@@ -44,9 +42,6 @@ shader_parameter/rain_color = Color(0.003921569, 0.22745098, 0.36862746, 1)
 shader_parameter/base_rain_speed = 1.0
 shader_parameter/additional_rain_speed = 0.5
 shader_parameter/slant = 4.7499999933364734e-08
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3wst"]
-size = Vector2(48, 24)
 
 [node name="zone_gloomy_woods_exit" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_qo2xe")
@@ -388,22 +383,6 @@ audio_player = NodePath("../../wind")
 script = ExtResource("31_awrit")
 zone = NodePath("../..")
 is_dark = false
-
-[node name="altar" type="StaticBody2D" parent="." unique_id=822425071 groups=["interactable"]]
-position = Vector2(-672, 1800)
-script = ExtResource("33_54mbt")
-location_name = "GLOOMY WOODS"
-location_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="altar" unique_id=1324506123]
-position = Vector2(2904, -2436)
-shape = SubResource("RectangleShape2D_n3wst")
-debug_color = Color(0.91435325, 0.6416446, 0, 0.41960785)
-
-[node name="altar" type="Sprite2D" parent="altar" unique_id=1244807549]
-position = Vector2(2880, -2448)
-texture = ExtResource("5_26p60")
-offset = Vector2(24, 12)
 
 [node name="HealingGore" parent="." unique_id=1226598247 instance=ExtResource("26_x5lj5")]
 z_index = 1

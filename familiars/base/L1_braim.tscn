@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bhfmqt6lxewql" path="res://battle/actions/action_block.tscn" id="4_5eoka"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_io2pg"]
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="6_86yxp"]
-[ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="6_fqvrx"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="7_gsyfw"]
 
 [node name="L1braim" type="Node2D" unique_id=1658016037]
@@ -31,8 +30,6 @@ opponent_choice_weight = 0.5
 
 [node name="ActionFeed" parent="actions" unique_id=1473770162 instance=ExtResource("5_io2pg")]
 opponent_choice_weight = 0.1
-
-[node name="ActionRun" parent="actions" unique_id=1629171136 instance=ExtResource("6_fqvrx")]
 
 [node name="evolutions" type="Node" parent="." unique_id=1978315626]
 

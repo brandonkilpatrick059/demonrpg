@@ -8,12 +8,18 @@ var battle_sys_ref : BattleSystemManager
 var announcment_english : String = "You try to run..."
 var success_english : String = "You run as fast as you can."
 var failure_english : String = "But you cannot."
+var failure_impossible_english : String = "But it is impossible."
 var success_message : String = ""
 
 var run_succeeded: bool = false
+var run_impossible : bool = false
 
 func determine_run_success():
-	run_succeeded =  randf_range(0.0,1.0) < 0.25
+	if(battle_sys_ref.battle_is_escapable()):
+		run_succeeded =  randf_range(0.0,1.0) < 0.30
+	else:
+		run_succeeded = false
+		run_impossible = true
 
 func _ready() -> void:
 	action_name = "RUN"
@@ -22,6 +28,7 @@ func _ready() -> void:
 func clean_up():
 	announced = false
 	announced_failure = false
+	run_impossible = false
 
 func exit_action():
 	battle_sys_ref.start_wait_timer(0.5)
@@ -46,6 +53,8 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		battle_sys_ref.run_away()
 	elif(not announced_failure && not run_succeeded):
 		var comment : String = failure_english
+		if(run_impossible):
+			comment = failure_impossible_english
 		battle_sys_ref.play_messages([comment])
 		announced_failure = true
 	else:

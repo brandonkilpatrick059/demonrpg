@@ -164,14 +164,8 @@ func get_capture_range() -> int:
 		return 8
 	elif(max_hp <= 30):
 		return 12
-	elif(max_hp <= 40):
-		return 14
-	elif(max_hp <= 50):
-		return 15
-	elif(max_hp <= 60):
-		return 20
 	else:
-		return 25
+		return 10
 
 func randomize_action_cadence():
 	var num_cadences = 0
@@ -448,7 +442,7 @@ func get_save_dictionary() -> Dictionary:
 		"defense" : defense,
 		"speed" : speed,
 		"magic" : magic,
-		"num_actions" : num_actions,
+		"num_actions" : num_actions,	
 		"level" : level,
 		"experience" : experience,
 		"stored" : stored

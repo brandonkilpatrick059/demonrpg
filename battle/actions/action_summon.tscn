@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://spsrsbiret2c"]
+
+[ext_resource type="Script" uid="uid://b51bcqul8bt2b" path="res://scripts/battle_system/actions/damage/magic/action_summon.gd" id="1_mp4ys"]
+
+[node name="ActionSummon" type="Node" unique_id=781036021]
+script = ExtResource("1_mp4ys")

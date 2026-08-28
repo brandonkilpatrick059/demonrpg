@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bhfmqt6lxewql" path="res://battle/actions/action_block.tscn" id="4_oyh1r"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_dfook"]
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_w7itd"]
-[ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="7_jiltr"]
 
 [node name="L2dylith" type="Node2D" unique_id=1722867992]
 script = ExtResource("1_p0itq")
@@ -37,5 +36,3 @@ opponent_choice_weight = 0.1
 
 [node name="ActionStab" parent="actions" unique_id=586744762 instance=ExtResource("6_w7itd")]
 opponent_choice_weight = 0.6
-
-[node name="ActionRun" parent="actions" unique_id=2029368683 instance=ExtResource("7_jiltr")]

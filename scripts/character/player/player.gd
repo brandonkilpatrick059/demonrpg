@@ -215,6 +215,8 @@ func start_battle():
 	for familiar in familiar_team:
 		player_input_familiars.append(familiar)
 	battle_system.set_familiars(player_input_familiars,input_familiars)
+	var battle_is_escapable : bool = staged_encounter.is_escapable()
+	battle_system.set_is_escapable(battle_is_escapable)
 	set_inactive()
 
 func end_battle(end_player_familiars : Array[Familiar]):

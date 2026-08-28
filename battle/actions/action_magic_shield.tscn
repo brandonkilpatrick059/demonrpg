@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://btbs1327pmkld"]
+
+[ext_resource type="Script" uid="uid://dv6vopbjo8gsy" path="res://scripts/battle_system/actions/buff/action_magic_shield.gd" id="1_evmet"]
+
+[node name="ActionMagicShield" type="Node" unique_id=852871821]
+script = ExtResource("1_evmet")

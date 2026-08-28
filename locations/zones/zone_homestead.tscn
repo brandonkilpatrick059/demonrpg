@@ -30,6 +30,8 @@
 [ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="27_mbog8"]
 [ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="28_d20f1"]
 [ext_resource type="AudioStream" uid="uid://dg2soaxe4w3lj" path="res://audio/music/organs.ogg" id="29_mur1e"]
+[ext_resource type="Script" uid="uid://jmycwf28f4i8" path="res://scripts/interface/altar.gd" id="31_4ktpp"]
+[ext_resource type="Texture2D" uid="uid://l77vpgovl8o0" path="res://sprites/props/exterior/altar.png" id="32_xwq3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0aow"]
 size = Vector2(24, 24)
@@ -65,6 +67,9 @@ shader_parameter/rain_color = Color(0.003921569, 0.22745098, 0.36862746, 1)
 shader_parameter/base_rain_speed = 1.0
 shader_parameter/additional_rain_speed = 0.5
 shader_parameter/slant = 4.7499999933364734e-08
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5mje"]
+size = Vector2(48, 24)
 
 [node name="zone_homestead" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_qo434")
@@ -480,3 +485,35 @@ volume_db = -24.0
 [node name="organ_music" type="AudioStreamPlayer" parent="." unique_id=482488475]
 stream = ExtResource("29_mur1e")
 volume_db = -6.0
+
+[node name="altar" type="StaticBody2D" parent="." unique_id=1579862005 groups=["interactable"]]
+position = Vector2(-24, -24)
+script = ExtResource("31_4ktpp")
+location_name = "HOMESTEAD"
+location_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="altar" unique_id=574820379]
+position = Vector2(24, 12)
+shape = SubResource("RectangleShape2D_x5mje")
+debug_color = Color(0.91435325, 0.6416446, 0, 0.41960785)
+
+[node name="altar" type="Sprite2D" parent="altar" unique_id=1662316862]
+texture = ExtResource("32_xwq3w")
+offset = Vector2(24, 12)
+
+[node name="TileMapLayer_transparent" type="TileMapLayer" parent="altar" unique_id=957939939]
+modulate = Color(0.463838, 0.635312, 1, 1)
+z_index = 1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAACAAAAEAAAAAAAAAACA=")
+tile_set = ExtResource("4_0dkg3")
+collision_enabled = false
+
+[node name="entered_house_ready_scripts2" type="Node" parent="." unique_id=1653550241 node_paths=PackedStringArray("scripts")]
+script = ExtResource("18_6qcli")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "NONE"
+scripts = [NodePath("q_free_altar")]
+
+[node name="q_free_altar" type="Node" parent="entered_house_ready_scripts2" unique_id=592450051 node_paths=PackedStringArray("nodes")]
+script = ExtResource("24_d20f1")
+nodes = [NodePath("../../altar")]

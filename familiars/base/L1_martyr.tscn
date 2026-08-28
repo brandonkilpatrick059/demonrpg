@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_krugs"]
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_5hcx6"]
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_0x1nh"]
-[ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="7_6l1du"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_16rrk"]
 
 [node name="L1martyr" type="Node2D" unique_id=1657065563]
@@ -22,6 +21,8 @@ speed = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1445148604]
 sprite_frames = ExtResource("2_6l1du")
+animation = &"die"
+frame_progress = 0.7442388
 
 [node name="actions" type="Node" parent="." unique_id=81841734]
 
@@ -36,8 +37,6 @@ opponent_choice_weight = 0.2
 
 [node name="ActionStab" parent="actions" unique_id=333046964 instance=ExtResource("6_5hcx6")]
 opponent_choice_weight = 0.7
-
-[node name="ActionRun" parent="actions" unique_id=2062073418 instance=ExtResource("7_6l1du")]
 
 [node name="evolutions" type="Node" parent="." unique_id=144678217]
 

@@ -83,10 +83,9 @@ func apply_pkg_to_target(pkg : BattlePkg):
 		target.set_current_hp(new_target_hp)
 
 func get_target_preference(targets : Array[Familiar]) -> Array[Familiar]:
-	var lowest_hp : int = targets[0].get_current_hp()
 	var chosen_target = targets[randi_range(0,targets.size()-1)]
 	for target in targets:
-		if(target.get_current_hp() < chosen_target.get_current_hp()):
+		if((target.get_current_hp()/target.get_max_hp()) < (chosen_target.get_current_hp()/chosen_target.get_max_hp())):
 			chosen_target = target
 	return [chosen_target]
 
