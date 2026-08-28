@@ -177,7 +177,11 @@ func initialize_familiars():
 		open_positions.append(index)
 		index = index + 1
 	for familiar in opponent_familiars:
-		var pos = open_positions[randi_range(0,open_positions.size()-1)]
+		var pos = 0
+		if(opponent_familiars.size() < 3):
+			pos = open_positions[randi_range(1,2)]
+		else:
+			pos = open_positions[randi_range(0,open_positions.size()-1)]
 		open_positions.erase(pos)
 		familiar.reparent(opponent_positions[pos])
 		familiar.position= Vector2(0,0)
@@ -225,20 +229,32 @@ func switch_familiar_to_player_familiars(familiar : Familiar):
 	
 func add_familiar(familiar : Familiar, hostile : bool):
 	var positions : Array[FamiliarSlot] = []
+	var party_full : bool = false
 	if(hostile):
-		opponent_familiars.append(familiar)
-		positions = opponent_positions
-		familiar.mark_hostile()
+		if(opponent_familiars.size() < 4):
+			opponent_familiars.append(familiar)
+			positions = opponent_positions
+			familiar.mark_hostile()
+		else:
+			familiar.queue_free()
+			party_full = true
 	else:
-		player_familiars.append(familiar)
-		positions = player_positions
-		familiar.mark_friendly()
-	for slot in positions:
-		if(slot.get_child_count() == 0):
-			slot.add_child(familiar)
-			familiar.position = Vector2(0,0)
-			familiar.arrange_buffs()
-			break
+		if(player_familiars.size() < 4):
+			player_familiars.append(familiar)
+			positions = player_positions
+			familiar.mark_friendly()
+		else:
+			familiar.queue_free()
+			party_full = true
+	if not party_full:
+		var open_positions : Array[FamiliarSlot] = []
+		for slot in positions:
+			if(slot.get_child_count() == 0):
+				open_positions.append(slot)
+		var chosen_slot : FamiliarSlot = open_positions[randi_range(0,open_positions.size()-1)]
+		chosen_slot.add_child(familiar)
+		familiar.position = Vector2(0,0)
+		familiar.arrange_buffs()
 
 func add_capture_action(familiar : Familiar):
 	var new_combined_action_queue : Array[ActionQueueItem]
@@ -852,6 +868,7 @@ func get_next_action():
 				#get a new target for opponent if their intended
 				#target has died
 				check_and_replace_targets(current_action)
+			log_battle_state(current_action)
 	elif(combined_action_queue.size() == 0):
 		wait_timer.start(0.5)
 		return_to_input_phase()
@@ -991,6 +1008,7 @@ func get_opponent_actions():
 				var chosen_targets : Array[Familiar] = get_targets(opponent, chosen_action, potential_targets)
 				var opponent_action_item := ActionQueueItem.new(opponent, chosen_action, chosen_targets)
 				opponent_action_queue.append(opponent_action_item)
+				chosen_action.pay_energy_cost(opponent)
 				opponent.action_taken()
 			opponent.reset_actions_taken()
 
@@ -1127,3 +1145,32 @@ func close_battle(ran_away = false):
 		battle_closed = true
 #endregion
 #endregion
+
+func log_battle_state(action : ActionQueueItem):
+	var no_sigil = true
+	if(action.get_actor() != null and action.get_action() != null):
+		print(str(str(action.get_actor().get_familiar_name(no_sigil), " - "),action.get_action().get_action_name()))
+	
+	print("OPPONENTS:")
+	log_positions(opponent_positions)
+	print("PLAYER:")
+	log_positions(player_positions)
+
+func log_positions(positions : Array[FamiliarSlot]):
+	var index = 0
+	for position : FamiliarSlot in positions:
+		var slot_string : String = ""
+		var no_sigil = true
+		if position.get_child_count() > 0:
+			var familiar : Familiar = position.get_child(0)
+			slot_string = str(index+1,": ")
+			slot_string = str(slot_string, familiar.get_familiar_name(no_sigil))
+			slot_string = str(slot_string, " ")
+			slot_string = str(slot_string, familiar.get_current_hp())
+			slot_string = str(slot_string, "/")
+			slot_string = str(slot_string, familiar.get_max_hp())
+			slot_string = str(slot_string, " ")
+			slot_string = str(slot_string, familiar.get_current_energy())
+		else:
+			slot_string = str(index+1,": EMPTY")
+		print(slot_string)

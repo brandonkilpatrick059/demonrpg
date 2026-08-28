@@ -1,7 +1,6 @@
 extends BattleAction
 
-@export var summon_packed_scene : PackedScene
-@export var summon_name : String
+@export var summon_packed_scenes : Array[PackedScene]
 @export var attack_scale : float = 0.0
 @export var defense_scale : float = 0.0
 @export var magic_scale : float = 0.0
@@ -11,11 +10,13 @@ extends BattleAction
 var announced_summon : bool = false
 var made_summon : bool = false
 
+var summon : Familiar = null
+
 var battle_sys_ref : BattleSystemManager
 
-var announcment_english : String = "[TEAM][ACTOR] summons a [SUMMON]"
+var announcment_english : String = "[TEAM][ACTOR] summons [SUMMON]"
 
-func get_announcement(actor : Familiar) -> String:
+func get_announcement(actor : Familiar, summon_name : String) -> String:
 	var ret_string = announcment_english.replace("[ACTOR]",actor.get_familiar_name())
 	var team : String = ""
 	if (actor.is_hostile()):
@@ -39,8 +40,7 @@ func clean_up():
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
 	summary = str(summary,get_action_name())
-	summary = str(summary,"-[color=white]SUMMONS A " )
-	summary = str(summary,summon_name)
+	summary = str(summary,"-[color=white]SUMMONS A SERVANT")
 	return summary
 
 func visual_effects(actor : Familiar):
@@ -54,14 +54,17 @@ func exit_action():
 
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+	var num_summons = summon_packed_scenes.size() - 1
+	var chosen_packed_scene : PackedScene = summon_packed_scenes[randi_range(0,num_summons)]
+	summon = chosen_packed_scene.instantiate()
 	if(!announced_summon):
-		var announcement : String = get_announcement(actor)
+		var announcement : String = get_announcement(actor,summon.get_familiar_name())
 		battle_sys_ref.play_messages([announcement])
 		announced_summon = true
 	if(!made_summon):
 		battle_sys_ref.start_wait_timer(0.5)
 		visual_effects(actor)
-		var summon : Familiar = summon_packed_scene.instantiate()
+		
 		if(magic_scale > 0):
 			summon.set_magic(actor.get_magic() * magic_scale)
 		if(attack_scale > 0):

@@ -10,23 +10,20 @@
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=1962261481]
 
-[node name="BattleSystem" parent="." unique_id=883968846 node_paths=PackedStringArray("opponent_familiars", "player_familiars") instance=ExtResource("1_13ec6")]
+[node name="BattleSystem" parent="." unique_id=883968846 instance=ExtResource("1_13ec6")]
 position = Vector2(160, 90)
-opponent_familiars = [NodePath("opponents/L1imp")]
-player_familiars = [NodePath("player/L2reaver"), NodePath("player/L2reaver2"), NodePath("player/L2byle")]
 music = ExtResource("2_k5gt0")
 is_sandbox = true
 
 [node name="opponents" type="Node2D" parent="BattleSystem" unique_id=1490793808]
 
 [node name="L1imp" parent="BattleSystem/opponents" unique_id=2120251354 instance=ExtResource("3_k5gt0")]
-max_hp = 75
-current_hp = 75
+max_hp = 70
+current_hp = 70
 speed = 10
-magic = 22
+magic = 25
 num_actions = 2
-no_sigil = true
-action_cadence_0 = Array[String](["SHIELD", "HEAL", "SUMMON", "HEAL", "HEAL", "SUMMON", "EVIL EYE", "HEAL", "SUMMON"])
+action_cadence_0 = Array[String](["SHIELD", "HEAL", "SUMMON", "HEAL", "HEAL", "SUMMON", "HEAL", "HEAL", "SUMMON"])
 
 [node name="player" type="Node2D" parent="BattleSystem" unique_id=310176509]
 

@@ -1,6 +1,6 @@
 class_name ZoneManager extends Node2D
 
-@export var current_zone : Node
+@export var current_zone : LocationZone
 @export var load_menu_on_ready : bool = false
 
 var switching_zones : bool = false
@@ -118,6 +118,8 @@ func _physics_process(delta: float) -> void:
 		save_load_menu.queue_free()
 		player_ref.visible = true
 		var start_faded_out : bool = true
+		if(current_zone.is_dark()):
+			player_ref.turn_on_flashlight()
 		player_ref.fade_in(start_faded_out)
 		current_zone.visible = true
 	if(not player_activated and save_load_menu == null and not $Player.fader_is_fading()):

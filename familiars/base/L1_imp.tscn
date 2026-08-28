@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cwaw606w62g4y" path="res://battle/actions/action_heal.tscn" id="5_73efd"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_8233o"]
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_71f1i"]
-[ext_resource type="PackedScene" uid="uid://hrqg21n0eng2" path="res://battle/actions/action_fire.tscn" id="6_jtmr7"]
 [ext_resource type="PackedScene" uid="uid://spsrsbiret2c" path="res://battle/actions/action_summon.tscn" id="7_uo36o"]
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="8_tnw1d"]
 [ext_resource type="PackedScene" uid="uid://ddlbmm6vmp03i" path="res://familiars/base/L1_ghost.tscn" id="8_yvoo7"]
@@ -13,11 +12,12 @@
 
 [node name="L1imp" type="Node2D" unique_id=2120251354]
 script = ExtResource("1_uo36o")
-packedscene_path = "res://familiars/base/L1_gark.tscn"
+packedscene_path = "res://familiars/base/L1_imp.tscn"
 familiar_name = "Imp"
 max_hp = 50
 current_hp = 50
 magic = 20
+no_sigil = true
 action_cadence_0 = Array[String](["SHIELD", "HEAL", "SUMMON", "HEAL", "SHIELD", "FIRE", "HEAL", "SHIELD", "SUMMON"])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
@@ -34,14 +34,11 @@ opponent_choice_weight = 0.4
 
 [node name="ActionHeal" parent="actions" unique_id=505158445 instance=ExtResource("5_73efd")]
 
-[node name="ActionFire" parent="actions" unique_id=1333709580 instance=ExtResource("6_jtmr7")]
-
 [node name="ActionSummon" parent="actions" unique_id=781036021 instance=ExtResource("7_uo36o")]
-summon_packed_scene = ExtResource("8_yvoo7")
-summon_name = "GHOST"
+summon_packed_scenes = Array[PackedScene]([ExtResource("8_yvoo7")])
 attack_scale = 0.25
 speed_scale = 0.5
-max_hp_scale = 1.0
+max_hp_scale = 0.25
 
 [node name="ActionMagicShield" parent="actions" unique_id=852871821 instance=ExtResource("9_yvoo7")]
 

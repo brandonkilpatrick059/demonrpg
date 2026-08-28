@@ -63,3 +63,9 @@ res://battle/actions/action_magic_shield.tscn
 res://scripts/battle_system/actions/buff/action_magic_shield.gd
 res://scripts/familiars/familiar.gd
 res://scripts/battle_system/actions/damage/physical/action_heal.gd
+res://scripts/battle_system/actions/damage/physical/action_slice.gd
+res://battle/encounters/imp_encounter.tscn
+res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
+res://utility/random_sound_trigger.gd
+res://locations/zone_manager_load.tscn
+res://scripts/locations/zone_manager.gd

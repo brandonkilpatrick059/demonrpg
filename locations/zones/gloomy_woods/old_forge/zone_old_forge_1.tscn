@@ -14,6 +14,19 @@
 [ext_resource type="PackedScene" uid="uid://ca580qnxixksm" path="res://battle/encounters/stalf_encounter_solo.tscn" id="12_xj6y8"]
 [ext_resource type="PackedScene" uid="uid://dg6tqi8plgqbm" path="res://item/healing_gore.tscn" id="13_u8oqv"]
 [ext_resource type="PackedScene" uid="uid://cdomxvm5i24y4" path="res://item/pentacle_seal.tscn" id="14_xj6y8"]
+[ext_resource type="Script" uid="uid://b688cwvrpugwh" path="res://scripts/utility/script_area.gd" id="15_mykir"]
+[ext_resource type="Script" uid="uid://qow3wdm7tqsm" path="res://scripts/utility/run_scripts/set_unfreeze_input_encounter.gd" id="17_nwm68"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="17_sf0dg"]
+[ext_resource type="Script" uid="uid://ujy8j2xhnrac" path="res://scripts/utility/run_scripts/adjust_game_state.gd" id="18_nwm68"]
+[ext_resource type="PackedScene" uid="uid://upsntdtwuyev" path="res://battle/encounters/imp_encounter.tscn" id="18_x5i66"]
+[ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="19_sywhf"]
+[ext_resource type="Script" uid="uid://dpt3vgx7i406h" path="res://utility/random_sound_trigger.gd" id="21_nwm68"]
+[ext_resource type="AudioStream" uid="uid://da5ms6movdfoa" path="res://audio/effects/laugh_1.ogg" id="22_wftme"]
+[ext_resource type="AudioStream" uid="uid://p84jglb6ejm4" path="res://audio/effects/laugh_2.ogg" id="23_l56ys"]
+[ext_resource type="AudioStream" uid="uid://deupxc3eudn3y" path="res://audio/effects/laugh_3.ogg" id="24_j04qn"]
+[ext_resource type="AudioStream" uid="uid://cq7jfn61h71h5" path="res://audio/effects/laugh_4.ogg" id="25_ppngs"]
+[ext_resource type="Script" uid="uid://jmycwf28f4i8" path="res://scripts/interface/altar.gd" id="26_j04qn"]
+[ext_resource type="Texture2D" uid="uid://l77vpgovl8o0" path="res://sprites/props/exterior/altar.png" id="27_ppngs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -25,7 +38,16 @@ size = Vector2(24, 24)
 size = Vector2(24, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vh4j8"]
-size = Vector2(276, 24)
+size = Vector2(48, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j04qn"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5i66"]
+size = Vector2(168, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px47g"]
+size = Vector2(48, 24)
 
 [node name="ZoneOldForge" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_5bsea")
@@ -137,7 +159,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="ShadeMonster_ghost" parent="." unique_id=331820355 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(192, 240)
+position = Vector2(192, 288)
 encounter = ExtResource("7_u8oqv")
 
 [node name="ShadeMonster_ghost2" parent="." unique_id=177171841 instance=ExtResource("6_dynvb")]
@@ -147,47 +169,17 @@ encounter = ExtResource("7_u8oqv")
 
 [node name="ShadeMonster_ghost6" parent="." unique_id=1825636231 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(1632, 168)
-encounter = ExtResource("7_u8oqv")
-
-[node name="ShadeMonster_ghost7" parent="." unique_id=441284959 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1680, 336)
-encounter = ExtResource("7_u8oqv")
-
-[node name="ShadeMonster_ghost9" parent="." unique_id=1811854068 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1584, 336)
-encounter = ExtResource("7_u8oqv")
-
-[node name="ShadeMonster_ghost10" parent="." unique_id=33253740 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1632, 408)
-encounter = ExtResource("7_u8oqv")
-
-[node name="ShadeMonster_ghost11" parent="." unique_id=620363438 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1560, 192)
-encounter = ExtResource("7_u8oqv")
-
-[node name="ShadeMonster_ghost12" parent="." unique_id=570401908 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1680, 432)
-encounter = ExtResource("7_u8oqv")
-
-[node name="ShadeMonster_ghost13" parent="." unique_id=273991544 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1680, 120)
-encounter = ExtResource("7_u8oqv")
-
-[node name="ShadeMonster_ghost8" parent="." unique_id=1861636342 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1560, 408)
+position = Vector2(1344, 144)
 encounter = ExtResource("7_u8oqv")
 
 [node name="ShadeMonster_reaver" parent="." unique_id=1853776900 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(312, -96)
+position = Vector2(216, 504)
+encounter = ExtResource("8_1sah4")
+
+[node name="ShadeMonster_reaver3" parent="." unique_id=712860909 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1608, 168)
 encounter = ExtResource("8_1sah4")
 
 [node name="ShadeMonster_reaver2" parent="." unique_id=1139405768 instance=ExtResource("6_dynvb")]
@@ -197,27 +189,17 @@ encounter = ExtResource("8_1sah4")
 
 [node name="ShadeMonster_martyr_healer2" parent="." unique_id=1830364791 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(1152, 48)
+position = Vector2(912, 240)
 encounter = ExtResource("9_y6ppr")
 
 [node name="ShadeMonster_martyr_healer5" parent="." unique_id=1285850586 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(1392, 96)
-encounter = ExtResource("9_y6ppr")
-
-[node name="ShadeMonster_martyr_healer3" parent="." unique_id=958100286 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(672, 552)
-encounter = ExtResource("9_y6ppr")
-
-[node name="ShadeMonster_martyr_healer4" parent="." unique_id=706960519 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1368, 144)
+position = Vector2(1128, 456)
 encounter = ExtResource("9_y6ppr")
 
 [node name="ShadeMonster_stalf_healer" parent="." unique_id=342191184 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(912, 312)
+position = Vector2(1152, 48)
 encounter = ExtResource("11_u8oqv")
 
 [node name="ShadeMonster_stalf_healer3" parent="." unique_id=1942000967 instance=ExtResource("6_dynvb")]
@@ -235,6 +217,11 @@ z_index = 2
 position = Vector2(432, 288)
 encounter = ExtResource("12_xj6y8")
 
+[node name="ShadeMonster_stalf_solo4" parent="." unique_id=2051878939 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(720, 552)
+encounter = ExtResource("12_xj6y8")
+
 [node name="monster_fence" type="StaticBody2D" parent="." unique_id=109096]
 collision_layer = 16
 
@@ -243,8 +230,12 @@ position = Vector2(1020, 72)
 shape = SubResource("RectangleShape2D_y6ppr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="monster_fence" unique_id=2138768863]
-position = Vector2(1614, 492)
+position = Vector2(1680, 252)
 shape = SubResource("RectangleShape2D_vh4j8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="monster_fence" unique_id=226335259]
+position = Vector2(1212, 480)
+shape = SubResource("RectangleShape2D_j04qn")
 
 [node name="Damned" parent="." unique_id=1590593699 instance=ExtResource("10_77ach")]
 position = Vector2(912, 48)
@@ -273,3 +264,98 @@ seal_name = "FORGESEAL1"
 [node name="PentacleSeal2" parent="." unique_id=1833276722 instance=ExtResource("14_xj6y8")]
 position = Vector2(1344, 456)
 seal_name = "FORGESEAL1"
+
+[node name="interact_zone_imp" type="Area2D" parent="." unique_id=1262005310 node_paths=PackedStringArray("run_scripts")]
+position = Vector2(2040, -96)
+collision_mask = 2
+script = ExtResource("15_mykir")
+gamestate_key = "FOUGHT_IMP"
+run_if_state = "FALSE"
+default_state = "FALSE"
+run_scripts = [NodePath("adjust_gamestate"), NodePath("imp_encounter"), NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_zone_imp" unique_id=562220757]
+position = Vector2(-420, 540)
+shape = SubResource("RectangleShape2D_x5i66")
+debug_color = Color(0.9973492, 0, 0.17767617, 0.41960785)
+
+[node name="adjust_gamestate" type="Node" parent="interact_zone_imp" unique_id=1756391137]
+script = ExtResource("18_nwm68")
+game_state_key = "FOUGHT_IMP"
+to_value = "TRUE"
+
+[node name="imp_encounter" type="Node" parent="interact_zone_imp" unique_id=2120010856]
+script = ExtResource("17_nwm68")
+encounter_scene = ExtResource("18_x5i66")
+
+[node name="play_texts" type="Node" parent="interact_zone_imp" unique_id=1950158298 node_paths=PackedStringArray("texts")]
+script = ExtResource("19_sywhf")
+texts = [NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text7"), NodePath("text8")]
+
+[node name="text5" type="Node" parent="interact_zone_imp/play_texts" unique_id=426183232]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["..."])
+
+[node name="text6" type="Node" parent="interact_zone_imp/play_texts" unique_id=1327883145]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["(The laughing is coming from inside this room...)"])
+
+[node name="text7" type="Node" parent="interact_zone_imp/play_texts" unique_id=1404255898]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["(I peer into the darkness around me)"])
+
+[node name="text8" type="Node" parent="interact_zone_imp/play_texts" unique_id=299485575]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["(There is a tall figure standing in the corner)"])
+
+[node name="laugh_1" type="AudioStreamPlayer2D" parent="." unique_id=939060334]
+position = Vector2(1488, 456)
+attenuation = 4.5947957
+script = ExtResource("21_nwm68")
+sounds = Array[AudioStream]([ExtResource("22_wftme"), ExtResource("23_l56ys"), ExtResource("24_j04qn"), ExtResource("25_ppngs")])
+min_wait_secs = 20.0
+max_wait_secs = 60.0
+
+[node name="laugh_2" type="AudioStreamPlayer2D" parent="." unique_id=789788775]
+position = Vector2(1776, 456)
+attenuation = 4.5947957
+script = ExtResource("21_nwm68")
+sounds = Array[AudioStream]([ExtResource("22_wftme"), ExtResource("23_l56ys"), ExtResource("24_j04qn"), ExtResource("25_ppngs")])
+min_wait_secs = 20.0
+max_wait_secs = 60.0
+
+[node name="laugh_3" type="AudioStreamPlayer2D" parent="." unique_id=1666117770]
+position = Vector2(1608, 672)
+attenuation = 4.5947957
+script = ExtResource("21_nwm68")
+sounds = Array[AudioStream]([ExtResource("22_wftme"), ExtResource("23_l56ys"), ExtResource("24_j04qn"), ExtResource("25_ppngs")])
+min_wait_secs = 20.0
+max_wait_secs = 60.0
+
+[node name="altar" type="StaticBody2D" parent="." unique_id=1043490386 groups=["interactable"]]
+position = Vector2(1344, 480)
+script = ExtResource("26_j04qn")
+location_name = "OLD FORGE"
+location_scene_path = "res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="altar" unique_id=490030388]
+position = Vector2(24, 12)
+shape = SubResource("RectangleShape2D_px47g")
+debug_color = Color(0.91435325, 0.6416446, 0, 0.41960785)
+
+[node name="altar" type="Sprite2D" parent="altar" unique_id=1084051762]
+texture = ExtResource("27_ppngs")
+offset = Vector2(24, 12)
+
+[node name="TileMapLayer_transparent" type="TileMapLayer" parent="altar" unique_id=1097923084]
+modulate = Color(0.463838, 0.635312, 1, 1)
+z_index = 1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAACAAAAEAAAAAAAAAACA=")
+tile_set = ExtResource("3_8iogw")
+collision_enabled = false
+
+[connection signal="body_entered" from="interact_zone_imp" to="interact_zone_imp" method="_on_body_entered"]
