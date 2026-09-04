@@ -13,6 +13,7 @@ var moving : bool = false
 @onready var flash_light : PointLight2D = $flashlight
 @onready var no_light : PointLight2D = $nolight
 @onready var move_collider : Area2D = $move_collider
+@onready var location_label : Label = $location_label
 
 var move_speed_vect : Vector2 = Vector2(0,0)
 var input_frozen = false
@@ -194,6 +195,9 @@ func fader_is_fading() -> bool:
 		is_fading = true
 	return is_fading
 
+func is_in_battle():
+	return battle_underway
+
 func start_battle():
 	battle_underway = true
 	starting_battle = false
@@ -242,6 +246,7 @@ func end_battle(end_player_familiars : Array[Familiar]):
 		evolution_interface.set_evolving_familiars(evolving_familiars)
 	else:
 		return_to_overworld()
+		battle_underway = false
 
 func return_to_overworld():
 	var global_modulate = get_tree().get_first_node_in_group("global_modulate")
@@ -408,6 +413,9 @@ func load_from_dictionary(dictionary : Dictionary):
 	var pos_y : float = float(dictionary.get("pos_y"))
 	var pos : Vector2 = Vector2(pos_x,pos_y)
 	global_position = pos
+
+func display_location_text(text : String):
+	location_label.display_text(text)
 
 func _physics_process(delta: float) -> void:
 	if(active):

@@ -98,10 +98,11 @@ modulate_step = 0.1
 time_step = 0.2
 start_after_wait = 3.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1448296567 groups=["music_player"]]
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1448296567 groups=["music_player"]]
 stream = ExtResource("9_l5uyn")
-volume_db = 3.0
+volume_db = 9.0
 autoplay = true
+bus = &"Music"
 
 [node name="fade_black" type="Polygon2D" parent="." unique_id=937905613 groups=["fade_black"]]
 visible = false

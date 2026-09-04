@@ -85,6 +85,7 @@ offset = Vector2(12, 12)
 stream = ExtResource("7_yaicd")
 volume_db = -36.0
 autoplay = true
+bus = &"effects"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2129903169 groups=["global_modulate"]]
 z_index = 50

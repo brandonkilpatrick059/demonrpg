@@ -11,6 +11,7 @@ familiar_name = "Damned"
 max_hp = 10
 current_hp = 10
 level = 0
+experience = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
 sprite_frames = ExtResource("2_i7e03")

@@ -134,11 +134,13 @@ func fade_out():
 	$fade_to_black.add_child(fade_node)
 
 func set_up_audio():
+	music_player.bus = "music"
 	add_child(music_player)	
 	var index : int = 0
 	var num_sound_players = 8
 	while(index < num_sound_players):
 		var new_sound_player := AudioStreamPlayer.new()
+		new_sound_player.bus = "effects"
 		add_child(new_sound_player)
 		audio_players.append(new_sound_player)
 		index = index + 1

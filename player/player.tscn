@@ -7,12 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://cqrsao04ikl5c" path="res://sprites/spritesheets/player/no_light.png" id="5_boad6"]
 [ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="5_qjkh3"]
 [ext_resource type="PackedScene" uid="uid://dsk5qoj7icxf4" path="res://interface/interface_message_speech.tscn" id="6_g6k8r"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="8_rgyib"]
+[ext_resource type="Script" uid="uid://djg34aoxu6yb7" path="res://scripts/character/player/location_label.gd" id="9_hg6s5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3wst"]
 size = Vector2(10, 10)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ppngs"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("8_rgyib")
+font_color = Color(0, 0, 1, 1)
 
 [node name="Player" type="RigidBody2D" unique_id=122139857 groups=["player"]]
 z_index = 2
@@ -116,3 +125,14 @@ visible = false
 z_index = 20
 position = Vector2(-48, 48)
 report_interface = NodePath("..")
+
+[node name="location_label" type="Label" parent="." unique_id=1493567714]
+z_index = 10
+material = SubResource("CanvasItemMaterial_ppngs")
+offset_left = -68.0
+offset_top = -56.0
+offset_right = 92.0
+offset_bottom = -33.0
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+script = ExtResource("9_hg6s5")

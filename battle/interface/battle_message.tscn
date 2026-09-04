@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfh5a8mgq3k77"]
+[gd_scene format=3 uid="uid://bfh5a8mgq3k77"]
 
 [ext_resource type="Script" uid="uid://bukyv1ya42oa2" path="res://scripts/battle_system/interface/battle_message.gd" id="1_oe7gc"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="2_m6m26"]
 [ext_resource type="Texture2D" uid="uid://bkclg804ah3sd" path="res://sprites/battle/interface/battle_status_menu.png" id="2_oe7gc"]
 
-[node name="BattleMessage" type="Node2D"]
+[node name="BattleMessage" type="Node2D" unique_id=1029969386]
 script = ExtResource("1_oe7gc")
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="." unique_id=2127198917]
 texture = ExtResource("2_oe7gc")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1880469336]
 offset_left = -30.0
 offset_top = -18.0
 offset_right = 30.0

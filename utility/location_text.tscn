@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://0vkyde2rl1nk"]
+
+[ext_resource type="Script" uid="uid://dullqr64frry7" path="res://scripts/utility/location_text.gd" id="1_xcg72"]
+
+[node name="LocationText" type="Area2D" unique_id=927871242]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_xcg72")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

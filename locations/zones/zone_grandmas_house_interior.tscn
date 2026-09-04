@@ -334,6 +334,7 @@ nodes = [NodePath("../../lamp")]
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1556662474 groups=["global_music_player"]]
 stream = ExtResource("22_mgjgc")
 autoplay = true
+bus = &"music"
 
 [node name="interact_zone_entered_house" type="Area2D" parent="." unique_id=589240200 node_paths=PackedStringArray("run_scripts")]
 position = Vector2(-48, 72)

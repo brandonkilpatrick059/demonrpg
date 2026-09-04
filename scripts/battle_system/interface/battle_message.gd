@@ -19,7 +19,7 @@ var text_queue : Array[String] = []
 func _ready() -> void:
 	timer.one_shot = true
 	add_child(timer)
-	#TODO: figure out audio bus 
+	audio_player.bus = "effects"
 	add_child(audio_player)
 
 func is_active() -> bool:

@@ -178,7 +178,7 @@ shape = SubResource("RectangleShape2D_7crqw")
 
 [node name="run_interact" type="Node" parent="interact_zone_1" unique_id=714813663 node_paths=PackedStringArray("texts", "interact_node")]
 script = ExtResource("12_8wh00")
-texts = [NodePath("Text"), NodePath("Text2"), NodePath("Text3"), NodePath("Text4"), NodePath("Text5"), NodePath("Text6")]
+texts = [NodePath("Text"), NodePath("Text2"), NodePath("Text4")]
 interact_node = NodePath("../../NPCMother")
 
 [node name="Text" type="Node" parent="interact_zone_1/run_interact" unique_id=478972146]
@@ -190,31 +190,13 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 [node name="Text2" type="Node" parent="interact_zone_1/run_interact" unique_id=1809961601]
 script = ExtResource("14_kpw7i")
 language_map = Array[String](["english"])
-text = Array[String](["Are you ready to visit your [color=red]Older Sister[/color] this afternoon?"])
+text = Array[String](["Are you going to visit your [color=red]Older Sister[/color] this afternoon?"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
-[node name="Text3" type="Node" parent="interact_zone_1/run_interact" unique_id=1903189487]
+[node name="Text4" type="Node" parent="interact_zone_1/run_interact" unique_id=1715564140]
 script = ExtResource("14_kpw7i")
 language_map = Array[String](["english"])
-text = Array[String](["She's been staying at [color=blue]Grandma's House[/color] for a week now."])
-metadata/_custom_type_script = "uid://xtykxchs28xu"
-
-[node name="Text4" type="Node" parent="interact_zone_1/run_interact" unique_id=387186968]
-script = ExtResource("14_kpw7i")
-language_map = Array[String](["english"])
-text = Array[String](["...Your [color=red]Sister[/color] has strayed very far from the path of grace."])
-metadata/_custom_type_script = "uid://xtykxchs28xu"
-
-[node name="Text5" type="Node" parent="interact_zone_1/run_interact" unique_id=1178042514]
-script = ExtResource("14_kpw7i")
-language_map = Array[String](["english"])
-text = Array[String](["I hope Grandma's wisdom has helped her find her way."])
-metadata/_custom_type_script = "uid://xtykxchs28xu"
-
-[node name="Text6" type="Node" parent="interact_zone_1/run_interact" unique_id=795296125]
-script = ExtResource("14_kpw7i")
-language_map = Array[String](["english"])
-text = Array[String](["But I fear that she won't be accepted back into [color=blue]The Church[/color]..."])
+text = Array[String](["You should probably get going soon."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="adjust_gamestate" type="Node" parent="interact_zone_1" unique_id=1595859108]
@@ -243,7 +225,7 @@ interact_node = NodePath("../../NPCMother")
 [node name="Text" type="Node" parent="interact_zone_lamp_convo/run_interact" unique_id=1703250937]
 script = ExtResource("14_kpw7i")
 language_map = Array[String](["english"])
-text = Array[String](["It's a long way up [color=blue]The Mountain[/color] to [color=blue]Grandma's House[/color]."])
+text = Array[String](["It's a long way up the [color=blue] Mountain Path[/color] to [color=blue]Grandma's House[/color]."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text2" type="Node" parent="interact_zone_lamp_convo/run_interact" unique_id=882086291]

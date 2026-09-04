@@ -57,6 +57,9 @@ func swap_zones():
 	player_ref.reparent(current_zone)
 	destination_link = current_zone.get_link_by_name(to_link_name)
 	player_ref.global_position = destination_link.get_teleport_position()
+	#we have to do this or location text from prev scene re-displays on level load
+	#cause it's not freed yet and changing the pos re-triggers collision detection
+	player_ref.display_location_text("") 
 	second_phase = true
 	timer.start(0.5)
 

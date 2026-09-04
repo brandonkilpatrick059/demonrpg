@@ -111,18 +111,30 @@ text_queues = [NodePath("queue_2")]
 
 [node name="queue_2" type="Node" parent="dialog" unique_id=1064956983 node_paths=PackedStringArray("texts")]
 script = ExtResource("5_6t5rr")
-texts = [NodePath("Text"), NodePath("Text2")]
+texts = [NodePath("Text4"), NodePath("Text5"), NodePath("Text7"), NodePath("Text6")]
 
-[node name="Text" type="Node" parent="dialog/queue_2" unique_id=1472150099]
+[node name="Text4" type="Node" parent="dialog/queue_2" unique_id=2001249799]
 script = ExtResource("6_wqvfq")
 language_map = Array[String](["english"])
-text = Array[String](["This drought must end soon-"])
+text = Array[String](["...Your [color=red]Sister[/color] has strayed very far from the path of grace."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
-[node name="Text2" type="Node" parent="dialog/queue_2" unique_id=534809382]
+[node name="Text5" type="Node" parent="dialog/queue_2" unique_id=2049261748]
 script = ExtResource("6_wqvfq")
 language_map = Array[String](["english"])
-text = Array[String](["Or there won't be enough buckwheat to take to market."])
+text = Array[String](["I hope Grandma's wisdom has helped her find her way."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text7" type="Node" parent="dialog/queue_2" unique_id=1054705219]
+script = ExtResource("6_wqvfq")
+language_map = Array[String](["english"])
+text = Array[String](["But even so..."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text6" type="Node" parent="dialog/queue_2" unique_id=1022056376]
+script = ExtResource("6_wqvfq")
+language_map = Array[String](["english"])
+text = Array[String](["I fear that she won't be accepted back into [color=blue]The Church[/color]..."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [connection signal="body_entered" from="move_collider_left" to="." method="_on_move_collider_left_body_entered"]

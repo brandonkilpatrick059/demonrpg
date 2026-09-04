@@ -24,7 +24,7 @@ func _ready() -> void:
 	add_child(timer)
 	input_timer.one_shot = true
 	add_child(input_timer)
-	#TODO: figure out audio bus 
+	audio_player.bus = "effects"
 	add_child(audio_player)
 
 func is_active() -> bool:

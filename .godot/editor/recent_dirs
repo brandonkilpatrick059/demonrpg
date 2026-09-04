@@ -1,4 +1,7 @@
 res://utility/
+res://scripts/character/player/
+C:/dev/
+res://
 res://sprites/spritesheets/familiars/
 res://scripts/utility/
 res://scripts/interface/
@@ -17,6 +20,4 @@ res://scripts/locations/
 res://interface/
 res://sprites/spritesheets/player/
 res://sprites/spritesheets/battle/actions/
-res://
 res://scripts/battle_system/interface/
-res://sprites/spritesheets/battle/interface/

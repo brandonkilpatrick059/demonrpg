@@ -11,9 +11,9 @@ music = ExtResource("2_7wyik")
 can_escape = false
 
 [node name="L1imp" parent="." unique_id=2120251354 instance=ExtResource("3_7wyik")]
-max_hp = 85
-current_hp = 85
+max_hp = 100
+current_hp = 100
 speed = 10
 magic = 30
 num_actions = 2
-action_cadence_0 = Array[String](["SHIELD", "HEAL", "SUMMON", "HEAL", "HEAL", "SUMMON", "EVIL EYE", "HEAL", "SUMMON"])
+action_cadence_0 = Array[String](["SHIELD", "EVIL EYE", "SUMMON", "HEAL", "EVIL EYE", "SUMMON", "SHIELD", "HEAL"])

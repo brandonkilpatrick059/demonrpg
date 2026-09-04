@@ -30,7 +30,7 @@ var current_energy = 0
 var energy_depleted : bool = false
 
 @export var level : int = 1
-var experience : int = 0
+@export var experience : int = 0
 
 var capture_offered : bool = false
 

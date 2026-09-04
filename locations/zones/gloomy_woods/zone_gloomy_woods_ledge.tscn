@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cdomxvm5i24y4" path="res://item/pentacle_seal.tscn" id="18_7s6od"]
 [ext_resource type="Texture2D" uid="uid://j2ab1gnhr703" path="res://sprites/effects/matte_painting_mounains_4.png" id="18_iqw58"]
 [ext_resource type="PackedScene" uid="uid://dg6tqi8plgqbm" path="res://item/healing_gore.tscn" id="19_2pnhh"]
+[ext_resource type="PackedScene" uid="uid://0vkyde2rl1nk" path="res://utility/location_text.tscn" id="20_drh8j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(48, 48)
@@ -136,6 +137,7 @@ shape = SubResource("RectangleShape2D_cea73")
 [node name="wind" type="AudioStreamPlayer" parent="." unique_id=1567964404]
 stream = ExtResource("6_7n2lf")
 volume_db = -24.0
+bus = &"effects"
 
 [node name="ZoneLinkGloomyWoodEntrance" parent="." unique_id=2082811522 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("7_x370s")]
 link_zone_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn"
@@ -248,3 +250,11 @@ seal_name = "LEDGE_2"
 [node name="HealingGore" parent="." unique_id=1226598247 instance=ExtResource("19_2pnhh")]
 position = Vector2(3240, -3768)
 gore_name = "LEDGE_1"
+
+[node name="LocationText" parent="." unique_id=927871242 instance=ExtResource("20_drh8j")]
+collision_layer = 0
+location_text = "MOUNTAIN LEDGE"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LocationText" unique_id=1941894355]
+position = Vector2(216, -720)
+polygon = PackedVector2Array(1464, -2784, 1536, -2160, 2160, -2112, 2568, -1992, 2688, -1896, 3552, -1872, 3984, -1920, 4848, -2520, 5016, -3216, 4248, -3792, 3096, -3936, 2208, -3720, 1488, -2952)

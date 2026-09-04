@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="24_l775m"]
 [ext_resource type="PackedScene" uid="uid://cdomxvm5i24y4" path="res://item/pentacle_seal.tscn" id="24_u7uqs"]
 [ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="25_pvdmi"]
+[ext_resource type="PackedScene" uid="uid://0vkyde2rl1nk" path="res://utility/location_text.tscn" id="26_ukrpy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0aow"]
 size = Vector2(24, 24)
@@ -114,9 +115,10 @@ polygon = PackedVector2Array(144, -144, 168, -144, 168, -216, 192, -216, 192, -4
 
 [node name="props" type="Node2D" parent="." unique_id=1693047477]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1207380185]
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1207380185]
 stream = ExtResource("10_50d4d")
 autoplay = true
+bus = &"music"
 
 [node name="ZoneLinkHomestead" parent="." unique_id=2082811522 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("14_xc567")]
 link_zone_scene_path = "res://locations/zones/zone_homestead.tscn"
@@ -278,3 +280,10 @@ volume_db = -24.0
 [node name="PentacleSeal" parent="." unique_id=1226598247 instance=ExtResource("24_u7uqs")]
 z_index = 2
 position = Vector2(792, -1176)
+
+[node name="LocationText" parent="." unique_id=927871242 instance=ExtResource("26_ukrpy")]
+collision_layer = 0
+location_text = "MOUNTAIN PATH"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LocationText" unique_id=428189716]
+polygon = PackedVector2Array(120, -216, 144, -168, 216, -168, 216, -240, 720, -360, 1032, -504, 1344, -1128, 960, -1344, 384, -1272, 144, -1032, 24, -744, -120, -384)

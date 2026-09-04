@@ -18,5 +18,7 @@ func start_timer():
 func _physics_process(delta: float) -> void:
 	if timer.is_stopped():
 		stream = sounds[randi_range(0,sounds.size()-1)]
-		play()
+		var player_ref : Player = get_tree().get_first_node_in_group("player")
+		if(not player_ref.is_in_battle()):
+			play()
 		start_timer()

@@ -83,7 +83,7 @@ visible = false
 z_index = 5
 position = Vector2(-107, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.29648626
+frame_progress = 0.09416215
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1886551892]
@@ -91,7 +91,7 @@ visible = false
 z_index = 5
 position = Vector2(-35, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.48857033
+frame_progress = 0.28624657
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1162962541]
@@ -99,7 +99,7 @@ visible = false
 z_index = 5
 position = Vector2(36, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.48857033
+frame_progress = 0.28624657
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=477634836]
@@ -107,7 +107,7 @@ visible = false
 z_index = 5
 position = Vector2(108, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.48857033
+frame_progress = 0.28624657
 script = ExtResource("7_213sk")
 
 [node name="upgrade_label1" type="Label" parent="familiars/opponent" unique_id=450660838]
@@ -186,7 +186,7 @@ visible = false
 z_index = 5
 position = Vector2(-107, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.17226113
+frame_progress = 0.9699202
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/player" unique_id=962630628]
@@ -194,7 +194,7 @@ visible = false
 z_index = 5
 position = Vector2(-35, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.48857033
+frame_progress = 0.28624657
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/player" unique_id=529547038]
@@ -202,7 +202,7 @@ visible = false
 z_index = 5
 position = Vector2(36, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.48857033
+frame_progress = 0.28624657
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/player" unique_id=1867950404]
@@ -210,7 +210,7 @@ visible = false
 z_index = 5
 position = Vector2(108, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.48857033
+frame_progress = 0.28624657
 script = ExtResource("7_213sk")
 
 [node name="upgrade_label1" type="Label" parent="familiars/player" unique_id=1761104360]
