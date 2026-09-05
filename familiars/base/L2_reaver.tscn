@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_3alu3"]
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_jd7bf"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_6tmxf"]
-[ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_wlbbg"]
 [ext_resource type="PackedScene" uid="uid://crvk28vjomaix" path="res://battle/actions/action_slice.tscn" id="7_8hv6a"]
 
 [node name="L2reaver" type="Node2D" unique_id=888126814]
@@ -32,8 +31,5 @@ opponent_choice_weight = 0.4
 
 [node name="ActionFeed" parent="actions" unique_id=2083201686 instance=ExtResource("5_6tmxf")]
 opponent_choice_weight = 0.1
-
-[node name="ActionStab" parent="actions" unique_id=1696678131 instance=ExtResource("6_wlbbg")]
-opponent_choice_weight = 0.6
 
 [node name="ActionSlice" parent="actions" unique_id=365391198 instance=ExtResource("7_8hv6a")]

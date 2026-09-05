@@ -237,7 +237,7 @@ no_gamestate = false
 gamestate_key = "HAS_MANDRAKE"
 run_if_state = "TRUE"
 default_state = "FALSE"
-scripts = [NodePath("set_encounter"), NodePath("play_texts2")]
+scripts = [NodePath("set_encounter"), NodePath("play_texts2"), NodePath("q_free_books"), NodePath("adjust_gamestate")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book2" unique_id=1610107773]
 position = Vector2(36, 60)
@@ -300,6 +300,15 @@ text = Array[String](["(I place the mandrake root in the center of the circle)"]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
 text = Array[String](["(I speak words I do not understand...)"])
+
+[node name="q_free_books" type="Node" parent="interactable_area_book2" unique_id=2066716810 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_1me3i")
+nodes = [NodePath("../../interactable_area_book"), NodePath("..")]
+
+[node name="adjust_gamestate" type="Node" parent="interactable_area_book2" unique_id=1227709569]
+script = ExtResource("14_m3ix2")
+game_state_key = "HAS_MANDRAKE"
+to_value = "USED"
 
 [node name="interactable_area_bed_2" type="StaticBody2D" parent="." unique_id=397849837 node_paths=PackedStringArray("scripts")]
 position = Vector2(-72, 0)
@@ -390,5 +399,15 @@ to_value = "TRUE"
 script = ExtResource("14_m3ix2")
 game_state_key = "HAS_HOMESTEAD_LAMP"
 to_value = "TRUE"
+
+[node name="has_mandrake_ready_scripts" type="Node" parent="." unique_id=570482053 node_paths=PackedStringArray("scripts")]
+script = ExtResource("19_b3nw5")
+gamestate_key = "HAS_MANDRAKE"
+run_if_state = "USED"
+scripts = [NodePath("q_free_books")]
+
+[node name="q_free_books" type="Node" parent="has_mandrake_ready_scripts" unique_id=1741717884 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_1me3i")
+nodes = [NodePath("../../interactable_area_book"), NodePath("../../interactable_area_book2")]
 
 [connection signal="body_entered" from="interact_zone_entered_house" to="interact_zone_entered_house" method="_on_body_entered"]

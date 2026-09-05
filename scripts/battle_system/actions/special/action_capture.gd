@@ -60,6 +60,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 	if(!made_capture):
 		battle_sys_ref.start_wait_timer(1.5)
 		var target : Familiar = targets[0]
+		target.set_health_percentage(0.75)
 		visual_effects(target)
 		made_capture = true
 	if(!made_switch):

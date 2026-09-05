@@ -60,3 +60,9 @@ res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn
+res://scripts/familiars/familiar.gd
+res://scripts/battle_system/actions/special/action_capture.gd
+res://scripts/battle_system/actions/damage/physical/action_slice.gd
+res://familiars/base/L2_reaver.tscn
+res://scripts/battle_system/battle_system_manager.gd
+res://locations/zones/zone_grandmas_house_interior.tscn

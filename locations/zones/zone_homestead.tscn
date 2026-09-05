@@ -494,7 +494,7 @@ volume_db = -6.0
 [node name="altar" type="StaticBody2D" parent="." unique_id=1579862005 groups=["interactable"]]
 position = Vector2(-24, -24)
 script = ExtResource("31_4ktpp")
-location_name = "HOMESTEAD"
+location_name = "THE HOMESTEAD"
 location_scene_path = "res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="altar" unique_id=574820379]

@@ -353,6 +353,9 @@ func set_defense(num : int):
 func set_familiar_name (in_name : String):
 	familiar_name = in_name
 
+func set_health_percentage(percent : float):
+	current_hp = max_hp * percent
+
 func get_familiar_name(exclude_sigil : bool = false) -> String:
 	var ret_name = familiar_name
 	if(not no_sigil && not exclude_sigil):

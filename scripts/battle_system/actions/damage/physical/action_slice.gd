@@ -47,7 +47,7 @@ func get_slain_message(actor : Familiar, target : Familiar) -> String:
 func _ready() -> void:
 	action_name = "SLICE"
 	target_type = TargetType.TWO_ADJACENT_OPPONENT
-	energy_cost = 3
+	energy_cost = 2
 	damage_type = DamageType.PHYSICAL
 
 func clean_up():

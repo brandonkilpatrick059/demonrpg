@@ -568,7 +568,7 @@ func handle_two_adjacent_target_input():
 	var current_target : Familiar
 	if(targeted_familiars.size() == 0 &&
 	targetable_familiars.size() > 0):
-		current_target = targetable_familiars[1]
+		current_target = targetable_familiars[0]
 		targeted_familiars.append(current_target)
 		var left_familiar = get_adjacent_familiars(current_target,true)
 		targeted_familiars.append_array(left_familiar)
