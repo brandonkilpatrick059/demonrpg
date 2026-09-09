@@ -862,8 +862,8 @@ func get_next_action():
 				return_to_input_phase()
 				break
 		if(current_action != null):
-			current_battle_action = current_action.get_action()
-			if(current_battle_action != null):
+			if(current_action.get_action() != null):
+				current_battle_action = current_action.get_action()
 				current_actor = current_action.get_actor()
 				current_targets = current_action.get_targets()
 				current_battle_action.clean_up() #make sure the action is reset and ready
@@ -886,7 +886,7 @@ func check_and_replace_targets(current_action : ActionQueueItem):
 		current_targets[0].is_dead())):
 			var potential_targets: Array[Familiar] = []
 			var actor = current_action.get_actor()
-			var valid_targets = get_opponent_targetable_familiars(actor,current_battle_action)
+			var valid_targets = get_opponent_targetable_familiars(actor,current_action.get_action())
 			potential_targets.append_array(valid_targets)
 			var new_target = potential_targets[randi_range(0,potential_targets.size()-1)]
 			current_targets = [new_target]
@@ -1148,24 +1148,85 @@ func close_battle(ran_away = false):
 #endregion
 #endregion
 
+#region Logging
+var num_actions : int = 0
 func log_battle_state(action : ActionQueueItem):
-	var no_sigil = true
-	if(action.get_actor() != null and action.get_action() != null):
-		print(str(str(action.get_actor().get_familiar_name(no_sigil), " - "),action.get_action().get_action_name()))
-	
+	num_actions = num_actions + 1
+	print("-------------")
 	print("OPPONENTS:")
 	log_positions(opponent_positions)
 	print("PLAYER:")
 	log_positions(player_positions)
+	print("-------------")
+	print("ACTION ",num_actions)
+	log_action(action)
+	var current_actor_name = get_familiar_log_name(current_actor)
+	var current_action_name = get_log_action_name(current_battle_action)
+	var current_targets = get_log_targets(current_targets)
+	print("current_actor_name: ",current_actor_name)
+	print("current_action_name: ",current_action_name)
+	print("current_targets: ",current_targets)
+	print("-------------")
+	log_combined_action_queue()
+	
+
+
+func log_combined_action_queue():
+	for action : ActionQueueItem in combined_action_queue:
+		log_action(action)
+
+func log_action(action : ActionQueueItem):
+	var actor_name : String = "NULL"
+	if(action.get_actor() != null):
+		actor_name = get_familiar_log_name(action.get_actor())
+	var action_name : String = get_log_action_name(action.get_action())
+	var log_line : String = str(str(str(actor_name,"|"),action_name),"->")
+	var target_names = get_log_targets(action.get_targets())
+	log_line = str(log_line,target_names)
+	print(log_line)
+
+func get_log_targets(targets : Array[Familiar]) -> String:
+	var target_names : String = ""
+	var index : int = 0
+	for target : Familiar in targets:
+		target_names = str(target_names,get_familiar_log_name(target))
+		index = index + 1
+		if(index != targets.size()):
+			target_names = str(target_names," & ")
+	return target_names
+
+func get_log_action_name(action) -> String:
+	var action_name : String = "NULL"
+	if(action != null):
+		action_name = action.get_action_name()
+	return action_name
+
+func get_familiar_log_name(familiar : Familiar) -> String:
+	var badge : String = ""
+	if(familiar.is_hostile()):
+		badge = str("(O")
+		var place : int = opponent_positions.find(familiar.get_parent())
+		badge = str(badge,place+1)
+		badge = str(badge,")")
+	else:
+		badge = str("(P")
+		var place : int = player_positions.find(familiar.get_parent())
+		badge = str(badge,place+1)
+		badge = str(badge,")")
+	var exclude_sigil : bool = true
+	var log_name : String = str(badge,familiar.get_familiar_name(exclude_sigil))
+	if(familiar.is_dead()):
+		log_name = str(log_name,"(DEAD)")
+	return log_name
 
 func log_positions(positions : Array[FamiliarSlot]):
-	var index = 0
+	var index = 1
 	for position : FamiliarSlot in positions:
 		var slot_string : String = ""
 		var no_sigil = true
 		if position.get_child_count() > 0:
 			var familiar : Familiar = position.get_child(0)
-			slot_string = str(index+1,": ")
+			slot_string = str(index,": ")
 			slot_string = str(slot_string, familiar.get_familiar_name(no_sigil))
 			slot_string = str(slot_string, " ")
 			slot_string = str(slot_string, familiar.get_current_hp())
@@ -1174,5 +1235,7 @@ func log_positions(positions : Array[FamiliarSlot]):
 			slot_string = str(slot_string, " ")
 			slot_string = str(slot_string, familiar.get_current_energy())
 		else:
-			slot_string = str(index+1,": EMPTY")
+			slot_string = str(index,": EMPTY")
+		index = index + 1
 		print(slot_string)
+#endregion

@@ -191,22 +191,12 @@ encounter = ExtResource("8_1sah4")
 
 [node name="ShadeMonster_martyr_healer2" parent="." unique_id=1830364791 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(912, 240)
+position = Vector2(912, 408)
 encounter = ExtResource("9_y6ppr")
-
-[node name="ShadeMonster_martyr_healer5" parent="." unique_id=1285850586 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1128, 456)
-encounter = ExtResource("9_y6ppr")
-
-[node name="ShadeMonster_stalf_healer" parent="." unique_id=342191184 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1152, 48)
-encounter = ExtResource("11_u8oqv")
 
 [node name="ShadeMonster_stalf_healer3" parent="." unique_id=1942000967 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(936, 480)
+position = Vector2(1152, 72)
 encounter = ExtResource("11_u8oqv")
 
 [node name="ShadeMonster_stalf_solo2" parent="." unique_id=500440634 instance=ExtResource("6_dynvb")]

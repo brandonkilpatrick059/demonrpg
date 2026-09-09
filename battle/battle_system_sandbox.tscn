@@ -2,48 +2,48 @@
 
 [ext_resource type="PackedScene" uid="uid://d1yksn1grty30" path="res://battle/battle_system.tscn" id="1_13ec6"]
 [ext_resource type="AudioStream" uid="uid://deysb4q75hgex" path="res://audio/music/drone_2.ogg" id="2_k5gt0"]
-[ext_resource type="PackedScene" uid="uid://dgil6lq8m0otl" path="res://familiars/base/L1_imp.tscn" id="3_k5gt0"]
-[ext_resource type="PackedScene" uid="uid://2kvawkd11f4" path="res://familiars/base/L2_reaver.tscn" id="4_f717y"]
+[ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/base/L1_gark.tscn" id="3_f717y"]
+[ext_resource type="PackedScene" uid="uid://chd5ugll25mm6" path="res://familiars/base/L2_stalf.tscn" id="4_k5gt0"]
 [ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/player_body.tres" id="5_ogmts"]
-[ext_resource type="PackedScene" uid="uid://dogiaxmsxt1y8" path="res://familiars/base/L2_byle.tscn" id="6_143nw"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="6_f717y"]
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=1962261481]
 
 [node name="BattleSystem" parent="." unique_id=883968846 node_paths=PackedStringArray("opponent_familiars", "player_familiars") instance=ExtResource("1_13ec6")]
 position = Vector2(160, 90)
-opponent_familiars = [NodePath("opponents/L1imp")]
-player_familiars = [NodePath("player/L2reaver"), NodePath("player/L2reaver2"), NodePath("player/L2byle")]
+opponent_familiars = [NodePath("opponents/L1gark"), NodePath("opponents/L1gark2"), NodePath("opponents/L1gark3"), NodePath("opponents/L1gark4")]
+player_familiars = [NodePath("player/L2stalf"), NodePath("player/L1gark")]
 music = ExtResource("2_k5gt0")
 is_sandbox = true
 
 [node name="opponents" type="Node2D" parent="BattleSystem" unique_id=1490793808]
 
-[node name="L1imp" parent="BattleSystem/opponents" unique_id=2120251354 instance=ExtResource("3_k5gt0")]
-max_hp = 75
-current_hp = 75
-speed = 10
-magic = 22
-num_actions = 2
-no_sigil = true
-action_cadence_0 = Array[String](["SHIELD", "HEAL", "SUMMON", "HEAL", "HEAL", "SUMMON", "EVIL EYE", "HEAL", "SUMMON"])
+[node name="L1gark" parent="BattleSystem/opponents" unique_id=2120251354 instance=ExtResource("3_f717y")]
+max_hp = 1
+current_hp = 1
+attack = 0
+
+[node name="L1gark2" parent="BattleSystem/opponents" unique_id=664354301 instance=ExtResource("3_f717y")]
+max_hp = 1
+current_hp = 1
+attack = 0
+
+[node name="L1gark3" parent="BattleSystem/opponents" unique_id=127166247 instance=ExtResource("3_f717y")]
+max_hp = 1
+current_hp = 1
+attack = 0
+
+[node name="L1gark4" parent="BattleSystem/opponents" unique_id=1642119801 instance=ExtResource("3_f717y")]
+max_hp = 1
+current_hp = 1
+attack = 0
 
 [node name="player" type="Node2D" parent="BattleSystem" unique_id=310176509]
 
-[node name="L2reaver" parent="BattleSystem/player" unique_id=888126814 instance=ExtResource("4_f717y")]
-max_hp = 30
-current_hp = 25
-attack = 12
+[node name="L2stalf" parent="BattleSystem/player" unique_id=2121275838 instance=ExtResource("4_k5gt0")]
 
-[node name="L2reaver2" parent="BattleSystem/player" unique_id=179701656 instance=ExtResource("4_f717y")]
-max_hp = 22
-current_hp = 22
-
-[node name="L2byle" parent="BattleSystem/player" unique_id=1170432072 instance=ExtResource("6_143nw")]
-max_hp = 40
-current_hp = 40
-speed = 3
-magic = 10
+[node name="L1gark" parent="BattleSystem/player" unique_id=545239726 instance=ExtResource("3_f717y")]
+speed = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1002522205]
 position = Vector2(160, 90)

@@ -434,6 +434,9 @@ func set_inactive():
 	active = false
 	visible = false
 
+func play_animation(anim_name : String):
+	sprite.play(anim_name)
+
 func get_save_dictionary() -> Dictionary:
 	var ret_dictionary : Dictionary = {
 		"packedscene" : packedscene_path,
@@ -458,6 +461,9 @@ func load_from_dictionary(dictionary : Dictionary):
 	Sigil.checkout_sigil(sigil)
 	max_hp = int(dictionary.get("max_hp"))
 	current_hp = int(dictionary.get("current_hp"))
+	if(current_hp == 0):
+		dead = true
+		gen_stat_increase()
 	attack = int(dictionary.get("attack"))
 	defense = int(dictionary.get("defense"))
 	speed = int(dictionary.get("speed"))
@@ -478,3 +484,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				sprite.play("default")
 			one_shot_animating = false
+	elif(not active):
+		if(is_dead()):
+			sprite.play("dead")
+		

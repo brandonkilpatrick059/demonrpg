@@ -36,6 +36,8 @@ func set_familiar(familiar : Familiar):
 	current_familiar = familiar
 	current_familiar.reparent($familiar_slot)
 	familiar.set_active()
+	if(familiar.is_dead()):
+		familiar.play_animation("dead")
 	familiar.position = Vector2(0,0)
 	$name_label.parse_bbcode(familiar.get_familiar_name())
 	var hp_gauge : HPGauge = $hp_gauge
