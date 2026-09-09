@@ -27,12 +27,13 @@ func get_type():
 func apply_status_effect():
 	var action_item : BattleSystemManager.ActionQueueItem
 	var source = source_familiar
-	var act = burn_action
+	var act = burn_action.duplicate()
 	var target = target_familiar
 	if(target != null and source != null):
-		action_item = BattleSystemManager.ActionQueueItem.new(source,act,[target])
 		var battle_system_ref : BattleSystemManager
 		battle_system_ref = get_tree().get_first_node_in_group("battle_system")
+		battle_system_ref.add_child(act)
+		action_item = BattleSystemManager.ActionQueueItem.new(source,act,[target])
 		battle_system_ref.append_special_action_queue(action_item)
 	
 		#fire spreads

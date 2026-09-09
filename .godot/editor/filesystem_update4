@@ -46,5 +46,8 @@ res://sprites/spritesheets/interface/save_load_tab.tres
 res://sprites/spritesheets/familiars/L1_ghost.tres
 res://sprites/spritesheets/familiars/L1_imp.tres
 res://scripts/familiars/familiar.gd
-res://scripts/interface/familiar_summary.gd
+res://scripts/battle_system/buffs/burn_buff_effect.gd
 res://scripts/battle_system/battle_system_manager.gd
+res://scripts/battle_system/actions/damage/magic/action_burn.gd
+res://scripts/battle_system/actions/damage/magic/action_fire.gd
+res://battle/encounters/imp_encounter.tscn

@@ -163,9 +163,55 @@ func get_capture_range() -> int:
 	elif(max_hp <= 20):
 		return 8
 	elif(max_hp <= 30):
-		return 12
-	else:
 		return 10
+	elif(max_hp <= 40):
+		return 12
+	elif(max_hp <= 50):
+		return 14
+	elif(max_hp <= 60):
+		return 16
+	elif(max_hp <= 70):
+		return 18
+	elif(max_hp <= 80):
+		return 20
+	elif(max_hp <= 90):
+		return 22
+	elif(max_hp <= 100):
+		return 24
+	elif(max_hp <= 150):
+		return 26
+	elif(max_hp <= 200):
+		return 28
+	elif(max_hp <= 250):
+		return 30
+	elif(max_hp <= 300):
+		return 35
+	elif(max_hp <= 400):
+		return 40
+	elif(max_hp <= 500):
+		return 45
+	elif(max_hp <= 600):
+		return 50
+	elif(max_hp <= 700):
+		return 55
+	elif(max_hp <= 800):
+		return 60
+	elif(max_hp <= 900):
+		return 65
+	elif(max_hp <= 1000):
+		return 70
+	elif(max_hp <= 1100):
+		return 75
+	elif(max_hp <= 1200):
+		return 80
+	elif(max_hp <= 1300):
+		return 85
+	elif(max_hp <= 1400):
+		return 90
+	elif(max_hp <= 1500):
+		return 95
+	else:
+		return 100
 
 func randomize_action_cadence():
 	var num_cadences = 0

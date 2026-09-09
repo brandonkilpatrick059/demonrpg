@@ -1189,10 +1189,11 @@ func get_log_targets(targets : Array[Familiar]) -> String:
 	var target_names : String = ""
 	var index : int = 0
 	for target : Familiar in targets:
-		target_names = str(target_names,get_familiar_log_name(target))
-		index = index + 1
-		if(index != targets.size()):
-			target_names = str(target_names," & ")
+		if(target != null):
+			target_names = str(target_names,get_familiar_log_name(target))
+			index = index + 1
+			if(index != targets.size()):
+				target_names = str(target_names," & ")
 	return target_names
 
 func get_log_action_name(action) -> String:
