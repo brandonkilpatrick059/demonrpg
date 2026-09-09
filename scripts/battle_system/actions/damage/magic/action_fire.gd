@@ -5,7 +5,7 @@ var made_attack : bool = false
 
 var battle_sys_ref : BattleSystemManager
 
-var announcment_english : String = "[TEAM][ACTOR] burns [TEAM2][TARGET]"
+var announcment_english : String = "[TEAM][ACTOR] lights [TEAM2][TARGET] on fire"
 
 func get_announcement(actor : Familiar, target : Familiar) -> String:
 	var ret_string = announcment_english.replace("[ACTOR]",actor.get_familiar_name())

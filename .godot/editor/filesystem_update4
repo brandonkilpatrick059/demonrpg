@@ -51,3 +51,6 @@ res://scripts/battle_system/battle_system_manager.gd
 res://scripts/battle_system/actions/damage/magic/action_burn.gd
 res://scripts/battle_system/actions/damage/magic/action_fire.gd
 res://battle/encounters/imp_encounter.tscn
+res://familiars/base/L1_imp.tscn
+res://familiars/base/L0_homunculus.tscn
+res://familiars/base/L2_stalf.tscn
