@@ -13,6 +13,7 @@ music = ExtResource("2_sjxrh")
 max_hp = 20
 current_hp = 20
 speed = 4
+capture_hp_percent = 0.35
 action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
 action_cadence_1 = Array[String](["ATTACK", "ATTACK", "ATTACK", "SLICE"])
 
@@ -20,5 +21,6 @@ action_cadence_1 = Array[String](["ATTACK", "ATTACK", "ATTACK", "SLICE"])
 max_hp = 20
 current_hp = 20
 speed = 4
+capture_hp_percent = 0.35
 action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
 action_cadence_1 = Array[String](["ATTACK", "ATTACK", "ATTACK", "SLICE"])

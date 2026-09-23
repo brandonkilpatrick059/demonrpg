@@ -754,7 +754,8 @@ func run_away():
 	end_battle()
 	for familiar in opponent_familiars:
 		Sigil.return_sigil(familiar.get_sigil())
-	close_battle(true)
+	var fleeing : bool = true
+	close_battle(fleeing)
 
 func fader_is_fading() -> bool:
 	var is_fading : bool = false
@@ -1120,9 +1121,9 @@ func end_process():
 		waiting_to_fade = true
 		fade_out()
 	elif(waiting_to_fade and not fader_is_fading()):
+		var victory : bool = not player_is_dead()
 		if(player_deployed):
 			withdraw_player()
-		var victory : bool = not player_is_dead()
 		if(victory):
 			var player : Player = get_tree().get_first_node_in_group("player")
 			player.end_battle(player_familiars)
