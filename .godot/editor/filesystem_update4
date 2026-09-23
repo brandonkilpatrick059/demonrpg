@@ -46,3 +46,11 @@ res://sprites/spritesheets/interface/save_load_tab.tres
 res://sprites/spritesheets/familiars/L1_ghost.tres
 res://sprites/spritesheets/familiars/L1_imp.tres
 res://scripts/battle_system/battle_system_manager.gd
+res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
+res://interface/interface_message_speech.tscn
+res://scripts/character/player/player.gd
+res://scripts/interface/interface_message.gd
+res://scripts/utility/run_scripts/play_texts.gd
+res://battle/encounters/imp_encounter.tscn
+res://locations/zone_manager_test.tscn
+res://player/player.tscn

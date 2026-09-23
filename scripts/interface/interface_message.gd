@@ -18,6 +18,7 @@ var audio_player := AudioStreamPlayer.new()
 var active : bool = false
 
 var text_queue : Array[String] = []
+var dark_texts : Array[bool] = []
 
 func _ready() -> void:
 	timer.one_shot = true
@@ -38,17 +39,30 @@ func set_inactive():
 	visible = false
 	active = false
 
-func queue_text(texts : Array[String]):
+func queue_text(texts : Array[String], new_dark_texts : Array[bool] = []):
 	for text in texts:
 		text_queue.append(text)
+	dark_texts.clear()
+	dark_texts.append_array(new_dark_texts)
 	if(finished_writing):
 		play_next_text()
 
 func play_next_text():
 	var text = text_queue.pop_front()
-	play_text(text)
+	var is_dark = dark_texts.pop_front()
+	if(is_dark != null):
+		play_text(text,is_dark)
+	else:
+		play_text(text)
 
-func play_text(text : String):
+func play_text(text : String, is_dark : bool = false):
+	if(is_dark):
+		$background.visible = false
+		$background_dark.visible = true
+	else:
+		$background.visible = true
+		if($background_dark != null):
+			$background_dark.visible = false
 	set_active()
 	finished_writing = false
 	full_text = text
@@ -64,7 +78,6 @@ func update_label():
 func write_text():
 	if(current_text != full_text):
 		if(timer.is_stopped()):
-			text_index = text_index + 1
 			#skip image paths
 			if(full_text.findn("[img]",text_index) == text_index):
 				text_index = full_text.findn("[/img]",text_index)
@@ -80,6 +93,7 @@ func write_text():
 			update_label()
 			audio_player.stream = load("res://audio/effects/bell_first_low.ogg")
 			audio_player.play()
+			text_index = text_index + 1
 	else:
 		finished_writing = true
 

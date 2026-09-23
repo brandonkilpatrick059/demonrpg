@@ -282,7 +282,8 @@ encounter_scene = ExtResource("18_x5i66")
 
 [node name="play_texts" type="Node" parent="interact_zone_imp" unique_id=1950158298 node_paths=PackedStringArray("texts")]
 script = ExtResource("19_sywhf")
-texts = [NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8")]
+texts = [NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text11"), NodePath("text12"), NodePath("text13"), NodePath("text14"), NodePath("text15"), NodePath("text16"), NodePath("text17")]
+dark_texts = Array[bool]([false, false, false, false, false, true, true, true, true, true, true, true])
 
 [node name="text5" type="Node" parent="interact_zone_imp/play_texts" unique_id=426183232]
 script = ExtResource("17_sf0dg")
@@ -292,7 +293,7 @@ text = Array[String](["..."])
 [node name="text6" type="Node" parent="interact_zone_imp/play_texts" unique_id=1327883145]
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
-text = Array[String](["(The laughing is coming from inside this room...)"])
+text = Array[String](["(The laughter is coming from inside this room)"])
 
 [node name="text7" type="Node" parent="interact_zone_imp/play_texts" unique_id=1404255898]
 script = ExtResource("17_sf0dg")
@@ -303,6 +304,46 @@ text = Array[String](["(I peer into the darkness around me)"])
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
 text = Array[String](["(Something is standing in the corner...)"])
+
+[node name="text9" type="Node" parent="interact_zone_imp/play_texts" unique_id=164838410]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["(It begins to speak)"])
+
+[node name="text11" type="Node" parent="interact_zone_imp/play_texts" unique_id=1289129694]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["[color=white]This one looks just like The Master?[/color]"])
+
+[node name="text12" type="Node" parent="interact_zone_imp/play_texts" unique_id=390828086]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["[color=white]It must be the Younger Sister...[/color]"])
+
+[node name="text13" type="Node" parent="interact_zone_imp/play_texts" unique_id=364633466]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["[color=white]The Master left me here to guide you down the mountain.[/color]"])
+
+[node name="text14" type="Node" parent="interact_zone_imp/play_texts" unique_id=1410228236]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["[color=white]Here, come closer-[/color]"])
+
+[node name="text15" type="Node" parent="interact_zone_imp/play_texts" unique_id=1977941496]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["[color=white]Let me help you...[/color]"])
+
+[node name="text16" type="Node" parent="interact_zone_imp/play_texts" unique_id=1234937885]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["[color=white]Do not be afraid...[/color]"])
+
+[node name="text17" type="Node" parent="interact_zone_imp/play_texts" unique_id=2015093427]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["[color=white]I am your...Friend...[/color]"])
 
 [node name="laugh_1" type="AudioStreamPlayer2D" parent="." unique_id=939060334]
 position = Vector2(1488, 456)
