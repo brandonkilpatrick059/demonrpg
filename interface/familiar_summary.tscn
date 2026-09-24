@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b3nr6mi40doim" path="res://sprites/battle/guides/battle_system_grid.png" id="4_xbbee"]
 [ext_resource type="PackedScene" uid="uid://b8pynlcnn2j07" path="res://interface/summary_action_tab.tscn" id="6_xbbee"]
 [ext_resource type="Texture2D" uid="uid://6kebcbge2ihm" path="res://sprites/spritesheets/battle/interface/select_arrow_static.png" id="7_k8h1s"]
+[ext_resource type="Texture2D" uid="uid://btvey5s1t32nr" path="res://sprites/items/pentacle_seal_24.png" id="8_wblr4"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8h1s"]
 light_mode = 1
@@ -21,6 +22,19 @@ font_size = 8
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wblr4"]
 light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8t03j"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_85dbl"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f3d0f"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_85dbl"]
+font = ExtResource("3_poctu")
+font_size = 8
 
 [node name="FamiliarSummary" type="Node2D" unique_id=1432410905]
 process_mode = 3
@@ -190,3 +204,21 @@ rotation = 4.71239
 texture = ExtResource("7_k8h1s")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1773521269]
+
+[node name="seal_counter" type="Node2D" parent="." unique_id=1983128928]
+material = SubResource("CanvasItemMaterial_8t03j")
+position = Vector2(32, -34)
+
+[node name="seal" type="Sprite2D" parent="seal_counter" unique_id=1289456496]
+material = SubResource("CanvasItemMaterial_85dbl")
+position = Vector2(-37, 11)
+texture = ExtResource("8_wblr4")
+
+[node name="seal_label" type="Label" parent="seal_counter" unique_id=24062777]
+material = SubResource("CanvasItemMaterial_f3d0f")
+offset_left = -23.0
+offset_top = 11.0
+offset_right = 17.0
+offset_bottom = 34.0
+text = "x2"
+label_settings = SubResource("LabelSettings_85dbl")

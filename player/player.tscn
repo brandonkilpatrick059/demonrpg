@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dsk5qoj7icxf4" path="res://interface/interface_message_speech.tscn" id="6_g6k8r"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="8_rgyib"]
 [ext_resource type="Script" uid="uid://djg34aoxu6yb7" path="res://scripts/character/player/location_label.gd" id="9_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://qmunr8sxvpse" path="res://familiars/L0_girl.tscn" id="10_8t03j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(24, 24)
@@ -136,3 +137,7 @@ offset_bottom = -33.0
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 script = ExtResource("9_hg6s5")
+
+[node name="L0girl" parent="." unique_id=16055471 instance=ExtResource("10_8t03j")]
+visible = false
+position = Vector2(121.94878, -46.246895)

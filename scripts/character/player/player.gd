@@ -150,7 +150,10 @@ func show_summary():
 	if(familiar_team.size() > 0):
 		var summary : FamiliarSummary = load("res://interface/familiar_summary.tscn").instantiate()
 		get_parent().add_child(summary)
-		summary.set_familiars(get_familiars_team())
+		var summarize_familiars : Array[Familiar] = []
+		summarize_familiars.append_array(get_familiars_team())
+		summarize_familiars.push_front($L0girl)
+		summary.set_familiars(summarize_familiars)
 		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 		var pos : Vector2 = camera.get_screen_center_position()
 		summary.global_position = pos

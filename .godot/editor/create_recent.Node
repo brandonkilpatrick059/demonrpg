@@ -1,9 +1,9 @@
+Node2D
 Node
 CollisionPolygon2D
 Area2D
 Label
 AudioStreamPlayer2D
-Node2D
 Sprite2D
 AudioStreamPlayer
 CollisionShape2D

@@ -313,63 +313,45 @@ text = Array[String](["(It begins to speak)"])
 [node name="text11" type="Node" parent="interact_zone_imp/play_texts" unique_id=1289129694]
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
-text = Array[String](["[color=white]This one looks just like The Master?[/color]"])
+text = Array[String](["\"[color=white]This one looks just like The Master.[/color]\""])
 
 [node name="text12" type="Node" parent="interact_zone_imp/play_texts" unique_id=390828086]
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
-text = Array[String](["[color=white]It must be the Younger Sister...[/color]"])
+text = Array[String](["\"[color=white]It must be the Younger Sister...[/color]\""])
 
 [node name="text13" type="Node" parent="interact_zone_imp/play_texts" unique_id=364633466]
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
-text = Array[String](["[color=white]The Master left me here to guide you down the mountain.[/color]"])
+text = Array[String](["\"[color=white]The Master left me here to guide you down the mountain.[/color]\""])
 
 [node name="text14" type="Node" parent="interact_zone_imp/play_texts" unique_id=1410228236]
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
-text = Array[String](["[color=white]Here, come closer-[/color]"])
+text = Array[String](["\"[color=white]Come closer-[/color]\""])
 
 [node name="text15" type="Node" parent="interact_zone_imp/play_texts" unique_id=1977941496]
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
-text = Array[String](["[color=white]Let me help you...[/color]"])
+text = Array[String](["\"[color=white]Let me help you...[/color]\""])
 
 [node name="text16" type="Node" parent="interact_zone_imp/play_texts" unique_id=1234937885]
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
-text = Array[String](["[color=white]Do not be afraid...[/color]"])
+text = Array[String](["\"[color=white]Do not be afraid...[/color]\""])
 
 [node name="text17" type="Node" parent="interact_zone_imp/play_texts" unique_id=2015093427]
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
-text = Array[String](["[color=white]I am your...Friend...[/color]"])
-
-[node name="laugh_1" type="AudioStreamPlayer2D" parent="." unique_id=939060334]
-position = Vector2(1488, 456)
-attenuation = 4.5947957
-bus = &"effects"
-script = ExtResource("21_nwm68")
-sounds = Array[AudioStream]([ExtResource("22_wftme"), ExtResource("23_l56ys"), ExtResource("24_j04qn"), ExtResource("25_ppngs")])
-min_wait_secs = 20.0
-max_wait_secs = 60.0
+text = Array[String](["\"[color=white]I am your...Friend...[/color]\""])
 
 [node name="laugh_2" type="AudioStreamPlayer2D" parent="." unique_id=789788775]
-position = Vector2(1776, 456)
-attenuation = 4.5947957
+position = Vector2(1608, 528)
+attenuation = 6.2766743
 script = ExtResource("21_nwm68")
 sounds = Array[AudioStream]([ExtResource("22_wftme"), ExtResource("23_l56ys"), ExtResource("24_j04qn"), ExtResource("25_ppngs")])
-min_wait_secs = 20.0
-max_wait_secs = 60.0
-
-[node name="laugh_3" type="AudioStreamPlayer2D" parent="." unique_id=1666117770]
-position = Vector2(1608, 672)
-attenuation = 4.5947957
-bus = &"effects"
-script = ExtResource("21_nwm68")
-sounds = Array[AudioStream]([ExtResource("22_wftme"), ExtResource("23_l56ys"), ExtResource("24_j04qn"), ExtResource("25_ppngs")])
-min_wait_secs = 20.0
-max_wait_secs = 60.0
+min_wait_secs = 10.0
+max_wait_secs = 20.0
 
 [node name="altar" type="StaticBody2D" parent="." unique_id=1043490386 groups=["interactable"]]
 position = Vector2(1344, 480)
