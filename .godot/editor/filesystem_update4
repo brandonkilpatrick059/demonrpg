@@ -1,4 +1,4 @@
-res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
 res://sprites/spritesheets/battle/interface/battle_action_tab.tres
 res://sprites/spritesheets/battle/interface/energy_cost.tres
 res://sprites/spritesheets/battle/interface/battle_energy_bar.tres
@@ -12,6 +12,7 @@ res://sprites/spritesheets/familiars/L1_braim.tres
 res://sprites/spritesheets/familiars/L2_stalf.tres
 res://sprites/spritesheets/player/player_body.tres
 res://sprites/spritesheets/player/player_head.tres
+res://sprites/spritesheets/familiars/girl_battle.tres
 res://sprites/spritesheets/battle/actions/attack.tres
 res://sprites/spritesheets/battle/actions/feed.tres
 res://sprites/spritesheets/battle/actions/stab.tres
@@ -21,7 +22,6 @@ res://sprites/spritesheets/battle/actions/fire.tres
 res://sprites/spritesheets/familiars/L2_dylith.tres
 res://sprites/spritesheets/familiars/L2_gorgon.tres
 res://sprites/spritesheets/familiars/L2_shax.tres
-res://sprites/spritesheets/familiars/girl_battle.tres
 res://sprites/spritesheets/familiars/L2_reaver.tres
 res://sprites/spritesheets/interface/summary_action_tab.tres
 res://sprites/tile_atlas.tres
@@ -45,8 +45,4 @@ res://sprites/spritesheets/effects/water_fall.tres
 res://sprites/spritesheets/props/structure/bridge.tres
 res://sprites/spritesheets/props/structure/sluice.tres
 res://sprites/spritesheets/interface/save_load_tab.tres
-res://interface/familiar_summary.tscn
-res://scripts/interface/familiar_summary.gd
-res://player/player.tscn
-res://scripts/character/player/player.gd
-res://familiars/L0_girl.tscn
+res://locations/zones/zone_grandmas_house_interior.tscn

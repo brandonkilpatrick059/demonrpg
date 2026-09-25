@@ -155,11 +155,6 @@ position = Vector2(-48, 216)
 texture = ExtResource("7_r7j5k")
 offset = Vector2(0, 24)
 
-[node name="open_book" type="Sprite2D" parent="." unique_id=212452740]
-position = Vector2(24, 48)
-texture = ExtResource("15_lvc0s")
-offset = Vector2(12, 12)
-
 [node name="interactable_area_book" type="StaticBody2D" parent="." unique_id=1399823096 node_paths=PackedStringArray("scripts")]
 script = ExtResource("15_i2ay8")
 no_gamestate = false
@@ -230,6 +225,11 @@ text = Array[String](["\"6. Sign the contract with a [color=purple]Pentacle Seal
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
 text = Array[String](["(There are several wax seals stamped with an upside-down star)"])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book" unique_id=212452740]
+position = Vector2(24, 48)
+texture = ExtResource("15_lvc0s")
+offset = Vector2(12, 12)
 
 [node name="interactable_area_book2" type="StaticBody2D" parent="." unique_id=1972438006 node_paths=PackedStringArray("scripts")]
 script = ExtResource("15_i2ay8")

@@ -31,8 +31,12 @@
 [ext_resource type="Shader" uid="uid://ctbt1f24kbll6" path="res://shaders/rain_shader.gdshader" id="31_bof43"]
 [ext_resource type="Texture2D" uid="uid://5rlts5urifo0" path="res://sprites/effects/empty_screen_sprite.png" id="32_h76um"]
 [ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="33_ricd8"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="34_4glbe"]
 [ext_resource type="PackedScene" uid="uid://0vkyde2rl1nk" path="res://utility/location_text.tscn" id="34_jv1bw"]
 [ext_resource type="PackedScene" uid="uid://cdomxvm5i24y4" path="res://item/pentacle_seal.tscn" id="34_n7bcd"]
+[ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="35_2tokw"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="36_kbjmf"]
+[ext_resource type="Texture2D" uid="uid://cicmq4ty7hb55" path="res://sprites/props/interior/open_book.png" id="37_v2jwx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llkrw"]
 size = Vector2(24, 72)
@@ -83,6 +87,9 @@ size = Vector2(48, 864)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3wst"]
 size = Vector2(48, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0vn8"]
+size = Vector2(24, 24)
 
 [node name="zone_gloomy_woods_entrance" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_uhdqb")
@@ -832,7 +839,7 @@ position = Vector2(1824, -1224)
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -840,49 +847,49 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="water_fall" unique_id=1288174380]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="water_fall" unique_id=1903701871]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="water_fall" unique_id=1707571961]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="water_fall" unique_id=771170838]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="water_fall" unique_id=209024506]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="water_fall" unique_id=2005903468]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -890,7 +897,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -898,7 +905,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -906,7 +913,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -914,7 +921,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -922,7 +929,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -930,7 +937,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -938,7 +945,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -946,7 +953,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -954,7 +961,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -962,7 +969,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -970,7 +977,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -978,7 +985,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -986,7 +993,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -994,7 +1001,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1002,7 +1009,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1010,7 +1017,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1018,7 +1025,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1026,7 +1033,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1034,7 +1041,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1042,7 +1049,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1050,7 +1057,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1058,105 +1065,105 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="water_fall" unique_id=1583796499]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="water_fall" unique_id=468803678]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="water_fall" unique_id=2084269825]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="water_fall" unique_id=444021709]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="water_fall" unique_id=380141028]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="water_fall" unique_id=841872709]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="water_fall" unique_id=874208452]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="water_fall" unique_id=1739917726]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="water_fall" unique_id=1659876462]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="water_fall" unique_id=1722585529]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="water_fall" unique_id=198053837]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="water_fall" unique_id=840747895]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="water_fall" unique_id=1135573964]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="water_fall" unique_id=1260777906]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1164,7 +1171,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1172,7 +1179,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1180,7 +1187,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1188,7 +1195,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1196,7 +1203,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1204,7 +1211,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1212,7 +1219,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1220,7 +1227,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1228,7 +1235,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1236,7 +1243,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1244,7 +1251,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1252,7 +1259,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1260,7 +1267,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1268,7 +1275,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1276,7 +1283,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1284,7 +1291,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1292,7 +1299,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1300,7 +1307,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1308,7 +1315,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1316,7 +1323,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1324,7 +1331,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1332,7 +1339,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1340,7 +1347,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1348,7 +1355,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1356,7 +1363,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1364,7 +1371,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1372,7 +1379,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1380,7 +1387,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.96645147
+frame_progress = 0.5709358
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1517,3 +1524,265 @@ location_text = "GLOOMY WOODS"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LocationText" unique_id=440534778]
 polygon = PackedVector2Array(1464, -2784, 1536, -2160, 2160, -2112, 2568, -1992, 2688, -1896, 3552, -1872, 3984, -1920, 4848, -2520, 5016, -3216, 4248, -3792, 3096, -3936, 2208, -3720, 1488, -2952)
+
+[node name="interactable_area_book" type="StaticBody2D" parent="." unique_id=724065078 node_paths=PackedStringArray("scripts")]
+position = Vector2(1656, -2544)
+script = ExtResource("34_4glbe")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book" unique_id=156072405]
+position = Vector2(36, 60)
+shape = SubResource("RectangleShape2D_g0vn8")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book" unique_id=1064618828 node_paths=PackedStringArray("texts")]
+script = ExtResource("35_2tokw")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text6"), NodePath("text7")]
+
+[node name="text" type="Node" parent="interactable_area_book/play_texts2" unique_id=860467279]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(It's my [color=red]Older Sister's[/color] handwriting...)"])
+
+[node name="text2" type="Node" parent="interactable_area_book/play_texts2" unique_id=1665174411]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(The date on the page is from three weeks ago...)"])
+
+[node name="text3" type="Node" parent="interactable_area_book/play_texts2" unique_id=901658274]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"Mother discovered my notebooks and sent me away to Grandma's House.\""])
+
+[node name="text4" type="Node" parent="interactable_area_book/play_texts2" unique_id=1081601188]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"Thankfully they did not find [color=purple]The Book Bound In Skin[/color].\""])
+
+[node name="text5" type="Node" parent="interactable_area_book/play_texts2" unique_id=1847038669]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"Heavy-handed as she is, Grandma is easy to escape.\""])
+
+[node name="text6" type="Node" parent="interactable_area_book/play_texts2" unique_id=887154806]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"She won't venture into these woods after dark.\""])
+
+[node name="text7" type="Node" parent="interactable_area_book/play_texts2" unique_id=1114180469]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I can continue my experiments here.\""])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book" unique_id=256380174]
+position = Vector2(24, 48)
+texture = ExtResource("37_v2jwx")
+offset = Vector2(12, 12)
+
+[node name="interactable_area_book2" type="StaticBody2D" parent="." unique_id=2003061614 node_paths=PackedStringArray("scripts")]
+position = Vector2(2664, -2616)
+script = ExtResource("34_4glbe")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book2" unique_id=206182050]
+position = Vector2(36, 60)
+shape = SubResource("RectangleShape2D_g0vn8")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book2" unique_id=1564853689 node_paths=PackedStringArray("texts")]
+script = ExtResource("35_2tokw")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8")]
+
+[node name="text" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1797590131]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(It's my [color=red]Older Sister's[/color] handwriting...)"])
+
+[node name="text2" type="Node" parent="interactable_area_book2/play_texts2" unique_id=954835521]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(The date on the page is from two weeks ago...)"])
+
+[node name="text3" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1708924268]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I have finally summoned a Vessel from [color=blue]Hell[/color].\""])
+
+[node name="text4" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1118726885]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I did not expect something so...Visceral. So human.\""])
+
+[node name="text5" type="Node" parent="interactable_area_book2/play_texts2" unique_id=2059529127]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"But it came forth from its world with such [color=red]hunger[/color].\""])
+
+[node name="text6" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1048954913]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"It tried to [color=red]eat[/color] me.\""])
+
+[node name="text7" type="Node" parent="interactable_area_book2/play_texts2" unique_id=723175515]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I bashed its skull in with a rock.\""])
+
+[node name="text8" type="Node" parent="interactable_area_book2/play_texts2" unique_id=354328966]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I must find a way to control them.\""])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book2" unique_id=174320141]
+position = Vector2(24, 48)
+texture = ExtResource("37_v2jwx")
+offset = Vector2(12, 12)
+
+[node name="interactable_area_book3" type="StaticBody2D" parent="." unique_id=1933541009 node_paths=PackedStringArray("scripts")]
+position = Vector2(2856, -2544)
+script = ExtResource("34_4glbe")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book3" unique_id=120871178]
+position = Vector2(36, 60)
+shape = SubResource("RectangleShape2D_g0vn8")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book3" unique_id=16701805 node_paths=PackedStringArray("texts")]
+script = ExtResource("35_2tokw")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text10"), NodePath("text11")]
+
+[node name="text" type="Node" parent="interactable_area_book3/play_texts2" unique_id=1114402958]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(It's my [color=red]Older Sister's[/color] handwriting...)"])
+
+[node name="text2" type="Node" parent="interactable_area_book3/play_texts2" unique_id=1151004346]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(The date on the page is from a week ago...)"])
+
+[node name="text3" type="Node" parent="interactable_area_book3/play_texts2" unique_id=706576938]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I have done it!\""])
+
+[node name="text4" type="Node" parent="interactable_area_book3/play_texts2" unique_id=649357891]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I can control the Vessel with a [color=purple]Pentacle Seal[/color]!\""])
+
+[node name="text5" type="Node" parent="interactable_area_book3/play_texts2" unique_id=284139842]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I had to beat the pitiful creature within an inch of its life-\""])
+
+[node name="text6" type="Node" parent="interactable_area_book3/play_texts2" unique_id=840459485]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["But it accepted my contract and it is now loyal to me.\""])
+
+[node name="text7" type="Node" parent="interactable_area_book3/play_texts2" unique_id=1574457002]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"It is so [color=red]hungry[/color]...\""])
+
+[node name="text8" type="Node" parent="interactable_area_book3/play_texts2" unique_id=1077393155]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I have been trapping mice to [color=red]feed[/color] it.\""])
+
+[node name="text9" type="Node" parent="interactable_area_book3/play_texts2" unique_id=1674021331]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"It [color=red]eats[/color] them whole and instantly becomes [color=red]healthier[/color].\""])
+
+[node name="text10" type="Node" parent="interactable_area_book3/play_texts2" unique_id=1088868973]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"The more I [color=red]FEED[/color] it, the more [color=red]POWERFUL[/color] it becomes."])
+
+[node name="text11" type="Node" parent="interactable_area_book3/play_texts2" unique_id=373569806]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I wonder what will happen if I [color=red]feed[/color] it a human being?\""])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book3" unique_id=946577213]
+position = Vector2(24, 48)
+texture = ExtResource("37_v2jwx")
+offset = Vector2(12, 12)
+
+[node name="interactable_area_book4" type="StaticBody2D" parent="." unique_id=760175253 node_paths=PackedStringArray("scripts")]
+position = Vector2(2952, -2520)
+script = ExtResource("34_4glbe")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book4" unique_id=1480796872]
+position = Vector2(36, 60)
+shape = SubResource("RectangleShape2D_g0vn8")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book4" unique_id=1493289632 node_paths=PackedStringArray("texts")]
+script = ExtResource("35_2tokw")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text10"), NodePath("text11"), NodePath("text12")]
+
+[node name="text" type="Node" parent="interactable_area_book4/play_texts2" unique_id=486712113]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(It's my [color=red]Older Sister's[/color] handwriting...)"])
+
+[node name="text2" type="Node" parent="interactable_area_book4/play_texts2" unique_id=31134657]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(The date on the page is from a few days ago)"])
+
+[node name="text3" type="Node" parent="interactable_area_book4/play_texts2" unique_id=1993320507]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"God, what have I done?\""])
+
+[node name="text4" type="Node" parent="interactable_area_book4/play_texts2" unique_id=1874776037]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"Grandma is gone.\""])
+
+[node name="text5" type="Node" parent="interactable_area_book4/play_texts2" unique_id=261147670]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"The Vessel became something else. Something more [color=red]powerful[/color].\""])
+
+[node name="text6" type="Node" parent="interactable_area_book4/play_texts2" unique_id=95549519]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"The other Vessels are running wild.\""])
+
+[node name="text7" type="Node" parent="interactable_area_book4/play_texts2" unique_id=1354044715]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"They hunt and kill and [color=red]eat[/color] anything in these woods, even each other.\""])
+
+[node name="text8" type="Node" parent="interactable_area_book4/play_texts2" unique_id=778832987]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"Every night there are more of them.\""])
+
+[node name="text9" type="Node" parent="interactable_area_book4/play_texts2" unique_id=2125273690]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"This door I have opened cannot be shut again.\""])
+
+[node name="text10" type="Node" parent="interactable_area_book4/play_texts2" unique_id=587560815]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"Things are getting out of hand. I am losing control.\""])
+
+[node name="text11" type="Node" parent="interactable_area_book4/play_texts2" unique_id=777040043]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"These creatures only understand violence and [color=red]power[/color].\""])
+
+[node name="text12" type="Node" parent="interactable_area_book4/play_texts2" unique_id=1293117530]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["\"I must assert my dominion.\""])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book4" unique_id=231104318]
+position = Vector2(24, 48)
+texture = ExtResource("37_v2jwx")
+offset = Vector2(12, 12)
