@@ -46,3 +46,5 @@ res://sprites/spritesheets/props/structure/bridge.tres
 res://sprites/spritesheets/props/structure/sluice.tres
 res://sprites/spritesheets/interface/save_load_tab.tres
 res://locations/zones/zone_grandmas_house_interior.tscn
+res://locations/zones/zone_homestead_interior.tscn
+res://locations/zones/zone_homestead.tscn

@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://ctl8j5f47ohhg" path="res://scripts/utility/run_scripts/q_free_nodes.gd" id="17_3fm0o"]
 [ext_resource type="Texture2D" uid="uid://cvcgxpepgk68x" path="res://sprites/props/interior/lamp.png" id="17_40at6"]
 [ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="19_8wh00"]
+[ext_resource type="Texture2D" uid="uid://cicmq4ty7hb55" path="res://sprites/props/interior/open_book.png" id="20_81y2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -36,6 +37,9 @@ size = Vector2(48, 48)
 size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40at6"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrq"]
 size = Vector2(24, 24)
 
 [node name="ZoneHomesteadInterior" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links")]
@@ -371,6 +375,79 @@ nodes = [NodePath("../../interact_zone_1")]
 [node name="q_free_interact_2" type="Node" parent="entered_house_ready_scripts" unique_id=319306365 node_paths=PackedStringArray("nodes")]
 script = ExtResource("17_3fm0o")
 nodes = [NodePath("../../interact_zone_lamp_convo")]
+
+[node name="entered_house_ready_scripts_false" type="Node" parent="." unique_id=1256847899 node_paths=PackedStringArray("scripts")]
+script = ExtResource("19_8wh00")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "NONE"
+scripts = [NodePath("q_free_book")]
+
+[node name="q_free_book" type="Node" parent="entered_house_ready_scripts_false" unique_id=635407521 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../interactable_area_book")]
+
+[node name="interactable_area_book" type="StaticBody2D" parent="." unique_id=1667022792 node_paths=PackedStringArray("scripts")]
+position = Vector2(-24, 120)
+script = ExtResource("13_7crqw")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book" unique_id=1935634138]
+position = Vector2(36, 60)
+shape = SubResource("RectangleShape2D_msxrq")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book" unique_id=1539228422 node_paths=PackedStringArray("texts")]
+script = ExtResource("13_u7vsm")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9")]
+
+[node name="text" type="Node" parent="interactable_area_book/play_texts2" unique_id=1296131547]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["(It's my [color=red]Older Sister's[/color] handwriting...)"])
+
+[node name="text2" type="Node" parent="interactable_area_book/play_texts2" unique_id=1579168884]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["\"I hope you are still alive.\""])
+
+[node name="text3" type="Node" parent="interactable_area_book/play_texts2" unique_id=2056689358]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["\"I know you will never forgive me.\""])
+
+[node name="text4" type="Node" parent="interactable_area_book/play_texts2" unique_id=1342373890]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["\"But I will never forgive our so-called 'family' for what they have done.\""])
+
+[node name="text5" type="Node" parent="interactable_area_book/play_texts2" unique_id=1058050979]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["\"If bringing justice condemns me to burn for all eternity, so be it.\""])
+
+[node name="text6" type="Node" parent="interactable_area_book/play_texts2" unique_id=254139252]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["\"Please, do not try to find me.\""])
+
+[node name="text7" type="Node" parent="interactable_area_book/play_texts2" unique_id=384474444]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["\"Do not do what I have done.\""])
+
+[node name="text8" type="Node" parent="interactable_area_book/play_texts2" unique_id=943748464]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["\"Go as far away from this place as you can.\""])
+
+[node name="text9" type="Node" parent="interactable_area_book/play_texts2" unique_id=863300120]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["\"I am sorry.\""])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book" unique_id=349463397]
+position = Vector2(24, 40)
+texture = ExtResource("20_81y2k")
+offset = Vector2(12, 12)
 
 [connection signal="body_entered" from="interact_zone_1" to="interact_zone_1" method="_on_body_entered"]
 [connection signal="body_entered" from="interact_zone_lamp_convo" to="interact_zone_lamp_convo" method="_on_body_entered"]
