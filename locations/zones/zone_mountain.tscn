@@ -287,3 +287,68 @@ location_text = "MOUNTAIN PATH"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LocationText" unique_id=428189716]
 polygon = PackedVector2Array(120, -216, 144, -168, 216, -168, 216, -240, 720, -360, 1032, -504, 1344, -1128, 960, -1344, 384, -1272, 144, -1032, 24, -744, -120, -384)
+
+[node name="interactable_area_mountain_view_1" type="StaticBody2D" parent="." unique_id=599269603 node_paths=PackedStringArray("scripts")]
+position = Vector2(0, 96)
+script = ExtResource("15_1vn0e")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "NONE"
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_mountain_view_1" unique_id=1304132560 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_qwsoq")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_mountain_view_1/play_texts" unique_id=972728587]
+script = ExtResource("17_3ulon")
+language_map = Array[String](["english"])
+text = Array[String](["(I can see the Blue Ridge across the valley)"])
+
+[node name="text2" type="Node" parent="interactable_area_mountain_view_1/play_texts" unique_id=1057136232]
+script = ExtResource("17_3ulon")
+language_map = Array[String](["english"])
+text = Array[String](["(It looks like there's a rain storm in the distance...)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_mountain_view_1" unique_id=1753690050]
+polygon = PackedVector2Array(600, -1152, 600, -1224, 696, -1224, 696, -1272, 744, -1272, 744, -1296, 768, -1296, 768, -1320, 840, -1320, 840, -1296, 864, -1296, 864, -1272, 936, -1272, 936, -1464, 504, -1464, 504, -1152)
+
+[node name="interactable_area_mountain_view_house" type="StaticBody2D" parent="." unique_id=1406665013 node_paths=PackedStringArray("scripts")]
+position = Vector2(0, 96)
+script = ExtResource("15_1vn0e")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_mountain_view_house" unique_id=1937536058 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_qwsoq")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_mountain_view_house/play_texts" unique_id=1734236267]
+script = ExtResource("17_3ulon")
+language_map = Array[String](["english"])
+text = Array[String](["(I can see my house from here)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_mountain_view_house" unique_id=1381368077]
+polygon = PackedVector2Array(504, -1152, 864, -1152, 864, -1080, 792, -1080, 792, -1056, 816, -1056, 816, -960, 504, -960)
+
+[node name="interactable_area_mountain_view_2" type="StaticBody2D" parent="." unique_id=684714896 node_paths=PackedStringArray("scripts")]
+position = Vector2(0, 96)
+script = ExtResource("15_1vn0e")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "TRUE"
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_mountain_view_2" unique_id=2011933694 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_qwsoq")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_mountain_view_2/play_texts" unique_id=2072425821]
+script = ExtResource("17_3ulon")
+language_map = Array[String](["english"])
+text = Array[String](["(The rain just won't let up...)"])
+
+[node name="text2" type="Node" parent="interactable_area_mountain_view_2/play_texts" unique_id=265597314]
+script = ExtResource("17_3ulon")
+language_map = Array[String](["english"])
+text = Array[String](["(It feels like a curse)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_mountain_view_2" unique_id=311610448]
+polygon = PackedVector2Array(600, -1152, 600, -1224, 696, -1224, 696, -1272, 744, -1272, 744, -1296, 768, -1296, 768, -1320, 840, -1320, 840, -1296, 864, -1296, 864, -1272, 936, -1272, 936, -1464, 504, -1464, 504, -1152)

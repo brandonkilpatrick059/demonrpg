@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://j2ab1gnhr703" path="res://sprites/effects/matte_painting_mounains_4.png" id="18_iqw58"]
 [ext_resource type="PackedScene" uid="uid://dg6tqi8plgqbm" path="res://item/healing_gore.tscn" id="19_2pnhh"]
 [ext_resource type="PackedScene" uid="uid://0vkyde2rl1nk" path="res://utility/location_text.tscn" id="20_drh8j"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="21_vkly4"]
+[ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="22_aurd0"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="23_0q2vb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(48, 48)
@@ -252,9 +255,59 @@ position = Vector2(3240, -3768)
 gore_name = "LEDGE_1"
 
 [node name="LocationText" parent="." unique_id=927871242 instance=ExtResource("20_drh8j")]
+visible = false
 collision_layer = 0
 location_text = "MOUNTAIN LEDGE"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LocationText" unique_id=1941894355]
 position = Vector2(216, -720)
 polygon = PackedVector2Array(1464, -2784, 1536, -2160, 2160, -2112, 2568, -1992, 2688, -1896, 3552, -1872, 3984, -1920, 4848, -2520, 5016, -3216, 4248, -3792, 3096, -3936, 2208, -3720, 1488, -2952)
+
+[node name="interactable_area_ledge" type="StaticBody2D" parent="." unique_id=1609583964 node_paths=PackedStringArray("scripts")]
+position = Vector2(4560, -1464)
+script = ExtResource("21_vkly4")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_ledge" unique_id=1054290104 node_paths=PackedStringArray("texts")]
+script = ExtResource("22_aurd0")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_ledge/play_texts" unique_id=235572429]
+script = ExtResource("23_0q2vb")
+language_map = Array[String](["english"])
+text = Array[String](["(It's a sheer cliff...)"])
+
+[node name="text2" type="Node" parent="interactable_area_ledge/play_texts" unique_id=416162818]
+script = ExtResource("23_0q2vb")
+language_map = Array[String](["english"])
+text = Array[String](["(There's no way down the mountain here)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_ledge" unique_id=1768147049]
+polygon = PackedVector2Array(-1704, -2496, -720, -2496, -720, -2232, -744, -2232, -744, -2352, -816, -2352, -816, -2424, -1296, -2424, -1296, -2400, -1320, -2400, -1320, -2424, -1344, -2424, -1344, -2448, -1560, -2448, -1560, -2376, -1656, -2376, -1656, -2232, -1728, -2232, -1728, -2496)
+
+[node name="interactable_area_ledge2" type="StaticBody2D" parent="." unique_id=1628441414 node_paths=PackedStringArray("scripts")]
+position = Vector2(4560, -1464)
+script = ExtResource("21_vkly4")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_ledge2" unique_id=11250075 node_paths=PackedStringArray("texts")]
+script = ExtResource("22_aurd0")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3")]
+
+[node name="text" type="Node" parent="interactable_area_ledge2/play_texts" unique_id=1814162658]
+script = ExtResource("23_0q2vb")
+language_map = Array[String](["english"])
+text = Array[String](["(There's another ledge across the way)"])
+
+[node name="text2" type="Node" parent="interactable_area_ledge2/play_texts" unique_id=549655699]
+script = ExtResource("23_0q2vb")
+language_map = Array[String](["english"])
+text = Array[String](["(I can't jump over there...)"])
+
+[node name="text3" type="Node" parent="interactable_area_ledge2/play_texts" unique_id=1824615150]
+script = ExtResource("23_0q2vb")
+language_map = Array[String](["english"])
+text = Array[String](["(Maybe there's another path I can take?)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_ledge2" unique_id=84392949]
+polygon = PackedVector2Array(-1296, -2376, -1296, -2424, -1152, -2424, -1152, -2400, -1224, -2400, -1224, -2232, -1272, -2232, -1272, -2376)

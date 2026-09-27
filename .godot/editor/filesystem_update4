@@ -1,4 +1,4 @@
-res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
+res://locations/zones/zone_homestead.tscn
 res://sprites/spritesheets/battle/interface/battle_action_tab.tres
 res://sprites/spritesheets/battle/interface/energy_cost.tres
 res://sprites/spritesheets/battle/interface/battle_energy_bar.tres
@@ -45,6 +45,9 @@ res://sprites/spritesheets/effects/water_fall.tres
 res://sprites/spritesheets/props/structure/bridge.tres
 res://sprites/spritesheets/props/structure/sluice.tres
 res://sprites/spritesheets/interface/save_load_tab.tres
+res://locations/zones/zone_mountain.tscn
+res://locations/zones/zone_grandmas_house.tscn
 res://locations/zones/zone_grandmas_house_interior.tscn
-res://locations/zones/zone_homestead_interior.tscn
-res://locations/zones/zone_homestead.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn

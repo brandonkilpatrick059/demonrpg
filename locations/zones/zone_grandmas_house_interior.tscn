@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bqy7ywpjexju5" path="res://sprites/props/interior/end_table_overturned.png" id="7_odno2"]
 [ext_resource type="Texture2D" uid="uid://b53ln4rammyg4" path="res://sprites/props/interior/table_overturned.png" id="7_r7j5k"]
 [ext_resource type="Texture2D" uid="uid://dqy371ecndkqw" path="res://sprites/props/interior/end_table.png" id="8_233h6"]
-[ext_resource type="Texture2D" uid="uid://flbu4jsc2h2t" path="res://sprites/props/effects/blood_pool_1.png" id="9_6ghoj"]
 [ext_resource type="Texture2D" uid="uid://cmsg6nj1l3tqr" path="res://sprites/props/effects/blood_pool_2.png" id="10_i16yc"]
 [ext_resource type="Script" uid="uid://b688cwvrpugwh" path="res://scripts/utility/script_area.gd" id="11_7qqp6"]
 [ext_resource type="Texture2D" uid="uid://bpc83xbvb2m78" path="res://sprites/props/effects/blood_pool_4.png" id="11_lvc0s"]
@@ -31,6 +30,12 @@
 size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3wst"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1n2s"]
 size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i16yc"]
@@ -117,13 +122,8 @@ position = Vector2(72, 24)
 texture = ExtResource("7_odno2")
 offset = Vector2(12, 12)
 
-[node name="blood_1" type="Sprite2D" parent="." unique_id=1443928203]
-position = Vector2(-24, 216)
-texture = ExtResource("9_6ghoj")
-offset = Vector2(12, 12)
-
 [node name="blood_2" type="Sprite2D" parent="." unique_id=1566587766]
-position = Vector2(48, 216)
+position = Vector2(-24, 216)
 texture = ExtResource("10_i16yc")
 offset = Vector2(12, 12)
 
@@ -135,12 +135,6 @@ offset = Vector2(12, 12)
 
 [node name="blood_4" type="Sprite2D" parent="." unique_id=1157723941]
 position = Vector2(72, 72)
-texture = ExtResource("12_o1n2s")
-offset = Vector2(12, 12)
-
-[node name="blood_6" type="Sprite2D" parent="." unique_id=446617802]
-position = Vector2(-24, 24)
-scale = Vector2(-1, -1)
 texture = ExtResource("12_o1n2s")
 offset = Vector2(12, 12)
 
@@ -189,7 +183,7 @@ text = Array[String](["\"The next world overflows with all the violence and [col
 [node name="text4" type="Node" parent="interactable_area_book/play_texts2" unique_id=716482250]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["\"A ritual to bring forth a VESSEL to capture that power:\""])
+text = Array[String](["\"A ritual to bring forth a Vessel to capture that power:\""])
 
 [node name="text5" type="Node" parent="interactable_area_book/play_texts2" unique_id=919732553]
 script = ExtResource("13_6h6yh")
@@ -310,19 +304,62 @@ script = ExtResource("14_m3ix2")
 game_state_key = "HAS_MANDRAKE"
 to_value = "USED"
 
-[node name="interactable_area_bed_2" type="StaticBody2D" parent="." unique_id=397849837 node_paths=PackedStringArray("scripts")]
+[node name="interactable_area_blood_1" type="StaticBody2D" parent="." unique_id=397849837 node_paths=PackedStringArray("scripts")]
 position = Vector2(-72, 0)
 script = ExtResource("15_i2ay8")
 scripts = [NodePath("play_texts")]
 
-[node name="play_texts" type="Node" parent="interactable_area_bed_2" unique_id=170592671 node_paths=PackedStringArray("texts")]
+[node name="play_texts" type="Node" parent="interactable_area_blood_1" unique_id=170592671 node_paths=PackedStringArray("texts")]
 script = ExtResource("16_0l7i3")
 texts = [NodePath("text")]
 
-[node name="text" type="Node" parent="interactable_area_bed_2/play_texts" unique_id=365779010]
+[node name="text" type="Node" parent="interactable_area_blood_1/play_texts" unique_id=365779010]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(This is my parents' bed)"])
+text = Array[String](["(My God...)"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_blood_1" unique_id=117466246]
+position = Vector2(60, 228)
+shape = SubResource("RectangleShape2D_cea73")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="interactable_area_blood_3" type="StaticBody2D" parent="." unique_id=1324258166 node_paths=PackedStringArray("scripts")]
+position = Vector2(-72, 0)
+script = ExtResource("15_i2ay8")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_blood_3" unique_id=1207588968 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_0l7i3")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_blood_3/play_texts" unique_id=1765052631]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(What happened here? Where's Grandma? Where's my [color=red]Sister[/color]?)"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_blood_3" unique_id=1017140139]
+position = Vector2(108, 204)
+shape = SubResource("RectangleShape2D_o1n2s")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="interactable_area_blood_2" type="StaticBody2D" parent="." unique_id=43747926 node_paths=PackedStringArray("scripts")]
+position = Vector2(24, -144)
+script = ExtResource("15_i2ay8")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_blood_2" unique_id=725814299 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_0l7i3")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_blood_2/play_texts" unique_id=1324280983]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(No...No...No...)"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_blood_2" unique_id=171922636]
+position = Vector2(60, 228)
+shape = SubResource("RectangleShape2D_cea73")
+debug_color = Color(1, 1, 0, 0.41960785)
 
 [node name="lamp" type="Sprite2D" parent="." unique_id=431360578]
 modulate = Color(0.6313726, 0.63529414, 1, 1)
