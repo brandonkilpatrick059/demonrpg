@@ -4,4 +4,5 @@ extends Node
 
 func run_script():
 	for node in nodes:
-		node.queue_free()
+		if(node != null):
+			node.queue_free()

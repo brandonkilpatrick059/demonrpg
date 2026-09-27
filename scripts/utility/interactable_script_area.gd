@@ -24,7 +24,7 @@ func interact():
 		run_scripts()
 	else:
 		var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")
-		var map_value = gamestate.get_state_map_value(gamestate_key)
+		var map_value : String = gamestate.get_state_map_value(gamestate_key)
 		if(map_value == run_if_state):
 			run_scripts()
 		

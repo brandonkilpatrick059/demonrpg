@@ -21,5 +21,5 @@ shape = SubResource("RectangleShape2D_cea73")
 [node name="Text" type="Node" parent="." unique_id=1445249529]
 script = ExtResource("3_lp31s")
 language_map = Array[String](["english"])
-text = Array[String](["(Your familiars feed upon the [color=purple]Mangled Corpse[/color])"])
+text = Array[String](["(Your familiars [color=red]feed[/color] upon the [color=purple]Mangled Corpse[/color])"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"

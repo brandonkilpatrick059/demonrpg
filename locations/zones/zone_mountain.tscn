@@ -253,10 +253,20 @@ mod = Color(1, 0, 0.38431373, 1)
 [node name="entered_house_ready_scripts2" type="Node" parent="." unique_id=1819358125 node_paths=PackedStringArray("scripts")]
 script = ExtResource("14_kaqxi")
 gamestate_key = "HOUSE_ENTERED"
-run_if_state = "NONE"
+run_if_state = "FALSE"
 scripts = [NodePath("q_free_seal")]
 
 [node name="q_free_seal" type="Node" parent="entered_house_ready_scripts2" unique_id=1741891933 node_paths=PackedStringArray("nodes")]
+script = ExtResource("20_1vn0e")
+nodes = [NodePath("../../PentacleSeal")]
+
+[node name="entered_house_ready_scripts3" type="Node" parent="." unique_id=1980682886 node_paths=PackedStringArray("scripts")]
+script = ExtResource("14_kaqxi")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "NONE"
+scripts = [NodePath("q_free_seal")]
+
+[node name="q_free_seal" type="Node" parent="entered_house_ready_scripts3" unique_id=1499724054 node_paths=PackedStringArray("nodes")]
 script = ExtResource("20_1vn0e")
 nodes = [NodePath("../../PentacleSeal")]
 
@@ -291,8 +301,10 @@ polygon = PackedVector2Array(120, -216, 144, -168, 216, -168, 216, -240, 720, -3
 [node name="interactable_area_mountain_view_1" type="StaticBody2D" parent="." unique_id=599269603 node_paths=PackedStringArray("scripts")]
 position = Vector2(0, 96)
 script = ExtResource("15_1vn0e")
+no_gamestate = false
 gamestate_key = "HOUSE_ENTERED"
-run_if_state = "NONE"
+run_if_state = "FALSE"
+default_state = "FALSE"
 scripts = [NodePath("play_texts")]
 
 [node name="play_texts" type="Node" parent="interactable_area_mountain_view_1" unique_id=1304132560 node_paths=PackedStringArray("texts")]
@@ -332,8 +344,10 @@ polygon = PackedVector2Array(504, -1152, 864, -1152, 864, -1080, 792, -1080, 792
 [node name="interactable_area_mountain_view_2" type="StaticBody2D" parent="." unique_id=684714896 node_paths=PackedStringArray("scripts")]
 position = Vector2(0, 96)
 script = ExtResource("15_1vn0e")
+no_gamestate = false
 gamestate_key = "HOUSE_ENTERED"
 run_if_state = "TRUE"
+default_state = "FALSE"
 scripts = [NodePath("play_texts")]
 
 [node name="play_texts" type="Node" parent="interactable_area_mountain_view_2" unique_id=2011933694 node_paths=PackedStringArray("texts")]

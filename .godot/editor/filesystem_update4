@@ -51,3 +51,6 @@ res://locations/zones/zone_grandmas_house_interior.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn
+res://scripts/utility/interactable_script_area.gd
+res://scripts/utility/run_scripts/q_free_nodes.gd
+res://item/healing_gore.tscn
