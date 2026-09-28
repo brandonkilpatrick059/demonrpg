@@ -55,3 +55,5 @@ res://scripts/utility/audio_player.gd
 res://interface/interface_message_speech.tscn
 res://interface/interface_message.tscn
 res://battle/interface/battle_message.tscn
+res://scripts/familiars/familiar.gd
+res://scripts/battle_system/actions/damage/magic/action_burn.gd

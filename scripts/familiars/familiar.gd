@@ -263,7 +263,12 @@ func arrange_buffs():
 			battle_buffs[1].global_position = global_position + Vector2(-8,buff_y)
 			battle_buffs[2].global_position = global_position + Vector2(8,buff_y)
 			battle_buffs[3].global_position = global_position + Vector2(16,buff_y)
-	
+
+func has_battle_buff(type_name : String):
+	for buff : BattleBuff in battle_buffs:
+		if(buff.get_type() == type_name):
+			return true
+	return false
 
 func get_max_energy() -> int:
 	return max_energy
