@@ -73,10 +73,19 @@ horizontal_alignment = 1
 [node name="attack" type="Label" parent="." unique_id=187377191]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -74.0
+offset_top = -54.0
 offset_right = 90.0
-offset_bottom = -65.0
+offset_bottom = -45.0
 text = "ATTACK : 999"
+label_settings = SubResource("LabelSettings_n3wst")
+
+[node name="level" type="Label" parent="." unique_id=662735385]
+material = SubResource("CanvasItemMaterial_k8h1s")
+offset_left = 44.0
+offset_top = -70.0
+offset_right = 90.0
+offset_bottom = -61.0
+text = "LEVEL : 9999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="power" type="Label" parent="." unique_id=1325449240]
@@ -100,27 +109,27 @@ label_settings = SubResource("LabelSettings_n3wst")
 [node name="magic" type="Label" parent="." unique_id=637503175]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -26.0
+offset_top = -27.0
 offset_right = 90.0
-offset_bottom = -17.0
+offset_bottom = -18.0
 text = "MAGIC : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="speed" type="Label" parent="." unique_id=1511794296]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -42.0
+offset_top = -36.0
 offset_right = 90.0
-offset_bottom = -33.0
+offset_bottom = -27.0
 text = "SPEED : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="actions" type="Label" parent="." unique_id=969494678]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -10.0
+offset_top = -18.0
 offset_right = 90.0
-offset_bottom = 11.0
+offset_bottom = 3.0
 text = "ACTIONS : 4
 "
 label_settings = SubResource("LabelSettings_n3wst")
@@ -128,9 +137,9 @@ label_settings = SubResource("LabelSettings_n3wst")
 [node name="defense" type="Label" parent="." unique_id=288675553]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -58.0
+offset_top = -45.0
 offset_right = 97.0
-offset_bottom = -49.0
+offset_bottom = -36.0
 text = "DEFENSE : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 

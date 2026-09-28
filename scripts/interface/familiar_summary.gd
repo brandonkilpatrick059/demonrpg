@@ -62,6 +62,7 @@ func set_familiar(familiar : Familiar):
 	$speed.text = str("SPEED : ",familiar.get_speed())
 	$magic.text = str("MAGIC : ",familiar.get_magic())
 	$actions.text = str("ACTIONS : ",familiar.get_num_actions())
+	$level.text = str("LEVEL: ",familiar.get_level())
 	if(familiar.is_stored()):
 		$stored_label.visible = true
 	else:

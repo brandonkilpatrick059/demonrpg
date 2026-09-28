@@ -12,7 +12,7 @@ var audio_player := AudioStreamPlayer.new()
 func _ready():
 	#energy_gauge.visible = false
 	num_acts_tab.visible = false
-	#TODO: buses
+	audio_player.bus = "effects"
 	add_child(audio_player)
 
 func is_active() -> bool:

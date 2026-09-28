@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dapw787rh5bjf" path="res://scripts/battle_system/interface/familiar_slot.gd" id="6_sycs1"]
 [ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="7_213sk"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="9_qcet8"]
+[ext_resource type="PackedScene" uid="uid://b8ur5oaino4d1" path="res://battle/interface/battle_input/battle_mini_status.tscn" id="10_j1qn7"]
 [ext_resource type="SpriteFrames" uid="uid://ls8yujdwrhbu" path="res://sprites/spritesheets/battle/interface/select_arrow.tres" id="12_5ix18"]
 [ext_resource type="PackedScene" uid="uid://bfh5a8mgq3k77" path="res://battle/interface/battle_message.tscn" id="12_sycs1"]
 [ext_resource type="PackedScene" uid="uid://bi4xmaplnycfb" path="res://battle/interface/battle_input/battle_status.tscn" id="13_qcet8"]
@@ -50,40 +51,44 @@ texture = ExtResource("4_72ene")
 
 [node name="opponent" type="Node2D" parent="familiars" unique_id=1919850254]
 
-[node name="1" type="Node2D" parent="familiars/opponent" unique_id=2031482404 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="1" type="Node2D" parent="familiars/opponent" unique_id=2031482404 node_paths=PackedStringArray("select_arrow", "upgrade_label", "mini_status")]
 modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(-108, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow1")
 upgrade_label = NodePath("../upgrade_label1")
+mini_status = NodePath("../BattleMiniStatus1")
 
-[node name="2" type="Node2D" parent="familiars/opponent" unique_id=1229794576 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="2" type="Node2D" parent="familiars/opponent" unique_id=1229794576 node_paths=PackedStringArray("select_arrow", "upgrade_label", "mini_status")]
 modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(-36, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow2")
 upgrade_label = NodePath("../upgrade_label2")
+mini_status = NodePath("../BattleMiniStatus2")
 
-[node name="3" type="Node2D" parent="familiars/opponent" unique_id=1450257773 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="3" type="Node2D" parent="familiars/opponent" unique_id=1450257773 node_paths=PackedStringArray("select_arrow", "upgrade_label", "mini_status")]
 modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(36, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow3")
 upgrade_label = NodePath("../upgrade_label3")
+mini_status = NodePath("../BattleMiniStatus3")
 
-[node name="4" type="Node2D" parent="familiars/opponent" unique_id=61218693 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="4" type="Node2D" parent="familiars/opponent" unique_id=61218693 node_paths=PackedStringArray("select_arrow", "upgrade_label", "mini_status")]
 modulate = Color(1, 1, 1, 0.25098)
 position = Vector2(108, -38)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow4")
 upgrade_label = NodePath("../upgrade_label4")
+mini_status = NodePath("../BattleMiniStatus4")
 
 [node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=2020381808]
 visible = false
 z_index = 5
 position = Vector2(-107, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.09416215
+frame_progress = 0.7522981
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1886551892]
@@ -91,7 +96,7 @@ visible = false
 z_index = 5
 position = Vector2(-35, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.28624657
+frame_progress = 0.94439
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1162962541]
@@ -99,7 +104,7 @@ visible = false
 z_index = 5
 position = Vector2(36, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.28624657
+frame_progress = 0.94439
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=477634836]
@@ -107,7 +112,7 @@ visible = false
 z_index = 5
 position = Vector2(108, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.28624657
+frame_progress = 0.94439
 script = ExtResource("7_213sk")
 
 [node name="upgrade_label1" type="Label" parent="familiars/opponent" unique_id=450660838]
@@ -154,39 +159,63 @@ label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="BattleMiniStatus1" parent="familiars/opponent" unique_id=1253899020 instance=ExtResource("10_j1qn7")]
+visible = false
+z_index = 2
+position = Vector2(-108, -11)
+
+[node name="BattleMiniStatus2" parent="familiars/opponent" unique_id=60201180 instance=ExtResource("10_j1qn7")]
+visible = false
+z_index = 2
+position = Vector2(-36, -11)
+
+[node name="BattleMiniStatus3" parent="familiars/opponent" unique_id=1465496412 instance=ExtResource("10_j1qn7")]
+visible = false
+z_index = 2
+position = Vector2(36, -11)
+
+[node name="BattleMiniStatus4" parent="familiars/opponent" unique_id=1914226840 instance=ExtResource("10_j1qn7")]
+visible = false
+z_index = 2
+position = Vector2(108, -11)
+
 [node name="player" type="Node2D" parent="familiars" unique_id=109880480]
 position = Vector2(0, -8)
 
-[node name="1" type="Node2D" parent="familiars/player" unique_id=436409953 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="1" type="Node2D" parent="familiars/player" unique_id=436409953 node_paths=PackedStringArray("select_arrow", "upgrade_label", "mini_status")]
 position = Vector2(-108, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow1")
 upgrade_label = NodePath("../upgrade_label1")
+mini_status = NodePath("../BattleMiniStatus1")
 
-[node name="2" type="Node2D" parent="familiars/player" unique_id=2123748859 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="2" type="Node2D" parent="familiars/player" unique_id=2123748859 node_paths=PackedStringArray("select_arrow", "upgrade_label", "mini_status")]
 position = Vector2(-36, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow2")
 upgrade_label = NodePath("../upgrade_label2")
+mini_status = NodePath("../BattleMiniStatus2")
 
-[node name="3" type="Node2D" parent="familiars/player" unique_id=1947783539 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="3" type="Node2D" parent="familiars/player" unique_id=1947783539 node_paths=PackedStringArray("select_arrow", "upgrade_label", "mini_status")]
 position = Vector2(36, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow3")
 upgrade_label = NodePath("../upgrade_label3")
+mini_status = NodePath("../BattleMiniStatus3")
 
-[node name="4" type="Node2D" parent="familiars/player" unique_id=1566813537 node_paths=PackedStringArray("select_arrow", "upgrade_label")]
+[node name="4" type="Node2D" parent="familiars/player" unique_id=1566813537 node_paths=PackedStringArray("select_arrow", "upgrade_label", "mini_status")]
 position = Vector2(108, 50)
 script = ExtResource("6_sycs1")
 select_arrow = NodePath("../SelectArrow4")
 upgrade_label = NodePath("../upgrade_label4")
+mini_status = NodePath("../BattleMiniStatus4")
 
 [node name="SelectArrow1" type="AnimatedSprite2D" parent="familiars/player" unique_id=1857399642]
 visible = false
 z_index = 5
 position = Vector2(-107, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.9699202
+frame_progress = 0.628048
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/player" unique_id=962630628]
@@ -194,7 +223,7 @@ visible = false
 z_index = 5
 position = Vector2(-35, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.28624657
+frame_progress = 0.94439
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/player" unique_id=529547038]
@@ -202,7 +231,7 @@ visible = false
 z_index = 5
 position = Vector2(36, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.28624657
+frame_progress = 0.94439
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/player" unique_id=1867950404]
@@ -210,7 +239,7 @@ visible = false
 z_index = 5
 position = Vector2(108, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.28624657
+frame_progress = 0.94439
 script = ExtResource("7_213sk")
 
 [node name="upgrade_label1" type="Label" parent="familiars/player" unique_id=1761104360]
@@ -256,6 +285,26 @@ text = "max health + 1"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BattleMiniStatus1" parent="familiars/player" unique_id=2121261569 instance=ExtResource("10_j1qn7")]
+visible = false
+z_index = 2
+position = Vector2(-108, 77)
+
+[node name="BattleMiniStatus2" parent="familiars/player" unique_id=1488592107 instance=ExtResource("10_j1qn7")]
+visible = false
+z_index = 2
+position = Vector2(-36, 77)
+
+[node name="BattleMiniStatus3" parent="familiars/player" unique_id=430417988 instance=ExtResource("10_j1qn7")]
+visible = false
+z_index = 2
+position = Vector2(36, 77)
+
+[node name="BattleMiniStatus4" parent="familiars/player" unique_id=1444118954 instance=ExtResource("10_j1qn7")]
+visible = false
+z_index = 2
+position = Vector2(108, 77)
 
 [node name="background" type="Node2D" parent="." unique_id=1709004281]
 visible = false

@@ -694,6 +694,8 @@ func update_sel_arrows():
 	for familiar in targeted_familiars:
 		var slot : FamiliarSlot = familiar.get_parent()
 		slot.show_select_arrow()
+		if(not familiar.is_hostile()):
+			slot.show_mini_status(familiar)
 		if(familiar.is_dead()):
 			var stat : String = familiar.get_stat_increase()
 			var value : int = familiar.get_stat_increase_value()

@@ -65,3 +65,11 @@ res://scripts/battle_system/encounter.gd
 res://battle/encounters/empty_encounter.tscn
 res://locations/zone_manager_test.tscn
 res://scripts/battle_system/battle_system_manager.gd
+res://interface/familiar_summary.tscn
+res://scripts/interface/familiar_summary.gd
+res://battle/interface/battle_input/battle_status.tscn
+res://scripts/battle_system/interface/battle_mini_status.gd
+res://battle/interface/battle_input/battle_mini_status.tscn
+res://scripts/battle_system/interface/battle_status.gd
+res://battle/battle_system.tscn
+res://scripts/battle_system/interface/familiar_slot.gd

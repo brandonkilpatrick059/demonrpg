@@ -47,7 +47,7 @@ func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
 	summary = str(summary,get_action_name())
 	summary = str(summary,"-[color=white]DEALS " )
-	summary = str(summary,get_min_max_string(actor.get_magic(),actor.get_magic()+actor.get_magic()))
+	summary = str(summary,get_min_max_string(actor.get_magic(),actor.get_magic()+(actor.get_magic()/2)))
 	summary = str(summary,str("[color=darkblue] MAGIC DAMAGE [/color]"))
 	summary = str(summary,str("[color=white] PLUS [/color]"))
 	summary = str(summary,str("[color=darkblue] BURN [/color]"))
@@ -78,7 +78,7 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
 	if(target != null):
 		var base_damage : int = actor.get_magic()
-		var damage : int = base_damage + randi_range(0,base_damage)
+		var damage : int = base_damage + randi_range(0,base_damage/2)
 		var final_damage = damage
 		if(final_damage <= 0):
 			final_damage = 1

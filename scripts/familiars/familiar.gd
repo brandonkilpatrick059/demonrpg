@@ -127,6 +127,16 @@ func get_exp_value() -> int:
 	total = total + experience
 	return total
 
+func get_level() -> int:
+	var total = max_hp
+	total = total + attack
+	total = total + defense
+	total = total + speed
+	total = total + magic
+	total = total / 10
+	total = total + (num_actions-1)
+	return total
+
 func get_actions_taken() -> int:
 	return actions_taken
 
