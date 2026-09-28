@@ -13,7 +13,7 @@ var full_text : String = ""
 var finished_writing : bool = true
 var text_index : int = 0
 
-var audio_player := AudioStreamPlayer.new() 
+@onready var audio_player : AudioPlayer = $audio_player
 
 var active : bool = false
 
@@ -25,8 +25,6 @@ func _ready() -> void:
 	add_child(timer)
 	input_timer.one_shot = true
 	add_child(input_timer)
-	audio_player.bus = "effects"
-	add_child(audio_player)
 
 func is_active() -> bool:
 	return active
@@ -91,8 +89,7 @@ func write_text():
 			current_text = full_text.substr(0,text_index)
 			timer.start(text_speed)
 			update_label()
-			audio_player.stream = load("res://audio/effects/bell_first_low.ogg")
-			audio_player.play()
+			audio_player.play_audio(load("res://audio/effects/bell_first_low.ogg"))
 			text_index = text_index + 1
 	else:
 		finished_writing = true

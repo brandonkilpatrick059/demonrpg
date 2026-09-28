@@ -10,17 +10,17 @@ var full_text : String = ""
 var finished_writing : bool = true
 var text_index : int = 0
 
-var audio_player := AudioStreamPlayer.new() 
+@onready var audio_player : AudioPlayer = $audio_player
 
 var active : bool = false
 
 var text_queue : Array[String] = []
 
+var play_bell : bool = true
+
 func _ready() -> void:
 	timer.one_shot = true
 	add_child(timer)
-	audio_player.bus = "effects"
-	add_child(audio_player)
 
 func is_active() -> bool:
 	return active
@@ -57,7 +57,6 @@ func update_label():
 func write_text():
 	if(current_text != full_text):
 		if(timer.is_stopped()):
-			
 			text_index = text_index + 1
 			#skip image paths
 			if(full_text.findn("[img]",text_index) == text_index):
@@ -66,8 +65,7 @@ func write_text():
 			current_text = full_text.substr(0,text_index)
 			timer.start(text_speed)
 			update_label()
-			audio_player.stream = load("res://audio/effects/bell_first_low.ogg")
-			audio_player.play()
+			audio_player.play_audio(load("res://audio/effects/text_type.ogg"))
 	else:
 		finished_writing = true
 

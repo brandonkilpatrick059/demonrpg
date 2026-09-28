@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d3ok233kk2wlr" path="res://sprites/interface/speech.png" id="2_36rww"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="3_ahoei"]
 [ext_resource type="Texture2D" uid="uid://qlg360apqmib" path="res://sprites/interface/speech_dark.png" id="3_trtb6"]
+[ext_resource type="Script" uid="uid://b6fdrae6jevs0" path="res://scripts/utility/audio_player.gd" id="5_ahoei"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0c0vy"]
 light_mode = 1
@@ -37,3 +38,6 @@ theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="audio_player" type="Node" parent="." unique_id=976676352]
+script = ExtResource("5_ahoei")

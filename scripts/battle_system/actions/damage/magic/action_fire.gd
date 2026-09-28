@@ -143,5 +143,6 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		visual_effects(pkg)
 		#pay_energy_cost(actor)
 		made_attack = true
+		exit_action()
 	else:
 		exit_action()

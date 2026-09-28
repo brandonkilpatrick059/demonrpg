@@ -28,6 +28,8 @@
 [ext_resource type="Script" uid="uid://jmycwf28f4i8" path="res://scripts/interface/altar.gd" id="26_j04qn"]
 [ext_resource type="Texture2D" uid="uid://l77vpgovl8o0" path="res://sprites/props/exterior/altar.png" id="27_ppngs"]
 [ext_resource type="PackedScene" uid="uid://0vkyde2rl1nk" path="res://utility/location_text.tscn" id="28_ppngs"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="29_af3yb"]
+[ext_resource type="Texture2D" uid="uid://cicmq4ty7hb55" path="res://sprites/props/interior/open_book.png" id="30_kw23y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -49,6 +51,9 @@ size = Vector2(168, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px47g"]
 size = Vector2(48, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_800lh"]
+size = Vector2(24, 24)
 
 [node name="ZoneOldForge" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_5bsea")
@@ -234,11 +239,6 @@ position = Vector2(912, 48)
 damned_name = "FORGE_DAMNED"
 familiar_path = "res://familiars/base/L0_forge_damned.tscn"
 
-[node name="HealingGore" parent="." unique_id=1226598247 instance=ExtResource("13_u8oqv")]
-position = Vector2(336, -48)
-gore_name = "FORGE1"
-heal_amount = 10
-
 [node name="HealingGore4" parent="." unique_id=252706529 instance=ExtResource("13_u8oqv")]
 position = Vector2(192, 552)
 gore_name = "FORGE5"
@@ -382,5 +382,63 @@ location_text = "OLD FORGE"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LocationText" unique_id=471532033]
 position = Vector2(-2424, 3168)
 polygon = PackedVector2Array(1464, -2784, 1536, -2160, 2160, -2112, 2568, -1992, 2688, -1896, 3552, -1872, 3984, -1920, 4848, -2520, 5016, -3216, 4248, -3792, 3096, -3936, 2208, -3720, 1488, -2952)
+
+[node name="interactable_area_book4" type="StaticBody2D" parent="." unique_id=759754739 node_paths=PackedStringArray("scripts")]
+position = Vector2(312, -120)
+script = ExtResource("29_af3yb")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book4" unique_id=557717939]
+position = Vector2(36, 60)
+shape = SubResource("RectangleShape2D_800lh")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book4" unique_id=1808853147 node_paths=PackedStringArray("texts")]
+script = ExtResource("19_sywhf")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8")]
+
+[node name="text" type="Node" parent="interactable_area_book4/play_texts2" unique_id=719031168]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["(It's my [color=red]Older Sister's[/color] handwriting...)"])
+
+[node name="text2" type="Node" parent="interactable_area_book4/play_texts2" unique_id=1679070528]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"Damned Souls have begun infesting our world.\""])
+
+[node name="text3" type="Node" parent="interactable_area_book4/play_texts2" unique_id=136842861]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"Loathsome beings, their disembodied faces growing up from the floor like barnacles-\""])
+
+[node name="text4" type="Node" parent="interactable_area_book4/play_texts2" unique_id=1452981784]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"It frightens me...\""])
+
+[node name="text5" type="Node" parent="interactable_area_book4/play_texts2" unique_id=1871185188]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"This will be MY fate if I cannot claim my dominion in [color=blue]Hell[/color].\""])
+
+[node name="text6" type="Node" parent="interactable_area_book4/play_texts2" unique_id=1115169627]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"These Damned are not without their uses.\""])
+
+[node name="text7" type="Node" parent="interactable_area_book4/play_texts2" unique_id=2142068664]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"Despite their impotence, they harbor much[color=red] power[/color], and [color=red]double the power they consume.[/color]\""])
+
+[node name="text8" type="Node" parent="interactable_area_book4/play_texts2" unique_id=968371189]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"This makes them ideal [color=red]sacrifices[/color] for my familiars to [color=red]feed[/color] upon.\""])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book4" unique_id=109741719]
+position = Vector2(24, 48)
+texture = ExtResource("30_kw23y")
+offset = Vector2(12, 12)
 
 [connection signal="body_entered" from="interact_zone_imp" to="interact_zone_imp" method="_on_body_entered"]

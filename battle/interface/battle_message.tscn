@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bukyv1ya42oa2" path="res://scripts/battle_system/interface/battle_message.gd" id="1_oe7gc"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="2_m6m26"]
 [ext_resource type="Texture2D" uid="uid://bkclg804ah3sd" path="res://sprites/battle/interface/battle_status_menu.png" id="2_oe7gc"]
+[ext_resource type="Script" uid="uid://b6fdrae6jevs0" path="res://scripts/utility/audio_player.gd" id="4_08f20"]
 
 [node name="BattleMessage" type="Node2D" unique_id=1029969386]
 script = ExtResource("1_oe7gc")
@@ -20,3 +21,6 @@ theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="audio_player" type="Node" parent="." unique_id=1304394614]
+script = ExtResource("4_08f20")
