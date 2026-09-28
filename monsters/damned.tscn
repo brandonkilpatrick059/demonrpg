@@ -13,10 +13,12 @@ size = Vector2(24, 24)
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_sjb1h")
+damned_name = null
+familiar_path = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=54775003]
 sprite_frames = ExtResource("1_728xk")
-frame_progress = 0.7632901
+frame_progress = 0.56651706
 offset = Vector2(12, -12)
 script = ExtResource("3_1ptb8")
 

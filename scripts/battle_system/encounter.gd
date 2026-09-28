@@ -8,6 +8,10 @@ class_name Encounter extends Node
 func get_opponents() -> Array[Familiar]:
 	return opponents
 
+func set_opponents(familiars : Array[Familiar]):
+	opponents.clear()
+	opponents.append_array(familiars)
+
 func get_music() -> AudioStream:
 	return music
 

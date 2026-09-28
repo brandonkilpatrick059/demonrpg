@@ -20,7 +20,7 @@ var interact_timer := Timer.new()
 @export var location_scene_path : String = ""
 
 func _ready():
-	#TODO: buses and stuff
+	audio_player.bus = "effects"
 	add_child(audio_player)
 	interact_timer.one_shot = true
 	add_child(interact_timer)
