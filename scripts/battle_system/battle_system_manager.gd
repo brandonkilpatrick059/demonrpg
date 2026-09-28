@@ -541,6 +541,16 @@ func handle_single_target_input():
 	if(targeted_familiars.size() == 0 &&
 	targetable_familiars.size() > 0):
 		current_target = targetable_familiars[0]
+		var current_familiar = player_familiars[player_familiar_index]
+		#prioritize self if action can be taken on self (defend, heal)
+		if(targetable_familiars.has(current_familiar)):
+				current_target = current_familiar
+		#prioritize enemy if action can be taken 
+		#on friendlies or enemies (feed, devour)
+		for potential_target : Familiar in targetable_familiars:
+			if(potential_target.is_hostile()):
+				current_target = potential_target
+				break
 		targeted_familiars.append(current_target)
 		update_sel_arrows()
 	elif(targetable_familiars.size() > 0):

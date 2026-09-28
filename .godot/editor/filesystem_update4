@@ -64,3 +64,4 @@ res://battle/encounters/gark_encounter_1.tscn
 res://scripts/battle_system/encounter.gd
 res://battle/encounters/empty_encounter.tscn
 res://locations/zone_manager_test.tscn
+res://scripts/battle_system/battle_system_manager.gd
