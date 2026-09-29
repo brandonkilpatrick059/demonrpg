@@ -386,6 +386,16 @@ scripts = [NodePath("q_free_book")]
 script = ExtResource("17_3fm0o")
 nodes = [NodePath("../../interactable_area_book")]
 
+[node name="entered_house_ready_scripts_false2" type="Node" parent="." unique_id=922043957 node_paths=PackedStringArray("scripts")]
+script = ExtResource("19_8wh00")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "FALSE"
+scripts = [NodePath("q_free_book")]
+
+[node name="q_free_book" type="Node" parent="entered_house_ready_scripts_false2" unique_id=1349909045 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../interactable_area_book")]
+
 [node name="interactable_area_book" type="StaticBody2D" parent="." unique_id=1667022792 node_paths=PackedStringArray("scripts")]
 position = Vector2(-24, 120)
 script = ExtResource("13_7crqw")

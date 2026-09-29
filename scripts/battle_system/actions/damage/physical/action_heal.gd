@@ -27,7 +27,7 @@ func _ready() -> void:
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
 	summary = str(summary,str(summary,get_action_name()))
-	summary = str(summary,"-[color=lightblue]HEALS [/color][color=white]")
+	summary = str(summary,"-[color=blue]HEALS [/color][color=white]")
 	summary = str(summary,get_min_max_string(get_base_heal(actor),get_base_heal(actor)+get_base_heal(actor)))
 	summary = str(summary,str("[color=darkred] DAMAGE [/color]"))
 	return summary

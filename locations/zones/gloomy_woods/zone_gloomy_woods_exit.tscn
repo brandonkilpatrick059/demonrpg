@@ -17,7 +17,6 @@
 [ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="16_0wnig"]
 [ext_resource type="PackedScene" uid="uid://0vkyde2rl1nk" path="res://utility/location_text.tscn" id="23_kriui"]
 [ext_resource type="PackedScene" uid="uid://cdomxvm5i24y4" path="res://item/pentacle_seal.tscn" id="26_lquvo"]
-[ext_resource type="PackedScene" uid="uid://dg6tqi8plgqbm" path="res://item/healing_gore.tscn" id="26_x5lj5"]
 [ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="27_21itg"]
 [ext_resource type="Script" uid="uid://cvycaadlsfhey" path="res://scripts/utility/run_scripts/set_rain_layer.gd" id="28_t6vlp"]
 [ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="29_5ef6f"]
@@ -385,12 +384,6 @@ audio_player = NodePath("../../wind")
 script = ExtResource("31_awrit")
 zone = NodePath("../..")
 is_dark = false
-
-[node name="HealingGore" parent="." unique_id=1226598247 instance=ExtResource("26_x5lj5")]
-z_index = 1
-position = Vector2(3144, -1368)
-gore_name = "WOODSGORE8"
-heal_amount = 20
 
 [node name="PentacleSeal" parent="." unique_id=360610416 instance=ExtResource("26_lquvo")]
 position = Vector2(2544, -600)

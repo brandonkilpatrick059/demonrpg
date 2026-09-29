@@ -13,13 +13,14 @@ func hide_select_arrow():
 	hide_upgrade_label()
 
 func show_mini_status(familiar : Familiar):
-	mini_status.set_energy_gauge(familiar.get_current_energy())
-	var current_hp : float = float(familiar.get_current_hp())
-	var max_hp : float = float(familiar.get_max_hp())
-	var fraction : float = current_hp/max_hp
-	var no_animation : bool = true
-	mini_status.set_hp_gauge(fraction,no_animation)
-	mini_status.visible = true
+	if(not familiar.is_dead()):
+		mini_status.set_energy_gauge(familiar.get_current_energy())
+		var current_hp : float = float(familiar.get_current_hp())
+		var max_hp : float = float(familiar.get_max_hp())
+		var fraction : float = current_hp/max_hp
+		var no_animation : bool = true
+		mini_status.set_hp_gauge(fraction,no_animation)
+		mini_status.visible = true
 
 func hide_mini_status():
 	mini_status.visible = false
