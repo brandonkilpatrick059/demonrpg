@@ -7,10 +7,10 @@ var announced_failure : bool = false
 
 var battle_sys_ref : BattleSystemManager
 
-var announcment_english : String = "[TEAM][ACTOR] wants to devour [TEAM2][TARGET]..."
-var success_english : String = "[TEAM][ACTOR] devours [TEAM2][TARGET]"
-var failure_english : String = "but [TEAM][ACTOR] fails to devour [TEAM2][TARGET]"
-var comment_english : String = "[TEAM][ACTOR] grows more powerful..."
+var announcment_english : String = "[TEAM][ACTOR] wants to [color=red]devour[/color] [TEAM2][TARGET]..."
+var success_english : String = "[TEAM][ACTOR] [color=red]devours[/color] [TEAM2][TARGET]"
+var failure_english : String = "but [TEAM][ACTOR] fails to [color=red]devour[/color] [TEAM2][TARGET]"
+var comment_english : String = "[TEAM][ACTOR] gains [color=red][EXP] power[/color]..."
 
 var feed_succeeded : bool = false
 
@@ -19,7 +19,7 @@ var success_message : String = ""
 func get_summary(actor : Familiar)-> String:
 	var summary : String = "[color=red]"
 	summary = str(summary,get_action_name())
-	summary = str(summary,"[/color]-[color=white] FEED for [color=yellow]x2[/color] TARGET'S [/color]")
+	summary = str(summary,"[/color]-[color=white] [color=red]FEED[/color] FOR [color=yellow]x2[/color] TARGET'S [/color]")
 	summary = str(summary,str("[color=darkred]POWER [/color]"))
 	return summary
 
@@ -44,7 +44,7 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 	return ret_string
 
 func determine_feed_success(actor : Familiar, target : Familiar):
-	success_message = get_comment_message(actor)
+	success_message = get_comment_message(actor,target)
 	if(not target.is_incorporeal()):
 		if(target.is_dead()):
 			feed_succeeded = true
@@ -109,8 +109,10 @@ func get_failure_message(actor : Familiar, target : Familiar) -> String:
 		ret_string = ret_string.replace("[TEAM2]","")
 	return ret_string
 
-func get_comment_message(actor : Familiar) -> String:
+func get_comment_message(actor : Familiar, target : Familiar) -> String:
 	var ret_string = comment_english.replace("[ACTOR]",actor.get_familiar_name())
+	var exp : int = target.get_exp_value()*2.0
+	ret_string = ret_string.replace("[EXP]",str(exp))
 	var team : String = ""
 	if (actor.is_hostile()):
 		team = hostile_english
@@ -148,12 +150,12 @@ func visual_effects_2(actor : Familiar, target : Familiar):
 	var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
 	battle_sys_ref.add_child(hp_particle)
 	hp_particle.global_position = actor.global_position
-	hp_particle.set_particle(str(target.get_max_hp()," HP"),Color(0.542, 0.691, 1.0, 1.0))
-	var exp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
-	battle_sys_ref.add_child(exp_particle)
-	exp_particle.global_position = actor.global_position + Vector2(0,12)
-	var exp : int = target.get_exp_value()
-	exp_particle.set_particle(str(exp," POWER"),Color(1.0, 0.0, 0.0, 1.0)) 
+	hp_particle.set_particle(str(target.get_max_hp()),Color(0.542, 0.691, 1.0, 1.0))
+	#var exp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
+	#battle_sys_ref.add_child(exp_particle)
+	#exp_particle.global_position = actor.global_position + Vector2(0,12)
+	#var exp : int = target.get_exp_value()*2
+	#exp_particle.set_particle(str(exp," POWER"),Color(1.0, 0.0, 0.0, 1.0)) 
 	battle_sys_ref.play_sound(load("res://audio/effects/dark_bell.ogg"))
 
 func exit_action():

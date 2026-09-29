@@ -20,6 +20,11 @@ font_size = 8
 font = ExtResource("3_poctu")
 font_size = 8
 
+[sub_resource type="LabelSettings" id="LabelSettings_wblr4"]
+font = ExtResource("3_poctu")
+font_size = 8
+font_color = Color(1, 0, 0, 1)
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wblr4"]
 light_mode = 1
 
@@ -95,7 +100,7 @@ offset_top = -36.0
 offset_right = 19.0
 offset_bottom = -27.0
 text = "POWER : 99999"
-label_settings = SubResource("LabelSettings_n3wst")
+label_settings = SubResource("LabelSettings_wblr4")
 
 [node name="to_next" type="Label" parent="." unique_id=713345141]
 material = SubResource("CanvasItemMaterial_k8h1s")

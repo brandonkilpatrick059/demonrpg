@@ -57,15 +57,21 @@ func update_label():
 func write_text():
 	if(current_text != full_text):
 		if(timer.is_stopped()):
-			text_index = text_index + 1
 			#skip image paths
 			if(full_text.findn("[img]",text_index) == text_index):
 				text_index = full_text.findn("[/img]",text_index)
 				text_index = text_index + "[/img]".length()
+			elif(full_text.findn("[color=",text_index) == text_index):
+				text_index = full_text.findn("]",text_index)
+				text_index = text_index + 1
+			elif(full_text.findn("[/color]",text_index) == text_index):
+				text_index = full_text.findn("[/color]",text_index)
+				text_index = text_index + "[/color]".length()
 			current_text = full_text.substr(0,text_index)
 			timer.start(text_speed)
 			update_label()
-			audio_player.play_audio(load("res://audio/effects/text_type.ogg"))
+			audio_player.play_audio(load("res://audio/effects/bell_first_low.ogg"))
+			text_index = text_index + 1
 	else:
 		finished_writing = true
 

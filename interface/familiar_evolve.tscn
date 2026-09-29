@@ -21,7 +21,7 @@ report_interface = NodePath("..")
 [node name="intro_text_1" type="Node" parent="." unique_id=1811645774]
 script = ExtResource("4_xfiuu")
 language_map = Array[String](["english"])
-text = Array[String](["The [NAME]'s power has outgrown this form"])
+text = Array[String](["The [NAME]'s [color=red]power[/color] has outgrown this form"])
 
 [node name="intro_text_2" type="Node" parent="." unique_id=108564081]
 script = ExtResource("4_xfiuu")

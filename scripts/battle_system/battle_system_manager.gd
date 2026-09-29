@@ -716,16 +716,8 @@ var first_action : bool = true
 var have_combined_queue : bool = false
 
 func battle_process():
-	if(opponent_familiars.size() == 0 or player_is_dead()):
-		if(player_is_dead() && not player_deployed):
-			deploy_player()
-		elif(opponent_familiars.size() == 0 || 
-		(player_is_dead() && player_deployed)):
-			end_battle()
-	elif(opponent_is_dead() && player_deployed):
-		end_battle()
-	elif(count_living_on_side(player_familiars) > 1 && player_deployed):
-		withdraw_player()
+	if(count_living_on_side(player_familiars) > 1 && player_deployed):
+				withdraw_player()
 	elif(opponent_action_queue.size() == 0 && not opponent_is_dead()):
 		get_opponent_actions()
 	elif(not have_combined_queue):
@@ -871,8 +863,7 @@ func get_next_action():
 			if(combined_action_queue.size() > 0):
 				current_action = combined_action_queue.pop_front()
 			else:
-				wait_timer.start(0.5)
-				return_to_input_phase()
+				no_more_actions()
 				break
 		if(current_action != null):
 			if(current_action.get_action() != null):
@@ -885,6 +876,18 @@ func get_next_action():
 				check_and_replace_targets(current_action)
 			log_battle_state(current_action)
 	elif(combined_action_queue.size() == 0):
+		no_more_actions()
+
+func no_more_actions():
+	if(opponent_familiars.size() == 0 or player_is_dead()):
+		if(player_is_dead() && not player_deployed):
+			deploy_player()
+		elif(opponent_familiars.size() == 0 || 
+		(player_is_dead() && player_deployed)):
+			end_battle()
+	elif(opponent_is_dead() && player_deployed):
+			end_battle()
+	else:
 		wait_timer.start(0.5)
 		return_to_input_phase()
 
