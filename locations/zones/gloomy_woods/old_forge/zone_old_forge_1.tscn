@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="7_m88hp"]
 [ext_resource type="PackedScene" uid="uid://bf8mab0yx5hlh" path="res://battle/encounters/ghost_encounter_1.tscn" id="7_u8oqv"]
 [ext_resource type="PackedScene" uid="uid://mlr7t35xmj11" path="res://battle/encounters/reaver_encounter.tscn" id="8_1sah4"]
+[ext_resource type="SpriteFrames" uid="uid://b225dtvrgun2k" path="res://sprites/spritesheets/monsters/shade_monster_4.tres" id="8_800lh"]
+[ext_resource type="SpriteFrames" uid="uid://bm4esso0f3jsu" path="res://sprites/spritesheets/monsters/shade_monster_3.tres" id="9_kw23y"]
 [ext_resource type="PackedScene" uid="uid://dbepncake88ro" path="res://battle/encounters/martyr_encounter_healer.tscn" id="9_y6ppr"]
 [ext_resource type="PackedScene" uid="uid://cam847702142m" path="res://monsters/damned.tscn" id="10_77ach"]
 [ext_resource type="PackedScene" uid="uid://ds3pq7xm6ewxe" path="res://battle/encounters/stalf_encounter_healer.tscn" id="11_u8oqv"]
@@ -168,6 +170,7 @@ color = Color(0, 0, 0, 1)
 z_index = 2
 position = Vector2(192, 288)
 encounter = ExtResource("7_u8oqv")
+sprite_frames = ExtResource("8_800lh")
 
 [node name="ShadeMonster_ghost2" parent="." unique_id=177171841 instance=ExtResource("6_dynvb")]
 z_index = 2
@@ -178,11 +181,13 @@ encounter = ExtResource("7_u8oqv")
 z_index = 2
 position = Vector2(1344, 144)
 encounter = ExtResource("7_u8oqv")
+sprite_frames = ExtResource("8_800lh")
 
 [node name="ShadeMonster_reaver" parent="." unique_id=1853776900 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(216, 504)
 encounter = ExtResource("8_1sah4")
+sprite_frames = ExtResource("9_kw23y")
 
 [node name="ShadeMonster_reaver3" parent="." unique_id=712860909 instance=ExtResource("6_dynvb")]
 z_index = 2
@@ -193,31 +198,37 @@ encounter = ExtResource("8_1sah4")
 z_index = 2
 position = Vector2(720, 336)
 encounter = ExtResource("8_1sah4")
+sprite_frames = ExtResource("9_kw23y")
 
 [node name="ShadeMonster_martyr_healer2" parent="." unique_id=1830364791 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(912, 408)
 encounter = ExtResource("9_y6ppr")
+sprite_frames = ExtResource("8_800lh")
 
 [node name="ShadeMonster_stalf_healer3" parent="." unique_id=1942000967 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(1152, 72)
 encounter = ExtResource("11_u8oqv")
+sprite_frames = ExtResource("8_800lh")
 
 [node name="ShadeMonster_stalf_solo2" parent="." unique_id=500440634 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(720, 48)
 encounter = ExtResource("12_xj6y8")
+sprite_frames = ExtResource("8_800lh")
 
 [node name="ShadeMonster_stalf_solo3" parent="." unique_id=1576966602 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(432, 288)
 encounter = ExtResource("12_xj6y8")
+sprite_frames = ExtResource("9_kw23y")
 
 [node name="ShadeMonster_stalf_solo4" parent="." unique_id=2051878939 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(720, 552)
 encounter = ExtResource("12_xj6y8")
+sprite_frames = ExtResource("9_kw23y")
 
 [node name="monster_fence" type="StaticBody2D" parent="." unique_id=109096]
 collision_layer = 16

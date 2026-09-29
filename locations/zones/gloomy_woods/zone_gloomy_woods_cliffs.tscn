@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ckrpapyrt703p" path="res://monsters/shade_monster.tscn" id="16_2fctl"]
 [ext_resource type="PackedScene" uid="uid://cip4dkb2egmnv" path="res://battle/encounters/martyr_encounter_1.tscn" id="20_1rfu8"]
 [ext_resource type="PackedScene" uid="uid://lbpqi6tmjey4" path="res://battle/encounters/martyr_encounter_solo.tscn" id="20_24mjc"]
+[ext_resource type="SpriteFrames" uid="uid://bm4esso0f3jsu" path="res://sprites/spritesheets/monsters/shade_monster_3.tres" id="21_j8nig"]
 [ext_resource type="PackedScene" uid="uid://c6vmnaxwwmsrx" path="res://battle/encounters/martyr_encounter_gark_braim.tscn" id="21_y7vwb"]
 [ext_resource type="PackedScene" uid="uid://dg6tqi8plgqbm" path="res://item/healing_gore.tscn" id="25_y7vwb"]
 [ext_resource type="PackedScene" uid="uid://0vkyde2rl1nk" path="res://utility/location_text.tscn" id="26_24mjc"]
@@ -478,31 +479,37 @@ encounter = ExtResource("20_24mjc")
 z_index = 2
 position = Vector2(4320, -2328)
 encounter = ExtResource("20_1rfu8")
+sprite_frames = ExtResource("21_j8nig")
 
 [node name="ShadeMonster_martyr7" parent="." unique_id=1974528743 instance=ExtResource("16_2fctl")]
 z_index = 2
 position = Vector2(4632, -2280)
 encounter = ExtResource("20_1rfu8")
+sprite_frames = ExtResource("21_j8nig")
 
 [node name="ShadeMonster_martyr8" parent="." unique_id=1843554477 instance=ExtResource("16_2fctl")]
 z_index = 2
 position = Vector2(4200, -2016)
 encounter = ExtResource("20_1rfu8")
+sprite_frames = ExtResource("21_j8nig")
 
 [node name="ShadeMonster_martyr6" parent="." unique_id=1524361627 instance=ExtResource("16_2fctl")]
 z_index = 2
 position = Vector2(4464, -2064)
 encounter = ExtResource("20_1rfu8")
+sprite_frames = ExtResource("21_j8nig")
 
 [node name="ShadeMonster_martyrgarkbraim" parent="." unique_id=250434708 instance=ExtResource("16_2fctl")]
 z_index = 2
 position = Vector2(4680, -1728)
 encounter = ExtResource("21_y7vwb")
+sprite_frames = ExtResource("21_j8nig")
 
 [node name="ShadeMonster_martyrgarkbraim2" parent="." unique_id=511693770 instance=ExtResource("16_2fctl")]
 z_index = 2
 position = Vector2(3720, -1752)
 encounter = ExtResource("21_y7vwb")
+sprite_frames = ExtResource("21_j8nig")
 
 [node name="ZoneLinkInterior1" parent="." unique_id=737788133 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("7_1eqvx")]
 position = Vector2(5040, -2784)

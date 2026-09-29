@@ -1,3 +1,4 @@
+res://sprites/spritesheets/monsters/
 res://utility/
 res://scripts/character/player/
 C:/dev/
@@ -8,7 +9,6 @@ res://scripts/interface/
 res://scripts/menu/
 res://sprites/spritesheets/interface/
 res://sprites/spritesheets/props/structure/
-res://sprites/spritesheets/monsters/
 res://locations/
 res://scripts/item/
 res://sprites/spritesheets/npc/

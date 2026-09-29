@@ -61,3 +61,10 @@ res://scripts/battle_system/interface/battle_message.gd
 res://interface/familiar_summary.tscn
 res://interface/familiar_evolve.tscn
 res://scripts/battle_system/battle_system_manager.gd
+res://monsters/shade_monster.tscn
+res://sprites/spritesheets/monsters/shade_monster_2.tres
+res://scripts/character/monster/monster.gd
+res://sprites/spritesheets/monsters/shade_monster_3.tres
+res://sprites/spritesheets/monsters/shade_monster_3_2.tres
+res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
+res://sprites/spritesheets/monsters/shade_monster_4.tres

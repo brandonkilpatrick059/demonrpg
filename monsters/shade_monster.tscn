@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckrpapyrt703p"]
 
 [ext_resource type="Script" uid="uid://7jsxcd43dpmf" path="res://scripts/character/monster/monster.gd" id="1_vxl85"]
-[ext_resource type="SpriteFrames" uid="uid://07kn65oyesqc" path="res://sprites/spritesheets/monsters/shade_monster.tres" id="2_vxl85"]
+[ext_resource type="SpriteFrames" uid="uid://b225dtvrgun2k" path="res://sprites/spritesheets/monsters/shade_monster_4.tres" id="2_vxl85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(8, 8)
@@ -17,40 +17,50 @@ script = ExtResource("1_vxl85")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=485845641]
 sprite_frames = ExtResource("2_vxl85")
 animation = &"down"
+frame_progress = 0.7072556
 offset = Vector2(12, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1530527018]
+visible = false
 position = Vector2(12, -12)
 shape = SubResource("RectangleShape2D_cea73")
 
 [node name="move_collider_left" type="Area2D" parent="." unique_id=2075324177]
+visible = false
 position = Vector2(0, -12)
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_left" unique_id=1104370282]
+visible = false
 shape = SubResource("RectangleShape2D_ljuv1")
 
 [node name="move_collider_up" type="Area2D" parent="." unique_id=1178066916]
+visible = false
 position = Vector2(0, -12)
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_up" unique_id=1924837841]
+visible = false
 position = Vector2(12, -12)
 shape = SubResource("RectangleShape2D_ljuv1")
 
 [node name="move_collider_down" type="Area2D" parent="." unique_id=1732409698]
+visible = false
 position = Vector2(0, -12)
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_down" unique_id=309592259]
+visible = false
 position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_ljuv1")
 
 [node name="move_collider_right" type="Area2D" parent="." unique_id=1311109542]
+visible = false
 position = Vector2(0, -12)
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_right" unique_id=709690604]
+visible = false
 position = Vector2(24, 0)
 shape = SubResource("RectangleShape2D_ljuv1")
 

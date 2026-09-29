@@ -3,6 +3,7 @@ class_name NPC extends Area2D
 @export var encounter : PackedScene
 @export var wander_wait_min : float = 2.0
 @export var wander_wait_max : float = 8.0
+@export var sprite_frames : SpriteFrames = null
 
 var facing_direction : String = "right"
 
@@ -19,12 +20,18 @@ var left_colliding_bodies : Array[Node] = []
 var right_colliding_bodies : Array[Node] = []
 
 var active : bool = true
+var current_frame : int = 0
 
 @onready var colliders : Array[Area2D] = [
 	$move_collider_left,
 	$move_collider_down,
 	$move_collider_right,
 	$move_collider_up]
+
+func _ready() -> void:
+	if(sprite_frames != null):
+		$AnimatedSprite2D.sprite_frames = sprite_frames
+	$AnimatedSprite2D.play("down")
 
 func handle_animation():
 	$AnimatedSprite2D.play(facing_direction)
@@ -166,7 +173,7 @@ func colliders_detect_solid() -> bool:
 
 func _physics_process(delta: float) -> void:
 	if(active):
-		handle_animation()
+		#handle_animation()
 		handle_movement()
 	elif($Timer.is_stopped()):
 		queue_free()
