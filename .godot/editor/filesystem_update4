@@ -51,3 +51,7 @@ res://locations/zones/zone_mountain.tscn
 res://locations/zones/zone_homestead.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn
 res://locations/zones/zone_homestead_interior.tscn
+res://scripts/battle_system/actions/special/action_feed.gd
+res://battle/effects/hp_particle.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
+res://scripts/battle_system/actions/special/action_devour.gd

@@ -132,11 +132,30 @@ func clean_up():
 	announced_failure = false
 
 func visual_effects(actor : Familiar, target : Familiar):
+	#FEED EFFECT
 	var feed_effect = load("res://battle/effects/feed_effect.tscn").instantiate()
 	battle_sys_ref.add_child(feed_effect)
 	feed_effect.set_kill_node(target)
 	feed_effect.global_position = target.global_position
 	battle_sys_ref.play_sound(load("res://audio/effects/feed.ogg"))
+
+func visual_effects_2(actor : Familiar, target : Familiar):
+	#HEAL EFFECT AND EXP EFFECT
+	var glow_blue_node = load("res://utility/faders/heal_glow_blue.tscn").instantiate()
+	actor.add_child(glow_blue_node)
+	if(actor.is_hostile()):
+		var emerge_node = load("res://utility/faders/fade_in_and_back.tscn").instantiate()
+		actor.add_child(emerge_node)
+	var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
+	battle_sys_ref.add_child(hp_particle)
+	hp_particle.global_position = actor.global_position
+	hp_particle.set_particle(str(target.get_max_hp()," HP"),Color(0.542, 0.691, 1.0, 1.0))
+	var exp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
+	battle_sys_ref.add_child(exp_particle)
+	exp_particle.global_position = actor.global_position + Vector2(0,12)
+	var exp : int = target.get_exp_value()
+	exp_particle.set_particle(str(exp," POWER"),Color(1.0, 0.0, 0.0, 1.0)) 
+	battle_sys_ref.play_sound(load("res://audio/effects/dark_bell.ogg"))
 
 func exit_action():
 	battle_sys_ref.start_wait_timer(0.5)
@@ -161,6 +180,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			target.kill()
 		actor.consume_familiar(target)
 		visual_effects(actor,target)
+		visual_effects_2(actor,target)
 		var heal_for = target.get_max_hp()
 		var actor_hp = actor.get_current_hp()
 		actor_hp = actor_hp + heal_for
@@ -172,7 +192,9 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		var comment : String = get_failure_message(actor,targets[0])
 		battle_sys_ref.play_messages([comment])
 		announced_failure = true
-	elif(not comment_feed && feed_succeeded):
+	elif(not comment_feed && feed_succeeded): #pretty sure this is unused?
+		var target : Familiar = targets[0]
+		visual_effects_2(actor,target)
 		var comment : String = success_message
 		battle_sys_ref.play_messages([comment])
 		comment_feed = true
