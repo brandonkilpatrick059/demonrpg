@@ -230,8 +230,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_i0qnf")
 }],
 "loop": 1,
-"name": &"down",
-"speed": 9.0
+"name": &"default",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -331,8 +331,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_i0qnf")
 }],
 "loop": 1,
-"name": &"left",
-"speed": 6.0
+"name": &"down",
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,

@@ -1,4 +1,6 @@
 Node
+CanvasModulate
+AnimatedSprite2D
 CollisionPolygon2D
 CollisionShape2D
 Node2D
@@ -10,5 +12,3 @@ AudioStreamPlayer
 StaticBody2D
 Polygon2D
 RichTextLabel
-AnimatedSprite2D
-VBoxContainer

@@ -23,8 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://cvcgxpepgk68x" path="res://sprites/props/interior/lamp.png" id="18_oyncm"]
 [ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="19_b3nw5"]
 [ext_resource type="Script" uid="uid://qow3wdm7tqsm" path="res://scripts/utility/run_scripts/set_unfreeze_input_encounter.gd" id="19_o1n2s"]
+[ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="20_3opvd"]
 [ext_resource type="PackedScene" uid="uid://1bv8rorir2k0" path="res://battle/encounters/homunculus_encounter_1.tscn" id="20_233h6"]
 [ext_resource type="AudioStream" uid="uid://deysb4q75hgex" path="res://audio/music/drone_2.ogg" id="22_mgjgc"]
+[ext_resource type="SpriteFrames" uid="uid://ck0da3rqttoqt" path="res://sprites/spritesheets/monsters/shade_monster_2.tres" id="26_mgjgc"]
+[ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="27_3opvd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -231,7 +234,7 @@ no_gamestate = false
 gamestate_key = "HAS_MANDRAKE"
 run_if_state = "TRUE"
 default_state = "FALSE"
-scripts = [NodePath("set_encounter"), NodePath("play_texts2"), NodePath("q_free_books"), NodePath("adjust_gamestate")]
+scripts = [NodePath("set_encounter"), NodePath("play_texts2"), NodePath("adjust_gamestate")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book2" unique_id=1610107773]
 position = Vector2(36, 60)
@@ -243,7 +246,7 @@ encounter_scene = ExtResource("20_233h6")
 
 [node name="play_texts2" type="Node" parent="interactable_area_book2" unique_id=114775842 node_paths=PackedStringArray("texts")]
 script = ExtResource("16_0l7i3")
-texts = [NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text10"), NodePath("text11"), NodePath("text12"), NodePath("text13"), NodePath("text14")]
+texts = [NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text10"), NodePath("text11"), NodePath("text12"), NodePath("text13"), NodePath("text14"), NodePath("text16"), NodePath("text15"), NodePath("text17"), NodePath("text18"), NodePath("text19")]
 
 [node name="text5" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1808089287]
 script = ExtResource("13_6h6yh")
@@ -290,14 +293,51 @@ script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
 text = Array[String](["(I place the mandrake root in the center of the circle)"])
 
-[node name="text14" type="Node" parent="interactable_area_book2/play_texts2" unique_id=734884711]
+[node name="text14" type="Node" parent="interactable_area_book2/play_texts2" unique_id=734884711 node_paths=PackedStringArray("script_node")]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(I speak words I do not understand...)"])
+text = Array[String](["(The  wind outside blows harder and the walls creak)"])
+script_node = NodePath("ritual_visible")
 
-[node name="q_free_books" type="Node" parent="interactable_area_book2" unique_id=2066716810 node_paths=PackedStringArray("nodes")]
+[node name="ritual_visible" type="Node" parent="interactable_area_book2/play_texts2/text14" unique_id=1531686863 node_paths=PackedStringArray("node")]
+script = ExtResource("20_3opvd")
+node = NodePath("../../../../ritual")
+
+[node name="text16" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1396471368]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(The sound of breathing comes from every corner of the room)"])
+
+[node name="text15" type="Node" parent="interactable_area_book2/play_texts2" unique_id=756432221]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(shadows swim across my vision)"])
+
+[node name="text17" type="Node" parent="interactable_area_book2/play_texts2" unique_id=86246967]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(All the air has been sucked out of the room)"])
+
+[node name="text18" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1099166623 node_paths=PackedStringArray("script_node")]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(It's cold)"])
+script_node = NodePath("ritual_visible")
+
+[node name="ritual_visible" type="Node" parent="interactable_area_book2/play_texts2/text18" unique_id=293598487 node_paths=PackedStringArray("node")]
+script = ExtResource("20_3opvd")
+node = NodePath("../../../../ritual")
+visible = false
+
+[node name="text19" type="Node" parent="interactable_area_book2/play_texts2" unique_id=22881395 node_paths=PackedStringArray("script_node")]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["(My vision fades...)"])
+script_node = NodePath("q_free_books")
+
+[node name="q_free_books" type="Node" parent="interactable_area_book2/play_texts2/text19" unique_id=2066716810 node_paths=PackedStringArray("nodes")]
 script = ExtResource("17_1me3i")
-nodes = [NodePath("../../interactable_area_book"), NodePath("..")]
+nodes = [NodePath("../../../../interactable_area_book"), NodePath("../../..")]
 
 [node name="adjust_gamestate" type="Node" parent="interactable_area_book2" unique_id=1227709569]
 script = ExtResource("14_m3ix2")
@@ -446,5 +486,16 @@ scripts = [NodePath("q_free_books")]
 [node name="q_free_books" type="Node" parent="has_mandrake_ready_scripts" unique_id=1741717884 node_paths=PackedStringArray("nodes")]
 script = ExtResource("17_1me3i")
 nodes = [NodePath("../../interactable_area_book"), NodePath("../../interactable_area_book2")]
+
+[node name="ritual" type="AnimatedSprite2D" parent="." unique_id=1613264338]
+visible = false
+position = Vector2(24, 24)
+sprite_frames = ExtResource("26_mgjgc")
+frame_progress = 0.0957921
+offset = Vector2(12, 0)
+script = ExtResource("27_3opvd")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=456840734]
+color = Color(0.6706895, 0.6706895, 0.6706895, 1)
 
 [connection signal="body_entered" from="interact_zone_entered_house" to="interact_zone_entered_house" method="_on_body_entered"]

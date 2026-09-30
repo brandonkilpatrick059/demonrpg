@@ -391,11 +391,13 @@ func end_awaiting_input():
 func play_texts(texts : Array[Text], dark_texts : Array[bool] = []):
 	stop()
 	var string_texts : Array[String]
+	var script_nodes : Array[Node] = []
 	for text : Text in texts:
 		var text_string : String = text.get_text("english")
 		string_texts.append(text_string)
+		script_nodes.append(text.get_script_node())
 	freeze_input()
-	$InterfaceMessageSpeech.queue_text(string_texts,dark_texts)
+	$InterfaceMessageSpeech.queue_text(string_texts,dark_texts,script_nodes)
 	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 	var pos : Vector2 = camera.get_screen_center_position()
 	$InterfaceMessageSpeech.global_position = pos + Vector2(-64,80)

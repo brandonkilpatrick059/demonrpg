@@ -19,6 +19,7 @@ var active : bool = false
 
 var text_queue : Array[String] = []
 var dark_texts : Array[bool] = []
+var script_nodes : Array = []
 
 func _ready() -> void:
 	timer.one_shot = true
@@ -37,21 +38,26 @@ func set_inactive():
 	visible = false
 	active = false
 
-func queue_text(texts : Array[String], new_dark_texts : Array[bool] = []):
+func queue_text(texts : Array[String], new_dark_texts : Array[bool] = [], new_script_nodes : Array = []):
 	for text in texts:
 		text_queue.append(text)
 	dark_texts.clear()
 	dark_texts.append_array(new_dark_texts)
+	script_nodes.clear()
+	script_nodes.append_array(new_script_nodes)
 	if(finished_writing):
 		play_next_text()
 
 func play_next_text():
 	var text = text_queue.pop_front()
 	var is_dark = dark_texts.pop_front()
+	var script_node : Node = script_nodes.pop_front()
 	if(is_dark != null):
 		play_text(text,is_dark)
 	else:
 		play_text(text)
+	if(script_node != null):
+		script_node.run_script()
 
 func play_text(text : String, is_dark : bool = false):
 	if(is_dark):

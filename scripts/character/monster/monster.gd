@@ -79,7 +79,7 @@ func check_charge_player():
 						make_noise()
 
 func make_noise():
-	var noise : int = randi_range(1,3)
+	var noise : int = randi_range(1,19)
 	var path = str(str("res://audio/effects/monster_noise_",noise),".ogg")
 	$AudioStreamPlayer2D.stream = load(path)
 	$AudioStreamPlayer2D.play()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckrpapyrt703p"]
 
 [ext_resource type="Script" uid="uid://7jsxcd43dpmf" path="res://scripts/character/monster/monster.gd" id="1_vxl85"]
-[ext_resource type="SpriteFrames" uid="uid://b225dtvrgun2k" path="res://sprites/spritesheets/monsters/shade_monster_4.tres" id="2_vxl85"]
+[ext_resource type="SpriteFrames" uid="uid://ck0da3rqttoqt" path="res://sprites/spritesheets/monsters/shade_monster_2.tres" id="2_vxl85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(8, 8)
@@ -17,7 +17,7 @@ script = ExtResource("1_vxl85")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=485845641]
 sprite_frames = ExtResource("2_vxl85")
 animation = &"down"
-frame_progress = 0.7072556
+frame_progress = 0.2579029
 offset = Vector2(12, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1530527018]
