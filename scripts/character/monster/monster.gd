@@ -32,6 +32,7 @@ func _ready() -> void:
 	if(sprite_frames != null):
 		$AnimatedSprite2D.sprite_frames = sprite_frames
 	$AnimatedSprite2D.play("down")
+	$Timer.start(randf_range(1.0,2.0))
 
 func handle_animation():
 	$AnimatedSprite2D.play(facing_direction)
@@ -181,12 +182,14 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if(active && body.is_in_group("player") && charging):
 		var player : Player = body
-		if(player.is_active() and not player.fader_is_fading()):
+		if(player.is_active() and not player.fader_is_fading() and not player.input_is_frozen()):
 			var new_encounter : Encounter = encounter.instantiate()
 			player.start_encounter(new_encounter)
 			$Timer.start(3.0)
 			fade_in()
 			active = false
+		else:
+			charging = false
 
 func _on_move_collider_left_body_entered(body: Node2D) -> void:
 	left_colliding_bodies.append(body)

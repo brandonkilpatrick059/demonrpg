@@ -904,8 +904,11 @@ func check_and_replace_targets(current_action : ActionQueueItem):
 			var actor = current_action.get_actor()
 			var valid_targets = get_opponent_targetable_familiars(actor,current_action.get_action())
 			potential_targets.append_array(valid_targets)
-			var new_target = potential_targets[randi_range(0,potential_targets.size()-1)]
-			current_targets = [new_target]
+			if(potential_targets.size() > 0):
+				var new_target = potential_targets[randi_range(0,potential_targets.size()-1)]
+				current_targets = [new_target]
+			else:
+				current_targets = []
 
 func update_buffs():
 	for familiar in player_familiars:

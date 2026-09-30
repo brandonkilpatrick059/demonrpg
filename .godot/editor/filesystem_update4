@@ -58,3 +58,12 @@ res://scripts/character/player/player.gd
 res://interface/interface_message_speech.tscn
 res://scripts/interface/interface_message.gd
 res://locations/zones/zone_grandmas_house.tscn
+res://sprites/spritesheets/monsters/shade_monster_5.tres
+res://sprites/spritesheets/monsters/shade_monster.tres
+res://sprites/spritesheets/monsters/shade_monster_martyr.tres
+res://sprites/spritesheets/monsters/shade_monster_stalf.tres
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
+res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
+res://scripts/battle_system/battle_system_manager.gd
+res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn

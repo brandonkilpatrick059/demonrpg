@@ -14,7 +14,7 @@ max_hp = 25
 current_hp = 25
 speed = 4
 capture_hp_percent = 0.35
-action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "SLICE"])
 action_cadence_1 = Array[String](["ATTACK", "ATTACK", "ATTACK", "SLICE"])
 
 [node name="L2reaver2" parent="." unique_id=245434526 instance=ExtResource("3_xlc4j")]
@@ -22,5 +22,5 @@ max_hp = 25
 current_hp = 20
 speed = 4
 capture_hp_percent = 0.35
-action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "STAB"])
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "SLICE"])
 action_cadence_1 = Array[String](["ATTACK", "ATTACK", "ATTACK", "SLICE"])
