@@ -169,6 +169,7 @@ autoplay = true
 bus = &"effects"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2129903169 groups=["global_modulate"]]
+visible = false
 z_index = 50
 color = Color(0, 0, 0, 1)
 script = ExtResource("6_wjebh")
@@ -187,7 +188,7 @@ sprite_frames = ExtResource("8_800lh")
 
 [node name="ShadeMonster_ghost6" parent="." unique_id=1825636231 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(1344, 144)
+position = Vector2(696, 552)
 encounter = ExtResource("7_u8oqv")
 sprite_frames = ExtResource("8_800lh")
 
@@ -221,6 +222,12 @@ position = Vector2(1152, 72)
 encounter = ExtResource("11_u8oqv")
 sprite_frames = ExtResource("8_800lh")
 
+[node name="ShadeMonster_stalf_healer4" parent="." unique_id=288626696 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(1344, 168)
+encounter = ExtResource("11_u8oqv")
+sprite_frames = ExtResource("8_800lh")
+
 [node name="ShadeMonster_stalf_solo2" parent="." unique_id=500440634 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(720, 48)
@@ -230,12 +237,6 @@ sprite_frames = ExtResource("14_wjebh")
 [node name="ShadeMonster_stalf_solo3" parent="." unique_id=1576966602 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(432, 288)
-encounter = ExtResource("12_xj6y8")
-sprite_frames = ExtResource("14_wjebh")
-
-[node name="ShadeMonster_stalf_solo4" parent="." unique_id=2051878939 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(720, 552)
 encounter = ExtResource("12_xj6y8")
 sprite_frames = ExtResource("14_wjebh")
 

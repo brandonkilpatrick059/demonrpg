@@ -80,3 +80,4 @@ res://battle/encounters/ghost_encounter_1.tscn
 res://battle/encounters/martyr_encounter_healer.tscn
 res://battle/encounters/stalf_encounter_healer.tscn
 res://battle/encounters/gark_encounter_solo.tscn
+res://scripts/battle_system/actions/damage/physical/action_attack.gd
