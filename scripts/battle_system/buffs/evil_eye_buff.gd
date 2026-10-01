@@ -32,7 +32,7 @@ func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
 		new_final_damages.set(buff_holder_index,new_final_damage)
 		pkg.set_final_damages(new_final_damages)
 		var battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-		battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
+		battle_sys_ref.play_sound(load("res://audio/effects/evil_eye_hit.ogg"))
 		active = false
 	return pkg
 

@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dbepncake88ro"]
 
 [ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_8hyxp"]
-[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_1lecb"]
+[ext_resource type="AudioStream" uid="uid://c30t0kt1pg570" path="res://audio/music/battle_4.ogg" id="2_o55ub"]
 [ext_resource type="PackedScene" uid="uid://dogiaxmsxt1y8" path="res://familiars/base/L2_byle.tscn" id="4_o55ub"]
 [ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/base/L1_martyr.tscn" id="5_pdq1r"]
 
 [node name="TestEncounter" type="Node2D" unique_id=1613970360 node_paths=PackedStringArray("opponents")]
 script = ExtResource("1_8hyxp")
 opponents = [NodePath("L1martyr"), NodePath("L1martyr2"), NodePath("L1martyr3"), NodePath("L2byle")]
-music = ExtResource("2_1lecb")
+music = ExtResource("2_o55ub")
 
 [node name="L1martyr" parent="." unique_id=1826426800 instance=ExtResource("5_pdq1r")]
 visible = false

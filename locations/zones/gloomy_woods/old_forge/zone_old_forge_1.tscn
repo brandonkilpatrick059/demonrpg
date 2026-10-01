@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://be4tfq16y1gax" path="res://sprites/tile_atlas_effects.tres" id="3_8iogw"]
 [ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="4_bcxat"]
 [ext_resource type="PackedScene" uid="uid://ckrpapyrt703p" path="res://monsters/shade_monster.tscn" id="6_dynvb"]
+[ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="6_wjebh"]
 [ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="7_m88hp"]
 [ext_resource type="PackedScene" uid="uid://bf8mab0yx5hlh" path="res://battle/encounters/ghost_encounter_1.tscn" id="7_u8oqv"]
 [ext_resource type="PackedScene" uid="uid://mlr7t35xmj11" path="res://battle/encounters/reaver_encounter.tscn" id="8_1sah4"]
@@ -168,9 +169,9 @@ autoplay = true
 bus = &"effects"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2129903169 groups=["global_modulate"]]
-visible = false
 z_index = 50
 color = Color(0, 0, 0, 1)
+script = ExtResource("6_wjebh")
 
 [node name="ShadeMonster_ghost" parent="." unique_id=331820355 instance=ExtResource("6_dynvb")]
 z_index = 2

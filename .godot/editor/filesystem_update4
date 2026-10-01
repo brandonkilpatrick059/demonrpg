@@ -67,3 +67,16 @@ res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
 res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
 res://scripts/battle_system/battle_system_manager.gd
 res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_pool.tscn
+res://scripts/utility/run_scripts/play_sound.gd
+res://scripts/battle_system/buffs/evil_eye_buff.gd
+res://battle/encounters/imp_encounter.tscn
+res://battle/encounters/stalf_encounter_solo.tscn
+res://battle/encounters/gark_encounter_1.tscn
+res://battle/encounters/gark_encounter_2.tscn
+res://battle/encounters/martyr_encounter_1.tscn
+res://battle/encounters/martyr_encounter_gark_braim.tscn
+res://battle/encounters/ghost_encounter_1.tscn
+res://battle/encounters/martyr_encounter_healer.tscn
+res://battle/encounters/stalf_encounter_healer.tscn
+res://battle/encounters/gark_encounter_solo.tscn

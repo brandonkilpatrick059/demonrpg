@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://2yrht2mwt7i7"]
 
 [ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_gcamg"]
-[ext_resource type="AudioStream" uid="uid://dwsr4t8ydmprb" path="res://audio/music/battle_1.ogg" id="2_mrena"]
+[ext_resource type="AudioStream" uid="uid://c30t0kt1pg570" path="res://audio/music/battle_4.ogg" id="2_gcamg"]
 [ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/base/L1_gark.tscn" id="4_mrena"]
 
 [node name="TestEncounter" type="Node2D" unique_id=833454008 node_paths=PackedStringArray("opponents")]
 script = ExtResource("1_gcamg")
 opponents = [NodePath("L1gark")]
-music = ExtResource("2_mrena")
+music = ExtResource("2_gcamg")
 
 [node name="L1gark" parent="." unique_id=1455997946 instance=ExtResource("4_mrena")]
 position = Vector2(63.68, 585.98)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://upsntdtwuyev"]
 
 [ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_7wyik"]
-[ext_resource type="AudioStream" uid="uid://deysb4q75hgex" path="res://audio/music/drone_2.ogg" id="2_7wyik"]
+[ext_resource type="AudioStream" uid="uid://dca1kypkrmcab" path="res://audio/music/battle_3.ogg" id="2_7wyik"]
 [ext_resource type="PackedScene" uid="uid://dgil6lq8m0otl" path="res://familiars/base/L1_imp.tscn" id="3_7wyik"]
 
 [node name="ImpEncounter" type="Node2D" unique_id=1613970360 node_paths=PackedStringArray("opponents")]

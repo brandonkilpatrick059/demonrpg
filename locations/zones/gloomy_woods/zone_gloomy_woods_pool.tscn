@@ -23,6 +23,8 @@
 [ext_resource type="Script" uid="uid://cvycaadlsfhey" path="res://scripts/utility/run_scripts/set_rain_layer.gd" id="24_ux6cf"]
 [ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="25_38hre"]
 [ext_resource type="Script" uid="uid://8nn10dgx4nmb" path="res://scripts/utility/run_scripts/set_autoplay.gd" id="26_3kcy4"]
+[ext_resource type="Script" uid="uid://bfoibrdm085gj" path="res://scripts/utility/run_scripts/play_sound.gd" id="26_4rak8"]
+[ext_resource type="AudioStream" uid="uid://bxhoci7lrm6uh" path="res://audio/effects/sluice_gate_close.ogg" id="27_23gkh"]
 [ext_resource type="Script" uid="uid://caj1c1txcrjev" path="res://scripts/utility/run_scripts/set_zone_dark.gd" id="27_iafmk"]
 [ext_resource type="Script" uid="uid://ctl8j5f47ohhg" path="res://scripts/utility/run_scripts/q_free_nodes.gd" id="28_drm6p"]
 
@@ -182,42 +184,42 @@ position = Vector2(1824, -1224)
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="water_fall" unique_id=1288174380]
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="water_fall" unique_id=1903701871]
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="water_fall" unique_id=1707571961]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="water_fall" unique_id=771170838]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="water_fall" unique_id=209024506]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="water_fall" unique_id=2005903468]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
@@ -225,7 +227,7 @@ script = ExtResource("19_gntnr")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
@@ -233,7 +235,7 @@ script = ExtResource("19_gntnr")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
@@ -241,7 +243,7 @@ script = ExtResource("19_gntnr")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
@@ -249,7 +251,7 @@ script = ExtResource("19_gntnr")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
@@ -257,7 +259,7 @@ script = ExtResource("19_gntnr")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
@@ -265,35 +267,35 @@ script = ExtResource("19_gntnr")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="water_fall" unique_id=198053837]
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="water_fall" unique_id=840747895]
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="water_fall" unique_id=1135573964]
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="water_fall" unique_id=1260777906]
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.9291155
+frame_progress = 0.8085686
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
@@ -311,14 +313,14 @@ attenuation = 4.756827
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="water_fall" unique_id=1659876462]
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.40656736
+frame_progress = 0.2860343
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="water_fall" unique_id=1722585529]
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("18_ipu5t")
-frame_progress = 0.40656736
+frame_progress = 0.2860343
 offset = Vector2(12, 12)
 script = ExtResource("19_gntnr")
 
@@ -373,7 +375,7 @@ no_gamestate = false
 gamestate_key = "WATER"
 run_if_state = "TRUE"
 default_state = "TRUE"
-scripts = [NodePath("play_texts"), NodePath("water_stopped"), NodePath("../water_stopped_ready_scripts/close_sluice"), NodePath("q_free_waterfall")]
+scripts = [NodePath("play_texts"), NodePath("water_stopped"), NodePath("../water_stopped_ready_scripts/close_sluice"), NodePath("q_free_waterfall"), NodePath("play_sound")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_valve" unique_id=1326153649]
 position = Vector2(12, 12)
@@ -402,3 +404,24 @@ open = false
 [node name="q_free_waterfall" type="Node" parent="interactable_area_valve" unique_id=1736255928 node_paths=PackedStringArray("nodes")]
 script = ExtResource("28_drm6p")
 nodes = [NodePath("../../water_fall")]
+
+[node name="play_sound" type="Node" parent="interactable_area_valve" unique_id=72823919]
+script = ExtResource("26_4rak8")
+sound_stream = ExtResource("27_23gkh")
+
+[node name="interactable_area_pool" type="StaticBody2D" parent="." unique_id=1636444772 node_paths=PackedStringArray("scripts")]
+position = Vector2(3384, -1896)
+script = ExtResource("21_1a42s")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_pool" unique_id=591086913 node_paths=PackedStringArray("texts")]
+script = ExtResource("22_h08om")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_pool/play_texts" unique_id=1831212528]
+script = ExtResource("23_2t2jc")
+language_map = Array[String](["english"])
+text = Array[String](["(It's a large, dark pool filled with rainwater)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_pool" unique_id=1062150399]
+polygon = PackedVector2Array(-192, -672, -192, -696, -120, -696, -120, -768, -240, -768, -240, -672)

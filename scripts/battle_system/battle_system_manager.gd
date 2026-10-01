@@ -580,17 +580,14 @@ func handle_two_adjacent_target_input():
 	targetable_familiars.size() > 0):
 		current_target = targetable_familiars[0]
 		targeted_familiars.append(current_target)
-		var left_familiar = get_adjacent_familiars(current_target,true)
-		targeted_familiars.append_array(left_familiar)
-		update_sel_arrows()
-	elif(targetable_familiars.size() > 0):
-		current_target = targeted_familiars[0]
-		var left_familiar = get_adjacent_familiars(current_target,true)
+		var left_only = true
+		var left_familiar = get_adjacent_familiars(current_target,left_only)
 		targeted_familiars.append_array(left_familiar)
 		update_sel_arrows()
 	if(Input.is_action_just_pressed("left") ||
 	 Input.is_action_just_pressed("right")):
 		play_sound(load("res://audio/effects/bell_first.ogg"))
+		current_target = targeted_familiars[0]
 		var index = targetable_familiars.find(current_target)
 		if(Input.is_action_just_pressed("left")):
 			index = index - 1
@@ -604,7 +601,8 @@ func handle_two_adjacent_target_input():
 			current_target = targetable_familiars[index]
 		targeted_familiars.clear()
 		targeted_familiars.append(current_target)
-		var left_familiar : Array[Familiar] = get_adjacent_familiars(current_target,true)
+		var left_only : bool = true
+		var left_familiar : Array[Familiar] = get_adjacent_familiars(current_target,left_only)
 		targeted_familiars.append_array(left_familiar)
 		update_sel_arrows()
 
@@ -693,14 +691,17 @@ func update_sel_arrows():
 	hide_all_sel_arrows()
 	for familiar in targeted_familiars:
 		var slot : FamiliarSlot = familiar.get_parent()
-		slot.show_select_arrow()
+		if(familiar.is_dead()):
+			if(targeted_familiars.size() == 1):
+				slot.show_select_arrow()
+				var stat : String = familiar.get_stat_increase()
+				var value : int = familiar.get_stat_increase_value()
+				var label = str(str(stat," + "),value)
+				slot.show_upgrade_label(label)
+		else:
+			slot.show_select_arrow()	
 		if(not familiar.is_hostile()):
 			slot.show_mini_status(familiar)
-		if(familiar.is_dead()):
-			var stat : String = familiar.get_stat_increase()
-			var value : int = familiar.get_stat_increase_value()
-			var label = str(str(stat," + "),value)
-			slot.show_upgrade_label(label)
 
 func hide_all_sel_arrows():
 	for slot : FamiliarSlot in opponent_positions:
