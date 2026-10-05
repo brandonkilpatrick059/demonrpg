@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://2ktl31n2xh7p"]
+
+[ext_resource type="Script" uid="uid://v73shmuwmbhw" path="res://scripts/locations/location_zone.gd" id="1_350hk"]
+[ext_resource type="AudioStream" uid="uid://bc6w7qic6vx2l" path="res://audio/music/overworld.ogg" id="5_kwsrm"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="6_l7g7f"]
+[ext_resource type="AudioStream" uid="uid://djbverw0ax0ua" path="res://audio/effects/crickets_1.wav" id="12_p5gxq"]
+[ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="14_36twd"]
+[ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="28_bkmmw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0aow"]
+size = Vector2(24, 24)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kwsrm"]
+light_mode = 1
+
+[node name="zone_end_of_demo" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links")]
+script = ExtResource("1_350hk")
+zone_name = "The Homestead"
+zone_links = [NodePath("ZoneLinkHomestead")]
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=444147778]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=936180831]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(240, 144, 264, 144, 264, 168, 240, 168, 240, 144, 240, 120, 264, 120, 264, 72, 192, 96, 192, 216, 264, 240, 336, 192, 312, 96, 264, 120)
+
+[node name="crickets" type="AudioStreamPlayer" parent="." unique_id=1207380185]
+stream = ExtResource("12_p5gxq")
+volume_db = -26.0
+autoplay = true
+bus = &"effects"
+
+[node name="ZoneLinkHomestead" parent="." unique_id=514851389 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("14_36twd")]
+position = Vector2(240, 144)
+link_zone_scene_path = "res://locations/zones/zone_mountain.tscn"
+link_name = "ENTRANCE"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "ROAD"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkHomestead" unique_id=765421138]
+z_index = 20
+position = Vector2(-132, -204)
+shape = SubResource("RectangleShape2D_u0aow")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLinkHomestead" unique_id=1326857191]
+position = Vector2(-144, -144)
+
+[node name="stop_point" type="Node2D" parent="ZoneLinkHomestead" unique_id=864029780]
+position = Vector2(-144, -144)
+
+[node name="wind" type="AudioStreamPlayer" parent="." unique_id=579480358]
+stream = ExtResource("28_bkmmw")
+volume_db = -24.0
+
+[node name="overworld" type="AudioStreamPlayer" parent="." unique_id=482488475]
+stream = ExtResource("5_kwsrm")
+volume_db = -6.0
+autoplay = true
+
+[node name="loading" type="Node2D" parent="." unique_id=1434089086]
+z_index = 51
+position = Vector2(159, -27)
+
+[node name="Polygon2D" type="Polygon2D" parent="loading" unique_id=670055388]
+material = SubResource("CanvasItemMaterial_kwsrm")
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-192, -192, 192, -192, 192, 180, -192, 180)
+
+[node name="loading" type="RichTextLabel" parent="loading" unique_id=2120171227]
+offset_left = -168.0
+offset_top = -72.0
+offset_right = 358.0
+offset_bottom = 105.0
+theme_override_fonts/normal_font = ExtResource("6_l7g7f")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[color=red]I hope you enjoyed this demo for [color=purple]Witches Sabbath.[/color]
+
+[color=blue]Plans for a full version include:[/color]
+[color=yellow]
+-An expanded roster of 50+ demons to fight, capture, and level up
+-3 main dungeons of increasing danger and complexity
+-3 optional dungeons with unique demons and items
+-A dark story which journeys through haunted ghost towns, 
+crumbling estates, labyrinthine coal mines, mysterious churches, 
+and the depths of Hell itself.
+[/color]
+
+Please consider making a [color=yellow]small donation[/color] by clicking 
+the [color=white]\"Support This Game\"[/color] button below
+
+Endless thanks,
+RoamRomeo
+"
+vertical_alignment = 1

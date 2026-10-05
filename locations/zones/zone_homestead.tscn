@@ -37,6 +37,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0aow"]
 size = Vector2(24, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwq3w"]
+size = Vector2(96, 72)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frbiv"]
 size = Vector2(48, 72)
 
@@ -78,7 +81,7 @@ light_mode = 1
 [node name="zone_homestead" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_qo434")
 zone_name = "The Homestead"
-zone_links = [NodePath("ZoneLinkInterior"), NodePath("ZoneLinkMountain"), NodePath("ZoneLinkGloomyWoodsExit")]
+zone_links = [NodePath("ZoneLinkInterior"), NodePath("ZoneLinkMountain"), NodePath("ZoneLinkGloomyWoodsExit"), NodePath("ZoneLinkCountryRoad")]
 dark_canvas_mod = NodePath("CanvasModulate")
 
 [node name="TileMapLayer_blue" type="TileMapLayer" parent="." unique_id=686741633]
@@ -282,6 +285,26 @@ position = Vector2(-192, -192)
 
 [node name="stop_point" type="Node2D" parent="ZoneLinkGloomyWoodsExit" unique_id=399613800]
 position = Vector2(-192, -192)
+
+[node name="ZoneLinkCountryRoad" parent="." unique_id=180889829 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("14_6qcli")]
+position = Vector2(120, 432)
+link_zone_scene_path = "res://locations/zones/zone_end_of_demo.tscn"
+link_name = "ROAD"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "ENTRANCE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkCountryRoad" unique_id=590550471]
+z_index = 20
+position = Vector2(-96, -228)
+shape = SubResource("RectangleShape2D_xwq3w")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLinkCountryRoad" unique_id=612175901]
+position = Vector2(-120, -312)
+
+[node name="stop_point" type="Node2D" parent="ZoneLinkCountryRoad" unique_id=1040320542]
+position = Vector2(-120, -336)
 
 [node name="interactable_area_truck" type="StaticBody2D" parent="." unique_id=618759930 node_paths=PackedStringArray("scripts")]
 script = ExtResource("15_0dkg3")
