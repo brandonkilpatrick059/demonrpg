@@ -22,7 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 			var player_ref : Player = body
 			if(not player_ref.input_is_frozen()):
 				var zone_manager : ZoneManager = get_tree().get_first_node_in_group("zone_manager")
-				zone_manager.switch_zones(load(link_zone_scene_path),to_link_name)
+				zone_manager.switch_zones(link_zone_scene_path,to_link_name)
 
 func get_teleport_position() -> Vector2:
 	return teleport_spot.global_position

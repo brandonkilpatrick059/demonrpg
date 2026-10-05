@@ -224,6 +224,8 @@ link_name = "INTERIOR"
 teleport_spot = NodePath("load_in")
 stop_point = NodePath("stop_point")
 to_link_name = "LINK"
+state_check = null
+state_check_val = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkInterior" unique_id=289355182]
 z_index = 20
@@ -244,6 +246,8 @@ link_name = "MOUNTAIN"
 teleport_spot = NodePath("load_in")
 stop_point = NodePath("stop_point")
 to_link_name = "ENTRANCE"
+state_check = null
+state_check_val = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkMountain" unique_id=765421138]
 z_index = 20

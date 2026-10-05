@@ -60,3 +60,7 @@ res://locations/zones/zone_homestead.tscn
 res://scripts/interface/familiar_summary.gd
 res://scripts/interface/altar.gd
 res://menu/main_menu.tscn
+res://scripts/locations/zone_manager.gd
+res://locations/zone_manager_load.tscn
+res://locations/zone_manager_start.tscn
+res://scripts/locations/zone_link.gd

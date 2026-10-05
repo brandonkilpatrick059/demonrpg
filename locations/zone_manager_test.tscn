@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
 [ext_resource type="PackedScene" uid="uid://dhrtarwbrrgma" path="res://locations/zones/zone_homestead.tscn" id="6_4sbi0"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]
 shader = ExtResource("6_je83m")
@@ -58,11 +59,18 @@ shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -7.99999981
 shader_parameter/pixel_strength = -4.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlo4x"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_pag8u"]
+font = ExtResource("7_ak4ce")
+font_size = 8
+font_color = Color(1, 0, 0, 1)
+
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
 script = ExtResource("1_5ulbo")
 current_zone = NodePath("zone_homestead")
-load_menu_on_ready = null
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
 states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
@@ -125,3 +133,22 @@ pentacle_charms = 3
 position = Vector2(12, -12)
 
 [node name="zone_homestead" parent="." unique_id=1169712370 instance=ExtResource("6_4sbi0")]
+
+[node name="loading" type="Node2D" parent="." unique_id=47417405]
+visible = false
+z_index = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="loading" unique_id=1249015615]
+material = SubResource("CanvasItemMaterial_vlo4x")
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-192, -192, 192, -192, 192, 180, -192, 180)
+
+[node name="loading" type="Label" parent="loading" unique_id=1846944785]
+offset_left = -29.0
+offset_top = -11.0
+offset_right = 33.0
+offset_bottom = 12.0
+text = "LOADING"
+label_settings = SubResource("LabelSettings_pag8u")
+horizontal_alignment = 1
+vertical_alignment = 1

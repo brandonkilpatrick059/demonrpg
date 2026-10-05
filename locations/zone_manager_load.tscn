@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="4_4le7o"]
 [ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="4_muj5q"]
 [ext_resource type="Script" uid="uid://dp20msu5qynda" path="res://scripts/utility/save_load_manager.gd" id="6_8fo6w"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_0wst5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8fo6w"]
 shader = ExtResource("2_8fo6w")
@@ -23,6 +24,14 @@ shader_parameter/roll_line_amount = 0.0
 shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -7.99999981
 shader_parameter/pixel_strength = -4.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4le7o"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1qlu"]
+font = ExtResource("7_0wst5")
+font_size = 8
+font_color = Color(1, 0, 0, 1)
 
 [node name="zone_manager" type="Node2D" unique_id=576886889]
 y_sort_enabled = true
@@ -90,3 +99,22 @@ grow_vertical = 2
 
 [node name="save_load_manager" type="Node" parent="." unique_id=937024834]
 script = ExtResource("6_8fo6w")
+
+[node name="loading" type="Node2D" parent="." unique_id=511338503]
+visible = false
+z_index = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="loading" unique_id=1982784431]
+material = SubResource("CanvasItemMaterial_4le7o")
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-192, -192, 192, -192, 192, 180, -192, 180)
+
+[node name="loading" type="Label" parent="loading" unique_id=1930356356]
+offset_left = -29.0
+offset_top = -11.0
+offset_right = 33.0
+offset_bottom = 12.0
+text = "LOADING"
+label_settings = SubResource("LabelSettings_d1qlu")
+horizontal_alignment = 1
+vertical_alignment = 1

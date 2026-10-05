@@ -4,7 +4,7 @@ class_name ZoneManager extends Node2D
 @export var load_menu_on_ready : bool = false
 
 var switching_zones : bool = false
-var switching_to_zone : PackedScene
+var switching_to_zone_path : String
 var to_link_name : String = ""
 var first_phase : bool = false
 var second_phase : bool = false
@@ -37,17 +37,26 @@ func _ready() -> void:
 		else:
 			player_ref.turn_off_flashlight()
 
-func switch_zones(to_zone : PackedScene, to_link : String):
-	switching_to_zone = to_zone
+func switch_zones(to_zone : String, to_link : String):
+	switching_to_zone_path = to_zone
 	to_link_name = to_link
 	switching_zones = true
 	player_ref.fade_out()
 	player_ref.freeze_input()
 	first_phase = true
 
+func turn_on_loading_screen():
+	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+	$loading.global_position = camera.get_screen_center_position()
+	$loading.visible = true
+
+func turn_off_loading_screen():
+	$loading.visible = false
+
 func swap_zones():
 	player_ref.reparent(self)
 	current_zone.queue_free()
+	var switching_to_zone : PackedScene = load(switching_to_zone_path)
 	current_zone = switching_to_zone.instantiate()
 	if(current_zone.is_dark()):
 		player_ref.turn_on_flashlight()
@@ -62,6 +71,7 @@ func swap_zones():
 	player_ref.display_location_text("") 
 	second_phase = true
 	timer.start(0.5)
+	turn_off_loading_screen()
 
 func get_current_zone() -> LocationZone:
 	return current_zone
@@ -101,6 +111,7 @@ func _physics_process(delta: float) -> void:
 		if(first_phase):
 			if(not player_ref.fader_is_fading()):
 				first_phase = false
+				turn_on_loading_screen()
 				swap_zones()
 		elif(second_phase):
 			if(player_ref.global_position == destination_link.get_stop_point()):
