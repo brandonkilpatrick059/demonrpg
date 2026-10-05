@@ -102,7 +102,7 @@ script = ExtResource("6_8fo6w")
 
 [node name="loading" type="Node2D" parent="." unique_id=511338503]
 visible = false
-z_index = 1
+z_index = 51
 
 [node name="Polygon2D" type="Polygon2D" parent="loading" unique_id=1982784431]
 material = SubResource("CanvasItemMaterial_4le7o")

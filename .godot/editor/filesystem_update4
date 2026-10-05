@@ -64,3 +64,4 @@ res://scripts/locations/zone_manager.gd
 res://locations/zone_manager_load.tscn
 res://locations/zone_manager_start.tscn
 res://scripts/locations/zone_link.gd
+res://locations/zones/zone_mountain_fake_huge.tscn
