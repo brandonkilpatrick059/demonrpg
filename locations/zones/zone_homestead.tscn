@@ -23,7 +23,6 @@
 [ext_resource type="Script" uid="uid://8nn10dgx4nmb" path="res://scripts/utility/run_scripts/set_autoplay.gd" id="21_ivfa5"]
 [ext_resource type="Script" uid="uid://d226twibnsv4w" path="res://scripts/utility/run_scripts/run_gate.gd" id="23_4ktpp"]
 [ext_resource type="Script" uid="uid://ctl8j5f47ohhg" path="res://scripts/utility/run_scripts/q_free_nodes.gd" id="24_d20f1"]
-[ext_resource type="Script" uid="uid://caj1c1txcrjev" path="res://scripts/utility/run_scripts/set_zone_dark.gd" id="24_xwq3w"]
 [ext_resource type="Script" uid="uid://s8xm5avkm34g" path="res://scripts/utility/run_scripts/set_modulate.gd" id="25_ivfa5"]
 [ext_resource type="Shader" uid="uid://ctbt1f24kbll6" path="res://shaders/rain_shader.gdshader" id="25_x5mje"]
 [ext_resource type="Texture2D" uid="uid://5rlts5urifo0" path="res://sprites/effects/empty_screen_sprite.png" id="26_h628r"]
@@ -406,7 +405,7 @@ text = Array[String](["(The crops aren't doing well...)"])
 script = ExtResource("18_6qcli")
 gamestate_key = "HOUSE_ENTERED"
 run_if_state = "TRUE"
-scripts = [NodePath("start_raining"), NodePath("set_modulate_visible"), NodePath("gate_open"), NodePath("play_organ_music"), NodePath("set_zone_dark"), NodePath("play_wind_sound"), NodePath("stop_cricket_sound"), NodePath("q_free_truck"), NodePath("q_free_father"), NodePath("q_free_chicken"), NodePath("q_free_chicken2"), NodePath("change_mod_trees"), NodePath("change_mod_green"), NodePath("change_mod_green_above"), NodePath("q_free_gate")]
+scripts = [NodePath("start_raining"), NodePath("set_modulate_visible"), NodePath("gate_open"), NodePath("play_organ_music"), NodePath("play_wind_sound"), NodePath("stop_cricket_sound"), NodePath("q_free_truck"), NodePath("q_free_father"), NodePath("q_free_chicken"), NodePath("q_free_chicken2"), NodePath("change_mod_trees"), NodePath("change_mod_green"), NodePath("change_mod_green_above"), NodePath("q_free_gate")]
 
 [node name="start_raining" type="Node" parent="entered_house_ready_scripts" unique_id=842511683 node_paths=PackedStringArray("rain_layer")]
 script = ExtResource("19_d20f1")
@@ -432,10 +431,6 @@ playing = false
 [node name="gate_open" type="Node" parent="entered_house_ready_scripts" unique_id=963125642 node_paths=PackedStringArray("gate")]
 script = ExtResource("23_4ktpp")
 gate = NodePath("../../Gate")
-
-[node name="set_zone_dark" type="Node" parent="entered_house_ready_scripts" unique_id=1614846519 node_paths=PackedStringArray("zone")]
-script = ExtResource("24_xwq3w")
-zone = NodePath("../..")
 
 [node name="q_free_truck" type="Node" parent="entered_house_ready_scripts" unique_id=813638516 node_paths=PackedStringArray("nodes")]
 script = ExtResource("24_d20f1")

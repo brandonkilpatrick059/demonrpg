@@ -20,13 +20,14 @@ func _ready():
 	$AudioStreamPlayer.play()
 
 func set_familiars(new_familiars : Array[Familiar]):
-	familiars = new_familiars
-	set_familiar(familiars[0])
-	familiar_index = 0
-	if familiars.size() > 1:
-		show_arrows()
-	else:
-		hide_arrows()
+	if(new_familiars.size() > 0):
+		familiars = new_familiars
+		set_familiar(familiars[0])
+		familiar_index = 0
+		if familiars.size() > 1:
+			show_arrows()
+		else:
+			hide_arrows()
 
 func set_familiar(familiar : Familiar):
 	if(current_familiar != null):
@@ -67,6 +68,11 @@ func set_familiar(familiar : Familiar):
 		$stored_label.visible = true
 	else:
 		$stored_label.visible = false
+	if(familiar.is_incorporeal()):
+		$modifier_label.visible = true
+		$modifier_label.text = "INCORPOREAL"
+	else:
+		$modifier_label.visible = false
 	set_action_tabs(familiar, familiar.get_actions())
 
 func set_action_tabs(actor : Familiar, actions : Array[BattleAction]):

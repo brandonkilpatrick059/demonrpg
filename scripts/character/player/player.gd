@@ -319,7 +319,7 @@ func handle_movement():
 	if(grid_aligned()):
 		grid_aligned_callback()
 	if(walking && can_move):
-		var speed : int = 1
+		var speed : float = 1
 		if(grid_aligned() && can_move):
 			match facing_direction:
 				"up":

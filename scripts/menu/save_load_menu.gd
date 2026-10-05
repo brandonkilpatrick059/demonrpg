@@ -74,6 +74,7 @@ func handle_input():
 				audio_player.play()
 			elif(mode_load):
 				var zone_manager = get_tree().get_first_node_in_group("zone_manager")
+				$loading.visible = true
 				zone_manager.load_game_from_file(selected_index)
 		elif(Input.is_action_just_pressed("action_2")):
 			queue_free()
@@ -82,5 +83,7 @@ func set_location(altar : Altar):
 	altar_ref = altar
 
 func _physics_process(delta: float) -> void:
+	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+	global_position = camera.get_screen_center_position()
 	handle_input()
 	update_selected()

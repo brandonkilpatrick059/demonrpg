@@ -4,6 +4,7 @@ extends Node2D
 @onready var load_game : Label = $VBoxContainer/load_game
 @onready var options : Label = $VBoxContainer/options
 @onready var exit : Label = $VBoxContainer/exit
+@export var web_build : bool = false
 
 var selected_index : int = 0
 
@@ -17,13 +18,20 @@ var active : bool = false
 func _ready() -> void:
 	var saves_exist : bool = false
 	saves_exist = $save_load_manager.saves_exist()
+	options.visible = false #TODO: ADD OPTIONS
 	if(saves_exist):
-		menu_buttons = ["NEW","LOAD","OPTIONS","EXIT"]
-		menu_labels = [new_game,load_game,options,exit]
+		menu_buttons = ["NEW","LOAD"]
+		menu_labels = [new_game,load_game]
 	else:
-		menu_buttons = ["NEW","OPTIONS","EXIT"]
-		menu_labels = [new_game,options,exit]
+		menu_buttons = ["NEW"]
+		menu_labels = [new_game]
 		load_game.visible = false
+	if(not web_build):
+		menu_buttons.append("EXIT")
+		menu_labels = [exit]
+		exit.visible = true
+	else:
+		exit.visible = false
 
 func handle_control():
 	if(Input.is_action_just_pressed("down")):

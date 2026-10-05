@@ -362,7 +362,7 @@ nodes = [NodePath("../../lamp")]
 script = ExtResource("19_8wh00")
 gamestate_key = "HOUSE_ENTERED"
 run_if_state = "TRUE"
-scripts = [NodePath("q_free_mother"), NodePath("q_free_interact_2"), NodePath("q_free_interact_1")]
+scripts = [NodePath("q_free_mother"), NodePath("q_free_interact_2"), NodePath("q_free_interact_1"), NodePath("q_free_modulate")]
 
 [node name="q_free_mother" type="Node" parent="entered_house_ready_scripts" unique_id=2036259913 node_paths=PackedStringArray("nodes")]
 script = ExtResource("17_3fm0o")
@@ -375,6 +375,10 @@ nodes = [NodePath("../../interact_zone_1")]
 [node name="q_free_interact_2" type="Node" parent="entered_house_ready_scripts" unique_id=319306365 node_paths=PackedStringArray("nodes")]
 script = ExtResource("17_3fm0o")
 nodes = [NodePath("../../interact_zone_lamp_convo")]
+
+[node name="q_free_modulate" type="Node" parent="entered_house_ready_scripts" unique_id=1387039492 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../CanvasModulate")]
 
 [node name="entered_house_ready_scripts_false" type="Node" parent="." unique_id=1256847899 node_paths=PackedStringArray("scripts")]
 script = ExtResource("19_8wh00")
@@ -407,7 +411,7 @@ shape = SubResource("RectangleShape2D_msxrq")
 
 [node name="play_texts2" type="Node" parent="interactable_area_book" unique_id=1539228422 node_paths=PackedStringArray("texts")]
 script = ExtResource("13_u7vsm")
-texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9")]
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9")]
 
 [node name="text" type="Node" parent="interactable_area_book/play_texts2" unique_id=1296131547]
 script = ExtResource("14_kpw7i")
@@ -428,11 +432,6 @@ text = Array[String](["\"I know you will never forgive me.\""])
 script = ExtResource("14_kpw7i")
 language_map = Array[String](["english"])
 text = Array[String](["\"But I will never forgive our so-called 'family' for what they have done.\""])
-
-[node name="text5" type="Node" parent="interactable_area_book/play_texts2" unique_id=1058050979]
-script = ExtResource("14_kpw7i")
-language_map = Array[String](["english"])
-text = Array[String](["\"If bringing justice condemns me to burn for all eternity, so be it.\""])
 
 [node name="text6" type="Node" parent="interactable_area_book/play_texts2" unique_id=254139252]
 script = ExtResource("14_kpw7i")
@@ -458,6 +457,9 @@ text = Array[String](["\"I am sorry.\""])
 position = Vector2(24, 40)
 texture = ExtResource("20_81y2k")
 offset = Vector2(12, 12)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1446895130]
+color = Color(0.6706895, 0.6706895, 0.6706895, 1)
 
 [connection signal="body_entered" from="interact_zone_1" to="interact_zone_1" method="_on_body_entered"]
 [connection signal="body_entered" from="interact_zone_lamp_convo" to="interact_zone_lamp_convo" method="_on_body_entered"]

@@ -281,7 +281,7 @@ text = Array[String](["\"6. Sign the contract with a [color=purple]Pentacle Seal
 [node name="text11" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1492411463]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(There are several wax seals stamped with an upside-down star)"])
+text = Array[String](["(There are several wax seals stamped with a star)"])
 
 [node name="text12" type="Node" parent="interactable_area_book2/play_texts2" unique_id=509539950]
 script = ExtResource("13_6h6yh")
@@ -316,7 +316,7 @@ text = Array[String](["(shadows swim across my vision)"])
 [node name="text17" type="Node" parent="interactable_area_book2/play_texts2" unique_id=86246967]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(All the air has been sucked out of the room)"])
+text = Array[String](["(The air is thin)"])
 
 [node name="text18" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1099166623 node_paths=PackedStringArray("script_node")]
 script = ExtResource("13_6h6yh")
@@ -491,7 +491,7 @@ nodes = [NodePath("../../interactable_area_book"), NodePath("../../interactable_
 visible = false
 position = Vector2(24, 24)
 sprite_frames = ExtResource("26_mgjgc")
-frame_progress = 0.0957921
+frame_progress = 0.66709065
 offset = Vector2(12, 0)
 script = ExtResource("27_3opvd")
 

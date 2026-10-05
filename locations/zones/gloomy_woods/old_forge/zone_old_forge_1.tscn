@@ -222,12 +222,6 @@ position = Vector2(1152, 72)
 encounter = ExtResource("11_u8oqv")
 sprite_frames = ExtResource("8_800lh")
 
-[node name="ShadeMonster_stalf_healer4" parent="." unique_id=288626696 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(1344, 168)
-encounter = ExtResource("11_u8oqv")
-sprite_frames = ExtResource("8_800lh")
-
 [node name="ShadeMonster_stalf_solo2" parent="." unique_id=500440634 instance=ExtResource("6_dynvb")]
 z_index = 2
 position = Vector2(720, 48)

@@ -43,9 +43,11 @@ func interact():
 func set_basic_actions():
 	var player_ref : Player = get_tree().get_first_node_in_group("player")
 	var actions : Array[String] = []
-	if(player_ref.get_familiars_team().size() > 1):
-		actions.append("SACRIFICE")
-	actions.append_array(["GRIMOIRE","SAVE GAME","LEAVE"])
+	if(player_ref.get_familiars_team().size() > 0):
+		actions.append("GRIMOIRE")
+		if(player_ref.get_familiars_team().size() > 1):
+			actions.append("SACRIFICE")
+	actions.append_array(["SAVE GAME","LEAVE"])
 	action_menu.set_actions(actions)
 
 func action_menu_exit():

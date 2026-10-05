@@ -1,11 +1,11 @@
+Label
+Node2D
 Node
 CollisionPolygon2D
 CanvasModulate
 AnimatedSprite2D
 CollisionShape2D
-Node2D
 Area2D
-Label
 AudioStreamPlayer2D
 Sprite2D
 AudioStreamPlayer
