@@ -27,7 +27,7 @@ shape = SubResource("RectangleShape2D_cea73")
 [node name="move_collider_left" type="Area2D" parent="." unique_id=2075324177]
 visible = false
 position = Vector2(0, -12)
-collision_mask = 9
+collision_mask = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_left" unique_id=1104370282]
 visible = false
@@ -36,7 +36,7 @@ shape = SubResource("RectangleShape2D_ljuv1")
 [node name="move_collider_up" type="Area2D" parent="." unique_id=1178066916]
 visible = false
 position = Vector2(0, -12)
-collision_mask = 9
+collision_mask = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_up" unique_id=1924837841]
 visible = false
@@ -46,7 +46,7 @@ shape = SubResource("RectangleShape2D_ljuv1")
 [node name="move_collider_down" type="Area2D" parent="." unique_id=1732409698]
 visible = false
 position = Vector2(0, -12)
-collision_mask = 9
+collision_mask = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_down" unique_id=309592259]
 visible = false
@@ -56,7 +56,7 @@ shape = SubResource("RectangleShape2D_ljuv1")
 [node name="move_collider_right" type="Area2D" parent="." unique_id=1311109542]
 visible = false
 position = Vector2(0, -12)
-collision_mask = 9
+collision_mask = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="move_collider_right" unique_id=709690604]
 visible = false

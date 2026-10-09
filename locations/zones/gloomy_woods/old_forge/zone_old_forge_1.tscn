@@ -44,6 +44,51 @@ size = Vector2(24, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6ppr"]
 size = Vector2(24, 72)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjebh"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v3ly"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgb6w"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik4kc"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mht2"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr5om"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h45rb"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bt2re"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5jnt"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nexjv"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crkm7"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc2aq"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pjce"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wus6"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jreu"]
+size = Vector2(24, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1iq3"]
 size = Vector2(96, 24)
 
@@ -240,18 +285,97 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="monster_fence" unique_id=360084445]
 position = Vector2(1020, 72)
 shape = SubResource("RectangleShape2D_y6ppr")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="monster_fence" unique_id=1813478027]
+position = Vector2(1212, 168)
+shape = SubResource("RectangleShape2D_wjebh")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="monster_fence" unique_id=1182334594]
+position = Vector2(1044, 264)
+shape = SubResource("RectangleShape2D_0v3ly")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="monster_fence" unique_id=458122696]
+position = Vector2(996, 456)
+shape = SubResource("RectangleShape2D_tgb6w")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="monster_fence" unique_id=370117129]
+position = Vector2(780, 528)
+shape = SubResource("RectangleShape2D_ik4kc")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="monster_fence" unique_id=230965891]
+position = Vector2(876, 528)
+shape = SubResource("RectangleShape2D_5mht2")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="monster_fence" unique_id=995046092]
+position = Vector2(516, 576)
+shape = SubResource("RectangleShape2D_tr5om")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="monster_fence" unique_id=1418743631]
+position = Vector2(324, 504)
+shape = SubResource("RectangleShape2D_h45rb")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="monster_fence" unique_id=880428298]
+position = Vector2(228, 468)
+shape = SubResource("RectangleShape2D_bt2re")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="monster_fence" unique_id=333904949]
+position = Vector2(444, 444)
+shape = SubResource("RectangleShape2D_l5jnt")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="monster_fence" unique_id=1475613396]
+position = Vector2(372, 360)
+shape = SubResource("RectangleShape2D_nexjv")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="monster_fence" unique_id=442134051]
+position = Vector2(516, 360)
+shape = SubResource("RectangleShape2D_crkm7")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="monster_fence" unique_id=164308053]
+position = Vector2(588, 120)
+shape = SubResource("RectangleShape2D_uc2aq")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="monster_fence" unique_id=1447767193]
+position = Vector2(108, 120)
+shape = SubResource("RectangleShape2D_1pjce")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="monster_fence" unique_id=1413708509]
+position = Vector2(228, 228)
+shape = SubResource("RectangleShape2D_6wus6")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="monster_fence" unique_id=1512705437]
+position = Vector2(1524, 168)
+shape = SubResource("RectangleShape2D_7jreu")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="monster_fence" unique_id=138752826]
 position = Vector2(528, 60)
 shape = SubResource("RectangleShape2D_d1iq3")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="monster_fence" unique_id=2138768863]
 position = Vector2(1680, 252)
 shape = SubResource("RectangleShape2D_vh4j8")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="monster_fence" unique_id=226335259]
 position = Vector2(1212, 480)
 shape = SubResource("RectangleShape2D_j04qn")
+debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
 
 [node name="Damned" parent="." unique_id=1590593699 instance=ExtResource("10_77ach")]
 position = Vector2(504, -48)
@@ -296,7 +420,7 @@ encounter_scene = ExtResource("18_x5i66")
 
 [node name="play_texts" type="Node" parent="interact_zone_imp" unique_id=1950158298 node_paths=PackedStringArray("texts")]
 script = ExtResource("19_sywhf")
-texts = [NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text11"), NodePath("text12"), NodePath("text13"), NodePath("text14"), NodePath("text15"), NodePath("text16"), NodePath("text17")]
+texts = [NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text11"), NodePath("text12"), NodePath("text13"), NodePath("text16"), NodePath("text14"), NodePath("text15")]
 dark_texts = Array[bool]([false, false, false, false, false, true, true, true, true, true, true, true])
 
 [node name="text5" type="Node" parent="interact_zone_imp/play_texts" unique_id=426183232]
@@ -339,6 +463,11 @@ script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
 text = Array[String](["\"[color=white]The Master left me here to guide you down the mountain.[/color]\""])
 
+[node name="text16" type="Node" parent="interact_zone_imp/play_texts" unique_id=1234937885]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"[color=white]Do not be afraid...[/color]\""])
+
 [node name="text14" type="Node" parent="interact_zone_imp/play_texts" unique_id=1410228236]
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
@@ -348,16 +477,6 @@ text = Array[String](["\"[color=white]Come closer-[/color]\""])
 script = ExtResource("17_sf0dg")
 language_map = Array[String](["english"])
 text = Array[String](["\"[color=white]Let me help you...[/color]\""])
-
-[node name="text16" type="Node" parent="interact_zone_imp/play_texts" unique_id=1234937885]
-script = ExtResource("17_sf0dg")
-language_map = Array[String](["english"])
-text = Array[String](["\"[color=white]Do not be afraid...[/color]\""])
-
-[node name="text17" type="Node" parent="interact_zone_imp/play_texts" unique_id=2015093427]
-script = ExtResource("17_sf0dg")
-language_map = Array[String](["english"])
-text = Array[String](["\"[color=white]I am your...Friend...[/color]\""])
 
 [node name="laugh_2" type="AudioStreamPlayer2D" parent="." unique_id=789788775]
 position = Vector2(1608, 528)
@@ -390,6 +509,7 @@ tile_set = ExtResource("3_8iogw")
 collision_enabled = false
 
 [node name="LocationText" parent="." unique_id=927871242 instance=ExtResource("28_ppngs")]
+visible = false
 collision_layer = 0
 location_text = "OLD FORGE"
 

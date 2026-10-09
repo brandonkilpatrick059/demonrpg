@@ -28,11 +28,53 @@
 [ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="28_yk2pb"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="29_8c551"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_llkrw"]
-size = Vector2(24, 72)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbdog"]
+size = Vector2(144, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvyam"]
-size = Vector2(72, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eqvx"]
+size = Vector2(120, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk2pb"]
+size = Vector2(48, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c551"]
+size = Vector2(24, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xah8n"]
+size = Vector2(288, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tyd5"]
+size = Vector2(240, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghynl"]
+size = Vector2(48, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fctl"]
+size = Vector2(24, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf4qp"]
+size = Vector2(24, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13bgd"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtkls"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rfu8"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbq5r"]
+size = Vector2(24, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3dmt"]
+size = Vector2(24, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37mbn"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwltt"]
+size = Vector2(48, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(144, 48)
@@ -156,15 +198,86 @@ collision_enabled = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="monster_fence" unique_id=761148890]
-position = Vector2(2652, -2532)
-shape = SubResource("RectangleShape2D_llkrw")
+position = Vector2(4584, -2508)
+shape = SubResource("RectangleShape2D_qbdog")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="monster_fence" unique_id=1443572717]
-position = Vector2(2940, -2772)
-shape = SubResource("RectangleShape2D_tvyam")
+position = Vector2(4428, -2700)
+shape = SubResource("RectangleShape2D_1eqvx")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="monster_fence" unique_id=700645289]
+position = Vector2(4248, -2508)
+shape = SubResource("RectangleShape2D_yk2pb")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="monster_fence" unique_id=1843635646]
+position = Vector2(4428, -2376)
+shape = SubResource("RectangleShape2D_8c551")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="monster_fence" unique_id=2122634591]
+position = Vector2(4560, -2268)
+shape = SubResource("RectangleShape2D_xah8n")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="monster_fence" unique_id=1348190288]
+position = Vector2(4560, -2124)
+shape = SubResource("RectangleShape2D_5tyd5")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="monster_fence" unique_id=1472876533]
+position = Vector2(4272, -2124)
+shape = SubResource("RectangleShape2D_ghynl")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="monster_fence" unique_id=1843135412]
+position = Vector2(4428, -1932)
+shape = SubResource("RectangleShape2D_2fctl")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="monster_fence" unique_id=2085358927]
+position = Vector2(4428, -2064)
+shape = SubResource("RectangleShape2D_gf4qp")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="monster_fence" unique_id=1023437110]
+position = Vector2(4308, -1812)
+shape = SubResource("RectangleShape2D_13bgd")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="monster_fence" unique_id=1783542866]
+position = Vector2(4260, -1692)
+shape = SubResource("RectangleShape2D_xtkls")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="monster_fence" unique_id=505527362]
+position = Vector2(4044, -1764)
+shape = SubResource("RectangleShape2D_1rfu8")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="monster_fence" unique_id=1941366360]
+position = Vector2(4380, -1560)
+shape = SubResource("RectangleShape2D_fbq5r")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="monster_fence" unique_id=1042589680]
+position = Vector2(4524, -1560)
+shape = SubResource("RectangleShape2D_s3dmt")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="monster_fence" unique_id=818396827]
+position = Vector2(3660, -1812)
+shape = SubResource("RectangleShape2D_37mbn")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="monster_fence" unique_id=173448816]
+position = Vector2(4272, -2268)
+shape = SubResource("RectangleShape2D_iwltt")
+debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
 
 [node name="walls" type="StaticBody2D" parent="." unique_id=444147778]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=1393468085]
 polygon = PackedVector2Array(4296, -1752, 4224, -1752, 4224, -1728.911, 4248, -1728, 4248, -1680, 4224, -1680, 4224, -1704, 4200, -1704, 4200, -1728, 4176, -1728, 4176, -1752, 4152, -1752, 4152, -1776, 4080, -1776, 4032, -1776, 4032, -1800, 3840, -1800, 3840, -1776, 3744, -1776, 3744, -1800, 3672, -1800, 3672, -1848, 3720, -1848, 3720, -1872, 3696, -1872, 3696, -1920, 3720, -1920, 3720, -2088, 3600, -2088, 3600, -2232, 3528, -2232, 3528, -2064, 3648, -2064, 3648, -1920, 3672, -1920, 3672, -1872, 3648, -1872, 3648, -1800, 3624, -1800, 3624, -1776, 3576, -1776, 3576, -1752, 3480, -1752, 3480, -1776, 3432, -1776, 3432, -1824, 3408, -1824, 3408, -1752, 3456, -1752, 3456, -1728, 3600, -1728, 3600, -1752, 3648, -1752, 3648, -1776, 3720, -1776, 3720, -1752, 3864, -1752, 3864, -1776, 4008, -1776, 4008, -1752, 4056, -1752, 4056, -1728, 4080, -1728, 4080, -1608, 4104, -1608, 4104, -1536, 4128, -1536, 4128, -1512, 4152, -1512, 4152, -1488, 4176, -1488, 4176, -1464, 4296, -1464, 4296, -1488, 4320, -1488, 4320, -1512, 4464, -1512, 4464, -1488, 4488, -1488, 4488, -1464, 4608, -1464, 4608, -1488, 4632, -1488, 4632, -1512, 4656, -1512, 4656, -1560, 4680, -1560, 4680, -1608, 4704, -1608, 4704, -1752, 5040, -1800, 5064, -1584, 4800, -1272, 4392, -1176, 4104, -1200, 3912, -1464, 3408, -1512, 3192, -1632, 3360, -2016, 3432, -2280, 3552, -2592, 3888, -2640, 4080, -2712, 4200, -2856, 4296, -3024, 4632, -3048, 4824, -2712, 4800, -2568, 4920, -2616, 5160, -2616, 5232, -2424, 5184, -2208, 5184, -2040, 4704, -1752, 4632, -1752, 4632, -1728, 4608, -1728, 4608, -1704, 4488, -1704, 4488, -1608, 4440, -1608, 4440, -1704, 4416, -1704, 4416, -1608, 4368, -1608, 4368, -1704, 4344, -1704, 4344, -1680, 4272, -1680, 4272, -1728, 4344, -1728, 4344, -1752, 4320, -1752, 4320, -1824, 4368, -1824, 4368, -1848, 4392, -1848, 4392, -1872, 4464, -1872, 4464, -1848, 4488, -1848, 4488, -1824, 4608, -1824, 4608, -1848, 4632, -1848, 4632, -1872, 4656, -1872, 4656, -2088, 4680, -2088, 4680, -2184, 4704, -2184, 4704, -2280, 5040, -2280, 5040, -2304, 5064, -2304, 5064, -2328, 5088, -2328, 5088, -2352, 5112, -2352, 5112, -2376, 5136, -2376, 5136, -2400, 5088, -2400, 5088, -2424, 5088, -2448, 5064, -2448, 5064, -2520, 5040, -2520, 5040, -2448, 5016, -2448, 5016, -2400, 4968, -2400, 4968, -2376, 4944, -2376, 4944, -2328, 4896, -2328, 4896, -2304, 4848, -2304, 4848, -2328, 4800, -2328, 4800, -2352, 4704, -2352, 4704, -2472, 4656, -2472, 4656, -2568, 4608, -2568, 4608, -2664, 4488, -2664, 4488, -2760, 4464, -2760, 4464, -2928, 4368, -2928, 4392, -2904, 4392, -2760, 4368, -2760, 4368, -2664, 4320, -2664, 4320, -2640, 4296, -2640, 4296, -2616, 4248, -2616, 4248, -2568, 4224, -2568, 4224, -2472, 4200, -2472, 4200, -2376, 4224, -2376, 4224, -2280, 4248, -2280, 4248, -2232, 4200, -2232, 4200, -2208, 4152, -2208, 4152, -2232, 4128, -2232, 4128, -2208, 4104, -2208, 4104, -2232, 4056, -2232, 3960, -2232, 3960, -2208, 3912, -2208, 3912, -2256, 3936, -2256, 3936, -2352, 3960, -2352, 3960, -2448, 3912, -2448, 3912, -2400, 3864, -2400, 3864, -2376, 3888, -2376, 3888, -2328, 3840, -2328, 3840, -2208, 3864, -2208, 3864, -2184, 3936, -2184, 3936, -2160, 4056, -2160, 4104, -2160, 4104, -2136, 4128, -2136, 4128, -2160, 4248, -2160, 4248, -2112, 4200, -2112, 4200, -2088, 4152, -2088, 4152, -1872, 4176, -1872, 4176, -1848, 4200, -1848, 4200, -1824, 4296, -1824)
@@ -497,7 +610,7 @@ sprite_frames = ExtResource("20_j8nig")
 
 [node name="ShadeMonster_martyr6" parent="." unique_id=1524361627 instance=ExtResource("16_2fctl")]
 z_index = 2
-position = Vector2(4464, -2064)
+position = Vector2(4344, -2184)
 encounter = ExtResource("20_1rfu8")
 sprite_frames = ExtResource("20_j8nig")
 
