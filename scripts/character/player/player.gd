@@ -25,6 +25,7 @@ var staged_encounter : Encounter = null
 var encounter_on_control_return : Encounter = null
 
 var showing_summary = false
+var showing_menu = false
 
 @export var active : bool = true
 
@@ -135,6 +136,24 @@ func handle_input():
 					showing_summary = false
 					$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
 					$AudioStreamPlayer.play()
+		if(Input.is_action_pressed("menu")):
+			if(not showing_menu && $input_timer.is_stopped()):
+				if(get_tree().get_first_node_in_group("rain_effect") != null):
+					var rain_effect = get_tree().get_first_node_in_group("rain_effect")
+					if(rain_effect.is_active()):
+						rain_effect.visible = false
+				showing_menu = true
+				show_pause_menu()
+				get_tree().paused = true
+				$input_timer.start(0.5)
+			elif(showing_menu):
+				if(get_tree().get_first_node_in_group("rain_effect") != null):
+					var rain_effect = get_tree().get_first_node_in_group("rain_effect")
+					if(rain_effect.is_active()):
+						rain_effect.visible = true
+				showing_menu = false
+				$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
+				$AudioStreamPlayer.play()
 		if(Input.is_action_just_pressed("action_1")):
 			if(grid_aligned() and $input_timer.is_stopped()):
 				handle_interact()
@@ -157,6 +176,13 @@ func show_summary():
 		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 		var pos : Vector2 = camera.get_screen_center_position()
 		summary.global_position = pos
+
+func show_pause_menu():
+	var pause_menu= load("res://menu/pause_menu.tscn").instantiate()
+	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+	var pos : Vector2 = camera.get_screen_center_position()
+	pause_menu.global_position = pos
+	get_parent().add_child(pause_menu)
 
 func handle_animation():
 	if(moving):

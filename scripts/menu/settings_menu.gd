@@ -46,6 +46,7 @@ func handle_control():
 				active = false
 			"BACK":
 				queue_free()
+	
 
 func fade_out():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()

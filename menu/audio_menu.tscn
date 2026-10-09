@@ -7,11 +7,15 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si1p2"]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vy7sn"]
+light_mode = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_cea73"]
 font = ExtResource("3_4g344")
 font_size = 8
 
 [node name="AudioMenu" type="Node2D" unique_id=1002540959]
+process_mode = 3
 z_index = 51
 material = SubResource("CanvasItemMaterial_si1p2")
 script = ExtResource("1_45s5o")
@@ -26,16 +30,21 @@ bus = &"effects"
 
 [node name="menu" type="Node2D" parent="." unique_id=1631247365]
 z_index = 5
+material = SubResource("CanvasItemMaterial_vy7sn")
 
 [node name="hp_gauge" parent="menu" unique_id=40131656 instance=ExtResource("4_rbuna")]
+material = SubResource("CanvasItemMaterial_vy7sn")
 position = Vector2(0, -16)
 
 [node name="hp_gauge2" parent="menu" unique_id=1242947365 instance=ExtResource("4_rbuna")]
+material = SubResource("CanvasItemMaterial_vy7sn")
 
 [node name="hp_gauge3" parent="menu" unique_id=1714891998 instance=ExtResource("4_rbuna")]
+material = SubResource("CanvasItemMaterial_vy7sn")
 position = Vector2(0, 16)
 
 [node name="master" type="Label" parent="menu" unique_id=1790311450]
+material = SubResource("CanvasItemMaterial_vy7sn")
 offset_left = -30.0
 offset_top = -35.0
 offset_right = 30.0
@@ -44,8 +53,10 @@ text = "MASTER"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="effects" type="Label" parent="menu" unique_id=104620410]
+material = SubResource("CanvasItemMaterial_vy7sn")
 offset_left = -30.0
 offset_top = -19.0
 offset_right = 30.0
@@ -54,8 +65,10 @@ text = "EFFECTS"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="music" type="Label" parent="menu" unique_id=59230]
+material = SubResource("CanvasItemMaterial_vy7sn")
 offset_left = -30.0
 offset_top = -3.0
 offset_right = 30.0
@@ -64,8 +77,10 @@ text = "MUSIC"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="back" type="Label" parent="menu" unique_id=1545447479]
+material = SubResource("CanvasItemMaterial_vy7sn")
 offset_left = -30.0
 offset_top = 16.0
 offset_right = 30.0
@@ -74,6 +89,7 @@ text = "BACK"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="scroll_step_timer" type="Timer" parent="." unique_id=2011308752]
 one_shot = true
