@@ -53,3 +53,8 @@ res://sprites/spritesheets/familiars/L1_imp.tres
 res://monsters/shade_monster.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
 res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
+res://locations/zones/zone_homestead.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_pool.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn
+res://locations/zones/gloomy_woods/zone_cliffs_house_interior_1.tscn
+res://locations/zones/zone_grandmas_house.tscn

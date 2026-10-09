@@ -516,10 +516,12 @@ color = Color(0.44313726, 0.44313726, 0.44313726, 1)
 [node name="wind" type="AudioStreamPlayer" parent="." unique_id=579480358]
 stream = ExtResource("28_d20f1")
 volume_db = -24.0
+bus = &"effects"
 
 [node name="organ_music" type="AudioStreamPlayer" parent="." unique_id=482488475]
 stream = ExtResource("29_mur1e")
 volume_db = -6.0
+bus = &"music"
 
 [node name="altar" type="StaticBody2D" parent="." unique_id=1579862005 groups=["interactable"]]
 position = Vector2(-24, -24)

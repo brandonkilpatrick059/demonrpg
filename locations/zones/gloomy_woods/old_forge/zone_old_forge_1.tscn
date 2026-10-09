@@ -481,6 +481,7 @@ text = Array[String](["\"[color=white]Let me help you...[/color]\""])
 [node name="laugh_2" type="AudioStreamPlayer2D" parent="." unique_id=789788775]
 position = Vector2(1608, 528)
 attenuation = 6.2766743
+bus = &"effects"
 script = ExtResource("21_nwm68")
 sounds = Array[AudioStream]([ExtResource("22_wftme"), ExtResource("23_l56ys"), ExtResource("24_j04qn"), ExtResource("25_ppngs")])
 min_wait_secs = 10.0
