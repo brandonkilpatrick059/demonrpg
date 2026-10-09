@@ -64,3 +64,7 @@ res://scripts/menu/save_load_menu.gd
 res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn
 res://scripts/character/player/player.gd
 res://battle/battle_system.tscn
+res://battle/encounters/imp_encounter.tscn
+res://menu/controls_menu.tscn
+res://scripts/interface/glyph_switcher.gd
+res://scripts/menu/controls_menu.gd

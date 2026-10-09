@@ -1,3 +1,4 @@
+res://scripts/interface/
 C:/dev/demon_rpg_web_test_5/
 C:/dev/demon_rpg_web_test_4/
 C:/dev/demon_rpg_web_test_3/
@@ -10,7 +11,6 @@ res://utility/
 res://scripts/character/player/
 res://
 res://sprites/spritesheets/familiars/
-res://scripts/interface/
 res://scripts/menu/
 res://sprites/spritesheets/interface/
 res://sprites/spritesheets/props/structure/

@@ -79,6 +79,15 @@ func handle_control():
 					$AudioStreamPlayer.stream = load("res://audio/effects/bell_quicker.ogg")
 					$AudioStreamPlayer.play()
 					set_inactive()
+				"CONTROLS":
+					var controls_menu = load("res://menu/controls_menu.tscn").instantiate()
+					var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+					controls_menu.global_position = camera.get_screen_center_position()
+					get_parent().add_child(controls_menu)
+					controls_menu.set_parent_menu(self)
+					$AudioStreamPlayer.stream = load("res://audio/effects/bell_quicker.ogg")
+					$AudioStreamPlayer.play()
+					set_inactive()
 				"EXIT":
 					get_tree().quit() 
 

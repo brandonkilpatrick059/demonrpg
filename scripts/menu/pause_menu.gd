@@ -49,9 +49,20 @@ func handle_control():
 				$AudioStreamPlayer.play()
 				set_inactive()
 			"CONTROLS":
+				var controls_menu = load("res://menu/controls_menu.tscn").instantiate()
+				var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+				controls_menu.global_position = camera.get_screen_center_position()
+				get_parent().add_child(controls_menu)
+				controls_menu.set_parent_menu(self)
+				$AudioStreamPlayer.stream = load("res://audio/effects/bell_quicker.ogg")
+				$AudioStreamPlayer.play()
+				set_inactive()
+			"CONTROLS":
 				pass #TODO: implement
 			"RETURN":
 				get_tree().paused = false
+				var player : Player = get_tree().get_first_node_in_group("player")
+				player.play_sound(load("res://audio/effects/bell_quicker.ogg"))
 				queue_free()
 			"QUIT":
 				#TODO: are you sure?

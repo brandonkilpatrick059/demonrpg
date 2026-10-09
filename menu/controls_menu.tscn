@@ -1,0 +1,411 @@
+[gd_scene format=3 uid="uid://ckdfqwm3ybo3y"]
+
+[ext_resource type="Script" uid="uid://dljugf4ptqokm" path="res://scripts/menu/controls_menu.gd" id="1_7arxs"]
+[ext_resource type="Script" uid="uid://bvnulydsljkna" path="res://scripts/interface/glyph_switcher.gd" id="2_dbej0"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="2_lp7mc"]
+[ext_resource type="Texture2D" uid="uid://bec1bkjil2er4" path="res://sprites/interface/glyphs/keyboard/w_key.png" id="3_4hbxn"]
+[ext_resource type="Texture2D" uid="uid://wkcrcemoqkuq" path="res://sprites/interface/glyphs/keyboard/a_key.png" id="4_3h2fx"]
+[ext_resource type="Texture2D" uid="uid://ccub4de30vg4f" path="res://sprites/interface/glyphs/keyboard/s_key.png" id="5_611xr"]
+[ext_resource type="Texture2D" uid="uid://dust1h5h4pvsc" path="res://sprites/interface/glyphs/keyboard/d_key.png" id="6_4i877"]
+[ext_resource type="Texture2D" uid="uid://c5fjpwpibj0w6" path="res://sprites/interface/glyphs/keyboard/up_key.png" id="7_611xr"]
+[ext_resource type="Texture2D" uid="uid://cts6p4il45tu" path="res://sprites/interface/glyphs/keyboard/left_key.png" id="8_4i877"]
+[ext_resource type="Texture2D" uid="uid://2ti8im0gknkh" path="res://sprites/interface/glyphs/keyboard/down_key.png" id="9_44agq"]
+[ext_resource type="Texture2D" uid="uid://cc8lxv2c2ijne" path="res://sprites/interface/glyphs/keyboard/right_key.png" id="10_yjhva"]
+[ext_resource type="Texture2D" uid="uid://c5ux7vx65o27c" path="res://sprites/interface/glyphs/keyboard/space_key.png" id="11_4i877"]
+[ext_resource type="Texture2D" uid="uid://dpnwkge7i2780" path="res://sprites/interface/glyphs/keyboard/shift_key.png" id="12_yjhva"]
+[ext_resource type="Texture2D" uid="uid://bkqh74q56p0kt" path="res://sprites/interface/glyphs/keyboard/tab_key.png" id="13_n8rtc"]
+[ext_resource type="Texture2D" uid="uid://cegdgdotdiffo" path="res://sprites/interface/glyphs/keyboard/enter_key.png" id="14_q8t0u"]
+[ext_resource type="Texture2D" uid="uid://d3r4psrtbi1a8" path="res://sprites/interface/glyphs/keyboard/esc_key.png" id="15_gvhi5"]
+[ext_resource type="Texture2D" uid="uid://rs5e0f7bgfoe" path="res://sprites/interface/glyphs/controller/L_stick_up.png" id="16_2in88"]
+[ext_resource type="Texture2D" uid="uid://deuoggophoufd" path="res://sprites/interface/glyphs/controller/L_stick_left.png" id="17_srigv"]
+[ext_resource type="Texture2D" uid="uid://bbs636q8me3n2" path="res://sprites/interface/glyphs/controller/L_stick_down.png" id="18_clccs"]
+[ext_resource type="Texture2D" uid="uid://c7nn4rf4nevcy" path="res://sprites/interface/glyphs/controller/L_stick_right.png" id="19_67vo8"]
+[ext_resource type="Texture2D" uid="uid://3ksvobxu4klw" path="res://sprites/interface/glyphs/controller/pad_up.png" id="20_vfcsd"]
+[ext_resource type="Texture2D" uid="uid://bef1mst5valb" path="res://sprites/interface/glyphs/controller/pad_left.png" id="21_m658t"]
+[ext_resource type="Texture2D" uid="uid://rbs2h2q0d45y" path="res://sprites/interface/glyphs/controller/pad_down.png" id="22_5hxmi"]
+[ext_resource type="Texture2D" uid="uid://c4uru7xbi4g8b" path="res://sprites/interface/glyphs/controller/pad_right.png" id="23_hlhs0"]
+[ext_resource type="Texture2D" uid="uid://qmbdv0olep04" path="res://sprites/interface/glyphs/controller/xbox/a_button_xb.png" id="24_m658t"]
+[ext_resource type="Texture2D" uid="uid://7nthfjgxfhgq" path="res://sprites/interface/glyphs/controller/xbox/b_button_xb.png" id="25_5hxmi"]
+[ext_resource type="Texture2D" uid="uid://dnd8pufsujuyc" path="res://sprites/interface/glyphs/controller/xbox/select_button_xb.png" id="26_g4tpb"]
+[ext_resource type="Texture2D" uid="uid://dvdfpuf2d3vgx" path="res://sprites/interface/glyphs/controller/xbox/start_button_xb.png" id="26_hlhs0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si1p2"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7arxs"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("2_lp7mc")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_n3wst"]
+font = ExtResource("2_lp7mc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
+size = Vector2(256, 128)
+
+[node name="ControlsMenu" type="Node2D" unique_id=1002540959]
+process_mode = 3
+z_index = 52
+material = SubResource("CanvasItemMaterial_si1p2")
+script = ExtResource("1_7arxs")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1726043755]
+z_index = 5
+material = SubResource("CanvasItemMaterial_si1p2")
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-192, -192, 192, -192, 192, 180, -192, 180)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=482914544]
+bus = &"effects"
+
+[node name="keyboard_controls" type="Node2D" parent="." unique_id=1631247365]
+z_index = 5
+position = Vector2(25, 15)
+
+[node name="movement" type="Node2D" parent="keyboard_controls" unique_id=786379833 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(-25, -7)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("wasd"), NodePath("arrows")]
+switch_time = 2.0
+
+[node name="move" type="Label" parent="keyboard_controls/movement" unique_id=1104361979]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -19.0
+offset_top = -39.0
+offset_right = 21.0
+offset_bottom = -16.0
+text = "MOVEMENT"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="wasd" type="Node2D" parent="keyboard_controls/movement" unique_id=1165070558]
+
+[node name="w" type="Sprite2D" parent="keyboard_controls/movement/wasd" unique_id=47995303]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(0, -18)
+texture = ExtResource("3_4hbxn")
+
+[node name="a" type="Sprite2D" parent="keyboard_controls/movement/wasd" unique_id=335139523]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-18, 0)
+texture = ExtResource("4_3h2fx")
+
+[node name="s" type="Sprite2D" parent="keyboard_controls/movement/wasd" unique_id=169408049]
+material = SubResource("CanvasItemMaterial_7arxs")
+texture = ExtResource("5_611xr")
+
+[node name="d" type="Sprite2D" parent="keyboard_controls/movement/wasd" unique_id=1558889789]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(18, 0)
+texture = ExtResource("6_4i877")
+
+[node name="arrows" type="Node2D" parent="keyboard_controls/movement" unique_id=104679433]
+
+[node name="up" type="Sprite2D" parent="keyboard_controls/movement/arrows" unique_id=1598058812]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(0, -18)
+texture = ExtResource("7_611xr")
+
+[node name="left" type="Sprite2D" parent="keyboard_controls/movement/arrows" unique_id=1340125578]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-18, 0)
+texture = ExtResource("8_4i877")
+
+[node name="down" type="Sprite2D" parent="keyboard_controls/movement/arrows" unique_id=309685158]
+material = SubResource("CanvasItemMaterial_7arxs")
+texture = ExtResource("9_44agq")
+
+[node name="right" type="Sprite2D" parent="keyboard_controls/movement/arrows" unique_id=370113078]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(18, 0)
+texture = ExtResource("10_yjhva")
+
+[node name="select" type="Node2D" parent="keyboard_controls" unique_id=1847960227 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(-8, 47)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("space")]
+switch_time = 2.0
+
+[node name="select" type="Label" parent="keyboard_controls/select" unique_id=1236609097]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -13.0
+text = "SELECT"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="space" type="Node2D" parent="keyboard_controls/select" unique_id=79081241]
+
+[node name="space" type="Sprite2D" parent="keyboard_controls/select/space" unique_id=416052703]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(0, -18)
+texture = ExtResource("11_4i877")
+
+[node name="back" type="Node2D" parent="keyboard_controls" unique_id=1668881129 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(-41, 47)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("shift")]
+switch_time = 2.0
+
+[node name="back" type="Label" parent="keyboard_controls/back" unique_id=65775624]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -13.0
+text = "BACK"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="shift" type="Node2D" parent="keyboard_controls/back" unique_id=1812444442]
+
+[node name="shift" type="Sprite2D" parent="keyboard_controls/back/shift" unique_id=1030681707]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-4, -18)
+texture = ExtResource("12_yjhva")
+
+[node name="summary" type="Node2D" parent="keyboard_controls" unique_id=1014781307 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(-87, 21)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("tab2")]
+switch_time = 2.0
+
+[node name="summary" type="Label" parent="keyboard_controls/summary" unique_id=1086013096]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -13.0
+text = "SUMMARY"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="tab2" type="Node2D" parent="keyboard_controls/summary" unique_id=1832648078]
+position = Vector2(7, 0)
+
+[node name="tab" type="Sprite2D" parent="keyboard_controls/summary/tab2" unique_id=1302106630]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-4, -18)
+texture = ExtResource("13_n8rtc")
+
+[node name="pause_1" type="Node2D" parent="keyboard_controls" unique_id=143292887 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(35, 21)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("enter")]
+switch_time = 2.0
+
+[node name="pause" type="Label" parent="keyboard_controls/pause_1" unique_id=1359205969]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -13.0
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="enter" type="Node2D" parent="keyboard_controls/pause_1" unique_id=533610932]
+position = Vector2(2, 0)
+
+[node name="enter" type="Sprite2D" parent="keyboard_controls/pause_1/enter" unique_id=1037272216]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-4, -18)
+texture = ExtResource("14_q8t0u")
+
+[node name="pause_2" type="Node2D" parent="keyboard_controls" unique_id=1513749594 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(-86, -9)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("esc")]
+switch_time = 2.0
+
+[node name="pause" type="Label" parent="keyboard_controls/pause_2" unique_id=1008034707]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -13.0
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="esc" type="Node2D" parent="keyboard_controls/pause_2" unique_id=1035532377]
+position = Vector2(2, 2)
+
+[node name="esc" type="Sprite2D" parent="keyboard_controls/pause_2/esc" unique_id=798165397]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-4, -18)
+texture = ExtResource("15_gvhi5")
+
+[node name="keyboard" type="Label" parent="keyboard_controls" unique_id=2109147912]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -80.0
+offset_top = -79.0
+offset_right = 30.0
+offset_bottom = -56.0
+text = "<-KEYBOARD->"
+label_settings = SubResource("LabelSettings_n3wst")
+
+[node name="controller_xbox" type="Node2D" parent="." unique_id=2142071508]
+visible = false
+z_index = 5
+position = Vector2(25, 15)
+
+[node name="movement" type="Node2D" parent="controller_xbox" unique_id=813464598 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(-78, -15)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("stick"), NodePath("d_pad")]
+switch_time = 2.0
+
+[node name="move" type="Label" parent="controller_xbox/movement" unique_id=1131149734]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -19.0
+offset_top = -39.0
+offset_right = 21.0
+offset_bottom = -16.0
+text = "MOVEMENT"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="stick" type="Node2D" parent="controller_xbox/movement" unique_id=199788293]
+
+[node name="l_stick_up" type="Sprite2D" parent="controller_xbox/movement/stick" unique_id=119808552]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(0, -18)
+texture = ExtResource("16_2in88")
+
+[node name="l_stick_left" type="Sprite2D" parent="controller_xbox/movement/stick" unique_id=2125345712]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-18, 0)
+texture = ExtResource("17_srigv")
+
+[node name="l_stick_down" type="Sprite2D" parent="controller_xbox/movement/stick" unique_id=486738437]
+material = SubResource("CanvasItemMaterial_7arxs")
+texture = ExtResource("18_clccs")
+
+[node name="l_stick_right" type="Sprite2D" parent="controller_xbox/movement/stick" unique_id=89523197]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(18, 0)
+texture = ExtResource("19_67vo8")
+
+[node name="d_pad" type="Node2D" parent="controller_xbox/movement" unique_id=1391385792]
+visible = false
+
+[node name="up" type="Sprite2D" parent="controller_xbox/movement/d_pad" unique_id=1680345759]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(0, -18)
+texture = ExtResource("20_vfcsd")
+
+[node name="left" type="Sprite2D" parent="controller_xbox/movement/d_pad" unique_id=1861960156]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-18, 0)
+texture = ExtResource("21_m658t")
+
+[node name="down" type="Sprite2D" parent="controller_xbox/movement/d_pad" unique_id=191642418]
+material = SubResource("CanvasItemMaterial_7arxs")
+texture = ExtResource("22_5hxmi")
+
+[node name="right" type="Sprite2D" parent="controller_xbox/movement/d_pad" unique_id=1436364140]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(18, 0)
+texture = ExtResource("23_hlhs0")
+
+[node name="select" type="Node2D" parent="controller_xbox" unique_id=843945217 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(12, 2)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("a_button")]
+switch_time = 2.0
+
+[node name="select" type="Label" parent="controller_xbox/select" unique_id=291127473]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -13.0
+text = "SELECT"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="a_button" type="Node2D" parent="controller_xbox/select" unique_id=463555490]
+
+[node name="a_button" type="Sprite2D" parent="controller_xbox/select/a_button" unique_id=2069516184]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-1, -18)
+texture = ExtResource("24_m658t")
+
+[node name="back" type="Node2D" parent="controller_xbox" unique_id=1396385590 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(45, 2)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("b_button")]
+switch_time = 2.0
+
+[node name="back" type="Label" parent="controller_xbox/back" unique_id=415122155]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -13.0
+text = "BACK"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="b_button" type="Node2D" parent="controller_xbox/back" unique_id=863405071]
+
+[node name="b_button" type="Sprite2D" parent="controller_xbox/back/b_button" unique_id=692439447]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-5, -18)
+texture = ExtResource("25_5hxmi")
+
+[node name="summary" type="Node2D" parent="controller_xbox" unique_id=2053917005 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(-51, 41)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("select")]
+switch_time = 2.0
+
+[node name="summary" type="Label" parent="controller_xbox/summary" unique_id=2075129489]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -13.0
+text = "SUMMARY"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="select" type="Node2D" parent="controller_xbox/summary" unique_id=577828797]
+position = Vector2(7, 0)
+
+[node name="select" type="Sprite2D" parent="controller_xbox/summary/select" unique_id=1321606757]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-4, -18)
+texture = ExtResource("26_g4tpb")
+
+[node name="pause_1" type="Node2D" parent="controller_xbox" unique_id=2064820174 node_paths=PackedStringArray("glyph_sets")]
+position = Vector2(-4, 41)
+script = ExtResource("2_dbej0")
+glyph_sets = [NodePath("start")]
+switch_time = 2.0
+
+[node name="pause" type="Label" parent="controller_xbox/pause_1" unique_id=1202170521]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -13.0
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_cea73")
+
+[node name="start" type="Node2D" parent="controller_xbox/pause_1" unique_id=2020437444]
+position = Vector2(2, 0)
+
+[node name="start" type="Sprite2D" parent="controller_xbox/pause_1/start" unique_id=1329361487]
+material = SubResource("CanvasItemMaterial_7arxs")
+position = Vector2(-4, -18)
+texture = ExtResource("26_hlhs0")
+
+[node name="controller_xbox" type="Label" parent="controller_xbox" unique_id=299410577]
+material = SubResource("CanvasItemMaterial_7arxs")
+offset_left = -114.0
+offset_top = -79.0
+offset_right = 64.0
+offset_bottom = -56.0
+text = "<-CONTROLLER (XBOX)->"
+label_settings = SubResource("LabelSettings_n3wst")
+
+[node name="xbox_controls" type="Node2D" parent="." unique_id=1532906104]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=581994608]
+shape = SubResource("RectangleShape2D_cea73")
