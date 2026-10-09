@@ -1,5 +1,4 @@
-res://default_bus_layout.tres
-res://locations/zones/zone_homestead.tscn
+res://menu/settings_menu.tscn
 res://sprites/spritesheets/battle/interface/battle_action_tab.tres
 res://sprites/spritesheets/battle/interface/energy_cost.tres
 res://sprites/spritesheets/battle/interface/battle_energy_bar.tres
@@ -51,4 +50,15 @@ res://sprites/spritesheets/interface/save_load_tab.tres
 res://sprites/spritesheets/familiars/L1_ghost.tres
 res://sprites/spritesheets/monsters/shade_monster_4.tres
 res://sprites/spritesheets/familiars/L1_imp.tres
-res://locations/zones/zone_end_of_demo.tscn
+res://scripts/menu/settings_menu.gd
+res://menu/audio_menu.tscn
+res://scripts/menu/audio_menu.gd
+res://menu/pause_menu.tscn
+res://scripts/menu/pause_menu.gd
+res://menu/save_load_menu.tscn
+res://scripts/battle_system/interface/hp_gauge.gd
+res://menu/main_menu.tscn
+res://scripts/menu/main_menu.gd
+res://default_bus_layout.tres
+res://scripts/menu/save_load_menu.gd
+res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn

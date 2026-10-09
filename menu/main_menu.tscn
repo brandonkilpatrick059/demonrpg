@@ -107,6 +107,7 @@ start_after_wait = 3.0
 stream = ExtResource("9_l5uyn")
 volume_db = 9.0
 autoplay = true
+bus = &"music"
 
 [node name="fade_black" type="Polygon2D" parent="." unique_id=937905613 groups=["fade_black"]]
 visible = false
@@ -169,9 +170,15 @@ text = "LOAD GAME"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 
-[node name="options" type="Label" parent="menu/VBoxContainer" unique_id=797690870]
+[node name="audio" type="Label" parent="menu/VBoxContainer" unique_id=797690870]
 layout_mode = 2
-text = "OPTIONS"
+text = "AUDIO"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+
+[node name="controls" type="Label" parent="menu/VBoxContainer" unique_id=42902831]
+layout_mode = 2
+text = "CONTROLS"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 

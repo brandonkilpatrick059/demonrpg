@@ -115,9 +115,9 @@ label_settings = SubResource("LabelSettings_wblr4")
 [node name="to_next" type="Label" parent="." unique_id=713345141]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = -33.0
-offset_top = -18.0
+offset_top = -27.0
 offset_right = 19.0
-offset_bottom = -9.0
+offset_bottom = -18.0
 text = "NEXT : 99999"
 label_settings = SubResource("LabelSettings_n3wst")
 

@@ -7,14 +7,13 @@ func _ready() -> void:
 	if(gamestate.get_state_map_value(gore_name) == "GATHERED"):
 		queue_free()
 
-
 func interact():
 	var player_ref : Player = get_tree().get_first_node_in_group("player")
 	player_ref.play_texts([$Text])
 	player_ref.play_sound(load("res://audio/effects/feed.ogg"))
 	var familiars : Array[Familiar] = player_ref.get_familiars_team()
 	for familiar : Familiar in familiars:
-		if(not familiar.is_dead()):
+		if(not familiar.is_dead() && not familiar.is_incorporeal()):
 			if(familiar.get_current_hp() + heal_amount > familiar.get_max_hp()):
 				familiar.set_current_hp(familiar.get_max_hp())
 			else:

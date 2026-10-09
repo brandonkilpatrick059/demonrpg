@@ -59,6 +59,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=482914544]
+bus = &"effects"
 
 [node name="save_load_manager" type="Node" parent="." unique_id=236788886]
 script = ExtResource("4_sp2d5")

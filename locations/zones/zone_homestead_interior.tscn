@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cvcgxpepgk68x" path="res://sprites/props/interior/lamp.png" id="17_40at6"]
 [ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="19_8wh00"]
 [ext_resource type="Texture2D" uid="uid://cicmq4ty7hb55" path="res://sprites/props/interior/open_book.png" id="20_81y2k"]
+[ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="21_msxrq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -362,7 +363,7 @@ nodes = [NodePath("../../lamp")]
 script = ExtResource("19_8wh00")
 gamestate_key = "HOUSE_ENTERED"
 run_if_state = "TRUE"
-scripts = [NodePath("q_free_mother"), NodePath("q_free_interact_2"), NodePath("q_free_interact_1"), NodePath("q_free_modulate")]
+scripts = [NodePath("q_free_mother"), NodePath("q_free_interact_2"), NodePath("q_free_interact_1")]
 
 [node name="q_free_mother" type="Node" parent="entered_house_ready_scripts" unique_id=2036259913 node_paths=PackedStringArray("nodes")]
 script = ExtResource("17_3fm0o")
@@ -376,29 +377,41 @@ nodes = [NodePath("../../interact_zone_1")]
 script = ExtResource("17_3fm0o")
 nodes = [NodePath("../../interact_zone_lamp_convo")]
 
-[node name="q_free_modulate" type="Node" parent="entered_house_ready_scripts" unique_id=1387039492 node_paths=PackedStringArray("nodes")]
-script = ExtResource("17_3fm0o")
-nodes = [NodePath("../../CanvasModulate")]
-
 [node name="entered_house_ready_scripts_false" type="Node" parent="." unique_id=1256847899 node_paths=PackedStringArray("scripts")]
 script = ExtResource("19_8wh00")
 gamestate_key = "HOUSE_ENTERED"
 run_if_state = "NONE"
-scripts = [NodePath("q_free_book")]
+scripts = [NodePath("q_free_book"), NodePath("q_free_modulate"), NodePath("q_free_wind_sound")]
 
 [node name="q_free_book" type="Node" parent="entered_house_ready_scripts_false" unique_id=635407521 node_paths=PackedStringArray("nodes")]
 script = ExtResource("17_3fm0o")
 nodes = [NodePath("../../interactable_area_book")]
 
+[node name="q_free_modulate" type="Node" parent="entered_house_ready_scripts_false" unique_id=1387039492 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../CanvasModulate")]
+
+[node name="q_free_wind_sound" type="Node" parent="entered_house_ready_scripts_false" unique_id=252334587 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../wind")]
+
 [node name="entered_house_ready_scripts_false2" type="Node" parent="." unique_id=922043957 node_paths=PackedStringArray("scripts")]
 script = ExtResource("19_8wh00")
 gamestate_key = "HOUSE_ENTERED"
 run_if_state = "FALSE"
-scripts = [NodePath("q_free_book")]
+scripts = [NodePath("q_free_book"), NodePath("q_free_modulate2"), NodePath("q_free_wind_sound2")]
 
 [node name="q_free_book" type="Node" parent="entered_house_ready_scripts_false2" unique_id=1349909045 node_paths=PackedStringArray("nodes")]
 script = ExtResource("17_3fm0o")
 nodes = [NodePath("../../interactable_area_book")]
+
+[node name="q_free_modulate2" type="Node" parent="entered_house_ready_scripts_false2" unique_id=166301741 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../CanvasModulate")]
+
+[node name="q_free_wind_sound2" type="Node" parent="entered_house_ready_scripts_false2" unique_id=2082501468 node_paths=PackedStringArray("nodes")]
+script = ExtResource("17_3fm0o")
+nodes = [NodePath("../../wind")]
 
 [node name="interactable_area_book" type="StaticBody2D" parent="." unique_id=1667022792 node_paths=PackedStringArray("scripts")]
 position = Vector2(-24, 120)
@@ -460,6 +473,12 @@ offset = Vector2(12, 12)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1446895130]
 color = Color(0.6706895, 0.6706895, 0.6706895, 1)
+
+[node name="wind" type="AudioStreamPlayer" parent="." unique_id=1974339771 groups=["global_music_player"]]
+stream = ExtResource("21_msxrq")
+volume_db = -20.612
+autoplay = true
+bus = &"effects"
 
 [connection signal="body_entered" from="interact_zone_1" to="interact_zone_1" method="_on_body_entered"]
 [connection signal="body_entered" from="interact_zone_lamp_convo" to="interact_zone_lamp_convo" method="_on_body_entered"]

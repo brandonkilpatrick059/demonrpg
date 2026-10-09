@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bw4s62ewb0jrt"]
+
+[ext_resource type="Script" uid="uid://i3njj4h50o40" path="res://scripts/menu/audio_menu.gd" id="1_45s5o"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="3_4g344"]
+[ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="4_rbuna"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si1p2"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("3_4g344")
+font_size = 8
+
+[node name="AudioMenu" type="Node2D" unique_id=1002540959]
+z_index = 51
+material = SubResource("CanvasItemMaterial_si1p2")
+script = ExtResource("1_45s5o")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1726043755]
+material = SubResource("CanvasItemMaterial_si1p2")
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-192, -192, 192, -192, 192, 180, -192, 180)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=482914544]
+bus = &"effects"
+
+[node name="menu" type="Node2D" parent="." unique_id=1631247365]
+z_index = 5
+
+[node name="hp_gauge" parent="menu" unique_id=40131656 instance=ExtResource("4_rbuna")]
+position = Vector2(0, -16)
+
+[node name="hp_gauge2" parent="menu" unique_id=1242947365 instance=ExtResource("4_rbuna")]
+
+[node name="hp_gauge3" parent="menu" unique_id=1714891998 instance=ExtResource("4_rbuna")]
+position = Vector2(0, 16)
+
+[node name="master" type="Label" parent="menu" unique_id=1790311450]
+offset_left = -30.0
+offset_top = -35.0
+offset_right = 30.0
+offset_bottom = -12.0
+text = "MASTER"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="effects" type="Label" parent="menu" unique_id=104620410]
+offset_left = -30.0
+offset_top = -19.0
+offset_right = 30.0
+offset_bottom = 4.0
+text = "EFFECTS"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music" type="Label" parent="menu" unique_id=59230]
+offset_left = -30.0
+offset_top = -3.0
+offset_right = 30.0
+offset_bottom = 20.0
+text = "MUSIC"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back" type="Label" parent="menu" unique_id=1545447479]
+offset_left = -30.0
+offset_top = 16.0
+offset_right = 30.0
+offset_bottom = 39.0
+text = "BACK"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scroll_step_timer" type="Timer" parent="." unique_id=2011308752]
+one_shot = true

@@ -12,7 +12,7 @@ func _ready() -> void:
 
 #sets the gauge to a percentage full
 #input is as a float between 0.0 and 1.0
-func set_gauge(fraction : float, no_animate : bool = false):
+func set_gauge(fraction : float, no_animate : bool = true):
 	var num_frames = sprite_frames.get_frame_count("default")
 	set_level = (fraction * num_frames)
 	if(fraction > 0 && set_level == 0):

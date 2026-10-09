@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var new_game : Label = $VBoxContainer/new_game
 @onready var load_game : Label = $VBoxContainer/load_game
-@onready var options : Label = $VBoxContainer/options
+@onready var audio : Label = $VBoxContainer/audio
+@onready var controls : Label = $VBoxContainer/controls
 @onready var exit : Label = $VBoxContainer/exit
 @export var web_build : bool = false
 
@@ -18,13 +19,12 @@ var active : bool = false
 func _ready() -> void:
 	var saves_exist : bool = false
 	saves_exist = $save_load_manager.saves_exist()
-	options.visible = false #TODO: ADD OPTIONS
 	if(saves_exist):
-		menu_buttons = ["NEW","LOAD"]
-		menu_labels = [new_game,load_game]
+		menu_buttons = ["NEW","LOAD","AUDIO","CONTROLS"]
+		menu_labels = [new_game,load_game,audio,controls]
 	else:
-		menu_buttons = ["NEW"]
-		menu_labels = [new_game]
+		menu_buttons = ["NEW","AUDIO","CONTROLS"]
+		menu_labels = [new_game,audio,controls]
 		load_game.visible = false
 	if(not web_build):
 		menu_buttons.append("EXIT")
@@ -33,36 +33,54 @@ func _ready() -> void:
 	else:
 		exit.visible = false
 
+func set_active():
+	active = true
+	modulate.a = 1.0
+
+func set_inactive():
+	active = false
+	modulate.a = 0.0
+
 func handle_control():
-	if(Input.is_action_just_pressed("down")):
-		if selected_index < menu_buttons.size() - 1:
-			selected_index = selected_index + 1
-			$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
-			$AudioStreamPlayer.play()
-	elif(Input.is_action_just_pressed("up")):
-		if selected_index > 0:
-			selected_index = selected_index - 1
-			$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
-			$AudioStreamPlayer.play()
-	elif(Input.is_action_just_pressed("action_1")):
-		var selection : String = menu_buttons[selected_index]
-		match selection:
-			"NEW":
-				transition_to_scene = load("res://locations/zone_manager_start.tscn")
-				$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
+	if(active):
+		if(Input.is_action_just_pressed("down")):
+			if selected_index < menu_buttons.size() - 1:
+				selected_index = selected_index + 1
+				$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
 				$AudioStreamPlayer.play()
-				get_tree().get_first_node_in_group("music_player").stop()
-				active = false
-				fade_out()
-			"LOAD":
-				transition_to_scene = load("res://locations/zone_manager_load.tscn")
-				$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
+		elif(Input.is_action_just_pressed("up")):
+			if selected_index > 0:
+				selected_index = selected_index - 1
+				$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
 				$AudioStreamPlayer.play()
-				get_tree().get_first_node_in_group("music_player").stop()
-				active = false
-				fade_out()
-			"EXIT":
-				get_tree().quit() 
+		elif(Input.is_action_just_pressed("action_1")):
+			var selection : String = menu_buttons[selected_index]
+			match selection:
+				"NEW":
+					transition_to_scene = load("res://locations/zone_manager_start.tscn")
+					$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
+					$AudioStreamPlayer.play()
+					get_tree().get_first_node_in_group("music_player").stop()
+					active = false
+					fade_out()
+				"LOAD":
+					transition_to_scene = load("res://locations/zone_manager_load.tscn")
+					$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
+					$AudioStreamPlayer.play()
+					get_tree().get_first_node_in_group("music_player").stop()
+					active = false
+					fade_out()
+				"AUDIO":
+					var audio_menu = load("res://menu/audio_menu.tscn").instantiate()
+					var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+					audio_menu.global_position = camera.get_screen_center_position()
+					get_parent().add_child(audio_menu)
+					audio_menu.set_parent_menu(self)
+					$AudioStreamPlayer.stream = load("res://audio/effects/bell_quicker.ogg")
+					$AudioStreamPlayer.play()
+					set_inactive()
+				"EXIT":
+					get_tree().quit() 
 
 func fade_out():
 	var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
@@ -72,6 +90,12 @@ func fade_out():
 	fade_black.add_child(fade_node)
 
 func _physics_process(delta: float) -> void:
+	#if(Input.is_action_just_pressed("action_1")):
+		#if(active == false):
+			#modulate.a = 1.0
+			#active = true
+			#$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
+			#$AudioStreamPlayer.play()
 	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 	global_position = camera.get_screen_center_position()
 	if(active):
