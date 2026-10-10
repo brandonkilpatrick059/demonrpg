@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_8233o"]
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_71f1i"]
 [ext_resource type="PackedScene" uid="uid://spsrsbiret2c" path="res://battle/actions/action_summon.tscn" id="7_uo36o"]
-[ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="8_tnw1d"]
 [ext_resource type="PackedScene" uid="uid://ddlbmm6vmp03i" path="res://familiars/base/L1_ghost.tscn" id="8_yvoo7"]
 [ext_resource type="PackedScene" uid="uid://btbs1327pmkld" path="res://battle/actions/action_magic_shield.tscn" id="9_yvoo7"]
 
@@ -18,6 +17,7 @@ max_hp = 50
 current_hp = 50
 magic = 20
 no_sigil = true
+capture_hp_percent = 0.1
 action_cadence_0 = Array[String](["SHIELD", "HEAL", "SUMMON", "HEAL", "SHIELD", "FIRE", "HEAL", "SHIELD", "SUMMON"])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
@@ -43,8 +43,3 @@ max_hp_scale = 0.25
 [node name="ActionMagicShield" parent="actions" unique_id=852871821 instance=ExtResource("9_yvoo7")]
 
 [node name="evolutions" type="Node" parent="." unique_id=1074968313]
-
-[node name="stalf" type="Node" parent="evolutions" unique_id=466876910]
-script = ExtResource("8_tnw1d")
-new_base_path = "res://familiars/base/L2_stalf.tscn"
-plus_magic = 5

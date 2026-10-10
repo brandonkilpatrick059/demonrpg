@@ -25,7 +25,7 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
 	summary = str(summary,str(summary,get_action_name()))
-	summary = str(summary,"-[color=white]SHIELDS SELF FOR ")
+	summary = str(summary,"-[color=white]SHIELDS SELF ")
 	var half_damage = get_half_magic(actor)
 	if(half_damage == 0):
 		half_damage = 1

@@ -320,6 +320,8 @@ func set_current_hp(num : int):
 	current_hp = num
 
 func is_dead():
+	if(current_hp == 0):
+		dead = true
 	return dead
 
 func kill(return_sigil : bool = true):

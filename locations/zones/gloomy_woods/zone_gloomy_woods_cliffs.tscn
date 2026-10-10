@@ -598,7 +598,7 @@ sprite_frames = ExtResource("20_j8nig")
 
 [node name="ShadeMonster_martyr7" parent="." unique_id=1974528743 instance=ExtResource("16_2fctl")]
 z_index = 2
-position = Vector2(4632, -2280)
+position = Vector2(4512, -2400)
 encounter = ExtResource("20_1rfu8")
 sprite_frames = ExtResource("20_j8nig")
 

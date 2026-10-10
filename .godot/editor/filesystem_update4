@@ -58,3 +58,9 @@ res://locations/zones/gloomy_woods/zone_gloomy_woods_pool.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn
 res://locations/zones/gloomy_woods/zone_cliffs_house_interior_1.tscn
 res://locations/zones/zone_grandmas_house.tscn
+res://locations/zones/zone_mountain.tscn
+res://scripts/item/healing_gore.gd
+res://battle/encounters/imp_encounter.tscn
+res://familiars/base/L1_imp.tscn
+res://scripts/battle_system/actions/buff/action_magic_shield.gd
+res://scripts/familiars/familiar.gd
