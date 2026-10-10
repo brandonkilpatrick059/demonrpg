@@ -391,7 +391,7 @@ func show_action_menu(familiar : Familiar):
 
 func reset_show_status():
 	status_shown = false
-	awaiting_input =false
+	#awaiting_input =false
 
 func familiar_in_action_queue(familiar : Familiar) -> bool:
 	for action_item : ActionQueueItem in player_action_queue:

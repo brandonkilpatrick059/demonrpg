@@ -158,6 +158,16 @@ func handle_input():
 			if(grid_aligned() and $input_timer.is_stopped()):
 				handle_interact()
 
+func exit_pause_menu():
+	if(showing_menu):
+		if(get_tree().get_first_node_in_group("rain_effect") != null):
+			var rain_effect = get_tree().get_first_node_in_group("rain_effect")
+			if(rain_effect.is_active()):
+				rain_effect.visible = true
+		showing_menu = false
+		$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
+		$AudioStreamPlayer.play()
+
 func play_sound(stream : AudioStream):
 	$AudioStreamPlayer.stream = stream
 	$AudioStreamPlayer.play()

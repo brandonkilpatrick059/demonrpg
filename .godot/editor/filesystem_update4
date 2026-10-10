@@ -64,3 +64,9 @@ res://battle/encounters/imp_encounter.tscn
 res://familiars/base/L1_imp.tscn
 res://scripts/battle_system/actions/buff/action_magic_shield.gd
 res://scripts/familiars/familiar.gd
+res://scripts/character/player/player.gd
+res://scripts/menu/pause_menu.gd
+res://battle/battle_system.tscn
+res://scripts/battle_system/battle_system_manager.gd
+res://scripts/battle_system/actions/damage/magic/action_fire.gd
+res://locations/zone_manager_test.tscn

@@ -63,6 +63,7 @@ func handle_control():
 				get_tree().paused = false
 				var player : Player = get_tree().get_first_node_in_group("player")
 				player.play_sound(load("res://audio/effects/bell_quicker.ogg"))
+				player.exit_pause_menu()
 				queue_free()
 			"QUIT":
 				#TODO: are you sure?

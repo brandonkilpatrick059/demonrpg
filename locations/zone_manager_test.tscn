@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
 [ext_resource type="PackedScene" uid="uid://dhrtarwbrrgma" path="res://locations/zones/zone_homestead.tscn" id="6_4sbi0"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
+[ext_resource type="PackedScene" uid="uid://dgil6lq8m0otl" path="res://familiars/base/L1_imp.tscn" id="6_vlo4x"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]
@@ -125,12 +126,16 @@ offset_bottom = 1170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Player" parent="." unique_id=286954556 instance=ExtResource("3_r2q7f")]
+[node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
 position = Vector2(-24, 48)
+familiar_team = [NodePath("L1imp")]
 pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
 position = Vector2(12, -12)
+
+[node name="L1imp" parent="Player" unique_id=2120251354 instance=ExtResource("6_vlo4x")]
+visible = false
 
 [node name="zone_homestead" parent="." unique_id=1169712370 instance=ExtResource("6_4sbi0")]
 
