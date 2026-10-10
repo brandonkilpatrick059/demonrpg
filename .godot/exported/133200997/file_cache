@@ -33,7 +33,7 @@ res://battle/encounters/gark_encounter_solo.tscn::a8d710a6552c10a09c99cbf07aafb9
 res://battle/encounters/ghost_encounter_1.tscn::c9b43d06ca2dcafa6e06323eca065400::1790814906::res://.godot/exported/133200997/export-857911f8c13f7b8f4f7a9d7aa764d8f8-ghost_encounter_1.scn
 res://battle/encounters/homunculus_encounter_1.tscn::96d6fd0e81b21018aa3339cfa150e211::1786918075::res://.godot/exported/133200997/export-2e4dc66ac6cb3988934b44cca7d8fb23-homunculus_encounter_1.scn
 res://battle/encounters/homunculus_encounter_2.tscn::c2ef4d527c5a4b2a2c326cf61cd7eb06::1786918092::res://.godot/exported/133200997/export-da7a30d373ad513d55b2b047cdcf2020-homunculus_encounter_2.scn
-res://battle/encounters/imp_encounter.tscn::c4710d75c2928d1d8758718ffa360b40::1791605757::res://.godot/exported/133200997/export-f20609631bb6f7828823bb055e85dda0-imp_encounter.scn
+res://battle/encounters/imp_encounter.tscn::d184c0e84e85300d205a136a822dd1ae::1791645714::res://.godot/exported/133200997/export-f20609631bb6f7828823bb055e85dda0-imp_encounter.scn
 res://battle/encounters/martyr_encounter_1.tscn::a62aab2697ced5d50703fdbb1db4628e::1790814905::res://.godot/exported/133200997/export-c3fcfc1a67864acab4983d10440d5c51-martyr_encounter_1.scn
 res://battle/encounters/martyr_encounter_gark_braim.tscn::706957d4b15ab2ca218c06aa6dae9f5e::1790814905::res://.godot/exported/133200997/export-02765701b5d7a8eff7d3e0c9b99ba7d9-martyr_encounter_gark_braim.scn
 res://battle/encounters/martyr_encounter_healer.tscn::87a03cb866215a52a040ab6e0079a0bd::1790814906::res://.godot/exported/133200997/export-5106e3ca4ae78a3608741ab1c1e33178-martyr_encounter_healer.scn
@@ -50,7 +50,7 @@ res://battle/interface/battle_input/battle_status.tscn::a62441c9d2d223eba848cf55
 res://battle/interface/battle_message.tscn::98a746f1eae6becb1d01387b7108902f::1790603572::res://.godot/exported/133200997/export-30f2984fda79f264080a571c7184e96a-battle_message.scn
 res://battle/interface/capture_dialog.tscn::3af3da97e0e0e62d16a7e4dce23bd7b8::1786896991::res://.godot/exported/133200997/export-37f75151eca45a5d522b4c3d63bfa3cb-capture_dialog.scn
 res://battle/interface/hp_gauge.tscn::7c31e2a3ebbf2728f0a11bf9fe3a4f59::1785531860::res://.godot/exported/133200997/export-097163353fc81553de2fbab293dcf7b3-hp_gauge.scn
-res://battle/battle_system.tscn::055a0d670c6af5cb32dbc6a6169d7ae5::1791514169::res://.godot/exported/133200997/export-74e8c002e65843513b3edc1cc4bfca00-battle_system.scn
+res://battle/battle_system.tscn::98d7db5b0c607160252618d172bc92d9::1791645426::res://.godot/exported/133200997/export-74e8c002e65843513b3edc1cc4bfca00-battle_system.scn
 res://battle/battle_system_sandbox.tscn::5f7b70e01143326a8ad008bb03e87490::1788710598::res://.godot/exported/133200997/export-b10ec54bbad398ce42c40da43e1d2d4f-battle_system_sandbox.scn
 res://familiars/base/L0_damned.tscn::737685581d1ff702b3aa4484c5cb5899::1788444471::res://.godot/exported/133200997/export-1ed4b69e35f322f1a810c577759110c6-L0_damned.scn
 res://familiars/base/L0_forge_damned.tscn::4eb05a2a8b900a2cf29b8418f659835f::1790540965::res://.godot/exported/133200997/export-1c79807c0fdaaefe1427b931f15b812f-L0_forge_damned.scn
@@ -95,7 +95,7 @@ res://locations/gamestate_plug_1.tscn::b5383a9827956f42a06ae9610b53d330::1786916
 res://locations/zone_link.tscn::3ac8b0767aea66270d13e4d900225f13::1786248562::res://.godot/exported/133200997/export-477bb911c392e6eb9bba942257fca865-zone_link.scn
 res://locations/zone_manager_load.tscn::57450e7e10cc364c514275b9ff3d38b2::1791241968::res://.godot/exported/133200997/export-3f668b4fdc39e60b078936b6262d6fb5-zone_manager_load.scn
 res://locations/zone_manager_start.tscn::3a9e64abccb27fcaa4bd1ceb81097a5c::1791241861::res://.godot/exported/133200997/export-d19ea0848a7510bb439f738c8b4104a2-zone_manager_start.scn
-res://locations/zone_manager_test.tscn::cf984e8b1fe3ef2592598788afd85763::1791241861::res://.godot/exported/133200997/export-d8c7d96766d9893cd965832d972a6c95-zone_manager_test.scn
+res://locations/zone_manager_test.tscn::5b2f19a1e5e23a4910e1fb75935af802::1791654734::res://.godot/exported/133200997/export-d8c7d96766d9893cd965832d972a6c95-zone_manager_test.scn
 res://mechanism/bridge.tscn::e3e2b31d5fc1d07c75504d6a0c09d54b::1786477313::res://.godot/exported/133200997/export-cce5b306ab429f0a32ac85b07bb96e01-bridge.scn
 res://mechanism/gate.tscn::868ba5b4e05ddf301e1ab5077083ab65::1786476714::res://.godot/exported/133200997/export-709995e3f4cd57bc94d9c6623a5b3658-gate.scn
 res://mechanism/sluice.tscn::c41f498862ea51b9065b1ced112aa34a::1787025569::res://.godot/exported/133200997/export-b47aecda821301922191b0f33d936a2f-sluice.scn

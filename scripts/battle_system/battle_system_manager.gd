@@ -52,8 +52,8 @@ class ActionQueueItem:
 	var action : BattleAction = null
 	var targets : Array[Familiar] = []
 	
-	func _init(in_actor : Familiar, 
-	in_action : BattleAction, 
+	func _init(in_actor : Familiar,
+	in_action : BattleAction,
 	in_targets : Array[Familiar]) -> void:
 		actor = in_actor
 		action = in_action
@@ -87,7 +87,7 @@ func _ready() -> void:
 	if(is_sandbox):
 		initialize_familiars()
 
-func set_familiars(set_player_familiars : Array[Familiar], 
+func set_familiars(set_player_familiars : Array[Familiar],
 set_opponent_familiars : Array[Familiar]):
 	player_familiars = set_player_familiars
 	opponent_familiars = set_opponent_familiars
@@ -107,7 +107,7 @@ func get_adjacent_familiars(to_familiar : Familiar, left_only : bool = false) ->
 		adjacent_familiars = get_adjacent(player_positions,to_familiar,left_only)
 	return adjacent_familiars
 
-func get_adjacent(positions : Array[FamiliarSlot], 
+func get_adjacent(positions : Array[FamiliarSlot],
 to_familiar : Familiar, left_only : bool = false) -> Array[Familiar]:
 	var adjacent_familiars : Array[Familiar] = []
 	var index = positions.find(to_familiar.get_parent())
@@ -135,7 +135,7 @@ func fade_out():
 
 func set_up_audio():
 	music_player.bus = "music"
-	add_child(music_player)	
+	add_child(music_player)
 	var index : int = 0
 	var num_sound_players = 8
 	while(index < num_sound_players):
@@ -325,24 +325,34 @@ func input_process():
 		var current_familiar = player_familiars[player_familiar_index]
 		var num_actions : int = current_familiar.get_num_actions()
 		if(current_familiar != null && not current_familiar.is_dead()):
-			if(not input_phase_entered):
-				update_buffs()
-				input_phase_entered = true
-			elif(familiar_actions_in_queue(current_familiar) != num_actions):
-				if(not status_shown):
-					show_status(current_familiar)
-					status_shown = true
-				elif(status_shown && not awaiting_input):
-					show_action_menu(current_familiar)
-					awaiting_input = true
+			if(opponent_is_dead() and current_familiar.is_incorporeal()):
+				next_player_familiar()
 			else:
-				next_player_familiar()#advance_player_familiar_index()
+				if(not input_phase_entered):
+					update_buffs()
+					input_phase_entered = true
+				elif(opponent_is_dead() and 
+				familiar_actions_in_queue(current_familiar) == 0):
+					input_new_action(current_familiar)
+				elif(not opponent_is_dead() and 
+				familiar_actions_in_queue(current_familiar) != num_actions):
+					input_new_action(current_familiar)
+				else:
+					next_player_familiar()#advance_player_familiar_index()
 		else:
 			next_player_familiar()#advance_player_familiar_index()
 	else:
 		next_player_familiar()#advance_player_familiar_index()
 
-func show_status(familiar : Familiar): 
+func input_new_action(current_familiar : Familiar):
+	if(not status_shown):
+		show_status(current_familiar)
+		status_shown = true
+	elif(status_shown && not awaiting_input):
+		show_action_menu(current_familiar)
+		awaiting_input = true
+
+func show_status(familiar : Familiar):
 	status.global_position = familiar.global_position + Vector2(0,-64)
 	status.set_name_label(familiar.get_familiar_name())
 	var current_hp = familiar.get_current_hp()
@@ -420,15 +430,15 @@ func offer_capture_process():
 		capture_available = capture_available.replace("[TARGET]",target_name)
 		play_messages([capture_available])
 		begin_capture_offered = true
-	elif(begin_capture_offered 
-	and not capture_offered 
+	elif(begin_capture_offered
+	and not capture_offered
 	and not awaiting_input):
 		capture_dialog.set_target(target_capture)
 		capture_dialog.set_active()
 		start_awaiting_input()
 		capture_offered = true
-	elif(begin_capture_offered 
-	and capture_offered 
+	elif(begin_capture_offered
+	and capture_offered
 	and not awaiting_input):
 		begin_capture_offered = false
 		capture_offered = false
@@ -544,7 +554,7 @@ func handle_single_target_input():
 		var current_familiar = player_familiars[player_familiar_index]
 		#prioritize self if action can be taken on self (defend, heal)
 		if(targetable_familiars.has(current_familiar)):
-				current_target = current_familiar
+			current_target = current_familiar
 		#prioritize enemy if action can be taken 
 		#on friendlies or enemies (feed, devour)
 		for potential_target : Familiar in targetable_familiars:
@@ -557,7 +567,7 @@ func handle_single_target_input():
 		current_target = targeted_familiars[0]
 		update_sel_arrows()
 	if(Input.is_action_just_pressed("left") ||
-	 Input.is_action_just_pressed("right")):
+		Input.is_action_just_pressed("right")):
 		play_sound(load("res://audio/effects/bell_first.ogg"))
 		var index = targetable_familiars.find(current_target)
 		if(Input.is_action_just_pressed("left")):
@@ -585,7 +595,7 @@ func handle_two_adjacent_target_input():
 		targeted_familiars.append_array(left_familiar)
 		update_sel_arrows()
 	if(Input.is_action_just_pressed("left") ||
-	 Input.is_action_just_pressed("right")):
+		Input.is_action_just_pressed("right")):
 		play_sound(load("res://audio/effects/bell_first.ogg"))
 		current_target = targeted_familiars[0]
 		var index = targetable_familiars.find(current_target)
@@ -620,7 +630,7 @@ func get_fastest_player_familiar_index() -> int:
 	var max_speed = 0
 	var chosen_index = 0
 	while(index < player_familiars.size()):
-		if(player_familiars[index].is_dead() and 
+		if(player_familiars[index].is_dead() and
 		not finished_input_indexes.has(index)):
 			finished_input_indexes.append(index)
 		elif(not finished_input_indexes.has(index)):
@@ -699,7 +709,7 @@ func update_sel_arrows():
 				var label = str(str(stat," + "),value)
 				slot.show_upgrade_label(label)
 		else:
-			slot.show_select_arrow()	
+			slot.show_select_arrow()
 		if(not familiar.is_hostile()):
 			slot.show_mini_status(familiar)
 
@@ -718,7 +728,7 @@ var have_combined_queue : bool = false
 
 func battle_process():
 	if(count_living_on_side(player_familiars) > 1 && player_deployed):
-				withdraw_player()
+		withdraw_player()
 	elif(opponent_action_queue.size() == 0 && not opponent_is_dead()):
 		get_opponent_actions()
 	elif(not have_combined_queue):
