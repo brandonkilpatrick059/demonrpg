@@ -9,7 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://dgil6lq8m0otl" path="res://familiars/base/L1_imp.tscn" id="6_vlo4x"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7g1"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlo4x"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_pag8u"]
+font = ExtResource("7_ak4ce")
+font_size = 8
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vlo4x"]
 shader = ExtResource("6_je83m")
 shader_parameter/resolution = Vector2(320, 180)
 shader_parameter/scan_line_amount = 0.50000002375
@@ -26,7 +34,7 @@ shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -7.99999981
 shader_parameter/pixel_strength = -4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2gs5w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pag8u"]
 shader = ExtResource("6_je83m")
 shader_parameter/resolution = Vector2(300, 180)
 shader_parameter/scan_line_amount = 0.50000002375
@@ -43,7 +51,7 @@ shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -7.99999981
 shader_parameter/pixel_strength = -4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ri5ms"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nn1l1"]
 shader = ExtResource("6_je83m")
 shader_parameter/resolution = Vector2(316, 160)
 shader_parameter/scan_line_amount = 0.50000002375
@@ -60,14 +68,6 @@ shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -7.99999981
 shader_parameter/pixel_strength = -4.0
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlo4x"]
-light_mode = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_pag8u"]
-font = ExtResource("7_ak4ce")
-font_size = 8
-font_color = Color(1, 0, 0, 1)
-
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
 script = ExtResource("1_5ulbo")
@@ -77,61 +77,13 @@ current_zone = NodePath("zone_homestead")
 states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
 states_map_values = Array[String](["TRUE", "TRUE", "TRUE"])
 
-[node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=1494413384]
-script = ExtResource("3_2gs5w")
-
-[node name="screen_effect_320x180" type="ColorRect" parent="screen_effect_layer" unique_id=503890868]
-z_index = 50
-material = SubResource("ShaderMaterial_lc7g1")
-custom_minimum_size = Vector2(3840, 2160)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1760.0
-offset_top = -990.0
-offset_right = 2080.0
-offset_bottom = 1170.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="screen_effect_300x180" type="ColorRect" parent="screen_effect_layer" unique_id=1004175354]
-visible = false
-z_index = 50
-material = SubResource("ShaderMaterial_2gs5w")
-custom_minimum_size = Vector2(3840, 2160)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1760.0
-offset_top = -990.0
-offset_right = 2080.0
-offset_bottom = 1170.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="screen_effect_316x160" type="ColorRect" parent="screen_effect_layer" unique_id=1280321284]
-visible = false
-z_index = 50
-material = SubResource("ShaderMaterial_ri5ms")
-custom_minimum_size = Vector2(3840, 2160)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1760.0
-offset_top = -990.0
-offset_right = 2080.0
-offset_bottom = 1170.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
 position = Vector2(-24, 48)
 familiar_team = [NodePath("L1imp")]
 pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
+process_mode = 3
 position = Vector2(12, -12)
 
 [node name="L1imp" parent="Player" unique_id=2120251354 instance=ExtResource("6_vlo4x")]
@@ -157,3 +109,53 @@ text = "LOADING"
 label_settings = SubResource("LabelSettings_pag8u")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=309004948]
+process_mode = 3
+script = ExtResource("3_2gs5w")
+
+[node name="screen_effect_320x180" type="ColorRect" parent="screen_effect_layer" unique_id=968331395]
+z_index = 50
+material = SubResource("ShaderMaterial_vlo4x")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="screen_effect_300x180" type="ColorRect" parent="screen_effect_layer" unique_id=834201046]
+visible = false
+z_index = 50
+material = SubResource("ShaderMaterial_pag8u")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="screen_effect_316x160" type="ColorRect" parent="screen_effect_layer" unique_id=1794083642]
+visible = false
+z_index = 50
+material = SubResource("ShaderMaterial_nn1l1")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -15,7 +15,15 @@
 font = ExtResource("6_xfaqi")
 font_size = 8
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4d246"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vaw0c"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_4d246"]
+font = ExtResource("6_xfaqi")
+font_size = 8
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vaw0c"]
 shader = ExtResource("2_xfaqi")
 shader_parameter/resolution = Vector2(320, 180)
 shader_parameter/scan_line_amount = 0.50000002375
@@ -32,13 +40,39 @@ shader_parameter/roll_speed = -8.0
 shader_parameter/scan_line_strength = -7.99999981
 shader_parameter/pixel_strength = -4.0
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vaw0c"]
-light_mode = 1
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4d246"]
+shader = ExtResource("2_xfaqi")
+shader_parameter/resolution = Vector2(300, 180)
+shader_parameter/scan_line_amount = 0.50000002375
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/noise_amount = 0.02000000095
+shader_parameter/interference_amount = 0.2050000097375
+shader_parameter/grille_amount = 0.0
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.3590000170525
+shader_parameter/vignette_intensity = 0.36800001748
+shader_parameter/aberation_amount = 0.25200001197
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = -8.0
+shader_parameter/scan_line_strength = -7.99999981
+shader_parameter/pixel_strength = -4.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_4d246"]
-font = ExtResource("6_xfaqi")
-font_size = 8
-font_color = Color(1, 0, 0, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mvjqu"]
+shader = ExtResource("2_xfaqi")
+shader_parameter/resolution = Vector2(316, 160)
+shader_parameter/scan_line_amount = 0.50000002375
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/noise_amount = 0.02000000095
+shader_parameter/interference_amount = 0.2050000097375
+shader_parameter/grille_amount = 0.0
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.3590000170525
+shader_parameter/vignette_intensity = 0.36800001748
+shader_parameter/aberation_amount = 0.25200001197
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = -8.0
+shader_parameter/scan_line_strength = -7.99999981
+shader_parameter/pixel_strength = -4.0
 
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
@@ -50,6 +84,7 @@ position = Vector2(0, 24)
 pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
+process_mode = 3
 position = Vector2(12, -12)
 
 [node name="control_lock_timer" type="Node" parent="Player" unique_id=132201903]
@@ -149,54 +184,6 @@ time_step = 0.2
 start_after_wait = 10.0
 q_free_parent_when_done = true
 
-[node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=783338348]
-script = ExtResource("9_vaw0c")
-
-[node name="screen_effect_320x180" type="ColorRect" parent="screen_effect_layer" unique_id=1752007159]
-z_index = 50
-material = SubResource("ShaderMaterial_4d246")
-custom_minimum_size = Vector2(3840, 2160)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1760.0
-offset_top = -990.0
-offset_right = 2080.0
-offset_bottom = 1170.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="screen_effect_300x180" type="ColorRect" parent="screen_effect_layer" unique_id=2031149312]
-visible = false
-z_index = 50
-material = SubResource("ShaderMaterial_4d246")
-custom_minimum_size = Vector2(3840, 2160)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1760.0
-offset_top = -990.0
-offset_right = 2080.0
-offset_bottom = 1170.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="screen_effect_316x160" type="ColorRect" parent="screen_effect_layer" unique_id=1511126847]
-visible = false
-z_index = 50
-material = SubResource("ShaderMaterial_4d246")
-custom_minimum_size = Vector2(3840, 2160)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1760.0
-offset_top = -990.0
-offset_right = 2080.0
-offset_bottom = 1170.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="loading" type="Node2D" parent="." unique_id=248162607]
 visible = false
 z_index = 51
@@ -215,3 +202,53 @@ text = "LOADING"
 label_settings = SubResource("LabelSettings_4d246")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=529895620]
+process_mode = 3
+script = ExtResource("9_vaw0c")
+
+[node name="screen_effect_320x180" type="ColorRect" parent="screen_effect_layer" unique_id=603798481]
+z_index = 50
+material = SubResource("ShaderMaterial_vaw0c")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="screen_effect_300x180" type="ColorRect" parent="screen_effect_layer" unique_id=898081739]
+visible = false
+z_index = 50
+material = SubResource("ShaderMaterial_4d246")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="screen_effect_316x160" type="ColorRect" parent="screen_effect_layer" unique_id=1628393305]
+visible = false
+z_index = 50
+material = SubResource("ShaderMaterial_mvjqu")
+custom_minimum_size = Vector2(3840, 2160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1760.0
+offset_top = -990.0
+offset_right = 2080.0
+offset_bottom = 1170.0
+grow_horizontal = 2
+grow_vertical = 2

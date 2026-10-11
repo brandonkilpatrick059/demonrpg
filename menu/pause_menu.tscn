@@ -45,10 +45,17 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="settings" type="Label" parent="menu/VBoxContainer" unique_id=1126434005]
+[node name="audio" type="Label" parent="menu/VBoxContainer" unique_id=1126434005]
 material = SubResource("CanvasItemMaterial_j1qn7")
 layout_mode = 2
 text = "AUDIO"
+label_settings = SubResource("LabelSettings_e2duo")
+horizontal_alignment = 1
+
+[node name="video" type="Label" parent="menu/VBoxContainer" unique_id=426041289]
+material = SubResource("CanvasItemMaterial_j1qn7")
+layout_mode = 2
+text = "VIDEO"
 label_settings = SubResource("LabelSettings_e2duo")
 horizontal_alignment = 1
 

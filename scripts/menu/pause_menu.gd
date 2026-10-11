@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var settings : Label = $menu/VBoxContainer/settings
+@onready var audio : Label = $menu/VBoxContainer/audio
+@onready var video : Label = $menu/VBoxContainer/video
 @onready var controls : Label = $menu/VBoxContainer/controls
 @onready var return_to_game : Label = $menu/VBoxContainer/return
 @onready var quit : Label = $menu/VBoxContainer/quit
@@ -22,8 +23,8 @@ func _ready() -> void:
 	active = true
 	$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
 	$AudioStreamPlayer.play()
-	menu_buttons = ["SETTINGS","CONTROLS","RETURN","QUIT"]
-	menu_labels = [settings,controls,return_to_game,quit]
+	menu_buttons = ["AUDIO","VIDEO","CONTROLS","RETURN","QUIT"]
+	menu_labels = [audio,video,controls,return_to_game,quit]
 
 func handle_control():
 	if(Input.is_action_just_pressed("down")):
@@ -39,8 +40,17 @@ func handle_control():
 	elif(Input.is_action_just_pressed("action_1")):
 		var selection : String = menu_buttons[selected_index]
 		match selection:
-			"SETTINGS": #just audio for now
+			"AUDIO": 
 				var audio_menu = load("res://menu/audio_menu.tscn").instantiate()
+				var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+				audio_menu.global_position = camera.get_screen_center_position()
+				add_child(audio_menu)
+				audio_menu.set_parent_menu(self)
+				$AudioStreamPlayer.stream = load("res://audio/effects/bell_quicker.ogg")
+				$AudioStreamPlayer.play()
+				set_inactive()
+			"VIDEO": 
+				var audio_menu = load("res://menu/video_menu.tscn").instantiate()
 				var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 				audio_menu.global_position = camera.get_screen_center_position()
 				add_child(audio_menu)

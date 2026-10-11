@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-func _ready() -> void:
+func _physics_process(delta: float) -> void:
 	var screen_vector : Vector2 = get_viewport().get_visible_rect().size
 	if(screen_vector.x == 320 && screen_vector.y == 180):
 		$screen_effect_320x180.visible = true

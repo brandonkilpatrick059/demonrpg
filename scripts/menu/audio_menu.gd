@@ -15,8 +15,6 @@ var menu_buttons : Array[String] = []
 var menu_labels : Array[Label] = []
 var volume_bars : Array[HPGauge] = []
 
-var transition_to_scene : PackedScene = null
-
 var active : bool = false
 var parent_menu : Node = null
 
@@ -121,10 +119,6 @@ func _physics_process(delta: float) -> void:
 			index = index + 1
 		handle_control()
 		update_volume_bars()
-	elif(transition_to_scene != null):
-		var fade_black = get_tree().get_first_node_in_group("fade_black")
-		if(fade_black.modulate.a == 1.0):
-			get_tree().change_scene_to_packed(transition_to_scene)
 	elif(modulate.a == 1.0):
 		active = true
 	

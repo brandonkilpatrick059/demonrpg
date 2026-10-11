@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://6qqg0ywtm081"]
+
+[ext_resource type="Script" uid="uid://01ift7f6h3yo" path="res://scripts/menu/video_menu.gd" id="1_0dpvm"]
+[ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="3_qd6e6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si1p2"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vy7sn"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_cea73"]
+font = ExtResource("3_qd6e6")
+font_size = 8
+
+[node name="VideoMenu" type="Node2D" unique_id=1002540959]
+process_mode = 3
+z_index = 51
+material = SubResource("CanvasItemMaterial_si1p2")
+script = ExtResource("1_0dpvm")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1726043755]
+material = SubResource("CanvasItemMaterial_si1p2")
+color = Color(0.30136412, 7.640757e-06, 0.22850895, 1)
+polygon = PackedVector2Array(-192, -192, 192, -192, 192, 180, -192, 180)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=482914544]
+bus = &"effects"
+
+[node name="menu" type="Node2D" parent="." unique_id=1631247365]
+z_index = 5
+material = SubResource("CanvasItemMaterial_vy7sn")
+
+[node name="aspect_ratio" type="Label" parent="menu" unique_id=1790311450]
+material = SubResource("CanvasItemMaterial_vy7sn")
+offset_left = -30.0
+offset_top = -35.0
+offset_right = 30.0
+offset_bottom = -12.0
+text = "ASPECT RATIO"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="aspect_ratio_readout" type="Label" parent="menu" unique_id=1407390328]
+material = SubResource("CanvasItemMaterial_vy7sn")
+offset_left = -30.0
+offset_top = -27.0
+offset_right = 30.0
+offset_bottom = -4.0
+text = "A"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="full_screen" type="Label" parent="menu" unique_id=104620410]
+material = SubResource("CanvasItemMaterial_vy7sn")
+offset_left = -40.0
+offset_top = -13.0
+offset_right = 40.0
+offset_bottom = 10.0
+text = "FULLSCREEN"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="back" type="Label" parent="menu" unique_id=1545447479]
+material = SubResource("CanvasItemMaterial_vy7sn")
+offset_left = -30.0
+offset_right = 30.0
+offset_bottom = 23.0
+text = "BACK"
+label_settings = SubResource("LabelSettings_cea73")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="scroll_step_timer" type="Timer" parent="." unique_id=2011308752]
+one_shot = true

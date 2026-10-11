@@ -77,3 +77,10 @@ res://scripts/menu/audio_menu.gd
 res://menu/pause_menu.tscn
 res://scripts/menu/main_menu.gd
 res://scripts/menu/controls_menu.gd
+res://menu/video_menu.tscn
+res://scripts/menu/video_menu.gd
+res://menu/audio_menu.tscn
+res://menu/main_menu.tscn
+res://scripts/utility/choose_screen_effect.gd
+res://locations/zone_manager_load.tscn
+res://locations/zone_manager_start.tscn
