@@ -70,3 +70,6 @@ res://battle/battle_system.tscn
 res://scripts/battle_system/battle_system_manager.gd
 res://scripts/battle_system/actions/damage/magic/action_fire.gd
 res://locations/zone_manager_test.tscn
+res://scripts/battle_system/actions/buff/action_reflect.gd
+res://scripts/battle_system/buffs/reflect_buff.gd
+res://battle/actions/action_defend.tscn

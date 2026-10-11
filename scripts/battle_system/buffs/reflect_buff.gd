@@ -1,6 +1,6 @@
 extends BattleBuff
 
-var announcement_english : String = "...But [TEAM][BUFF_HOLDER] reflects it."
+var announcement_english : String = "...But [TEAM][BUFF_HOLDER] deflects it."
 var friendly_english : String = "your "
 var hostile_english : String = "hostile "
 
@@ -36,14 +36,15 @@ func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
 		var new_targets : Array[Familiar] = []
 		new_targets.append_array(pkg.get_targets())
 		var buff_holder_index = new_targets.find(buff_holder)
-		var actor : Familiar = pkg.get_actor()
-		new_targets.set(buff_holder_index,actor)
-		pkg.set_targets(new_targets)
-		var battle_sys_ref : BattleSystemManager 
-		battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-		battle_sys_ref.play_messages([get_announcement_english(buff_holder)])
-		battle_sys_ref.start_awaiting_input()
+		#var actor : Familiar = pkg.get_actor()
+		#new_targets.set(buff_holder_index,actor)
+		#pkg.set_targets(new_targets)
+		#var battle_sys_ref : BattleSystemManager 
+		#battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+		#battle_sys_ref.play_messages([get_announcement_english(buff_holder)]
+		#battle_sys_ref.start_awaiting_input()
 		#active = false
+		pkg.final_damages[buff_holder_index] = 0
 	return pkg
 
 func _physics_process(delta: float) -> void:

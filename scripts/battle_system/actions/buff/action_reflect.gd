@@ -11,7 +11,7 @@ var battle_sys_ref : BattleSystemManager
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
 	summary = str(summary,str(summary,get_action_name()))
-	summary = str(summary,"-[color=white]REFLECTS ")
+	summary = str(summary,"-[color=white]DEFLECTS ")
 	summary = str(summary,str("[/color][color=darkred] PHYSICAL DAMAGE [/color]"))
 	return summary
 
@@ -31,7 +31,7 @@ func get_announcement(actor : Familiar, target : Familiar) -> String:
 	return ret_string
 
 func _ready() -> void:
-	action_name = "REFLECT"
+	action_name = "DEFLECT"
 	target_type = TargetType.ANY_ALLY
 	energy_cost = 2
 
@@ -42,23 +42,31 @@ func clean_up():
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_defense):
-		if(targets[0] != null):
-			var announcement : String = get_announcement(actor,targets[0])
-			battle_sys_ref.play_messages([announcement])
-			announced_defense = true
+		if(targets != null and targets.size() > 0):
+			if(targets[0] != null):
+				var announcement : String = get_announcement(actor,targets[0])
+				battle_sys_ref.play_messages([announcement])
+				announced_defense = true
+			else:
+				battle_sys_ref.get_next_action()
+				clean_up()
 		else:
 			battle_sys_ref.get_next_action()
 			clean_up()
 	elif(not made_defense):
-		var target : Familiar = targets[0]
-		var reflect_buff = load("res://battle/actions/buffs/reflect_buff.tscn").instantiate()
-		target.add_battle_buff(reflect_buff)
-		actor.play_one_shot_animation("defend")
-		var battle_sys_ref : BattleSystemManager
-		battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-		battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
-		#pay_energy_cost(actor)
-		made_defense = true
+		if(targets.size() > 0):
+			var target : Familiar = targets[0]
+			var reflect_buff = load("res://battle/actions/buffs/reflect_buff.tscn").instantiate()
+			target.add_battle_buff(reflect_buff)
+			actor.play_one_shot_animation("defend")
+			var battle_sys_ref : BattleSystemManager
+			battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+			battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
+			#pay_energy_cost(actor)
+			made_defense = true
+		else:
+			battle_sys_ref.get_next_action()
+			clean_up()
 	else:
 		battle_sys_ref.start_wait_timer(1.0)
 		battle_sys_ref.get_next_action()
