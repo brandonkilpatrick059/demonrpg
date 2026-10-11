@@ -53,18 +53,14 @@ func handle_control():
 	elif(Input.is_action_just_pressed("action_1")):
 		var selection : String = menu_buttons[selected_index]
 		match selection:
-			"AUDIO":
-				$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
-				$AudioStreamPlayer.play()
-				active = false
-			"VIDEO":
-				transition_to_scene = load("res://locations/zone_manager_load.tscn")
-				$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
-				$AudioStreamPlayer.play()
-				active = false
 			"BACK":
 				queue_free()
 				parent_menu.set_active()
+				parent_menu.play_sound(load("res://audio/effects/brush_snare.ogg"))
+	elif(Input.is_action_just_pressed("action_2")):
+		queue_free()
+		parent_menu.set_active()
+		parent_menu.play_sound(load("res://audio/effects/brush_snare.ogg"))
 
 func set_active():
 	active = true

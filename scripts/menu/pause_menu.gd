@@ -75,6 +75,10 @@ func handle_control():
 		get_tree().paused = false
 		queue_free()
 
+func play_sound(stream : AudioStream):
+	$AudioStreamPlayer.stream = stream
+	$AudioStreamPlayer.play()
+
 func set_inactive():
 	active = false
 

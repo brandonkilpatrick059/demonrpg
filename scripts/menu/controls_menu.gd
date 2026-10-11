@@ -34,6 +34,7 @@ func handle_control():
 		$AudioStreamPlayer.play()
 	elif(Input.is_action_just_pressed("action_2")):
 		parent_menu.set_active()
+		parent_menu.play_sound(load("res://audio/effects/brush_snare.ogg"))
 		queue_free()
 
 func _physics_process(delta: float) -> void:

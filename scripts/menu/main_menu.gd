@@ -98,6 +98,10 @@ func fade_out():
 	fade_node.set_target_modulate(fade_out,0.1,0.2)
 	fade_black.add_child(fade_node)
 
+func play_sound(stream : AudioStream):
+	$AudioStreamPlayer.stream = stream
+	$AudioStreamPlayer.play()
+
 func _physics_process(delta: float) -> void:
 	#if(Input.is_action_just_pressed("action_1")):
 		#if(active == false):

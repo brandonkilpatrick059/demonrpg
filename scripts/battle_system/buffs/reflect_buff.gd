@@ -44,7 +44,8 @@ func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
 		#battle_sys_ref.play_messages([get_announcement_english(buff_holder)]
 		#battle_sys_ref.start_awaiting_input()
 		#active = false
-		pkg.final_damages[buff_holder_index] = 0
+		if(pkg.final_damages.size() > buff_holder_index):
+			pkg.final_damages[buff_holder_index] = 0
 	return pkg
 
 func _physics_process(delta: float) -> void:

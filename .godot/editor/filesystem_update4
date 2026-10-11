@@ -73,3 +73,7 @@ res://locations/zone_manager_test.tscn
 res://scripts/battle_system/actions/buff/action_reflect.gd
 res://scripts/battle_system/buffs/reflect_buff.gd
 res://battle/actions/action_defend.tscn
+res://scripts/menu/audio_menu.gd
+res://menu/pause_menu.tscn
+res://scripts/menu/main_menu.gd
+res://scripts/menu/controls_menu.gd
