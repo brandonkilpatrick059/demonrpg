@@ -61,3 +61,5 @@ res://locations/zone_manager_start.tscn
 res://locations/zone_manager_test.tscn
 res://scripts/utility/run_scripts/pan_camera.gd
 res://scripts/character/player/location_label.gd
+res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
+res://scripts/menu/pause_menu.gd

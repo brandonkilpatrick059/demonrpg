@@ -83,6 +83,9 @@ func handle_control():
 	elif(Input.is_action_just_pressed("menu") || 
 	Input.is_action_just_pressed("action_2")):
 		get_tree().paused = false
+		var player : Player = get_tree().get_first_node_in_group("player")
+		player.play_sound(load("res://audio/effects/bell_quicker.ogg"))
+		player.exit_pause_menu()
 		queue_free()
 
 func play_sound(stream : AudioStream):
