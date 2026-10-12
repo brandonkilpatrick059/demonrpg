@@ -78,7 +78,8 @@ pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
 process_mode = 3
-position = Vector2(12, -12)
+offset = Vector2(12, -12)
+process_callback = 0
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("4_4le7o")]
 states_map_keys = Array[String]([])

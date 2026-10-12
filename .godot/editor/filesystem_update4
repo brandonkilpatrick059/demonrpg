@@ -54,3 +54,9 @@ res://scripts/item/healing_gore.gd
 res://scripts/character/player/player.gd
 res://scripts/familiars/familiar.gd
 res://player/player.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_pool.tscn
+res://locations/zone_manager_load.tscn
+res://locations/zone_manager_start.tscn
+res://locations/zone_manager_test.tscn
+res://scripts/utility/run_scripts/pan_camera.gd

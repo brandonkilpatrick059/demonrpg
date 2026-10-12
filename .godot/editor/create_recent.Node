@@ -1,3 +1,4 @@
+Node
 Label
 Camera2D
 Node2D
@@ -7,7 +8,6 @@ Sprite2D
 Timer
 CollisionPolygon2D
 RichTextLabel
-Node
 CanvasModulate
 AnimatedSprite2D
 Area2D

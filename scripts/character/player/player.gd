@@ -27,6 +27,12 @@ var encounter_on_control_return : Encounter = null
 var showing_summary = false
 var showing_menu = false
 
+var camera_panning : bool = false
+var camera_returning : bool = false
+var camera_pan_destination : Vector2 = Vector2(0,0)
+var camera_pan_speed : float = 1.0
+var camera_panning_timer := Timer.new()
+
 @export var active : bool = true
 
 var can_play_step_sound : bool = true
@@ -43,6 +49,8 @@ func _ready() -> void:
 	add_child(play_time_timer)
 	play_time_timer.one_shot = true
 	play_time_timer.start(1.0)
+	camera_panning_timer.one_shot = true
+	add_child(camera_panning_timer)
 
 func get_familiars_team() -> Array[Familiar]:
 	for familiar in familiar_team:
@@ -114,9 +122,7 @@ func handle_input():
 		else:
 			walking = false
 		if(Input.is_action_just_pressed("dev")):
-			var encounter = load("res://battle/encounters/test_encounter.tscn").instantiate()
-			add_child(encounter)
-			start_encounter(encounter)
+			pan_camera(global_position + Vector2(0,400),2)
 		if(Input.is_action_pressed("select")):
 			if(familiar_team.size() > 0):
 				if(not showing_summary && $input_timer.is_stopped()):
@@ -471,7 +477,44 @@ func load_from_dictionary(dictionary : Dictionary):
 func display_location_text(text : String):
 	location_label.display_text(text)
 
+func pan_camera(destination : Vector2, speed : float):
+	camera_panning = true
+	freeze_input()
+	camera_returning = false
+	camera_pan_destination = destination
+	camera_pan_speed = speed
+
+func handle_camera_panning():
+	if(camera_panning_timer.is_stopped()):
+		var camera_ref : Camera2D = get_tree().get_first_node_in_group("camera")
+		if(camera_returning):
+			var cam_pos = camera_ref.global_position
+			if(cam_pos.distance_to(global_position) <= camera_pan_speed):
+				camera_panning = false
+				unfreeze_input()
+			else:
+				freeze_input()
+				var to_vect : Vector2 = global_position - cam_pos
+				var normal_to_vect = to_vect.normalized()
+				var speed_to_vect = normal_to_vect * camera_pan_speed
+				camera_ref.global_position = cam_pos + speed_to_vect
+				camera_panning_timer.start(0.005)
+		else:
+			freeze_input()
+			var cam_pos = camera_ref.global_position
+			if(cam_pos.distance_to(camera_pan_destination) <= camera_pan_speed):
+				camera_returning = true
+				camera_panning_timer.start(2.0)
+			else:
+				var to_vect : Vector2 = camera_pan_destination - cam_pos
+				var normal_to_vect = to_vect.normalized()
+				var speed_to_vect = normal_to_vect * camera_pan_speed
+				camera_ref.global_position = cam_pos + speed_to_vect
+				camera_panning_timer.start(0.005)
+
 func _physics_process(delta: float) -> void:
+	if(camera_panning):
+		handle_camera_panning()
 	if(active):
 		handle_input()
 		handle_animation()
