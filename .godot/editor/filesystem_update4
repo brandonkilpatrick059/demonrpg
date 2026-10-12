@@ -63,3 +63,5 @@ res://scripts/utility/run_scripts/pan_camera.gd
 res://scripts/character/player/location_label.gd
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
 res://scripts/menu/pause_menu.gd
+res://monsters/shade_monster.tscn
+res://scripts/character/monster/monster.gd

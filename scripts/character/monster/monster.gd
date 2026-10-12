@@ -37,6 +37,13 @@ func _ready() -> void:
 func handle_animation():
 	$AnimatedSprite2D.play(facing_direction)
 
+func charge(velocity : Vector2):
+	grid_velocity = velocity
+	charging = true
+	moving = false
+	fade_in()
+	make_noise()
+
 func check_charge_player():
 	var player : Player = get_tree().get_first_node_in_group("player")
 	if(player.is_active()):
@@ -47,37 +54,21 @@ func check_charge_player():
 				if(player.global_position.y > global_position.y):
 					facing_direction = "down"
 					if(not colliders_detect_solid()):
-						grid_velocity = Vector2(0,charge_speed)
-						charging = true
-						moving = false
-						fade_in()
-						make_noise()
+						charge(Vector2(0,charge_speed))
 				else:
 					facing_direction = "up"
 					if(not colliders_detect_solid()):
-						grid_velocity = Vector2(0,-charge_speed)
-						charging = true
-						moving = false
-						fade_in()
-						make_noise()
+						charge(Vector2(0,-charge_speed))
 			elif(grid_aligned() &&
 			global_position.y == player.global_position.y):
 				if(player.global_position.x > global_position.x):
 					facing_direction = "right"
 					if(not colliders_detect_solid()):
-						grid_velocity = Vector2(charge_speed,0)
-						charging = true
-						moving = false
-						fade_in()
-						make_noise()
+						charge(Vector2(charge_speed,0))
 				else:
 					facing_direction = "left"
 					if(not colliders_detect_solid()):
-						grid_velocity = Vector2(-charge_speed,0)
-						charging = true
-						moving = false
-						fade_in()
-						make_noise()
+						charge(Vector2(-charge_speed,0))
 
 func make_noise():
 	var noise : int = randi_range(1,19)
@@ -107,7 +98,9 @@ func handle_movement():
 	elif($Timer.is_stopped() and not charging and not moving):
 		get_free_facing_direction()
 		moving = true
-		fade_in()
+		var player : Player = get_tree().get_first_node_in_group("player")
+		if(global_position.distance_to(player.global_position) > 48):
+			fade_in()
 		charging = false
 		match facing_direction:
 			"up":
