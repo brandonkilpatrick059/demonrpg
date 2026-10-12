@@ -478,6 +478,7 @@ func display_location_text(text : String):
 	location_label.display_text(text)
 
 func pan_camera(destination : Vector2, speed : float):
+	location_label.visible = false
 	camera_panning = true
 	freeze_input()
 	camera_returning = false

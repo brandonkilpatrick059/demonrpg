@@ -60,3 +60,4 @@ res://locations/zone_manager_load.tscn
 res://locations/zone_manager_start.tscn
 res://locations/zone_manager_test.tscn
 res://scripts/utility/run_scripts/pan_camera.gd
+res://scripts/character/player/location_label.gd

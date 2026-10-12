@@ -11,6 +11,7 @@ func _ready() -> void:
 	add_child(timer)
 
 func display_text(new_text : String):
+	visible = true
 	modulate = Color(1,1,1,0)
 	text = new_text
 	fading_in = true
