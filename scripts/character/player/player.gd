@@ -271,21 +271,34 @@ func end_battle(end_player_familiars : Array[Familiar]):
 	var battle_system : = get_tree().get_first_node_in_group("battle_system")
 	battle_system.queue_free()
 	staged_encounter.queue_free()
+	var evolving_familiars : Array[Familiar] = get_familiars_ready_to_evolve()
+	if(evolving_familiars.size() > 0):
+		handle_evolultions(evolving_familiars)
+	else:
+		return_to_overworld()
+		battle_underway = false
+
+func check_and_handle_evolutions():
+	var evolving_familiars : Array[Familiar] = get_familiars_ready_to_evolve()
+	if(evolving_familiars.size() > 0):
+		handle_evolultions(evolving_familiars)
+
+func get_familiars_ready_to_evolve() -> Array[Familiar]:
 	var evolving_familiars : Array[Familiar] = []
 	for familiar in familiar_team:
 		if(familiar.is_ready_to_evolve()):
 			evolving_familiars.append(familiar)
+	return evolving_familiars
+
+func handle_evolultions(evolving_familiars : Array[Familiar]):
 	if(evolving_familiars.size() > 0):
 		var evolution_interface : FamiliarEvolve
 		evolution_interface = load("res://interface/familiar_evolve.tscn").instantiate()
-		get_parent().add_child(evolution_interface)
 		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 		var pos : Vector2 = camera.get_screen_center_position()
 		evolution_interface.global_position = pos
+		get_parent().add_child(evolution_interface)
 		evolution_interface.set_evolving_familiars(evolving_familiars)
-	else:
-		return_to_overworld()
-		battle_underway = false
 
 func return_to_overworld():
 	var global_modulate = get_tree().get_first_node_in_group("global_modulate")

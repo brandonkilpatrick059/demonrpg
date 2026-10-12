@@ -226,7 +226,7 @@ text = Array[String](["\"6. Sign the contract with a [color=purple]Pentacle Seal
 [node name="text11" type="Node" parent="interactable_area_book/play_texts2" unique_id=2063303513]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(There are several wax seals stamped with an upside-down star)"])
+text = Array[String](["(There are several wax seals stamped with a star)"])
 
 [node name="interactable_area_book2" type="StaticBody2D" parent="." unique_id=1972438006 node_paths=PackedStringArray("scripts")]
 script = ExtResource("15_i2ay8")
@@ -246,47 +246,7 @@ encounter_scene = ExtResource("20_233h6")
 
 [node name="play_texts2" type="Node" parent="interactable_area_book2" unique_id=114775842 node_paths=PackedStringArray("texts")]
 script = ExtResource("16_0l7i3")
-texts = [NodePath("text5"), NodePath("text6"), NodePath("text7"), NodePath("text8"), NodePath("text9"), NodePath("text10"), NodePath("text11"), NodePath("text12"), NodePath("text13"), NodePath("text14"), NodePath("text16"), NodePath("text15"), NodePath("text17"), NodePath("text18"), NodePath("text19")]
-
-[node name="text5" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1808089287]
-script = ExtResource("13_6h6yh")
-language_map = Array[String](["english"])
-text = Array[String](["\"1. Create a pentacle of blood upon the ground\""])
-
-[node name="text6" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1705016421]
-script = ExtResource("13_6h6yh")
-language_map = Array[String](["english"])
-text = Array[String](["\"2. Place in its center a [color=purple]Mandrake Root[/color] [img]res://sprites/props/exterior/mandrake_sym.png[/img]\""])
-
-[node name="text7" type="Node" parent="interactable_area_book2/play_texts2" unique_id=800554713]
-script = ExtResource("13_6h6yh")
-language_map = Array[String](["english"])
-text = Array[String](["\"3. Enter the shadows\""])
-
-[node name="text8" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1253075471]
-script = ExtResource("13_6h6yh")
-language_map = Array[String](["english"])
-text = Array[String](["\"4. Weaken the demon\""])
-
-[node name="text9" type="Node" parent="interactable_area_book2/play_texts2" unique_id=681448200]
-script = ExtResource("13_6h6yh")
-language_map = Array[String](["english"])
-text = Array[String](["\"5. Bargain servitude for its life\""])
-
-[node name="text10" type="Node" parent="interactable_area_book2/play_texts2" unique_id=69806340]
-script = ExtResource("13_6h6yh")
-language_map = Array[String](["english"])
-text = Array[String](["\"6. Sign the contract with a [color=purple]Pentacle Seal[/color]\""])
-
-[node name="text11" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1492411463]
-script = ExtResource("13_6h6yh")
-language_map = Array[String](["english"])
-text = Array[String](["(There are several wax seals stamped with a star)"])
-
-[node name="text12" type="Node" parent="interactable_area_book2/play_texts2" unique_id=509539950]
-script = ExtResource("13_6h6yh")
-language_map = Array[String](["english"])
-text = Array[String](["(I find myself moving as if some outside force is moving me)"])
+texts = [NodePath("text13"), NodePath("text14"), NodePath("text16"), NodePath("text15"), NodePath("text17"), NodePath("text18"), NodePath("text19")]
 
 [node name="text13" type="Node" parent="interactable_area_book2/play_texts2" unique_id=232587790]
 script = ExtResource("13_6h6yh")
@@ -296,7 +256,7 @@ text = Array[String](["(I place the mandrake root in the center of the circle)"]
 [node name="text14" type="Node" parent="interactable_area_book2/play_texts2" unique_id=734884711 node_paths=PackedStringArray("script_node")]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(The  wind outside blows harder and the walls creak)"])
+text = Array[String](["(The wind outside blows harder and the walls creak)"])
 script_node = NodePath("ritual_visible")
 
 [node name="ritual_visible" type="Node" parent="interactable_area_book2/play_texts2/text14" unique_id=1531686863 node_paths=PackedStringArray("node")]
@@ -491,7 +451,7 @@ nodes = [NodePath("../../interactable_area_book"), NodePath("../../interactable_
 visible = false
 position = Vector2(24, 24)
 sprite_frames = ExtResource("26_mgjgc")
-frame_progress = 0.66709065
+frame_progress = 0.98746836
 offset = Vector2(12, 0)
 script = ExtResource("27_3opvd")
 

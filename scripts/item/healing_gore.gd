@@ -1,6 +1,7 @@
 extends StaticBody2D
 @export var gore_name : String = ""
 @export var heal_amount : int = 5
+@export var power_add : int = 0
 
 func _ready() -> void:
 	var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")
@@ -19,6 +20,8 @@ func interact():
 					familiar.set_current_hp(familiar.get_max_hp())
 				else:
 					familiar.set_current_hp(familiar.get_current_hp() + heal_amount)
+				familiar.add_experience(power_add)
 		var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")
 		gamestate.set_state_map_value(gore_name,"GATHERED")
+		player_ref.check_and_handle_evolutions()
 		queue_free()

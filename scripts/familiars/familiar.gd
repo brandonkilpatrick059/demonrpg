@@ -120,6 +120,7 @@ func gen_stat_increase():
 
 func get_exp_value() -> int:
 	var total = max_hp
+	total = total + current_hp
 	total = total + attack
 	total = total + defense
 	total = total + speed
@@ -224,6 +225,9 @@ func consume_familiar(familiar : Familiar, exp_multiplier : float = 1.0):
 		"num_actions":
 			num_actions = num_actions + value
 	experience = experience + (familiar.get_exp_value() * exp_multiplier)
+
+func add_experience(add_exp : int):
+	experience = experience + add_exp
 
 func get_sigil() -> String:
 	return sigil

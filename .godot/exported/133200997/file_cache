@@ -6,7 +6,7 @@ res://battle/actions/action_attack.tscn::608ded13d871cdf1075e84cd6fc0158f::17855
 res://battle/actions/action_block.tscn::7cd0f2bac98848af500061aa1a39143e::1785531862::res://.godot/exported/133200997/export-dd4509566993c3b9208fb23022c1ff41-action_block.scn
 res://battle/actions/action_burn.tscn::62889738f119c34c890bf810d9ffb429::1785531862::res://.godot/exported/133200997/export-7d4ad07460549df60c795ddd4e283ace-action_burn.scn
 res://battle/actions/action_capture.tscn::1ac8374e540ded02bb79c31bab81bde8::1785531861::res://.godot/exported/133200997/export-f112ae22f239511addd6c42c5644f45c-action_capture.scn
-res://battle/actions/action_defend.tscn::1bf03259855cd74490d43262f4388ca0::1785531859::res://.godot/exported/133200997/export-958c1322b825cfd98f58a41b843444ef-action_defend.scn
+res://battle/actions/action_defend.tscn::8fe1f0dabbe32d6071d128fe67af6f1a::1791738569::res://.godot/exported/133200997/export-958c1322b825cfd98f58a41b843444ef-action_defend.scn
 res://battle/actions/action_devour.tscn::fc59d7a5d168b5c302deed1a0bb60ad7::1786976326::res://.godot/exported/133200997/export-fcb09bf5aeeb6acdaa9f3fb579c0aea8-action_devour.scn
 res://battle/actions/action_evil_eye.tscn::138182cc2383ae9d29eac9e91ad73e27::1785531860::res://.godot/exported/133200997/export-33c8d40e23897a4407a96a84932ae706-action_evil_eye.scn
 res://battle/actions/action_feed.tscn::da473dc0edc45a56b7ca609b1c134c90::1785531859::res://.godot/exported/133200997/export-388a07761e3e456b4a2eb13b641983f0-action_feed.scn
@@ -79,7 +79,7 @@ res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn::c660f879b3e9
 res://locations/zones/gloomy_woods/zone_cliffs_house_interior_1.tscn::f69f5f8c0bbe6e9b269753b6b9f7e471::1791580692::res://.godot/exported/133200997/export-fdef0937f1f805cf62b137d01cc27830-zone_cliffs_house_interior_1.scn
 res://locations/zones/gloomy_woods/zone_cliffs_house_interior_2.tscn::a605672ed560ebf192384e5b723ec042::1788021232::res://.godot/exported/133200997/export-cdf83c9d4f0dc53d0b45d8df857f3182-zone_cliffs_house_interior_2.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn::6bcfb694fdfc5337be42b919ca663cd6::1791580958::res://.godot/exported/133200997/export-d55a50bf8c08edc01e83c024860b7584-zone_gloomy_woods_cliffs.scn
-res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn::ba13f608a238b66e162b114feebaebc6::1791679525::res://.godot/exported/133200997/export-9114d318de1bd584c57fc826d36de582-zone_gloomy_woods_entrance.scn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn::b9db4516660ce7b3b4a5fd1a7662f858::1791734133::res://.godot/exported/133200997/export-9114d318de1bd584c57fc826d36de582-zone_gloomy_woods_entrance.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn::26423e847591bbdbbdda0486e6fb5d17::1791580689::res://.godot/exported/133200997/export-3b7047df1a442bab88ef2492c8525674-zone_gloomy_woods_exit.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn::657eb7d9c83cad704fa959cce5867d86::1790791447::res://.godot/exported/133200997/export-aab8d49de5f4916bd1caf95a90de4253-zone_gloomy_woods_ledge.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_pool.tscn::34c7e50a1fe88e7e9356a055ce9dcf1e::1791580669::res://.godot/exported/133200997/export-f9b2129e8f825155515f9767ba91b24b-zone_gloomy_woods_pool.scn
@@ -93,13 +93,13 @@ res://locations/zones/zone_homestead_interior.tscn::58a72bdf4aa076f0755cb295e50a
 res://locations/zones/zone_mountain.tscn::0cf7165c5de2630916e26963334c5b62::1791583918::res://.godot/exported/133200997/export-f55a34495b1852f5348c87af89bbffc5-zone_mountain.scn
 res://locations/gamestate_plug_1.tscn::b5383a9827956f42a06ae9610b53d330::1786916951::res://.godot/exported/133200997/export-c6b874aee582fa98d95350c87b1586f0-gamestate_plug_1.scn
 res://locations/zone_link.tscn::3ac8b0767aea66270d13e4d900225f13::1786248562::res://.godot/exported/133200997/export-477bb911c392e6eb9bba942257fca865-zone_link.scn
-res://locations/zone_manager_load.tscn::57450e7e10cc364c514275b9ff3d38b2::1791241968::res://.godot/exported/133200997/export-3f668b4fdc39e60b078936b6262d6fb5-zone_manager_load.scn
-res://locations/zone_manager_start.tscn::3a9e64abccb27fcaa4bd1ceb81097a5c::1791241861::res://.godot/exported/133200997/export-d19ea0848a7510bb439f738c8b4104a2-zone_manager_start.scn
-res://locations/zone_manager_test.tscn::5b2f19a1e5e23a4910e1fb75935af802::1791656570::res://.godot/exported/133200997/export-d8c7d96766d9893cd965832d972a6c95-zone_manager_test.scn
+res://locations/zone_manager_load.tscn::c83993a318528bcda6da6523fb4fb88e::1791748589::res://.godot/exported/133200997/export-3f668b4fdc39e60b078936b6262d6fb5-zone_manager_load.scn
+res://locations/zone_manager_start.tscn::b8ab9305a61f1dffd8b39920e3346986::1791748650::res://.godot/exported/133200997/export-d19ea0848a7510bb439f738c8b4104a2-zone_manager_start.scn
+res://locations/zone_manager_test.tscn::1cd3526b3dcc55ff934c3f3dc9fa6151::1791748573::res://.godot/exported/133200997/export-d8c7d96766d9893cd965832d972a6c95-zone_manager_test.scn
 res://mechanism/bridge.tscn::e3e2b31d5fc1d07c75504d6a0c09d54b::1786477313::res://.godot/exported/133200997/export-cce5b306ab429f0a32ac85b07bb96e01-bridge.scn
 res://mechanism/gate.tscn::868ba5b4e05ddf301e1ab5077083ab65::1786476714::res://.godot/exported/133200997/export-709995e3f4cd57bc94d9c6623a5b3658-gate.scn
 res://mechanism/sluice.tscn::c41f498862ea51b9065b1ced112aa34a::1787025569::res://.godot/exported/133200997/export-b47aecda821301922191b0f33d936a2f-sluice.scn
-res://menu/main_menu.tscn::a21c6cdb1e03e38d2056383ccd904d68::1791513158::res://.godot/exported/133200997/export-07aabad00ba46ff461d6bc7e498cd0f9-main_menu.scn
+res://menu/main_menu.tscn::7fa4b0669402d1e5c9216c0381c27259::1791746072::res://.godot/exported/133200997/export-07aabad00ba46ff461d6bc7e498cd0f9-main_menu.scn
 res://menu/save_load_menu.tscn::dbd9d3e99b8c6e634bf125e4bf88d222::1791497063::res://.godot/exported/133200997/export-8ec387dfb4b2772c28dc12147811fe67-save_load_menu.scn
 res://menu/save_load_tab.tscn::315094690ee3329aaebb91e36d2cc7a0::1787420006::res://.godot/exported/133200997/export-9a235459dd6f4529ddf84ea3e272dcbc-save_load_tab.scn
 res://monsters/damned.tscn::85a15aba1bac78c9783194ed0b054459::1790611151::res://.godot/exported/133200997/export-a4e8358187ee76a2f288c43915ffd5e7-damned.scn
@@ -170,7 +170,8 @@ res://sprites/spritesheets/monsters/shade_monster_4.tres::02e1f63428b9e0b30f0feb
 res://utility/location_text.tscn::2254eed5e3f5c77a4ba8d00508d3869b::1788535832::res://.godot/exported/133200997/export-2aa4bf275aec2b08ad15c0a381d0b59c-location_text.scn
 res://locations/zones/zone_mountain_fake_huge.tscn::9fb245f1c72335735e36bedf842a3d47::1791241966::res://.godot/exported/133200997/export-adec6bda37e21cce30f1fa1758b96355-zone_mountain_fake_huge.scn
 res://locations/zones/zone_end_of_demo.tscn::88253d4adb8045a8065908137fc2b5a7::1791244124::res://.godot/exported/133200997/export-b47824fccac299dab74fd408e2f2371d-zone_end_of_demo.scn
-res://menu/audio_menu.tscn::e92af88901b5668515a8f29ff476edeb::1791514504::res://.godot/exported/133200997/export-6b4e37b80b30c287e7ae94db44b7444a-audio_menu.scn
-res://menu/pause_menu.tscn::857428458ad82127de858c410c419075::1791514213::res://.godot/exported/133200997/export-14fd146b2789829aa428225f57f9bfc6-pause_menu.scn
+res://menu/audio_menu.tscn::e92af88901b5668515a8f29ff476edeb::1791744281::res://.godot/exported/133200997/export-6b4e37b80b30c287e7ae94db44b7444a-audio_menu.scn
+res://menu/pause_menu.tscn::234b54e897018cbac84f0d1db9dfd7db::1791746231::res://.godot/exported/133200997/export-14fd146b2789829aa428225f57f9bfc6-pause_menu.scn
 res://menu/controls_menu.tscn::6e08bd8d95333721eeb77b8861a86552::1791566987::res://.godot/exported/133200997/export-5ecb52e9f61c442195a44e934063bb84-controls_menu.scn
 res://menu/settings_menu.tscn::4fe995940e80f13b2b3810f59228ad71::1791508367::res://.godot/exported/133200997/export-feea68821dff482e431a3a21321181a7-settings_menu.scn
+res://menu/video_menu.tscn::1838278ebf7e6b39e1c12b62eec383fa::1791746235::res://.godot/exported/133200997/export-bb5ab4f098e3b8aa77056847928c5656-video_menu.scn
