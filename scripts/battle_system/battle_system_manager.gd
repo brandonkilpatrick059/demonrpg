@@ -500,7 +500,7 @@ func get_targetable_familiars(action : BattleAction):
 			for familiar in player_familiars:
 				if(familiar != player_familiars[player_familiar_index]):
 					unsorted_targets.append(familiar)
-	if(unsorted_targets.size() > 0):
+	if(unsorted_targets.size() > 1):
 		var sorted_targets : Array[Familiar] = []
 		while(unsorted_targets.size() > 0):
 			var sort_target = unsorted_targets.pop_back()
@@ -515,12 +515,14 @@ func get_targetable_familiars(action : BattleAction):
 					index = index + 1
 				sorted_targets.insert(index,sort_target)
 		targetable_familiars.append_array(sorted_targets)
+	elif(unsorted_targets.size() == 1):
+		targetable_familiars.append_array(unsorted_targets)
 
 func handle_target_input():
 	var target_type : BattleAction.TargetType = targeting_action.get_target_type()
 	match target_type:
 		BattleAction.TargetType.SELF:
-			targeted_familiars.append(self)
+			targeted_familiars.append(player_familiars[player_familiar_index])
 			select_targets()
 		BattleAction.TargetType.ANY_OPPONENT:
 			handle_single_target_input()

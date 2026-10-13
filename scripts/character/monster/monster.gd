@@ -120,6 +120,9 @@ func handle_movement():
 				moving = false
 				fade_out()
 			check_charge_player()
+	var player : Player = get_tree().get_first_node_in_group("player")
+	if(not charging && global_position.distance_to(player.global_position) < 48):
+		fade_out()
 
 func grid_aligned() -> bool:
 	return fmod(global_position.x,24) == 0 && fmod(global_position.y,24) == 0
