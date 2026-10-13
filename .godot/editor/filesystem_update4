@@ -52,3 +52,8 @@ res://sprites/spritesheets/props/structure/sluice.tres
 res://sprites/spritesheets/interface/save_load_tab.tres
 res://sprites/spritesheets/monsters/shade_monster_4.tres
 res://scripts/battle_system/battle_system_manager.gd
+res://battle/encounters/imp_encounter.tscn
+res://locations/zones/zone_homestead_interior.tscn
+res://item/healing_gore.tscn
+res://scripts/battle_system/buffs/burn_buff_effect.gd
+res://scripts/familiars/familiar.gd

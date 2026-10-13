@@ -38,12 +38,13 @@ func apply_status_effect():
 	
 		#fire spreads
 		var adjacent_familiars : Array[Familiar] = battle_system_ref.get_adjacent_familiars(target)
-		for familiar in adjacent_familiars:
-			var roll_to_spread : bool = randi_range(0.0,1.0) < 0.5
-			if(roll_to_spread):
-				var burn = load("res://battle/actions/buffs/burn_buff_effect.tscn").instantiate()
-				burn.set_source_and_target(source,familiar)
-				familiar.add_battle_buff(burn)
+		for familiar : Familiar in adjacent_familiars:
+			if(not familiar.is_incorporeal()): #does not spread to incorporeal familiars
+				var roll_to_spread : bool = randi_range(0.0,1.0) < 0.5
+				if(roll_to_spread):
+					var burn = load("res://battle/actions/buffs/burn_buff_effect.tscn").instantiate()
+					burn.set_source_and_target(source,familiar)
+					familiar.add_battle_buff(burn)
 	else:
 		queue_free()
 

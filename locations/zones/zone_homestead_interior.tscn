@@ -40,6 +40,9 @@ size = Vector2(24, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40at6"]
 size = Vector2(24, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4juk"]
+size = Vector2(48, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrq"]
 size = Vector2(24, 24)
 
@@ -342,6 +345,124 @@ to_value = "TRUE"
 script = ExtResource("12_u7vsm")
 game_state_key = "HAS_HOMESTEAD_LAMP"
 to_value = "TRUE"
+
+[node name="interactable_area_drawers" type="StaticBody2D" parent="." unique_id=857392032 node_paths=PackedStringArray("scripts")]
+position = Vector2(-216, 0)
+script = ExtResource("13_7crqw")
+no_gamestate = false
+gamestate_key = "HAS_LAMP"
+run_if_state = "FALSE"
+default_state = "FALSE"
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_drawers" unique_id=403261860]
+position = Vector2(156, 12)
+shape = SubResource("RectangleShape2D_40at6")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_drawers" unique_id=946548959 node_paths=PackedStringArray("texts")]
+script = ExtResource("13_u7vsm")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_drawers/play_texts" unique_id=724512287]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["(Father doesn't like it when I go through his drawers...)"])
+
+[node name="interactable_area_stove" type="StaticBody2D" parent="." unique_id=556763478 node_paths=PackedStringArray("scripts")]
+position = Vector2(-192, 168)
+script = ExtResource("13_7crqw")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_stove" unique_id=1203411795]
+position = Vector2(156, 12)
+shape = SubResource("RectangleShape2D_40at6")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_stove" unique_id=884341287 node_paths=PackedStringArray("texts")]
+script = ExtResource("13_u7vsm")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_stove/play_texts" unique_id=888050939]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["(The old stove is stained with soot)"])
+
+[node name="interactable_area_cabinet" type="StaticBody2D" parent="." unique_id=2069086828 node_paths=PackedStringArray("scripts")]
+position = Vector2(-216, 168)
+script = ExtResource("13_7crqw")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_cabinet" unique_id=1730898970]
+position = Vector2(156, 12)
+shape = SubResource("RectangleShape2D_40at6")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_cabinet" unique_id=534687512 node_paths=PackedStringArray("texts")]
+script = ExtResource("13_u7vsm")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_cabinet/play_texts" unique_id=639552492]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["(This cabinet is filled with cast iron pots)"])
+
+[node name="interactable_area_cabinet2" type="StaticBody2D" parent="." unique_id=430362772 node_paths=PackedStringArray("scripts")]
+position = Vector2(-120, 168)
+script = ExtResource("13_7crqw")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_cabinet2" unique_id=1954953039]
+position = Vector2(156, 12)
+shape = SubResource("RectangleShape2D_40at6")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_cabinet2" unique_id=1339067850 node_paths=PackedStringArray("texts")]
+script = ExtResource("13_u7vsm")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_cabinet2/play_texts" unique_id=959694937]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["(There's a bag of flour in the cabinet)"])
+
+[node name="interactable_area_table" type="StaticBody2D" parent="." unique_id=1162003864 node_paths=PackedStringArray("scripts")]
+position = Vector2(-96, 240)
+script = ExtResource("13_7crqw")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_table" unique_id=1922183712]
+position = Vector2(168, 0)
+shape = SubResource("RectangleShape2D_i4juk")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_table" unique_id=575641590 node_paths=PackedStringArray("texts")]
+script = ExtResource("13_u7vsm")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_table/play_texts" unique_id=224303926]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["(Every night we say grace around this table)"])
+
+[node name="interactable_area_fireplace" type="StaticBody2D" parent="." unique_id=1851669049 node_paths=PackedStringArray("scripts")]
+position = Vector2(-168, 168)
+script = ExtResource("13_7crqw")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_fireplace" unique_id=336157857]
+position = Vector2(156, 12)
+shape = SubResource("RectangleShape2D_40at6")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_fireplace" unique_id=817581542 node_paths=PackedStringArray("texts")]
+script = ExtResource("13_u7vsm")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_fireplace/play_texts" unique_id=1007905151]
+script = ExtResource("14_kpw7i")
+language_map = Array[String](["english"])
+text = Array[String](["(The depths of the fireplace are still piled with last winter's ashes)"])
 
 [node name="lamp" type="Sprite2D" parent="." unique_id=431360578]
 modulate = Color(0.6313726, 0.63529414, 1, 1)
