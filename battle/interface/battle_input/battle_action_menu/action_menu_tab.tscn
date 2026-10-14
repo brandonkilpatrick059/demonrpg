@@ -32,6 +32,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="energy_cost" type="AnimatedSprite2D" parent="." unique_id=1837169769]
 material = SubResource("CanvasItemMaterial_fcnae")
-position = Vector2(25, -3)
+position = Vector2(13, -3)
+scale = Vector2(-1, 1)
 sprite_frames = ExtResource("4_5ch7a")
-frame = 4
+frame_progress = 0.49516603

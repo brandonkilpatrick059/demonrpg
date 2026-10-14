@@ -7,9 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://dqy371ecndkqw" path="res://sprites/props/interior/end_table.png" id="5_qx6po"]
 [ext_resource type="Texture2D" uid="uid://b53ln4rammyg4" path="res://sprites/props/interior/table_overturned.png" id="6_y8rhm"]
 [ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="7_yaicd"]
+[ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="8_21qeh"]
 [ext_resource type="PackedScene" uid="uid://cam847702142m" path="res://monsters/damned.tscn" id="8_yrrhr"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="10_qx6po"]
+[ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="11_wbiqs"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="12_yaicd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sf4vr"]
 size = Vector2(24, 24)
 
 [node name="ZoneCliffsHouseInterior1" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
@@ -69,10 +76,10 @@ position = Vector2(0, 240)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=180928047]
 position = Vector2(-144, -168)
-polygon = PackedVector2Array(96, 192, 96, 168, 120, 168, 120, 216, 96, 216, 96, 240, 168, 240, 168, 216, 168, 168, 240, 168, 240, 192, 240, 216, 240, 264, 240, 336, 240, 384, 240, 432, 192, 432, 192, 384, 180, 384, 96, 384, 96, 408, 168, 408, 168, 432, 168, 504, 144, 504, 144, 432, 120, 432, 72, 432, 72, 384, 72, 360, 192, 360, 192, 336, 216, 336, 216, 264, 216, 192, 192, 192, 192, 264, 144, 264, 72, 264, 72, 192, 72, 216, 48, 216, 48, 456, 120, 456, 120, 528, 192, 528, 192, 456, 264, 456, 264, 120, 48, 120, 48, 192, 72, 192)
+polygon = PackedVector2Array(72, 168, 96, 168, 120, 168, 120, 216, 96, 216, 96, 240, 168, 240, 168, 216, 168, 168, 240, 168, 240, 192, 240, 216, 240, 264, 240, 336, 240, 384, 240, 432, 192, 432, 192, 384, 180, 384, 96, 384, 96, 408, 168, 408, 168, 432, 168, 504, 144, 504, 144, 432, 120, 432, 72, 432, 72, 384, 72, 360, 192, 360, 192, 336, 216, 336, 216, 264, 216, 192, 192, 192, 192, 264, 144, 264, 72, 264, 72, 192, 72, 216, 48, 216, 48, 456, 120, 456, 120, 528, 192, 528, 192, 456, 264, 456, 264, 120, 48, 120, 48, 192, 48, 216, 72, 216, 72, 192)
 
 [node name="end_table_2" type="Sprite2D" parent="." unique_id=434380656]
-position = Vector2(-72, 0)
+position = Vector2(48, 168)
 texture = ExtResource("5_qx6po")
 offset = Vector2(12, 12)
 
@@ -88,10 +95,136 @@ autoplay = true
 bus = &"effects"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2129903169 groups=["global_modulate"]]
+visible = false
 z_index = 50
 color = Color(0, 0, 0, 1)
+script = ExtResource("8_21qeh")
 
 [node name="Damned" parent="." unique_id=1590593699 instance=ExtResource("8_yrrhr")]
 position = Vector2(-47.999992, 24)
 damned_name = "damned_1"
 familiar_path = "res://familiars/base/L0_damned.tscn"
+
+[node name="interactable_area_pit" type="StaticBody2D" parent="." unique_id=1445077163 node_paths=PackedStringArray("scripts")]
+position = Vector2(-216, 168)
+script = ExtResource("10_qx6po")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_pit" unique_id=795961864 node_paths=PackedStringArray("texts")]
+script = ExtResource("11_wbiqs")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_pit/play_texts" unique_id=746398500]
+script = ExtResource("12_yaicd")
+language_map = Array[String](["english"])
+text = Array[String](["(There are dark, gaping holes in the floorboards)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_pit" unique_id=186757867]
+polygon = PackedVector2Array(168, -120, 168, -96, 240, -96, 240, -168, 192, -168, 192, -120)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="interactable_area_pit" unique_id=931735391]
+polygon = PackedVector2Array(264, -144, 288, -144, 288, -72, 264, -72)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="interactable_area_pit" unique_id=509387057]
+polygon = PackedVector2Array(168, 48, 168, 72, 240, 72, 240, 48)
+
+[node name="interactable_area_cabinets" type="StaticBody2D" parent="." unique_id=1199326402 node_paths=PackedStringArray("scripts")]
+position = Vector2(-216, 168)
+script = ExtResource("10_qx6po")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_cabinets" unique_id=1685540144 node_paths=PackedStringArray("texts")]
+script = ExtResource("11_wbiqs")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_cabinets/play_texts" unique_id=1270863046]
+script = ExtResource("12_yaicd")
+language_map = Array[String](["english"])
+text = Array[String](["(A foul smell wafts from the cabinets as I open them)"])
+
+[node name="text2" type="Node" parent="interactable_area_cabinets/play_texts" unique_id=529435290]
+script = ExtResource("12_yaicd")
+language_map = Array[String](["english"])
+text = Array[String](["(Something chitters and scurries in the darkness)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_cabinets" unique_id=1504566410]
+polygon = PackedVector2Array(144, 0, 144, 24, 192, 24, 192, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="interactable_area_cabinets" unique_id=603709980]
+polygon = PackedVector2Array(216, 0, 216, 24, 264, 24, 264, 0)
+
+[node name="interactable_area_drawers" type="StaticBody2D" parent="." unique_id=128573721 node_paths=PackedStringArray("scripts")]
+position = Vector2(-216, 168)
+script = ExtResource("10_qx6po")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_drawers" unique_id=1600629418 node_paths=PackedStringArray("texts")]
+script = ExtResource("11_wbiqs")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_drawers/play_texts" unique_id=633217967]
+script = ExtResource("12_yaicd")
+language_map = Array[String](["english"])
+text = Array[String](["(The drawers only contain two small polished pieces of bone)"])
+
+[node name="text2" type="Node" parent="interactable_area_drawers/play_texts" unique_id=63970669]
+script = ExtResource("12_yaicd")
+language_map = Array[String](["english"])
+text = Array[String](["(I hear footsteps in the other room...)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_drawers" unique_id=1399225580]
+position = Vector2(120, 168)
+polygon = PackedVector2Array(144, -144, 168, -144, 168, -168, 144, -168)
+
+[node name="interactable_area_windows" type="StaticBody2D" parent="." unique_id=1189434904 node_paths=PackedStringArray("scripts")]
+position = Vector2(-216, 168)
+script = ExtResource("10_qx6po")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_windows" unique_id=1166707876 node_paths=PackedStringArray("texts")]
+script = ExtResource("11_wbiqs")
+texts = [NodePath("text2")]
+
+[node name="text2" type="Node" parent="interactable_area_windows/play_texts" unique_id=1709358622]
+script = ExtResource("12_yaicd")
+language_map = Array[String](["english"])
+text = Array[String](["(I only see my reflection when I lift the lantern up to the window)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_windows" unique_id=2056326051]
+polygon = PackedVector2Array(168, -168, 192, -168, 192, -216, 168, -216)
+
+[node name="interactable_area_windows2" type="StaticBody2D" parent="." unique_id=751886354 node_paths=PackedStringArray("scripts")]
+position = Vector2(-216, 168)
+script = ExtResource("10_qx6po")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_windows2" unique_id=11892027 node_paths=PackedStringArray("texts")]
+script = ExtResource("11_wbiqs")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_windows2/play_texts" unique_id=88870472]
+script = ExtResource("12_yaicd")
+language_map = Array[String](["english"])
+text = Array[String](["(I only see my reflection when I lift the lantern up to the window)"])
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="interactable_area_windows2" unique_id=349539071]
+polygon = PackedVector2Array(264, -168, 288, -168, 288, -216, 264, -216)
+
+[node name="interactable_area_fireplace" type="StaticBody2D" parent="." unique_id=274897986 node_paths=PackedStringArray("scripts")]
+position = Vector2(-168, 168)
+script = ExtResource("10_qx6po")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_fireplace" unique_id=13640407]
+position = Vector2(156, 12)
+shape = SubResource("RectangleShape2D_sf4vr")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_fireplace" unique_id=952152562 node_paths=PackedStringArray("texts")]
+script = ExtResource("11_wbiqs")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_fireplace/play_texts" unique_id=668029654]
+script = ExtResource("12_yaicd")
+language_map = Array[String](["english"])
+text = Array[String](["(You can hear the wind rushing through the chimney)"])
