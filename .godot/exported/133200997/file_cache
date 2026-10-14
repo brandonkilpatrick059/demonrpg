@@ -172,7 +172,7 @@ res://locations/zones/zone_mountain_fake_huge.tscn::9fb245f1c72335735e36bedf842a
 res://locations/zones/zone_end_of_demo.tscn::f69be4e3f72fbc21c63b80632c08c4b0::1791751893::res://.godot/exported/133200997/export-b47824fccac299dab74fd408e2f2371d-zone_end_of_demo.scn
 res://menu/audio_menu.tscn::e92af88901b5668515a8f29ff476edeb::1791744281::res://.godot/exported/133200997/export-6b4e37b80b30c287e7ae94db44b7444a-audio_menu.scn
 res://menu/pause_menu.tscn::234b54e897018cbac84f0d1db9dfd7db::1791746231::res://.godot/exported/133200997/export-14fd146b2789829aa428225f57f9bfc6-pause_menu.scn
-res://menu/controls_menu.tscn::6e08bd8d95333721eeb77b8861a86552::1791566987::res://.godot/exported/133200997/export-5ecb52e9f61c442195a44e934063bb84-controls_menu.scn
+res://menu/controls_menu.tscn::97d540c2057f4b6617c54599607bfac7::1792000902::res://.godot/exported/133200997/export-5ecb52e9f61c442195a44e934063bb84-controls_menu.scn
 res://menu/settings_menu.tscn::4fe995940e80f13b2b3810f59228ad71::1791508367::res://.godot/exported/133200997/export-feea68821dff482e431a3a21321181a7-settings_menu.scn
 res://menu/video_menu.tscn::1838278ebf7e6b39e1c12b62eec383fa::1791746235::res://.godot/exported/133200997/export-bb5ab4f098e3b8aa77056847928c5656-video_menu.scn
 res://battle/actions/action_push_left.tscn::517e56e75bbacd73cbec493ad765f0f2::1791989339::res://.godot/exported/133200997/export-1bdb082af2b87c9311c7cc93ac6a200a-action_push_left.scn
