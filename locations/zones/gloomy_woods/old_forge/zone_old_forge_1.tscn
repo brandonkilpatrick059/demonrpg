@@ -107,6 +107,9 @@ size = Vector2(48, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_800lh"]
 size = Vector2(24, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nd7c"]
+size = Vector2(24, 24)
+
 [node name="ZoneOldForge" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_5bsea")
 zone_name = "Homestead Interior"
@@ -575,5 +578,73 @@ text = Array[String](["\"This makes them ideal [color=red]sacrifices[/color] for
 position = Vector2(24, 0)
 texture = ExtResource("30_kw23y")
 offset = Vector2(12, 4)
+
+[node name="interactable_area_book5" type="StaticBody2D" parent="." unique_id=799197127 node_paths=PackedStringArray("scripts")]
+position = Vector2(-24, 144)
+script = ExtResource("29_af3yb")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book5" unique_id=2145436855]
+position = Vector2(36, 60)
+shape = SubResource("RectangleShape2D_4nd7c")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book5" unique_id=936416276 node_paths=PackedStringArray("texts")]
+script = ExtResource("19_sywhf")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text8"), NodePath("text7"), NodePath("text9"), NodePath("text11"), NodePath("text12")]
+
+[node name="text" type="Node" parent="interactable_area_book5/play_texts2" unique_id=1185255494]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["(It's my [color=red]Older Sister's[/color] handwriting...)"])
+
+[node name="text2" type="Node" parent="interactable_area_book5/play_texts2" unique_id=1217843683]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["(The date on the page is from a few days ago)"])
+
+[node name="text3" type="Node" parent="interactable_area_book5/play_texts2" unique_id=160894091]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"God, what have I done?\""])
+
+[node name="text4" type="Node" parent="interactable_area_book5/play_texts2" unique_id=2103782539]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"Grandma is gone.\""])
+
+[node name="text5" type="Node" parent="interactable_area_book5/play_texts2" unique_id=950666096]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"The Vessel became something else. Something more [color=red]powerful[/color].\""])
+
+[node name="text8" type="Node" parent="interactable_area_book5/play_texts2" unique_id=1583696274]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"Every night there are more of them.\""])
+
+[node name="text7" type="Node" parent="interactable_area_book5/play_texts2" unique_id=1035055372]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"They hunt and kill and [color=red]eat[/color] anything in these woods, even each other.\""])
+
+[node name="text9" type="Node" parent="interactable_area_book5/play_texts2" unique_id=433815964]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"This door I have opened cannot be shut again.\""])
+
+[node name="text11" type="Node" parent="interactable_area_book5/play_texts2" unique_id=1022154649]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"These creatures only understand [color=red]power[/color].\""])
+
+[node name="text12" type="Node" parent="interactable_area_book5/play_texts2" unique_id=545836106]
+script = ExtResource("17_sf0dg")
+language_map = Array[String](["english"])
+text = Array[String](["\"There is only one path forward.\""])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book5" unique_id=1891933152]
+position = Vector2(24, 48)
+texture = ExtResource("30_kw23y")
+offset = Vector2(12, 12)
 
 [connection signal="body_entered" from="interact_zone_imp" to="interact_zone_imp" method="_on_body_entered"]
