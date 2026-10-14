@@ -1,3 +1,4 @@
+CollisionPolygon2D
 Sprite2D
 Node
 Label
@@ -6,7 +7,6 @@ Node2D
 CollisionShape2D
 Polygon2D
 Timer
-CollisionPolygon2D
 RichTextLabel
 CanvasModulate
 AnimatedSprite2D

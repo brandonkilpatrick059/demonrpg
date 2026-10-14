@@ -434,6 +434,45 @@ script = ExtResource("17_yupxm")
 language_map = Array[String](["english"])
 text = Array[String](["(The crops aren't doing well...)"])
 
+[node name="interactable_area_woods" type="StaticBody2D" parent="." unique_id=590254438 node_paths=PackedStringArray("scripts")]
+position = Vector2(-192, -120)
+script = ExtResource("15_0dkg3")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_woods" unique_id=1391089500 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_1alcv")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_woods/play_texts" unique_id=791525917]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(Dense woods surround the house on all sides)"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_woods" unique_id=236467631]
+polygon = PackedVector2Array(0, -72, -48, -72, -48, -24, -24, -24, -24, 24, -72, 24, -72, 72, -48, 72, -48, 120, -96, 120, -96, 168, -72, 168, -72, 216, -48, 216, -24, 216, -24, 240, 24, 240, 24, 216, 120, 216, 120, 240, 168, 240, 168, 264, 192, 264, 192, 288, 192, 384, 264, 384, 264, 288, 240, 288, 240, 264, 264, 264, 264, 240, 312, 240, 312, 216, 360, 216, 360, 240, 384, 240, 384, 336, 288, 384, 192, 408, 168, 408, 144, 336, 72, 288, -96, 288, -144, 216, -192, 72, -144, -96, -72, -120, 0, -240, 240, -264, 264, -96, 264, -48, 216, -48, 216, -72, 168, -72, 120, -72, 0, -189.79413)
+
+[node name="interactable_area_mountains" type="StaticBody2D" parent="." unique_id=1177612175 node_paths=PackedStringArray("scripts")]
+position = Vector2(-192, -120)
+script = ExtResource("15_0dkg3")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_area_mountains" unique_id=305263879 node_paths=PackedStringArray("texts")]
+script = ExtResource("16_1alcv")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_mountains/play_texts" unique_id=117656326]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(The house is sheltered by this mountain ridge)"])
+
+[node name="text2" type="Node" parent="interactable_area_mountains/play_texts" unique_id=1129674926]
+script = ExtResource("17_yupxm")
+language_map = Array[String](["english"])
+text = Array[String](["(The [color=blue]Mountain Path[/color] over there leads to [color=blue]Grandma's House[/color])"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_mountains" unique_id=239353810]
+polygon = PackedVector2Array(264, -48, 264, 72, 288, 72, 288, -24, 336, -24, 336, 192, 384, 192, 384, 264, 432, 264, 432, 96, 432, -96, 264, -96)
+
 [node name="entered_house_ready_scripts" type="Node" parent="." unique_id=648322260 node_paths=PackedStringArray("scripts")]
 script = ExtResource("18_6qcli")
 gamestate_key = "HOUSE_ENTERED"

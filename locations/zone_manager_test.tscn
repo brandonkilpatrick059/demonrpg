@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="3_2gs5w"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
+[ext_resource type="PackedScene" uid="uid://dl1ocarny4af2" path="res://familiars/base/L2_dylith.tscn" id="5_pag8u"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
 [ext_resource type="PackedScene" uid="uid://dgil6lq8m0otl" path="res://familiars/base/L1_imp.tscn" id="6_vlo4x"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
@@ -79,7 +80,7 @@ states_map_values = Array[String](["TRUE", "TRUE", "TRUE"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
 position = Vector2(3312, -2448)
-familiar_team = [NodePath("L1imp")]
+familiar_team = [NodePath("L1imp"), NodePath("L2dylith")]
 pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
@@ -89,6 +90,9 @@ process_callback = 0
 
 [node name="L1imp" parent="Player" unique_id=2120251354 instance=ExtResource("6_vlo4x")]
 visible = false
+
+[node name="L2dylith" parent="Player" unique_id=1722867992 instance=ExtResource("5_pag8u")]
+position = Vector2(-1329.115, 919.604)
 
 [node name="loading" type="Node2D" parent="." unique_id=47417405]
 visible = false

@@ -154,6 +154,12 @@ shader_parameter/slant = 4.7499999933364734e-08
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(48, 864)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32wq3"]
+size = Vector2(48, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v82f"]
+size = Vector2(48, 288)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3wst"]
 size = Vector2(48, 24)
 
@@ -168,6 +174,9 @@ size = Vector2(48, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tokw"]
 size = Vector2(48, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boykk"]
+size = Vector2(96, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fptf3"]
 size = Vector2(72, 72)
@@ -234,7 +243,7 @@ collision_enabled = false
 [node name="TileMapLayer_transparent" type="TileMapLayer" parent="." unique_id=1988770141]
 modulate = Color(0.463838, 0.635312, 1, 1)
 z_index = 1
-tile_map_data = PackedByteArray("AAAPAOX/AAACAAAAABAPAOT/AAACAAAAABAgAOH/AAABAAAAADAgAOD/AAABAAAAABB8AJX/AAABAAAAAAB9AJb/AAABAAAAAACIAJb/AAABAAAAABCJAJX/AAABAAAAABB8AJT/AAACAAAAAAB9AJX/AAACAAAAAACIAJX/AAACAAAAABCJAJT/AAACAAAAABB+AJf/AAAAAAAAAAB/AJf/AAAAAAAAAACAAJf/AAAAAAAAAACBAJf/AAAAAAAAAACCAJf/AAAAAAAAAACFAJf/AAAAAAAAAACGAJf/AAAEAAAAAACHAJf/AAAAAAAAAAB+AJj/AAAAAAAAACB/AJj/AAAAAAAAACCAAJj/AAAAAAAAACCBAJj/AAAAAAAAACCCAJj/AAAAAAAAACCEAJj/AAACAAAAAACFAJj/AAAAAAAAACCGAJj/AAAAAAAAACCHAJj/AAAAAAAAACB/AJ//AAACAAAAABB/AKD/AAACAAAAABB/AKH/AAACAAAAABB/AKL/AAABAAAAABCFAJ7/AAACAAAAAACFAJ//AAACAAAAAACFAKD/AAACAAAAAACFAKH/AAABAAAAAACHAJ//AAACAAAAAACHAKD/AAACAAAAAACHAKH/AAACAAAAAACHAKL/AAABAAAAAAB5AJr/AAAAAAAAAAB4AJr/AAAAAAAAAAB5AJv/AAAAAAAAACB4AJv/AAAAAAAAACCDAJj/AAACAAAAABCDAJn/AAACAAAAABCDAJr/AAACAAAAABCDAJv/AAACAAAAABCDAJz/AAACAAAAABCDAJ3/AAACAAAAABCEAJ3/AAACAAAAAACEAJz/AAACAAAAAACEAJv/AAACAAAAAACEAJr/AAACAAAAAACEAJn/AAACAAAAAACEAKP/AAACAAAAAACEAKT/AAACAAAAAACEAKX/AAACAAAAAACEAKb/AAACAAAAAACEAKf/AAACAAAAAACEAKj/AAACAAAAAACEAKn/AAACAAAAAACDAKn/AAACAAAAABCDAKj/AAACAAAAABCDAKf/AAACAAAAABCDAKb/AAACAAAAABCDAKX/AAACAAAAABCDAKT/AAACAAAAABCDAKP/AAACAAAAABCGAJb/AAAEAAAAAAB6AKX/AAAEAAAAAAB6AKT/AAAEAAAAAAB7AKL/AAAEAAAAAAB7AKH/AAAEAAAAAAB5AKL/AAAAAAAAAAB6AKL/AAAAAAAAAAB8AKL/AAAAAAAAAAB5AKP/AAAAAAAAACB6AKP/AAAAAAAAACB7AKP/AAAAAAAAACB8AKP/AAAAAAAAACB8AKb/AAAAAAAAACB7AKb/AAAAAAAAACB6AKb/AAAAAAAAACB5AKb/AAAAAAAAACB5AKX/AAAAAAAAAAB7AKX/AAAAAAAAAAB8AKX/AAAAAAAAAAB9AKT/AAABAAAAABB+AKT/AAAAAAAAAACAAKL/AAAAAAAAAACBAKL/AAAAAAAAAACCAKL/AAAAAAAAAAB4AKT/AAABAAAAAAB3AKT/AAAAAAAAAAB2AKP/AAABAAAAAAB0AKP/AAABAAAAABB1AKP/AAAAAAAAAAB2AKL/AAACAAAAAAB2AKH/AAACAAAAAAB2AKD/AAACAAAAAAB0AKL/AAACAAAAABB0AKH/AAACAAAAABB0AKD/AAACAAAAABB9AKP/AAACAAAAABB4AKP/AAACAAAAAABzAKT/AAAAAAAAAAByAKT/AAAAAAAAAABxAKT/AAAAAAAAAABzAKX/AAAAAAAAACByAKX/AAAAAAAAACBxAKX/AAAAAAAAACB0AKT/AAABAAAAADB1AKT/AAAAAAAAACB2AKT/AAABAAAAACB3AKX/AAAAAAAAACB4AKX/AAAAAAAAACB9AKX/AAAAAAAAACB+AKX/AAAAAAAAACCCAKP/AAAAAAAAACCBAKP/AAAAAAAAACCAAKP/AAAAAAAAACB/AKP/AAABAAAAADCFAKL/AAABAAAAAGCGAKP/AAAAAAAAACCHAKP/AAABAAAAAGCIAKT/AAAAAAAAACCJAKT/AAAAAAAAACCJAKP/AAAAAAAAAACIAKP/AAAAAAAAAACGAKL/AAAAAAAAAAB9AJf/AAAAAAAAACB8AJb/AAAAAAAAACCSAIL/AAAAAAAAAACTAIL/AAAAAAAAAACUAIL/AAAAAAAAAACVAIL/AAAAAAAAAACWAIL/AAAAAAAAAACXAIL/AAABAAAAAACYAIP/AAAAAAAAAACZAIP/AAAAAAAAAACaAIP/AAAAAAAAAACbAIP/AAAAAAAAAACcAIP/AAAAAAAAAACdAIL/AAABAAAAABCjAID/AAAAAAAAAACiAID/AAAAAAAAAAChAID/AAAAAAAAAACgAID/AAAAAAAAAACfAID/AAABAAAAABCdAIP/AAABAAAAADCfAIH/AAABAAAAADCgAIH/AAAAAAAAACChAIH/AAAAAAAAACCiAIH/AAAAAAAAACCjAIH/AAAAAAAAACCcAIT/AAAAAAAAACCbAIT/AAAAAAAAACCaAIT/AAAAAAAAACCZAIT/AAAAAAAAACCYAIT/AAAAAAAAACCXAIP/AAABAAAAAGCWAIP/AAAAAAAAACCVAIP/AAAAAAAAACCTAIP/AAAAAAAAACCSAIP/AAAAAAAAACCUAIP/AAAAAAAAACCXAIH/AAACAAAAAACdAIH/AAACAAAAABCfAH//AAACAAAAABCeAIH/AAABAAAAABCeAID/AAACAAAAABCeAIL/AAABAAAAADCuAHz/AAAAAAAAAACvAHz/AAAAAAAAAACwAHz/AAAAAAAAAACxAHz/AAABAAAAAACyAH7/AAAAAAAAAACzAH7/AAAAAAAAAAC0AH7/AAAAAAAAAAC1AH7/AAABAAAAAAC2AID/AAAAAAAAAAC3AID/AAAAAAAAAAC5AID/AAAAAAAAAACxAHv/AAACAAAAAAC1AH3/AAACAAAAAACxAH3/AAABAAAAAGCwAH3/AAAAAAAAACCvAH3/AAAAAAAAACCuAH3/AAAAAAAAACCyAH//AAAAAAAAACCzAH//AAAAAAAAACC0AH//AAAAAAAAACC1AH//AAABAAAAAGC2AIH/AAAAAAAAACC3AIH/AAAAAAAAACC4AIH/AAAAAAAAACC5AIH/AAAAAAAAACC4AID/AAAAAAAAAACkAH//AAABAAAAABClAH//AAAAAAAAABCmAH//AAAAAAAAABCkAH7/AAACAAAAABCKAKP/AAAAAAAAAACLAKP/AAAAAAAAAACMAKP/AAABAAAAAACMAKL/AAACAAAAAACMAKH/AAACAAAAAACMAKD/AAACAAAAAACQALL/AAAEAAAAAACQALP/AAAEAAAAAACQALT/AAAEAAAAAACLALD/AAAEAAAAAACLALH/AAAEAAAAAACLALL/AAAEAAAAAACJALH/AAAEAAAAAACJALL/AAAEAAAAAACJALP/AAAEAAAAAAB/ALT/AAAEAAAAAAB/ALP/AAAEAAAAAACEAKr/AAACAAAAAACEAKv/AAACAAAAAACEAKz/AAACAAAAAACEAK3/AAACAAAAAACEAK7/AAACAAAAAACEALP/AAAEAAAAAACEALT/AAAEAAAAAACEALX/AAAEAAAAAACDALT/AAAEAAAAAACDALP/AAAEAAAAAACDAK7/AAACAAAAABCDAK3/AAACAAAAABCDAKz/AAACAAAAABCDAKv/AAACAAAAABCDAKr/AAACAAAAABB0ALT/AAAEAAAAAAB0ALP/AAAEAAAAAAB0ALL/AAAEAAAAAABxALD/AAAEAAAAAABxAK//AAAEAAAAAABxAK7/AAAEAAAAAACLAJP/AAABAAAAAACKAJP/AAABAAAAABCNAJX/AAABAAAAAACSAJX/AAABAAAAABCWAJX/AAABAAAAAACVAJX/AAAAAAAAAACUAJX/AAAAAAAAAACTAJX/AAAAAAAAAACRAJb/AAAAAAAAAACQAJb/AAAAAAAAAACPAJb/AAAAAAAAAACOAJb/AAAAAAAAAACMAJX/AAAAAAAAAACKAJT/AAABAAAAADCLAJT/AAABAAAAACCNAJb/AAABAAAAACCSAJb/AAABAAAAADCWAJb/AAABAAAAACCLAJX/AAACAAAAAACKAJX/AAACAAAAABCTAJb/AAAAAAAAACCUAJb/AAAAAAAAACCVAJb/AAAAAAAAACCOAJf/AAAAAAAAACCPAJf/AAAAAAAAACCQAJf/AAAAAAAAACCRAJf/AAAAAAAAACCMAJb/AAAAAAAAACCLAJb/AAADAAAAAGCNAJf/AAADAAAAAGCSAJf/AAADAAAAAHCWAJT/AAACAAAAAACSAJT/AAACAAAAABCNAJT/AAACAAAAAACLAJL/AAACAAAAAACKAJL/AAACAAAAABCIAJf/AAABAAAAADCJAJb/AAABAAAAADCIAJj/AAADAAAAADCJAJf/AAADAAAAADCKAJb/AAADAAAAADCRAIL/AAACAAAAAACRAIH/AAACAAAAAACRAIP/AAADAAAAAGCdAIT/AAADAAAAADCfAIL/AAADAAAAADCnAHz/AAACAAAAABCtAHz/AAACAAAAAACtAHv/AAACAAAAAACtAHr/AAACAAAAAACtAHn/AAACAAAAAAC6AID/AAACAAAAABC6AH//AAACAAAAABC6AH7/AAACAAAAABC6AH3/AAACAAAAABC6AHz/AAACAAAAABC6AHv/AAACAAAAABC6AIH/AAADAAAAADCtAH3/AAADAAAAAGCxAH7/AAACAAAAAAC1AID/AAACAAAAAAC1AIH/AAADAAAAAGCxAH//AAADAAAAAGCWAJf/AAACAAAAAACWAJj/AAACAAAAAACVAJv/AAACAAAAAACVAJ3/AAACAAAAAACVAJz/AAACAAAAAACVAJ7/AAACAAAAAACVAJ//AAACAAAAAACVAKD/AAACAAAAAACTAJ3/AAACAAAAABCTAJ7/AAACAAAAABCTAJ//AAACAAAAABCTAKD/AAACAAAAABCMAKT/AAABAAAAAGCLAKT/AAAAAAAAACCKAKT/AAAAAAAAACCMAKX/AAACAAAAAACMAKb/AAACAAAAAACMAKf/AAADAAAAAGCHAKT/AAADAAAAAGB/AKT/AAACAAAAABB/AKX/AAADAAAAADB0AKX/AAADAAAAADB2AKX/AAADAAAAAGCFAKP/AAADAAAAAGCPAKH/AAACAAAAAACPAKL/AAACAAAAAACPAKP/AAACAAAAAACPAKT/AAACAAAAAACPAKX/AAACAAAAAACPAKb/AAABAAAAAACPAKf/AAABAAAAACCPAKj/AAACAAAAAACPAKn/AAACAAAAAACPAKr/AAACAAAAAACPAKv/AAACAAAAAACPAKz/AAACAAAAAACPALD/AAAEAAAAAACPALH/AAAEAAAAAACPALL/AAAEAAAAAACJAKn/AAAEAAAAAACLAKn/AAAEAAAAAACKAKn/AAAEAAAAAAByALL/AAAEAAAAAAByALP/AAAEAAAAAAByALT/AAAEAAAAAABzALL/AAAEAAAAAABzALP/AAAEAAAAAABzALT/AAAEAAAAAAB1ALP/AAAEAAAAAAB1ALT/AAAEAAAAAAB1ALX/AAAEAAAAAAB2ALP/AAAEAAAAAAB2ALT/AAAEAAAAAAB2ALX/AAAEAAAAAAB3ALP/AAAEAAAAAAB3ALT/AAAEAAAAAAB3ALX/AAAEAAAAAAB4ALP/AAAEAAAAAAB4ALT/AAAEAAAAAAB4ALX/AAAEAAAAAAB5ALP/AAAEAAAAAAB5ALT/AAAEAAAAAAB5ALX/AAAEAAAAAAB6ALP/AAAEAAAAAAB6ALT/AAAEAAAAAAB6ALX/AAAEAAAAAAB7ALP/AAAEAAAAAAB7ALT/AAAEAAAAAAB7ALX/AAAEAAAAAAB8ALP/AAAEAAAAAAB8ALT/AAAEAAAAAAB8ALX/AAAEAAAAAAB9ALP/AAAEAAAAAAB9ALT/AAAEAAAAAAB9ALX/AAAEAAAAAAB+ALP/AAAEAAAAAAB+ALT/AAAEAAAAAAB+ALX/AAAEAAAAAAB/ALX/AAAEAAAAAACAALP/AAAEAAAAAACAALT/AAAEAAAAAACAALX/AAAEAAAAAACBALP/AAAEAAAAAACBALT/AAAEAAAAAACBALX/AAAEAAAAAACCALP/AAAEAAAAAACCALT/AAAEAAAAAACCALX/AAAEAAAAAACDALX/AAAEAAAAAACFALP/AAAEAAAAAACFALT/AAAEAAAAAACFALX/AAAEAAAAAACGALP/AAAEAAAAAACGALT/AAAEAAAAAACGALX/AAAEAAAAAACHALP/AAAEAAAAAACHALT/AAAEAAAAAACHALX/AAAEAAAAAACIALP/AAAEAAAAAACIALT/AAAEAAAAAACIALX/AAAEAAAAAACKALH/AAAEAAAAAACKALL/AAAEAAAAAACKALP/AAAEAAAAAACMALD/AAAEAAAAAACMALH/AAAEAAAAAACMALL/AAAEAAAAAACNALD/AAAEAAAAAACNALH/AAAEAAAAAACNALL/AAAEAAAAAACOALD/AAAEAAAAAACOALH/AAAEAAAAAACOALL/AAAEAAAAAACRALL/AAAEAAAAAACRALP/AAAEAAAAAACRALT/AAAEAAAAAACSALL/AAAEAAAAAACSALP/AAAEAAAAAACSALT/AAAEAAAAAACTALL/AAAEAAAAAACTALP/AAAEAAAAAACTALT/AAAEAAAAAACUALL/AAAEAAAAAACUALP/AAAEAAAAAACUALT/AAAEAAAAAACVALL/AAAEAAAAAACVALP/AAAEAAAAAACVALT/AAAEAAAAAACWALL/AAAEAAAAAACWALP/AAAEAAAAAACWALT/AAAEAAAAAACXALL/AAAEAAAAAACXALP/AAAEAAAAAACXALT/AAAEAAAAAACNAK//AAAEAAAAAACNAK7/AAAEAAAAAACNAK3/AAAEAAAAAACEAK//AAACAAAAAACDAK//AAACAAAAABCXAIT/AAADAAAAAGB4AKL/AAADAAAAAAB9AKL/AAADAAAAAFCTAKH/AAACAAAAABCTAKL/AAACAAAAABCTAKP/AAACAAAAABCVAKH/AAACAAAAAACVAKL/AAACAAAAAACVAKP/AAACAAAAAACEAKL/AAACAAAAAACDAKL/AAACAAAAABA=")
+tile_map_data = PackedByteArray("AAAPAOX/AAACAAAAABAPAOT/AAACAAAAABAgAOH/AAABAAAAADAgAOD/AAABAAAAABB8AJX/AAABAAAAAAB9AJb/AAABAAAAAACIAJb/AAABAAAAABCJAJX/AAABAAAAABB8AJT/AAACAAAAAAB9AJX/AAACAAAAAACIAJX/AAACAAAAABCJAJT/AAACAAAAABB+AJf/AAAAAAAAAAB/AJf/AAAAAAAAAACAAJf/AAAAAAAAAACBAJf/AAAAAAAAAACCAJf/AAAAAAAAAACFAJf/AAAAAAAAAACGAJf/AAAEAAAAAACHAJf/AAAAAAAAAAB+AJj/AAAAAAAAACB/AJj/AAAAAAAAACCAAJj/AAAAAAAAACCBAJj/AAAAAAAAACCCAJj/AAAAAAAAACCEAJj/AAACAAAAAACFAJj/AAAAAAAAACCGAJj/AAAAAAAAACCHAJj/AAAAAAAAACB/AJ//AAACAAAAABB/AKD/AAACAAAAABB/AKH/AAACAAAAABB/AKL/AAABAAAAABCFAJ7/AAACAAAAAACFAJ//AAACAAAAAACFAKD/AAACAAAAAACFAKH/AAABAAAAAACHAJ//AAACAAAAAACHAKD/AAACAAAAAACHAKH/AAACAAAAAACHAKL/AAABAAAAAAB5AJr/AAAAAAAAAAB4AJr/AAAAAAAAAAB5AJv/AAAAAAAAACB4AJv/AAAAAAAAACCDAJj/AAACAAAAABCDAJn/AAACAAAAABCDAJr/AAACAAAAABCDAJv/AAACAAAAABCDAJz/AAACAAAAABCDAJ3/AAACAAAAABCEAJ3/AAACAAAAAACEAJz/AAACAAAAAACEAJv/AAACAAAAAACEAJr/AAACAAAAAACEAJn/AAACAAAAAACEAKP/AAACAAAAAACEAKT/AAACAAAAAACEAKX/AAACAAAAAACEAKb/AAACAAAAAACEAKf/AAACAAAAAACEAKj/AAACAAAAAACEAKn/AAACAAAAAACDAKn/AAACAAAAABCDAKj/AAACAAAAABCDAKf/AAACAAAAABCDAKb/AAACAAAAABCDAKX/AAACAAAAABCDAKT/AAACAAAAABCDAKP/AAACAAAAABCGAJb/AAAEAAAAAAB6AKX/AAAEAAAAAAB6AKT/AAAEAAAAAAB7AKL/AAAEAAAAAAB7AKH/AAAEAAAAAAB5AKL/AAAAAAAAAAB6AKL/AAAAAAAAAAB8AKL/AAAAAAAAAAB5AKP/AAAAAAAAACB6AKP/AAAAAAAAACB7AKP/AAAAAAAAACB8AKP/AAAAAAAAACB8AKb/AAAAAAAAACB7AKb/AAAAAAAAACB6AKb/AAAAAAAAACB5AKb/AAAAAAAAACB5AKX/AAAAAAAAAAB7AKX/AAAAAAAAAAB8AKX/AAAAAAAAAAB9AKT/AAABAAAAABB+AKT/AAAAAAAAAACAAKL/AAAAAAAAAACBAKL/AAAAAAAAAACCAKL/AAAAAAAAAAB4AKT/AAABAAAAAAB3AKT/AAAAAAAAAAB2AKP/AAABAAAAAAB0AKP/AAABAAAAABB1AKP/AAAAAAAAAAB2AKL/AAACAAAAAAB2AKH/AAACAAAAAAB2AKD/AAACAAAAAAB0AKL/AAACAAAAABB0AKH/AAACAAAAABB0AKD/AAACAAAAABB9AKP/AAACAAAAABB4AKP/AAACAAAAAABzAKT/AAAAAAAAAAByAKT/AAAAAAAAAABxAKT/AAAAAAAAAABzAKX/AAAAAAAAACByAKX/AAAAAAAAACBxAKX/AAAAAAAAACB0AKT/AAABAAAAADB1AKT/AAAAAAAAACB2AKT/AAABAAAAACB3AKX/AAAAAAAAACB4AKX/AAAAAAAAACB9AKX/AAAAAAAAACB+AKX/AAAAAAAAACCCAKP/AAAAAAAAACCBAKP/AAAAAAAAACCAAKP/AAAAAAAAACB/AKP/AAABAAAAADCFAKL/AAABAAAAAGCGAKP/AAAAAAAAACCHAKP/AAABAAAAAGCIAKT/AAAAAAAAACCJAKT/AAAAAAAAACCJAKP/AAAAAAAAAACIAKP/AAAAAAAAAACGAKL/AAAAAAAAAAB9AJf/AAAAAAAAACB8AJb/AAAAAAAAACCSAIL/AAAAAAAAAACTAIL/AAAAAAAAAACUAIL/AAAAAAAAAACVAIL/AAAAAAAAAACWAIL/AAAAAAAAAACXAIL/AAABAAAAAACYAIP/AAAAAAAAAACZAIP/AAAAAAAAAACaAIP/AAAAAAAAAACbAIP/AAAAAAAAAACcAIP/AAAAAAAAAACdAIL/AAABAAAAABCjAID/AAAAAAAAAACiAID/AAAAAAAAAAChAID/AAAAAAAAAACgAID/AAAAAAAAAACfAID/AAABAAAAABCdAIP/AAABAAAAADCfAIH/AAABAAAAADCgAIH/AAAAAAAAACChAIH/AAAAAAAAACCiAIH/AAAAAAAAACCjAIH/AAAAAAAAACCcAIT/AAAAAAAAACCbAIT/AAAAAAAAACCaAIT/AAAAAAAAACCZAIT/AAAAAAAAACCYAIT/AAAAAAAAACCXAIP/AAABAAAAAGCWAIP/AAAAAAAAACCVAIP/AAAAAAAAACCTAIP/AAAAAAAAACCSAIP/AAAAAAAAACCUAIP/AAAAAAAAACCXAIH/AAACAAAAAACdAIH/AAACAAAAABCfAH//AAACAAAAABCeAIH/AAABAAAAABCeAID/AAACAAAAABCeAIL/AAABAAAAADCuAHz/AAAAAAAAAACvAHz/AAAAAAAAAACwAHz/AAAAAAAAAACxAHz/AAABAAAAAACyAH7/AAAAAAAAAACzAH7/AAAAAAAAAAC0AH7/AAAAAAAAAAC1AH7/AAABAAAAAAC2AID/AAAAAAAAAAC3AID/AAAAAAAAAAC5AID/AAAAAAAAAACxAHv/AAACAAAAAAC1AH3/AAACAAAAAACxAH3/AAABAAAAAGCwAH3/AAAAAAAAACCvAH3/AAAAAAAAACCuAH3/AAAAAAAAACCyAH//AAAAAAAAACCzAH//AAAAAAAAACC0AH//AAAAAAAAACC1AH//AAABAAAAAGC2AIH/AAAAAAAAACC3AIH/AAAAAAAAACC4AIH/AAAAAAAAACC5AIH/AAAAAAAAACC4AID/AAAAAAAAAACkAH//AAABAAAAABClAH//AAAAAAAAABCmAH//AAAAAAAAABCkAH7/AAACAAAAABCKAKP/AAAAAAAAAACLAKP/AAAAAAAAAACMAKP/AAABAAAAAACMAKL/AAACAAAAAACMAKH/AAACAAAAAACMAKD/AAACAAAAAACQALL/AAAEAAAAAACQALP/AAAEAAAAAACQALT/AAAEAAAAAACLALD/AAAEAAAAAACLALH/AAAEAAAAAACLALL/AAAEAAAAAACJALH/AAAEAAAAAACJALL/AAAEAAAAAACJALP/AAAEAAAAAAB/ALT/AAAEAAAAAAB/ALP/AAAEAAAAAACEAKr/AAACAAAAAACEAKv/AAACAAAAAACEAKz/AAACAAAAAACEAK3/AAACAAAAAACEAK7/AAACAAAAAACEALP/AAAEAAAAAACEALT/AAAEAAAAAACEALX/AAAEAAAAAACDALT/AAAEAAAAAACDALP/AAAEAAAAAACDAK7/AAACAAAAABCDAK3/AAACAAAAABCDAKz/AAACAAAAABCDAKv/AAACAAAAABCDAKr/AAACAAAAABB0ALT/AAAEAAAAAAB0ALP/AAAEAAAAAAB0ALL/AAAEAAAAAABxALD/AAAEAAAAAABxAK//AAAEAAAAAABxAK7/AAAEAAAAAACLAJP/AAABAAAAAACKAJP/AAABAAAAABCNAJX/AAABAAAAAACSAJX/AAABAAAAABCWAJX/AAABAAAAAACVAJX/AAAAAAAAAACUAJX/AAAAAAAAAACTAJX/AAAAAAAAAACRAJb/AAAAAAAAAACQAJb/AAAAAAAAAACPAJb/AAAAAAAAAACOAJb/AAAAAAAAAACMAJX/AAAAAAAAAACKAJT/AAABAAAAADCLAJT/AAABAAAAACCNAJb/AAABAAAAACCSAJb/AAABAAAAADCWAJb/AAABAAAAACCLAJX/AAACAAAAAACKAJX/AAACAAAAABCTAJb/AAAAAAAAACCUAJb/AAAAAAAAACCVAJb/AAAAAAAAACCOAJf/AAAAAAAAACCPAJf/AAAAAAAAACCQAJf/AAAAAAAAACCRAJf/AAAAAAAAACCMAJb/AAAAAAAAACCLAJb/AAADAAAAAGCNAJf/AAADAAAAAGCSAJf/AAADAAAAAHCWAJT/AAACAAAAAACSAJT/AAACAAAAABCNAJT/AAACAAAAAACLAJL/AAACAAAAAACKAJL/AAACAAAAABCIAJf/AAABAAAAADCJAJb/AAABAAAAADCIAJj/AAADAAAAADCJAJf/AAADAAAAADCKAJb/AAADAAAAADCRAIL/AAACAAAAAACRAIH/AAACAAAAAACRAIP/AAADAAAAAGCdAIT/AAADAAAAADCfAIL/AAADAAAAADCnAHz/AAACAAAAABCtAHz/AAACAAAAAACtAHv/AAACAAAAAACtAHr/AAACAAAAAACtAHn/AAACAAAAAAC6AID/AAACAAAAABC6AH//AAACAAAAABC6AH7/AAACAAAAABC6AH3/AAACAAAAABC6AHz/AAACAAAAABC6AHv/AAACAAAAABC6AIH/AAADAAAAADCtAH3/AAADAAAAAGCxAH7/AAACAAAAAAC1AID/AAACAAAAAAC1AIH/AAADAAAAAGCxAH//AAADAAAAAGCWAJf/AAACAAAAAACWAJj/AAACAAAAAACVAJv/AAACAAAAAACVAJ3/AAACAAAAAACVAJz/AAACAAAAAACVAJ7/AAACAAAAAACVAJ//AAACAAAAAACVAKD/AAACAAAAAACTAJ3/AAACAAAAABCTAJ7/AAACAAAAABCTAJ//AAACAAAAABCTAKD/AAACAAAAABCMAKT/AAABAAAAAGCLAKT/AAAAAAAAACCKAKT/AAAAAAAAACCMAKX/AAACAAAAAACMAKb/AAACAAAAAACMAKf/AAADAAAAAGCHAKT/AAADAAAAAGB/AKT/AAACAAAAABB/AKX/AAADAAAAADB0AKX/AAADAAAAADB2AKX/AAADAAAAAGCFAKP/AAADAAAAAGCPAKH/AAACAAAAAACPAKL/AAACAAAAAACPAKP/AAACAAAAAACPAKT/AAACAAAAAACPAKX/AAACAAAAAACPAKb/AAABAAAAAACPAKf/AAABAAAAACCPAKj/AAACAAAAAACPAKn/AAACAAAAAACPAKr/AAACAAAAAACPAKv/AAACAAAAAACPAKz/AAACAAAAAACPALD/AAAEAAAAAACPALH/AAAEAAAAAACPALL/AAAEAAAAAACJAKn/AAAEAAAAAACLAKn/AAAEAAAAAACKAKn/AAAEAAAAAAByALL/AAAEAAAAAAByALP/AAAEAAAAAAByALT/AAAEAAAAAABzALL/AAAEAAAAAABzALP/AAAEAAAAAABzALT/AAAEAAAAAAB1ALP/AAAEAAAAAAB1ALT/AAAEAAAAAAB1ALX/AAAEAAAAAAB2ALP/AAAEAAAAAAB2ALT/AAAEAAAAAAB2ALX/AAAEAAAAAAB3ALP/AAAEAAAAAAB3ALT/AAAEAAAAAAB3ALX/AAAEAAAAAAB4ALP/AAAEAAAAAAB4ALT/AAAEAAAAAAB4ALX/AAAEAAAAAAB5ALP/AAAEAAAAAAB5ALT/AAAEAAAAAAB5ALX/AAAEAAAAAAB6ALP/AAAEAAAAAAB6ALT/AAAEAAAAAAB6ALX/AAAEAAAAAAB7ALP/AAAEAAAAAAB7ALT/AAAEAAAAAAB7ALX/AAAEAAAAAAB8ALP/AAAEAAAAAAB8ALT/AAAEAAAAAAB8ALX/AAAEAAAAAAB9ALP/AAAEAAAAAAB9ALT/AAAEAAAAAAB9ALX/AAAEAAAAAAB+ALP/AAAEAAAAAAB+ALT/AAAEAAAAAAB+ALX/AAAEAAAAAAB/ALX/AAAEAAAAAACAALP/AAAEAAAAAACAALT/AAAEAAAAAACAALX/AAAEAAAAAACBALP/AAAEAAAAAACBALT/AAAEAAAAAACBALX/AAAEAAAAAACCALP/AAAEAAAAAACCALT/AAAEAAAAAACCALX/AAAEAAAAAACDALX/AAAEAAAAAACFALP/AAAEAAAAAACFALT/AAAEAAAAAACFALX/AAAEAAAAAACGALP/AAAEAAAAAACGALT/AAAEAAAAAACGALX/AAAEAAAAAACHALP/AAAEAAAAAACHALT/AAAEAAAAAACHALX/AAAEAAAAAACIALP/AAAEAAAAAACIALT/AAAEAAAAAACIALX/AAAEAAAAAACKALH/AAAEAAAAAACKALL/AAAEAAAAAACKALP/AAAEAAAAAACMALD/AAAEAAAAAACMALH/AAAEAAAAAACMALL/AAAEAAAAAACNALD/AAAEAAAAAACNALH/AAAEAAAAAACNALL/AAAEAAAAAACOALD/AAAEAAAAAACOALH/AAAEAAAAAACOALL/AAAEAAAAAACRALL/AAAEAAAAAACRALP/AAAEAAAAAACRALT/AAAEAAAAAACSALL/AAAEAAAAAACSALP/AAAEAAAAAACSALT/AAAEAAAAAACTALL/AAAEAAAAAACTALP/AAAEAAAAAACTALT/AAAEAAAAAACUALL/AAAEAAAAAACUALP/AAAEAAAAAACUALT/AAAEAAAAAACVALL/AAAEAAAAAACVALP/AAAEAAAAAACVALT/AAAEAAAAAACWALL/AAAEAAAAAACWALP/AAAEAAAAAACWALT/AAAEAAAAAACXALL/AAAEAAAAAACXALP/AAAEAAAAAACXALT/AAAEAAAAAACNAK//AAAEAAAAAACNAK7/AAAEAAAAAACNAK3/AAAEAAAAAACEAK//AAACAAAAAACDAK//AAACAAAAABCXAIT/AAADAAAAAGB4AKL/AAADAAAAAAB9AKL/AAADAAAAAFCTAKH/AAACAAAAABCTAKL/AAACAAAAABCTAKP/AAACAAAAABCVAKH/AAACAAAAAACVAKL/AAACAAAAAACVAKP/AAACAAAAAACEAKL/AAACAAAAAACDAKL/AAACAAAAABCEAKH/AAACAAAAAACEAKD/AAACAAAAAACEAJ//AAACAAAAAACEAJ7/AAACAAAAAACDAKH/AAACAAAAABCDAKD/AAACAAAAABCDAJ//AAACAAAAABCDAJ7/AAACAAAAABA=")
 tile_set = ExtResource("4_q0m8b")
 collision_enabled = false
 
@@ -1105,7 +1114,7 @@ position = Vector2(1824, -1224)
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1113,49 +1122,49 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="water_fall" unique_id=1288174380]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="water_fall" unique_id=1903701871]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="water_fall" unique_id=1707571961]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="water_fall" unique_id=771170838]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="water_fall" unique_id=209024506]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="water_fall" unique_id=2005903468]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1163,7 +1172,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1171,7 +1180,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1179,7 +1188,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1187,7 +1196,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1195,7 +1204,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1203,7 +1212,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1211,7 +1220,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1219,7 +1228,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1227,7 +1236,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1235,7 +1244,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1243,7 +1252,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1251,7 +1260,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1259,7 +1268,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1267,7 +1276,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1275,7 +1284,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1283,7 +1292,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1291,7 +1300,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1299,7 +1308,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1307,7 +1316,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1315,7 +1324,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1323,7 +1332,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1331,105 +1340,105 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="water_fall" unique_id=1583796499]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="water_fall" unique_id=468803678]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="water_fall" unique_id=2084269825]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="water_fall" unique_id=444021709]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="water_fall" unique_id=380141028]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="water_fall" unique_id=841872709]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="water_fall" unique_id=874208452]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="water_fall" unique_id=1739917726]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="water_fall" unique_id=1659876462]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="water_fall" unique_id=1722585529]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="water_fall" unique_id=198053837]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="water_fall" unique_id=840747895]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="water_fall" unique_id=1135573964]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="water_fall" unique_id=1260777906]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1437,7 +1446,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1445,7 +1454,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1453,7 +1462,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1461,7 +1470,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1469,7 +1478,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1477,7 +1486,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1485,7 +1494,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1493,7 +1502,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1501,7 +1510,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1509,7 +1518,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1517,7 +1526,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1525,7 +1534,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1533,7 +1542,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1541,7 +1550,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1549,7 +1558,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1557,7 +1566,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1565,7 +1574,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1573,7 +1582,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1581,7 +1590,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1589,7 +1598,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1597,7 +1606,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1605,7 +1614,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1613,7 +1622,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1621,7 +1630,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1629,7 +1638,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1637,7 +1646,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1645,7 +1654,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1653,7 +1662,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.8644626
+frame_progress = 0.91499525
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1716,6 +1725,57 @@ attenuation = 4.756827
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water_fall/StaticBody2D" unique_id=543872258]
 position = Vector2(1344, -984)
 shape = SubResource("RectangleShape2D_cea73")
+
+[node name="interactable_river" type="StaticBody2D" parent="water_fall" unique_id=1485480245 node_paths=PackedStringArray("scripts")]
+position = Vector2(-192, -120)
+script = ExtResource("34_4glbe")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="water_fall/interactable_river" unique_id=226996752 node_paths=PackedStringArray("texts")]
+script = ExtResource("35_2tokw")
+texts = [NodePath("text2"), NodePath("text")]
+
+[node name="text2" type="Node" parent="water_fall/interactable_river/play_texts" unique_id=2110575997]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(The water is rushing violently)"])
+
+[node name="text" type="Node" parent="water_fall/interactable_river/play_texts" unique_id=2042510660]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(I wonder if there's a way across?)"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water_fall/interactable_river" unique_id=1264531374]
+position = Vector2(1536, -1068)
+shape = SubResource("RectangleShape2D_32wq3")
+
+[node name="interactable_river2" type="StaticBody2D" parent="water_fall" unique_id=1215925544 node_paths=PackedStringArray("scripts")]
+position = Vector2(-192, -120)
+script = ExtResource("34_4glbe")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="water_fall/interactable_river2" unique_id=1975845112 node_paths=PackedStringArray("texts")]
+script = ExtResource("35_2tokw")
+texts = [NodePath("text2"), NodePath("text3"), NodePath("text")]
+
+[node name="text2" type="Node" parent="water_fall/interactable_river2/play_texts" unique_id=2056144243]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(The water is rushing violently)"])
+
+[node name="text3" type="Node" parent="water_fall/interactable_river2/play_texts" unique_id=380929375]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(There's an old ruin on the other side)"])
+
+[node name="text" type="Node" parent="water_fall/interactable_river2/play_texts" unique_id=1426448398]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(I wonder if there's a way across?)"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water_fall/interactable_river2" unique_id=1579811477]
+position = Vector2(1536, -744)
+shape = SubResource("RectangleShape2D_0v82f")
 
 [node name="HealingGore" parent="." unique_id=2031394265 instance=ExtResource("26_ifphs")]
 position = Vector2(2928, -2640)
@@ -2092,6 +2152,30 @@ script = ExtResource("36_kbjmf")
 language_map = Array[String](["english"])
 text = Array[String](["(It looks like some kind of factory)"])
 
+[node name="interactable_area_water_wheel" type="StaticBody2D" parent="." unique_id=912922642 node_paths=PackedStringArray("scripts")]
+position = Vector2(3384, -1896)
+script = ExtResource("34_4glbe")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_water_wheel" unique_id=896853636]
+position = Vector2(-216, -240)
+shape = SubResource("RectangleShape2D_boykk")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_water_wheel" unique_id=677273605 node_paths=PackedStringArray("texts")]
+script = ExtResource("35_2tokw")
+texts = [NodePath("text"), NodePath("text2")]
+
+[node name="text" type="Node" parent="interactable_area_water_wheel/play_texts" unique_id=1953626873]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(It's a broken down water wheel)"])
+
+[node name="text2" type="Node" parent="interactable_area_water_wheel/play_texts" unique_id=231772338]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(It must have powered this old factory...)"])
+
 [node name="interact_zone_forge_pan" type="Area2D" parent="." unique_id=824833098 node_paths=PackedStringArray("run_scripts")]
 position = Vector2(3168, -2664)
 collision_mask = 2
@@ -2116,5 +2200,46 @@ relative_destination = Vector2(0, 400)
 [node name="play_achievment_sound" type="Node" parent="interact_zone_forge_pan" unique_id=673413329]
 script = ExtResource("45_tveys")
 sound_stream = ExtResource("46_aidpc")
+
+[node name="interactable_burnt_house" type="StaticBody2D" parent="." unique_id=502601363 node_paths=PackedStringArray("scripts")]
+position = Vector2(-192, -120)
+script = ExtResource("34_4glbe")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_burnt_house" unique_id=561320905 node_paths=PackedStringArray("texts")]
+script = ExtResource("35_2tokw")
+texts = [NodePath("text2"), NodePath("text")]
+
+[node name="text2" type="Node" parent="interactable_burnt_house/play_texts" unique_id=1382597241]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(It's the burned shell of a home)"])
+
+[node name="text" type="Node" parent="interactable_burnt_house/play_texts" unique_id=320639919]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(Hard to believe people used to live here)"])
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="interactable_burnt_house" unique_id=1415326203]
+position = Vector2(192, 120)
+polygon = PackedVector2Array(3000, -3144, 3000, -3096, 2952, -3096, 2952, -3144, 2952, -3216, 2976, -3216, 3048, -3216, 3072, -3216, 3072, -3192, 3072, -3144, 3072, -3096, 3024, -3096, 3024, -3144, 3048, -3144, 3048, -3192, 2976, -3192, 2976, -3144)
+
+[node name="interactable_ruin" type="StaticBody2D" parent="." unique_id=450237554 node_paths=PackedStringArray("scripts")]
+position = Vector2(-192, -120)
+script = ExtResource("34_4glbe")
+scripts = [NodePath("play_texts")]
+
+[node name="play_texts" type="Node" parent="interactable_ruin" unique_id=994621663 node_paths=PackedStringArray("texts")]
+script = ExtResource("35_2tokw")
+texts = [NodePath("text2")]
+
+[node name="text2" type="Node" parent="interactable_ruin/play_texts" unique_id=712005451]
+script = ExtResource("36_kbjmf")
+language_map = Array[String](["english"])
+text = Array[String](["(There's an old ruin below)"])
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="interactable_ruin" unique_id=1319916512]
+position = Vector2(192, 120)
+polygon = PackedVector2Array(3192, -2352, 3192, -2328, 3192, -2232, 3384, -2232, 3384, -2304, 3264, -2304, 3264, -2328, 3216, -2328, 3216, -2352)
 
 [connection signal="body_entered" from="interact_zone_forge_pan" to="interact_zone_forge_pan" method="_on_body_entered"]

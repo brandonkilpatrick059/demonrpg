@@ -114,7 +114,7 @@ func gen_stat_increase():
 	stat_increase_value = 0
 	if(randf_range(0.0,1.0) < 0.5):
 		stat_increase = stats[0]
-		stat_increase_value = stat_increase_value + randi_range(1,3)
+		stat_increase_value = stat_increase_value + 1
 	else:
 		var random_index = randi_range(0,stats.size()-2)
 		stat_increase = stats[random_index]

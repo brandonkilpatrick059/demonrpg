@@ -218,6 +218,35 @@ func start_wait_timer(time : float):
 func is_waiting() -> bool:
 	return wait_timer.is_stopped()
 
+func shift_familiar(familiar : Familiar, direction : String):
+	if(familiar != null):
+		if(direction == "LEFT"):
+			var parent_slot : FamiliarSlot = familiar.get_parent()
+			var positions : Array[FamiliarSlot] = []
+			if(familiar.is_hostile()):
+				positions = opponent_positions
+			else:
+				positions = player_positions
+			var slot_index : int = 0
+			slot_index = positions.find(parent_slot)
+			if(slot_index > 0 && 
+			positions[slot_index-1].get_child_count() == 0):
+				familiar.reparent(positions[slot_index-1])
+				familiar.position = Vector2(0,0)
+		if(direction == "RIGHT"):
+			var parent_slot : FamiliarSlot = familiar.get_parent()
+			var positions : Array[FamiliarSlot] = []
+			if(familiar.is_hostile()):
+				positions = opponent_positions
+			else:
+				positions = player_positions
+			var slot_index : int = 0
+			slot_index = positions.find(parent_slot)
+			if(slot_index < positions.size()-1 && 
+			positions[slot_index+1].get_child_count() == 0):
+				familiar.reparent(positions[slot_index+1])
+				familiar.position = Vector2(0,0)
+
 func switch_familiar_to_player_familiars(familiar : Familiar):
 	opponent_familiars.erase(familiar)
 	player_familiars.append(familiar)
