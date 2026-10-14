@@ -79,7 +79,7 @@ res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn::f6ce2b6a1d42
 res://locations/zones/gloomy_woods/zone_cliffs_house_interior_1.tscn::e4f0c8fb6df77a9391d1f2466f52c6f0::1791995319::res://.godot/exported/133200997/export-fdef0937f1f805cf62b137d01cc27830-zone_cliffs_house_interior_1.scn
 res://locations/zones/gloomy_woods/zone_cliffs_house_interior_2.tscn::1daf9a46e46ad15a983f216fea4f167c::1791996102::res://.godot/exported/133200997/export-cdf83c9d4f0dc53d0b45d8df857f3182-zone_cliffs_house_interior_2.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn::753cdf99ffc3ee467335a09659b6d914::1791994232::res://.godot/exported/133200997/export-d55a50bf8c08edc01e83c024860b7584-zone_gloomy_woods_cliffs.scn
-res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn::052cc9e5f0f67a3df22080f64bc7ef1e::1791998181::res://.godot/exported/133200997/export-9114d318de1bd584c57fc826d36de582-zone_gloomy_woods_entrance.scn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn::78a81559647edba44f4655777d677c20::1792000394::res://.godot/exported/133200997/export-9114d318de1bd584c57fc826d36de582-zone_gloomy_woods_entrance.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn::26423e847591bbdbbdda0486e6fb5d17::1791580689::res://.godot/exported/133200997/export-3b7047df1a442bab88ef2492c8525674-zone_gloomy_woods_exit.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn::657eb7d9c83cad704fa959cce5867d86::1790791447::res://.godot/exported/133200997/export-aab8d49de5f4916bd1caf95a90de4253-zone_gloomy_woods_ledge.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_pool.tscn::ae7efe99fd1c692d50ffec4d3af770b0::1791823906::res://.godot/exported/133200997/export-f9b2129e8f825155515f9767ba91b24b-zone_gloomy_woods_pool.scn
@@ -90,7 +90,7 @@ res://locations/zones/zone_grandmas_house.tscn::55febcbf6697d4b03c762ccddf6a2035
 res://locations/zones/zone_grandmas_house_interior.tscn::1c6219612222d733d3f94092de84d519::1791815873::res://.godot/exported/133200997/export-d8f7ee1669385f65957d55b9034d597e-zone_grandmas_house_interior.scn
 res://locations/zones/zone_homestead.tscn::8070b57a4bc6820dc0c4d6a14cb9a460::1791927718::res://.godot/exported/133200997/export-76e4a74d602e2217fb717602d8baa393-zone_homestead.scn
 res://locations/zones/zone_homestead_interior.tscn::a16295d3a44629faee1a01be800b4cc7::1791926418::res://.godot/exported/133200997/export-ae66971d838d6b6fb4f36cbdde63b61d-zone_homestead_interior.scn
-res://locations/zones/zone_mountain.tscn::ed833fe37528a7151cf22b5714a4621e::1791950376::res://.godot/exported/133200997/export-f55a34495b1852f5348c87af89bbffc5-zone_mountain.scn
+res://locations/zones/zone_mountain.tscn::02610f8cd5fd706b212603c3b47a28b7::1792000614::res://.godot/exported/133200997/export-f55a34495b1852f5348c87af89bbffc5-zone_mountain.scn
 res://locations/gamestate_plug_1.tscn::b5383a9827956f42a06ae9610b53d330::1786916951::res://.godot/exported/133200997/export-c6b874aee582fa98d95350c87b1586f0-gamestate_plug_1.scn
 res://locations/zone_link.tscn::3ac8b0767aea66270d13e4d900225f13::1786248562::res://.godot/exported/133200997/export-477bb911c392e6eb9bba942257fca865-zone_link.scn
 res://locations/zone_manager_load.tscn::33d547a8ec24ffb98f98d9b0cdca55f3::1791823486::res://.godot/exported/133200997/export-3f668b4fdc39e60b078936b6262d6fb5-zone_manager_load.scn

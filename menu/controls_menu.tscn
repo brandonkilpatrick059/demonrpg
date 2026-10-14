@@ -212,6 +212,7 @@ position = Vector2(-4, -18)
 texture = ExtResource("14_q8t0u")
 
 [node name="pause_2" type="Node2D" parent="keyboard_controls" unique_id=1513749594 node_paths=PackedStringArray("glyph_sets")]
+visible = false
 position = Vector2(-86, -9)
 script = ExtResource("2_dbej0")
 glyph_sets = [NodePath("esc")]
@@ -227,6 +228,7 @@ text = "PAUSE"
 label_settings = SubResource("LabelSettings_cea73")
 
 [node name="esc" type="Node2D" parent="keyboard_controls/pause_2" unique_id=1035532377]
+visible = false
 position = Vector2(2, 2)
 
 [node name="esc" type="Sprite2D" parent="keyboard_controls/pause_2/esc" unique_id=798165397]
@@ -409,3 +411,5 @@ label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=581994608]
 shape = SubResource("RectangleShape2D_cea73")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1691439127 groups=["camera"]]
