@@ -55,3 +55,6 @@ res://familiars/base/L2_reaver.tscn
 res://familiars/base/L2_shax.tscn
 res://scripts/familiars/familiar.gd
 res://locations/zones/zone_mountain.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn
+res://battle/interface/battle_input/battle_mini_status.tscn
