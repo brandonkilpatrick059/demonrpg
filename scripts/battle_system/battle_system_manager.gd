@@ -1221,14 +1221,15 @@ func log_battle_state(action : ActionQueueItem):
 	print("-------------")
 	print("ACTION ",num_actions)
 	log_action(action)
-	var current_actor_name = get_familiar_log_name(current_actor)
-	var current_action_name = get_log_action_name(current_battle_action)
-	var current_targets = get_log_targets(current_targets)
-	print("current_actor_name: ",current_actor_name)
-	print("current_action_name: ",current_action_name)
-	print("current_targets: ",current_targets)
-	print("-------------")
-	log_combined_action_queue()
+	if(current_actor != null):
+		var current_actor_name = get_familiar_log_name(current_actor)
+		var current_action_name = get_log_action_name(current_battle_action)
+		var current_targets = get_log_targets(current_targets)
+		print("current_actor_name: ",current_actor_name)
+		print("current_action_name: ",current_action_name)
+		print("current_targets: ",current_targets)
+		print("-------------")
+		log_combined_action_queue()
 	
 
 

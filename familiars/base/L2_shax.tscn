@@ -14,9 +14,9 @@ packedscene_path = "res://familiars/base/L2_shax.tscn"
 familiar_name = "Shax"
 max_hp = 15
 current_hp = 15
-attack = 8
+attack = 4
 defense = 2
-speed = 2
+speed = 6
 num_actions = 2
 level = 2
 

@@ -5904,9 +5904,9 @@ bus = &"music"
 [node name="ZoneLinkHomestead" parent="." unique_id=2082811522 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("6_wubst")]
 link_zone_scene_path = "res://locations/zones/zone_homestead.tscn"
 link_name = "ENTRANCE"
-to_link_name = "MOUNTAIN"
 teleport_spot = NodePath("load_in")
 stop_point = NodePath("stop_point")
+to_link_name = "MOUNTAIN"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkHomestead" unique_id=289355182]
 z_index = 20
@@ -5973,9 +5973,9 @@ texture = ExtResource("13_sto17")
 [node name="ZoneLinkGrandmas" parent="." unique_id=514851389 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("6_wubst")]
 link_zone_scene_path = "res://locations/zones/zone_grandmas_house.tscn"
 link_name = "EXIT"
-to_link_name = "ENTRANCE"
 teleport_spot = NodePath("load_in")
 stop_point = NodePath("stop_point")
+to_link_name = "ENTRANCE"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkGrandmas" unique_id=1118390089]
 z_index = 20

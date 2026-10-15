@@ -245,7 +245,7 @@ zone = NodePath("../..")
 
 [node name="change_mod_trees" type="Node" parent="entered_house_ready_scripts" unique_id=1348136875 node_paths=PackedStringArray("nodes")]
 script = ExtResource("21_qwsoq")
-nodes = [NodePath("../../TileMapLayer_trees"), NodePath("../../TileMapLayer_trees_below")]
+nodes = [NodePath("../../TileMapLayer_trees"), NodePath("../../TileMapLayer_trees_below"), NodePath("../../TileMapLayer_trees2")]
 mod = Color(0.59607846, 0.5254902, 0.69803923, 1)
 
 [node name="change_mod_green" type="Node" parent="entered_house_ready_scripts" unique_id=302328997 node_paths=PackedStringArray("nodes")]
