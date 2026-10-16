@@ -58,3 +58,7 @@ res://locations/zones/zone_mountain.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn
 res://battle/interface/battle_input/battle_mini_status.tscn
+res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn
+res://battle/encounters/imp_encounter.tscn
+res://battle/battle_system.tscn
+res://locations/zone_manager_test.tscn

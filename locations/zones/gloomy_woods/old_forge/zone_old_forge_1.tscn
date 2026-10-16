@@ -86,9 +86,6 @@ size = Vector2(24, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wus6"]
 size = Vector2(24, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jreu"]
-size = Vector2(24, 48)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1iq3"]
 size = Vector2(96, 24)
 
@@ -228,15 +225,9 @@ position = Vector2(192, 288)
 encounter = ExtResource("7_u8oqv")
 sprite_frames = ExtResource("8_800lh")
 
-[node name="ShadeMonster_ghost2" parent="." unique_id=177171841 instance=ExtResource("6_dynvb")]
-z_index = 2
-position = Vector2(432, 552)
-encounter = ExtResource("7_u8oqv")
-sprite_frames = ExtResource("8_800lh")
-
 [node name="ShadeMonster_ghost6" parent="." unique_id=1825636231 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(696, 552)
+position = Vector2(1152, 168)
 encounter = ExtResource("7_u8oqv")
 sprite_frames = ExtResource("8_800lh")
 
@@ -264,9 +255,15 @@ position = Vector2(912, 408)
 encounter = ExtResource("9_y6ppr")
 sprite_frames = ExtResource("8_800lh")
 
+[node name="ShadeMonster_martyr_healer3" parent="." unique_id=2111902734 instance=ExtResource("6_dynvb")]
+z_index = 2
+position = Vector2(432, 528)
+encounter = ExtResource("9_y6ppr")
+sprite_frames = ExtResource("8_800lh")
+
 [node name="ShadeMonster_stalf_healer3" parent="." unique_id=1942000967 instance=ExtResource("6_dynvb")]
 z_index = 2
-position = Vector2(1152, 72)
+position = Vector2(696, 576)
 encounter = ExtResource("11_u8oqv")
 sprite_frames = ExtResource("8_800lh")
 
@@ -360,11 +357,6 @@ position = Vector2(228, 228)
 shape = SubResource("RectangleShape2D_6wus6")
 debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="monster_fence" unique_id=1512705437]
-position = Vector2(1524, 168)
-shape = SubResource("RectangleShape2D_7jreu")
-debug_color = Color(0.6024541, 0.54282707, 0, 0.41960785)
-
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="monster_fence" unique_id=138752826]
 position = Vector2(528, 60)
 shape = SubResource("RectangleShape2D_d1iq3")
@@ -390,8 +382,13 @@ position = Vector2(1128, 552)
 gore_name = "FORGE4"
 heal_amount = 10
 
-[node name="PentacleSeal" parent="." unique_id=301785333 instance=ExtResource("14_xj6y8")]
+[node name="HealingGore4" parent="." unique_id=1226598247 instance=ExtResource("13_u8oqv")]
 position = Vector2(912, 72)
+gore_name = "FORGE4"
+heal_amount = 10
+
+[node name="PentacleSeal3" parent="." unique_id=724220631 instance=ExtResource("14_xj6y8")]
+position = Vector2(336, -48)
 seal_name = "FORGESEAL1"
 
 [node name="PentacleSeal2" parent="." unique_id=1833276722 instance=ExtResource("14_xj6y8")]
