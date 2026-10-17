@@ -60,3 +60,4 @@ res://scripts/battle_system/battle_system_manager.gd
 res://scripts/familiars/familiar.gd
 res://interface/familiar_summary.tscn
 res://scripts/interface/familiar_summary.gd
+res://item/pentacle_seal.tscn
