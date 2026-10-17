@@ -87,7 +87,7 @@ size = Vector2(72, 24)
 size = Vector2(24, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xb5pw"]
-size = Vector2(72, 24)
+size = Vector2(96, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ryuv"]
 size = Vector2(24, 72)
@@ -96,13 +96,13 @@ size = Vector2(24, 72)
 size = Vector2(144, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edj5l"]
-size = Vector2(24, 72)
+size = Vector2(24, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7snbx"]
 size = Vector2(120, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bke10"]
-size = Vector2(72, 24)
+size = Vector2(96, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d4to"]
 size = Vector2(168, 24)
@@ -215,7 +215,7 @@ collision_enabled = false
 [node name="TileMapLayer_black" type="TileMapLayer" parent="." unique_id=713215046]
 modulate = Color(0, 0, 0, 1)
 z_index = -1
-tile_map_data = PackedByteArray("AABGAJf/AQADAAUAAABFAJf/AQADAAUAAABMAJT/AQACAAQAABBMAJX/AQACAAQAABBMAJb/AQACAAQAABBkAI3/AQACAAQAAABoAJH/AQACAAQAAABoAJD/AQACAAQAAABkAIz/AQACAAQAAABsAJT/AQADAAUAAABtAJT/AQADAAUAAABwAJT/AQADAAUAAABxAJT/AQADAAUAAAB0AJT/AQADAAUAAAB1AJT/AQADAAUAAAChAHz/AQACAAUAAFCiAHz/AQACAAUAAEDAAIT/AQADAAMAAAC/AIT/AQADAAMAAAC+AIT/AQADAAMAAAC9AIT/AQADAAMAAAC8AIT/AQADAAMAAAC7AIT/AQACAAMAAABoAJ3/AQACAAQAAABiAJz/AQADAAMAAABjAJz/AQACAAQAAFBkAJz/AQACAAQAAFBlAJz/AQACAAQAAFBmAJz/AQACAAQAAFBnAJz/AQACAAQAAFBoAJz/AQAEAAQAAFBRAI3/AQADAAQAAABQAI3/AQADAAQAAABQAI7/AQADAAUAAABRAI7/AQADAAUAAABUAIr/AQAEAAQAAGBUAIv/AQACAAQAABBUAIz/AQACAAUAABBjAIr/AQADAAUAAABiAIr/AQADAAUAAABhAIr/AQADAAUAAABgAIr/AQADAAUAAABfAIr/AQADAAUAAABeAIr/AQADAAUAAABdAIr/AQADAAUAAABcAIr/AQADAAUAAABbAIr/AQADAAUAAABaAIr/AQADAAUAAABZAIr/AQADAAUAAABYAIr/AQADAAUAAABXAIr/AQADAAUAAABWAIr/AQADAAUAAABVAIr/AQADAAUAAABvAIb/AQACAAQAABBvAIX/AQACAAMAABBRAJX/AQACAAMAAABSAJX/AQADAAMAAABTAJX/AQADAAMAAABUAJX/AQADAAMAAABVAJX/AQADAAMAAABWAJX/AQADAAMAAABXAJX/AQADAAMAAABdAJX/AQADAAMAAABeAJX/AQADAAMAAABfAJX/AQADAAMAAABgAJX/AQADAAMAAABhAJX/AQACAAMAABBhAJb/AQACAAQAABBYAJX/AQADAAMAAABZAJX/AQADAAMAAABaAJX/AQADAAMAAABbAJX/AQADAAMAAABcAJX/AQADAAMAAABuAKD/AQADAAUAAABtAKD/AQADAAUAAABsAKD/AQADAAUAAABrAKD/AQADAAUAAABqAKD/AQADAAUAAABpAKD/AQADAAUAAABoAKD/AQADAAUAAABvAKD/AQACAAUAABB9AIX/AQADAAMAAAB+AIX/AQADAAMAAAB/AIX/AQADAAMAAACAAIX/AQADAAMAAACBAIX/AQADAAMAAACCAIX/AQADAAMAAACDAIX/AQADAAMAAACEAIX/AQADAAMAAACFAIX/AQADAAMAAACGAIX/AQADAAMAAACHAIX/AQACAAMAABCxAIT/AQADAAMAAACyAIT/AQADAAMAAACzAIT/AQADAAMAAAC0AIT/AQADAAMAAAC8AIX/AQADAAQAAAC9AIX/AQADAAQAAAC+AIX/AQADAAQAAAC/AIX/AQADAAQAAADAAIX/AQADAAQAAACSAIj/AQADAAMAAACTAIj/AQADAAMAAACUAIj/AQADAAMAAACVAIj/AQADAAMAAACWAIj/AQADAAMAAACXAIj/AQADAAMAAACYAIj/AQADAAMAAACZAIj/AQADAAMAAACaAIj/AQADAAMAAACbAIj/AQADAAMAAACcAIj/AQADAAMAAACdAIj/AQADAAMAAACeAIj/AQADAAMAAACfAIj/AQADAAMAAACgAIj/AQADAAMAAAChAIj/AQADAAMAAACiAIj/AQADAAMAAACjAIj/AQAEAAQAAFCjAIf/AQACAAQAAACjAIb/AQACAAQAAACjAIX/AQACAAQAAACjAIT/AQACAAQAAACjAIP/AQACAAQAAACjAIL/AQACAAQAAACjAIH/AQACAAQAAABhAJz/AQAEAAQAADBhAJv/AQACAAQAABBhAJr/AQACAAQAABBhAJn/AQACAAQAABBhAJj/AQACAAQAABBhAJf/AQACAAQAABCIAHb/AQACAAQAAACIAHf/AQACAAQAAACIAHj/AQACAAQAAACIAHn/AQACAAQAAACIAHr/AQACAAQAAACIAHv/AQACAAQAAAA=")
+tile_map_data = PackedByteArray("AABGAJf/AQADAAUAAABFAJf/AQADAAUAAABMAJT/AQACAAQAABBMAJX/AQACAAQAABBMAJb/AQACAAQAABBkAI3/AQACAAQAAABoAJH/AQACAAQAAABoAJD/AQACAAQAAABkAIz/AQACAAQAAABsAJT/AQADAAUAAABtAJT/AQADAAUAAABwAJT/AQADAAUAAABxAJT/AQADAAUAAAB0AJT/AQADAAUAAAB1AJT/AQADAAUAAAChAHz/AQACAAUAAFCiAHz/AQACAAUAAEDAAIT/AQADAAMAAAC/AIT/AQADAAMAAAC+AIT/AQADAAMAAAC9AIT/AQADAAMAAAC8AIT/AQADAAMAAAC7AIT/AQACAAMAAABoAJ3/AQACAAQAAABiAJz/AQADAAMAAABjAJz/AQACAAQAAFBkAJz/AQACAAQAAFBlAJz/AQACAAQAAFBmAJz/AQACAAQAAFBnAJz/AQACAAQAAFBoAJz/AQAEAAQAAFBRAI3/AQADAAQAAABQAI3/AQADAAQAAABQAI7/AQADAAUAAABRAI7/AQADAAUAAABUAIr/AQAEAAQAAGBUAIv/AQACAAQAABBUAIz/AQACAAUAABBjAIr/AQADAAUAAABiAIr/AQADAAUAAABhAIr/AQADAAUAAABgAIr/AQADAAUAAABfAIr/AQADAAUAAABeAIr/AQADAAUAAABdAIr/AQADAAUAAABcAIr/AQADAAUAAABbAIr/AQADAAUAAABaAIr/AQADAAUAAABZAIr/AQADAAUAAABYAIr/AQADAAUAAABXAIr/AQADAAUAAABWAIr/AQADAAUAAABVAIr/AQADAAUAAABvAIb/AQACAAQAABBvAIX/AQACAAMAABBRAJX/AQACAAMAAABSAJX/AQADAAMAAABTAJX/AQADAAMAAABUAJX/AQADAAMAAABVAJX/AQADAAMAAABWAJX/AQADAAMAAABXAJX/AQADAAMAAABdAJX/AQADAAMAAABeAJX/AQADAAMAAABfAJX/AQADAAMAAABgAJX/AQADAAMAAABhAJX/AQACAAMAABBhAJb/AQACAAQAABBYAJX/AQADAAMAAABZAJX/AQADAAMAAABaAJX/AQADAAMAAABbAJX/AQADAAMAAABcAJX/AQADAAMAAABuAKD/AQADAAUAAABtAKD/AQADAAUAAABsAKD/AQADAAUAAABrAKD/AQADAAUAAABqAKD/AQADAAUAAABpAKD/AQADAAUAAABoAKD/AQADAAUAAABvAKD/AQACAAUAABB9AIX/AQADAAMAAAB+AIX/AQADAAMAAAB/AIX/AQADAAMAAACAAIX/AQADAAMAAACBAIX/AQADAAMAAACCAIX/AQADAAMAAACDAIX/AQADAAMAAACEAIX/AQADAAMAAACFAIX/AQADAAMAAACGAIX/AQADAAMAAACHAIX/AQACAAMAABCxAIT/AQADAAMAAACyAIT/AQADAAMAAACzAIT/AQADAAMAAAC0AIT/AQADAAMAAAC8AIX/AQADAAQAAAC9AIX/AQADAAQAAAC+AIX/AQADAAQAAAC/AIX/AQADAAQAAADAAIX/AQADAAQAAACSAIj/AQADAAMAAACTAIj/AQADAAMAAACUAIj/AQADAAMAAACVAIj/AQADAAMAAACWAIj/AQADAAMAAACXAIj/AQADAAMAAACYAIj/AQADAAMAAACZAIj/AQADAAMAAACaAIj/AQADAAMAAACbAIj/AQADAAMAAACcAIj/AQADAAMAAACdAIj/AQADAAMAAACeAIj/AQADAAMAAACfAIj/AQADAAMAAACgAIj/AQADAAMAAAChAIj/AQADAAMAAACiAIj/AQADAAMAAACjAIj/AQAEAAQAAFCjAIf/AQACAAQAAACjAIb/AQACAAQAAACjAIX/AQACAAQAAACjAIT/AQACAAQAAACjAIP/AQACAAQAAACjAIL/AQACAAQAAACjAIH/AQACAAQAAABhAJz/AQAEAAQAADBhAJv/AQACAAQAABBhAJr/AQACAAQAABBhAJn/AQACAAQAABBhAJj/AQACAAQAABBhAJf/AQACAAQAABCIAHb/AQACAAQAAACIAHf/AQACAAQAAACIAHj/AQACAAQAAACIAHn/AQACAAQAAACIAHr/AQACAAQAAACIAHv/AQACAAQAAACjAHX/AQADAAUAAACkAHX/AQADAAUAAAClAHX/AQADAAUAAACmAHX/AQADAAUAAACnAHX/AQADAAUAAACoAHX/AQADAAUAAACpAHX/AQADAAUAAAA=")
 tile_set = ExtResource("2_sgjt6")
 collision_enabled = false
 
@@ -236,7 +236,7 @@ collision_enabled = false
 [node name="TileMapLayer_trees_below" type="TileMapLayer" parent="." unique_id=1265306119]
 modulate = Color(0.59607846, 0.5254902, 0.69803923, 1)
 z_index = -1
-tile_map_data = PackedByteArray("AABBALz/AAAEAAQAAABEAL//AAAEAAQAAAA6ALn/AAAEAAQAAABTAI7/AAAMAAYAABBPAJH/AAAMAAYAABBMAJj/AAAMAAYAABBoAJT/AAAMAAYAAABlAJD/AAAMAAYAAABHAJj/AAAMAAYAAABJAJn/AAAFAAcAAABKAJn/AAAGAAcAAABWAIv/AAAFAAcAAABXAIv/AAAGAAcAAABaAIv/AAAFAAcAAABbAIv/AAAGAAcAAABeAIv/AAAFAAcAAABfAIv/AAAGAAcAAAB8AI//AAACAAQAAAB2AJX/AAAFAAcAAAB3AJX/AAAGAAcAAAByAJX/AAAFAAcAAABzAJX/AAAGAAcAAABuAJX/AAAFAAcAAABvAJX/AAAGAAcAAABqAJX/AAAFAAcAAABrAJX/AAAGAAcAAACPAHz/AAAGAAcAAACTAHL/AAAGAAcAAACVAHH/AAAGAAcAAACbAHL/AAAGAAcAABCwAHD/AAALAAQAAAB6AHP/AAAFAAcAAAB4AHX/AAAGAAcAAACDAHX/AAADAAYAAACHAHf/AAADAAYAAACSAHL/AAAFAAcAAAChAHX/AAAFAAcAAAC0AHL/AAAGAAcAAABNAJL/AAAGAAcAAABMAJL/AAAFAAcAAAByAH7/AAAGAAcAAABwAH//AAAGAAcAAABvAH//AAAFAAcAAAB0AHn/AAAGAAcAAABzAHn/AAAFAAcAAACfAHT/AAAFAAcAAACgAHT/AAAGAAcAAACRAHv/AAAGAAcAAABwAKD/AAAIAAYAAACJAH7/AAAFAAcAAACMAH7/AAAGAAcAAACBAHT/AAAMAAYAAACFAHb/AAAMAAYAAACSAHv/AAAIAAYAAAA=")
+tile_map_data = PackedByteArray("AABBALz/AAAEAAQAAABEAL//AAAEAAQAAAA6ALn/AAAEAAQAAABTAI7/AAAMAAYAABBPAJH/AAAMAAYAABBMAJj/AAAMAAYAABBoAJT/AAAMAAYAAABlAJD/AAAMAAYAAABHAJj/AAAMAAYAAABJAJn/AAAFAAcAAABKAJn/AAAGAAcAAABWAIv/AAAFAAcAAABXAIv/AAAGAAcAAABaAIv/AAAFAAcAAABbAIv/AAAGAAcAAABeAIv/AAAFAAcAAABfAIv/AAAGAAcAAAB8AI//AAACAAQAAAB2AJX/AAAFAAcAAAB3AJX/AAAGAAcAAAByAJX/AAAFAAcAAABzAJX/AAAGAAcAAABuAJX/AAAFAAcAAABvAJX/AAAGAAcAAABqAJX/AAAFAAcAAABrAJX/AAAGAAcAAACPAHz/AAAGAAcAAACTAHL/AAAGAAcAAACVAHH/AAAGAAcAAACbAHL/AAAGAAcAABCwAHD/AAALAAQAAAB6AHP/AAAFAAcAAAB4AHX/AAAGAAcAAACDAHX/AAADAAYAAACHAHf/AAADAAYAAACSAHL/AAAFAAcAAAChAHX/AAAGAAcAAAC0AHL/AAAFAAcAAABNAJL/AAAGAAcAAABMAJL/AAAFAAcAAAByAH7/AAAGAAcAAABwAH//AAAGAAcAAABvAH//AAAFAAcAAAB0AHn/AAAGAAcAAABzAHn/AAAFAAcAAACfAHT/AAAGAAcAAACgAHT/AAAGAAcAAACRAHv/AAAGAAcAAABwAKD/AAAIAAYAAACJAH7/AAAFAAcAAACMAH7/AAAGAAcAAACBAHT/AAAMAAYAAACFAHb/AAAMAAYAAACSAHv/AAAIAAYAAACiAHb/AAAFAAcAAACjAHb/AAAGAAcAAACmAHb/AAAFAAcAAACnAHb/AAAGAAcAAAC+AHb/AAAFAAcAAAC/AHb/AAAGAAcAAACeAHT/AAAFAAcAAACcAHP/AAAFAAcAAACdAHP/AAAGAAcAAACgAHX/AAAFAAcAAACqAHX/AAAFAAcAAACrAHX/AAAGAAcAAACsAHT/AAAFAAcAAACtAHT/AAAGAAcAAACuAHP/AAAFAAcAAACvAHP/AAAGAAcAAACwAHL/AAAFAAcAAACxAHL/AAAGAAcAAACyAHL/AAAFAAcAAACzAHL/AAAGAAcAAAC1AHL/AAAGAAcAAAC2AHL/AAAFAAcAAAC3AHL/AAAGAAcAAAC4AHP/AAAFAAcAAAC5AHP/AAAGAAcAAAC6AHT/AAAFAAcAAAC7AHT/AAAGAAcAAAC8AHX/AAAFAAcAAAC9AHX/AAAGAAcAAAA=")
 tile_set = ExtResource("3_hty1e")
 collision_enabled = false
 
@@ -330,7 +330,7 @@ shape = SubResource("RectangleShape2D_rr86n")
 debug_color = Color(0.66784716, 0.51090235, 3.85046e-07, 0.41960785)
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="monster_fence" unique_id=1365263972]
-position = Vector2(4140, -3156)
+position = Vector2(4128, -3156)
 shape = SubResource("RectangleShape2D_xb5pw")
 debug_color = Color(0.66784716, 0.51090235, 3.85046e-07, 0.41960785)
 
@@ -345,7 +345,7 @@ shape = SubResource("RectangleShape2D_jhn0w")
 debug_color = Color(0.66784716, 0.51090235, 3.85046e-07, 0.41960785)
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="monster_fence" unique_id=1604478775]
-position = Vector2(4380, -3012)
+position = Vector2(4380, -3000)
 shape = SubResource("RectangleShape2D_edj5l")
 debug_color = Color(0.66784716, 0.51090235, 3.85046e-07, 0.41960785)
 
@@ -355,7 +355,7 @@ shape = SubResource("RectangleShape2D_7snbx")
 debug_color = Color(0.66784716, 0.51090235, 3.85046e-07, 0.41960785)
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="monster_fence" unique_id=451720300]
-position = Vector2(3660, -3444)
+position = Vector2(3672, -3444)
 shape = SubResource("RectangleShape2D_bke10")
 debug_color = Color(0.66784716, 0.51090235, 3.85046e-07, 0.41960785)
 
@@ -380,10 +380,9 @@ shape = SubResource("RectangleShape2D_tvyam")
 debug_color = Color(0.66784716, 0.51090235, 3.85046e-07, 0.41960785)
 
 [node name="walls" type="StaticBody2D" parent="." unique_id=444147778]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=1393468085]
-polygon = PackedVector2Array(1656, -2088, 1656, -2520, 1680, -2520, 1752, -2616, 1728, -2760, 1872, -2952, 2376, -2976, 2472, -3216, 2664, -3360, 2736, -3432, 2952, -3696, 3408, -3720, 3792, -3792, 4200, -3672, 4512, -3576, 4704, -3408, 4728, -3264, 4800, -2928, 4728, -2832, 4584, -2760, 4584, -2616, 4248, -2616, 4392, -2760, 4464, -2760, 4464, -2952, 4512, -2952, 4512, -3000, 4608, -3000, 4608, -3264, 4584, -3264, 4560, -3264, 4560, -3288, 4512, -3288, 4512, -3312, 4464, -3312, 4464, -3336, 4416, -3336, 4416, -3360, 4368, -3360, 4368, -3384, 4320, -3384, 4272, -3384, 4272, -3408, 4224, -3408, 4224, -3360, 4176, -3360, 4176, -3336, 4128, -3336, 4128, -3312, 4080, -3312, 3984, -3312, 3888, -3312, 3888, -3336, 3840, -3336, 3840, -3360, 3792, -3360, 3792, -3384, 3744, -3384, 3744, -3408, 3696, -3408, 3696, -3456, 3720, -3456, 3720, -3672, 3624, -3672, 3624, -3480, 3624, -3432, 3576, -3432, 3576, -3408, 3528, -3408, 3528, -3240, 3552, -3240, 3552, -3192, 3528, -3192, 3504, -3192, 3504, -3168, 3456, -3168, 3456, -3144, 3408, -3144, 3408, -3120, 3384, -3120, 3360, -3120, 3360, -3096, 3312, -3096, 3312, -3120, 3264, -3120, 3264, -3288, 3216, -3288, 3216, -3312, 3168, -3312, 3168, -3336, 3120, -3336, 3120, -3360, 3072, -3360, 3072, -3528, 2976, -3528, 2976, -3360, 2928, -3360, 2928, -3336, 2880, -3336, 2880, -3312, 2832, -3312, 2832, -3240, 2784, -3240, 2784, -3120, 2736, -3120, 2736, -3096, 2688, -3096, 2688, -2928, 2736, -2928, 2736, -2904, 2904, -2904, 2904, -2568, 2544, -2568, 2520, -2568, 2520, -2592, 2472, -2592, 2472, -2616, 2472, -2640, 2496, -2640, 2496, -2664, 2472, -2664, 2448, -2664, 2448, -2688, 2400, -2688, 2400, -2736, 2400, -2760, 2376, -2760, 2376, -2808, 2328, -2808, 2112, -2808, 2040, -2808, 2040, -2784, 2040, -2736, 1992, -2736, 1992, -2712, 1944, -2712, 1944, -2664, 1896, -2664, 1896, -2640, 1848, -2640, 1848, -2544, 1872, -2544, 1872, -2496, 1824, -2496, 1824, -2472, 1728, -2472, 1728, -2496, 1680, -2496, 1680, -2088, 1728, -2088, 1728, -2400, 1752, -2400, 1752, -2424, 1896, -2424, 1896, -2448, 1920, -2448, 1920, -2544, 1968, -2544, 1968, -2568, 2112, -2568, 2352, -2568, 2352, -2544, 2352, -2520, 2352, -2400, 2376, -2400, 2472, -2400, 2496, -2400, 2544, -2400, 2544, -2472, 2592, -2472, 2592, -2496, 2736, -2496, 2736, -2472, 2736, -2304, 2688, -2304, 2688, -2280, 2736, -2280, 2784, -2280, 2784, -2304, 2856, -2304, 2856, -2280, 2952, -2280, 2952, -2232, 2904, -2232, 2904, -2208, 2928, -2208, 2928, -2160, 2904, -2160, 2904, -2184, 2856, -2184, 2856, -2208, 2784, -2208, 2784, -2184, 2712, -2184, 2640, -2208, 2304, -2256, 1824, -2088, 1752, -2064, 1656, -2064)
+polygon = PackedVector2Array(1656, -2088, 1656, -2520, 1680, -2520, 1752, -2616, 1728, -2760, 1872, -2952, 2376, -2976, 2472, -3216, 2664, -3360, 2736, -3432, 2952, -3696, 3408, -3720, 3792, -3792, 4200, -3672, 4512, -3576, 4704, -3408, 4728, -3264, 4800, -2928, 4728, -2832, 4584, -2760, 4584, -2616, 4248, -2616, 4392, -2760, 4464, -2760, 4464, -2952, 4512, -2952, 4512, -3000, 4608, -3000, 4608, -3264, 4608, -3312, 4536, -3312, 4536, -3336, 4488, -3336, 4488, -3360, 4464, -3360, 4440, -3360, 4440, -3384, 4392, -3384, 4392, -3408, 4344, -3408, 4345.6274, -3384, 4320, -3384, 4296, -3384, 4296, -3408, 4272, -3408, 4248, -3408, 4248, -3384, 4224, -3384, 4200, -3384, 4199.89, -3360, 4176, -3360, 4152, -3360, 4151.14, -3335.9998, 4128, -3336, 4104, -3336, 4105.4688, -3312, 4080, -3312, 3984, -3312, 3888, -3312, 3864, -3312, 3864, -3336, 3816, -3336, 3816, -3360, 3768, -3360, 3768, -3384, 3720, -3384, 3720, -3456, 3720, -3672, 3624, -3672, 3624, -3480, 3624, -3432, 3576, -3432, 3576, -3408, 3528, -3408, 3528, -3240, 3552, -3240, 3552, -3192, 3528, -3192, 3504, -3192, 3504, -3168, 3456, -3168, 3456, -3144, 3408, -3144, 3408, -3120, 3384, -3120, 3360, -3120, 3360, -3096, 3312, -3096, 3312, -3120, 3264, -3120, 3264, -3288, 3216, -3288, 3216, -3312, 3168, -3312, 3168, -3336, 3120, -3336, 3120, -3360, 3072, -3360, 3072, -3528, 2976, -3528, 2976, -3360, 2928, -3360, 2928, -3336, 2880, -3336, 2880, -3312, 2832, -3312, 2832, -3240, 2784, -3240, 2784, -3120, 2736, -3120, 2736, -3096, 2688, -3096, 2688, -2928, 2736, -2928, 2736, -2904, 2904, -2904, 2904, -2568, 2544, -2568, 2520, -2568, 2520, -2592, 2472, -2592, 2472, -2616, 2472, -2640, 2496, -2640, 2496, -2664, 2472, -2664, 2448, -2664, 2448, -2688, 2400, -2688, 2400, -2736, 2400, -2760, 2376, -2760, 2376, -2808, 2328, -2808, 2112, -2808, 2040, -2808, 2040, -2784, 2040, -2736, 1992, -2736, 1992, -2712, 1944, -2712, 1944, -2664, 1896, -2664, 1896, -2640, 1848, -2640, 1848, -2544, 1872, -2544, 1872, -2496, 1824, -2496, 1824, -2472, 1728, -2472, 1728, -2496, 1680, -2496, 1680, -2088, 1728, -2088, 1728, -2400, 1752, -2400, 1752, -2424, 1896, -2424, 1896, -2448, 1920, -2448, 1920, -2544, 1968, -2544, 1968, -2568, 2112, -2568, 2352, -2568, 2352, -2544, 2352, -2520, 2352, -2400, 2376, -2400, 2472, -2400, 2496, -2400, 2544, -2400, 2544, -2472, 2592, -2472, 2592, -2496, 2736, -2496, 2736, -2472, 2736, -2304, 2688, -2304, 2688, -2280, 2736, -2280, 2784, -2280, 2784, -2304, 2856, -2304, 2856, -2280, 2952, -2280, 2952, -2232, 2904, -2232, 2904, -2208, 2928, -2208, 2928, -2160, 2904, -2160, 2904, -2184, 2856, -2184, 2856, -2208, 2784, -2208, 2784, -2184, 2712, -2184, 2640, -2208, 2304, -2256, 1824, -2088, 1752, -2064, 1656, -2064)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="walls" unique_id=1090981984]
 polygon = PackedVector2Array(3000, -3144, 3000, -3096, 2952, -3096, 2952, -3144, 2952, -3216, 2976, -3216, 3048, -3216, 3072, -3216, 3072, -3192, 3072, -3144, 3072, -3096, 3024, -3096, 3024, -3144, 3048, -3144, 3048, -3192, 2976, -3192, 2976, -3144)
@@ -392,7 +391,8 @@ polygon = PackedVector2Array(3000, -3144, 3000, -3096, 2952, -3096, 2952, -3144,
 polygon = PackedVector2Array(4176, -3144, 4176, -3288, 4296, -3288, 4296, -3264, 4320, -3264, 4320, -3240, 4464, -3240, 4464, -3048, 4368, -3048, 4368, -3096, 4272, -3096, 4272, -3144)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="walls" unique_id=1340131536]
-polygon = PackedVector2Array(3024, -2496, 3024, -2520, 3000, -2520, 3000, -2544, 2976, -2544, 2976, -2904, 2976, -2952, 3264, -2952, 3264, -2928, 3408, -2928, 3408, -2880, 3912, -2880, 3912, -3048, 3816, -3048, 3816, -3024, 3792, -3024, 3792, -3000, 3768, -3000, 3768, -2976, 3648, -2976, 3648, -3000, 3504, -3000, 3504, -3096, 3552, -3096, 3552, -3144, 3600, -3144, 3600, -3192, 3696, -3192, 3696, -3240, 3936, -3240, 3936, -3216, 4008, -3216, 4008, -3168, 4104, -3168, 4104, -3048, 4200, -3048, 4200, -3000, 4296, -3000, 4296, -2976, 4392, -2976, 4392, -2760, 4008, -2688, 3720, -2400, 3648, -2280, 3624, -2136, 3456, -1992, 3408, -1992, 3408, -2088, 3384, -2088, 3384, -1992, 3384, -1920, 3336, -1848, 3288, -1824, 3288, -1776, 3192, -1776, 3048, -1776, 2808, -1776, 2808, -1800, 2736, -1800, 2736, -1896, 2712, -1896, 2688, -1920, 2688, -2184, 2712, -2184, 2712, -2040, 2736, -2040, 2736, -1944, 2808, -1944, 2808, -1920, 3048, -1920, 3048, -1944, 3144, -1944, 3192, -1944, 3192, -1920, 3288, -1920, 3288, -1968, 3336, -1968, 3336, -1992, 3336, -2088, 3312, -2088, 3312, -2040, 3264, -2040, 3264, -2136, 3240, -2136, 3240, -2040, 3192, -2040, 3192, -2256, 3312, -2256, 3312, -2304, 3384, -2304, 3384, -2424, 3504, -2424, 3528, -2424, 3528, -2280, 3600, -2280, 3600, -2472, 3624, -2472, 3624, -2544, 3504, -2544, 3504, -2520, 3408, -2520, 3408, -2544, 3360, -2544, 3360, -2592, 3312, -2592, 3312, -2544, 3264, -2544, 3264, -2496, 3240, -2496, 3240, -2616, 3216, -2616, 3216, -2496, 3192, -2496, 3144, -2496, 3144, -2496)
+position = Vector2(24, 0)
+polygon = PackedVector2Array(3024, -2496, 3024, -2520, 3000, -2520, 3000, -2544, 2976, -2544, 2976, -2904, 2976, -2952, 3264, -2952, 3264, -2928, 3408, -2928, 3408, -2880, 3888, -2880, 3888, -3048, 3816, -3048, 3816, -3024, 3792, -3024, 3792, -3000, 3768, -3000, 3768, -2976, 3648, -2976, 3648, -3000, 3504, -3000, 3504, -3096, 3552, -3096, 3552, -3144, 3600, -3144, 3600, -3192, 3696, -3192, 3696, -3240, 3936, -3240, 3936, -3216, 4008, -3216, 4008, -3168, 4056.2427, -3168, 4056, -3144, 4080, -3144, 4080, -3048, 4104, -3048, 4176, -3048, 4176, -3000, 4200, -3000, 4272, -3000, 4272, -2976, 4296, -2976, 4344, -2976, 4344, -2952, 4368, -2952, 4368, -2760, 4008, -2688, 3720, -2400, 3648, -2280, 3624, -2136, 3456, -1992, 3408, -1992, 3408, -2088, 3384, -2088, 3384, -1992, 3384, -1920, 3336, -1848, 3288, -1824, 3288, -1776, 3192, -1776, 3048, -1776, 2808, -1776, 2808, -1800, 2736, -1800, 2736, -1896, 2712, -1896, 2688, -1920, 2688, -2184, 2712, -2184, 2712, -2040, 2736, -2040, 2736, -1944, 2808, -1944, 2808, -1920, 3048, -1920, 3048, -1944, 3144, -1944, 3192, -1944, 3192, -1920, 3288, -1920, 3288, -1968, 3336, -1968, 3336, -1992, 3336, -2088, 3312, -2088, 3312, -2040, 3264, -2040, 3264, -2136, 3240, -2136, 3240, -2040, 3192, -2040, 3192, -2256, 3312, -2256, 3312, -2304, 3384, -2304, 3384, -2424, 3504, -2424, 3528, -2424, 3528, -2280, 3600, -2280, 3600, -2472, 3624, -2472, 3624, -2544, 3504, -2544, 3504, -2520, 3408, -2520, 3408, -2544, 3360, -2544, 3360, -2592, 3312, -2592, 3312, -2544, 3264, -2544, 3264, -2496, 3240, -2496, 3240, -2616, 3216, -2616, 3216, -2496, 3192, -2496, 3144, -2496, 3144, -2496)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="walls" unique_id=1745574050]
 polygon = PackedVector2Array(2976, -2280, 2976, -2232, 3000, -2232, 3000, -2208, 2952, -2208, 2952, -2160, 3000, -2160, 3000, -2184, 3048, -2184, 3048, -2232, 3144, -2232, 3144, -2256, 3216, -2256, 3216, -2232, 3264, -2232, 3264, -2208, 3312, -2208, 3312, -2304, 3264, -2304, 3264, -2328, 3216, -2328, 3216, -2352, 3192, -2352, 3144, -2352, 3144, -2328, 3048, -2328, 3048, -2280)
@@ -1115,7 +1115,7 @@ position = Vector2(1824, -1224)
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1123,49 +1123,49 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="water_fall" unique_id=1288174380]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="water_fall" unique_id=1903701871]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="water_fall" unique_id=1707571961]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="water_fall" unique_id=771170838]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="water_fall" unique_id=209024506]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="water_fall" unique_id=2005903468]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1173,7 +1173,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1181,7 +1181,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1189,7 +1189,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1197,7 +1197,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(2.9841065e-06, 0.6563374, 0.6896772, 1)
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1205,7 +1205,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1213,7 +1213,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1221,7 +1221,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1229,7 +1229,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1237,7 +1237,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1245,7 +1245,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1253,7 +1253,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1261,7 +1261,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0.1728327, 0.17283267, 0.17283267, 1)
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1269,7 +1269,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1277,7 +1277,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1285,7 +1285,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1293,7 +1293,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1301,7 +1301,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1309,7 +1309,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1317,7 +1317,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1325,7 +1325,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1333,7 +1333,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1341,105 +1341,105 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="water_fall" unique_id=1583796499]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="water_fall" unique_id=468803678]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="water_fall" unique_id=2084269825]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="water_fall" unique_id=444021709]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="water_fall" unique_id=380141028]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="water_fall" unique_id=841872709]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="water_fall" unique_id=874208452]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="water_fall" unique_id=1739917726]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="water_fall" unique_id=1659876462]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="water_fall" unique_id=1722585529]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="water_fall" unique_id=198053837]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="water_fall" unique_id=840747895]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="water_fall" unique_id=1135573964]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="water_fall" unique_id=1260777906]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1447,7 +1447,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1455,7 +1455,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1463,7 +1463,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1471,7 +1471,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1479,7 +1479,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1487,7 +1487,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1495,7 +1495,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1503,7 +1503,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1511,7 +1511,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1519,7 +1519,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1527,7 +1527,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1535,7 +1535,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1543,7 +1543,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1551,7 +1551,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1559,7 +1559,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1567,7 +1567,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1575,7 +1575,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1583,7 +1583,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1591,7 +1591,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1599,7 +1599,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1607,7 +1607,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1615,7 +1615,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1623,7 +1623,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1631,7 +1631,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1639,7 +1639,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1647,7 +1647,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1655,7 +1655,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 
@@ -1663,7 +1663,7 @@ script = ExtResource("19_tvyam")
 modulate = Color(0, 0.69803923, 0.73333335, 1)
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("18_llkrw")
-frame_progress = 0.24865767
+frame_progress = 0.08134297
 offset = Vector2(12, 12)
 script = ExtResource("19_tvyam")
 

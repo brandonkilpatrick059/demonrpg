@@ -51,3 +51,4 @@ res://sprites/spritesheets/props/structure/sluice.tres
 res://sprites/spritesheets/interface/save_load_tab.tres
 res://sprites/spritesheets/monsters/shade_monster_4.tres
 res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
