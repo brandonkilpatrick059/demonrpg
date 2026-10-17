@@ -795,6 +795,8 @@ func deploy_player():
 
 func withdraw_player():
 	player_deployed = false
+	var player_fam : Familiar = player_positions[1].get_child(0)
+	player_fam.clear_buffs()
 	player_familiars.erase(player_positions[1].get_child(0))
 	player_positions[1].get_child(0).queue_free()
 	if(battle_started && current_phase != BattlePhase.END):
@@ -1194,6 +1196,7 @@ func end_process():
 		var victory : bool = not player_is_dead()
 		if(player_deployed):
 			withdraw_player()
+			update_buff_positions()
 		if(victory):
 			var player : Player = get_tree().get_first_node_in_group("player")
 			player.end_battle(player_familiars)

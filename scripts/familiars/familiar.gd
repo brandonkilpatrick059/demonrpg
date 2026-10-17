@@ -118,7 +118,13 @@ func gen_stat_increase():
 	else:
 		var random_index = randi_range(0,stats.size()-2)
 		stat_increase = stats[random_index]
-	stat_increase_value = stat_increase_value + randi_range(1,3)
+	var roll = randi_range(0,100)
+	var rolled_increase = 1
+	if(roll > 50 & roll < 75):
+		rolled_increase = 2
+	elif(roll >= 75):
+		rolled_increase = 3
+	stat_increase_value = stat_increase_value + rolled_increase
 
 func get_exp_value() -> int:
 	var total = max_hp
