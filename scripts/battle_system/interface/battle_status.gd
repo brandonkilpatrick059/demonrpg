@@ -1,6 +1,7 @@
 class_name BattleStatus extends Node2D
 
 @onready var hp_gauge : HPGauge = $hp_gauge
+@onready var power_gauge : HPGauge = $power_gauge
 @onready var label : RichTextLabel = $name_label
 @onready var energy_gauge : AnimatedSprite2D = $energy_gauge
 @onready var num_acts_tab : Sprite2D = $num_acts_tab
@@ -34,6 +35,15 @@ func set_hp_gauge(fraction : float, current_hp : int, max_hp : int, no_animate :
 	hp_gauge.set_gauge(fraction,no_animate)
 	var health_string = str(str(str(current_hp),"/"),max_hp)
 	$hp_label.parse_bbcode(health_string)
+
+func set_power_gauge(fraction : float, no_animate : bool = false):
+	power_gauge.set_gauge(fraction,no_animate)
+
+func hide_power_gauge():
+	power_gauge.visible = false
+
+func show_power_gauge():
+	power_gauge.visible = true
 
 func is_finished_animating() -> bool:
 	return hp_gauge.is_finished_animating()

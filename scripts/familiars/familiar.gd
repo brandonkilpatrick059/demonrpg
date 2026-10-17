@@ -47,7 +47,7 @@ var stored : bool = false
 	#40, #Level 3 -> Level 4
 #]
 
-var exp_req_for_level_up : Array[int] = [
+@export var exp_req_for_level_up : Array[int] = [
 	30, #Level 0 -> Level 1
 	500, #Level 1 -> Level 2
 	5000, #Level 2 -> level 3
@@ -340,6 +340,12 @@ func kill(return_sigil : bool = true):
 
 func get_exp() -> int:
 	return experience
+
+func get_exp_to_next_int() -> int:
+	if(get_evolutions().size() > 0):
+		return exp_req_for_level_up[level]
+	else:
+		return -1
 
 func get_exp_to_next() -> String:
 	if(get_evolutions().size() > 0):

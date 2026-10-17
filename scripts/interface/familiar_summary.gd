@@ -55,6 +55,12 @@ func set_familiar(familiar : Familiar):
 	var hp_fraction : float = float(familiar.get_current_hp())/float(familiar.get_max_hp())
 	var no_animate : bool = true
 	hp_gauge.set_gauge(hp_fraction, no_animate)
+	if(familiar.get_exp_to_next_int() > 0):
+		$power_gauge.visible = true
+		var exp_fraction : float = float(familiar.get_exp())/float(familiar.get_exp_to_next_int())
+		$power_gauge.set_gauge(exp_fraction, no_animate)
+	else:
+		$power_gauge.visible = false
 	$hp.text = str(str(familiar.get_current_hp(),"/"),familiar.get_max_hp())
 	$power.text = str("POWER : ",familiar.get_exp())
 	$to_next.text = str("NEXT : ",familiar.get_exp_to_next())

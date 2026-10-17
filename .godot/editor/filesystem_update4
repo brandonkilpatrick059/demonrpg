@@ -52,3 +52,11 @@ res://sprites/spritesheets/interface/save_load_tab.tres
 res://sprites/spritesheets/monsters/shade_monster_4.tres
 res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
+res://battle/interface/battle_input/battle_status.tscn
+res://sprites/spritesheets/battle/interface/power_bar.tres
+res://scripts/battle_system/interface/battle_status.gd
+res://battle/battle_system.tscn
+res://scripts/battle_system/battle_system_manager.gd
+res://scripts/familiars/familiar.gd
+res://interface/familiar_summary.tscn
+res://scripts/interface/familiar_summary.gd

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b7vxywpuu002j" path="res://scripts/interface/familiar_summary.gd" id="1_wblr4"]
 [ext_resource type="PackedScene" uid="uid://c0gb20r7oawgo" path="res://battle/interface/hp_gauge.tscn" id="2_4kfdn"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="3_poctu"]
+[ext_resource type="SpriteFrames" uid="uid://cj1dw1movnryk" path="res://sprites/spritesheets/battle/interface/power_bar.tres" id="4_85dbl"]
 [ext_resource type="Texture2D" uid="uid://b3nr6mi40doim" path="res://sprites/battle/guides/battle_system_grid.png" id="4_xbbee"]
 [ext_resource type="PackedScene" uid="uid://b8pynlcnn2j07" path="res://interface/summary_action_tab.tscn" id="6_xbbee"]
 [ext_resource type="Texture2D" uid="uid://6kebcbge2ihm" path="res://sprites/spritesheets/battle/interface/select_arrow_static.png" id="7_k8h1s"]
@@ -54,6 +55,11 @@ texture = ExtResource("1_bnoyi")
 [node name="hp_gauge" parent="." unique_id=2128026559 instance=ExtResource("2_4kfdn")]
 material = SubResource("CanvasItemMaterial_k8h1s")
 position = Vector2(-4, -55)
+
+[node name="power_gauge" parent="." unique_id=765012005 instance=ExtResource("2_4kfdn")]
+material = SubResource("CanvasItemMaterial_k8h1s")
+position = Vector2(-4, -38)
+sprite_frames = ExtResource("4_85dbl")
 
 [node name="hp" type="Label" parent="." unique_id=1135911115]
 material = SubResource("CanvasItemMaterial_k8h1s")

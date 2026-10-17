@@ -387,9 +387,17 @@ func show_status(familiar : Familiar):
 	var current_hp = familiar.get_current_hp()
 	var max_hp = familiar.get_max_hp()
 	var hp_fraction : float = float(current_hp) / float(max_hp)
+	var next_exp = familiar.get_exp_to_next_int()
+	var exp = familiar.get_exp()
+	var exp_fraction : float = float(exp) / float(next_exp)
 	var dont_animate : bool = true
 	status.set_hp_gauge(hp_fraction,current_hp,max_hp,dont_animate)
 	status.set_energy_gauge(familiar.get_current_energy())
+	if(next_exp > 0):
+		status.show_power_gauge()
+		status.set_power_gauge(exp_fraction,dont_animate)
+	else:
+		status.hide_power_gauge()
 	if(familiar.get_num_actions() > 1):
 		var current_turns = familiar.get_actions_taken() + 1
 		status.set_num_turns_label(current_turns,familiar.get_num_actions())
