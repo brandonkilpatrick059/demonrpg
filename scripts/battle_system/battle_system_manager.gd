@@ -847,10 +847,12 @@ func side_is_dead(side_familiars : Array[Familiar]) -> bool:
 func run_actions_process():
 	if(!awaiting_input && 
 	current_battle_action != null &&
+	current_actor != null &&
 	not current_actor.is_dead()):
 		position_message()
 		current_battle_action.action_process(current_actor,current_targets)
 	elif(current_battle_action == null ||
+	current_actor == null ||
 	current_actor.is_dead()):
 		get_next_action()
 

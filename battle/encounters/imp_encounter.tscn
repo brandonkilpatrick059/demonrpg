@@ -17,3 +17,5 @@ speed = 10
 magic = 30
 num_actions = 2
 action_cadence_0 = Array[String](["SHIELD", "EVIL EYE", "SUMMON", "SHIELD", "EVIL EYE", "SUMMON", "SHIELD", "EVIL EYE"])
+action_cadence_1 = Array[String](["SHIELD", "EVIL EYE", "SUMMON", "SHIELD", "EVIL EYE", "SUMMON", "SHIELD", "HEAL"])
+action_cadence_2 = Array[String](["SHIELD", "EVIL EYE", "SUMMON", "SHIELD", "EVIL EYE", "SUMMON", "SHIELD", "FEED"])

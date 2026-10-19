@@ -120,9 +120,9 @@ func gen_stat_increase():
 		stat_increase = stats[random_index]
 	var roll = randi_range(0,100)
 	var rolled_increase = 1
-	if(roll > 50 && roll < 75):
+	if(roll > 70 && roll < 90):
 		rolled_increase = 2
-	elif(roll >= 75):
+	elif(roll > 90):
 		rolled_increase = 3
 	stat_increase_value = stat_increase_value + rolled_increase
 
@@ -161,7 +161,9 @@ func get_next_action() -> BattleAction:
 	if(action_cadence_0.size() == 0 && 
 	action_cadence_1.size() == 0 && 
 	action_cadence_2.size() == 0):
-		return ret_action
+		#should not happen!
+		#returns empty action
+		return ret_action 
 	elif(action_cadence_index < current_cadence.size()):
 		var action_name = current_cadence[action_cadence_index]
 		ret_action = get_action_by_name(action_name)

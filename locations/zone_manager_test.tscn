@@ -76,7 +76,7 @@ current_zone = NodePath("zone_gloomy_woods_entrance")
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
 states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
-states_map_values = Array[String](["TRUE", "TRUE", "TRUE"])
+states_map_values = Array[String](["TRUE", "TRUE", "USED"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
 position = Vector2(1704, -2256)

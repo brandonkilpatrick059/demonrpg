@@ -9,16 +9,11 @@ var announcment_english : String = "[TEAM][ACTOR] slices the enemy."
 
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
-	#summary = str(summary,str(summary,get_action_name()))
-	#summary = str(summary,"-[color=white]")
-	#summary = str(summary,get_min_max_string(actor.get_attack(),actor.get_attack()+actor.get_attack()))
-	#summary = str(summary,str("[color=darkred] PHYSICAL DAMAGE [/color]"))
-	#summary = str(summary,str("[color=white]TO[/color][color=purple] TWO ADJACENT[/color]"))
 	summary = str(summary,str(summary,get_action_name()))
 	summary = str(summary,"-[color=white]")
 	summary = str(summary,get_min_max_string(actor.get_attack(),actor.get_attack()+actor.get_attack()))
-	summary = str(summary,str("[color=darkred] PHYSICAL DAMAGE, [/color]"))
-	summary = str(summary,str("[color=white]4 ENERGY[/color][color=purple] ON KILL[/color]"))
+	summary = str(summary,str("[color=darkred] PHYSICAL DAMAGE [/color]"))
+	summary = str(summary,str("[color=white]TO[/color][color=purple] TWO ADJACENT[/color]"))
 	return summary
 
 func get_announcement(actor : Familiar, target : Familiar) -> String:
