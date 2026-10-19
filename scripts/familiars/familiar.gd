@@ -120,7 +120,7 @@ func gen_stat_increase():
 		stat_increase = stats[random_index]
 	var roll = randi_range(0,100)
 	var rolled_increase = 1
-	if(roll > 50 & roll < 75):
+	if(roll > 50 && roll < 75):
 		rolled_increase = 2
 	elif(roll >= 75):
 		rolled_increase = 3
