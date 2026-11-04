@@ -17,6 +17,22 @@ static var sigils : Array[String] = [
 	"res://sprites/sigils/14.png",
 	"res://sprites/sigils/15.png",
 	"res://sprites/sigils/16.png",
+	"res://sprites/sigils/17.png",
+	"res://sprites/sigils/18.png",
+	"res://sprites/sigils/19.png",
+	"res://sprites/sigils/20.png",
+	"res://sprites/sigils/21.png",
+	"res://sprites/sigils/22.png",
+	"res://sprites/sigils/23.png",
+	"res://sprites/sigils/24.png",
+	"res://sprites/sigils/25.png",
+	"res://sprites/sigils/26.png",
+	"res://sprites/sigils/27.png",
+	"res://sprites/sigils/28.png",
+	"res://sprites/sigils/29.png",
+	"res://sprites/sigils/30.png",
+	"res://sprites/sigils/31.png",
+	"res://sprites/sigils/32.png",
 ]
 
 static var used_sigils : Array[String] = []

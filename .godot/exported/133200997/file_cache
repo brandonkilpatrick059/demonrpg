@@ -79,7 +79,7 @@ res://locations/zones/gloomy_woods/old_forge/zone_old_forge_1.tscn::eaaa3f5e13da
 res://locations/zones/gloomy_woods/zone_cliffs_house_interior_1.tscn::e4f0c8fb6df77a9391d1f2466f52c6f0::1791995319::res://.godot/exported/133200997/export-fdef0937f1f805cf62b137d01cc27830-zone_cliffs_house_interior_1.scn
 res://locations/zones/gloomy_woods/zone_cliffs_house_interior_2.tscn::1daf9a46e46ad15a983f216fea4f167c::1791996102::res://.godot/exported/133200997/export-cdf83c9d4f0dc53d0b45d8df857f3182-zone_cliffs_house_interior_2.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn::2ea75de4e6ea723dd97416842a892207::1792264798::res://.godot/exported/133200997/export-d55a50bf8c08edc01e83c024860b7584-zone_gloomy_woods_cliffs.scn
-res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn::71ff7cff48bc7f8b0055f8351eb00e56::1792382210::res://.godot/exported/133200997/export-9114d318de1bd584c57fc826d36de582-zone_gloomy_woods_entrance.scn
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn::55ff3968ab6f88f0b09a163be376cbc6::1792436724::res://.godot/exported/133200997/export-9114d318de1bd584c57fc826d36de582-zone_gloomy_woods_entrance.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn::a1469c97952c7a3b2015ec9e62d7e977::1792383338::res://.godot/exported/133200997/export-3b7047df1a442bab88ef2492c8525674-zone_gloomy_woods_exit.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn::1c033852a1c9079d529e9db274deef8e::1792211207::res://.godot/exported/133200997/export-aab8d49de5f4916bd1caf95a90de4253-zone_gloomy_woods_ledge.scn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_pool.tscn::ae7efe99fd1c692d50ffec4d3af770b0::1791823906::res://.godot/exported/133200997/export-f9b2129e8f825155515f9767ba91b24b-zone_gloomy_woods_pool.scn
@@ -95,7 +95,7 @@ res://locations/gamestate_plug_1.tscn::b5383a9827956f42a06ae9610b53d330::1786916
 res://locations/zone_link.tscn::3ac8b0767aea66270d13e4d900225f13::1786248562::res://.godot/exported/133200997/export-477bb911c392e6eb9bba942257fca865-zone_link.scn
 res://locations/zone_manager_load.tscn::33d547a8ec24ffb98f98d9b0cdca55f3::1791823486::res://.godot/exported/133200997/export-3f668b4fdc39e60b078936b6262d6fb5-zone_manager_load.scn
 res://locations/zone_manager_start.tscn::c968e74fbbf3e5ec1044b716c05259e1::1791823677::res://.godot/exported/133200997/export-d19ea0848a7510bb439f738c8b4104a2-zone_manager_start.scn
-res://locations/zone_manager_test.tscn::7dc4fb39e9695d5ef65ab4b383a12cca::1792178559::res://.godot/exported/133200997/export-d8c7d96766d9893cd965832d972a6c95-zone_manager_test.scn
+res://locations/zone_manager_test.tscn::45c62203018a2abdc7345b90bf8e668e::1792443129::res://.godot/exported/133200997/export-d8c7d96766d9893cd965832d972a6c95-zone_manager_test.scn
 res://mechanism/bridge.tscn::e3e2b31d5fc1d07c75504d6a0c09d54b::1786477313::res://.godot/exported/133200997/export-cce5b306ab429f0a32ac85b07bb96e01-bridge.scn
 res://mechanism/gate.tscn::868ba5b4e05ddf301e1ab5077083ab65::1786476714::res://.godot/exported/133200997/export-709995e3f4cd57bc94d9c6623a5b3658-gate.scn
 res://mechanism/sluice.tscn::c41f498862ea51b9065b1ced112aa34a::1787025569::res://.godot/exported/133200997/export-b47aecda821301922191b0f33d936a2f-sluice.scn

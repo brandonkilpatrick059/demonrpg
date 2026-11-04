@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="10_wd1rn"]
 [ext_resource type="Script" uid="uid://8nn10dgx4nmb" path="res://scripts/utility/run_scripts/set_autoplay.gd" id="11_nnolw"]
 [ext_resource type="Script" uid="uid://caj1c1txcrjev" path="res://scripts/utility/run_scripts/set_zone_dark.gd" id="12_iwltt"]
+[ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="12_yk2pb"]
 [ext_resource type="Shader" uid="uid://ctbt1f24kbll6" path="res://shaders/rain_shader.gdshader" id="13_xah8n"]
 [ext_resource type="Texture2D" uid="uid://5rlts5urifo0" path="res://sprites/effects/empty_screen_sprite.png" id="14_5tyd5"]
 [ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="15_ghynl"]
@@ -238,6 +239,7 @@ tile_set = ExtResource("4_24mjc")
 collision_enabled = false
 
 [node name="monster_fence" type="StaticBody2D" parent="." unique_id=1716141219]
+visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="monster_fence" unique_id=761148890]
@@ -321,6 +323,7 @@ shape = SubResource("RectangleShape2D_iwltt")
 debug_color = Color(0.6357654, 0.5273669, 1.92523e-07, 0.41960785)
 
 [node name="walls" type="StaticBody2D" parent="." unique_id=444147778]
+visible = false
 z_index = 10
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=1393468085]
@@ -613,8 +616,10 @@ position = Vector2(4416, -2736)
 position = Vector2(4416, -2688)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=347672605 groups=["global_modulate"]]
+visible = false
 z_index = 50
 color = Color(0.44313726, 0.44313726, 0.44313726, 1)
+script = ExtResource("12_yk2pb")
 
 [node name="entered_house_ready_scripts" type="Node" parent="." unique_id=2022489894 node_paths=PackedStringArray("scripts")]
 script = ExtResource("8_yk2pb")

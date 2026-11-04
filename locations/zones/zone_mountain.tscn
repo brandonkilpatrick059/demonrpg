@@ -121,6 +121,7 @@ tile_set = ExtResource("4_6exfo")
 collision_enabled = false
 
 [node name="walls" type="StaticBody2D" parent="." unique_id=444147778]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=1927499493]
 z_index = 10
@@ -313,6 +314,7 @@ location_text = "MOUNTAIN PATH"
 polygon = PackedVector2Array(120, -216, 144, -168, 216, -168, 216, -240, 720, -360, 1032, -504, 1344, -1128, 960, -1344, 384, -1272, 144, -1032, 24, -744, -120, -384)
 
 [node name="interactable_area_mountain_view_1" type="StaticBody2D" parent="." unique_id=599269603 node_paths=PackedStringArray("scripts")]
+visible = false
 position = Vector2(0, 96)
 script = ExtResource("15_1vn0e")
 no_gamestate = false
@@ -336,9 +338,11 @@ language_map = Array[String](["english"])
 text = Array[String](["(It looks like there's a rain storm in the distance...)"])
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interactable_area_mountain_view_1" unique_id=1753690050]
+visible = false
 polygon = PackedVector2Array(600, -1224, 600, -1224, 696, -1224, 696, -1272, 744, -1272, 864, -1272, 936, -1272, 936, -1464, 504, -1464, 504, -1224)
 
 [node name="interactable_area_mountain_view_house" type="StaticBody2D" parent="." unique_id=1406665013 node_paths=PackedStringArray("scripts")]
+visible = false
 position = Vector2(0, 96)
 script = ExtResource("15_1vn0e")
 scripts = [NodePath("play_texts")]
@@ -356,6 +360,7 @@ text = Array[String](["(I can see my house from here)"])
 polygon = PackedVector2Array(504, -1152, 864, -1152, 864, -1080, 792, -1080, 792, -1056, 816, -1056, 816, -960, 504, -960)
 
 [node name="interactable_area_mountain_view_town" type="StaticBody2D" parent="." unique_id=1001495603 node_paths=PackedStringArray("scripts")]
+visible = false
 position = Vector2(0, 96)
 script = ExtResource("15_1vn0e")
 scripts = [NodePath("play_texts")]
@@ -373,6 +378,7 @@ text = Array[String](["(I can barely see [color=blue]Nineveh Town[/color] across
 polygon = PackedVector2Array(504, -1224, 504, -1152, 600, -1152, 600, -1224)
 
 [node name="interactable_area_forest" type="StaticBody2D" parent="." unique_id=618020354 node_paths=PackedStringArray("scripts")]
+visible = false
 position = Vector2(0, 96)
 script = ExtResource("15_1vn0e")
 scripts = [NodePath("play_texts")]
@@ -393,6 +399,7 @@ polygon = PackedVector2Array(96, -384, 120, -384, 120, -408, 144, -408, 144, -64
 polygon = PackedVector2Array(528, -360, 480, -528, 480, -624, 432, -648, 552, -648, 552, -576, 768, -576, 768, -600, 936, -600, 936, -360)
 
 [node name="interactable_area_cliff" type="StaticBody2D" parent="." unique_id=1084812250 node_paths=PackedStringArray("scripts")]
+visible = false
 position = Vector2(0, 96)
 script = ExtResource("15_1vn0e")
 scripts = [NodePath("play_texts")]
@@ -423,6 +430,7 @@ position = Vector2(432, -216)
 polygon = PackedVector2Array(504, -384, 336, -384, 336, -480, 384, -480, 384, -600, 432, -600, 432, -720, 480, -720, 480, -744, 408, -744, 408, -840, 456, -840, 456, -936, 576, -936, 576, -384)
 
 [node name="interactable_area_mountain_view_2" type="StaticBody2D" parent="." unique_id=684714896 node_paths=PackedStringArray("scripts")]
+visible = false
 position = Vector2(0, 96)
 script = ExtResource("15_1vn0e")
 no_gamestate = false
