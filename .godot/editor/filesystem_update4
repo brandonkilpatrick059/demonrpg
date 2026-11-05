@@ -58,3 +58,5 @@ res://locations/zone_manager_test.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
 res://interface/familiar_summary.tscn
 res://scripts/utility/sigil_manager.gd
+res://locations/zones/zone_country_road.tscn
+res://locations/zones/zone_homestead.tscn
