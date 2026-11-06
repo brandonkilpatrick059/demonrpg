@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://br8pe0ltxqprf"]
+
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_uqw50"]
+[ext_resource type="SpriteFrames" uid="uid://bcqs8abihl5oi" path="res://sprites/spritesheets/familiars/L2_carn.tres" id="2_uqw50"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_shphy"]
+[ext_resource type="PackedScene" uid="uid://bhfmqt6lxewql" path="res://battle/actions/action_block.tscn" id="4_rkvgk"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_6jka4"]
+[ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_k4aeb"]
+[ext_resource type="PackedScene" uid="uid://dt1dg4mahooev" path="res://battle/actions/action_push_left.tscn" id="7_ysw1w"]
+
+[node name="L2carn" type="Node2D" unique_id=1722867992]
+script = ExtResource("1_uqw50")
+packedscene_path = "res://familiars/base/L2_carn.tscn"
+familiar_name = "Carn"
+max_hp = 15
+current_hp = 15
+attack = 4
+defense = 4
+speed = 2
+level = 2
+capture_hp_percent = 0.2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2092140043]
+sprite_frames = ExtResource("2_uqw50")
+animation = &"die"
+frame_progress = 0.86369383
+
+[node name="actions" type="Node" parent="." unique_id=42319330]
+
+[node name="ActionAttack" parent="actions" unique_id=1402574932 instance=ExtResource("3_shphy")]
+opponent_choice_weight = 0.4
+
+[node name="ActionBlock" parent="actions" unique_id=1578553038 instance=ExtResource("4_rkvgk")]
+opponent_choice_weight = 0.5
+
+[node name="ActionFeed" parent="actions" unique_id=1028991397 instance=ExtResource("5_6jka4")]
+opponent_choice_weight = 0.1
+
+[node name="ActionStab" parent="actions" unique_id=586744762 instance=ExtResource("6_k4aeb")]
+opponent_choice_weight = 0.6
+
+[node name="ActionPushLeft" parent="actions" unique_id=1137409868 instance=ExtResource("7_ysw1w")]
+
+[node name="ActionPushRight" parent="actions" unique_id=1769868228 instance=ExtResource("7_ysw1w")]
+direction = "RIGHT"

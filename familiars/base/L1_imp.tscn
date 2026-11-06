@@ -22,7 +22,8 @@ action_cadence_0 = Array[String](["SHIELD", "HEAL", "SUMMON", "HEAL", "SHIELD", 
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
 sprite_frames = ExtResource("2_uo36o")
-frame_progress = 0.0904311
+animation = &"die"
+frame_progress = 0.071291305
 
 [node name="actions" type="Node" parent="." unique_id=671533593]
 

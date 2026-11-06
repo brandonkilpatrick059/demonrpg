@@ -60,3 +60,7 @@ res://interface/familiar_summary.tscn
 res://scripts/utility/sigil_manager.gd
 res://locations/zones/zone_country_road.tscn
 res://locations/zones/zone_homestead.tscn
+res://familiars/base/L2_carn.tscn
+res://sprites/spritesheets/familiars/L2_carn.tres
+res://familiars/base/L1_braim.tscn
+res://familiars/base/L1_imp.tscn

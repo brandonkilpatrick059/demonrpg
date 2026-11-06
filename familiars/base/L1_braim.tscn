@@ -44,13 +44,13 @@ script = ExtResource("7_gsyfw")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Elephant"])
 
-[node name="dylith" type="Node" parent="evolutions" unique_id=2042912521 node_paths=PackedStringArray("path_text")]
+[node name="carn" type="Node" parent="evolutions" unique_id=2042912521 node_paths=PackedStringArray("path_text")]
 script = ExtResource("6_86yxp")
 path_text = NodePath("path_text")
-new_base_path = "res://familiars/base/L2_dylith.tscn"
+new_base_path = "res://familiars/base/L2_carn.tscn"
 plus_attack = 5
 
-[node name="path_text" type="Node" parent="evolutions/dylith" unique_id=1703794282]
+[node name="path_text" type="Node" parent="evolutions/carn" unique_id=1703794282]
 script = ExtResource("7_gsyfw")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Ox"])
