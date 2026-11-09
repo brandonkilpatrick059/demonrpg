@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bykxxqqxbkcrq"]
 
 [ext_resource type="Script" uid="uid://d06xwmk44ogl5" path="res://scripts/character/npc/npc.gd" id="1_btylr"]
-[ext_resource type="SpriteFrames" uid="uid://qkimc3fprmcu" path="res://sprites/spritesheets/npc/father.tres" id="2_mykei"]
+[ext_resource type="SpriteFrames" uid="uid://dr0ud0hn5yb4c" path="res://sprites/spritesheets/npc/old_man.tres" id="2_flck8"]
 [ext_resource type="PackedScene" uid="uid://dsk5qoj7icxf4" path="res://interface/interface_message_speech.tscn" id="3_flck8"]
 [ext_resource type="Script" uid="uid://rnkf4nludtw8" path="res://scripts/character/npc/dialog.gd" id="4_5dbpe"]
 [ext_resource type="Script" uid="uid://bobb0tru1osuh" path="res://scripts/utility/text_queue.gd" id="5_wvddu"]
@@ -36,9 +36,8 @@ no_wander = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=133978492]
 y_sort_enabled = true
-sprite_frames = ExtResource("2_mykei")
+sprite_frames = ExtResource("2_flck8")
 animation = &"stand_down"
-frame_progress = 0.87038594
 offset = Vector2(12, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1722730895]
@@ -167,13 +166,13 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 [node name="Text2" type="Node" parent="dialog/queue_2" unique_id=494870839]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["She crossed over the gorge to [color=purple]Nineveh Town[/color]."])
+text = Array[String](["She crossed over the gorge to [color=blue]Nineveh Town[/color]."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text3" type="Node" parent="dialog/queue_2" unique_id=347968105]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["She went across the [color=purple]Rail Bridge[/color]-"])
+text = Array[String](["She went across the [color=blue]Rail Bridge[/color]-"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text4" type="Node" parent="dialog/queue_2" unique_id=1626349701]
@@ -203,7 +202,7 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 [node name="Text8" type="Node" parent="dialog/queue_2" unique_id=1509155881]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["There may still be a way through the [color=purple]Coal Mines[/color]."])
+text = Array[String](["There may still be a way through the [color=blue]Coal Mines[/color]."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text9" type="Node" parent="dialog/queue_2" unique_id=2110674614]
@@ -219,7 +218,7 @@ texts = [NodePath("Text"), NodePath("Text2"), NodePath("Text3"), NodePath("Text4
 [node name="Text" type="Node" parent="dialog/queue_3" unique_id=143133061]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["You wanna know the way through the old [color=purple]Coal Mines[/color], eh?"])
+text = Array[String](["You wanna know the way through the old [color=blue]Coal Mines[/color], eh?"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text2" type="Node" parent="dialog/queue_3" unique_id=356974976 node_paths=PackedStringArray("script_node")]
@@ -254,7 +253,7 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 [node name="Text6" type="Node" parent="dialog/queue_3" unique_id=220261849]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["Back before the mines dried up and it became a [color=purple]Ghost Town[/color]."])
+text = Array[String](["Back before the mines dried up and it became a [color=blue]Ghost Town[/color]."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="queue_4" type="Node" parent="dialog" unique_id=923039004 node_paths=PackedStringArray("texts")]
@@ -270,7 +269,7 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 [node name="Text2" type="Node" parent="dialog/queue_4" unique_id=1157893739]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["Me and all the boys usta go to [color=purple]The Estate[/color]-"])
+text = Array[String](["Me and all the boys usta go to [color=blue]The Estate[/color]-"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text3" type="Node" parent="dialog/queue_4" unique_id=1005136654]
@@ -288,7 +287,7 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 [node name="Text5" type="Node" parent="dialog/queue_4" unique_id=633853772]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["The [color=purple]Mines[/color], the [color=purple]Town[/color], [color=red]The Heiress[/color]-"])
+text = Array[String](["The [color=blue]Mines[/color], the [color=blue]Town[/color], [color=red]The Heiress[/color]-"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text6" type="Node" parent="dialog/queue_4" unique_id=1146339859]
