@@ -42,10 +42,10 @@ func deactivate_walk_colliders():
 	$walk_shape_left.disabled = true
 	$walk_shape_right.disabled = true
 
-func set_queued_texts(texts : Array[String]):
-	queued_texts.clear()
-	for text in texts:
-		queued_texts.append(text)
+#pending deletion - as far as i can tell it's never called
+#func set_queued_texts(texts : Array[String]):
+	#queued_texts.clear()
+	#queued_texts.append_array(texts)
 
 func activate_walk_collider(direction : String):
 	match direction:
@@ -116,11 +116,14 @@ func interact():
 		stop()
 		player.stop()
 		talking = true
-		if(queued_texts.size() == 0):
-			var texts : Array[String] = $dialog.get_current_text()
-			$InterfaceMessageSpeech.queue_text(texts)
-		else:
-			$InterfaceMessageSpeech.queue_text(queued_texts)
+			#get next queue
+		var texts : Array[String] = $dialog.get_current_texts()
+		var scripts : Array[Node] = $dialog.get_current_scripts()
+		#might need to support this later but for now it just gives
+		#a correctly sized array full of 'false' values
+		var dummy_dark_texts : Array[bool] = $dialog.get_dummy_dark_texts()
+		$dialog.advance_next_text_queue()
+		$InterfaceMessageSpeech.queue_text(texts,dummy_dark_texts,scripts)
 		var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 		var pos : Vector2 = camera.get_screen_center_position()
 		$InterfaceMessageSpeech.global_position = pos + Vector2(-64,80)

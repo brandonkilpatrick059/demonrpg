@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://rnkf4nludtw8" path="res://scripts/character/npc/dialog.gd" id="4_5dbpe"]
 [ext_resource type="Script" uid="uid://bobb0tru1osuh" path="res://scripts/utility/text_queue.gd" id="5_wvddu"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="6_o8uqu"]
+[ext_resource type="Script" uid="uid://bfoibrdm085gj" path="res://scripts/utility/run_scripts/play_sound.gd" id="7_flck8"]
+[ext_resource type="AudioStream" uid="uid://cn8hsjvve8o2y" path="res://audio/effects/old_man_laugh.ogg" id="8_5dbpe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
 size = Vector2(24, 24)
@@ -36,7 +38,7 @@ no_wander = true
 y_sort_enabled = true
 sprite_frames = ExtResource("2_mykei")
 animation = &"stand_down"
-frame_progress = 0.69667625
+frame_progress = 0.87038594
 offset = Vector2(12, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1722730895]
@@ -109,7 +111,8 @@ report_interface = NodePath("..")
 
 [node name="dialog" type="Node" parent="." unique_id=1437211647 node_paths=PackedStringArray("text_queues")]
 script = ExtResource("4_5dbpe")
-text_queues = [NodePath("queue_1"), NodePath("queue_2")]
+text_queues = [NodePath("queue_1"), NodePath("queue_2"), NodePath("queue_3"), NodePath("queue_4")]
+no_loop = true
 
 [node name="queue_1" type="Node" parent="dialog" unique_id=634334134 node_paths=PackedStringArray("texts")]
 script = ExtResource("5_wvddu")
@@ -164,13 +167,13 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 [node name="Text2" type="Node" parent="dialog/queue_2" unique_id=494870839]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["She went across the gorge to [color=purple]Nineveh Town[/color]."])
+text = Array[String](["She crossed over the gorge to [color=purple]Nineveh Town[/color]."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text3" type="Node" parent="dialog/queue_2" unique_id=347968105]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["She went across the old rail bridge."])
+text = Array[String](["She went across the [color=purple]Rail Bridge[/color]-"])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text4" type="Node" parent="dialog/queue_2" unique_id=1626349701]
@@ -207,6 +210,97 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
 text = Array[String](["But it's been a long time since I was last down there..."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="queue_3" type="Node" parent="dialog" unique_id=349656126 node_paths=PackedStringArray("texts")]
+script = ExtResource("5_wvddu")
+texts = [NodePath("Text"), NodePath("Text2"), NodePath("Text3"), NodePath("Text4"), NodePath("Text5"), NodePath("Text6")]
+
+[node name="Text" type="Node" parent="dialog/queue_3" unique_id=143133061]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["You wanna know the way through the old [color=purple]Coal Mines[/color], eh?"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text2" type="Node" parent="dialog/queue_3" unique_id=356974976 node_paths=PackedStringArray("script_node")]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["Hehehe!"])
+script_node = NodePath("play_laugh")
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="play_laugh" type="Node" parent="dialog/queue_3/Text2" unique_id=658753301]
+script = ExtResource("7_flck8")
+sound_stream = ExtResource("8_5dbpe")
+
+[node name="Text3" type="Node" parent="dialog/queue_3" unique_id=435883269]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["My mining days are long behind me, miss."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text4" type="Node" parent="dialog/queue_3" unique_id=2115048033]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["I can't quite remember it now."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text5" type="Node" parent="dialog/queue_3" unique_id=205110204]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["Back then I usta live in the town east of here-"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text6" type="Node" parent="dialog/queue_3" unique_id=220261849]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["Back before the mines dried up and it became a [color=purple]Ghost Town[/color]."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="queue_4" type="Node" parent="dialog" unique_id=923039004 node_paths=PackedStringArray("texts")]
+script = ExtResource("5_wvddu")
+texts = [NodePath("Text"), NodePath("Text2"), NodePath("Text3"), NodePath("Text4"), NodePath("Text5"), NodePath("Text6"), NodePath("Text7")]
+
+[node name="Text" type="Node" parent="dialog/queue_4" unique_id=520790799]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["Seems like just yesterday..."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text2" type="Node" parent="dialog/queue_4" unique_id=1157893739]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["Me and all the boys usta go to [color=purple]The Estate[/color]-"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text3" type="Node" parent="dialog/queue_4" unique_id=1005136654]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["And try to catch a glimpse of [color=red]The Heiress[/color]."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text4" type="Node" parent="dialog/queue_4" unique_id=701696154]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["Everything about those days..."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text5" type="Node" parent="dialog/queue_4" unique_id=633853772]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["The [color=purple]Mines[/color], the [color=purple]Town[/color], [color=red]The Heiress[/color]-"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text6" type="Node" parent="dialog/queue_4" unique_id=1146339859]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["It's all so faded now."])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text7" type="Node" parent="dialog/queue_4" unique_id=814108361]
+script = ExtResource("6_o8uqu")
+language_map = Array[String](["english"])
+text = Array[String](["If only I could see her face again..."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [connection signal="body_entered" from="move_collider_left" to="." method="_on_move_collider_left_body_entered"]

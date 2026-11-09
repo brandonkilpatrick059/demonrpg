@@ -73,3 +73,6 @@ res://scripts/character/npc/npc.gd
 res://sprites/spritesheets/npc/old_man.tres
 res://locations/zones/zone_trailer_interior.tscn
 res://locations/zones/zone_blank_interior.tscn
+res://scripts/utility/throttle_volume.gd
+res://scripts/utility/text_queue.gd
+res://scripts/character/npc/dialog.gd

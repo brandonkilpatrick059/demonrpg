@@ -1,11 +1,11 @@
-Sprite2D
+Node
 Node2D
+Sprite2D
 CollisionPolygon2D
 CollisionShape2D
 AudioStreamPlayer2D
 RichTextLabel
 Camera2D
-Node
 Label
 Polygon2D
 Timer
