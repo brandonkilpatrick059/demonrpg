@@ -20,8 +20,7 @@ capture_hp_percent = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2095233212]
 sprite_frames = ExtResource("2_rslhf")
-animation = &"dead"
-frame_progress = 0.39770412
+frame_progress = 0.43306175
 
 [node name="actions" type="Node" parent="." unique_id=1673258989]
 

@@ -2,8 +2,9 @@ class_name Monster extends StaticBody2D
 
 @export var wander_wait_min : float = 2.0
 @export var wander_wait_max : float = 8.0
+@export var no_wander : bool = false
 
-var facing_direction : String = "right"
+var facing_direction : String = "down"
 
 var moving : bool = false
 var talking : bool = false
@@ -31,6 +32,8 @@ func _ready() -> void:
 	deactivate_walk_colliders()
 	add_to_group("npc")
 	add_to_group("interactable")
+	if(no_wander):
+		$AnimatedSprite2D.play("stand_down")
 	$Timer.start(randf_range(wander_wait_min,wander_wait_max))
 
 func deactivate_walk_colliders():
@@ -122,7 +125,8 @@ func interact():
 		var pos : Vector2 = camera.get_screen_center_position()
 		$InterfaceMessageSpeech.global_position = pos + Vector2(-64,80)
 		player.freeze_input()
-		face_to_point(player.global_position)
+		if(not no_wander):
+			face_to_point(player.global_position)
 		interact_when_grid_aligned = false
 	else:
 		interact_when_grid_aligned = true
@@ -187,7 +191,8 @@ func colliders_detect_solid() -> bool:
 
 func _physics_process(delta: float) -> void:
 	handle_animation()
-	handle_movement()
+	if(not no_wander):
+		handle_movement()
 
 
 func _on_move_collider_left_body_entered(body: Node2D) -> void:

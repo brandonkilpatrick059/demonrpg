@@ -68,3 +68,8 @@ res://familiars/base/L2_golith.tscn
 res://sprites/spritesheets/familiars/L2_golith.tres
 res://familiars/base/L2_gorith.tscn
 res://sprites/spritesheets/familiars/L2_gorith.tres
+res://npc/npc_old_man.tscn
+res://scripts/character/npc/npc.gd
+res://sprites/spritesheets/npc/old_man.tres
+res://locations/zones/zone_trailer_interior.tscn
+res://locations/zones/zone_blank_interior.tscn

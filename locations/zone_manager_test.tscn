@@ -8,13 +8,7 @@
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
 [ext_resource type="PackedScene" uid="uid://dgil6lq8m0otl" path="res://familiars/base/L1_imp.tscn" id="6_vlo4x"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
-[ext_resource type="PackedScene" uid="uid://cm1hsy8epesue" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn" id="8_vlo4x"]
-[ext_resource type="PackedScene" uid="uid://dhrtarwbrrgma" path="res://locations/zones/zone_homestead.tscn" id="10_ri5ms"]
-[ext_resource type="PackedScene" uid="uid://br6gc0xmj5csb" path="res://locations/zones/zone_grandmas_house.tscn" id="11_6c713"]
-[ext_resource type="PackedScene" uid="uid://b1d1xxi0e0013" path="res://locations/zones/zone_mountain.tscn" id="12_eeplw"]
-[ext_resource type="PackedScene" uid="uid://vhctufy4qc1m" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_ledge.tscn" id="13_ympxq"]
-[ext_resource type="PackedScene" uid="uid://dp5o3s2y8hr7w" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn" id="14_po1jq"]
-[ext_resource type="PackedScene" uid="uid://dto0o6fl65v4p" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn" id="15_y3hfc"]
+[ext_resource type="PackedScene" uid="uid://s5k087qoikqp" path="res://locations/zones/zone_country_road.tscn" id="9_pag8u"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlo4x"]
 light_mode = 1
@@ -78,14 +72,14 @@ shader_parameter/pixel_strength = -4.0
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
 script = ExtResource("1_5ulbo")
-current_zone = NodePath("zone_gloomy_woods_entrance")
+current_zone = NodePath("zone_country_road")
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
 states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
 states_map_values = Array[String](["TRUE", "TRUE", "USED"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
-position = Vector2(1704, -2256)
+position = Vector2(48, 3072)
 familiar_team = [NodePath("L1imp"), NodePath("L2dylith")]
 pentacle_charms = 3
 
@@ -121,7 +115,6 @@ vertical_alignment = 1
 
 [node name="screen_effect_layer" type="CanvasLayer" parent="." unique_id=309004948]
 process_mode = 3
-visible = false
 script = ExtResource("3_2gs5w")
 
 [node name="screen_effect_320x180" type="ColorRect" parent="screen_effect_layer" unique_id=968331395]
@@ -170,16 +163,4 @@ offset_bottom = 1170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="zone_gloomy_woods_entrance" parent="." unique_id=1169712370 instance=ExtResource("8_vlo4x")]
-
-[node name="zone_homestead" parent="." unique_id=1548379340 instance=ExtResource("10_ri5ms")]
-
-[node name="zone_grandmas_house" parent="." unique_id=809410365 instance=ExtResource("11_6c713")]
-
-[node name="zone_mountain" parent="." unique_id=2117853700 instance=ExtResource("12_eeplw")]
-
-[node name="zone_gloomy_woods_ledge" parent="." unique_id=701882850 instance=ExtResource("13_ympxq")]
-
-[node name="zone_gloomy_woods_exit" parent="." unique_id=1383597384 instance=ExtResource("14_po1jq")]
-
-[node name="zone_gloomy_woods_cliffs" parent="." unique_id=1652361180 instance=ExtResource("15_y3hfc")]
+[node name="zone_country_road" parent="." unique_id=1169712370 instance=ExtResource("9_pag8u")]

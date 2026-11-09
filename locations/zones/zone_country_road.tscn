@@ -40,10 +40,13 @@ light_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn6ev"]
 size = Vector2(96, 72)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nui7l"]
+size = Vector2(24, 24)
+
 [node name="zone_country_road" type="Node2D" unique_id=1169712370 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
 script = ExtResource("1_8p8sh")
 zone_name = "The Homestead"
-zone_links = [NodePath("ZoneLinkHomestead")]
+zone_links = [NodePath("ZoneLinkHomestead"), NodePath("ZoneLinkTrailer")]
 dark_canvas_mod = NodePath("CanvasModulate")
 
 [node name="TileMapLayer_blue" type="TileMapLayer" parent="." unique_id=686741633]
@@ -99,7 +102,10 @@ tile_set = ExtResource("4_56yl1")
 collision_enabled = false
 
 [node name="walls" type="StaticBody2D" parent="." unique_id=444147778]
-visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=629223685]
+position = Vector2(0, 120)
+polygon = PackedVector2Array(72, 2880, 168, 2880, 168, 2832, 192, 2832, 192, 2880, 240, 2880, 240, 2808, 72, 2808)
 
 [node name="npc_fence" type="StaticBody2D" parent="." unique_id=491291431]
 collision_layer = 4
@@ -202,3 +208,23 @@ position = Vector2(-240, 264)
 
 [node name="stop_point" type="Node2D" parent="ZoneLinkHomestead" unique_id=1188587841]
 position = Vector2(-240, 312)
+
+[node name="ZoneLinkTrailer" parent="." unique_id=889034446 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("15_758bc")]
+position = Vector2(240, 144)
+link_zone_scene_path = "res://locations/zones/zone_trailer_interior.tscn"
+link_name = "INTERIOR"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "LINK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLinkTrailer" unique_id=1832157171]
+z_index = 20
+position = Vector2(-60, 2820)
+shape = SubResource("RectangleShape2D_nui7l")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLinkTrailer" unique_id=371806158]
+position = Vector2(-72, 2880)
+
+[node name="stop_point" type="Node2D" parent="ZoneLinkTrailer" unique_id=305430494]
+position = Vector2(-72, 2928)

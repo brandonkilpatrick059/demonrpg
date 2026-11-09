@@ -1,0 +1,115 @@
+[gd_scene format=4 uid="uid://b1o3jtw7lp6ed"]
+
+[ext_resource type="Script" uid="uid://v73shmuwmbhw" path="res://scripts/locations/location_zone.gd" id="1_scvag"]
+[ext_resource type="TileSet" uid="uid://45qv0vaq80jk" path="res://sprites/tile_atlas_interior.tres" id="2_6k31b"]
+[ext_resource type="TileSet" uid="uid://be4tfq16y1gax" path="res://sprites/tile_atlas_effects.tres" id="3_csewh"]
+[ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="4_u2sbu"]
+[ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="6_6fg71"]
+[ext_resource type="PackedScene" uid="uid://bykxxqqxbkcrq" path="res://npc/npc_old_man.tscn" id="7_6fg71"]
+[ext_resource type="Texture2D" uid="uid://iphi2v0othgh" path="res://sprites/props/interior/bed.png" id="7_uo0vd"]
+[ext_resource type="Texture2D" uid="uid://ckyygcbh2ppv7" path="res://sprites/props/interior/table.png" id="10_dgrqy"]
+[ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="18_wp8oi"]
+[ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="19_xp0jc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
+size = Vector2(24, 24)
+
+[node name="ZoneTrailerInterior" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links")]
+script = ExtResource("1_scvag")
+zone_name = "Trailer Home"
+zone_links = [NodePath("ZoneLink")]
+dark = true
+
+[node name="TileMapLayer_wall" type="TileMapLayer" parent="." unique_id=1591578392]
+modulate = Color(0.79960823, 0.5804996, 0.5392257, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD8/wkAAAAAAAYAAAD8/wgAAAAAAAUAAAD1/wYAAAAAAAUAAAD2/wYAAAAAAAUAAAD3/wYAAAABAAUAAAD4/wYAAAABAAUAAAD5/wYAAAABAAUAAAD6/wYAAAAAAAUAAAD7/wYAAAAAAAUAAAD9/wYAAAAAAAUAAAD+/wYAAAAAAAUAAAD//wYAAAABAAUAAAAAAAYAAAABAAUAAAABAAYAAAABAAUAAAACAAYAAAAAAAUAAAADAAYAAAAAAAUAAAD1/wcAAAAAAAYAAAD2/wcAAAAAAAYAAAD3/wcAAAABAAYAAAD4/wcAAAABAAYAAAD5/wcAAAABAAYAAAD6/wcAAAAAAAYAAAD7/wcAAAAAAAYAAAD9/wcAAAAAAAYAAAD+/wcAAAAAAAYAAAD//wcAAAABAAYAAAAAAAcAAAABAAYAAAABAAcAAAABAAYAAAACAAcAAAAAAAYAAAADAAcAAAAAAAYAAAA=")
+tile_set = ExtResource("2_6k31b")
+
+[node name="TileMapLayer_furniture" type="TileMapLayer" parent="." unique_id=817401735]
+modulate = Color(0.61806, 0.59782547, 0.5776148, 1)
+tile_map_data = PackedByteArray("AAADAAgAAAADAAYAAAACAAgAAAADAAYAAAABAAgAAAAEAAYAAAAAAAgAAAAFAAYAAAD//wgAAAACAAYAAAA=")
+tile_set = ExtResource("2_6k31b")
+
+[node name="TileMapLayer_floor" type="TileMapLayer" parent="." unique_id=1933344317]
+modulate = Color(0.56174827, 0.5481897, 0.5617407, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAADAAgAAAABAAcAAAACAAgAAAABAAcAAAABAAgAAAABAAcAAAAAAAgAAAABAAcAAAD//wgAAAABAAcAAAD+/wgAAAABAAcAAAD9/wgAAAABAAcAAAD9/wkAAAABAAcAAAD+/wkAAAABAAcAAAD//wkAAAABAAcAAAAAAAkAAAABAAcAAAABAAkAAAABAAcAAAADAAkAAAABAAcAAAACAAkAAAABAAcAAAD9/woAAAABAAcAAAD+/woAAAABAAcAAAD//woAAAABAAcAAAAAAAoAAAABAAcAAAABAAoAAAABAAcAAAACAAoAAAABAAcAAAADAAoAAAABAAcAAAAAAAsAAAABAAcAAAD1/wgAAAAAAAIAAAD1/wkAAAAAAAIAAAD1/woAAAAAAAIAAAD2/wgAAAAAAAIAAAD2/wkAAAAAAAIAAAD2/woAAAAAAAIAAAD3/wgAAAAAAAIAAAD3/wkAAAAAAAIAAAD3/woAAAAAAAIAAAD4/wgAAAAAAAIAAAD4/wkAAAAAAAIAAAD4/woAAAAAAAIAAAD5/wgAAAAAAAIAAAD5/wkAAAAAAAIAAAD5/woAAAAAAAIAAAD6/wgAAAAAAAIAAAD6/wkAAAAAAAIAAAD6/woAAAAAAAIAAAD7/wgAAAAAAAIAAAD7/wkAAAAAAAIAAAD7/woAAAAAAAIAAAD8/woAAAAAAAIAAAA=")
+tile_set = ExtResource("2_6k31b")
+
+[node name="TileMapLayer_floor_carpet" type="TileMapLayer" parent="." unique_id=1319716287]
+modulate = Color(0.33959344, 0.37369737, 0.50656694, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD1/wgAAAAAAAcAAAD1/wkAAAAAAAcAAAD1/woAAAAAAAcAAAD2/wgAAAAAAAcAAAD2/wkAAAAAAAcAAAD2/woAAAAAAAcAAAD3/wgAAAAAAAcAAAD3/wkAAAAAAAcAAAD3/woAAAAAAAcAAAD4/wgAAAAAAAcAAAD4/wkAAAAAAAcAAAD4/woAAAAAAAcAAAD5/wgAAAAAAAcAAAD5/wkAAAAAAAcAAAD5/woAAAAAAAcAAAD6/wgAAAAAAAcAAAD6/wkAAAAAAAcAAAD6/woAAAAAAAcAAAD7/wgAAAAAAAcAAAD7/wkAAAAAAAcAAAD7/woAAAAAAAcAAAD8/woAAAAAAAcAAAD9/woAAAAAAAcAAAD+/woAAAAAAAcAAAD9/wkAAAAAAAcAAAD+/wkAAAAAAAcAAAD+/wgAAAAAAAcAAAD9/wgAAAAAAAcAAAAAAAsAAAAAAAcAAAD//woAAAAAAAcAAAAAAAoAAAAAAAcAAAABAAoAAAAAAAcAAAACAAoAAAAAAAcAAAADAAoAAAAAAAcAAAA=")
+tile_set = ExtResource("2_6k31b")
+
+[node name="TileMapLayer_brown" type="TileMapLayer" parent="." unique_id=1265215159]
+modulate = Color(0.6347011, 0.40221632, 0.26311323, 1)
+tile_set = ExtResource("2_6k31b")
+
+[node name="TileMapLayer_effect" type="TileMapLayer" parent="." unique_id=1312739034]
+modulate = Color(0.24840015, 0.24840018, 0.24840015, 0.25882354)
+z_index = -1
+tile_map_data = PackedByteArray("AAD9/wkAAAAAAAIAAAD9/woAAAAAAAIAAGD+/woAAAAAAAIAAGD//woAAAAAAAIAAGABAAoAAAAAAAIAAGACAAoAAAAAAAIAAGADAAgAAAAAAAEAAFADAAkAAAAAAAEAABADAAoAAAAAAAEAADD1/wgAAAAAAAEAAED1/wkAAAAAAAIAAAD1/woAAAAAAAEAAGD2/woAAAAAAAIAAGD3/woAAAAAAAIAAGD4/woAAAAAAAIAAGD5/woAAAAAAAIAAGD7/wgAAAAAAAEAAFD7/wkAAAAAAAIAADD7/woAAAAAAAIAAGD6/woAAAAAAAIAAGD9/wgAAAAAAAEAAAD8/woAAAAAAAIAAGD//wYAAAACAAIAAAD2/wgAAAAAAAIAAFD3/wgAAAAAAAIAAFD4/wgAAAAAAAIAAFD5/wgAAAAAAAIAAFD6/wgAAAAAAAIAAFD+/wgAAAAAAAIAAFD//wcAAAACAAMAAAAAAAgAAAAAAAIAAFABAAgAAAAAAAIAAFACAAgAAAAAAAIAAFD//wgAAAAAAAIAAFACAAkAAAAAAAIAAFABAAkAAAAAAAIAAFAAAAkAAAAAAAIAAFD//wkAAAAAAAIAAFA=")
+tile_set = ExtResource("3_csewh")
+
+[node name="ZoneLink" parent="." unique_id=1869762347 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_u2sbu")]
+link_zone_scene_path = "res://locations/zones/zone_country_road.tscn"
+link_name = "LINK"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "INTERIOR"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink" unique_id=833735083]
+position = Vector2(12, 300)
+shape = SubResource("RectangleShape2D_0qpjh")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink" unique_id=1416006420]
+position = Vector2(0, 264)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink" unique_id=88330025]
+position = Vector2(0, 240)
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=567641062]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=180928047]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(-120, 360, -48.72229, 360, -48, 408, 0, 408, 0.23097229, 360, 48, 360, 48, 408, 72, 408, 120, 408, 120, 384, 240, 384, 240, 432, 168, 432, 168, 552, 144, 552, 144, 432, -96, 432, -120, 432, -120, 408, -120, 360, -192, 360, -168, 504, -48, 504, 120, 504, 120, 600, 192, 600, 192, 456, 264, 456, 264, 312, 264, 288, -168, 288, -168, 360)
+
+[node name="npc_fence" type="StaticBody2D" parent="." unique_id=508513244]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc_fence" unique_id=1385165467]
+position = Vector2(-48, 0)
+
+[node name="entered_house_ready_scripts" type="Node" parent="." unique_id=1834656580]
+script = ExtResource("18_wp8oi")
+gamestate_key = "HOUSE_ENTERED"
+run_if_state = "TRUE"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1446895130]
+visible = false
+color = Color(0, 0, 0, 1)
+script = ExtResource("6_6fg71")
+
+[node name="wind" type="AudioStreamPlayer" parent="." unique_id=1974339771 groups=["global_music_player"]]
+stream = ExtResource("19_xp0jc")
+volume_db = -20.612
+autoplay = true
+bus = &"effects"
+
+[node name="NPC_old_man" parent="." unique_id=1569602181 instance=ExtResource("7_6fg71")]
+position = Vector2(-240, 216)
+
+[node name="props" type="Node2D" parent="." unique_id=2048978575]
+
+[node name="bed" type="Sprite2D" parent="props" unique_id=875886004]
+position = Vector2(-168, 216)
+texture = ExtResource("7_uo0vd")
+
+[node name="bed2" type="Sprite2D" parent="props" unique_id=815100347]
+position = Vector2(-48, 216)
+texture = ExtResource("10_dgrqy")
