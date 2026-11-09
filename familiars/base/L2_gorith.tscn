@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://fy0jk4wvuhj1"]
+
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_rslhf"]
+[ext_resource type="SpriteFrames" uid="uid://cdykqdt7d8tsx" path="res://sprites/spritesheets/familiars/L2_gorith.tres" id="2_rslhf"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_nm1qk"]
+[ext_resource type="PackedScene" uid="uid://bhfmqt6lxewql" path="res://battle/actions/action_block.tscn" id="4_vlcq6"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_f1i0r"]
+[ext_resource type="PackedScene" uid="uid://bfnuubvl43rki" path="res://battle/actions/action_reflect.tscn" id="6_loig2"]
+
+[node name="L2gorith" type="Node2D" unique_id=350619396]
+script = ExtResource("1_rslhf")
+packedscene_path = "res://familiars/base/L2_gorith.tscn"
+familiar_name = "Gorith"
+max_hp = 15
+current_hp = 15
+defense = 8
+speed = 2
+level = 2
+capture_hp_percent = 0.2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2095233212]
+sprite_frames = ExtResource("2_rslhf")
+animation = &"dead"
+frame_progress = 0.39770412
+
+[node name="actions" type="Node" parent="." unique_id=1673258989]
+
+[node name="ActionAttack" parent="actions" unique_id=1995895392 instance=ExtResource("3_nm1qk")]
+opponent_choice_weight = 0.4
+
+[node name="ActionBlock" parent="actions" unique_id=78442017 instance=ExtResource("4_vlcq6")]
+opponent_choice_weight = 0.5
+
+[node name="ActionFeed" parent="actions" unique_id=9123841 instance=ExtResource("5_f1i0r")]
+opponent_choice_weight = 0.1
+
+[node name="ActionReflect" parent="actions" unique_id=1102425551 instance=ExtResource("6_loig2")]
+opponent_choice_weight = 0.6

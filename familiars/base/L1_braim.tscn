@@ -19,6 +19,8 @@ defense = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=317345956]
 sprite_frames = ExtResource("2_fqvrx")
+animation = &"die"
+frame_progress = 0.7211437
 
 [node name="actions" type="Node" parent="." unique_id=1163676110]
 
@@ -33,16 +35,16 @@ opponent_choice_weight = 0.1
 
 [node name="evolutions" type="Node" parent="." unique_id=1978315626]
 
-[node name="gorgon" type="Node" parent="evolutions" unique_id=141445210 node_paths=PackedStringArray("path_text")]
+[node name="gorith" type="Node" parent="evolutions" unique_id=141445210 node_paths=PackedStringArray("path_text")]
 script = ExtResource("6_86yxp")
 path_text = NodePath("path_text")
-new_base_path = "res://familiars/base/L2_gorgon.tscn"
+new_base_path = "res://familiars/base/L2_golith.tscn"
 plus_defense = 5
 
-[node name="path_text" type="Node" parent="evolutions/gorgon" unique_id=2041918598]
+[node name="path_text" type="Node" parent="evolutions/gorith" unique_id=2041918598]
 script = ExtResource("7_gsyfw")
 language_map = Array[String](["english"])
-text = Array[String](["Path of the Elephant"])
+text = Array[String](["Path of the Boar"])
 
 [node name="carn" type="Node" parent="evolutions" unique_id=2042912521 node_paths=PackedStringArray("path_text")]
 script = ExtResource("6_86yxp")

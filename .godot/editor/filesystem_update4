@@ -64,3 +64,7 @@ res://familiars/base/L2_carn.tscn
 res://sprites/spritesheets/familiars/L2_carn.tres
 res://familiars/base/L1_braim.tscn
 res://familiars/base/L1_imp.tscn
+res://familiars/base/L2_golith.tscn
+res://sprites/spritesheets/familiars/L2_golith.tres
+res://familiars/base/L2_gorith.tscn
+res://sprites/spritesheets/familiars/L2_gorith.tres
