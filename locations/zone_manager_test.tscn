@@ -8,7 +8,7 @@
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
 [ext_resource type="PackedScene" uid="uid://dgil6lq8m0otl" path="res://familiars/base/L1_imp.tscn" id="6_vlo4x"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
-[ext_resource type="PackedScene" uid="uid://s5k087qoikqp" path="res://locations/zones/zone_country_road.tscn" id="9_pag8u"]
+[ext_resource type="PackedScene" uid="uid://s5k087qoikqp" path="res://locations/zones/country_road/zone_country_road.tscn" id="9_pag8u"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlo4x"]
 light_mode = 1
@@ -79,7 +79,7 @@ states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
 states_map_values = Array[String](["TRUE", "TRUE", "USED"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
-position = Vector2(48, 3072)
+position = Vector2(-696, 3288)
 familiar_team = [NodePath("L1imp"), NodePath("L2dylith")]
 pentacle_charms = 3
 

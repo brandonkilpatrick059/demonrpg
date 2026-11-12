@@ -55,3 +55,8 @@ res://sprites/spritesheets/familiars/L2_carn.tres
 res://sprites/spritesheets/familiars/L2_gorith.tres
 res://sprites/spritesheets/npc/old_man.tres
 res://locations/zone_manager_test.tscn
+res://locations/zones/country_road/zone_country_road.tscn
+res://locations/zones/zone_homestead.tscn
+res://locations/zones/country_road/zone_country_road_trailer_interior.tscn
+res://npc/npc_old_man.tscn
+res://locations/zones/country_road/zone_country_road_bridge.tscn

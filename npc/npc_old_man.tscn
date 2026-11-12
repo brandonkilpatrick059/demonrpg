@@ -275,7 +275,7 @@ metadata/_custom_type_script = "uid://xtykxchs28xu"
 [node name="Text3" type="Node" parent="dialog/queue_4" unique_id=1005136654]
 script = ExtResource("6_o8uqu")
 language_map = Array[String](["english"])
-text = Array[String](["And try to catch a glimpse of [color=red]The Heiress[/color]."])
+text = Array[String](["And try to catch a glimpse of [color=red]The Heiress[/color] riding her horse."])
 metadata/_custom_type_script = "uid://xtykxchs28xu"
 
 [node name="Text4" type="Node" parent="dialog/queue_4" unique_id=701696154]

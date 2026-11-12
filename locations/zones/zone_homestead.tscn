@@ -294,7 +294,7 @@ position = Vector2(-192, -192)
 
 [node name="ZoneLinkCountryRoad" parent="." unique_id=180889829 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("14_6qcli")]
 position = Vector2(120, 432)
-link_zone_scene_path = "res://locations/zones/zone_country_road.tscn"
+link_zone_scene_path = "res://locations/zones/country_road/zone_country_road.tscn"
 link_name = "ROAD"
 teleport_spot = NodePath("load_in")
 stop_point = NodePath("stop_point")
