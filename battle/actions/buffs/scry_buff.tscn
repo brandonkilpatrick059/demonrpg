@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c3mtbqglk8mw6"]
+
+[ext_resource type="Script" uid="uid://mdjgvc7cd381" path="res://scripts/battle_system/buffs/scry_buff.gd" id="1_jhi28"]
+[ext_resource type="Texture2D" uid="uid://8o0gri8c15fm" path="res://sprites/battle/interface/buff_symbols/scry_eye.png" id="2_jhi28"]
+
+[node name="ScryBuff" type="Node2D" unique_id=361553305]
+script = ExtResource("1_jhi28")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=579967185]
+texture = ExtResource("2_jhi28")

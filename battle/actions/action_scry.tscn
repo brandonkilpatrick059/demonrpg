@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://iluyc1bq3g5f"]
+
+[ext_resource type="Script" uid="uid://coucy01qaxr21" path="res://scripts/battle_system/actions/buff/action_scry.gd" id="1_5h5rl"]
+
+[node name="Scry" type="Node" unique_id=1202528140]
+script = ExtResource("1_5h5rl")

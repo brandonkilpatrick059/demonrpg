@@ -63,3 +63,13 @@ res://locations/zones/country_road/zone_country_road_bridge.tscn
 res://locations/zones/gloomy_woods/zone_gloomy_woods_exit.tscn
 res://familiars/base/L1_scryer.tscn
 res://sprites/spritesheets/familiars/L1_scryer.tres
+res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn
+res://battle/battle_system_sandbox.tscn
+res://battle/battle_system.tscn
+res://scripts/familiars/familiar.gd
+res://battle/actions/buffs/scry_buff.tscn
+res://scripts/battle_system/buffs/scry_buff.gd
+res://scripts/battle_system/actions/buff/action_scry.gd
+res://battle/actions/action_scry.tscn
+res://scripts/battle_system/battle_system_manager.gd
+res://scripts/battle_system/buffs/battle_buff.gd

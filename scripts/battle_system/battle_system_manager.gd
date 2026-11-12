@@ -749,7 +749,7 @@ func update_sel_arrows():
 				slot.show_upgrade_label(label)
 		else:
 			slot.show_select_arrow()
-		if(not familiar.is_hostile()):
+		if(not familiar.is_hostile() || familiar.showing_mini_status()):
 			slot.show_mini_status(familiar)
 
 func hide_all_sel_arrows():

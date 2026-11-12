@@ -40,6 +40,8 @@ var sigil : String = ""
 
 var stored : bool = false
 
+var show_mini_status : bool = false
+
 #var exp_req_for_level_up : Array[int] = [
 	#10, #Level 0 -> Level 1
 	#20, #Level 1 -> Level 2
@@ -97,6 +99,15 @@ func set_roused():
 
 func is_stored():
 	return stored
+
+func showing_mini_status() -> bool:
+	return show_mini_status
+
+func activate_mini_status():
+	show_mini_status = true
+
+func hide_mini_status():
+	show_mini_status = false
 
 func is_ready_to_evolve() -> bool:
 	if(experience >= exp_req_for_level_up[level] && 

@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_p7q66"]
 [ext_resource type="SpriteFrames" uid="uid://6mij3b6oxooo" path="res://sprites/spritesheets/familiars/L1_scryer.tres" id="2_3ynex"]
+[ext_resource type="PackedScene" uid="uid://iluyc1bq3g5f" path="res://battle/actions/action_scry.tscn" id="4_287cw"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_yp56t"]
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_cmkxy"]
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="7_a04mw"]
-[ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="8_ca8x3"]
-[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="9_gn8x2"]
 
 [node name="L1scryer" type="Node2D" unique_id=2120251354]
 script = ExtResource("1_p7q66")
@@ -20,38 +19,18 @@ magic = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
 sprite_frames = ExtResource("2_3ynex")
 animation = &"magic"
-frame_progress = 0.5236094
+frame_progress = 0.6982511
 
 [node name="actions" type="Node" parent="." unique_id=671533593]
 
-[node name="ActionFeed" parent="actions" unique_id=1485526811 instance=ExtResource("5_yp56t")]
-opponent_choice_weight = 0.1
+[node name="Scry" parent="actions" unique_id=1202528140 instance=ExtResource("4_287cw")]
 
 [node name="EvilEye" parent="actions" unique_id=931603606 instance=ExtResource("6_cmkxy")]
 opponent_choice_weight = 0.4
 
+[node name="ActionFeed" parent="actions" unique_id=1485526811 instance=ExtResource("5_yp56t")]
+opponent_choice_weight = 0.1
+
 [node name="ActionRun" parent="actions" unique_id=469350760 instance=ExtResource("7_a04mw")]
 
 [node name="evolutions" type="Node" parent="." unique_id=1074968313]
-
-[node name="stalf" type="Node" parent="evolutions" unique_id=466876910 node_paths=PackedStringArray("path_text")]
-script = ExtResource("8_ca8x3")
-path_text = NodePath("path_text")
-new_base_path = "res://familiars/base/L2_stalf.tscn"
-plus_magic = 5
-
-[node name="path_text" type="Node" parent="evolutions/stalf" unique_id=502458807]
-script = ExtResource("9_gn8x2")
-language_map = Array[String](["english"])
-text = Array[String](["Path of Fire"])
-
-[node name="byle" type="Node" parent="evolutions" unique_id=1476859456 node_paths=PackedStringArray("path_text")]
-script = ExtResource("8_ca8x3")
-path_text = NodePath("path_text")
-new_base_path = "res://familiars/base/L2_byle.tscn"
-plus_magic = 5
-
-[node name="path_text" type="Node" parent="evolutions/byle" unique_id=2094344554]
-script = ExtResource("9_gn8x2")
-language_map = Array[String](["english"])
-text = Array[String](["Path of Healing"])

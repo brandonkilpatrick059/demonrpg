@@ -3,16 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://d1yksn1grty30" path="res://battle/battle_system.tscn" id="1_13ec6"]
 [ext_resource type="AudioStream" uid="uid://deysb4q75hgex" path="res://audio/music/drone_2.ogg" id="2_k5gt0"]
 [ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/base/L1_gark.tscn" id="3_f717y"]
-[ext_resource type="PackedScene" uid="uid://chd5ugll25mm6" path="res://familiars/base/L2_stalf.tscn" id="4_k5gt0"]
+[ext_resource type="PackedScene" uid="uid://cno3ohvy65hc8" path="res://familiars/base/L1_scryer.tscn" id="4_iuu78"]
+[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/base/L1_martyr.tscn" id="5_143nw"]
 [ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/player_body.tres" id="5_ogmts"]
+[ext_resource type="PackedScene" uid="uid://br8pe0ltxqprf" path="res://familiars/base/L2_carn.tscn" id="6_1nvlj"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="6_f717y"]
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=1962261481]
 
 [node name="BattleSystem" parent="." unique_id=883968846 node_paths=PackedStringArray("opponent_familiars", "player_familiars") instance=ExtResource("1_13ec6")]
 position = Vector2(160, 90)
-opponent_familiars = [NodePath("opponents/L1gark"), NodePath("opponents/L1gark2"), NodePath("opponents/L1gark3"), NodePath("opponents/L1gark4")]
-player_familiars = [NodePath("player/L2stalf"), NodePath("player/L1gark")]
+opponent_familiars = [NodePath("opponents/L1gark"), NodePath("opponents/L1gark2"), NodePath("opponents/L1scryer"), NodePath("opponents/L1scryer2")]
+player_familiars = [NodePath("player/L1gark"), NodePath("player/L1scryer"), NodePath("player/L1martyr"), NodePath("player/L2carn")]
 music = ExtResource("2_k5gt0")
 is_sandbox = true
 
@@ -28,22 +30,20 @@ max_hp = 1
 current_hp = 1
 attack = 0
 
-[node name="L1gark3" parent="BattleSystem/opponents" unique_id=127166247 instance=ExtResource("3_f717y")]
-max_hp = 1
-current_hp = 1
-attack = 0
+[node name="L1scryer" parent="BattleSystem/opponents" unique_id=816269619 instance=ExtResource("4_iuu78")]
 
-[node name="L1gark4" parent="BattleSystem/opponents" unique_id=1642119801 instance=ExtResource("3_f717y")]
-max_hp = 1
-current_hp = 1
-attack = 0
+[node name="L1scryer2" parent="BattleSystem/opponents" unique_id=275718847 instance=ExtResource("4_iuu78")]
 
 [node name="player" type="Node2D" parent="BattleSystem" unique_id=310176509]
 
-[node name="L2stalf" parent="BattleSystem/player" unique_id=2121275838 instance=ExtResource("4_k5gt0")]
-
 [node name="L1gark" parent="BattleSystem/player" unique_id=545239726 instance=ExtResource("3_f717y")]
 speed = 2
+
+[node name="L1scryer" parent="BattleSystem/player" unique_id=556054021 instance=ExtResource("4_iuu78")]
+
+[node name="L1martyr" parent="BattleSystem/player" unique_id=1657065563 instance=ExtResource("5_143nw")]
+
+[node name="L2carn" parent="BattleSystem/player" unique_id=1722867992 instance=ExtResource("6_1nvlj")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1002522205]
 position = Vector2(160, 90)
