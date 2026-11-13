@@ -34,12 +34,15 @@ action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
 [node name="player" type="Node2D" parent="BattleSystem" unique_id=310176509]
 
 [node name="L1scryer" parent="BattleSystem/player" unique_id=556054021 instance=ExtResource("4_iuu78")]
+magic = 8
 
 [node name="L2carn" parent="BattleSystem/player" unique_id=1722867992 instance=ExtResource("6_1nvlj")]
 
 [node name="L0Worm" parent="BattleSystem/player" unique_id=1908749541 instance=ExtResource("4_k5gt0")]
+attack = 10
 
 [node name="L0Worm2" parent="BattleSystem/player" unique_id=557435645 instance=ExtResource("4_k5gt0")]
+attack = 10
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1002522205]
 position = Vector2(160, 90)
