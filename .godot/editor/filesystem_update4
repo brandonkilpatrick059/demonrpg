@@ -73,3 +73,5 @@ res://scripts/battle_system/actions/buff/action_scry.gd
 res://battle/actions/action_scry.tscn
 res://scripts/battle_system/battle_system_manager.gd
 res://scripts/battle_system/buffs/battle_buff.gd
+res://familiars/base/L2_wraith.tscn
+res://sprites/spritesheets/familiars/L2_wraith.tres
