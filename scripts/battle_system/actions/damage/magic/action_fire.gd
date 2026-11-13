@@ -98,14 +98,16 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 func apply_pkg_to_target(pkg : BattlePkg):
 	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
-	var target : Familiar = pkg.get_targets()[0]
-	var target_hp = target.current_hp
-	var new_target_hp = target_hp - final_damage
-	if(new_target_hp <= 0):
-		new_target_hp = 0
-		if(!target.is_dead()):
-			kill_target(actor,target)
-	target.set_current_hp(new_target_hp)
+	if(pkg.get_targets().size() > 0):
+		var target : Familiar = pkg.get_targets()[0]
+		if(target != null):
+			var target_hp = target.current_hp
+			var new_target_hp = target_hp - final_damage
+			if(new_target_hp <= 0):
+				new_target_hp = 0
+				if(!target.is_dead()):
+					kill_target(actor,target)
+			target.set_current_hp(new_target_hp)
 
 func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	var actor : Familiar = pkg.get_actor()

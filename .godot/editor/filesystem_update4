@@ -90,3 +90,4 @@ res://battle/effects/wither_main_effect.tscn
 res://scripts/battle_system/actions/damage/magic/action_wither.gd
 res://battle/actions/action_wither.tscn
 res://scripts/battle_system/actions/damage/magic/action_fire.gd
+res://scripts/battle_system/actions/damage/physical/action_attack.gd

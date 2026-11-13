@@ -55,22 +55,24 @@ func get_summary(actor : Familiar)-> String:
 func visual_effects(pkg : BattlePkg):
 	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
-	var target : Familiar = pkg.get_targets()[0]
-	actor.play_one_shot_animation("magic")
-	var glow_red_node = load("res://utility/faders/attack_glow_red.tscn").instantiate()
-	target.add_child(glow_red_node)
-	var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
-	battle_sys_ref.add_child(hp_particle)
-	var attack_effect = load("res://battle/effects/wither_main_effect.tscn").instantiate()
-	battle_sys_ref.add_child(attack_effect)
-	var attack_effect2 = load("res://battle/effects/stab_effect.tscn").instantiate()
-	battle_sys_ref.add_child(attack_effect2)
-	hp_particle.global_position = target.global_position
-	attack_effect.global_position = target.global_position
-	attack_effect2.global_position = target.global_position
-	hp_particle.set_particle(str(final_damage),Color(1.0, 0.26, 0.201, 1.0))
-	battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
-	battle_sys_ref.play_sound(load("res://audio/effects/hit_2.ogg"))
+	if(pkg.get_targets().size() > 0):
+		var target : Familiar = pkg.get_targets()[0]
+		if(target != null):
+			actor.play_one_shot_animation("magic")
+			var glow_red_node = load("res://utility/faders/attack_glow_red.tscn").instantiate()
+			target.add_child(glow_red_node)
+			var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
+			battle_sys_ref.add_child(hp_particle)
+			var attack_effect = load("res://battle/effects/wither_main_effect.tscn").instantiate()
+			battle_sys_ref.add_child(attack_effect)
+			var attack_effect2 = load("res://battle/effects/stab_effect.tscn").instantiate()
+			battle_sys_ref.add_child(attack_effect2)
+			hp_particle.global_position = target.global_position
+			attack_effect.global_position = target.global_position
+			attack_effect2.global_position = target.global_position
+			hp_particle.set_particle(str(final_damage),Color(1.0, 0.26, 0.201, 1.0))
+			battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
+			battle_sys_ref.play_sound(load("res://audio/effects/hit_2.ogg"))
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var target : Familiar = targets[0]
@@ -94,14 +96,16 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 func apply_pkg_to_target(pkg : BattlePkg):
 	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
-	var target : Familiar = pkg.get_targets()[0]
-	var target_hp = target.current_hp
-	var new_target_hp = target_hp - final_damage
-	if(new_target_hp <= 0):
-		new_target_hp = 0
-		if(!target.is_dead()):
-			kill_target(actor,target)
-	target.set_current_hp(new_target_hp)
+	if(pkg.get_targets().size() > 0):
+		var target : Familiar = pkg.get_targets()[0]
+		if(target != null):
+			var target_hp = target.current_hp
+			var new_target_hp = target_hp - final_damage
+			if(new_target_hp <= 0):
+				new_target_hp = 0
+				if(!target.is_dead()):
+					kill_target(actor,target)
+			target.set_current_hp(new_target_hp)
 
 func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	var actor : Familiar = pkg.get_actor()

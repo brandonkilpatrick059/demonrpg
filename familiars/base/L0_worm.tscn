@@ -19,7 +19,7 @@ level = 0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
 sprite_frames = ExtResource("2_1lm6r")
 animation = &"die"
-frame_progress = 0.28872398
+frame_progress = 0.19331689
 
 [node name="actions" type="Node" parent="." unique_id=622052067]
 
@@ -35,8 +35,22 @@ script = ExtResource("7_fwtqt")
 path_text = NodePath("path_text")
 new_base_path = "res://familiars/base/L1_scryer.tscn"
 plus_magic = 5
+plus_max_hp = 5
 
 [node name="path_text" type="Node" parent="evolutions/scryer" unique_id=47693766]
 script = ExtResource("8_mh4r6")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Scrying Eye"])
+
+[node name="walker" type="Node" parent="evolutions" unique_id=1135965733 node_paths=PackedStringArray("path_text")]
+script = ExtResource("7_fwtqt")
+path_text = NodePath("path_text")
+new_base_path = "res://familiars/base/L1_walker.tscn"
+plus_magic = 5
+plus_speed = 5
+plus_num_acts = 1
+
+[node name="path_text" type="Node" parent="evolutions/walker" unique_id=1300088692]
+script = ExtResource("8_mh4r6")
+language_map = Array[String](["english"])
+text = Array[String](["Path of Withering"])
