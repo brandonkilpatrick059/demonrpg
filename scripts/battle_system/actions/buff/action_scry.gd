@@ -72,7 +72,7 @@ func exit_action():
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
 	summary = str(summary,str(summary,get_action_name()))
-	summary = str(summary,"-[color=white]SHOWS[/color] [color=yellow]LEVEL AND HEALTH[/color][color=darkred][/color][color=white] FOR ")
+	summary = str(summary,"-[color=white]SHOWS[/color] [color=yellow]ENERGY AND HEALTH[/color][color=darkred][/color][color=white] FOR ")
 	var base : int = get_base()
 	var max : int = get_divided_magic(actor)
 	summary = str(summary,get_min_max_string(base,base + get_divided_magic(actor)))

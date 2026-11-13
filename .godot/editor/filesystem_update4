@@ -84,3 +84,9 @@ res://scripts/battle_system/actions/special/action_feed.gd
 res://battle/actions/action_bite.tscn
 res://familiars/base/L1_walker.tscn
 res://sprites/spritesheets/familiars/L1_walker.tres
+res://battle/effects/wither_second_effect.tscn
+res://sprites/spritesheets/battle/actions/wither.tres
+res://battle/effects/wither_main_effect.tscn
+res://scripts/battle_system/actions/damage/magic/action_wither.gd
+res://battle/actions/action_wither.tscn
+res://scripts/battle_system/actions/damage/magic/action_fire.gd

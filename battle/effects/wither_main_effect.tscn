@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dxpigcxff1dav"]
+
+[ext_resource type="Script" uid="uid://bsihdk40fybqv" path="res://scripts/utility/queue_free_after_seconds.gd" id="1_44rcw"]
+[ext_resource type="SpriteFrames" uid="uid://mjgxulj063og" path="res://sprites/spritesheets/battle/actions/wither.tres" id="2_44rcw"]
+[ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="3_drfi0"]
+[ext_resource type="PackedScene" uid="uid://0kmj0ki37qjw" path="res://battle/effects/wither_second_effect.tscn" id="4_44rcw"]
+
+[node name="WitherMainEffect" type="Node2D" unique_id=1575172340]
+script = ExtResource("1_44rcw")
+wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1719363181]
+position = Vector2(0, -4)
+sprite_frames = ExtResource("2_44rcw")
+script = ExtResource("3_drfi0")
+random_frame = true
+
+[node name="WitherSecondEffect" parent="." unique_id=1500551349 instance=ExtResource("4_44rcw")]
+
+[node name="WitherSecondEffect2" parent="." unique_id=1967195088 instance=ExtResource("4_44rcw")]
+
+[node name="WitherSecondEffect3" parent="." unique_id=1358816981 instance=ExtResource("4_44rcw")]
+
+[node name="WitherSecondEffect4" parent="." unique_id=2130057885 instance=ExtResource("4_44rcw")]
+
+[node name="WitherSecondEffect5" parent="." unique_id=48989 instance=ExtResource("4_44rcw")]
+
+[node name="WitherSecondEffect6" parent="." unique_id=1960352189 instance=ExtResource("4_44rcw")]
+
+[node name="WitherSecondEffect7" parent="." unique_id=1336925334 instance=ExtResource("4_44rcw")]
+
+[node name="WitherSecondEffect8" parent="." unique_id=1425462906 instance=ExtResource("4_44rcw")]

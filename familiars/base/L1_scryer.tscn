@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_p7q66"]
 [ext_resource type="SpriteFrames" uid="uid://6mij3b6oxooo" path="res://sprites/spritesheets/familiars/L1_scryer.tres" id="2_3ynex"]
+[ext_resource type="PackedScene" uid="uid://caqgdrofda8go" path="res://battle/actions/action_wither.tscn" id="3_3ynex"]
 [ext_resource type="PackedScene" uid="uid://iluyc1bq3g5f" path="res://battle/actions/action_scry.tscn" id="4_287cw"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_yp56t"]
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_cmkxy"]
@@ -19,9 +20,11 @@ magic = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
 sprite_frames = ExtResource("2_3ynex")
 animation = &"magic"
-frame_progress = 0.6982511
+frame_progress = 0.11154256
 
 [node name="actions" type="Node" parent="." unique_id=671533593]
+
+[node name="ActionWither" parent="actions" unique_id=1312202459 instance=ExtResource("3_3ynex")]
 
 [node name="Scry" parent="actions" unique_id=1202528140 instance=ExtResource("4_287cw")]
 

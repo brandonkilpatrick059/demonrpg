@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://caqgdrofda8go"]
+
+[ext_resource type="Script" uid="uid://ica5rug0kbgm" path="res://scripts/battle_system/actions/damage/magic/action_wither.gd" id="1_t7r66"]
+
+[node name="ActionWither" type="Node" unique_id=1312202459]
+script = ExtResource("1_t7r66")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://0kmj0ki37qjw"]
+
+[ext_resource type="Script" uid="uid://bsihdk40fybqv" path="res://scripts/utility/queue_free_after_seconds.gd" id="1_rv8p0"]
+[ext_resource type="SpriteFrames" uid="uid://mjgxulj063og" path="res://sprites/spritesheets/battle/actions/wither.tres" id="2_rv8p0"]
+[ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="3_klsu6"]
+[ext_resource type="Script" uid="uid://bgofy2is84hbf" path="res://scripts/utility/particle_drift.gd" id="4_clva1"]
+
+[node name="WitherSecondEffect" type="Node2D" unique_id=1500551349]
+script = ExtResource("1_rv8p0")
+wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1531828753]
+position = Vector2(0, -4)
+sprite_frames = ExtResource("2_rv8p0")
+frame_progress = 0.9623172
+script = ExtResource("3_klsu6")
+random_frame = true
+
+[node name="drift" type="Node" parent="." unique_id=1931981762]
+script = ExtResource("4_clva1")
+min_speed = -0.08
+max_speed = 0.08
