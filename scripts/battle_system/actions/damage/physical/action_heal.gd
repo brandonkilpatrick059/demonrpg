@@ -23,6 +23,7 @@ func _ready() -> void:
 	target_type = TargetType.ANY_ALLY
 	damage_type = DamageType.NONE
 	target_preference = true
+	energy_cost = 1
 
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
@@ -89,17 +90,17 @@ func get_target_preference(targets : Array[Familiar]) -> Array[Familiar]:
 			chosen_target = target
 	return [chosen_target]
 
-func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
-	var actor : Familiar = pkg.get_actor()
-	var target : Familiar = pkg.get_targets()[0]
-	for buff : BattleBuff in actor.get_battle_buffs():
-		if(buff != null):
-			pkg = buff.apply_to_pkg(actor,pkg)
-	if(target != null):
-		for buff : BattleBuff in target.get_battle_buffs(): 
-			if(buff != null):
-				pkg = buff.apply_to_pkg(target,pkg)
-	return pkg
+#func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
+	#var actor : Familiar = pkg.get_actor()
+	#var target : Familiar = pkg.get_targets()[0]
+	#for buff : BattleBuff in actor.get_battle_buffs():
+		#if(buff != null):
+			#pkg = buff.apply_to_pkg(actor,pkg)
+	#if(target != null):
+		#for buff : BattleBuff in target.get_battle_buffs(): 
+			#if(buff != null):
+				#pkg = buff.apply_to_pkg(target,pkg)
+	#return pkg
 
 func exit_action():
 	battle_sys_ref.start_wait_timer(0.5)

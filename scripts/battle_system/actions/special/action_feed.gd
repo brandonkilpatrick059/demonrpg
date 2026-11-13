@@ -152,11 +152,6 @@ func visual_effects_2(actor : Familiar, target : Familiar):
 	battle_sys_ref.add_child(hp_particle)
 	hp_particle.global_position = actor.global_position
 	hp_particle.set_particle(str(target.get_max_hp()),Color(0.542, 0.691, 1.0, 1.0))
-	var exp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
-	#battle_sys_ref.add_child(exp_particle)
-	#exp_particle.global_position = actor.global_position + Vector2(0,12)
-	#var exp : int = target.get_exp_value()
-	#exp_particle.set_particle(str(exp),Color(1.0,0.50,0.50)) 
 	battle_sys_ref.play_sound(load("res://audio/effects/dark_bell.ogg"))
 
 func exit_action():

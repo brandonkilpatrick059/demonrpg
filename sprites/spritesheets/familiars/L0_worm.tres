@@ -77,6 +77,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_butrm")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_butrm")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_exmpn")
 }, {
 "duration": 1.0,
@@ -84,7 +87,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"attack",
-"speed": 8.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,

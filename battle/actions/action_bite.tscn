@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bgtxyvlvwauyv"]
+
+[ext_resource type="Script" uid="uid://ld5srv8iti3h" path="res://scripts/battle_system/actions/damage/physical/action_bite.gd" id="1_b0qbw"]
+
+[node name="ActionBite" type="Node" unique_id=1364718884]
+script = ExtResource("1_b0qbw")

@@ -77,3 +77,8 @@ res://familiars/base/L2_wraith.tscn
 res://sprites/spritesheets/familiars/L2_wraith.tres
 res://familiars/base/L0_worm.tscn
 res://sprites/spritesheets/familiars/L0_worm.tres
+res://scripts/battle_system/actions/damage/physical/action_bite.gd
+res://battle/actions/action_heal.tscn
+res://scripts/battle_system/actions/damage/physical/action_heal.gd
+res://scripts/battle_system/actions/special/action_feed.gd
+res://battle/actions/action_bite.tscn
