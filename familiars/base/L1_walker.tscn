@@ -2,29 +2,32 @@
 
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_ni8uo"]
 [ext_resource type="SpriteFrames" uid="uid://vumk62arqc76" path="res://sprites/spritesheets/familiars/L1_walker.tres" id="2_pobkq"]
+[ext_resource type="PackedScene" uid="uid://caqgdrofda8go" path="res://battle/actions/action_wither.tscn" id="3_71811"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_qoxlp"]
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_u3n3a"]
 
 [node name="L1walker" type="Node2D" unique_id=2120251354]
 script = ExtResource("1_ni8uo")
 packedscene_path = "res://familiars/base/L1_gark.tscn"
-familiar_name = "Gark"
+familiar_name = "Walker"
 max_hp = 10
 current_hp = 10
 attack = 4
 magic = 2
+num_actions = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
 sprite_frames = ExtResource("2_pobkq")
-animation = &"die"
-frame_progress = 0.9175459
+frame_progress = 0.8482131
 
 [node name="actions" type="Node" parent="." unique_id=671533593]
 
-[node name="ActionFeed" parent="actions" unique_id=1485526811 instance=ExtResource("5_qoxlp")]
-opponent_choice_weight = 0.1
+[node name="ActionWither" parent="actions" unique_id=1312202459 instance=ExtResource("3_71811")]
 
 [node name="EvilEye" parent="actions" unique_id=931603606 instance=ExtResource("6_u3n3a")]
 opponent_choice_weight = 0.4
+
+[node name="ActionFeed" parent="actions" unique_id=1485526811 instance=ExtResource("5_qoxlp")]
+opponent_choice_weight = 0.1
 
 [node name="evolutions" type="Node" parent="." unique_id=1074968313]

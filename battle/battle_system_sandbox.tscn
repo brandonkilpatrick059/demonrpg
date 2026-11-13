@@ -4,8 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://deysb4q75hgex" path="res://audio/music/drone_2.ogg" id="2_k5gt0"]
 [ext_resource type="PackedScene" uid="uid://cno3ohvy65hc8" path="res://familiars/base/L1_scryer.tscn" id="4_iuu78"]
 [ext_resource type="PackedScene" uid="uid://bx34gtoqoco5k" path="res://familiars/base/L0_worm.tscn" id="4_k5gt0"]
+[ext_resource type="PackedScene" uid="uid://5cl0snotsklx" path="res://familiars/base/L1_walker.tscn" id="5_k5gt0"]
 [ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/player_body.tres" id="5_ogmts"]
-[ext_resource type="PackedScene" uid="uid://br8pe0ltxqprf" path="res://familiars/base/L2_carn.tscn" id="6_1nvlj"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="6_f717y"]
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=1962261481]
@@ -13,7 +13,7 @@
 [node name="BattleSystem" parent="." unique_id=883968846 node_paths=PackedStringArray("opponent_familiars", "player_familiars") instance=ExtResource("1_13ec6")]
 position = Vector2(160, 90)
 opponent_familiars = [NodePath("opponents/L0Worm"), NodePath("opponents/L0Worm2"), NodePath("opponents/L0Worm3"), NodePath("opponents/L0Worm4")]
-player_familiars = [NodePath("player/L0Worm"), NodePath("player/L1scryer"), NodePath("player/L0Worm2"), NodePath("player/L2carn")]
+player_familiars = [NodePath("player/L1walker"), NodePath("player/L1scryer"), NodePath("player/L0Worm2"), NodePath("player/L1walker2")]
 music = ExtResource("2_k5gt0")
 is_sandbox = true
 
@@ -36,13 +36,12 @@ action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
 [node name="L1scryer" parent="BattleSystem/player" unique_id=556054021 instance=ExtResource("4_iuu78")]
 magic = 8
 
-[node name="L2carn" parent="BattleSystem/player" unique_id=1722867992 instance=ExtResource("6_1nvlj")]
-
-[node name="L0Worm" parent="BattleSystem/player" unique_id=1908749541 instance=ExtResource("4_k5gt0")]
-attack = 10
-
 [node name="L0Worm2" parent="BattleSystem/player" unique_id=557435645 instance=ExtResource("4_k5gt0")]
 attack = 10
+
+[node name="L1walker" parent="BattleSystem/player" unique_id=2120251354 instance=ExtResource("5_k5gt0")]
+
+[node name="L1walker2" parent="BattleSystem/player" unique_id=678025950 instance=ExtResource("5_k5gt0")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1002522205]
 position = Vector2(160, 90)

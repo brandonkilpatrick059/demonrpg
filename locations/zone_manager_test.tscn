@@ -4,10 +4,9 @@
 [ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="3_2gs5w"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
-[ext_resource type="PackedScene" uid="uid://dl1ocarny4af2" path="res://familiars/base/L2_dylith.tscn" id="5_pag8u"]
+[ext_resource type="PackedScene" uid="uid://5cl0snotsklx" path="res://familiars/base/L1_walker.tscn" id="6_2gs5w"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
 [ext_resource type="PackedScene" uid="uid://cno3ohvy65hc8" path="res://familiars/base/L1_scryer.tscn" id="6_nn1l1"]
-[ext_resource type="PackedScene" uid="uid://dgil6lq8m0otl" path="res://familiars/base/L1_imp.tscn" id="6_vlo4x"]
 [ext_resource type="PackedScene" uid="uid://bx34gtoqoco5k" path="res://familiars/base/L0_worm.tscn" id="7_2gs5w"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
 [ext_resource type="PackedScene" uid="uid://dto0o6fl65v4p" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn" id="10_nn1l1"]
@@ -82,7 +81,7 @@ states_map_values = Array[String](["TRUE", "TRUE", "USED"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
 position = Vector2(4416, -2664)
-familiar_team = [NodePath("L1imp"), NodePath("L2dylith"), NodePath("L1scryer"), NodePath("L0Worm")]
+familiar_team = [NodePath("L1walker"), NodePath("L1walker2"), NodePath("L1scryer"), NodePath("L0Worm")]
 pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
@@ -90,19 +89,18 @@ process_mode = 3
 offset = Vector2(12, -12)
 process_callback = 0
 
-[node name="L1imp" parent="Player" unique_id=2120251354 instance=ExtResource("6_vlo4x")]
-visible = false
-
-[node name="L2dylith" parent="Player" unique_id=1722867992 instance=ExtResource("5_pag8u")]
-visible = false
-position = Vector2(-1329.115, 919.604)
-
 [node name="L1scryer" parent="Player" unique_id=1635708538 instance=ExtResource("6_nn1l1")]
 visible = false
 position = Vector2(747.58716, -3295.5303)
 magic = 8
 
 [node name="L0Worm" parent="Player" unique_id=2025998125 instance=ExtResource("7_2gs5w")]
+visible = false
+
+[node name="L1walker" parent="Player" unique_id=2120251354 instance=ExtResource("6_2gs5w")]
+visible = false
+
+[node name="L1walker2" parent="Player" unique_id=1642153500 instance=ExtResource("6_2gs5w")]
 visible = false
 
 [node name="loading" type="Node2D" parent="." unique_id=47417405]
