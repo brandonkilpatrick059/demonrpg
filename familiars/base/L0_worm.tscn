@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bx34gtoqoco5k"]
+
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_1lm6r"]
+[ext_resource type="SpriteFrames" uid="uid://c2w6xets8qns6" path="res://sprites/spritesheets/familiars/L0_worm.tres" id="2_1lm6r"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_o5ol8"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_xln40"]
+[ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_fwtqt"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_mh4r6"]
+
+[node name="L0Worm" type="Node2D" unique_id=2025998125]
+script = ExtResource("1_1lm6r")
+packedscene_path = "res://familiars/base/L0_homunculus.tscn"
+familiar_name = "Vessel"
+max_hp = 10
+current_hp = 10
+level = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
+sprite_frames = ExtResource("2_1lm6r")
+animation = &"dead"
+frame_progress = 0.9851464
+
+[node name="actions" type="Node" parent="." unique_id=622052067]
+
+[node name="ActionAttack" parent="actions" unique_id=440696025 instance=ExtResource("3_o5ol8")]
+opponent_choice_weight = 0.7
+
+[node name="ActionFeed" parent="actions" unique_id=518185212 instance=ExtResource("5_xln40")]
+opponent_choice_weight = 0.1
+
+[node name="evolutions" type="Node" parent="." unique_id=1023614109]
+
+[node name="martyr" type="Node" parent="evolutions" unique_id=1633088466 node_paths=PackedStringArray("path_text")]
+script = ExtResource("7_fwtqt")
+path_text = NodePath("path_text")
+new_base_path = "res://familiars/base/L1_martyr.tscn"
+plus_attack = 5
+
+[node name="path_text" type="Node" parent="evolutions/martyr" unique_id=47693766]
+script = ExtResource("8_mh4r6")
+language_map = Array[String](["english"])
+text = Array[String](["Path of the Blade"])
+
+[node name="braim" type="Node" parent="evolutions" unique_id=1774352871 node_paths=PackedStringArray("path_text")]
+script = ExtResource("7_fwtqt")
+path_text = NodePath("path_text")
+new_base_path = "res://familiars/base/L1_braim.tscn"
+plus_defense = 5
+
+[node name="path_text" type="Node" parent="evolutions/braim" unique_id=364800631]
+script = ExtResource("8_mh4r6")
+language_map = Array[String](["english"])
+text = Array[String](["Path of the Shield"])
+
+[node name="gark" type="Node" parent="evolutions" unique_id=663278765 node_paths=PackedStringArray("path_text")]
+script = ExtResource("7_fwtqt")
+path_text = NodePath("path_text")
+new_base_path = "res://familiars/base/L1_gark.tscn"
+plus_magic = 5
+
+[node name="path_text" type="Node" parent="evolutions/gark" unique_id=146674417]
+script = ExtResource("8_mh4r6")
+language_map = Array[String](["english"])
+text = Array[String](["Path of the Evil Eye"])

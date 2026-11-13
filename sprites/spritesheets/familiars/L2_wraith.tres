@@ -219,6 +219,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_e3gro")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_e3gro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3gro")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_h55cn")
 }, {
 "duration": 1.0,
@@ -238,5 +244,5 @@ animations = [{
 }],
 "loop": 1,
 "name": &"magic",
-"speed": 8.0
+"speed": 12.0
 }]

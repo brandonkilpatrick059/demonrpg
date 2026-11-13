@@ -19,9 +19,8 @@ incorporeal = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1445148604]
 sprite_frames = ExtResource("2_ps4qs")
-animation = &"die"
-frame = 2
-frame_progress = 0.9695735
+animation = &"magic"
+frame_progress = 0.4786505
 
 [node name="actions" type="Node" parent="." unique_id=81841734]
 

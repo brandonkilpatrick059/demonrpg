@@ -170,13 +170,12 @@ script = ExtResource("23_4wnyn")
 throttle_to_db = 3.0
 
 [node name="LocationText" parent="." unique_id=927871242 instance=ExtResource("20_341a5")]
-visible = false
 material = SubResource("CanvasItemMaterial_xwq3w")
 collision_layer = 0
 location_text = "RAIL BRIDGE"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LocationText" unique_id=1794062377]
-polygon = PackedVector2Array(-1368, 3168, -1368, 3504, -2040, 3504, -2040, 3168)
+polygon = PackedVector2Array(-1368, 3168, -1368, 3240, -1440, 3240, -1440, 3456, -1368, 3456, -1368, 3504, -2040, 3504, -2040, 3168)
 
 [node name="ZoneLinkCountryRoad" parent="." unique_id=514851389 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("6_jxe3y")]
 position = Vector2(-840, 3120)
