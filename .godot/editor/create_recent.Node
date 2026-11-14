@@ -1,8 +1,8 @@
+CollisionShape2D
 Sprite2D
 Node2D
 PointLight2D
 CollisionPolygon2D
-CollisionShape2D
 Node
 AudioStreamPlayer2D
 RichTextLabel

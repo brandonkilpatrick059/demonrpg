@@ -2,7 +2,7 @@ extends Sprite2D
 
 @export var wobble_distance: int = 0
 @export var speed : int = 0
-@export var step_time_secs : int = 1
+@export var step_time_secs : float = 1
 @export var vertical : bool = false
 
 var origin : Vector2 = Vector2(0,0)

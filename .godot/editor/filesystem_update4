@@ -96,3 +96,4 @@ res://locations/zones/ghost_town/interiors/zone_ghost_town_entrance_interior.tsc
 res://player/player.tscn
 res://utility/float.gd
 res://utility/wobble.gd
+res://locations/zones/gloomy_woods/zone_gloomy_woods_entrance.tscn
