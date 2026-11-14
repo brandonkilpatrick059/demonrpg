@@ -1,8 +1,9 @@
+Sprite2D
+Node2D
+PointLight2D
 CollisionPolygon2D
 CollisionShape2D
-Node2D
 Node
-Sprite2D
 AudioStreamPlayer2D
 RichTextLabel
 Camera2D
@@ -11,4 +12,3 @@ Polygon2D
 Timer
 CanvasModulate
 AnimatedSprite2D
-Area2D

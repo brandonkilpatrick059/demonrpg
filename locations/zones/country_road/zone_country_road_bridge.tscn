@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://8nn10dgx4nmb" path="res://scripts/utility/run_scripts/set_autoplay.gd" id="10_jqokf"]
 [ext_resource type="Shader" uid="uid://ctbt1f24kbll6" path="res://shaders/rain_shader.gdshader" id="11_ooy32"]
 [ext_resource type="Texture2D" uid="uid://5rlts5urifo0" path="res://sprites/effects/empty_screen_sprite.png" id="12_t71wv"]
-[ext_resource type="AudioStream" uid="uid://tpdtlydh8tik" path="res://audio/music/ghost_town.ogg" id="13_ct0b6"]
+[ext_resource type="AudioStream" uid="uid://tpdtlydh8tik" path="res://audio/music/rail_bridge.ogg" id="13_ct0b6"]
 [ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="13_eljer"]
 [ext_resource type="Texture2D" uid="uid://6ot81g5ari8g" path="res://sprites/effects/matte_painting_mounains_1.png" id="14_qbkf4"]
 [ext_resource type="Texture2D" uid="uid://dpchc17d1oghr" path="res://sprites/effects/matte_painting_mounains_2.png" id="15_84tlg"]

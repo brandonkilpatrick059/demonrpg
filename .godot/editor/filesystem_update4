@@ -91,3 +91,8 @@ res://scripts/battle_system/actions/damage/magic/action_wither.gd
 res://battle/actions/action_wither.tscn
 res://scripts/battle_system/actions/damage/magic/action_fire.gd
 res://scripts/battle_system/actions/damage/physical/action_attack.gd
+res://locations/zones/ghost_town/zone_ghost_town.tscn
+res://locations/zones/ghost_town/interiors/zone_ghost_town_entrance_interior.tscn
+res://player/player.tscn
+res://utility/float.gd
+res://utility/wobble.gd

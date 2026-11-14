@@ -1,3 +1,4 @@
+res://utility/
 res://sprites/spritesheets/battle/actions/
 res://sprites/spritesheets/familiars/
 res://sprites/spritesheets/npc/
@@ -21,7 +22,6 @@ C:/dev/demon_rpg_web_test_3/
 C:/dev/demon_rpg_web_test_2/
 C:/dev/demon_rpg_web_test_1/
 res://sprites/spritesheets/monsters/
-res://utility/
 res://scripts/character/player/
 res://
 res://scripts/menu/

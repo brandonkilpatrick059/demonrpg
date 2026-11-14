@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cno3ohvy65hc8" path="res://familiars/base/L1_scryer.tscn" id="6_nn1l1"]
 [ext_resource type="PackedScene" uid="uid://bx34gtoqoco5k" path="res://familiars/base/L0_worm.tscn" id="7_2gs5w"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
-[ext_resource type="PackedScene" uid="uid://dto0o6fl65v4p" path="res://locations/zones/gloomy_woods/zone_gloomy_woods_cliffs.tscn" id="10_nn1l1"]
+[ext_resource type="PackedScene" uid="uid://s5k087qoikqp" path="res://locations/zones/country_road/zone_country_road.tscn" id="9_pag8u"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlo4x"]
 light_mode = 1
@@ -73,14 +73,15 @@ shader_parameter/pixel_strength = -4.0
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
 script = ExtResource("1_5ulbo")
-current_zone = NodePath("zone_gloomy_woods_cliffs")
+current_zone = NodePath("zone_country_road")
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
 states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
 states_map_values = Array[String](["TRUE", "TRUE", "USED"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
-position = Vector2(4416, -2184)
+position = Vector2(720, 3264)
+rotation = -0.00037033053
 familiar_team = [NodePath("L1walker"), NodePath("L1walker2"), NodePath("L1scryer"), NodePath("L0Worm")]
 pentacle_charms = 3
 
@@ -172,4 +173,4 @@ offset_bottom = 1170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="zone_gloomy_woods_cliffs" parent="." unique_id=1169712370 instance=ExtResource("10_nn1l1")]
+[node name="zone_country_road" parent="." unique_id=1169712370 instance=ExtResource("9_pag8u")]

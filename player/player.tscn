@@ -38,6 +38,7 @@ animation = &"walk_down"
 frame_progress = 0.253361
 
 [node name="head" type="AnimatedSprite2D" parent="." unique_id=1986915846]
+z_index = 1
 position = Vector2(13, -12)
 sprite_frames = ExtResource("3_yw30f")
 animation = &"down"
