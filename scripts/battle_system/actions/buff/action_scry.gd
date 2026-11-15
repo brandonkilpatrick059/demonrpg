@@ -5,7 +5,7 @@ var printed_level : bool = false
 var cast_magic : bool = false
 
 var announcment_english : String = "[TEAM][ACTOR] scries on [TEAM2][TARGET]"
-var level_english : String = "[TEAM2][TARGET] is Level [LEVEL]"
+var level_english : String = "[TEAM2][TARGET] is a Level [LEVEL] [TYPE]"
 var hp_english : String = "[color=[COLOR]][CURRENT]/[MAX][/color] Health"
 
 var battle_sys_ref : BattleSystemManager
@@ -36,6 +36,10 @@ func get_level(target : Familiar) -> String:
 	ret_string = ret_string.replace("[TEAM2]",team2)
 	var level : String = str(target.get_level())
 	ret_string = ret_string.replace("[LEVEL]",level)
+	var type : FamiliarType = target.get_familiar_type()
+	var type_str : String = type.get_type_name_text()
+	ret_string = ret_string.replace("[TYPE]",type_str)
+	
 	return ret_string
 
 func get_health(target : Familiar) -> String:

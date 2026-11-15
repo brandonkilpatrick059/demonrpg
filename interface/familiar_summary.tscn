@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://6kebcbge2ihm" path="res://sprites/spritesheets/battle/interface/select_arrow_static.png" id="7_k8h1s"]
 [ext_resource type="Texture2D" uid="uid://btvey5s1t32nr" path="res://sprites/items/pentacle_seal_24.png" id="8_wblr4"]
 [ext_resource type="Texture2D" uid="uid://b8lc5tvv7145o" path="res://sprites/interface/type_interface.png" id="10_f3d0f"]
+[ext_resource type="Texture2D" uid="uid://ciu2cirs255rm" path="res://sprites/interface/artifact_slot.png" id="11_o38hn"]
+[ext_resource type="Texture2D" uid="uid://c5ux7vx65o27c" path="res://sprites/interface/glyphs/keyboard/space_key.png" id="12_r8cd3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8h1s"]
 light_mode = 1
@@ -51,6 +53,9 @@ font_size = 8
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o38hn"]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r8cd3"]
+light_mode = 1
+
 [node name="FamiliarSummary" type="Node2D" unique_id=1432410905]
 process_mode = 3
 z_index = 20
@@ -63,18 +68,18 @@ texture = ExtResource("1_bnoyi")
 
 [node name="hp_gauge" parent="." unique_id=2128026559 instance=ExtResource("2_4kfdn")]
 material = SubResource("CanvasItemMaterial_k8h1s")
-position = Vector2(-4, -60)
+position = Vector2(-18, -60)
 
 [node name="power_gauge" parent="." unique_id=765012005 instance=ExtResource("2_4kfdn")]
 material = SubResource("CanvasItemMaterial_k8h1s")
-position = Vector2(-4, -47)
+position = Vector2(-18, -47)
 sprite_frames = ExtResource("4_85dbl")
 
 [node name="hp" type="Label" parent="." unique_id=1135911115]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = -33.0
+offset_left = -47.0
 offset_top = -57.0
-offset_right = 25.0
+offset_right = 11.0
 offset_bottom = -48.0
 text = "9999/9999"
 label_settings = SubResource("LabelSettings_cea73")
@@ -92,63 +97,63 @@ horizontal_alignment = 1
 
 [node name="attack" type="Label" parent="." unique_id=187377191]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = 44.0
+offset_left = 19.0
 offset_top = -64.0
-offset_right = 90.0
+offset_right = 65.0
 offset_bottom = -55.0
 text = "ATTACK : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="level" type="Label" parent="." unique_id=662735385]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = 44.0
+offset_left = 19.0
 offset_top = -73.0
-offset_right = 90.0
+offset_right = 65.0
 offset_bottom = -64.0
 text = "LEVEL : 999"
 label_settings = SubResource("LabelSettings_f3d0f")
 
 [node name="power" type="Label" parent="." unique_id=1325449240]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = -30.0
+offset_left = -44.0
 offset_top = -46.0
-offset_right = 22.0
+offset_right = 8.0
 offset_bottom = -37.0
 text = "POWER : 99999"
 label_settings = SubResource("LabelSettings_wblr4")
 
 [node name="to_next" type="Label" parent="." unique_id=713345141]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = -30.0
+offset_left = -44.0
 offset_top = -39.0
-offset_right = 22.0
+offset_right = 8.0
 offset_bottom = -30.0
 text = "NEXT : 99999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="magic" type="Label" parent="." unique_id=637503175]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = 44.0
+offset_left = 19.0
 offset_top = -37.0
-offset_right = 90.0
+offset_right = 65.0
 offset_bottom = -28.0
 text = "MAGIC : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="speed" type="Label" parent="." unique_id=1511794296]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = 44.0
+offset_left = 19.0
 offset_top = -46.0
-offset_right = 90.0
+offset_right = 65.0
 offset_bottom = -37.0
 text = "SPEED : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="actions" type="Label" parent="." unique_id=969494678]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = 44.0
+offset_left = 19.0
 offset_top = -28.0
-offset_right = 90.0
+offset_right = 65.0
 offset_bottom = -7.0
 text = "ACTIONS : 4
 "
@@ -156,25 +161,25 @@ label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="defense" type="Label" parent="." unique_id=288675553]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = 44.0
+offset_left = 19.0
 offset_top = -55.0
-offset_right = 97.0
+offset_right = 72.0
 offset_bottom = -46.0
 text = "DEFENSE : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="name_label" type="RichTextLabel" parent="." unique_id=852042283]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = -33.0
+offset_left = -47.0
 offset_top = -73.0
-offset_right = 25.0
+offset_right = 11.0
 offset_bottom = -64.0
 theme_override_fonts/normal_font = ExtResource("3_poctu")
 theme_override_font_sizes/normal_font_size = 8
 text = "ANGEL"
 horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1858532387]
+[node name="measure_grid" type="Sprite2D" parent="." unique_id=1858532387]
 visible = false
 z_index = -1
 material = SubResource("CanvasItemMaterial_k8h1s")
@@ -235,9 +240,8 @@ texture = ExtResource("7_k8h1s")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1773521269]
 
 [node name="seal_counter" type="Node2D" parent="." unique_id=1983128928]
-visible = false
 material = SubResource("CanvasItemMaterial_8t03j")
-position = Vector2(32, -34)
+position = Vector2(18, -43)
 
 [node name="seal" type="Sprite2D" parent="seal_counter" unique_id=1289456496]
 material = SubResource("CanvasItemMaterial_85dbl")
@@ -254,18 +258,19 @@ text = "x2"
 label_settings = SubResource("LabelSettings_85dbl")
 
 [node name="type_interface" type="Node2D" parent="." unique_id=1829142384]
+position = Vector2(-14, 0)
 
 [node name="sprite" type="Sprite2D" parent="type_interface" unique_id=1955864970]
 z_index = -1
 material = SubResource("CanvasItemMaterial_o38hn")
-position = Vector2(40, -15)
+position = Vector2(49, -15)
 texture = ExtResource("10_f3d0f")
 
 [node name="type_label" type="RichTextLabel" parent="type_interface" unique_id=414245799]
 material = SubResource("CanvasItemMaterial_o38hn")
-offset_left = -30.0
+offset_left = -28.0
 offset_top = -29.0
-offset_right = 23.0
+offset_right = 25.0
 offset_bottom = -19.0
 theme_override_fonts/normal_font = ExtResource("3_poctu")
 theme_override_font_sizes/normal_font_size = 8
@@ -274,9 +279,9 @@ horizontal_alignment = 1
 
 [node name="description_label_1" type="RichTextLabel" parent="type_interface" unique_id=911612744]
 material = SubResource("CanvasItemMaterial_o38hn")
-offset_left = -32.0
+offset_left = -30.0
 offset_top = -18.0
-offset_right = 120.0
+offset_right = 122.0
 offset_bottom = -8.0
 theme_override_fonts/normal_font = ExtResource("3_poctu")
 theme_override_font_sizes/normal_font_size = 8
@@ -285,10 +290,33 @@ text = "30% WEAKNESS TO [color=RED]PHYSICAL DAMAGE[/color]"
 
 [node name="description_label_2" type="RichTextLabel" parent="type_interface" unique_id=1884893999]
 material = SubResource("CanvasItemMaterial_o38hn")
-offset_left = -32.0
+offset_left = -30.0
 offset_top = -9.0
-offset_right = 123.0
+offset_right = 125.0
 theme_override_fonts/normal_font = ExtResource("3_poctu")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "CANNOT [color=red]FEED[/color]"
+
+[node name="artifact_interface" type="Node2D" parent="." unique_id=1296025852]
+
+[node name="artifact_slot" type="Sprite2D" parent="artifact_interface" unique_id=1439132232]
+material = SubResource("CanvasItemMaterial_r8cd3")
+position = Vector2(98, -47)
+texture = ExtResource("11_o38hn")
+
+[node name="artifact_label" type="RichTextLabel" parent="artifact_interface" unique_id=164155182]
+material = SubResource("CanvasItemMaterial_r8cd3")
+offset_left = 80.0
+offset_top = -75.0
+offset_right = 119.0
+offset_bottom = -57.0
+theme_override_fonts/normal_font = ExtResource("3_poctu")
+theme_override_font_sizes/normal_font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button" type="Sprite2D" parent="artifact_interface" unique_id=612644685]
+visible = false
+position = Vector2(98, -38)
+texture = ExtResource("12_r8cd3")

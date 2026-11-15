@@ -174,3 +174,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="zone_country_road" parent="." unique_id=1169712370 instance=ExtResource("9_pag8u")]
+position = Vector2(19.751846, -27.553997)

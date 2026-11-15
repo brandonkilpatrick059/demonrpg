@@ -1,6 +1,6 @@
-Node
 Sprite2D
 Node2D
+Node
 ColorRect
 CollisionShape2D
 PointLight2D

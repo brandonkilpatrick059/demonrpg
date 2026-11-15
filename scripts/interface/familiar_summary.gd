@@ -41,11 +41,13 @@ func set_familiar(familiar : Familiar):
 		$type_interface.visible = false
 		var player_ref : Player = get_tree().get_first_node_in_group("player")
 		$seal_counter/seal_label.text = str("x",player_ref.get_pentacle_charms())
+		$artifact_interface.visible = false
 	else:
 		$power.visible = true
 		$to_next.visible = true
 		$seal_counter.visible = false
 		$type_interface.visible = true
+		$artifact_interface.visible = true
 	current_familiar = familiar
 	current_familiar.reparent($familiar_slot)
 	familiar.set_active()
