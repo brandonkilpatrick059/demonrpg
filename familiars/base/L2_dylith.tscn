@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_dfook"]
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_w7itd"]
 [ext_resource type="PackedScene" uid="uid://dt1dg4mahooev" path="res://battle/actions/action_push_left.tscn" id="7_jiltr"]
+[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://scripts/familiars/types/type_beast.tscn" id="8_ses2p"]
 
-[node name="L2dylith" type="Node2D" unique_id=1722867992]
+[node name="L2dylith" type="Node2D" unique_id=1722867992 node_paths=PackedStringArray("type")]
 script = ExtResource("1_p0itq")
 packedscene_path = "res://familiars/base/L2_dylith.tscn"
 familiar_name = "Dylith"
@@ -17,6 +18,7 @@ current_hp = 15
 attack = 4
 defense = 4
 speed = 2
+type = NodePath("TypeBeast")
 level = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2092140043]
@@ -42,3 +44,5 @@ opponent_choice_weight = 0.6
 
 [node name="ActionPushRight" parent="actions" unique_id=1769868228 instance=ExtResource("7_jiltr")]
 direction = "RIGHT"
+
+[node name="TypeBeast" parent="." unique_id=696639826 instance=ExtResource("8_ses2p")]

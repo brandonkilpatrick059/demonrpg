@@ -8,13 +8,15 @@
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="6_4ce68"]
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="6_yyj54"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="7_06rf1"]
+[ext_resource type="PackedScene" uid="uid://lrq1xxccm2if" path="res://scripts/familiars/types/type_homunculus.tscn" id="9_w4goi"]
 
-[node name="L0Homunculus" type="Node2D" unique_id=2025998125]
+[node name="L0Homunculus" type="Node2D" unique_id=2025998125 node_paths=PackedStringArray("type")]
 script = ExtResource("1_mjql0")
 packedscene_path = "res://familiars/base/L0_homunculus.tscn"
 familiar_name = "Vessel"
 max_hp = 10
 current_hp = 10
+type = NodePath("TypeHomunculus")
 level = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
@@ -69,3 +71,5 @@ plus_magic = 5
 script = ExtResource("7_06rf1")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Evil Eye"])
+
+[node name="TypeHomunculus" parent="." unique_id=696639826 instance=ExtResource("9_w4goi")]

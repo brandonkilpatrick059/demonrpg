@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dm5gdxe8vvhiq"]
+
+[ext_resource type="Script" uid="uid://3y01n3e0iog5" path="res://scripts/familiars/familiar_type.gd" id="1_iamr4"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="2_n3sun"]
+
+[node name="TypeIncorporeal" type="Node" unique_id=696639826 node_paths=PackedStringArray("name_text", "description_1_text", "description_2_text")]
+script = ExtResource("1_iamr4")
+name_text = NodePath("name")
+description_1_text = NodePath("description_1")
+description_2_text = NodePath("description_2")
+
+[node name="name" type="Node" parent="." unique_id=67882527]
+script = ExtResource("2_n3sun")
+language_map = Array[String](["english"])
+text = Array[String](["INCORPOREAL"])
+
+[node name="description_1" type="Node" parent="." unique_id=197035765]
+script = ExtResource("2_n3sun")
+language_map = Array[String](["english"])
+text = Array[String](["NO [color=yellow]BURN[/color] DAMAGE"])
+
+[node name="description_2" type="Node" parent="." unique_id=1383882342]
+script = ExtResource("2_n3sun")
+language_map = Array[String](["english"])
+text = Array[String](["CANNOT [color=red]FEED [/color]"])

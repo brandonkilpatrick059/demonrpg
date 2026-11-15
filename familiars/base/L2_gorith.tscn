@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bhfmqt6lxewql" path="res://battle/actions/action_block.tscn" id="4_vlcq6"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_f1i0r"]
 [ext_resource type="PackedScene" uid="uid://bfnuubvl43rki" path="res://battle/actions/action_reflect.tscn" id="6_loig2"]
+[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://scripts/familiars/types/type_beast.tscn" id="7_ypfak"]
 
-[node name="L2gorith" type="Node2D" unique_id=350619396]
+[node name="L2gorith" type="Node2D" unique_id=350619396 node_paths=PackedStringArray("type")]
 script = ExtResource("1_rslhf")
 packedscene_path = "res://familiars/base/L2_gorith.tscn"
 familiar_name = "Gorith"
@@ -15,12 +16,13 @@ max_hp = 15
 current_hp = 15
 defense = 8
 speed = 2
+type = NodePath("TypeBeast")
 level = 2
 capture_hp_percent = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2095233212]
 sprite_frames = ExtResource("2_rslhf")
-frame_progress = 0.43306175
+frame_progress = 0.13554211
 
 [node name="actions" type="Node" parent="." unique_id=1673258989]
 
@@ -35,3 +37,5 @@ opponent_choice_weight = 0.1
 
 [node name="ActionReflect" parent="actions" unique_id=1102425551 instance=ExtResource("6_loig2")]
 opponent_choice_weight = 0.6
+
+[node name="TypeBeast" parent="." unique_id=696639826 instance=ExtResource("7_ypfak")]

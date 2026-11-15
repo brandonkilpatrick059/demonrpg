@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_io2pg"]
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="6_86yxp"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="7_gsyfw"]
+[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://scripts/familiars/types/type_beast.tscn" id="8_fqvrx"]
 
-[node name="L1braim" type="Node2D" unique_id=1658016037]
+[node name="L1braim" type="Node2D" unique_id=1658016037 node_paths=PackedStringArray("type")]
 script = ExtResource("1_bkqs8")
 packedscene_path = "res://familiars/base/L1_braim.tscn"
 familiar_name = "Braim"
@@ -16,6 +17,7 @@ max_hp = 10
 current_hp = 10
 attack = 3
 defense = 3
+type = NodePath("TypeBeast")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=317345956]
 sprite_frames = ExtResource("2_fqvrx")
@@ -56,3 +58,5 @@ plus_attack = 5
 script = ExtResource("7_gsyfw")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Ox"])
+
+[node name="TypeBeast" parent="." unique_id=696639826 instance=ExtResource("8_fqvrx")]

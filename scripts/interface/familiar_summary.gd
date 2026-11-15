@@ -38,12 +38,14 @@ func set_familiar(familiar : Familiar):
 		$power.visible = false
 		$to_next.visible = false
 		$seal_counter.visible = true
+		$type_interface.visible = false
 		var player_ref : Player = get_tree().get_first_node_in_group("player")
 		$seal_counter/seal_label.text = str("x",player_ref.get_pentacle_charms())
 	else:
 		$power.visible = true
 		$to_next.visible = true
 		$seal_counter.visible = false
+		$type_interface.visible = true
 	current_familiar = familiar
 	current_familiar.reparent($familiar_slot)
 	familiar.set_active()
@@ -74,11 +76,18 @@ func set_familiar(familiar : Familiar):
 		$stored_label.visible = true
 	else:
 		$stored_label.visible = false
-	if(familiar.is_incorporeal()):
-		$modifier_label.visible = true
-		$modifier_label.text = "INCORPOREAL"
+	var familiar_type = familiar.get_familiar_type()
+	if(familiar_type != null):
+		$type_interface/type_label.parse_bbcode(familiar_type.get_type_name_text())
+		$type_interface/description_label_1.parse_bbcode(familiar_type.get_description_1())
+		$type_interface/description_label_2.parse_bbcode(familiar_type.get_description_2())
 	else:
-		$modifier_label.visible = false
+		$type_interface.visible = false
+	#if(familiar.is_incorporeal()):
+		#$modifier_label.visible = true
+		#$modifier_label.text = "INCORPOREAL"
+	#else:
+		#$modifier_label.visible = false
 	set_action_tabs(familiar, familiar.get_actions())
 
 func set_action_tabs(actor : Familiar, actions : Array[BattleAction]):

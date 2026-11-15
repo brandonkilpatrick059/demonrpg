@@ -22,6 +22,7 @@ var stats : Array[String] =[
 var actions_taken = 0
 @export var no_sigil : bool = false
 @export var incorporeal : bool = false
+@export var type : FamiliarType = null
 
 @export var evolutions : Array[Evolution] = []
 
@@ -120,6 +121,8 @@ func is_ready_to_evolve() -> bool:
 func get_evolutions() -> Array[Evolution]:
 	return evolutions
 
+
+
 func gen_stat_increase():
 	#max health is twice as likely as all others
 	stat_increase_value = 0
@@ -156,6 +159,12 @@ func get_level() -> int:
 	total = total / 10
 	total = total + (num_actions-1)
 	return total
+
+func get_familiar_type() -> FamiliarType:
+	return type
+
+func apply_type_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
+	return type.apply_to_pkg(buff_holder,pkg)
 
 func get_actions_taken() -> int:
 	return actions_taken

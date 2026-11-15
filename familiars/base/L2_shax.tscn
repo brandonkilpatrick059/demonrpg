@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_nuwxe"]
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_q316e"]
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="7_ytd8o"]
+[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://scripts/familiars/types/type_beast.tscn" id="8_ffhtu"]
 
-[node name="L2shax" type="Node2D" unique_id=749472024]
+[node name="L2shax" type="Node2D" unique_id=749472024 node_paths=PackedStringArray("type")]
 script = ExtResource("1_0cws7")
 packedscene_path = "res://familiars/base/L2_shax.tscn"
 familiar_name = "Shax"
@@ -18,6 +19,7 @@ attack = 4
 defense = 2
 speed = 6
 num_actions = 2
+type = NodePath("TypeBeast")
 level = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=181287248]
@@ -40,3 +42,5 @@ opponent_choice_weight = 0.1
 opponent_choice_weight = 0.6
 
 [node name="ActionRun" parent="actions" unique_id=550303292 instance=ExtResource("7_ytd8o")]
+
+[node name="TypeBeast" parent="." unique_id=696639826 instance=ExtResource("8_ffhtu")]

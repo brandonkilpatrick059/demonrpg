@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_yp56t"]
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_cmkxy"]
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="7_a04mw"]
+[ext_resource type="PackedScene" uid="uid://bobdl11adi3wh" path="res://scripts/familiars/types/type_faerie.tscn" id="8_s67f8"]
 
-[node name="L1scryer" type="Node2D" unique_id=2120251354]
+[node name="L1scryer" type="Node2D" unique_id=2120251354 node_paths=PackedStringArray("type")]
 script = ExtResource("1_p7q66")
 packedscene_path = "res://familiars/base/L1_scryer.tscn"
 familiar_name = "Scryer"
@@ -16,6 +17,7 @@ max_hp = 10
 current_hp = 10
 attack = 4
 magic = 2
+type = NodePath("TypeFaerie")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
 sprite_frames = ExtResource("2_3ynex")
@@ -37,3 +39,5 @@ opponent_choice_weight = 0.1
 [node name="ActionRun" parent="actions" unique_id=469350760 instance=ExtResource("7_a04mw")]
 
 [node name="evolutions" type="Node" parent="." unique_id=1074968313]
+
+[node name="TypeFaerie" parent="." unique_id=696639826 instance=ExtResource("8_s67f8")]

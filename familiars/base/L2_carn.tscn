@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_6jka4"]
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_k4aeb"]
 [ext_resource type="PackedScene" uid="uid://dt1dg4mahooev" path="res://battle/actions/action_push_left.tscn" id="7_ysw1w"]
+[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://scripts/familiars/types/type_beast.tscn" id="8_wbe7y"]
 
-[node name="L2carn" type="Node2D" unique_id=1722867992]
+[node name="L2carn" type="Node2D" unique_id=1722867992 node_paths=PackedStringArray("type")]
 script = ExtResource("1_uqw50")
 packedscene_path = "res://familiars/base/L2_carn.tscn"
 familiar_name = "Carn"
@@ -17,13 +18,14 @@ current_hp = 15
 attack = 4
 defense = 4
 speed = 2
+type = NodePath("TypeBeast")
 level = 2
 capture_hp_percent = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2092140043]
 sprite_frames = ExtResource("2_uqw50")
 animation = &"die"
-frame_progress = 0.86369383
+frame_progress = 0.28570285
 
 [node name="actions" type="Node" parent="." unique_id=42319330]
 
@@ -43,3 +45,5 @@ opponent_choice_weight = 0.6
 
 [node name="ActionPushRight" parent="actions" unique_id=1769868228 instance=ExtResource("7_ysw1w")]
 direction = "RIGHT"
+
+[node name="TypeBeast" parent="." unique_id=696639826 instance=ExtResource("8_wbe7y")]

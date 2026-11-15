@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_5hcx6"]
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_0x1nh"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_16rrk"]
+[ext_resource type="PackedScene" uid="uid://brh4vye4i0gas" path="res://scripts/familiars/types/type_acolyte.tscn" id="9_6l1du"]
 
-[node name="L1martyr" type="Node2D" unique_id=1657065563]
+[node name="L1martyr" type="Node2D" unique_id=1657065563 node_paths=PackedStringArray("type")]
 script = ExtResource("1_8xs36")
 packedscene_path = "res://familiars/base/L1_martyr.tscn"
 familiar_name = "Martyr"
@@ -18,6 +19,7 @@ current_hp = 8
 attack = 5
 defense = 2
 speed = 2
+type = NodePath("TypeAcolyte")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1445148604]
 sprite_frames = ExtResource("2_6l1du")
@@ -62,3 +64,5 @@ plus_num_acts = 1
 script = ExtResource("8_16rrk")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Jackal"])
+
+[node name="TypeAcolyte" parent="." unique_id=696639826 instance=ExtResource("9_6l1du")]

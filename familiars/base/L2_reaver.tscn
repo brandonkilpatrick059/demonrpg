@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://qota78qdnkyd" path="res://battle/actions/action_defend.tscn" id="4_jd7bf"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_6tmxf"]
 [ext_resource type="PackedScene" uid="uid://crvk28vjomaix" path="res://battle/actions/action_slice.tscn" id="7_8hv6a"]
+[ext_resource type="PackedScene" uid="uid://brh4vye4i0gas" path="res://scripts/familiars/types/type_acolyte.tscn" id="7_a4jfi"]
 
-[node name="L2reaver" type="Node2D" unique_id=888126814]
+[node name="L2reaver" type="Node2D" unique_id=888126814 node_paths=PackedStringArray("type")]
 script = ExtResource("1_a4jfi")
 packedscene_path = "res://familiars/base/L2_reaver.tscn"
 familiar_name = "Reaver"
@@ -16,6 +17,7 @@ current_hp = 15
 attack = 10
 defense = 2
 speed = 2
+type = NodePath("TypeAcolyte")
 level = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=811738300]
@@ -33,3 +35,5 @@ opponent_choice_weight = 0.4
 opponent_choice_weight = 0.1
 
 [node name="ActionSlice" parent="actions" unique_id=365391198 instance=ExtResource("7_8hv6a")]
+
+[node name="TypeAcolyte" parent="." unique_id=696639826 instance=ExtResource("7_a4jfi")]

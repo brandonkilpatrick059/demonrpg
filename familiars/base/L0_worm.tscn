@@ -4,22 +4,24 @@
 [ext_resource type="SpriteFrames" uid="uid://c2w6xets8qns6" path="res://sprites/spritesheets/familiars/L0_worm.tres" id="2_1lm6r"]
 [ext_resource type="PackedScene" uid="uid://bgtxyvlvwauyv" path="res://battle/actions/action_bite.tscn" id="3_r18mk"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_xln40"]
+[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://scripts/familiars/types/type_beast.tscn" id="7_ax3mf"]
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_fwtqt"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_mh4r6"]
 
-[node name="L0Worm" type="Node2D" unique_id=2025998125]
+[node name="L0Worm" type="Node2D" unique_id=2025998125 node_paths=PackedStringArray("type")]
 script = ExtResource("1_1lm6r")
 packedscene_path = "res://familiars/base/L0_homunculus.tscn"
 familiar_name = "Worm"
 max_hp = 20
 current_hp = 20
 attack = 5
+type = NodePath("TypeBeast")
 level = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
 sprite_frames = ExtResource("2_1lm6r")
 animation = &"die"
-frame_progress = 0.19331689
+frame_progress = 0.49812716
 
 [node name="actions" type="Node" parent="." unique_id=622052067]
 
@@ -54,3 +56,5 @@ plus_num_acts = 1
 script = ExtResource("8_mh4r6")
 language_map = Array[String](["english"])
 text = Array[String](["Path of Withering"])
+
+[node name="TypeBeast" parent="." unique_id=696639826 instance=ExtResource("7_ax3mf")]

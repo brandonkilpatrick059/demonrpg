@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b8pynlcnn2j07" path="res://interface/summary_action_tab.tscn" id="6_xbbee"]
 [ext_resource type="Texture2D" uid="uid://6kebcbge2ihm" path="res://sprites/spritesheets/battle/interface/select_arrow_static.png" id="7_k8h1s"]
 [ext_resource type="Texture2D" uid="uid://btvey5s1t32nr" path="res://sprites/items/pentacle_seal_24.png" id="8_wblr4"]
+[ext_resource type="Texture2D" uid="uid://b8lc5tvv7145o" path="res://sprites/interface/type_interface.png" id="10_f3d0f"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8h1s"]
 light_mode = 1
@@ -20,6 +21,11 @@ font_size = 8
 [sub_resource type="LabelSettings" id="LabelSettings_n3wst"]
 font = ExtResource("3_poctu")
 font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_f3d0f"]
+font = ExtResource("3_poctu")
+font_size = 8
+font_color = Color(1, 1, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wblr4"]
 font = ExtResource("3_poctu")
@@ -42,6 +48,9 @@ light_mode = 1
 font = ExtResource("3_poctu")
 font_size = 8
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o38hn"]
+light_mode = 1
+
 [node name="FamiliarSummary" type="Node2D" unique_id=1432410905]
 process_mode = 3
 z_index = 20
@@ -54,19 +63,19 @@ texture = ExtResource("1_bnoyi")
 
 [node name="hp_gauge" parent="." unique_id=2128026559 instance=ExtResource("2_4kfdn")]
 material = SubResource("CanvasItemMaterial_k8h1s")
-position = Vector2(-4, -55)
+position = Vector2(-4, -60)
 
 [node name="power_gauge" parent="." unique_id=765012005 instance=ExtResource("2_4kfdn")]
 material = SubResource("CanvasItemMaterial_k8h1s")
-position = Vector2(-4, -38)
+position = Vector2(-4, -47)
 sprite_frames = ExtResource("4_85dbl")
 
 [node name="hp" type="Label" parent="." unique_id=1135911115]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = -33.0
-offset_top = -50.0
+offset_top = -57.0
 offset_right = 25.0
-offset_bottom = -41.0
+offset_bottom = -48.0
 text = "9999/9999"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
@@ -81,76 +90,66 @@ text = "STORED"
 label_settings = SubResource("LabelSettings_cea73")
 horizontal_alignment = 1
 
-[node name="modifier_label" type="Label" parent="." unique_id=1663674943]
-material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = -121.0
-offset_top = -13.0
-offset_right = -52.0
-offset_bottom = -4.0
-text = "INCORPOREAL"
-label_settings = SubResource("LabelSettings_cea73")
-horizontal_alignment = 1
-
 [node name="attack" type="Label" parent="." unique_id=187377191]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -54.0
+offset_top = -64.0
 offset_right = 90.0
-offset_bottom = -45.0
+offset_bottom = -55.0
 text = "ATTACK : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="level" type="Label" parent="." unique_id=662735385]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -70.0
+offset_top = -73.0
 offset_right = 90.0
-offset_bottom = -61.0
+offset_bottom = -64.0
 text = "LEVEL : 999"
-label_settings = SubResource("LabelSettings_n3wst")
+label_settings = SubResource("LabelSettings_f3d0f")
 
 [node name="power" type="Label" parent="." unique_id=1325449240]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = -33.0
-offset_top = -36.0
-offset_right = 19.0
-offset_bottom = -27.0
+offset_left = -30.0
+offset_top = -46.0
+offset_right = 22.0
+offset_bottom = -37.0
 text = "POWER : 99999"
 label_settings = SubResource("LabelSettings_wblr4")
 
 [node name="to_next" type="Label" parent="." unique_id=713345141]
 material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = -33.0
-offset_top = -27.0
-offset_right = 19.0
-offset_bottom = -18.0
+offset_left = -30.0
+offset_top = -39.0
+offset_right = 22.0
+offset_bottom = -30.0
 text = "NEXT : 99999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="magic" type="Label" parent="." unique_id=637503175]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -27.0
+offset_top = -37.0
 offset_right = 90.0
-offset_bottom = -18.0
+offset_bottom = -28.0
 text = "MAGIC : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="speed" type="Label" parent="." unique_id=1511794296]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -36.0
+offset_top = -46.0
 offset_right = 90.0
-offset_bottom = -27.0
+offset_bottom = -37.0
 text = "SPEED : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="actions" type="Label" parent="." unique_id=969494678]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -18.0
+offset_top = -28.0
 offset_right = 90.0
-offset_bottom = 3.0
+offset_bottom = -7.0
 text = "ACTIONS : 4
 "
 label_settings = SubResource("LabelSettings_n3wst")
@@ -158,31 +157,22 @@ label_settings = SubResource("LabelSettings_n3wst")
 [node name="defense" type="Label" parent="." unique_id=288675553]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = 44.0
-offset_top = -45.0
+offset_top = -55.0
 offset_right = 97.0
-offset_bottom = -36.0
+offset_bottom = -46.0
 text = "DEFENSE : 999"
 label_settings = SubResource("LabelSettings_n3wst")
 
 [node name="name_label" type="RichTextLabel" parent="." unique_id=852042283]
 material = SubResource("CanvasItemMaterial_k8h1s")
 offset_left = -33.0
-offset_top = -70.0
+offset_top = -73.0
 offset_right = 25.0
-offset_bottom = -61.0
+offset_bottom = -64.0
 theme_override_fonts/normal_font = ExtResource("3_poctu")
 theme_override_font_sizes/normal_font_size = 8
 text = "ANGEL"
 horizontal_alignment = 1
-
-[node name="charm_label" type="RichTextLabel" parent="." unique_id=1281071074]
-material = SubResource("CanvasItemMaterial_k8h1s")
-offset_left = -33.0
-offset_top = -9.0
-offset_right = 115.0
-theme_override_fonts/normal_font = ExtResource("3_poctu")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1858532387]
 visible = false
@@ -245,6 +235,7 @@ texture = ExtResource("7_k8h1s")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1773521269]
 
 [node name="seal_counter" type="Node2D" parent="." unique_id=1983128928]
+visible = false
 material = SubResource("CanvasItemMaterial_8t03j")
 position = Vector2(32, -34)
 
@@ -261,3 +252,43 @@ offset_right = 17.0
 offset_bottom = 34.0
 text = "x2"
 label_settings = SubResource("LabelSettings_85dbl")
+
+[node name="type_interface" type="Node2D" parent="." unique_id=1829142384]
+
+[node name="sprite" type="Sprite2D" parent="type_interface" unique_id=1955864970]
+z_index = -1
+material = SubResource("CanvasItemMaterial_o38hn")
+position = Vector2(40, -15)
+texture = ExtResource("10_f3d0f")
+
+[node name="type_label" type="RichTextLabel" parent="type_interface" unique_id=414245799]
+material = SubResource("CanvasItemMaterial_o38hn")
+offset_left = -30.0
+offset_top = -29.0
+offset_right = 23.0
+offset_bottom = -19.0
+theme_override_fonts/normal_font = ExtResource("3_poctu")
+theme_override_font_sizes/normal_font_size = 8
+text = "INCORPOREAL"
+horizontal_alignment = 1
+
+[node name="description_label_1" type="RichTextLabel" parent="type_interface" unique_id=911612744]
+material = SubResource("CanvasItemMaterial_o38hn")
+offset_left = -32.0
+offset_top = -18.0
+offset_right = 120.0
+offset_bottom = -8.0
+theme_override_fonts/normal_font = ExtResource("3_poctu")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "30% WEAKNESS TO [color=RED]PHYSICAL DAMAGE[/color]"
+
+[node name="description_label_2" type="RichTextLabel" parent="type_interface" unique_id=1884893999]
+material = SubResource("CanvasItemMaterial_o38hn")
+offset_left = -32.0
+offset_top = -9.0
+offset_right = 123.0
+theme_override_fonts/normal_font = ExtResource("3_poctu")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "CANNOT [color=red]FEED[/color]"

@@ -4,8 +4,9 @@
 [ext_resource type="SpriteFrames" uid="uid://biugvxy1q03je" path="res://sprites/spritesheets/familiars/L2_wraith.tres" id="2_ps4qs"]
 [ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_kprac"]
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="4_kprac"]
+[ext_resource type="PackedScene" uid="uid://dm5gdxe8vvhiq" path="res://scripts/familiars/types/type_incorporeal.tscn" id="5_kprac"]
 
-[node name="L2wraith" type="Node2D" unique_id=1657065563]
+[node name="L2wraith" type="Node2D" unique_id=1657065563 node_paths=PackedStringArray("type")]
 script = ExtResource("1_x3dj8")
 packedscene_path = "res://familiars/base/L1_ghost.tscn"
 familiar_name = "Ghost"
@@ -16,11 +17,12 @@ defense = 2
 speed = 2
 num_actions = 3
 incorporeal = true
+type = NodePath("TypeIncorporeal")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1445148604]
 sprite_frames = ExtResource("2_ps4qs")
-animation = &"magic"
-frame_progress = 0.4786505
+animation = &"attack"
+frame_progress = 0.66540396
 
 [node name="actions" type="Node" parent="." unique_id=81841734]
 
@@ -28,3 +30,5 @@ frame_progress = 0.4786505
 opponent_choice_weight = 0.5
 
 [node name="EvilEye" parent="actions" unique_id=1478521684 instance=ExtResource("4_kprac")]
+
+[node name="TypeIncorporeal" parent="." unique_id=696639826 instance=ExtResource("5_kprac")]

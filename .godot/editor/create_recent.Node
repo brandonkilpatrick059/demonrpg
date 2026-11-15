@@ -1,9 +1,10 @@
-CollisionShape2D
+Node
 Sprite2D
 Node2D
+ColorRect
+CollisionShape2D
 PointLight2D
 CollisionPolygon2D
-Node
 AudioStreamPlayer2D
 RichTextLabel
 Camera2D
@@ -11,4 +12,3 @@ Label
 Polygon2D
 Timer
 CanvasModulate
-AnimatedSprite2D

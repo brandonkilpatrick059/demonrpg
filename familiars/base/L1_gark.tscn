@@ -9,8 +9,9 @@
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_4rfjb"]
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="7_4v8pp"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_ord3u"]
+[ext_resource type="PackedScene" uid="uid://dpjefm8pieceb" path="res://scripts/familiars/types/type_excretion.tscn" id="10_7tstx"]
 
-[node name="L1gark" type="Node2D" unique_id=2120251354]
+[node name="L1gark" type="Node2D" unique_id=2120251354 node_paths=PackedStringArray("type")]
 script = ExtResource("1_ibjir")
 packedscene_path = "res://familiars/base/L1_gark.tscn"
 familiar_name = "Gark"
@@ -18,6 +19,7 @@ max_hp = 10
 current_hp = 10
 attack = 4
 magic = 2
+type = NodePath("TypeExcretion")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
 sprite_frames = ExtResource("2_4v8pp")
@@ -61,3 +63,5 @@ plus_magic = 5
 script = ExtResource("8_ord3u")
 language_map = Array[String](["english"])
 text = Array[String](["Path of Healing"])
+
+[node name="TypeExcretion" parent="." unique_id=696639826 instance=ExtResource("10_7tstx")]
