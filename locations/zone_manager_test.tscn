@@ -80,8 +80,7 @@ states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
 states_map_values = Array[String](["TRUE", "TRUE", "USED"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
-position = Vector2(720, 3264)
-rotation = -0.00037033053
+position = Vector2(648, 3192)
 familiar_team = [NodePath("L1walker"), NodePath("L1walker2"), NodePath("L1scryer"), NodePath("L0Worm")]
 pentacle_charms = 3
 
@@ -174,4 +173,3 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="zone_country_road" parent="." unique_id=1169712370 instance=ExtResource("9_pag8u")]
-position = Vector2(19.751846, -27.553997)

@@ -1,0 +1,451 @@
+[gd_scene format=4 uid="uid://df5ncrl40taga"]
+
+[ext_resource type="Script" uid="uid://v73shmuwmbhw" path="res://scripts/locations/location_zone.gd" id="1_3hjj1"]
+[ext_resource type="TileSet" uid="uid://45qv0vaq80jk" path="res://sprites/tile_atlas_interior.tres" id="2_ehcwo"]
+[ext_resource type="TileSet" uid="uid://be4tfq16y1gax" path="res://sprites/tile_atlas_effects.tres" id="3_0ehei"]
+[ext_resource type="PackedScene" uid="uid://c5e1w7vfebiaw" path="res://locations/zone_link.tscn" id="4_rnyrv"]
+[ext_resource type="AudioStream" uid="uid://de3omlrdbp7l2" path="res://audio/effects/wind_loop.ogg" id="5_jsd2c"]
+[ext_resource type="Script" uid="uid://cplgclpqe7oqt" path="res://scripts/utility/visible_on_ready.gd" id="6_0emk2"]
+[ext_resource type="Script" uid="uid://vwa6870wpx2h" path="res://scripts/utility/interactable_script_area.gd" id="8_baf24"]
+[ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="9_cyr5h"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="10_cgafi"]
+[ext_resource type="TileSet" uid="uid://cn8j6o1opxy46" path="res://sprites/tile_atlas_terrain.tres" id="10_ehcwo"]
+[ext_resource type="TileSet" uid="uid://oaaawdggdxv5" path="res://sprites/tile_atlas_foliage.tres" id="11_0ehei"]
+[ext_resource type="Texture2D" uid="uid://cicmq4ty7hb55" path="res://sprites/props/interior/open_book.png" id="12_0ehei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehcwo"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2wre"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnyrv"]
+size = Vector2(24, 24)
+
+[node name="ZoneGhostTownInteriorsL1" type="Node2D" unique_id=797840269 node_paths=PackedStringArray("zone_links", "dark_canvas_mod")]
+script = ExtResource("1_3hjj1")
+zone_name = "Homestead Interior"
+zone_links = [NodePath("ZoneLink_H1_town"), NodePath("ZoneLink_H2_town"), NodePath("ZoneLink_H2_tunnels"), NodePath("ZoneLink_H3_town"), NodePath("ZoneLink_H3_tunnels"), NodePath("ZoneLink_H4_town"), NodePath("ZoneLink_H7_town")]
+dark = true
+dark_canvas_mod = NodePath("CanvasModulate")
+
+[node name="TileMapLayer_wall" type="TileMapLayer" parent="." unique_id=1591578392]
+modulate = Color(0.3788215, 0.3591835, 0.34278297, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD+/wYAAAAAAAEAAAD//wUAAAAAAAAAAAD//wYAAAAAAAEAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAEAAAD+/wUAAAAAAAAAAAD9////AAAAAAEAAAD+////AAACAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAP//AAAAAAEAAAACAP//AAACAAEAAAADAP//AAAAAAEAAAD9//7/AAAAAAAAAAD+//7/AAACAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAACAAAAAAADAP7/AAAAAAAAAADt/wUAAAAAAAAAAADt/wYAAAAAAAEAAADu/wUAAAAAAAAAAADu/wYAAAAAAAEAAADv/wUAAAAAAAAAAADv/wYAAAAAAAEAAADr//7/AAAAAAAAAADr////AAAAAAEAAADs//7/AAAAAAAAAADs////AAAAAAEAAADt//7/AAAAAAAAAADt////AAAAAAEAAADu//7/AAAAAAAAAADu////AAAAAAEAAADv//7/AAACAAAAAADv////AAACAAEAAADw//7/AAAAAAAAAADw////AAAAAAEAAADx//7/AAAAAAAAAADx////AAAAAAEAAAATAAUAAAAAAAAAAAATAAYAAAAAAAEAAAAUAAUAAAAAAAAAAAAUAAYAAAAAAAEAAAAVAAUAAAAAAAAAAAAVAAYAAAAAAAEAAAARAP7/AAAAAAAAAAARAP//AAAAAAEAAAASAP7/AAAAAAAAAAASAP//AAAAAAEAAAATAP7/AAAAAAAAAAATAP//AAAAAAEAAAAUAP7/AAAAAAAAAAAUAP//AAAAAAEAAAAVAP7/AAAAAAAAAAAVAP//AAAAAAEAAAAWAP7/AAAAAAAAAAAWAP//AAAAAAEAAAAXAP7/AAAAAAAAAAAXAP//AAAAAAEAAADr/+3/AAAAAAEAAADr/+z/AAAAAAAAAADs/+z/AAAAAAAAAADs/+3/AAAAAAEAAADt/+z/AAAAAAAAAADt/+3/AAAAAAEAAADu/+z/AAAAAAAAAADu/+3/AAAAAAEAAADv/+z/AAAAAAAAAADv/+3/AAAAAAEAAAD//+z/AAAAAAAAAAD//+3/AAAAAAEAAAAAAOz/AAAAAAAAAAAAAO3/AAAAAAEAAAABAOz/AAAAAAAAAAABAO3/AAAAAAEAAAATAOz/AAAAAAAAAAATAO3/AAAAAAEAAAAUAOz/AAAAAAAAAAAUAO3/AAAAAAEAAAAVAOz/AAAAAAAAAAAVAO3/AAAAAAEAAAAWAOz/AAAAAAAAAAAWAO3/AAAAAAEAAADr/+X/AAAAAAAAAADr/+b/AAAAAAEAAADs/+X/AAAAAAAAAADs/+b/AAAAAAEAAADt/+X/AAAAAAAAAADt/+b/AAAAAAEAAADu/+X/AAAAAAAAAADu/+b/AAAAAAEAAADv/+X/AAAAAAAAAADv/+b/AAAAAAEAAADw/+X/AAAAAAAAAADw/+b/AAAAAAEAAADx/+X/AAAAAAAAAADx/+b/AAAAAAEAAAD9/+X/AAAAAAAAAAD9/+b/AAAAAAEAAAD+/+X/AAAAAAAAAAD+/+b/AAAAAAEAAAD//+X/AAAAAAAAAAD//+b/AAAAAAEAAAAAAOX/AAAAAAAAAAAAAOb/AAAAAAEAAAABAOX/AAAAAAAAAAABAOb/AAAAAAEAAAACAOX/AAAAAAAAAAACAOb/AAAAAAEAAAADAOX/AAAAAAAAAAADAOb/AAAAAAEAAAAQAOX/AAAAAAAAAAAQAOb/AAAAAAEAAAARAOX/AAAAAAAAAAARAOb/AAAAAAEAAAASAOX/AAAAAAAAAAASAOb/AAAAAAEAAAATAOX/AAAAAAAAAAATAOb/AAAAAAEAAAAUAOX/AAAAAAAAAAAUAOb/AAAAAAEAAAAVAOX/AAAAAAAAAAAVAOb/AAAAAAEAAAAWAOX/AAAAAAAAAAAWAOb/AAAAAAEAAADt/9f/AAAAAAAAAADt/9j/AAAAAAEAAADu/9f/AAAAAAAAAADu/9j/AAAAAAEAAADv/9f/AAAAAAAAAADv/9j/AAAAAAEAAADr/9D/AAAAAAAAAADr/9H/AAAAAAEAAADs/9D/AAAAAAAAAADs/9H/AAAAAAEAAADt/9D/AAAAAAAAAADt/9H/AAAAAAEAAADu/9D/AAAAAAAAAADu/9H/AAAAAAEAAADv/9D/AAAAAAAAAADv/9H/AAAAAAEAAADw/9D/AAAAAAAAAADw/9H/AAAAAAEAAADx/9D/AAAAAAAAAADx/9H/AAAAAAEAAAA=")
+tile_set = ExtResource("2_ehcwo")
+
+[node name="TileMapLayer_furniture" type="TileMapLayer" parent="." unique_id=817401735]
+modulate = Color(0.61806, 0.59782547, 0.5776148, 1)
+tile_map_data = PackedByteArray("AADu/wAAAAADAAIAAADv/wAAAAAEAAIAAADw/wAAAAADAAIAABDr/+f/AAADAAIAAADs/+f/AAADAAIAABA=")
+tile_set = ExtResource("2_ehcwo")
+
+[node name="TileMapLayer_floor" type="TileMapLayer" parent="." unique_id=1933344317]
+modulate = Color(0.44452596, 0.32254463, 0.22588217, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAD9/wMAAAAAAAIAAAD+/wMAAAAAAAIAAAD//wcAAAAAAAIAAAAAAAcAAAAAAAIAAAABAAcAAAAAAAIAAAACAAcAAAAAAAIAAAADAAcAAAAAAAIAAAADAAgAAAAAAAIAAAAAAAgAAAAAAAIAAAD//wgAAAAAAAIAAAD9/wgAAAAAAAIAAAD9/wkAAAAAAAIAAAACAAYAAAAAAAIAAAACAAUAAAAAAAIAAAD9/woAAAAAAAIAAAD+/woAAAAAAAIAAAD//woAAAAAAAIAAAAAAAoAAAAAAAIAAAABAAoAAAAAAAIAAAACAAoAAAAAAAIAAAADAAoAAAAAAAIAAAAAAAsAAAAAAAIAAAD9/wcAAAAAAAIAAAD9/wEAAAAAAAIAAAD+/wEAAAAAAAMAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAIAAAACAAAAAAAAAAIAAAADAAAAAAAAAAIAAAD+/wkAAAAAAAMAAAABAAgAAAAAAAIAAAACAAgAAAAAAAIAAAD9/wAAAAAAAAIAAAABAAkAAAAAAAIAAAADAAYAAAAAAAIAAAADAAUAAAAAAAIAAAABAAUAAAAAAAIAAAABAAYAAAAAAAIAAAD+/wIAAAAAAAMAAAD9/wIAAAAAAAIAAAD9/wQAAAAAAAIAAAD9/wUAAAAAAAIAAAD9/wYAAAAAAAIAAAACAAkAAAAAAAMAAAAAAAkAAAAAAAMAABD+/wgAAAAAAAMAAAD+/wcAAAAAAAMAAAD//wMAAAAAAAMAAAADAAEAAAAAAAMAABADAAIAAAAAAAMAABADAAMAAAAAAAMAABADAAQAAAAAAAMAABDr/wEAAAAAAAMAAADr/wIAAAAAAAMAAADr/wMAAAAAAAMAAADr/wQAAAAAAAMAAADr/wUAAAAAAAMAAADr/wYAAAAAAAMAAADr/wcAAAAAAAMAAADr/wgAAAAAAAMAAADr/wkAAAAAAAMAAADr/woAAAAAAAMAAADs/wEAAAAAAAMAABDs/wcAAAAAAAMAABDs/wgAAAAAAAMAABDs/wkAAAAAAAMAABDs/woAAAAAAAMAABDt/wAAAAAAAAIAAADt/wcAAAAAAAIAAADt/wgAAAAAAAIAAADt/woAAAAAAAIAAADu/wAAAAAAAAIAAADu/wcAAAAAAAIAAADu/wgAAAAAAAIAAADu/wkAAAAAAAIAAADu/woAAAAAAAIAAADu/wsAAAAAAAIAAADv/wAAAAAAAAIAAADv/wcAAAAAAAIAAADv/wgAAAAAAAIAAADv/wkAAAAAAAIAAADv/woAAAAAAAIAAADw/wAAAAAAAAIAAADw/wUAAAAAAAIAAADw/wYAAAAAAAIAAADw/wcAAAAAAAIAAADw/wgAAAAAAAIAAADw/wkAAAAAAAIAAADw/woAAAAAAAIAAADx/wAAAAAAAAIAAADx/wEAAAAAAAIAAADx/wIAAAAAAAIAAADx/wMAAAAAAAIAAADx/wQAAAAAAAIAAADx/wUAAAAAAAIAAADx/wYAAAAAAAIAAADx/wcAAAAAAAIAAADx/wgAAAAAAAIAAADx/woAAAAAAAIAAADx/wkAAAAAAAIAAADt/wkAAAAAAAIAAADw/wQAAAAAAAIAAADw/wMAAAAAAAIAAADv/wMAAAAAAAIAAADv/wIAAAAAAAIAAADw/wIAAAAAAAIAAADw/wEAAAAAAAIAAADv/wEAAAAAAAIAAADu/wEAAAAAAAIAAADt/wEAAAAAAAIAAADs/wYAAAAAAAMAABDs/wUAAAAAAAMAABDs/wQAAAAAAAMAABDu/wIAAAAAAAMAABDu/wMAAAAAAAMAABDs/wAAAAAAAAMAABDr/wAAAAAAAAMAAAARAAAAAAAAAAIAAAARAAEAAAAAAAIAAAARAAUAAAAAAAMAAAARAAYAAAAAAAIAAAARAAcAAAAAAAIAAAARAAgAAAAAAAMAAAARAAkAAAAAAAMAAAARAAoAAAAAAAMAAAASAAAAAAAAAAIAAAASAAEAAAAAAAIAAAASAAcAAAAAAAIAAAASAAgAAAAAAAMAABATAAAAAAAAAAIAAAATAAcAAAAAAAIAAAATAAgAAAAAAAIAAAATAAoAAAAAAAMAABAUAAAAAAAAAAIAAAAUAAcAAAAAAAIAAAAUAAgAAAAAAAIAAAAUAAkAAAAAAAIAAAAUAAoAAAAAAAIAAAAUAAsAAAAAAAIAAAAVAAAAAAAAAAIAAAAVAAcAAAAAAAIAAAAVAAgAAAAAAAIAAAAWAAAAAAAAAAIAAAAWAAUAAAAAAAIAAAAWAAYAAAAAAAIAAAAWAAcAAAAAAAIAAAAWAAgAAAAAAAIAAAAXAAAAAAAAAAIAAAAXAAEAAAAAAAIAAAAXAAIAAAAAAAIAAAAXAAMAAAAAAAIAAAAXAAQAAAAAAAIAAAAXAAUAAAAAAAIAAAAXAAYAAAAAAAIAAAAXAAcAAAAAAAIAAAAXAAgAAAAAAAIAAAATAAkAAAAAAAMAABASAAYAAAAAAAIAAAAWAAQAAAAAAAIAAAAWAAMAAAAAAAIAAAAWAAIAAAAAAAIAAAAWAAEAAAAAAAIAAAAVAAEAAAAAAAIAAAAUAAEAAAAAAAIAAAATAAEAAAAAAAIAAAARAAIAAAAAAAMAAAARAAMAAAAAAAMAAAAVAAIAAAAAAAMAABAVAAMAAAAAAAMAABARAAQAAAAAAAMAAAAVAAkAAAAAAAMAAAAVAAoAAAAAAAMAAAAXAAkAAAAAAAMAABAXAAoAAAAAAAMAABDr/+j/AAAAAAIAAADr/+n/AAAAAAIAAADr/+r/AAAAAAIAAADr/+7/AAAAAAIAAADr/+//AAAAAAIAAADr//D/AAAAAAIAAADr//H/AAAAAAIAAADs/+f/AAAAAAIAAADs/+j/AAAAAAIAAADs/+7/AAAAAAIAAADs/+//AAAAAAIAAADs//D/AAAAAAIAAADs//H/AAAAAAIAAADt/+7/AAAAAAIAAADt/+//AAAAAAIAAADt//D/AAAAAAIAAADt//H/AAAAAAIAAADu/+r/AAAAAAIAAADu/+7/AAAAAAIAAADu/+//AAAAAAIAAADu//D/AAAAAAIAAADu//H/AAAAAAIAAADu//L/AAAAAAIAAADv/+f/AAAAAAMAABDv/+j/AAAAAAMAABDv/+n/AAAAAAMAABDv/+r/AAAAAAIAAADv/+7/AAAAAAIAAADv/+//AAAAAAIAAADv//D/AAAAAAIAAADv//H/AAAAAAIAAADw/+f/AAAAAAIAAADw/+j/AAAAAAIAAADw/+n/AAAAAAIAAADw/+r/AAAAAAIAAADw/+v/AAAAAAIAAADw/+z/AAAAAAIAAADw/+3/AAAAAAIAAADw/+7/AAAAAAIAAADw/+//AAAAAAMAAADw//D/AAAAAAMAAADw//H/AAAAAAMAAADx/+f/AAAAAAIAAADx/+j/AAAAAAIAAADx/+n/AAAAAAIAAADx/+r/AAAAAAIAAADx/+v/AAAAAAIAAADx/+z/AAAAAAIAAADx/+3/AAAAAAIAAADx/+7/AAAAAAIAAAD9/+f/AAAAAAIAAAD9/+j/AAAAAAIAAAD9/+n/AAAAAAIAAAD9/+r/AAAAAAIAAAD9/+v/AAAAAAIAAAD9/+z/AAAAAAIAAAD9/+3/AAAAAAIAAAD9/+7/AAAAAAIAAAD9/+//AAAAAAIAAAD9//D/AAAAAAIAAAD9//H/AAAAAAIAAAD+/+f/AAAAAAIAAAD+/+j/AAAAAAIAAAD+/+v/AAAAAAIAAAD+/+z/AAAAAAIAAAD+/+3/AAAAAAIAAAD+/+7/AAAAAAIAAAD+/+//AAAAAAIAAAD+//D/AAAAAAIAAAD+//H/AAAAAAIAAAD//+f/AAAAAAIAAAD//+j/AAAAAAIAAAD//+7/AAAAAAIAAAD//+//AAAAAAIAAAD///D/AAAAAAIAAAD///H/AAAAAAIAAAAAAOf/AAAAAAIAAAAAAOj/AAAAAAIAAAAAAOn/AAAAAAIAAAAAAOr/AAAAAAIAAAAAAO7/AAAAAAIAAAAAAO//AAAAAAIAAAAAAPD/AAAAAAIAAAAAAPH/AAAAAAIAAAAAAPL/AAAAAAIAAAABAOf/AAAAAAIAAAABAOj/AAAAAAIAAAABAOn/AAAAAAIAAAABAOr/AAAAAAIAAAABAO7/AAAAAAIAAAABAO//AAAAAAIAAAABAPD/AAAAAAIAAAABAPH/AAAAAAIAAAACAOf/AAAAAAIAAAACAOj/AAAAAAIAAAACAOn/AAAAAAIAAAACAOr/AAAAAAIAAAACAOv/AAAAAAIAAAACAOz/AAAAAAIAAAACAO3/AAAAAAIAAAACAO7/AAAAAAIAAAACAO//AAAAAAIAAAACAPD/AAAAAAIAAAACAPH/AAAAAAIAAAADAOf/AAAAAAIAAAADAOj/AAAAAAIAAAADAOn/AAAAAAIAAAADAOr/AAAAAAIAAAADAOv/AAAAAAIAAAADAOz/AAAAAAIAAAADAO3/AAAAAAIAAAADAO7/AAAAAAIAAAADAO//AAAAAAIAAAADAPD/AAAAAAIAAAADAPH/AAAAAAIAAAAQAOf/AAAAAAIAAAAQAOj/AAAAAAIAAAAQAOn/AAAAAAIAAAAQAOr/AAAAAAIAAAAQAOv/AAAAAAIAAAAQAOz/AAAAAAIAAAAQAO3/AAAAAAIAAAAQAO7/AAAAAAIAAAAQAO//AAAAAAIAAAAQAPD/AAAAAAIAAAAQAPH/AAAAAAIAAAARAOf/AAAAAAIAAAARAOj/AAAAAAIAAAARAOv/AAAAAAIAAAARAOz/AAAAAAIAAAARAO3/AAAAAAIAAAARAO7/AAAAAAIAAAARAO//AAAAAAIAAAARAPD/AAAAAAIAAAARAPH/AAAAAAIAAAASAOf/AAAAAAIAAAASAOj/AAAAAAIAAAASAO7/AAAAAAIAAAASAO//AAAAAAIAAAASAPD/AAAAAAIAAAASAPH/AAAAAAIAAAATAOf/AAAAAAIAAAATAOj/AAAAAAIAAAATAOn/AAAAAAIAAAATAOr/AAAAAAIAAAATAO7/AAAAAAIAAAATAO//AAAAAAIAAAATAPD/AAAAAAIAAAATAPH/AAAAAAIAAAATAPL/AAAAAAIAAAAUAOf/AAAAAAIAAAAUAOj/AAAAAAIAAAAUAOn/AAAAAAIAAAAUAOr/AAAAAAIAAAAUAO7/AAAAAAIAAAAUAO//AAAAAAIAAAAUAPD/AAAAAAIAAAAUAPH/AAAAAAIAAAAVAOf/AAAAAAIAAAAVAOj/AAAAAAIAAAAVAOn/AAAAAAIAAAAVAOr/AAAAAAIAAAAVAO7/AAAAAAIAAAAVAO//AAAAAAIAAAAVAPD/AAAAAAIAAAAVAPH/AAAAAAIAAAAWAOf/AAAAAAIAAAAWAOj/AAAAAAIAAAAWAOn/AAAAAAIAAAAWAOr/AAAAAAIAAAAWAO7/AAAAAAIAAAAWAO//AAAAAAIAAAAWAPD/AAAAAAIAAAAWAPH/AAAAAAIAAADs/+r/AAAAAAIAAADt/+r/AAAAAAIAAADs/+n/AAAAAAIAAAD+/+n/AAAAAAIAAAD+/+r/AAAAAAIAAAD//+n/AAAAAAIAAAD//+r/AAAAAAIAAAARAOn/AAAAAAIAAAARAOr/AAAAAAIAAAASAOn/AAAAAAIAAAASAOr/AAAAAAIAAAASAOv/AAAAAAIAAAASAOz/AAAAAAIAAAASAO3/AAAAAAIAAADt/+f/AAAAAAMAAADt/+j/AAAAAAMAAADt/+n/AAAAAAMAAADr/+f/AAAAAAIAAADr/9L/AAAAAAIAAADr/9P/AAAAAAIAAADr/9T/AAAAAAIAAADr/9X/AAAAAAIAAADr/9n/AAAAAAIAAADr/9r/AAAAAAIAAADr/9v/AAAAAAIAAADr/9z/AAAAAAIAAADs/9L/AAAAAAIAAADs/9P/AAAAAAIAAADs/9T/AAAAAAIAAADs/9X/AAAAAAIAAADs/9n/AAAAAAIAAADs/9r/AAAAAAIAAADs/9v/AAAAAAIAAADs/9z/AAAAAAIAAADt/9v/AAAAAAIAAADt/9z/AAAAAAIAAADu/9v/AAAAAAIAAADu/9z/AAAAAAIAAADu/93/AAAAAAIAAADv/9v/AAAAAAIAAADv/9z/AAAAAAIAAADw/9L/AAAAAAIAAADw/9P/AAAAAAIAAADw/9T/AAAAAAIAAADw/9X/AAAAAAIAAADw/9v/AAAAAAIAAADw/9z/AAAAAAIAAADx/9L/AAAAAAIAAADx/9P/AAAAAAIAAADx/9T/AAAAAAIAAADx/9X/AAAAAAIAAADx/9b/AAAAAAIAAADx/9f/AAAAAAIAAADx/9j/AAAAAAIAAADx/9n/AAAAAAIAAADx/9v/AAAAAAIAAADx/9r/AAAAAAIAAADx/9z/AAAAAAIAAADs/9j/AAAAAAIAAADr/9j/AAAAAAIAAADr/9f/AAAAAAIAAADr/9b/AAAAAAIAAADs/9b/AAAAAAIAAADs/9f/AAAAAAIAAADw/9f/AAAAAAIAAADw/9b/AAAAAAIAAADw/9j/AAAAAAIAAADw/9n/AAAAAAMAABDw/9r/AAAAAAMAABDt/9r/AAAAAAMAAADt/9n/AAAAAAMAAADt/9L/AAAAAAMAAADt/9P/AAAAAAMAAADt/9T/AAAAAAMAAADt/9X/AAAAAAMAAADv/9L/AAAAAAMAABDv/9P/AAAAAAMAABDv/9T/AAAAAAMAABDv/9X/AAAAAAMAABA=")
+tile_set = ExtResource("2_ehcwo")
+
+[node name="TileMapLayer_brown" type="TileMapLayer" parent="." unique_id=1265215159]
+modulate = Color(0.3831923, 0.27900046, 0.18997759, 1)
+tile_map_data = PackedByteArray("AAD//wcAAAACAAQAAAD//wYAAAACAAMAAAD//wUAAAACAAIAAADt/wUAAAACAAIAAADt/wYAAAACAAMAAADt/wcAAAACAAQAAAAVAAUAAAACAAIAAAAVAAYAAAACAAMAAAAVAAcAAAACAAQAAADt/+7/AAACAAQAAADt/+3/AAACAAMAAADt/+z/AAACAAIAAAD//+z/AAACAAIAAAD//+3/AAACAAMAAAD//+7/AAACAAQAAAAVAOz/AAACAAIAAAAVAO3/AAACAAMAAAAVAO7/AAACAAQAAAA=")
+tile_set = ExtResource("2_ehcwo")
+
+[node name="TileMapLayer_effect" type="TileMapLayer" parent="." unique_id=1312739034]
+modulate = Color(0.24840015, 0.24840018, 0.24840015, 0.25882354)
+z_index = -1
+tile_map_data = PackedByteArray("AAACAAIAAAAEAAAAAAD9/wAAAAAAAAEAAAADAAAAAAAAAAEAABADAAoAAAAAAAEAAHD9/woAAAAAAAEAACD+/woAAAAAAAIAAGD//woAAAAAAAIAAGABAAoAAAAAAAIAAGACAAoAAAAAAAIAAGD9/wkAAAAAAAIAAAD9/wgAAAAAAAIAAAD9/wcAAAAAAAIAAAD9/wYAAAAAAAIAAAD9/wUAAAAAAAIAAAD9/wQAAAAAAAIAAAD9/wMAAAAAAAIAAAD9/wIAAAAAAAIAAAD9/wEAAAAAAAIAAAADAAgAAAAAAAIAADADAAcAAAAAAAIAADADAAYAAAAAAAIAADADAAUAAAAAAAIAADADAAQAAAAAAAIAADADAAMAAAAAAAIAADADAAIAAAAAAAIAADADAAEAAAAAAAIAADD+/wAAAAAAAAIAAFD//wAAAAAAAAIAAFAAAAAAAAAAAAIAAFABAAAAAAAAAAIAAFACAAAAAAAAAAIAAFACAAEAAAAEAAAAAADr/woAAAAAAAEAAGDx/woAAAAAAAEAAHDx/wAAAAAAAAEAAFDr/wAAAAAAAAEAAEDs/wAAAAAAAAIAAFDt/wAAAAAAAAIAAFDu/wAAAAAAAAIAAFDv/wAAAAAAAAIAAFDw/wAAAAAAAAIAAFDx/wEAAAAAAAIAADDx/wIAAAAAAAIAADDx/wMAAAAAAAIAADDx/wQAAAAAAAIAADDx/wUAAAAAAAIAADDx/wYAAAAAAAIAADDx/wcAAAAAAAIAADDx/wgAAAAAAAIAADDx/wkAAAAAAAIAADDw/woAAAAAAAIAAGDv/woAAAAAAAIAAGDt/woAAAAAAAIAAGDs/woAAAAAAAIAAGDr/wkAAAAAAAIAAADr/wgAAAAAAAIAAADr/wcAAAAAAAIAAADr/wYAAAAAAAIAAADr/wUAAAAAAAIAAADr/wQAAAAAAAIAAADr/wMAAAAAAAIAAADr/wIAAAAAAAIAAADr/wEAAAAAAAIAAADw/wYAAAAAAAIAAADw/wUAAAAAAAIAAAARAAcAAAAAAAIAAAARAAYAAAAAAAIAAAARAAUAAAAAAAIAAAARAAgAAAAAAAIAAAARAAkAAAAAAAIAAAARAAoAAAAAAAIAAAARAAQAAAAAAAIAAAARAAMAAAAAAAIAAAARAAIAAAAAAAIAAAARAAEAAAAAAAIAAAARAAAAAAAAAAEAAAASAAAAAAAAAAIAAFATAAAAAAAAAAIAAFAUAAAAAAAAAAIAAFAVAAAAAAAAAAIAAFAWAAAAAAAAAAIAAFAXAAAAAAAAAAEAAFAXAAEAAAAAAAIAABAXAAIAAAAAAAIAABAXAAMAAAAAAAIAABAXAAQAAAAAAAIAABAXAAUAAAAAAAIAABAXAAYAAAAAAAIAABAXAAcAAAAAAAIAABAXAAgAAAAAAAIAABAXAAkAAAAAAAIAABAXAAoAAAAAAAIAABATAAcAAAAAAAIAAFAUAAcAAAAAAAIAAFASAAIAAAAEAAAAAAASAAMAAAAEAAAAAADr/+7/AAAAAAIAAFDs/+7/AAAAAAIAAFDt/+7/AAAAAAIAAFDu/+7/AAAAAAIAAFDv/+7/AAAAAAIAAFA=")
+tile_set = ExtResource("3_0ehei")
+
+[node name="TileMapLayer_terrain" type="TileMapLayer" parent="." unique_id=1713550918]
+modulate = Color(0.2790804, 0.19608897, 0.12975305, 1)
+z_index = -1
+tile_map_data = PackedByteArray("AAACAAEAAQACAAYAAAACAAIAAQACAAYAAAASAAMAAQACAAYAAAASAAIAAQACAAYAAAA=")
+tile_set = ExtResource("10_ehcwo")
+
+[node name="TileMapLayer_black" type="TileMapLayer" parent="." unique_id=1193161970]
+modulate = Color(0, 0, 0, 1)
+z_index = 10
+tile_map_data = PackedByteArray("AAACAAIAAQADAAMAAAACAAMAAQACAAAAAAASAAMAAQADAAMAAAASAAQAAQACAAAAAAA=")
+tile_set = ExtResource("10_ehcwo")
+
+[node name="TileMapLayer_trees" type="TileMapLayer" parent="." unique_id=1055820185]
+modulate = Color(0.30588236, 0.5254902, 0.69803923, 1)
+z_index = 7
+tile_map_data = PackedByteArray("AAD+/wAAAAALAAMAAAD+/wEAAAALAAQAAAD+/wIAAAALAAUAAAD//wAAAAASAAMAAAD//wEAAAASAAQAAAD//wIAAAASAAUAAAAAAAEAAAALAAMAAAAAAAIAAAALAAQAAAAAAAMAAAALAAUAAAABAAEAAAASAAMAAAABAAIAAAASAAQAAAABAAMAAAASAAUAAAD+/wcAAAALAAMAAAD+/wgAAAALAAQAAAD+/wkAAAALAAUAAAD//wcAAAASAAMAAAD//wgAAAASAAQAAAD//wkAAAASAAUAAADr////AAALAAMAAADr/wAAAAALAAQAAADr/wEAAAALAAUAAADs////AAASAAMAAADs/wAAAAASAAQAAADs/wEAAAASAAUAAADr/wcAAAALAAMAAADr/wgAAAALAAQAAADr/wkAAAALAAUAAADs/wcAAAASAAMAAADs/wgAAAASAAQAAADs/wkAAAASAAUAAADt/wEAAAALAAMAAADt/wIAAAALAAQAAADt/wMAAAALAAUAAADu/wEAAAASAAMAAADu/wIAAAASAAQAAADu/wMAAAASAAUAAADr/wIAAAALAAMAAADr/wMAAAALAAQAAADr/wQAAAALAAUAAADs/wIAAAASAAMAAADs/wMAAAASAAQAAADs/wQAAAASAAUAAAARAAcAAAALAAMAAAARAAgAAAALAAQAAAARAAkAAAALAAUAAAASAAcAAAASAAMAAAASAAgAAAASAAQAAAASAAkAAAASAAUAAAAWAAgAAAALAAMAAAAWAAkAAAALAAQAAAAWAAoAAAALAAUAAAAXAAgAAAASAAMAAAAXAAkAAAASAAQAAAAXAAoAAAASAAUAAAAUAAEAAAALAAMAAAAUAAIAAAALAAQAAAAUAAMAAAALAAUAAAAVAAEAAAASAAMAAAAVAAIAAAASAAQAAAAVAAMAAAASAAUAAADu/+X/AAALAAMAAADu/+b/AAALAAQAAADu/+f/AAALAAUAAADv/+X/AAASAAMAAADv/+b/AAASAAQAAADv/+f/AAASAAUAAADw/+//AAALAAMAAADw//D/AAALAAQAAADw//H/AAALAAUAAADx/+//AAASAAMAAADx//D/AAASAAQAAADx//H/AAASAAUAAADt/9D/AAALAAMAAADt/9H/AAALAAQAAADt/9L/AAALAAUAAADu/9D/AAASAAMAAADu/9H/AAASAAQAAADu/9L/AAASAAUAAADu/9P/AAALAAMAAADu/9T/AAALAAQAAADu/9X/AAALAAUAAADv/9P/AAASAAMAAADv/9T/AAASAAQAAADv/9X/AAASAAUAAADv/9n/AAACAAAAAADu/9n/AAACAAAAAADu/9r/AAACAAEAAADv/9r/AAACAAEAAAA=")
+tile_set = ExtResource("11_0ehei")
+collision_enabled = false
+
+[node name="ZoneLink_H2_town" parent="." unique_id=1869762347 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_rnyrv")]
+link_zone_scene_path = "res://locations/zones/ghost_town/zone_ghost_town.tscn"
+link_name = "HOUSE_2_ENTRANCE"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "HOUSE_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink_H2_town" unique_id=833735083]
+position = Vector2(12, 300)
+shape = SubResource("RectangleShape2D_0qpjh")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink_H2_town" unique_id=1416006420]
+position = Vector2(0, 264)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink_H2_town" unique_id=88330025]
+position = Vector2(0, 240)
+
+[node name="ZoneLink_H3_town" parent="." unique_id=514851389 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_rnyrv")]
+position = Vector2(480, -24)
+link_zone_scene_path = "res://locations/zones/ghost_town/zone_ghost_town.tscn"
+link_name = "HOUSE_3_ENTRANCE"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "HOUSE_3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink_H3_town" unique_id=8985412]
+position = Vector2(12, 300)
+shape = SubResource("RectangleShape2D_0qpjh")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink_H3_town" unique_id=757591742]
+position = Vector2(0, 264)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink_H3_town" unique_id=539807813]
+position = Vector2(0, 240)
+
+[node name="ZoneLink_H1_town" parent="." unique_id=1247598534 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_rnyrv")]
+position = Vector2(-432, 0)
+link_zone_scene_path = "res://locations/zones/ghost_town/zone_ghost_town.tscn"
+link_name = "HOUSE_1_ENTRANCE"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "HOUSE_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink_H1_town" unique_id=1439724265]
+position = Vector2(12, 300)
+shape = SubResource("RectangleShape2D_0qpjh")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink_H1_town" unique_id=25300740]
+position = Vector2(0, 264)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink_H1_town" unique_id=2137948545]
+position = Vector2(0, 240)
+
+[node name="ZoneLink_H4_town" parent="." unique_id=1972508462 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_rnyrv")]
+position = Vector2(-432, -600)
+link_zone_scene_path = "res://locations/zones/ghost_town/zone_ghost_town.tscn"
+link_name = "HOUSE_4_ENTRANCE"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "HOUSE_4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink_H4_town" unique_id=1743660759]
+position = Vector2(12, 300)
+shape = SubResource("RectangleShape2D_0qpjh")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink_H4_town" unique_id=89365461]
+position = Vector2(0, 264)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink_H4_town" unique_id=2133256388]
+position = Vector2(0, 240)
+
+[node name="ZoneLink_H7_town" parent="." unique_id=65245541 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_rnyrv")]
+position = Vector2(-432, -1104)
+link_zone_scene_path = "res://locations/zones/ghost_town/zone_ghost_town.tscn"
+link_name = "HOUSE_7_ENTRANCE"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "HOUSE_7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink_H7_town" unique_id=723078647]
+position = Vector2(12, 300)
+shape = SubResource("RectangleShape2D_0qpjh")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink_H7_town" unique_id=235256503]
+position = Vector2(0, 264)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink_H7_town" unique_id=529794621]
+position = Vector2(0, 240)
+
+[node name="ZoneLink_H2_tunnels" parent="." unique_id=1464622137 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_rnyrv")]
+position = Vector2(-432, 0)
+link_zone_scene_path = "res://locations/zones/ghost_town/interiors/ghost_town_interiors_L0.tscn"
+link_name = "HOUSE_2_EXIT"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "HOUSE_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink_H2_tunnels" unique_id=1552999678]
+position = Vector2(492, 60)
+shape = SubResource("RectangleShape2D_ehcwo")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink_H2_tunnels" unique_id=1145952970]
+position = Vector2(480, 24)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink_H2_tunnels" unique_id=180858815]
+position = Vector2(480, 0)
+
+[node name="ZoneLink_H3_tunnels" parent="." unique_id=2093305002 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("4_rnyrv")]
+position = Vector2(-48, 24)
+link_zone_scene_path = "res://locations/zones/ghost_town/interiors/ghost_town_interiors_L0.tscn"
+link_name = "HOUSE_3_EXIT"
+teleport_spot = NodePath("load_in")
+stop_point = NodePath("stop_point")
+to_link_name = "HOUSE_3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneLink_H3_tunnels" unique_id=975134702]
+position = Vector2(492, 60)
+shape = SubResource("RectangleShape2D_ehcwo")
+debug_color = Color(1, 0.836507, 0.421465, 0.713726)
+
+[node name="load_in" type="Node2D" parent="ZoneLink_H3_tunnels" unique_id=2054740991]
+position = Vector2(480, 24)
+
+[node name="stop_point" type="Node2D" parent="ZoneLink_H3_tunnels" unique_id=1644602722]
+position = Vector2(480, 0)
+
+[node name="walls" type="StaticBody2D" parent="." unique_id=567641062]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls" unique_id=180928047]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(120, 456, 120, 480, 144, 480, 144, 456, 144, 432, 120, 432, 72, 432, 72.000015, 167.5438, 240, 168, 240, 384, 192, 384, 192, 408, 240, 408, 240, 432, 168, 432, 168, 480, 168, 504, 144, 504, 144, 480, 120, 480, 120, 528, 168, 528, 240, 528, 240, 480, 288, 480, 288, 432, 288, 384, 288, 168, 288, 120, 264, 120, 72, 120, 48, 120, 48, 432, 48, 456, 72, 456, 120, 456)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="walls" unique_id=67990678]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(576, 504, 568.5038, 466.5189, 552, 456, 552, 384, 624, 384, 624, 480, 648, 480, 648, 384, 720, 384, 720, 240, 720, 168, 553.222, 168, 552.95056, 215.98099, 576, 216, 576, 288, 600, 288, 600, 216, 672, 216, 672, 288, 672, 360, 648, 360, 648, 336, 600, 336, 600, 312, 552, 312, 552, 360, 600, 360, 600, 384, 552, 384, 504, 432, 480, 432, 480, 168, 480, 96, 792, 96, 792, 168, 792, 240, 792, 528, 624, 528)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="walls" unique_id=1631082734]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(-288, 432, -288, 504, -384, 504, -384, 432, -384, 120, -384, 96, -144, 96, -144, 216, -144, 432, -144, 528, -408, 528, -408, 504, -264, 504, -264, 480, -264, 456, -264, 432, -192, 432, -192, 168, -216, 168, -216, 192, -288, 192, -288, 168, -312, 168, -312, 216, -264, 216, -264, 264, -240, 264, -240, 336, -288, 336, -288, 360, -312, 360, -312, 408, -312, 432)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="walls" unique_id=1665014330]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(-288, -168, -288, -96, -264, -96, -264, -168, -240.09604, -168.00003, -240, -240, -192, -240, -192, -168, -192, -72, -360, -72, -408, -72, -408, -168, -408, -360, -408, -480, -360, -480, -168, -480, -144, -480, -144, 0, -192, 0, -192, -432, -240, -432, -240, -360, -312, -360, -312, -408, -360, -408, -360, -336, -240, -336, -240, -264, -288, -264, -288, -240, -312, -240, -312, -264, -360, -264, -360, -168)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="walls" unique_id=1804230837]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(-288, -672, -288, -600, -264, -600, -264, -672, -192, -672, -216, -576, -360, -576, -408, -576, -408, -696, -408, -936, -408, -984, -360, -984, -192, -984, -144, -984, -144, -576, -192, -576, -192, -936, -240, -936, -240, -768, -216, -768, -216, -720, -312, -720, -312, -768, -312, -792, -312, -936, -360, -936, -360, -672)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="walls" unique_id=1424846451]
+position = Vector2(-144, -168)
+polygon = PackedVector2Array(168, 384, 168, 408, 96, 408, 96, 264, 120, 264, 120, 240, 96, 240, 96, 192, 192, 192, 192, 264, 215.82219, 264.00003, 216, 192, 240, 192, 240, 264, 240, 288, 168, 288, 168, 336, 144, 336, 144, 384)
+
+[node name="wind" type="AudioStreamPlayer" parent="." unique_id=1556662474 groups=["global_music_player"]]
+stream = ExtResource("5_jsd2c")
+volume_db = -36.0
+autoplay = true
+bus = &"effects"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2129903169 groups=["global_modulate"]]
+visible = false
+z_index = 50
+color = Color(0, 0, 0, 1)
+script = ExtResource("6_0emk2")
+
+[node name="interactable_area_fireplace" type="StaticBody2D" parent="." unique_id=1820510487 node_paths=PackedStringArray("scripts")]
+position = Vector2(-168, 168)
+script = ExtResource("8_baf24")
+scripts = [NodePath("play_texts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_fireplace" unique_id=955643424]
+position = Vector2(156, 12)
+shape = SubResource("RectangleShape2D_p2wre")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="play_texts" type="Node" parent="interactable_area_fireplace" unique_id=225762796 node_paths=PackedStringArray("texts")]
+script = ExtResource("9_cyr5h")
+texts = [NodePath("text")]
+
+[node name="text" type="Node" parent="interactable_area_fireplace/play_texts" unique_id=950066920]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(You can hear the wind rushing through the chimney)"])
+
+[node name="interactable_area_book_1" type="StaticBody2D" parent="." unique_id=1367494206 node_paths=PackedStringArray("scripts")]
+position = Vector2(-456, 0)
+script = ExtResource("8_baf24")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book_1" unique_id=1551665539]
+position = Vector2(36, 12)
+shape = SubResource("RectangleShape2D_rnyrv")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book_1" unique_id=1810562665 node_paths=PackedStringArray("texts")]
+script = ExtResource("9_cyr5h")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5")]
+
+[node name="text" type="Node" parent="interactable_area_book_1/play_texts2" unique_id=1970243781]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(The paper is yellow and covered in dirt)"])
+
+[node name="text2" type="Node" parent="interactable_area_book_1/play_texts2" unique_id=1119039127]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(I can make out some of the text)"])
+
+[node name="text3" type="Node" parent="interactable_area_book_1/play_texts2" unique_id=1675231132]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"The cold has come early this year.\""])
+
+[node name="text4" type="Node" parent="interactable_area_book_1/play_texts2" unique_id=1384594565]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"Morgan's cough has gotten worse...\""])
+
+[node name="text5" type="Node" parent="interactable_area_book_1/play_texts2" unique_id=1847657173]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(I can't make out the rest of it)"])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book_1" unique_id=565294006]
+position = Vector2(24, 0)
+texture = ExtResource("12_0ehei")
+offset = Vector2(12, 4)
+
+[node name="interactable_area_book_3" type="StaticBody2D" parent="." unique_id=166855805 node_paths=PackedStringArray("scripts")]
+position = Vector2(-528, -576)
+script = ExtResource("8_baf24")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book_3" unique_id=798608889]
+position = Vector2(36, 12)
+shape = SubResource("RectangleShape2D_rnyrv")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book_3" unique_id=346035740 node_paths=PackedStringArray("texts")]
+script = ExtResource("9_cyr5h")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text6"), NodePath("text5")]
+
+[node name="text" type="Node" parent="interactable_area_book_3/play_texts2" unique_id=262402446]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(The paper is yellow and covered in dirt)"])
+
+[node name="text2" type="Node" parent="interactable_area_book_3/play_texts2" unique_id=1521499999]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(I can make out some of the text)"])
+
+[node name="text3" type="Node" parent="interactable_area_book_3/play_texts2" unique_id=936444480]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"Mr.Drumond raised the price of bread again-\""])
+
+[node name="text4" type="Node" parent="interactable_area_book_3/play_texts2" unique_id=860710898]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"And a ton of coal has never been heavier.\""])
+
+[node name="text6" type="Node" parent="interactable_area_book_3/play_texts2" unique_id=1974550129]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"Some of us fear for our families this coming winter...\""])
+
+[node name="text5" type="Node" parent="interactable_area_book_3/play_texts2" unique_id=1958452163]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(I can't make out the rest of it)"])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book_3" unique_id=1211242502]
+position = Vector2(24, 0)
+texture = ExtResource("12_0ehei")
+offset = Vector2(12, 4)
+
+[node name="interactable_area_book_4" type="StaticBody2D" parent="." unique_id=856639894 node_paths=PackedStringArray("scripts")]
+position = Vector2(-384, -1104)
+script = ExtResource("8_baf24")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book_4" unique_id=1227592305]
+position = Vector2(36, 12)
+shape = SubResource("RectangleShape2D_rnyrv")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book_4" unique_id=1729043401 node_paths=PackedStringArray("texts")]
+script = ExtResource("9_cyr5h")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text5")]
+
+[node name="text" type="Node" parent="interactable_area_book_4/play_texts2" unique_id=1277014411]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(The paper is yellow and covered in dirt)"])
+
+[node name="text2" type="Node" parent="interactable_area_book_4/play_texts2" unique_id=888003843]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(I can make out some of the text)"])
+
+[node name="text3" type="Node" parent="interactable_area_book_4/play_texts2" unique_id=1077805617]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"Rumor has it [color=red]The Heiress'[/color] precious horse feasts on apples...\""])
+
+[node name="text5" type="Node" parent="interactable_area_book_4/play_texts2" unique_id=1893500001]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(I can't make out the rest of it)"])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book_4" unique_id=876982169]
+position = Vector2(24, 0)
+texture = ExtResource("12_0ehei")
+offset = Vector2(12, 4)
+
+[node name="interactable_area_book_2" type="StaticBody2D" parent="." unique_id=796931130 node_paths=PackedStringArray("scripts")]
+position = Vector2(384, 144)
+script = ExtResource("8_baf24")
+scripts = [NodePath("play_texts2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book_2" unique_id=824752672]
+position = Vector2(36, 12)
+shape = SubResource("RectangleShape2D_rnyrv")
+
+[node name="play_texts2" type="Node" parent="interactable_area_book_2" unique_id=970932920 node_paths=PackedStringArray("texts")]
+script = ExtResource("9_cyr5h")
+texts = [NodePath("text"), NodePath("text2"), NodePath("text3"), NodePath("text4"), NodePath("text5"), NodePath("text6"), NodePath("text7")]
+
+[node name="text" type="Node" parent="interactable_area_book_2/play_texts2" unique_id=2093864726]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(The paper is yellow and covered in dirt)"])
+
+[node name="text2" type="Node" parent="interactable_area_book_2/play_texts2" unique_id=1929154916]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(I can make out some of the text)"])
+
+[node name="text3" type="Node" parent="interactable_area_book_2/play_texts2" unique_id=1233506039]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"Mr.Drumond has a whole stable of well-bred horses-\""])
+
+[node name="text4" type="Node" parent="interactable_area_book_2/play_texts2" unique_id=1609955521]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"But his most prized horse is for [color=red]The Heiress[/color].\""])
+
+[node name="text5" type="Node" parent="interactable_area_book_2/play_texts2" unique_id=1512419733]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"She spent all Summer riding it round the lawn of [color=blue]The Estate[/color].\""])
+
+[node name="text6" type="Node" parent="interactable_area_book_2/play_texts2" unique_id=1871002861]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["\"Some of the miners lingered by the gates just to catch sight of her...\""])
+
+[node name="text7" type="Node" parent="interactable_area_book_2/play_texts2" unique_id=228254068]
+script = ExtResource("10_cgafi")
+language_map = Array[String](["english"])
+text = Array[String](["(I can't make out the rest of it)"])
+
+[node name="open_book" type="Sprite2D" parent="interactable_area_book_2" unique_id=515214614]
+position = Vector2(24, 0)
+texture = ExtResource("12_0ehei")
+offset = Vector2(12, 4)

@@ -415,7 +415,10 @@ func stop():
 	walking = false
 
 func grid_aligned() -> bool:
-	return fmod(global_position.x,24) == 0 && fmod(global_position.y,24) == 0
+	var pos_x = global_position.x
+	var pos_y = global_position.y
+	var aligned : bool = fmod(pos_x,24) == 0 && fmod(pos_y,24) == 0
+	return aligned
 
 func is_active() -> bool:
 	return active
