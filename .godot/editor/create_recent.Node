@@ -1,10 +1,10 @@
-CollisionPolygon2D
-Label
+Node
+CollisionShape2D
 Sprite2D
 Node2D
-Node
+CollisionPolygon2D
+Label
 ColorRect
-CollisionShape2D
 PointLight2D
 AudioStreamPlayer2D
 RichTextLabel

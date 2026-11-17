@@ -1,3 +1,5 @@
+res://sprites/spritesheets/props/interior/
+res://sprites/spritesheets/props/structure/
 res://utility/
 res://sprites/spritesheets/battle/actions/
 res://sprites/spritesheets/familiars/
@@ -26,7 +28,6 @@ res://scripts/character/player/
 res://
 res://scripts/menu/
 res://sprites/spritesheets/interface/
-res://sprites/spritesheets/props/structure/
 res://locations/
 res://scripts/item/
 res://sprites/spritesheets/effects/
@@ -35,4 +36,3 @@ res://scripts/mechanism/
 res://scripts/character/npc/
 res://scripts/locations/
 res://interface/
-res://sprites/spritesheets/player/

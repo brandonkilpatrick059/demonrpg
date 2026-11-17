@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://birrkybdrev2t"]
+
+[ext_resource type="Texture2D" uid="uid://8x1lp4ur1mgp" path="res://sprites/spritesheets/props/interior/shelf_gate.png" id="1_ceqi4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3nmw"]
+atlas = ExtResource("1_ceqi4")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meol1"]
+atlas = ExtResource("1_ceqi4")
+region = Rect2(0, 48, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3nmw")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meol1")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 5.0
+}]

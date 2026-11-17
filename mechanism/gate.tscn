@@ -13,6 +13,7 @@ script = ExtResource("1_w1t1w")
 position = Vector2(20, -24)
 sprite_frames = ExtResource("2_rb87w")
 animation = &"closed"
+frame_progress = 0.9740268
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=968609869]
 
