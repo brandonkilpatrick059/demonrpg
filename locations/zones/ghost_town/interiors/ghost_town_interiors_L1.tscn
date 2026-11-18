@@ -625,7 +625,7 @@ bus = &"effects"
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2129903169 groups=["global_modulate"]]
 visible = false
 z_index = 50
-color = Color(0.3741394, 0.37413922, 0.37413922, 1)
+color = Color(0.5931336, 0.59313357, 0.59313357, 1)
 script = ExtResource("6_0emk2")
 
 [node name="interactable_area_fireplace" type="StaticBody2D" parent="." unique_id=1820510487 node_paths=PackedStringArray("scripts")]

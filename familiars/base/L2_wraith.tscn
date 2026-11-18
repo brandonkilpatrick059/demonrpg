@@ -18,6 +18,7 @@ speed = 2
 num_actions = 3
 incorporeal = true
 type = NodePath("TypeIncorporeal")
+level = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1445148604]
 sprite_frames = ExtResource("2_ps4qs")

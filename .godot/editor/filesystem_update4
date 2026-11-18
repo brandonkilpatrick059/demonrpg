@@ -130,3 +130,5 @@ res://locations/zones/ghost_town/interiors/ghost_town_interiors_L0.tscn
 res://mechanism/gate.tscn
 res://sprites/spritesheets/props/structure/shelf_gate.tres
 res://mechanism/shelf_gate.tscn
+res://sprites/spritesheets/familiars/L1_cur.tres
+res://familiars/base/L1_cur.tscn
