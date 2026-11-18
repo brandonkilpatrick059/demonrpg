@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_71f1i"]
 [ext_resource type="PackedScene" uid="uid://spsrsbiret2c" path="res://battle/actions/action_summon.tscn" id="7_uo36o"]
 [ext_resource type="PackedScene" uid="uid://ddlbmm6vmp03i" path="res://familiars/base/L1_ghost.tscn" id="8_yvoo7"]
-[ext_resource type="PackedScene" uid="uid://btx4n18e1bux4" path="res://scripts/familiars/types/type_devil.tscn" id="9_uo36o"]
+[ext_resource type="PackedScene" uid="uid://btx4n18e1bux4" path="res://familiars/familiar_types/type_devil.tscn" id="9_uo36o"]
 [ext_resource type="PackedScene" uid="uid://btbs1327pmkld" path="res://battle/actions/action_magic_shield.tscn" id="9_yvoo7"]
 
 [node name="L1imp" type="Node2D" unique_id=2120251354 node_paths=PackedStringArray("type")]

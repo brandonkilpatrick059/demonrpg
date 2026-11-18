@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cfth7s76q35pp" path="res://battle/encounters/ghost_town/two_curs.tscn" id="13_86du6"]
 [ext_resource type="SpriteFrames" uid="uid://0niuxcdvgobh" path="res://sprites/spritesheets/monsters/shade_monster_martyr.tres" id="14_koys4"]
 [ext_resource type="PackedScene" uid="uid://duncld2xlqwve" path="res://battle/encounters/ghost_town/three_curs.tscn" id="15_koys4"]
+[ext_resource type="PackedScene" uid="uid://bsv61nq2xcplm" path="res://battle/encounters/ghost_town/four_curs.tscn" id="16_koys4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -357,22 +358,22 @@ position = Vector2(216, -384)
 encounter = ExtResource("13_86du6")
 sprite_frames = ExtResource("14_koys4")
 
-[node name="ShadeMonster_cur_two3" parent="encounters" unique_id=1977370472 instance=ExtResource("12_8tcdm")]
-z_index = 2
-position = Vector2(1152, -216)
-encounter = ExtResource("13_86du6")
-sprite_frames = ExtResource("14_koys4")
-
-[node name="ShadeMonster_cur_two2" parent="encounters" unique_id=970594723 instance=ExtResource("12_8tcdm")]
-z_index = 2
-position = Vector2(408, -1224)
-encounter = ExtResource("13_86du6")
-sprite_frames = ExtResource("14_koys4")
-
 [node name="ShadeMonster_cur_three" parent="encounters" unique_id=863965217 instance=ExtResource("12_8tcdm")]
 z_index = 2
 position = Vector2(432, -240)
 encounter = ExtResource("15_koys4")
+sprite_frames = ExtResource("14_koys4")
+
+[node name="ShadeMonster_cur_three2" parent="encounters" unique_id=1362771020 instance=ExtResource("12_8tcdm")]
+z_index = 2
+position = Vector2(1128, -216)
+encounter = ExtResource("15_koys4")
+sprite_frames = ExtResource("14_koys4")
+
+[node name="ShadeMonster_cur_four" parent="encounters" unique_id=1686184752 instance=ExtResource("12_8tcdm")]
+z_index = 2
+position = Vector2(432, -1104)
+encounter = ExtResource("16_koys4")
 sprite_frames = ExtResource("14_koys4")
 
 [node name="npc_fence" type="StaticBody2D" parent="." unique_id=1688559010]

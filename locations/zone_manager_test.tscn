@@ -4,10 +4,9 @@
 [ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="3_2gs5w"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
-[ext_resource type="PackedScene" uid="uid://5cl0snotsklx" path="res://familiars/base/L1_walker.tscn" id="6_2gs5w"]
+[ext_resource type="PackedScene" uid="uid://dogiaxmsxt1y8" path="res://familiars/base/L2_byle.tscn" id="6_2gs5w"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
-[ext_resource type="PackedScene" uid="uid://cno3ohvy65hc8" path="res://familiars/base/L1_scryer.tscn" id="6_nn1l1"]
-[ext_resource type="PackedScene" uid="uid://bx34gtoqoco5k" path="res://familiars/base/L0_worm.tscn" id="7_2gs5w"]
+[ext_resource type="PackedScene" uid="uid://2kvawkd11f4" path="res://familiars/base/L2_reaver.tscn" id="6_nn1l1"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
 [ext_resource type="PackedScene" uid="uid://dwyadwknobwiw" path="res://familiars/base/L1_cur.tscn" id="7_ri5ms"]
 [ext_resource type="PackedScene" uid="uid://b4su5e3tsbe2s" path="res://locations/zones/ghost_town/zone_ghost_town.tscn" id="10_nn1l1"]
@@ -81,8 +80,8 @@ states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
 states_map_values = Array[String](["TRUE", "TRUE", "USED"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
-position = Vector2(744, 2520)
-familiar_team = [NodePath("L1walker2"), NodePath("L1scryer"), NodePath("L0Worm"), NodePath("L1cur")]
+position = Vector2(888, 1944)
+familiar_team = [NodePath("L2byle"), NodePath("L2reaver"), NodePath("L2reaver2"), NodePath("L1cur")]
 pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
@@ -90,19 +89,23 @@ process_mode = 3
 offset = Vector2(12, -12)
 process_callback = 0
 
-[node name="L1scryer" parent="Player" unique_id=1635708538 instance=ExtResource("6_nn1l1")]
-visible = false
-position = Vector2(747.58716, -3295.5303)
-magic = 8
-
-[node name="L0Worm" parent="Player" unique_id=2025998125 instance=ExtResource("7_2gs5w")]
-visible = false
-
-[node name="L1walker2" parent="Player" unique_id=1642153500 instance=ExtResource("6_2gs5w")]
-visible = false
-
 [node name="L1cur" parent="Player" unique_id=1533914147 instance=ExtResource("7_ri5ms")]
 visible = false
+
+[node name="L2reaver" parent="Player" unique_id=888126814 instance=ExtResource("6_nn1l1")]
+visible = false
+max_hp = 30
+current_hp = 30
+
+[node name="L2reaver2" parent="Player" unique_id=259755475 instance=ExtResource("6_nn1l1")]
+visible = false
+max_hp = 30
+current_hp = 30
+
+[node name="L2byle" parent="Player" unique_id=1170432072 instance=ExtResource("6_2gs5w")]
+visible = false
+max_hp = 40
+current_hp = 40
 
 [node name="loading" type="Node2D" parent="." unique_id=47417405]
 visible = false

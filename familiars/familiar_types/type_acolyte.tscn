@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://brh4vye4i0gas"]
+
+[ext_resource type="Script" uid="uid://3y01n3e0iog5" path="res://scripts/familiars/familiar_type.gd" id="1_7pd2p"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="2_613nu"]
+[ext_resource type="Script" uid="uid://cuq15w51x46sv" path="res://scripts/familiars/type_item_sys/post_battle_buff.gd" id="3_613nu"]
+[ext_resource type="Script" uid="uid://bpa75ml4nt3qr" path="res://scripts/familiars/type_item_sys/post_heal_buff.gd" id="4_6khue"]
+
+[node name="TypeAcolyte" type="Node" unique_id=696639826 node_paths=PackedStringArray("name_text", "description_1_text", "description_2_text", "post_battle_buffs")]
+script = ExtResource("1_7pd2p")
+name_text = NodePath("name")
+description_1_text = NodePath("description_1")
+description_2_text = NodePath("description_2")
+post_battle_buffs = [NodePath("magic_resistance")]
+
+[node name="name" type="Node" parent="." unique_id=67882527]
+script = ExtResource("2_613nu")
+language_map = Array[String](["english"])
+text = Array[String](["ACOLYTE"])
+
+[node name="description_1" type="Node" parent="." unique_id=197035765]
+script = ExtResource("2_613nu")
+language_map = Array[String](["english"])
+text = Array[String](["[color=yellow]30%[/color] [color=green]RESISTANCE[/color] TO [color=blue]MAGIC DAMAGE[/color]"])
+
+[node name="description_2" type="Node" parent="." unique_id=1383882342]
+script = ExtResource("2_613nu")
+language_map = Array[String](["english"])
+text = Array[String](["[color=red]-30%[/color] WHEN HEALED"])
+
+[node name="magic_resistance" type="Node" parent="." unique_id=1170093216]
+script = ExtResource("3_613nu")
+magic_dmg_scale_add = -0.3
+
+[node name="heal_debuff" type="Node" parent="." unique_id=1884122055]
+script = ExtResource("4_6khue")
+heal_scale_add = -0.3

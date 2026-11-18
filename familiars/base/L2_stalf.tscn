@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bougunxplhn1t" path="res://battle/actions/action_evil_eye.tscn" id="6_olic2"]
 [ext_resource type="PackedScene" uid="uid://hrqg21n0eng2" path="res://battle/actions/action_fire.tscn" id="7_htyhr"]
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="8_0aapv"]
-[ext_resource type="PackedScene" uid="uid://cl6pcrqwgk8cs" path="res://scripts/familiars/types/type_revenant.tscn" id="9_nijxc"]
+[ext_resource type="PackedScene" uid="uid://cl6pcrqwgk8cs" path="res://familiars/familiar_types/type_revenant.tscn" id="9_nijxc"]
 
 [node name="L2stalf" type="Node2D" unique_id=2121275838 node_paths=PackedStringArray("type")]
 script = ExtResource("1_b87nx")

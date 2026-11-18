@@ -178,12 +178,8 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		actor.consume_familiar(target)
 		visual_effects(actor,target)
 		visual_effects_2(actor,target)
-		var heal_for = target.get_max_hp()
-		var actor_hp = actor.get_current_hp()
-		actor_hp = actor_hp + heal_for
-		actor.set_current_hp(actor_hp)
-		if(actor.get_current_hp() > actor.get_max_hp()):
-			actor.set_current_hp(actor.get_max_hp())
+		var heal_amount = target.get_max_hp()
+		actor.heal(heal_amount)
 		commenced_feed = true
 	elif(not announced_failure && not feed_succeeded):
 		var comment : String = get_failure_message(actor,targets[0])

@@ -1,25 +1,25 @@
 [gd_scene format=3 uid="uid://btx4n18e1bux4"]
 
-[ext_resource type="Script" uid="uid://3y01n3e0iog5" path="res://scripts/familiars/familiar_type.gd" id="1_hgt1k"]
-[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="2_ggeyx"]
+[ext_resource type="Script" uid="uid://3y01n3e0iog5" path="res://scripts/familiars/familiar_type.gd" id="1_ujyol"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="2_hhb8x"]
 
 [node name="TypeDevil" type="Node" unique_id=696639826 node_paths=PackedStringArray("name_text", "description_1_text", "description_2_text")]
-script = ExtResource("1_hgt1k")
+script = ExtResource("1_ujyol")
 name_text = NodePath("name")
 description_1_text = NodePath("description_1")
 description_2_text = NodePath("description_2")
 
 [node name="name" type="Node" parent="." unique_id=67882527]
-script = ExtResource("2_ggeyx")
+script = ExtResource("2_hhb8x")
 language_map = Array[String](["english"])
 text = Array[String](["DEVIL"])
 
 [node name="description_1" type="Node" parent="." unique_id=197035765]
-script = ExtResource("2_ggeyx")
+script = ExtResource("2_hhb8x")
 language_map = Array[String](["english"])
 text = Array[String]([" [color=yellow]+1[/color] ENERGY ON [color=red]FEED[/color]"])
 
 [node name="description_2" type="Node" parent="." unique_id=1383882342]
-script = ExtResource("2_ggeyx")
+script = ExtResource("2_hhb8x")
 language_map = Array[String](["english"])
 text = Array[String](["[color=red]-30%[/color] WHEN HEALED"])

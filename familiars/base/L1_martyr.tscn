@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_5hcx6"]
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_0x1nh"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_16rrk"]
-[ext_resource type="PackedScene" uid="uid://brh4vye4i0gas" path="res://scripts/familiars/types/type_acolyte.tscn" id="9_6l1du"]
+[ext_resource type="PackedScene" uid="uid://brh4vye4i0gas" path="res://familiars/familiar_types/type_acolyte.tscn" id="9_6l1du"]
 
 [node name="L1martyr" type="Node2D" unique_id=1657065563 node_paths=PackedStringArray("type")]
 script = ExtResource("1_8xs36")

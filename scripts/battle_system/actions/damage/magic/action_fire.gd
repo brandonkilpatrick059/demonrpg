@@ -143,6 +143,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		if(targets[0] != null):
 			var pkg : BattlePkg = get_battle_pkg(actor, targets)
 			pkg = apply_buffs_to_pkg(pkg)
+			pkg = target.target_apply_type_item_buffs(pkg)
 			apply_pkg_to_target(pkg)
 			var burn = load("res://battle/actions/buffs/burn_buff_effect.tscn").instantiate()
 			burn.set_source_and_target(actor,target)

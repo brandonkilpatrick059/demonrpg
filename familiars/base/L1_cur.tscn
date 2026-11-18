@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bgtxyvlvwauyv" path="res://battle/actions/action_bite.tscn" id="3_5k04b"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="4_u41bn"]
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="5_qjn6l"]
-[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://scripts/familiars/types/type_beast.tscn" id="7_vn7xt"]
+[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://familiars/familiar_types/type_beast.tscn" id="7_vn7xt"]
 
 [node name="L1cur" type="Node2D" unique_id=2025998125 node_paths=PackedStringArray("type")]
 script = ExtResource("1_rvnse")
-packedscene_path = "res://familiars/base/L0_homunculus.tscn"
+packedscene_path = "res://familiars/base/L1_cur.tscn"
 familiar_name = "Cur"
 max_hp = 20
 current_hp = 20

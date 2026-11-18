@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_6jka4"]
 [ext_resource type="PackedScene" uid="uid://bqqcssxtldqrg" path="res://battle/actions/action_stab.tscn" id="6_k4aeb"]
 [ext_resource type="PackedScene" uid="uid://dt1dg4mahooev" path="res://battle/actions/action_push_left.tscn" id="7_ysw1w"]
-[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://scripts/familiars/types/type_beast.tscn" id="8_wbe7y"]
+[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://familiars/familiar_types/type_beast.tscn" id="8_wbe7y"]
 
 [node name="L2carn" type="Node2D" unique_id=1722867992 node_paths=PackedStringArray("type")]
 script = ExtResource("1_uqw50")

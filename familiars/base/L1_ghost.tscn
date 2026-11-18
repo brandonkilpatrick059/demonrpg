@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_pkuct"]
 [ext_resource type="SpriteFrames" uid="uid://b1tsk3qmnxy7w" path="res://sprites/spritesheets/familiars/L1_ghost.tres" id="2_xauga"]
 [ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_mrk8c"]
-[ext_resource type="PackedScene" uid="uid://dm5gdxe8vvhiq" path="res://scripts/familiars/types/type_incorporeal.tscn" id="4_w8gth"]
+[ext_resource type="PackedScene" uid="uid://dm5gdxe8vvhiq" path="res://familiars/familiar_types/type_incorporeal.tscn" id="4_w8gth"]
 
 [node name="L1ghost" type="Node2D" unique_id=1657065563 node_paths=PackedStringArray("type")]
 script = ExtResource("1_pkuct")

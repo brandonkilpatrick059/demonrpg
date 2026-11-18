@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://l77vpgovl8o0" path="res://sprites/props/exterior/altar.png" id="28_csypn"]
 [ext_resource type="PackedScene" uid="uid://0vkyde2rl1nk" path="res://utility/location_text.tscn" id="29_csypn"]
 [ext_resource type="AudioStream" uid="uid://5oghq67pblix" path="res://audio/music/demon_trader_song.ogg" id="30_gnc51"]
+[ext_resource type="PackedScene" uid="uid://cam847702142m" path="res://monsters/damned.tscn" id="31_52klf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -997,12 +998,6 @@ position = Vector2(360, -1632)
 encounter = ExtResource("24_nwvyl")
 sprite_frames = ExtResource("25_e4asu")
 
-[node name="ShadeMonster_walker_scryer6" parent="encounters" unique_id=63451822 instance=ExtResource("23_t3xoq")]
-z_index = 2
-position = Vector2(-360, -2784)
-encounter = ExtResource("24_nwvyl")
-sprite_frames = ExtResource("25_e4asu")
-
 [node name="ShadeMonster_walker_scryer5" parent="encounters" unique_id=225470254 instance=ExtResource("23_t3xoq")]
 z_index = 2
 position = Vector2(-360, -2280)
@@ -1052,6 +1047,9 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc_fence" unique_id=1286966771]
 polygon = PackedVector2Array(528, 48, 528, 72, 576, 72, 576, 48)
 
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="npc_fence" unique_id=1205428193]
+polygon = PackedVector2Array(-360, -2856, -360, -2832, -336, -2832, -336, -2856)
+
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="npc_fence" unique_id=497486123]
 polygon = PackedVector2Array(-384, -504, -384, -480, -336, -480, -336, -504)
 
@@ -1062,7 +1060,7 @@ polygon = PackedVector2Array(456, -1656, 456, -1632, 504, -1632, 504, -1656)
 position = Vector2(960, -1680)
 script = ExtResource("27_fwl25")
 location_name = "RUINED CHURCH"
-location_scene_path = "res://locations/zones/ghost_town/zone_ghost_town.tscn"
+location_scene_path = "res://locations/zones/ghost_town/interiors/ghost_town_interiors_L1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="altar" unique_id=1503590487]
 position = Vector2(24, 12)
@@ -1093,3 +1091,8 @@ position = Vector2(984, -1608)
 stream = ExtResource("30_gnc51")
 autoplay = true
 max_distance = 200.0
+
+[node name="Damned" parent="." unique_id=1590593699 instance=ExtResource("31_52klf")]
+position = Vector2(-360, -2880)
+damned_name = "GHOST_TOWN_DAMNED"
+familiar_path = "res://familiars/base/L0_forge_damned.tscn"

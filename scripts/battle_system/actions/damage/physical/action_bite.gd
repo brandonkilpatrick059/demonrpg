@@ -116,11 +116,8 @@ func apply_pkg_to_target(pkg : BattlePkg):
 					kill_target(actor,target)
 			target.set_current_hp(new_target_hp)
 		if(actor != null and not target.is_incorporeal()):
-			var actor_hp = actor.current_hp
-			var new_actor_hp = actor_hp + (1 + final_damage/4)
-			if(new_actor_hp >= actor.get_max_hp()):
-				new_actor_hp = actor.get_max_hp()
-			actor.set_current_hp(new_actor_hp)
+			var heal_amount = 1 + final_damage/4
+			actor.heal(heal_amount)
 
 func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	var actor : Familiar = pkg.get_actor()
@@ -155,6 +152,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 				var target : Familiar = targets[0]
 				var pkg : BattlePkg = get_battle_pkg(actor, targets)
 				pkg = apply_buffs_to_pkg(pkg)
+				pkg = target.target_apply_type_item_buffs(pkg)
 				apply_pkg_to_target(pkg)
 				visual_effects(pkg)
 				visual_effects_2(pkg)

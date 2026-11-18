@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b5a72542kg1wm"]
+
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_d4h6e"]
+[ext_resource type="SpriteFrames" uid="uid://bnun6flhktvx3" path="res://sprites/spritesheets/familiars/L0_damned.tres" id="2_my125"]
+[ext_resource type="PackedScene" uid="uid://dpv0uye5txnum" path="res://battle/actions/action_devour.tscn" id="3_7m7yp"]
+[ext_resource type="PackedScene" uid="uid://dpjefm8pieceb" path="res://familiars/familiar_types/type_excretion.tscn" id="4_3uak3"]
+
+[node name="L0Damned" type="Node2D" unique_id=2025998125 node_paths=PackedStringArray("type")]
+script = ExtResource("1_d4h6e")
+packedscene_path = "res://familiars/base/L0_damned.tscn"
+familiar_name = "Damned"
+max_hp = 40
+current_hp = 40
+type = NodePath("TypeExcretion")
+level = 0
+experience = 2500
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
+sprite_frames = ExtResource("2_my125")
+animation = &"die"
+frame_progress = 0.4048718
+
+[node name="actions" type="Node" parent="." unique_id=622052067]
+
+[node name="ActionDevour" parent="actions" unique_id=1019681140 instance=ExtResource("3_7m7yp")]
+
+[node name="TypeExcretion" parent="." unique_id=696639826 instance=ExtResource("4_3uak3")]

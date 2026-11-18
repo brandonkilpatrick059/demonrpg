@@ -121,8 +121,6 @@ func is_ready_to_evolve() -> bool:
 func get_evolutions() -> Array[Evolution]:
 	return evolutions
 
-
-
 func gen_stat_increase():
 	#max health is twice as likely as all others
 	stat_increase_value = 0
@@ -163,8 +161,26 @@ func get_level() -> int:
 func get_familiar_type() -> FamiliarType:
 	return type
 
-func apply_type_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
-	return type.apply_to_pkg(buff_holder,pkg)
+func target_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
+	var buffs : Array[PostBattleBuff] = type.get_post_battle_buffs()
+	var self_index = pkg.get_targets().find(self)
+	var final_damage = pkg.get_final_damages()[self_index]
+	var new_final_damage = final_damage
+	for buff : PostBattleBuff in buffs:
+		#physical damage
+		if(pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
+			var dmg_scale : float = buff.get_magic_dmg_scale_add()
+			var amt = int(ceili(final_damage * dmg_scale))
+			new_final_damage = new_final_damage + amt
+		elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
+			var dmg_scale : float = buff.get_magic_dmg_scale_add()
+			var amt = int(ceili(final_damage * dmg_scale))
+			new_final_damage = new_final_damage + amt
+	pkg.set_final_damage_index(self_index,new_final_damage)
+	return pkg
+
+func actor_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
+	return pkg
 
 func get_actions_taken() -> int:
 	return actions_taken
@@ -174,6 +190,23 @@ func action_taken():
 
 func reset_actions_taken():
 	actions_taken = 0
+
+func heal(amount : int):
+	var healing_buff = apply_type_healing_buffs(amount)
+	var new_amount = amount + healing_buff
+	var new_hp = current_hp + new_amount
+	if(new_hp >= get_max_hp()):
+		new_hp = get_max_hp()
+	heal_status_effects()
+	set_current_hp(new_hp)
+
+func apply_type_healing_buffs(amount : int) -> int:
+	var buff_amount : int = 0
+	var buffs : Array[PostHealBuff] = type.get_post_heal_buffs()
+	for buff : PostHealBuff in buffs:
+		var amt = int (amount * buff.get_heal_scale_add())
+		buff_amount = buff_amount + amt
+	return buff_amount
 
 func get_next_action() -> BattleAction:
 	var current_cadence : Array[String] = get_action_cadence(current_action_cadence)

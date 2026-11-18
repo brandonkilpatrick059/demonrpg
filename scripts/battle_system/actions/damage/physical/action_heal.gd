@@ -72,16 +72,11 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	return pkg
 
 func apply_pkg_to_target(pkg : BattlePkg):
-	var final_damage : int = pkg.get_final_damages()[0]
+	var final_healing : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
 	if(target != null):
-		var target_hp = target.current_hp
-		var new_target_hp = target_hp + final_damage
-		if(new_target_hp >= target.get_max_hp()):
-			new_target_hp = target.get_max_hp()
-		target.heal_status_effects()
-		target.set_current_hp(new_target_hp)
+		target.heal(final_healing)
 
 func get_target_preference(targets : Array[Familiar]) -> Array[Familiar]:
 	var chosen_target = targets[randi_range(0,targets.size()-1)]

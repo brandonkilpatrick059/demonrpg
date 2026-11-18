@@ -10,6 +10,9 @@ func set_final_damages(num : Array[int]):
 	final_damages.clear()
 	final_damages.append_array(num)
 
+func set_final_damage_index(index : int, final_damage : int):
+	final_damages.set(index,final_damage)
+
 func get_final_damages() -> Array[int]:
 	return final_damages
 

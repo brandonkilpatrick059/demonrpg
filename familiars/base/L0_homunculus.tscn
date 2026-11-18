@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="6_4ce68"]
 [ext_resource type="PackedScene" uid="uid://mqwwndfj3sls" path="res://battle/actions/action_run.tscn" id="6_yyj54"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="7_06rf1"]
-[ext_resource type="PackedScene" uid="uid://lrq1xxccm2if" path="res://scripts/familiars/types/type_homunculus.tscn" id="9_w4goi"]
+[ext_resource type="PackedScene" uid="uid://lrq1xxccm2if" path="res://familiars/familiar_types/type_homunculus.tscn" id="9_w4goi"]
 
 [node name="L0Homunculus" type="Node2D" unique_id=2025998125 node_paths=PackedStringArray("type")]
 script = ExtResource("1_mjql0")

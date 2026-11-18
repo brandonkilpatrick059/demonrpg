@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bsv61nq2xcplm"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_qioni"]
+[ext_resource type="AudioStream" uid="uid://dmwb2u8xa7t0e" path="res://audio/music/drone_1.ogg" id="2_y3i7d"]
+[ext_resource type="PackedScene" uid="uid://dwyadwknobwiw" path="res://familiars/base/L1_cur.tscn" id="3_7m6or"]
+
+[node name="three_curs" type="Node2D" unique_id=1645955725 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_qioni")
+opponents = [NodePath("L1cur"), NodePath("L1cur2"), NodePath("L1cur3"), NodePath("L1cur4")]
+music = ExtResource("2_y3i7d")
+
+[node name="L1cur" parent="." unique_id=2025998125 instance=ExtResource("3_7m6or")]
+visible = false
+max_hp = 40
+current_hp = 40
+attack = 8
+speed = 5
+capture_hp_percent = 0.2
+action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
+
+[node name="L1cur2" parent="." unique_id=1133261219 instance=ExtResource("3_7m6or")]
+visible = false
+max_hp = 40
+current_hp = 40
+attack = 8
+speed = 5
+capture_hp_percent = 0.2
+action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
+
+[node name="L1cur3" parent="." unique_id=403437911 instance=ExtResource("3_7m6or")]
+visible = false
+max_hp = 40
+current_hp = 40
+attack = 8
+speed = 5
+capture_hp_percent = 0.2
+action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
+
+[node name="L1cur4" parent="." unique_id=850234148 instance=ExtResource("3_7m6or")]
+visible = false
+max_hp = 40
+current_hp = 40
+attack = 8
+speed = 5
+capture_hp_percent = 0.2
+action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])

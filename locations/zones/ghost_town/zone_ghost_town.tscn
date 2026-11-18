@@ -771,12 +771,13 @@ script = ExtResource("23_pigst")
 throttle_to_db = -6.0
 
 [node name="LocationText" parent="." unique_id=927871242 instance=ExtResource("24_6exc6")]
+visible = false
 material = SubResource("CanvasItemMaterial_xwq3w")
 collision_layer = 0
 location_text = "GHOST TOWN"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LocationText" unique_id=1794062377]
-polygon = PackedVector2Array(264, 2808, 2088, 2808, 1944, 1944, 1728, 1944, 1728, 2088, 1680, 2088, 1632, 2088, 1632, 2064, 1632, 2016, 1728, 1896, 1992, 1752, 2088, 1392, 288, 1392)
+polygon = PackedVector2Array(264, 2808, 2088, 2808, 1944, 1944, 1752, 1920, 1728, 1920, 1728, 2088, 1680, 2088, 1632, 2088, 1632, 2064, 1632, 2016, 1728, 1896, 1992, 1752, 2088, 1392, 288, 1392)
 
 [node name="ZoneLinkCountryRoad" parent="." unique_id=889034446 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("25_tl1pt")]
 position = Vector2(240, 144)
@@ -1110,6 +1111,24 @@ sprite_frames = ExtResource("39_h3wx6")
 [node name="ShadeMonster_wraiths2" parent="encounters" unique_id=1964063789 instance=ExtResource("37_h3wx6")]
 z_index = 2
 position = Vector2(1008, 1800)
+encounter = ExtResource("38_w2q8d")
+sprite_frames = ExtResource("39_h3wx6")
+
+[node name="ShadeMonster_wraiths8" parent="encounters" unique_id=901391579 instance=ExtResource("37_h3wx6")]
+z_index = 2
+position = Vector2(1344, 1488)
+encounter = ExtResource("38_w2q8d")
+sprite_frames = ExtResource("39_h3wx6")
+
+[node name="ShadeMonster_wraiths9" parent="encounters" unique_id=695752521 instance=ExtResource("37_h3wx6")]
+z_index = 2
+position = Vector2(1632, 1728)
+encounter = ExtResource("38_w2q8d")
+sprite_frames = ExtResource("39_h3wx6")
+
+[node name="ShadeMonster_wraiths10" parent="encounters" unique_id=1048656402 instance=ExtResource("37_h3wx6")]
+z_index = 2
+position = Vector2(1728, 1968)
 encounter = ExtResource("38_w2q8d")
 sprite_frames = ExtResource("39_h3wx6")
 
