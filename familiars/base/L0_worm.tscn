@@ -21,7 +21,7 @@ level = 0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
 sprite_frames = ExtResource("2_1lm6r")
 animation = &"die"
-frame_progress = 0.49812716
+frame_progress = 0.85360956
 
 [node name="actions" type="Node" parent="." unique_id=622052067]
 
@@ -56,5 +56,18 @@ plus_num_acts = 1
 script = ExtResource("8_mh4r6")
 language_map = Array[String](["english"])
 text = Array[String](["Path of Withering"])
+
+[node name="cur" type="Node" parent="evolutions" unique_id=558376194 node_paths=PackedStringArray("path_text")]
+script = ExtResource("7_fwtqt")
+path_text = NodePath("path_text")
+new_base_path = "res://familiars/base/L1_cur.tscn"
+plus_magic = 5
+plus_speed = 5
+plus_num_acts = 1
+
+[node name="path_text" type="Node" parent="evolutions/cur" unique_id=801586252]
+script = ExtResource("8_mh4r6")
+language_map = Array[String](["english"])
+text = Array[String](["Path of the Dog"])
 
 [node name="TypeBeast" parent="." unique_id=696639826 instance=ExtResource("7_ax3mf")]
