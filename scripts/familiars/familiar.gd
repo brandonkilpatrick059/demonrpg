@@ -191,7 +191,7 @@ func action_taken():
 func reset_actions_taken():
 	actions_taken = 0
 
-func heal(amount : int):
+func heal(amount : int) -> int:
 	var healing_buff = apply_type_healing_buffs(amount)
 	var new_amount = amount + healing_buff
 	var new_hp = current_hp + new_amount
@@ -199,12 +199,14 @@ func heal(amount : int):
 		new_hp = get_max_hp()
 	heal_status_effects()
 	set_current_hp(new_hp)
+	return new_amount
 
 func apply_type_healing_buffs(amount : int) -> int:
 	var buff_amount : int = 0
 	var buffs : Array[PostHealBuff] = type.get_post_heal_buffs()
 	for buff : PostHealBuff in buffs:
-		var amt = int (amount * buff.get_heal_scale_add())
+		var amt_scale : float = buff.get_heal_scale_add()
+		var amt = int (amount * amt_scale)
 		buff_amount = buff_amount + amt
 	return buff_amount
 
@@ -271,22 +273,34 @@ func get_stat_increase() -> String:
 func get_stat_increase_value() -> int:
 	return stat_increase_value
 
+func get_consume_buff_amount(stat : String) -> int:
+	var final_value : int = 0
+	var feed_buffs : Array[PostFeedBuff] = type.get_post_feed_buffs()
+	for buff in feed_buffs:
+		var buff_to_increase : String = buff.get_buff_consumed_stat_name()
+		if(buff_to_increase == stat):
+			var buff_amount : int = buff.get_buff_consumed_stat_by()
+			final_value = final_value + buff_amount
+	return final_value
+
 func consume_familiar(familiar : Familiar, exp_multiplier : float = 1.0):
 	var increase_stat : String = familiar.get_stat_increase()
 	var value : int = familiar.get_stat_increase_value()
+	var buff_amount : int = get_consume_buff_amount(increase_stat)
+	var final_value : int = value + buff_amount
 	match(increase_stat):
 		"max health":
-			max_hp = max_hp + value
+			max_hp = max_hp + final_value
 		"attack":
-			attack = attack + value
+			attack = attack + final_value
 		"defense":
-			defense = defense + value
+			defense = defense + final_value
 		"speed":
-			speed = speed + value
+			speed = speed + final_value
 		"magic":
-			magic = magic + value
+			magic = magic + final_value
 		"num_actions":
-			num_actions = num_actions + value
+			num_actions = num_actions + final_value
 	experience = experience + (familiar.get_exp_value() * exp_multiplier)
 
 func add_experience(add_exp : int):

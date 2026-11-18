@@ -141,7 +141,7 @@ func visual_effects(actor : Familiar, target : Familiar):
 	feed_effect.global_position = target.global_position
 	battle_sys_ref.play_sound(load("res://audio/effects/feed.ogg"))
 
-func visual_effects_2(actor : Familiar, target : Familiar):
+func visual_effects_2(actor : Familiar, target : Familiar, amount : int):
 	#HEAL EFFECT AND EXP EFFECT
 	var glow_blue_node = load("res://utility/faders/heal_glow_blue.tscn").instantiate()
 	actor.add_child(glow_blue_node)
@@ -151,7 +151,7 @@ func visual_effects_2(actor : Familiar, target : Familiar):
 	var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
 	battle_sys_ref.add_child(hp_particle)
 	hp_particle.global_position = actor.global_position
-	hp_particle.set_particle(str(target.get_max_hp()),Color(0.542, 0.691, 1.0, 1.0))
+	hp_particle.set_particle(str(amount),Color(0.542, 0.691, 1.0, 1.0))
 	battle_sys_ref.play_sound(load("res://audio/effects/dark_bell.ogg"))
 
 func exit_action():
@@ -176,10 +176,10 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		if(not target.is_dead()):
 			target.kill()
 		actor.consume_familiar(target)
-		visual_effects(actor,target)
-		visual_effects_2(actor,target)
 		var heal_amount = target.get_max_hp()
-		actor.heal(heal_amount)
+		var final_heal_amount = actor.heal(heal_amount)
+		visual_effects(actor,target)
+		visual_effects_2(actor,target,final_heal_amount)
 		commenced_feed = true
 	elif(not announced_failure && not feed_succeeded):
 		var comment : String = get_failure_message(actor,targets[0])

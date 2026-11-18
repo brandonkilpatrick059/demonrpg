@@ -54,7 +54,7 @@ func visual_effects(pkg : BattlePkg):
 		var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
 		battle_sys_ref.add_child(hp_particle)
 		hp_particle.global_position = target.global_position
-		hp_particle.set_particle(str(final_damage),Color(0.542, 0.691, 1.0, 1.0))
+		hp_particle.set_particle(str(final_heal_amount),Color(0.542, 0.691, 1.0, 1.0))
 		battle_sys_ref.play_sound(load("res://audio/effects/heal.ogg"))
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
@@ -71,12 +71,14 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	pkg.set_targets(targets)
 	return pkg
 
+var final_heal_amount : int = 0
+
 func apply_pkg_to_target(pkg : BattlePkg):
 	var final_healing : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
 	var target : Familiar = pkg.get_targets()[0]
 	if(target != null):
-		target.heal(final_healing)
+		final_heal_amount = target.heal(final_healing)
 
 func get_target_preference(targets : Array[Familiar]) -> Array[Familiar]:
 	var chosen_target = targets[randi_range(0,targets.size()-1)]

@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dogiaxmsxt1y8" path="res://familiars/base/L2_byle.tscn" id="6_2gs5w"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
 [ext_resource type="PackedScene" uid="uid://2kvawkd11f4" path="res://familiars/base/L2_reaver.tscn" id="6_nn1l1"]
+[ext_resource type="PackedScene" uid="uid://c2fp2021t2vq8" path="res://familiars/base/L1_gark.tscn" id="6_ri5ms"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
-[ext_resource type="PackedScene" uid="uid://dwyadwknobwiw" path="res://familiars/base/L1_cur.tscn" id="7_ri5ms"]
 [ext_resource type="PackedScene" uid="uid://b4su5e3tsbe2s" path="res://locations/zones/ghost_town/zone_ghost_town.tscn" id="10_nn1l1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlo4x"]
@@ -81,16 +81,13 @@ states_map_values = Array[String](["TRUE", "TRUE", "USED"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
 position = Vector2(888, 1944)
-familiar_team = [NodePath("L2byle"), NodePath("L2reaver"), NodePath("L2reaver2"), NodePath("L1cur")]
+familiar_team = [NodePath("L2byle"), NodePath("L2reaver"), NodePath("L2reaver2"), NodePath("L1gark")]
 pentacle_charms = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
 process_mode = 3
 offset = Vector2(12, -12)
 process_callback = 0
-
-[node name="L1cur" parent="Player" unique_id=1533914147 instance=ExtResource("7_ri5ms")]
-visible = false
 
 [node name="L2reaver" parent="Player" unique_id=888126814 instance=ExtResource("6_nn1l1")]
 visible = false
@@ -106,6 +103,12 @@ current_hp = 30
 visible = false
 max_hp = 40
 current_hp = 40
+
+[node name="L1gark" parent="Player" unique_id=2120251354 instance=ExtResource("6_ri5ms")]
+visible = false
+max_hp = 20
+current_hp = 20
+magic = 6
 
 [node name="loading" type="Node2D" parent="." unique_id=47417405]
 visible = false

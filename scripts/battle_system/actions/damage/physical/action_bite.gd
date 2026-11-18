@@ -79,10 +79,10 @@ func visual_effects_2(pkg : BattlePkg):
 	var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
 	battle_sys_ref.add_child(hp_particle)
 	hp_particle.global_position = actor.global_position
-	var healing : int = 1+final_damage/4
-	if(target.is_incorporeal()):
-		healing = 0
-	hp_particle.set_particle(str(healing),Color(0.542, 0.691, 1.0, 1.0))
+	#var healing : int = 1+final_damage/4
+	#if(target.is_incorporeal()):
+		#healing = 0
+	hp_particle.set_particle(str(final_heal_amount),Color(0.542, 0.691, 1.0, 1.0))
 	#battle_sys_ref.play_sound(load("res://audio/effects/dark_bell.ogg"))
 
 func get_half_damage(actor : Familiar) -> int:
@@ -102,6 +102,8 @@ func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	pkg.set_targets(targets)
 	return pkg
 
+var final_heal_amount : int = 0
+
 func apply_pkg_to_target(pkg : BattlePkg):
 	var final_damage : int = pkg.get_final_damages()[0]
 	var actor : Familiar = pkg.get_actor()
@@ -117,7 +119,9 @@ func apply_pkg_to_target(pkg : BattlePkg):
 			target.set_current_hp(new_target_hp)
 		if(actor != null and not target.is_incorporeal()):
 			var heal_amount = 1 + final_damage/4
-			actor.heal(heal_amount)
+			final_heal_amount = actor.heal(heal_amount)
+		elif(target.is_incorporeal()):
+			final_heal_amount = 0
 
 func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 	var actor : Familiar = pkg.get_actor()

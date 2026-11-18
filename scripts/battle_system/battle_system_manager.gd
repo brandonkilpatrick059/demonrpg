@@ -413,6 +413,7 @@ func get_action_by_name(name : String, actions : Array[BattleAction]):
 	return ret_action
 
 func show_action_menu(familiar : Familiar):
+	#post battle feed mode
 	if(not familiar.is_in_group("player_familiar") and
 	side_is_dead(opponent_familiars)):
 		var set_actions : Array[BattleAction] = []
@@ -745,7 +746,15 @@ func update_sel_arrows():
 				slot.show_select_arrow()
 				var stat : String = familiar.get_stat_increase()
 				var value : int = familiar.get_stat_increase_value()
-				var label = str(str(stat," + "),value)
+				
+				var acting_familiar : Familiar = player_familiars[player_familiar_index]
+				var buff_amt : int = acting_familiar.get_consume_buff_amount(stat)
+				var buff_str : String = ""
+				if(buff_amt != 0):
+					if(buff_amt > 0):
+						buff_str = str(str(" (+",buff_amt),")")
+					buff_str = str(str(" (",buff_amt),")")
+				var label = str(str(str(stat," + "),value),buff_str)
 				slot.show_upgrade_label(label)
 		else:
 			slot.show_select_arrow()
