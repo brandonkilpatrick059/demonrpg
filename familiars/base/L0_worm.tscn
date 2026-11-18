@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c2w6xets8qns6" path="res://sprites/spritesheets/familiars/L0_worm.tres" id="2_1lm6r"]
 [ext_resource type="PackedScene" uid="uid://bgtxyvlvwauyv" path="res://battle/actions/action_bite.tscn" id="3_r18mk"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_xln40"]
-[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://scripts/familiars/types/type_beast.tscn" id="7_ax3mf"]
+[ext_resource type="PackedScene" uid="uid://dpjefm8pieceb" path="res://scripts/familiars/types/type_excretion.tscn" id="7_ax3mf"]
 [ext_resource type="Script" uid="uid://7veaduwoy3ti" path="res://scripts/familiars/evolution.gd" id="7_fwtqt"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="8_mh4r6"]
 
@@ -15,13 +15,13 @@ familiar_name = "Worm"
 max_hp = 20
 current_hp = 20
 attack = 5
-type = NodePath("TypeBeast")
+type = NodePath("TypeExcretion")
 level = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
 sprite_frames = ExtResource("2_1lm6r")
 animation = &"die"
-frame_progress = 0.85360956
+frame_progress = 0.15283011
 
 [node name="actions" type="Node" parent="." unique_id=622052067]
 
@@ -70,4 +70,4 @@ script = ExtResource("8_mh4r6")
 language_map = Array[String](["english"])
 text = Array[String](["Path of the Dog"])
 
-[node name="TypeBeast" parent="." unique_id=696639826 instance=ExtResource("7_ax3mf")]
+[node name="TypeExcretion" parent="." unique_id=696639826 instance=ExtResource("7_ax3mf")]

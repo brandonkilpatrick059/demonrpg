@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cfth7s76q35pp"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_gwbvf"]
+[ext_resource type="AudioStream" uid="uid://dmwb2u8xa7t0e" path="res://audio/music/drone_1.ogg" id="2_uskfa"]
+[ext_resource type="PackedScene" uid="uid://dwyadwknobwiw" path="res://familiars/base/L1_cur.tscn" id="3_2480p"]
+
+[node name="two_curs" type="Node2D" unique_id=1645955725 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_gwbvf")
+opponents = [NodePath("L1cur"), NodePath("L1cur2")]
+music = ExtResource("2_uskfa")
+
+[node name="L1cur" parent="." unique_id=2025998125 instance=ExtResource("3_2480p")]
+visible = false
+max_hp = 40
+current_hp = 40
+attack = 8
+speed = 5
+capture_hp_percent = 0.2
+action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
+
+[node name="L1cur2" parent="." unique_id=1006920015 instance=ExtResource("3_2480p")]
+visible = false
+max_hp = 40
+current_hp = 40
+attack = 8
+speed = 5
+capture_hp_percent = 0.2
+action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])

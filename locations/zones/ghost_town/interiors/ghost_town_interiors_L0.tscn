@@ -11,6 +11,10 @@
 [ext_resource type="Script" uid="uid://brah8kyikmbbb" path="res://scripts/utility/run_scripts/play_texts.gd" id="10_3v535"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="11_gafim"]
 [ext_resource type="Texture2D" uid="uid://cicmq4ty7hb55" path="res://sprites/props/interior/open_book.png" id="11_n3kin"]
+[ext_resource type="PackedScene" uid="uid://ckrpapyrt703p" path="res://monsters/shade_monster.tscn" id="12_8tcdm"]
+[ext_resource type="PackedScene" uid="uid://cfth7s76q35pp" path="res://battle/encounters/ghost_town/two_curs.tscn" id="13_86du6"]
+[ext_resource type="SpriteFrames" uid="uid://0niuxcdvgobh" path="res://sprites/spritesheets/monsters/shade_monster_martyr.tres" id="14_koys4"]
+[ext_resource type="PackedScene" uid="uid://duncld2xlqwve" path="res://battle/encounters/ghost_town/three_curs.tscn" id="15_koys4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -344,3 +348,39 @@ text = Array[String](["(I can't make out the rest of it)"])
 position = Vector2(24, 0)
 texture = ExtResource("11_n3kin")
 offset = Vector2(12, 4)
+
+[node name="encounters" type="Node2D" parent="." unique_id=85154739]
+
+[node name="ShadeMonster_cur_two" parent="encounters" unique_id=331820355 instance=ExtResource("12_8tcdm")]
+z_index = 2
+position = Vector2(216, -384)
+encounter = ExtResource("13_86du6")
+sprite_frames = ExtResource("14_koys4")
+
+[node name="ShadeMonster_cur_two3" parent="encounters" unique_id=1977370472 instance=ExtResource("12_8tcdm")]
+z_index = 2
+position = Vector2(1152, -216)
+encounter = ExtResource("13_86du6")
+sprite_frames = ExtResource("14_koys4")
+
+[node name="ShadeMonster_cur_two2" parent="encounters" unique_id=970594723 instance=ExtResource("12_8tcdm")]
+z_index = 2
+position = Vector2(408, -1224)
+encounter = ExtResource("13_86du6")
+sprite_frames = ExtResource("14_koys4")
+
+[node name="ShadeMonster_cur_three" parent="encounters" unique_id=863965217 instance=ExtResource("12_8tcdm")]
+z_index = 2
+position = Vector2(432, -240)
+encounter = ExtResource("15_koys4")
+sprite_frames = ExtResource("14_koys4")
+
+[node name="npc_fence" type="StaticBody2D" parent="." unique_id=1688559010]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc_fence" unique_id=138409683]
+polygon = PackedVector2Array(192, -552, 216, -552, 216, -528, 192, -528)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="npc_fence" unique_id=1000540508]
+polygon = PackedVector2Array(528, -960, 528, -936, 552, -936, 552, -960)

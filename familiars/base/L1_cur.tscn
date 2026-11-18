@@ -20,7 +20,7 @@ type = NodePath("TypeBeast")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
 sprite_frames = ExtResource("2_rvnse")
 animation = &"attack"
-frame_progress = 0.5094361
+frame_progress = 0.9537726
 
 [node name="actions" type="Node" parent="." unique_id=622052067]
 

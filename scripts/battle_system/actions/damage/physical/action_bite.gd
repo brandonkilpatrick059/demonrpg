@@ -79,7 +79,10 @@ func visual_effects_2(pkg : BattlePkg):
 	var hp_particle = load("res://battle/effects/hp_particle.tscn").instantiate()
 	battle_sys_ref.add_child(hp_particle)
 	hp_particle.global_position = actor.global_position
-	hp_particle.set_particle(str(1+final_damage/4),Color(0.542, 0.691, 1.0, 1.0))
+	var healing : int = 1+final_damage/4
+	if(target.is_incorporeal()):
+		healing = 0
+	hp_particle.set_particle(str(healing),Color(0.542, 0.691, 1.0, 1.0))
 	#battle_sys_ref.play_sound(load("res://audio/effects/dark_bell.ogg"))
 
 func get_half_damage(actor : Familiar) -> int:
@@ -112,7 +115,7 @@ func apply_pkg_to_target(pkg : BattlePkg):
 				if(!target.is_dead()):
 					kill_target(actor,target)
 			target.set_current_hp(new_target_hp)
-		if(actor != null):
+		if(actor != null and not target.is_incorporeal()):
 			var actor_hp = actor.current_hp
 			var new_actor_hp = actor_hp + (1 + final_damage/4)
 			if(new_actor_hp >= actor.get_max_hp()):

@@ -17,7 +17,7 @@ text = Array[String](["EXCRETION"])
 [node name="description_1" type="Node" parent="." unique_id=197035765]
 script = ExtResource("2_rlmi0")
 language_map = Array[String](["english"])
-text = Array[String](["[color=green]+1[/color] [color=green] [color=red] CONSUMED [/color][color=yellow]MAX HEALTH[/color]"])
+text = Array[String](["[color=green]+1[/color][color=green][color=red] CONSUMED [/color][color=yellow]MAX HEALTH[/color]"])
 
 [node name="description_2" type="Node" parent="." unique_id=1383882342]
 script = ExtResource("2_rlmi0")

@@ -363,10 +363,10 @@ bus = &"effects"
 
 [node name="music2" type="AudioStreamPlayer" parent="." unique_id=482488475]
 stream = ExtResource("14_sn6ev")
-volume_db = 9.0
+volume_db = 12.0
 bus = &"music"
 script = ExtResource("17_nui7l")
-throttle_to_db = -3.0
+throttle_to_db = 6.0
 
 [node name="LocationText" parent="." unique_id=927871242 instance=ExtResource("33_8bufg")]
 visible = false
@@ -468,504 +468,504 @@ rotation = 1.5707964
 [node name="water_fall_water" type="AnimatedSprite2D" parent="river/water_fall" unique_id=238457035]
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water2" type="AnimatedSprite2D" parent="river/water_fall" unique_id=173756384]
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1469277818]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="river/water_fall" unique_id=393530555]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="river/water_fall" unique_id=143328189]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="river/water_fall" unique_id=642584907]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="river/water_fall" unique_id=354851275]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1050447173]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water9" type="AnimatedSprite2D" parent="river/water_fall" unique_id=802316287]
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water10" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1760990886]
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water67" type="AnimatedSprite2D" parent="river/water_fall" unique_id=315211144]
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water68" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1791227574]
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water11" type="AnimatedSprite2D" parent="river/water_fall" unique_id=426666485]
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water12" type="AnimatedSprite2D" parent="river/water_fall" unique_id=58020581]
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water71" type="AnimatedSprite2D" parent="river/water_fall" unique_id=753728599]
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water72" type="AnimatedSprite2D" parent="river/water_fall" unique_id=959757119]
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water13" type="AnimatedSprite2D" parent="river/water_fall" unique_id=333904973]
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water14" type="AnimatedSprite2D" parent="river/water_fall" unique_id=949681042]
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water69" type="AnimatedSprite2D" parent="river/water_fall" unique_id=197009634]
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water70" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1358920047]
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water15" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1749750812]
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water16" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1514106566]
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water17" type="AnimatedSprite2D" parent="river/water_fall" unique_id=2122676655]
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water18" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1368747723]
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water19" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1654097010]
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water20" type="AnimatedSprite2D" parent="river/water_fall" unique_id=103341126]
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water21" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1724331064]
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water22" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1069780575]
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water23" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1870976855]
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water24" type="AnimatedSprite2D" parent="river/water_fall" unique_id=904282216]
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="river/water_fall" unique_id=407370177]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="river/water_fall" unique_id=453125506]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="river/water_fall" unique_id=40119949]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1268438977]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1126065750]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="river/water_fall" unique_id=403987666]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="river/water_fall" unique_id=170130412]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="river/water_fall" unique_id=541159671]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1580790434]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="river/water_fall" unique_id=859733027]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1803316833]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1183210805]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="river/water_fall" unique_id=778481182]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1151787635]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water33" type="AnimatedSprite2D" parent="river/water_fall" unique_id=975981593]
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water34" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1030849550]
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water35" type="AnimatedSprite2D" parent="river/water_fall" unique_id=327498336]
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water36" type="AnimatedSprite2D" parent="river/water_fall" unique_id=2077485033]
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water37" type="AnimatedSprite2D" parent="river/water_fall" unique_id=233742798]
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water38" type="AnimatedSprite2D" parent="river/water_fall" unique_id=953208999]
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water39" type="AnimatedSprite2D" parent="river/water_fall" unique_id=625007368]
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water40" type="AnimatedSprite2D" parent="river/water_fall" unique_id=701209397]
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water41" type="AnimatedSprite2D" parent="river/water_fall" unique_id=666090145]
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water42" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1888742613]
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water43" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1643844361]
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water44" type="AnimatedSprite2D" parent="river/water_fall" unique_id=305041477]
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water45" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1916693114]
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water46" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1223464942]
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water47" type="AnimatedSprite2D" parent="river/water_fall" unique_id=550739197]
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water48" type="AnimatedSprite2D" parent="river/water_fall" unique_id=448757067]
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water49" type="AnimatedSprite2D" parent="river/water_fall" unique_id=133378917]
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water50" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1801666316]
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water51" type="AnimatedSprite2D" parent="river/water_fall" unique_id=718477065]
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water52" type="AnimatedSprite2D" parent="river/water_fall" unique_id=587451288]
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water53" type="AnimatedSprite2D" parent="river/water_fall" unique_id=339186233]
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water54" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1077891382]
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water55" type="AnimatedSprite2D" parent="river/water_fall" unique_id=538296279]
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water56" type="AnimatedSprite2D" parent="river/water_fall" unique_id=462853025]
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water57" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1733104620]
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water58" type="AnimatedSprite2D" parent="river/water_fall" unique_id=70323747]
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water59" type="AnimatedSprite2D" parent="river/water_fall" unique_id=2036597916]
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water60" type="AnimatedSprite2D" parent="river/water_fall" unique_id=1747123898]
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
@@ -1031,504 +1031,504 @@ rotation = 1.5707964
 [node name="water_fall_water" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1913608539]
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water2" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=350534601]
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=2103267831]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=384904294]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=788856281]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=366245914]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=2070488577]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=593031770]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water9" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=336627621]
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water10" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1998175511]
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water67" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1400214081]
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water68" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1138200616]
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water11" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1528441014]
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water12" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=320161152]
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water71" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1383820088]
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water72" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=182828514]
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water13" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=263650858]
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water14" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1695876470]
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water69" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=962598096]
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water70" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1929054563]
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water15" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1987958129]
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water16" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=63237515]
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water17" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1133506978]
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water18" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=316241983]
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water19" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1444353943]
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water20" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=450176410]
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water21" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=758719584]
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water22" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=213476557]
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water23" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1938462311]
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water24" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=18374]
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=2140850981]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=2081612364]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1901332857]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=196644828]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1148414951]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1310676731]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=260203256]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1368911849]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1902959408]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=242785423]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=716995482]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=461975343]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1559411769]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=908381497]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water33" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1307326679]
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water34" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=855560208]
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water35" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=92590982]
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water36" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=542370446]
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water37" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1742604063]
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water38" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=811498673]
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water39" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1259811685]
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water40" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=384005507]
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water41" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=806211278]
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water42" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1027899890]
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water43" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1336612994]
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water44" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1476213892]
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water45" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=608257514]
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water46" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=336183591]
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water47" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1594225402]
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water48" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=725573058]
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water49" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=155983795]
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water50" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=200636342]
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water51" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1489480424]
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water52" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=15083397]
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water53" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=728742964]
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water54" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=553889948]
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water55" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1304438955]
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water56" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1562855572]
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water57" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1407171320]
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water58" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=2097460931]
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water59" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=610065015]
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water60" type="AnimatedSprite2D" parent="river/water_fall2" unique_id=1010231429]
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
@@ -1594,504 +1594,504 @@ rotation = 1.5707964
 [node name="water_fall_water" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1843800165]
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water2" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1688567816]
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1980931045]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1589300490]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1003870938]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1198499848]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=374061776]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=830424466]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water9" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1194983046]
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water10" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1932733894]
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water67" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1817564063]
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water68" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=544733244]
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water11" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1258961073]
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water12" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1582663651]
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water71" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1809929395]
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water72" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=324551562]
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water13" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1060120505]
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water14" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=229226862]
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water69" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1057605344]
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water70" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=956237937]
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water15" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=524102271]
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water16" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=232602829]
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water17" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1519444704]
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water18" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=839272665]
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water19" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1454697682]
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water20" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=743880244]
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water21" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=2138093679]
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water22" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=420197799]
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water23" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1673543564]
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water24" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1681344142]
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=513689278]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1581457188]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=2109409390]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1591424303]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1204095227]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=454670133]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1734079732]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1318517630]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1858412999]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=538317063]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1147181811]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1002105483]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1646528833]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1755167198]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water33" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=586697424]
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water34" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=672985226]
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water35" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1382034355]
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water36" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1063547489]
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water37" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1693680919]
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water38" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=391406392]
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water39" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1792088620]
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water40" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1067608477]
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water41" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=84242277]
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water42" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1798499336]
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water43" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1679127596]
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water44" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=118216448]
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water45" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=838132860]
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water46" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1556082113]
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water47" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1079540308]
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water48" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1269987024]
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water49" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1280112119]
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water50" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=867525266]
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water51" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1496342054]
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water52" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1345732860]
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water53" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=337531311]
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water54" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1448325604]
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water55" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1427126489]
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water56" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=685515985]
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water57" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=910386912]
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water58" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=929416388]
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water59" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1206563338]
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water60" type="AnimatedSprite2D" parent="river/water_fall3" unique_id=1726143269]
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
@@ -2157,504 +2157,504 @@ rotation = 1.5707964
 [node name="water_fall_water" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=816323038]
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water2" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=46882833]
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=617496422]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=285867648]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=591568179]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1381048707]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1996947182]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1415495453]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water9" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=2024816748]
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water10" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=523382631]
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water67" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=933179170]
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water68" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1173696056]
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water11" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1721731214]
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water12" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=950462460]
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water71" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1168389781]
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water72" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=49576217]
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water13" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1445604183]
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water14" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1856870494]
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water69" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=336450732]
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water70" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=210517966]
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water15" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1558546769]
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water16" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=951212526]
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water17" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1795452885]
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water18" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1136936049]
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water19" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=38564770]
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water20" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=160413814]
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water21" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1235896090]
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water22" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=294832090]
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water23" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=323998010]
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water24" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=582276501]
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1260629931]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=22742620]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=2082090304]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1524216758]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1533084573]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1762570677]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1886493068]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=818791635]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=328826602]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1380899365]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1090602433]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=773520533]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=153785631]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1669510574]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water33" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1344675955]
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water34" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1475153865]
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water35" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1612900997]
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water36" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=468386535]
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water37" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1025428222]
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water38" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=28611569]
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water39" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1190459617]
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water40" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1298639608]
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water41" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=390072536]
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water42" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1625995474]
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water43" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1603672623]
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water44" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1576198947]
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water45" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1606361748]
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water46" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1519570774]
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water47" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=108449437]
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water48" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1227206875]
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water49" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=228622641]
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water50" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=612667791]
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water51" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=259843472]
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water52" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1972930288]
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water53" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1192515235]
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water54" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1634494298]
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water55" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1533740718]
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water56" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1559091721]
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water57" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1376208193]
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water58" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=258908561]
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water59" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=73641482]
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water60" type="AnimatedSprite2D" parent="river/water_fall4" unique_id=1888884484]
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
@@ -2720,504 +2720,504 @@ rotation = 1.5707964
 [node name="water_fall_water" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1198196733]
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water2" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1850169066]
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=2111919863]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1283522226]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=109564276]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=241827264]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=306012015]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=891219037]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water9" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=69088097]
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water10" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1251357102]
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water67" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1532719218]
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water68" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1553011399]
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water11" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1635209491]
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water12" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1063092755]
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water71" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=659683366]
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water72" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=2049367617]
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water13" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1416353659]
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water14" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=703375899]
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water69" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=865456460]
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water70" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1878999050]
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water15" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1206149225]
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water16" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1330738701]
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water17" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1905139713]
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water18" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=2001835945]
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water19" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1679980430]
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water20" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=83331306]
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water21" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1788482346]
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water22" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=64776541]
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water23" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1841933708]
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water24" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=648406042]
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1164022056]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=932746094]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1596534433]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1104899724]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=583721637]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1150114238]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1606107055]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=209706966]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1162117435]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=906808840]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=203407567]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1147694225]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1784353293]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=312706307]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water33" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=2044209080]
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water34" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1268365324]
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water35" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=847032834]
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water36" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=2123288490]
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water37" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1342755149]
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water38" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1066702026]
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water39" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=431275446]
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water40" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=536418841]
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water41" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1862073341]
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water42" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=816330938]
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water43" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=721601722]
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water44" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=250688973]
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water45" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1331683926]
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water46" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=91263883]
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water47" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1748590001]
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water48" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1606650559]
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water49" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=2138408588]
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water50" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1431976378]
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water51" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=169879588]
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water52" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=87336673]
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water53" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1884268091]
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water54" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=316370602]
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water55" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=228340143]
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water56" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1324004533]
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water57" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=364716020]
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water58" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1069085877]
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water59" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=432227072]
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water60" type="AnimatedSprite2D" parent="river/water_fall5" unique_id=1844543795]
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
@@ -3283,504 +3283,504 @@ rotation = 1.5707964
 [node name="water_fall_water" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1745775154]
 position = Vector2(1320, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water2" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=860655060]
 position = Vector2(1344, -1272)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water3" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=322698658]
 position = Vector2(1320, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water4" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=721780346]
 position = Vector2(1344, -1296)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water5" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=940834473]
 position = Vector2(1320, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water6" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1428503830]
 position = Vector2(1344, -1320)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water7" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1661993676]
 position = Vector2(1320, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water8" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=931499352]
 position = Vector2(1344, -1344)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water9" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1105573860]
 position = Vector2(1320, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water10" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=162090400]
 position = Vector2(1344, -1368)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water67" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=861788216]
 position = Vector2(1320, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water68" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1582512197]
 position = Vector2(1344, -624)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water11" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1935488455]
 position = Vector2(1320, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water12" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1092253734]
 position = Vector2(1344, -1392)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water71" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1843601458]
 position = Vector2(1320, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water72" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=247668605]
 position = Vector2(1344, -600)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water13" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1752440085]
 position = Vector2(1320, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water14" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=623261213]
 position = Vector2(1344, -1416)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water69" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=2112819068]
 position = Vector2(1320, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water70" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1290167905]
 position = Vector2(1344, -576)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water15" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1898725377]
 position = Vector2(1320, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water16" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=305395946]
 position = Vector2(1344, -1248)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water17" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1760238349]
 position = Vector2(1320, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water18" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=2084384743]
 position = Vector2(1344, -1224)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water19" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=885241719]
 position = Vector2(1320, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water20" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=346060801]
 position = Vector2(1344, -1200)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water21" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=111949604]
 position = Vector2(1320, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water22" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1027702372]
 position = Vector2(1344, -1176)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water23" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1049071207]
 position = Vector2(1320, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water24" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=283776759]
 position = Vector2(1344, -1152)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water25" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=599144349]
 position = Vector2(1320, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water26" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=353967096]
 position = Vector2(1344, -1128)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water27" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1755612202]
 position = Vector2(1320, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water28" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=651901283]
 position = Vector2(1344, -1104)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water29" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1566328461]
 position = Vector2(1320, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water30" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=613103109]
 position = Vector2(1344, -1080)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water31" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1453844473]
 position = Vector2(1320, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water32" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1550393483]
 position = Vector2(1344, -1056)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water61" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1632939602]
 position = Vector2(1320, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water62" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=229147183]
 position = Vector2(1344, -696)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water63" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1932191979]
 position = Vector2(1320, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water64" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=293360072]
 position = Vector2(1344, -672)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water65" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=866947187]
 position = Vector2(1320, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water66" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=663389017]
 position = Vector2(1344, -648)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water33" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1486810337]
 position = Vector2(1320, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water34" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=695391999]
 position = Vector2(1344, -1032)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water35" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=523952317]
 position = Vector2(1320, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water36" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1351670068]
 position = Vector2(1344, -1008)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water37" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1069716002]
 position = Vector2(1320, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water38" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=606857434]
 position = Vector2(1344, -984)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water39" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1946924697]
 position = Vector2(1320, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water40" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1274840338]
 position = Vector2(1344, -960)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water41" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=322886416]
 position = Vector2(1320, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water42" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=994824855]
 position = Vector2(1344, -936)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water43" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=470776112]
 position = Vector2(1320, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water44" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=525453925]
 position = Vector2(1344, -912)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water45" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=149720523]
 position = Vector2(1320, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water46" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1142331930]
 position = Vector2(1344, -888)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water47" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=817634791]
 position = Vector2(1320, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water48" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=623112567]
 position = Vector2(1344, -864)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water49" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=186561178]
 position = Vector2(1320, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water50" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=953784645]
 position = Vector2(1344, -840)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water51" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1351462115]
 position = Vector2(1320, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water52" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1060173209]
 position = Vector2(1344, -816)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water53" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=963356963]
 position = Vector2(1320, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water54" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=2077319847]
 position = Vector2(1344, -792)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water55" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1306887753]
 position = Vector2(1320, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water56" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=630772598]
 position = Vector2(1344, -768)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water57" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1888254200]
 position = Vector2(1320, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water58" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1196949686]
 position = Vector2(1344, -744)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water59" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1875653171]
 position = Vector2(1320, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 
 [node name="water_fall_water60" type="AnimatedSprite2D" parent="river/water_fall6" unique_id=1490746584]
 position = Vector2(1344, -720)
 sprite_frames = ExtResource("20_jwb68")
-frame_progress = 0.4810173
+frame_progress = 0.8345621
 offset = Vector2(12, 12)
 script = ExtResource("21_ufisv")
 

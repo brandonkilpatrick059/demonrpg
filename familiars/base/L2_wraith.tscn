@@ -8,8 +8,8 @@
 
 [node name="L2wraith" type="Node2D" unique_id=1657065563 node_paths=PackedStringArray("type")]
 script = ExtResource("1_x3dj8")
-packedscene_path = "res://familiars/base/L1_ghost.tscn"
-familiar_name = "Ghost"
+packedscene_path = "res://familiars/base/L2_wraith.tscn"
+familiar_name = "Wraith"
 max_hp = 8
 current_hp = 8
 attack = 5

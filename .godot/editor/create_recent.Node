@@ -1,12 +1,12 @@
+AudioStreamPlayer2D
+CollisionPolygon2D
+Node2D
 Node
 CollisionShape2D
 Sprite2D
-Node2D
-CollisionPolygon2D
 Label
 ColorRect
 PointLight2D
-AudioStreamPlayer2D
 RichTextLabel
 Camera2D
 Polygon2D
