@@ -9,9 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://b8pynlcnn2j07" path="res://interface/summary_action_tab.tscn" id="6_xbbee"]
 [ext_resource type="Texture2D" uid="uid://6kebcbge2ihm" path="res://sprites/spritesheets/battle/interface/select_arrow_static.png" id="7_k8h1s"]
 [ext_resource type="Texture2D" uid="uid://btvey5s1t32nr" path="res://sprites/items/pentacle_seal_24.png" id="8_wblr4"]
+[ext_resource type="Script" uid="uid://c8nsbo4604d1a" path="res://utility/wobble.gd" id="9_cp5na"]
 [ext_resource type="Texture2D" uid="uid://b8lc5tvv7145o" path="res://sprites/interface/type_interface.png" id="10_f3d0f"]
 [ext_resource type="Texture2D" uid="uid://ciu2cirs255rm" path="res://sprites/interface/artifact_slot.png" id="11_o38hn"]
-[ext_resource type="Texture2D" uid="uid://c5ux7vx65o27c" path="res://sprites/interface/glyphs/keyboard/space_key.png" id="12_r8cd3"]
+[ext_resource type="Texture2D" uid="uid://byabblf0gt07" path="res://sprites/interface/item_description.png" id="13_cp5na"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8h1s"]
 light_mode = 1
@@ -54,6 +55,12 @@ font_size = 8
 light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r8cd3"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ftgtg"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cp5na"]
 light_mode = 1
 
 [node name="FamiliarSummary" type="Node2D" unique_id=1432410905]
@@ -224,18 +231,26 @@ material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(1, 70)
 
 [node name="arrow_left" type="Sprite2D" parent="." unique_id=996110215]
-visible = false
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(-140, 0)
 rotation = 1.5708
 texture = ExtResource("7_k8h1s")
+script = ExtResource("9_cp5na")
+wobble_distance = 1
+speed = 1
+step_time_secs = 0.5
+vertical = true
 
 [node name="arrow_right" type="Sprite2D" parent="." unique_id=2095387250]
-visible = false
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(140, 0)
 rotation = 4.71239
 texture = ExtResource("7_k8h1s")
+script = ExtResource("9_cp5na")
+wobble_distance = 1
+speed = 1
+step_time_secs = 0.5
+vertical = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1773521269]
 
@@ -298,26 +313,46 @@ theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "CANNOT [color=red]FEED[/color]"
 
-[node name="artifact_interface" type="Node2D" parent="." unique_id=1296025852]
+[node name="equip_item_interface" type="Node2D" parent="." unique_id=1296025852]
+modulate = Color(0.5019608, 0.5019608, 0.5019608, 1)
+position = Vector2(0, 1)
 
-[node name="artifact_slot" type="Sprite2D" parent="artifact_interface" unique_id=1439132232]
+[node name="equip_item" type="Sprite2D" parent="equip_item_interface" unique_id=1439132232]
 material = SubResource("CanvasItemMaterial_r8cd3")
 position = Vector2(98, -47)
 texture = ExtResource("11_o38hn")
 
-[node name="artifact_label" type="RichTextLabel" parent="artifact_interface" unique_id=164155182]
+[node name="equip_item_label" type="RichTextLabel" parent="equip_item_interface" unique_id=164155182]
 material = SubResource("CanvasItemMaterial_r8cd3")
 offset_left = 80.0
-offset_top = -75.0
+offset_top = -74.0
 offset_right = 119.0
-offset_bottom = -57.0
+offset_bottom = -56.0
 theme_override_fonts/normal_font = ExtResource("3_poctu")
 theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
 text = "EMPTY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="button" type="Sprite2D" parent="artifact_interface" unique_id=612644685]
+[node name="description_box" type="Sprite2D" parent="equip_item_interface" unique_id=612644685]
 visible = false
+material = SubResource("CanvasItemMaterial_ftgtg")
+position = Vector2(34, -11)
+texture = ExtResource("13_cp5na")
+
+[node name="description_label" type="RichTextLabel" parent="equip_item_interface/description_box" unique_id=840086202]
+material = SubResource("CanvasItemMaterial_o38hn")
+offset_left = -78.0
+offset_top = -8.0
+offset_right = 79.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("3_poctu")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "30% WEAKNESS TO [color=RED]PHYSICAL DAMAGE[/color]"
+
+[node name="sprite" type="AnimatedSprite2D" parent="equip_item_interface" unique_id=580727287]
+material = SubResource("CanvasItemMaterial_cp5na")
 position = Vector2(98, -38)
-texture = ExtResource("12_r8cd3")
+frame_progress = 0.7161293

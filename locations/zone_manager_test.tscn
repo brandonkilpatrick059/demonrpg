@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c81wetankxf32" path="res://scripts/locations/zone_manager.gd" id="1_5ulbo"]
 [ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="3_2gs5w"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
+[ext_resource type="PackedScene" uid="uid://hvgjpnfasq2w" path="res://equip_items/equip_item_devil_fang.tscn" id="5_2gs5w"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
 [ext_resource type="PackedScene" uid="uid://dogiaxmsxt1y8" path="res://familiars/base/L2_byle.tscn" id="6_2gs5w"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
@@ -94,10 +95,14 @@ visible = false
 max_hp = 30
 current_hp = 30
 
-[node name="L2reaver2" parent="Player" unique_id=259755475 instance=ExtResource("6_nn1l1")]
+[node name="L2reaver2" parent="Player" unique_id=259755475 node_paths=PackedStringArray("equipped_item") instance=ExtResource("6_nn1l1")]
 visible = false
 max_hp = 30
 current_hp = 30
+equipped_item = NodePath("EquipItemDevilFang")
+
+[node name="EquipItemDevilFang" parent="Player/L2reaver2" unique_id=979938698 instance=ExtResource("5_2gs5w")]
+position = Vector2(-923.66895, -1899.7123)
 
 [node name="L2byle" parent="Player" unique_id=1170432072 instance=ExtResource("6_2gs5w")]
 visible = false
@@ -106,8 +111,8 @@ current_hp = 40
 
 [node name="L1gark" parent="Player" unique_id=2120251354 instance=ExtResource("6_ri5ms")]
 visible = false
-max_hp = 20
-current_hp = 20
+max_hp = 40
+current_hp = 40
 magic = 6
 
 [node name="loading" type="Node2D" parent="." unique_id=47417405]

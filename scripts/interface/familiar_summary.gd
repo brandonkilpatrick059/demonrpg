@@ -4,6 +4,8 @@ var familiars : Array[Familiar]
 var familiar_index : int = 0
 var current_familiar : Familiar
 
+var showing_item : bool = false
+
 @onready var action_tabs : Array[SummaryActionTab] = [
 	$summary_action_tab,
 	$summary_action_tab2,
@@ -41,13 +43,13 @@ func set_familiar(familiar : Familiar):
 		$type_interface.visible = false
 		var player_ref : Player = get_tree().get_first_node_in_group("player")
 		$seal_counter/seal_label.text = str("x",player_ref.get_pentacle_charms())
-		$artifact_interface.visible = false
+		$equip_item_interface.visible = false
 	else:
 		$power.visible = true
 		$to_next.visible = true
 		$seal_counter.visible = false
 		$type_interface.visible = true
-		$artifact_interface.visible = true
+		$equip_item_interface.visible = true
 	current_familiar = familiar
 	current_familiar.reparent($familiar_slot)
 	familiar.set_active()
@@ -85,12 +87,25 @@ func set_familiar(familiar : Familiar):
 		$type_interface/description_label_2.parse_bbcode(familiar_type.get_description_2())
 	else:
 		$type_interface.visible = false
-	#if(familiar.is_incorporeal()):
-		#$modifier_label.visible = true
-		#$modifier_label.text = "INCORPOREAL"
-	#else:
-		#$modifier_label.visible = false
 	set_action_tabs(familiar, familiar.get_actions())
+	if(familiar.get_equipped_item() != null):
+		set_equip_item(familiar)
+	else:
+		clear_equip_item()
+
+func set_equip_item(familiar : Familiar):
+	var equip_item : EquipItem = familiar.get_equipped_item()
+	var item_name : String = equip_item.get_item_name_text()
+	$equip_item_interface/equip_item_label.parse_bbcode(item_name)
+	var item_description : String = equip_item.get_description()
+	$equip_item_interface/description_box/description_label.parse_bbcode(item_description)
+	var item_sprite : SpriteFrames = equip_item.get_sprite_frames()
+	$equip_item_interface/sprite.sprite_frames = item_sprite
+
+func clear_equip_item():
+	$equip_item_interface/equip_item_label.parse_bbcode("EMPTY")
+	$equip_item_interface/description_box/description_label.parse_bbcode("")
+	$equip_item_interface/sprite.sprite_frames = null
 
 func set_action_tabs(actor : Familiar, actions : Array[BattleAction]):
 	var index = 0
@@ -109,19 +124,43 @@ func hide_arrows():
 	$arrow_left.visible = false
 	$arrow_right.visible = false
 
+func show_item():
+	showing_item = true
+	$type_interface.modulate = Color(0.5,0.5,0.5)
+	$equip_item_interface.modulate = Color(1,1,1)
+	$equip_item_interface/description_box.visible = true
+	$equip_item_interface/sprite.play("default")
+
+func hide_item():
+	showing_item = false
+	$type_interface.modulate = Color(1,1,1)
+	$equip_item_interface.modulate = Color(0.5,0.5,0.5)
+	$equip_item_interface/description_box.visible = false
+	$equip_item_interface/sprite.stop()
+
 func handle_input():
 	if(Input.is_action_just_pressed("right")):
-		familiar_index = familiar_index + 1
-		if(familiar_index >= familiars.size()):
-			familiar_index = 0
-		set_familiar(familiars[familiar_index])
+		if(familiars[familiar_index].get_equipped_item() != null and not
+		showing_item):
+			show_item()
+		else:
+			hide_item()
+			familiar_index = familiar_index + 1
+			if(familiar_index >= familiars.size()):
+				familiar_index = 0
+			set_familiar(familiars[familiar_index])
 		$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
 		$AudioStreamPlayer.play()
 	elif(Input.is_action_just_pressed("left")):
-		familiar_index = familiar_index - 1
-		if(familiar_index < 0):
-			familiar_index = familiars.size() - 1
-		set_familiar(familiars[familiar_index])
+		if(familiars[familiar_index].get_equipped_item() != null and
+		showing_item):
+			showing_item = false
+			hide_item()
+		else:
+			familiar_index = familiar_index - 1
+			if(familiar_index < 0):
+				familiar_index = familiars.size() - 1
+			set_familiar(familiars[familiar_index])
 		$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
 		$AudioStreamPlayer.play()
 	if(Input.is_action_just_pressed("select") || 

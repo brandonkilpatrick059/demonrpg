@@ -43,6 +43,8 @@ var stored : bool = false
 
 var show_mini_status : bool = false
 
+@export var equipped_item : EquipItem = null
+
 #var exp_req_for_level_up : Array[int] = [
 	#10, #Level 0 -> Level 1
 	#20, #Level 1 -> Level 2
@@ -110,6 +112,13 @@ func activate_mini_status():
 func hide_mini_status():
 	show_mini_status = false
 
+func get_equipped_item() -> EquipItem:
+	return equipped_item
+
+func set_equipped_item(item : EquipItem):
+	#item.reparent(self) TODO: this should be here or elsewhere?
+	equipped_item = item
+
 func is_ready_to_evolve() -> bool:
 	if(experience >= exp_req_for_level_up[level] && 
 	evolutions.size() > 0 &&
@@ -169,7 +178,7 @@ func target_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
 	for buff : PostBattleBuff in buffs:
 		#physical damage
 		if(pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
-			var dmg_scale : float = buff.get_magic_dmg_scale_add()
+			var dmg_scale : float = buff.get_phys_dmg_scale_add()
 			var amt = int(ceili(final_damage * dmg_scale))
 			new_final_damage = new_final_damage + amt
 		elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):

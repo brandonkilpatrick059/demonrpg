@@ -753,7 +753,8 @@ func update_sel_arrows():
 				if(buff_amt != 0):
 					if(buff_amt > 0):
 						buff_str = str(str(" (+",buff_amt),")")
-					buff_str = str(str(" (",buff_amt),")")
+					else:
+						buff_str = str(str(" (",buff_amt),")")
 				var label = str(str(str(stat," + "),value),buff_str)
 				slot.show_upgrade_label(label)
 		else:

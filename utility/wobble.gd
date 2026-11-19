@@ -14,30 +14,30 @@ var positive : bool = false
 func _ready():
 	timer.one_shot = true
 	add_child(timer)
-	origin = global_position
+	origin = position
 
 func _physics_process(delta: float) -> void:
 	if(timer.is_stopped()):
 		if(positive):
 			if(vertical):
-				if(global_position.y < origin.y + wobble_distance):
-					global_position = global_position + Vector2(0,speed)
+				if(position.y < origin.y + wobble_distance):
+					position = position + Vector2(0,speed)
 				else:
 					positive = false
 			else:
-				if(global_position.x < origin.x + wobble_distance):
-					global_position = global_position + Vector2(speed,0)
+				if(position.x < origin.x + wobble_distance):
+					position = position + Vector2(speed,0)
 				else:
 					positive = false
 		else:
 			if(vertical):
-				if(global_position.y > origin.y - wobble_distance):
-					global_position = global_position - Vector2(0,speed)
+				if(position.y > origin.y - wobble_distance):
+					position = position - Vector2(0,speed)
 				else:
-					positive = true	
+					positive = true
 			else:
-				if(global_position.x > origin.x - wobble_distance):
-					global_position = global_position - Vector2(speed,0)
+				if(position.x > origin.x - wobble_distance):
+					position = position - Vector2(speed,0)
 				else:
 					positive = true
 		timer.start(step_time_secs)

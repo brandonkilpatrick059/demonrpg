@@ -19,8 +19,8 @@ var success_message : String = ""
 func get_summary(actor : Familiar)-> String:
 	var summary : String = "[color=red]"
 	summary = str(summary,get_action_name())
-	summary = str(summary,"[/color]-[color=white]ATTEMPT TO CONSUME TARGET'S [/color]")
-	summary = str(summary,str("[color=darkred]POWER [/color]"))
+	summary = str(summary,"[/color]-[color=white]ATTEMPT TO [color=red]CONSUME[/color] TARGET'S [/color]")
+	summary = str(summary,str("[color=red]POWER [/color]"))
 	return summary
 
 func get_announcement(actor : Familiar, target : Familiar) -> String:

@@ -124,24 +124,7 @@ func handle_input():
 		if(Input.is_action_just_pressed("dev")):
 			pan_camera(global_position + Vector2(0,400),2)
 		if(Input.is_action_pressed("select")):
-			if(familiar_team.size() > 0):
-				if(not showing_summary && $input_timer.is_stopped()):
-					if(get_tree().get_first_node_in_group("rain_effect") != null):
-						var rain_effect = get_tree().get_first_node_in_group("rain_effect")
-						if(rain_effect.is_active()):
-							rain_effect.visible = false
-					showing_summary = true
-					show_summary()
-					get_tree().paused = true
-					$input_timer.start(0.5)
-				elif(showing_summary):
-					if(get_tree().get_first_node_in_group("rain_effect") != null):
-						var rain_effect = get_tree().get_first_node_in_group("rain_effect")
-						if(rain_effect.is_active()):
-							rain_effect.visible = true
-					showing_summary = false
-					$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
-					$AudioStreamPlayer.play()
+			activate_summary()
 		if(Input.is_action_pressed("menu")):
 			if(not showing_menu && $input_timer.is_stopped()):
 				if(get_tree().get_first_node_in_group("rain_effect") != null):
@@ -163,6 +146,26 @@ func handle_input():
 		if(Input.is_action_just_pressed("action_1")):
 			if(grid_aligned() and $input_timer.is_stopped()):
 				handle_interact()
+
+func activate_summary():
+	if(familiar_team.size() > 0):
+		if(not showing_summary && $input_timer.is_stopped()):
+			if(get_tree().get_first_node_in_group("rain_effect") != null):
+				var rain_effect = get_tree().get_first_node_in_group("rain_effect")
+				if(rain_effect.is_active()):
+					rain_effect.visible = false
+			showing_summary = true
+			show_summary()
+			get_tree().paused = true
+			$input_timer.start(0.5)
+		elif(showing_summary):
+			if(get_tree().get_first_node_in_group("rain_effect") != null):
+				var rain_effect = get_tree().get_first_node_in_group("rain_effect")
+				if(rain_effect.is_active()):
+					rain_effect.visible = true
+			showing_summary = false
+			$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
+			$AudioStreamPlayer.play()
 
 func exit_pause_menu():
 	if(showing_menu):
@@ -528,5 +531,6 @@ func _physics_process(delta: float) -> void:
 	if(play_time_timer.is_stopped()):
 		play_time_timer.start(1.0)
 		play_time_seconds = play_time_seconds + 1
+	
 	
 	

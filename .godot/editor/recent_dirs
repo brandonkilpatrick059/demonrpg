@@ -1,3 +1,4 @@
+res://sprites/spritesheets/equip_items/
 res://sprites/spritesheets/familiars/
 res://sprites/spritesheets/props/interior/
 res://sprites/spritesheets/props/structure/
@@ -35,4 +36,3 @@ res://sprites/
 res://scripts/mechanism/
 res://scripts/character/npc/
 res://scripts/locations/
-res://interface/
