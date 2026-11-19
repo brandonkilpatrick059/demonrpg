@@ -11,7 +11,7 @@ name_text = NodePath("name")
 description_1_text = NodePath("description_1")
 description_2_text = NodePath("description_2")
 post_battle_buffs = [NodePath("magic_weakness")]
-post_heal_buffs = [NodePath("heal_debuff")]
+post_heal_buffs = [NodePath("heal_buff")]
 
 [node name="name" type="Node" parent="." unique_id=67882527]
 script = ExtResource("2_uk0ak")
@@ -32,6 +32,6 @@ text = Array[String](["[color=yellow]50%[/color] [color=red]WEAKNESS[/color] TO 
 script = ExtResource("3_rqxt8")
 magic_dmg_scale_add = 0.5
 
-[node name="heal_debuff" type="Node" parent="." unique_id=1121113819]
+[node name="heal_buff" type="Node" parent="." unique_id=1121113819]
 script = ExtResource("4_0lsdb")
 heal_scale_add = 0.3

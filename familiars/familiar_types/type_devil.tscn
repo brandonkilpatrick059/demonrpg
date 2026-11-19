@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://3y01n3e0iog5" path="res://scripts/familiars/familiar_type.gd" id="1_ujyol"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="2_hhb8x"]
+[ext_resource type="Script" uid="uid://d2o4p63uxtau6" path="res://scripts/familiars/type_item_sys/post_feed_buff.gd" id="4_c352i"]
+[ext_resource type="Script" uid="uid://bpa75ml4nt3qr" path="res://scripts/familiars/type_item_sys/post_heal_buff.gd" id="4_tf7go"]
 
-[node name="TypeDevil" type="Node" unique_id=696639826 node_paths=PackedStringArray("name_text", "description_1_text", "description_2_text")]
+[node name="TypeDevil" type="Node" unique_id=696639826 node_paths=PackedStringArray("name_text", "description_1_text", "description_2_text", "post_heal_buffs", "post_feed_buffs")]
 script = ExtResource("1_ujyol")
 name_text = NodePath("name")
 description_1_text = NodePath("description_1")
 description_2_text = NodePath("description_2")
+post_heal_buffs = [NodePath("heal_debuff")]
+post_feed_buffs = [NodePath("energy_back_on_feed")]
 
 [node name="name" type="Node" parent="." unique_id=67882527]
 script = ExtResource("2_hhb8x")
@@ -23,3 +27,11 @@ text = Array[String]([" [color=yellow]+1[/color] ENERGY ON [color=red]FEED[/colo
 script = ExtResource("2_hhb8x")
 language_map = Array[String](["english"])
 text = Array[String](["[color=red]-30%[/color] WHEN HEALED"])
+
+[node name="energy_back_on_feed" type="Node" parent="." unique_id=1443986140]
+script = ExtResource("4_c352i")
+energy_back = 1
+
+[node name="heal_debuff" type="Node" parent="." unique_id=379645578]
+script = ExtResource("4_tf7go")
+heal_scale_add = -0.3

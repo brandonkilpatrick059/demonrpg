@@ -159,3 +159,4 @@ res://scripts/battle_system/actions/battle_pkg.gd
 res://familiars/familiar_types/type_beast.tscn
 res://familiars/familiar_types/type_excretion.tscn
 res://familiars/familiar_types/type_revenant.tscn
+res://familiars/familiar_types/type_faerie.tscn
