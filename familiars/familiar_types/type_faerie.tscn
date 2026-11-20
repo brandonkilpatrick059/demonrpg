@@ -24,7 +24,7 @@ text = Array[String](["[color=yellow]50%[/color] [color=green]RESISTANCE[/color]
 [node name="description_2" type="Node" parent="." unique_id=1383882342]
 script = ExtResource("2_wtckg")
 language_map = Array[String](["english"])
-text = Array[String](["[color=yellow]30%[/color] [color=red]WEAKNESS[/color] TO [color=dark_red]PHYSICAL DAMAGE[/color]"])
+text = Array[String](["[color=yellow]20%[/color] [color=red]WEAKNESS[/color] TO [color=dark_red]PHYSICAL DAMAGE[/color]"])
 
 [node name="magic_resistance" type="Node" parent="." unique_id=1555063793]
 script = ExtResource("3_5i55b")
@@ -32,4 +32,4 @@ magic_dmg_scale_add = -0.5
 
 [node name="phys_weakness" type="Node" parent="." unique_id=967380997]
 script = ExtResource("3_5i55b")
-phys_dmg_scale_add = 0.3
+phys_dmg_scale_add = 0.2

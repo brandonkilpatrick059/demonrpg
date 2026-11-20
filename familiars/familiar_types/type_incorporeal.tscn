@@ -17,7 +17,7 @@ text = Array[String](["INCORPOREAL"])
 [node name="description_1" type="Node" parent="." unique_id=197035765]
 script = ExtResource("2_n3sun")
 language_map = Array[String](["english"])
-text = Array[String](["NO [color=yellow]BURN[/color] DAMAGE"])
+text = Array[String](["CANNOT [color=yellow]BURN[/color] OR  [color=yellow]BLEED[/color]"])
 
 [node name="description_2" type="Node" parent="." unique_id=1383882342]
 script = ExtResource("2_n3sun")

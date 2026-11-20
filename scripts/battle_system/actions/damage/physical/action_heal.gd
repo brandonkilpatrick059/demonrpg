@@ -23,7 +23,7 @@ func _ready() -> void:
 	target_type = TargetType.ANY_ALLY
 	damage_type = DamageType.NONE
 	target_preference = true
-	energy_cost = 1
+	energy_cost = 0
 
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""

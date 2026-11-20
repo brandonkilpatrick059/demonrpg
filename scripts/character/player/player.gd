@@ -3,6 +3,7 @@ class_name Player extends Node2D
 @export var familiar_team : Array[Familiar] = []
 @export var stored_familiars : Array[Familiar] = []
 @export var pentacle_charms : int = 0
+@export var stored_equip_items : Array[EquipItem] = []
 
 var facing_direction : String = "down"
 var walking : bool = false

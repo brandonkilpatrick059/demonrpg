@@ -354,19 +354,19 @@ offset = Vector2(12, 4)
 
 [node name="ShadeMonster_cur_two" parent="encounters" unique_id=331820355 instance=ExtResource("12_8tcdm")]
 z_index = 2
-position = Vector2(216, -384)
+position = Vector2(192, -480)
 encounter = ExtResource("13_86du6")
 sprite_frames = ExtResource("14_koys4")
 
 [node name="ShadeMonster_cur_three" parent="encounters" unique_id=863965217 instance=ExtResource("12_8tcdm")]
 z_index = 2
-position = Vector2(432, -240)
+position = Vector2(408, -384)
 encounter = ExtResource("15_koys4")
 sprite_frames = ExtResource("14_koys4")
 
 [node name="ShadeMonster_cur_three2" parent="encounters" unique_id=1362771020 instance=ExtResource("12_8tcdm")]
 z_index = 2
-position = Vector2(1128, -216)
+position = Vector2(1224, -72)
 encounter = ExtResource("15_koys4")
 sprite_frames = ExtResource("14_koys4")
 

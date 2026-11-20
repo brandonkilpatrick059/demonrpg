@@ -85,3 +85,15 @@ res://scripts/battle_system/buffs/bleed_buff_effect.gd
 res://battle/actions/buffs/bleed_buff_effect.tscn
 res://scripts/battle_system/actions/damage/magic/action_bleed.gd
 res://battle/actions/buffs/bleed_buff_effect_3.tscn
+res://battle/actions/action_fire.tscn
+res://familiars/familiar_types/type_incorporeal.tscn
+res://utility/faders/attack_glow_red.tscn
+res://scripts/utility/fade_node.gd
+res://scripts/character/player/player.gd
+res://scripts/battle_system/actions/damage/physical/action_heal.gd
+res://locations/zones/ghost_town/interiors/ghost_town_interiors_L0.tscn
+res://battle/battle_system.tscn
+res://scripts/battle_system/battle_system_manager.gd
+res://battle/actions/buffs/burn_buff_effect.tscn
+res://familiars/familiar_types/type_excretion.tscn
+res://familiars/familiar_types/type_faerie.tscn

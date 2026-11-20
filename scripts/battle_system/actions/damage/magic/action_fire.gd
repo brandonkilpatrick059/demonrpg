@@ -146,9 +146,10 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			pkg = target.target_apply_type_item_buffs(pkg)
 			pkg = actor.actor_apply_type_item_buffs(pkg)
 			apply_pkg_to_target(pkg)
-			var burn = load("res://battle/actions/buffs/burn_buff_effect.tscn").instantiate()
-			burn.set_source_and_target(actor,target)
-			target.add_battle_buff(burn)
+			if(not target.is_incorporeal()):
+				var burn = load("res://battle/actions/buffs/burn_buff_effect.tscn").instantiate()
+				burn.set_source_and_target(actor,target)
+				target.add_battle_buff(burn)
 			visual_effects(pkg)
 			#pay_energy_cost(actor)
 			made_attack = true

@@ -119,7 +119,8 @@ func apply_pkg_to_target(pkg : BattlePkg):
 			target.set_current_hp(new_target_hp)
 		if(actor != null and not target.is_incorporeal()):
 			var heal_amount = 1 + final_damage/4
-			final_heal_amount = actor.heal(heal_amount)
+			var no_status_effect_heal : bool = true
+			final_heal_amount = actor.heal(heal_amount,no_status_effect_heal)
 		elif(target.is_incorporeal()):
 			final_heal_amount = 0
 

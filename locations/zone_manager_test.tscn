@@ -81,7 +81,7 @@ states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
 states_map_values = Array[String](["TRUE", "TRUE", "USED"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team") instance=ExtResource("3_r2q7f")]
-position = Vector2(888, 1944)
+position = Vector2(1584, 2016)
 familiar_team = [NodePath("L2byle"), NodePath("L2reaver"), NodePath("L2reaver2"), NodePath("L1gark")]
 pentacle_charms = 3
 

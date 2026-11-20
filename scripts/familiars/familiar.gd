@@ -216,16 +216,18 @@ func actor_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
 			if(buff.add_buff_phys_dmg() != ""):
 				var path = buff.add_buff_phys_dmg()
 				for target : Familiar in pkg.get_targets():
-					var add_buff = load(path).instantiate()
-					add_buff.set_source_and_target(pkg.actor,target)
-					target.add_battle_buff(add_buff)
+					if(target != null):
+						var add_buff = load(path).instantiate()
+						add_buff.set_source_and_target(pkg.actor,target)
+						target.add_battle_buff(add_buff)
 		elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
 			if(buff.add_buff_magic_dmg() != ""):
 				var path = buff.add_buff_magic_dmg()
 				for target : Familiar in pkg.get_targets():
-					var add_buff = load(path).instantiate()
-					add_buff.set_source_and_target(pkg.actor,target)
-					target.add_battle_buff(add_buff)
+					if(target != null):
+						var add_buff = load(path).instantiate()
+						add_buff.set_source_and_target(pkg.actor,target)
+						target.add_battle_buff(add_buff)
 	pkg.set_final_damages(new_final_damages)
 	return pkg
 
@@ -238,13 +240,14 @@ func action_taken():
 func reset_actions_taken():
 	actions_taken = 0
 
-func heal(amount : int) -> int:
+func heal(amount : int, heal_effects : bool = true) -> int:
 	var healing_buff = apply_type_healing_buffs(amount)
 	var new_amount = amount + healing_buff
 	var new_hp = current_hp + new_amount
 	if(new_hp >= get_max_hp()):
 		new_hp = get_max_hp()
-	heal_status_effects()
+	if(heal_effects):
+		heal_status_effects()
 	set_current_hp(new_hp)
 	return new_amount
 
@@ -537,7 +540,7 @@ func update_buffs():
 	for buff : BattleBuff in battle_buffs:
 		if(buff != null):
 			buff.add_round_active()
-	run_status_effects()
+	#run_status_effects()
 	clean_buffs_list()
 	arrange_buffs()
 

@@ -1,8 +1,10 @@
 class_name FadeNode extends Node
 
 @export var return_when_done : bool = false
+@export var return_to_preset_modulate : bool = false
 @export var target_modulate_queue : Array[Color] = []
 @export var target_modulate : Color = Color(0,0,0,0)
+@export var preset_return_modulate : Color = Color(1,1,1,1)
 @export var modulate_step : float = 0.2
 @export var time_step : float = 0.5
 @export var start_after_wait : float = 0.0
@@ -17,6 +19,8 @@ func _ready() -> void:
 	add_child(timer)
 	if(return_when_done):
 		return_modulate = get_parent().modulate
+	if(return_to_preset_modulate):
+		return_modulate = preset_return_modulate
 	if(start_after_wait > 0.0):
 		timer.start(start_after_wait)
 

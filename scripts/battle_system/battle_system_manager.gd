@@ -781,6 +781,7 @@ func battle_process():
 	elif(opponent_action_queue.size() == 0 && not opponent_is_dead()):
 		get_opponent_actions()
 	elif(not have_combined_queue):
+		apply_all_status_effects()
 		get_combined_action_queue()
 		have_combined_queue = true
 		first_action = true
@@ -789,6 +790,12 @@ func battle_process():
 		first_action = false
 	else:
 		run_actions_process()
+
+func apply_all_status_effects():
+	for opponent : Familiar in opponent_familiars:
+		opponent.run_status_effects()
+	for familiar : Familiar in player_familiars:
+		familiar.run_status_effects()
 
 func deploy_player():
 	if player_positions[1].get_child_count() > 0:
@@ -1069,6 +1076,9 @@ func insert_into_combined_action_queue(insert_item : ActionQueueItem):
 			new_combined_action_queue.append(insert_item)
 	combined_action_queue.clear()
 	combined_action_queue.append_array(new_combined_action_queue)
+
+func append_to_combined_action_queue(append_item : ActionQueueItem):
+	combined_action_queue.append(append_item)
 
 func get_opponent_actions():
 	for opponent : Familiar in opponent_familiars:

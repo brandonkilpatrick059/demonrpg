@@ -21,7 +21,7 @@ text = Array[String](["ACOLYTE"])
 [node name="description_1" type="Node" parent="." unique_id=197035765]
 script = ExtResource("2_613nu")
 language_map = Array[String](["english"])
-text = Array[String](["[color=yellow]50%[/color] [color=green]RESISTANCE[/color] TO [color=blue]MAGIC DAMAGE[/color]"])
+text = Array[String](["[color=yellow]30%[/color] [color=green]RESISTANCE[/color] TO [color=blue]MAGIC DAMAGE[/color]"])
 
 [node name="description_2" type="Node" parent="." unique_id=1383882342]
 script = ExtResource("2_613nu")
@@ -30,7 +30,7 @@ text = Array[String](["[color=red]-30%[/color] WHEN HEALED"])
 
 [node name="magic_resistance" type="Node" parent="." unique_id=1170093216]
 script = ExtResource("3_613nu")
-magic_dmg_scale_add = -0.5
+magic_dmg_scale_add = -0.3
 
 [node name="heal_debuff" type="Node" parent="." unique_id=1884122055]
 script = ExtResource("4_6khue")
