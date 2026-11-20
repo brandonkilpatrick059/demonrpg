@@ -10,7 +10,7 @@ script = ExtResource("1_us76v")
 name_text = NodePath("name")
 description_text = NodePath("description")
 sprite_frames = ExtResource("2_rc885")
-post_battle_buffs = [NodePath("burn_buff")]
+post_battle_buffs = [NodePath("bleed_buff")]
 
 [node name="name" type="Node" parent="." unique_id=284124591]
 script = ExtResource("2_fsrny")
@@ -22,7 +22,6 @@ script = ExtResource("2_fsrny")
 language_map = Array[String](["english"])
 text = Array[String](["[color=darkred]PHYSICAL DAMAGE[/color] ADDS [color=yellow] 3[/color][color=darkred] BLEED[/color]"])
 
-[node name="burn_buff" type="Node" parent="." unique_id=1300610730]
+[node name="bleed_buff" type="Node" parent="." unique_id=1300610730]
 script = ExtResource("3_wru6y")
-phys_dmg_scale_add = 1.0
-add_buff_on_dealt_phys_dmg = "res://battle/actions/buffs/burn_buff_effect.tscn"
+add_buff_on_dealt_phys_dmg = "res://battle/actions/buffs/bleed_buff_effect_3.tscn"

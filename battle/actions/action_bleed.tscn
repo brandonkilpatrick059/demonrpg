@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://p10l46p2aw3f"]
+
+[ext_resource type="Script" uid="uid://botghyjex1k3" path="res://scripts/battle_system/actions/damage/magic/action_bleed.gd" id="1_h66ot"]
+
+[node name="ActionBleed" type="Node" unique_id=158837115]
+script = ExtResource("1_h66ot")

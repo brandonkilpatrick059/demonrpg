@@ -80,3 +80,8 @@ res://scripts/familiars/type_item_sys/post_battle_buff.gd
 res://battle/actions/buffs/burn_buff_effect_5_dmg_test.tscn
 res://scripts/battle_system/buffs/battle_buff.gd
 res://scripts/battle_system/buffs/burn_buff_effect.gd
+res://battle/actions/action_bleed.tscn
+res://scripts/battle_system/buffs/bleed_buff_effect.gd
+res://battle/actions/buffs/bleed_buff_effect.tscn
+res://scripts/battle_system/actions/damage/magic/action_bleed.gd
+res://battle/actions/buffs/bleed_buff_effect_3.tscn
