@@ -67,3 +67,16 @@ res://scripts/familiars/familiar.gd
 res://scripts/interface/familiar_summary.gd
 res://equip_items/equip_item_devil_fang.tscn
 res://locations/zone_manager_test.tscn
+res://familiars/familiar_types/type_acolyte.tscn
+res://familiars/familiar_types/type_revenant.tscn
+res://scripts/battle_system/actions/damage/physical/action_attack.gd
+res://scripts/battle_system/actions/damage/physical/action_bite.gd
+res://scripts/battle_system/actions/damage/physical/action_slice.gd
+res://scripts/battle_system/actions/damage/physical/action_stab.gd
+res://scripts/battle_system/actions/damage/magic/action_wither.gd
+res://scripts/battle_system/actions/damage/magic/action_fire.gd
+res://scripts/battle_system/actions/damage/magic/action_burn.gd
+res://scripts/familiars/type_item_sys/post_battle_buff.gd
+res://battle/actions/buffs/burn_buff_effect_5_dmg_test.tscn
+res://scripts/battle_system/buffs/battle_buff.gd
+res://scripts/battle_system/buffs/burn_buff_effect.gd

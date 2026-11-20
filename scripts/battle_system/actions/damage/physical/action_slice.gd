@@ -163,6 +163,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		pkg = apply_buffs_to_pkg(pkg)
 		for target in targets:
 			target.target_apply_type_item_buffs(pkg)
+		pkg = actor.actor_apply_type_item_buffs(pkg)
 		apply_pkg_to_target(pkg)
 		visual_effects(pkg)
 		#pay_energy_cost(actor)

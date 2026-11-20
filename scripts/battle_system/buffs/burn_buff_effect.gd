@@ -1,13 +1,13 @@
 extends BattleBuff
 
-var source_familiar : Familiar
-var target_familiar : Familiar
+#var source_familiar : Familiar
+#var target_familiar : Familiar
 
 @onready var burn_action : BattleAction = $ActionBurn
 
-func set_source_and_target(familiar : Familiar, target: Familiar):
-	source_familiar = familiar
-	target_familiar = target
+#func set_source_and_target(familiar : Familiar, target: Familiar):
+	#source_familiar = familiar
+	#target_familiar = target
 
 func _ready():
 	modulate = Color(1,1,1,0)

@@ -1,5 +1,12 @@
 class_name BattleBuff extends Node2D
 
+var source_familiar : Familiar
+var target_familiar : Familiar
+
+func set_source_and_target(familiar : Familiar, target: Familiar):
+	source_familiar = familiar
+	target_familiar = target
+
 var active : bool = true
 
 var inactive_after_rounds : int = 1

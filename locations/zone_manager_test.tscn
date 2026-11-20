@@ -99,6 +99,7 @@ current_hp = 30
 visible = false
 max_hp = 30
 current_hp = 30
+magic = 5
 equipped_item = NodePath("EquipItemDevilFang")
 
 [node name="EquipItemDevilFang" parent="Player/L2reaver2" unique_id=979938698 instance=ExtResource("5_2gs5w")]

@@ -172,6 +172,8 @@ func get_familiar_type() -> FamiliarType:
 
 func target_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
 	var buffs : Array[PostBattleBuff] = type.get_post_battle_buffs()
+	if(equipped_item != null):
+		buffs.append_array(equipped_item.get_post_battle_buffs())
 	var self_index = pkg.get_targets().find(self)
 	var final_damage = pkg.get_final_damages()[self_index]
 	var new_final_damage = final_damage
@@ -181,6 +183,7 @@ func target_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
 			var dmg_scale : float = buff.get_phys_dmg_scale_add()
 			var amt = int(ceili(final_damage * dmg_scale))
 			new_final_damage = new_final_damage + amt
+		#magic damage
 		elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
 			var dmg_scale : float = buff.get_magic_dmg_scale_add()
 			var amt = int(ceili(final_damage * dmg_scale))
@@ -189,6 +192,41 @@ func target_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
 	return pkg
 
 func actor_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
+	var buffs : Array[PostBattleBuff] = type.get_post_battle_buffs()
+	if(equipped_item != null):
+		buffs.append_array(equipped_item.get_post_battle_buffs())
+	var new_final_damages : Array[int] = []
+	for damage in pkg.final_damages:
+		var final_buff = 0
+		for buff : PostBattleBuff in buffs:
+			#physical damage
+			if(pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
+				var dmg_scale : float = buff.get_phys_dmg_scale_add()
+				var amt = int(ceili(damage * dmg_scale))
+				final_buff = final_buff + amt
+			#magic damage
+			elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
+				var dmg_scale : float = buff.get_magic_dmg_scale_add()
+				var amt = int(ceili(damage * dmg_scale))
+				final_buff = final_buff + amt
+		var new_final_damage = damage + final_buff
+		new_final_damages.append(new_final_damage)
+	for buff : PostBattleBuff in buffs:
+		if(pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
+			if(buff.add_buff_phys_dmg() != ""):
+				var path = buff.add_buff_phys_dmg()
+				for target : Familiar in pkg.get_targets():
+					var add_buff = load(path).instantiate()
+					add_buff.set_source_and_target(pkg.actor,target)
+					target.add_battle_buff(add_buff)
+		elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
+			if(buff.add_buff_magic_dmg() != ""):
+				var path = buff.add_buff_magic_dmg()
+				for target : Familiar in pkg.get_targets():
+					var add_buff = load(path).instantiate()
+					add_buff.set_source_and_target(pkg.actor,target)
+					target.add_battle_buff(add_buff)
+	pkg.set_final_damages(new_final_damages)
 	return pkg
 
 func get_actions_taken() -> int:
