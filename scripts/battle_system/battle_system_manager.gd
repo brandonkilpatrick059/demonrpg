@@ -32,7 +32,7 @@ var text := BattleText.new()
 var wait_timer := Timer.new()
 var input_gate_timer := Timer.new()
 
-var music_player := AudioStreamPlayer.new()
+@onready var music_player = $AudioStreamPlayer
 var audio_players : Array[AudioStreamPlayer] = []
 
 var is_escapable : bool = false
@@ -135,7 +135,6 @@ func fade_out():
 
 func set_up_audio():
 	music_player.bus = "music"
-	add_child(music_player)
 	var index : int = 0
 	var num_sound_players = 8
 	while(index < num_sound_players):

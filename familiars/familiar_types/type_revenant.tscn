@@ -19,7 +19,7 @@ text = Array[String](["REVENANT"])
 [node name="description_1" type="Node" parent="." unique_id=197035765]
 script = ExtResource("2_fr7wh")
 language_map = Array[String](["english"])
-text = Array[String](["[color=yellow]50%[/color] [color=green]RESISTANCE[/color] TO [color=blue]MAGIC DAMAGE[/color]"])
+text = Array[String](["[color=yellow]30%[/color] [color=green]RESISTANCE[/color] TO [color=blue]MAGIC DAMAGE[/color]"])
 
 [node name="description_2" type="Node" parent="." unique_id=1383882342]
 script = ExtResource("2_fr7wh")
@@ -28,7 +28,7 @@ text = Array[String](["[color=yellow]20%[/color] [color=red]WEAKNESS[/color] TO 
 
 [node name="magic_resistance" type="Node" parent="." unique_id=1185024895]
 script = ExtResource("3_5xybt")
-magic_dmg_scale_add = -0.5
+magic_dmg_scale_add = -0.3
 
 [node name="phys_weakness" type="Node" parent="." unique_id=1029082111]
 script = ExtResource("3_5xybt")

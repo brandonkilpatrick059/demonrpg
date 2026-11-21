@@ -12,8 +12,8 @@ music = ExtResource("2_d24lc")
 
 [node name="L1walker" parent="." unique_id=2120251354 instance=ExtResource("3_betw6")]
 visible = false
-max_hp = 40
-current_hp = 40
+max_hp = 30
+current_hp = 30
 attack = 1
 speed = 5
 magic = 10
@@ -21,8 +21,8 @@ action_cadence_0 = Array[String](["WITHER", "WITHER", "WITHER", "WITHER"])
 
 [node name="L1walker2" parent="." unique_id=1037086984 instance=ExtResource("3_betw6")]
 visible = false
-max_hp = 40
-current_hp = 40
+max_hp = 30
+current_hp = 30
 attack = 1
 speed = 5
 magic = 10

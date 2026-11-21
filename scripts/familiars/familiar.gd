@@ -244,14 +244,16 @@ func reset_actions_taken():
 	actions_taken = 0
 
 func heal(amount : int, heal_effects : bool = true) -> int:
-	var healing_buff = apply_type_healing_buffs(amount)
-	var new_amount = amount + healing_buff
-	var new_hp = current_hp + new_amount
-	if(new_hp >= get_max_hp()):
-		new_hp = get_max_hp()
-	if(heal_effects):
-		heal_status_effects()
-	set_current_hp(new_hp)
+	var new_amount = 0
+	if(not dead):
+		var healing_buff = apply_type_healing_buffs(amount)
+		new_amount = amount + healing_buff
+		var new_hp = current_hp + new_amount
+		if(new_hp >= get_max_hp()):
+			new_hp = get_max_hp()
+		if(heal_effects):
+			heal_status_effects()
+		set_current_hp(new_hp)
 	return new_amount
 
 func apply_type_healing_buffs(amount : int) -> int:

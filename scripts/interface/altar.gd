@@ -125,7 +125,7 @@ func handle_equip_items():
 		actions.append("UNEQUIP")
 	elif(player_ref.has_equipped_items() && player_ref.get_stored_equip_items().size() >= player_ref.get_max_stored_equip_items()):
 		actions.append("UNEQUIP (FULL)")
-	elif(player_ref.has_stored_equip_items()):
+	if(player_ref.has_stored_equip_items()):
 		actions.append("DESTROY")
 	actions.append("BACK")
 	action_menu.set_actions(actions)
@@ -198,11 +198,11 @@ func summary_select_callback(familiar : Familiar):
 		var item : EquipItem = familiar.get_equipped_item()
 		familiar.clear_equipped_item()
 		player_ref.add_stored_equip_item(item)
-		player_ref.add_child(item)
+		item.reparent(player_ref)
 	elif(equip_mode):
 		familiar.set_equipped_item(item_to_equip)
 		player_ref.remove_stored_equip_item(item_to_equip)
-		familiar.add_child(item_to_equip)
+		item_to_equip.reparent(familiar)
 	handle_equip_items()
 	unequip_mode = false
 	equip_equip_item_mode = false
@@ -359,7 +359,7 @@ func take_action(action : String):
 			audio_player.play()
 	elif(destroy_item_mode):
 		if(action == "BACK"):
-			equip_mode = true
+			equip_item_mode = true
 			destroy_item_mode = false
 			handle_equip_items()
 			audio_player.stream = load("res://audio/effects/brush_snare.ogg")

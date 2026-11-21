@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://clwvu1po4lp86" path="res://battle/actions/action_capture.tscn" id="18_p0q2p"]
 [ext_resource type="PackedScene" uid="uid://be35ujtdjuaob" path="res://battle/actions/action_pass.tscn" id="19_fak6n"]
 [ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="20_j1qn7"]
+[ext_resource type="Script" uid="uid://ljej72q7bulv" path="res://scripts/utility/throttle_volume.gd" id="22_qpbop"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cea73"]
 font = ExtResource("9_qcet8")
@@ -88,7 +89,7 @@ visible = false
 z_index = 5
 position = Vector2(-107, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.17682813
+frame_progress = 0.46553513
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1886551892]
@@ -96,7 +97,7 @@ visible = false
 z_index = 5
 position = Vector2(-35, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.36891428
+frame_progress = 0.65762603
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=1162962541]
@@ -104,7 +105,7 @@ visible = false
 z_index = 5
 position = Vector2(36, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.36891428
+frame_progress = 0.65762603
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/opponent" unique_id=477634836]
@@ -112,7 +113,7 @@ visible = false
 z_index = 5
 position = Vector2(108, -73)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.36891428
+frame_progress = 0.65762603
 script = ExtResource("7_213sk")
 
 [node name="upgrade_label1" type="Label" parent="familiars/opponent" unique_id=450660838]
@@ -215,7 +216,7 @@ visible = false
 z_index = 5
 position = Vector2(-107, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.05258237
+frame_progress = 0.34129247
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow2" type="AnimatedSprite2D" parent="familiars/player" unique_id=962630628]
@@ -223,7 +224,7 @@ visible = false
 z_index = 5
 position = Vector2(-35, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.36891428
+frame_progress = 0.65762603
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow3" type="AnimatedSprite2D" parent="familiars/player" unique_id=529547038]
@@ -231,7 +232,7 @@ visible = false
 z_index = 5
 position = Vector2(36, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.36891428
+frame_progress = 0.65762603
 script = ExtResource("7_213sk")
 
 [node name="SelectArrow4" type="AnimatedSprite2D" parent="familiars/player" unique_id=1867950404]
@@ -239,7 +240,7 @@ visible = false
 z_index = 5
 position = Vector2(108, 7)
 sprite_frames = ExtResource("12_5ix18")
-frame_progress = 0.36891428
+frame_progress = 0.65762603
 script = ExtResource("7_213sk")
 
 [node name="upgrade_label1" type="Label" parent="familiars/player" unique_id=1761104360]
@@ -349,3 +350,8 @@ script = ExtResource("16_tv3fy")
 [node name="ActionPass" parent="." unique_id=183086136 instance=ExtResource("19_fak6n")]
 
 [node name="ActionFeed" parent="." unique_id=1322979069 instance=ExtResource("20_j1qn7")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1084905676]
+autoplay = true
+script = ExtResource("22_qpbop")
+throttle_to_db = -3.0

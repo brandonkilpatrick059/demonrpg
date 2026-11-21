@@ -3,18 +3,17 @@
 [ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_l86s4"]
 [ext_resource type="AudioStream" uid="uid://dmwb2u8xa7t0e" path="res://audio/music/drone_1.ogg" id="2_gdgek"]
 [ext_resource type="PackedScene" uid="uid://5cl0snotsklx" path="res://familiars/base/L1_walker.tscn" id="3_sa8cd"]
-[ext_resource type="PackedScene" uid="uid://cno3ohvy65hc8" path="res://familiars/base/L1_scryer.tscn" id="4_ooxc8"]
 [ext_resource type="PackedScene" uid="uid://chd5ugll25mm6" path="res://familiars/base/L2_stalf.tscn" id="5_8hh6b"]
 
 [node name="walker_scryer" type="Node2D" unique_id=1645955725 node_paths=PackedStringArray("opponents")]
 script = ExtResource("1_l86s4")
-opponents = [NodePath("L1walker"), NodePath("L1walker2"), NodePath("L1scryer"), NodePath("L2stalf")]
+opponents = [NodePath("L1walker"), NodePath("L1walker2"), NodePath("L2stalf")]
 music = ExtResource("2_gdgek")
 
 [node name="L1walker" parent="." unique_id=2120251354 instance=ExtResource("3_sa8cd")]
 visible = false
-max_hp = 40
-current_hp = 40
+max_hp = 30
+current_hp = 30
 attack = 1
 speed = 5
 magic = 10
@@ -23,23 +22,17 @@ action_cadence_0 = Array[String](["WITHER", "WITHER", "WITHER", "WITHER"])
 
 [node name="L1walker2" parent="." unique_id=1037086984 instance=ExtResource("3_sa8cd")]
 visible = false
-max_hp = 40
-current_hp = 40
+max_hp = 30
+current_hp = 30
 attack = 1
 speed = 5
 magic = 10
 capture_hp_percent = 0.2
 action_cadence_0 = Array[String](["WITHER", "WITHER", "WITHER", "WITHER"])
 
-[node name="L1scryer" parent="." unique_id=236915161 instance=ExtResource("4_ooxc8")]
-max_hp = 40
-current_hp = 40
-magic = 8
-
 [node name="L2stalf" parent="." unique_id=2121275838 instance=ExtResource("5_8hh6b")]
 visible = false
 max_hp = 45
 current_hp = 45
-attack = 8
 magic = 8
 action_cadence_0 = Array[String](["ATTACK", "ATTACK", "FIRE", "DEFEND"])

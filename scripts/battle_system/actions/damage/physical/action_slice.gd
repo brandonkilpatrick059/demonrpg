@@ -72,6 +72,7 @@ func visual_effects(pkg : BattlePkg):
 		hp_particle.global_position = target1.global_position
 		attack_effect.global_position = target1.global_position
 		hp_particle.set_particle(str(final_damage),Color(1.0, 0.26, 0.201, 1.0))
+		battle_sys_ref.play_sound(load("res://audio/effects/hit_2.ogg"))
 	if(pkg.get_targets().size() > 1):
 		var final_damage2 : int = pkg.get_final_damages()[1]
 		var target2 : Familiar = pkg.get_targets()[1]
@@ -85,7 +86,7 @@ func visual_effects(pkg : BattlePkg):
 			hp_particle2.global_position = target2.global_position
 			attack_effect2.global_position = target2.global_position
 			hp_particle2.set_particle(str(final_damage2),Color(1.0, 0.26, 0.201, 1.0))
-	battle_sys_ref.play_sound(load("res://audio/effects/hit_2.ogg"))
+			battle_sys_ref.play_sound(load("res://audio/effects/hit_2.ogg"))
 
 func get_battle_pkg(actor : Familiar, targets: Array[Familiar]) -> BattlePkg:
 	var index : int = 0

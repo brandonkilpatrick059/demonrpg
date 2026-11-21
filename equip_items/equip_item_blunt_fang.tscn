@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cci1ti3tgr2o2"]
+
+[ext_resource type="Script" uid="uid://d0hosismj2vbn" path="res://scripts/familiars/equip_item.gd" id="1_gime2"]
+[ext_resource type="SpriteFrames" uid="uid://dn0bq0y271ykf" path="res://sprites/spritesheets/equip_items/fang.tres" id="2_m1xq3"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="3_g1udi"]
+[ext_resource type="Script" uid="uid://cuq15w51x46sv" path="res://scripts/familiars/type_item_sys/post_battle_buff.gd" id="4_mqgp1"]
+
+[node name="EquipItemBluntFang" type="Node2D" unique_id=979938698 node_paths=PackedStringArray("name_text", "description_text", "post_battle_buffs")]
+script = ExtResource("1_gime2")
+name_text = NodePath("name")
+description_text = NodePath("description")
+sprite_frames = ExtResource("2_m1xq3")
+post_battle_buffs = [NodePath("bleed_buff")]
+path_to_self = "res://equip_items/equip_item_blunt_fang.tscn"
+
+[node name="name" type="Node" parent="." unique_id=284124591]
+script = ExtResource("3_g1udi")
+language_map = Array[String](["english"])
+text = Array[String](["BLUNT FANG"])
+
+[node name="description" type="Node" parent="." unique_id=1495079430]
+script = ExtResource("3_g1udi")
+language_map = Array[String](["english"])
+text = Array[String](["[color=darkred]PHYSICAL DAMAGE[/color] ADDS [color=yellow] 2[/color][color=darkred] BLEED[/color]"])
+
+[node name="bleed_buff" type="Node" parent="." unique_id=1300610730]
+script = ExtResource("4_mqgp1")
+add_buff_on_dealt_phys_dmg = "res://battle/actions/buffs/bleed_buff_effect_2.tscn"

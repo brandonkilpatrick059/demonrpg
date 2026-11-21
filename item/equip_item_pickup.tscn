@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cr8xx07o12v1d"]
+
+[ext_resource type="Script" uid="uid://b0ubyyjqjsbt5" path="res://scripts/item/equip_item_pickup.gd" id="1_vma47"]
+[ext_resource type="Texture2D" uid="uid://uokm3b8r2afw" path="res://sprites/items/purple_pyramid_16.png" id="2_logyn"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="3_l8ror"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cea73"]
+size = Vector2(24, 24)
+
+[node name="EquipItemPickup" type="StaticBody2D" unique_id=1226598247 groups=["interactable"]]
+script = ExtResource("1_vma47")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=126056293]
+texture = ExtResource("2_logyn")
+offset = Vector2(12, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=564112850]
+position = Vector2(12, -12)
+shape = SubResource("RectangleShape2D_cea73")
+
+[node name="Text" type="Node" parent="." unique_id=1445249529]
+script = ExtResource("3_l8ror")
+language_map = Array[String](["english"])
+text = Array[String](["(It is some kind of [color=purple]Hellish Artifact[/color])"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text_take" type="Node" parent="." unique_id=1051628710]
+script = ExtResource("3_l8ror")
+language_map = Array[String](["english"])
+text = Array[String](["(I should take this with me)"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"
+
+[node name="Text_leave" type="Node" parent="." unique_id=1704405649]
+script = ExtResource("3_l8ror")
+language_map = Array[String](["english"])
+text = Array[String](["(But I am already carrying too many artifacts...)"])
+metadata/_custom_type_script = "uid://xtykxchs28xu"

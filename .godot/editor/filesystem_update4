@@ -102,3 +102,13 @@ res://scripts/interface/equip_item_summary.gd
 res://scripts/interface/altar.gd
 res://battle/battle_system_sandbox.tscn
 res://locations/zones/ghost_town/zone_ghost_town.tscn
+res://item/equip_item.tscn
+res://item/equip_item_pickup.tscn
+res://scripts/item/equip_item_pickup.gd
+res://scripts/item/pentacle_seal.gd
+res://equip_items/equip_item_blunt_fang.tscn
+res://locations/zones/ghost_town/interiors/ghost_town_interiors_L1.tscn
+res://battle/actions/buffs/bleed_buff_effect_2.tscn
+res://battle/encounters/ghost_town/walker_stalf.tscn
+res://battle/encounters/ghost_town/walker_byle.tscn
+res://familiars/familiar_types/type_beast.tscn

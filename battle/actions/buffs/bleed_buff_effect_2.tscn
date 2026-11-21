@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bgmsb0t34ls0u"]
+
+[ext_resource type="Script" uid="uid://d3li6gqdh4jom" path="res://scripts/battle_system/buffs/bleed_buff_effect.gd" id="1_fkrx6"]
+[ext_resource type="Texture2D" uid="uid://gjjg2pj56lum" path="res://sprites/battle/interface/buff_symbols/bleed.png" id="2_iuvoo"]
+[ext_resource type="PackedScene" uid="uid://p10l46p2aw3f" path="res://battle/actions/action_bleed.tscn" id="3_vpwum"]
+
+[node name="BleedBuffEffect" type="Node2D" unique_id=2119046757]
+script = ExtResource("1_fkrx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=735335528]
+texture = ExtResource("2_iuvoo")
+
+[node name="ActionBleed" parent="." unique_id=158837115 instance=ExtResource("3_vpwum")]
+set_damage = 2

@@ -39,7 +39,7 @@ func _ready() -> void:
 	action_name = "FIRE"
 	target_type = TargetType.ANY_OPPONENT
 	damage_type = DamageType.MAGIC
-	energy_cost = 2
+	energy_cost = 1
 
 func clean_up():
 	announced_attack = false

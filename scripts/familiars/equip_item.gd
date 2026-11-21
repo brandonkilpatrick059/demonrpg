@@ -19,6 +19,9 @@ func get_item_name() -> String:
 func get_item_name_text() -> String:
 	return name_text.get_text("english")
 
+func get_name_text() -> Text:
+	return name_text
+
 func get_description() -> String:
 	return description_text.get_text("english")
 
@@ -36,3 +39,6 @@ func get_sprite_frames() -> SpriteFrames:
 
 func get_path_to_self() -> String:
 	return path_to_self
+
+func get_description_text() -> Text:
+	return description_text
