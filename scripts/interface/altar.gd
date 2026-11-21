@@ -10,6 +10,7 @@ var sacrifice_mode : bool = false
 var grimoire_mode : bool = false
 var equip_item_mode : bool = false
 var equip_equip_item_mode : bool = false #I know...
+var destroy_item_mode : bool = false
 var view_all_familiars_mode : bool = false
 var store_familiars_mode : bool = false
 var summmon_familiars_mode : bool = false
@@ -302,6 +303,12 @@ func take_action(action : String):
 				handle_unequip()
 				audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
 				audio_player.play()
+			"DESTROY":
+				list_items()
+				equip_item_mode = false
+				destroy_item_mode = true
+				audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
+				audio_player.play()
 			"BACK":
 				set_basic_actions()
 				equip_item_mode = false
@@ -350,6 +357,28 @@ func take_action(action : String):
 			handle_equip(item_to_equip)
 			audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
 			audio_player.play()
+	elif(destroy_item_mode):
+		if(action == "BACK"):
+			equip_mode = true
+			destroy_item_mode = false
+			handle_equip_items()
+			audio_player.stream = load("res://audio/effects/brush_snare.ogg")
+			audio_player.play()
+		else:
+			var player_ref : Player = get_tree().get_first_node_in_group("player")
+			var items : Array[EquipItem] = player_ref.get_stored_equip_items()
+			var item_to_destroy : EquipItem = null
+			for item : EquipItem in items:
+				var item_name = item.get_item_name_text()
+				if(action == item_name):
+					item_to_destroy = item
+			player_ref.remove_stored_equip_item(item_to_destroy)
+			item_to_destroy.queue_free()
+			audio_player.stream = load("res://audio/effects/evil_eye.ogg")
+			audio_player.play()
+			main_mode = true
+			destroy_item_mode = false
+			set_basic_actions()
 	elif(main_mode):
 		match action:
 			"LEAVE":
@@ -439,6 +468,12 @@ func _physics_process(delta: float) -> void:
 		set_basic_actions()
 		main_mode = true
 		equip_item_mode = false
+		audio_player.stream = load("res://audio/effects/brush_snare.ogg")
+		audio_player.play()
+	elif(equip_equip_item_mode and Input.is_action_just_pressed("action_2")):
+		handle_equip_items()
+		equip_equip_item_mode = false
+		equip_item_mode = true
 		audio_player.stream = load("res://audio/effects/brush_snare.ogg")
 		audio_player.play()
 	elif(main_mode and Input.is_action_just_pressed("action_2")):

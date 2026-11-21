@@ -10,6 +10,7 @@ var selection_callback_node : Node = null
 var select_mode : bool = false
 
 var equip_item_mode : bool = false
+var item_to_equip : EquipItem = null
 
 @onready var action_tabs : Array[SummaryActionTab] = [
 	$summary_action_tabs/summary_action_tab,
@@ -22,9 +23,14 @@ var equip_item_mode : bool = false
 	$summary_action_tabs/summary_action_tab8,
 ]
 
+var equip_exit_timer := Timer.new()
+var equip_exiting : bool = false
+
 func _ready():
 	$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
 	$AudioStreamPlayer.play()
+	equip_exit_timer.one_shot = true
+	add_child(equip_exit_timer)
 
 func set_select_mode(callback_node : Node):
 	selection_callback_node = callback_node
@@ -36,12 +42,14 @@ func set_equip_item_mode(equip_item : EquipItem, callback_node : Node):
 	$summary_action_tabs.visible = false
 	$EquipItemSummary.set_equip_item(equip_item)
 	$EquipItemSummary.visible = true
+	item_to_equip = equip_item
 	equip_item_mode = true
 
 func disable_equip_item_mode():
 	$summary_action_tabs.visible = true
 	$EquipItemSummary.set_equip_item(null)
 	$EquipItemSummary.visible = false
+	item_to_equip = null
 	equip_item_mode = false
 
 func set_familiars(new_familiars : Array[Familiar]):
@@ -112,12 +120,11 @@ func set_familiar(familiar : Familiar):
 		$type_interface.visible = false
 	set_action_tabs(familiar, familiar.get_actions())
 	if(familiar.get_equipped_item() != null):
-		set_equip_item(familiar)
+		set_equip_item(familiar.get_equipped_item())
 	else:
 		clear_equip_item()
 
-func set_equip_item(familiar : Familiar):
-	var equip_item : EquipItem = familiar.get_equipped_item()
+func set_equip_item(equip_item : EquipItem):
 	var item_name : String = equip_item.get_item_name_text()
 	$equip_item_interface/equip_item_label.parse_bbcode(item_name)
 	var item_description : String = equip_item.get_description()
@@ -188,9 +195,20 @@ func handle_input():
 		$AudioStreamPlayer.play()
 	if(select_mode and 
 	Input.is_action_just_pressed("action_1")):
-		selection_callback_node.summary_select_callback(familiars[familiar_index])
+		if(equip_item_mode):
+			set_equip_item(item_to_equip)
+			show_item()
+			disable_equip_item_mode()
+			$AudioStreamPlayer.stream = load("res://audio/effects/equip.ogg")
+			$AudioStreamPlayer.play()
+		else:
+			clear_equip_item()
+			$AudioStreamPlayer.stream = load("res://audio/effects/unequip.ogg")
+			$AudioStreamPlayer.play()
+		equip_exit_timer.start(1.0)
+		equip_exiting = true
 		select_mode = false
-		exit_summary()
+		#exit_summary()
 	elif(select_mode and 
 	(Input.is_action_just_pressed("select") || 
 	Input.is_action_just_pressed("action_2"))):
@@ -212,4 +230,8 @@ func exit_summary():
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	handle_input()
+	if(not equip_exiting):
+		handle_input()
+	elif(equip_exit_timer.is_stopped()):
+		selection_callback_node.summary_select_callback(familiars[familiar_index])
+		exit_summary()
