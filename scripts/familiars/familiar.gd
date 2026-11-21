@@ -115,6 +115,9 @@ func hide_mini_status():
 func get_equipped_item() -> EquipItem:
 	return equipped_item
 
+func clear_equipped_item():
+	equipped_item = null
+
 func set_equipped_item(item : EquipItem):
 	#item.reparent(self) TODO: this should be here or elsewhere?
 	equipped_item = item

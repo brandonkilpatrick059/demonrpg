@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b8lc5tvv7145o" path="res://sprites/interface/type_interface.png" id="10_f3d0f"]
 [ext_resource type="Texture2D" uid="uid://ciu2cirs255rm" path="res://sprites/interface/artifact_slot.png" id="11_o38hn"]
 [ext_resource type="Texture2D" uid="uid://byabblf0gt07" path="res://sprites/interface/item_description.png" id="13_cp5na"]
+[ext_resource type="PackedScene" uid="uid://ca2f5sbslagjp" path="res://interface/equip_item_summary.tscn" id="14_ftgtg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8h1s"]
 light_mode = 1
@@ -198,38 +199,6 @@ z_index = 6
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(-87, -38)
 
-[node name="summary_action_tab" parent="." unique_id=378411467 instance=ExtResource("6_xbbee")]
-material = SubResource("CanvasItemMaterial_wblr4")
-position = Vector2(1, 7)
-
-[node name="summary_action_tab2" parent="." unique_id=1203038048 instance=ExtResource("6_xbbee")]
-material = SubResource("CanvasItemMaterial_wblr4")
-position = Vector2(1, 16)
-
-[node name="summary_action_tab3" parent="." unique_id=1353107208 instance=ExtResource("6_xbbee")]
-material = SubResource("CanvasItemMaterial_wblr4")
-position = Vector2(1, 25)
-
-[node name="summary_action_tab4" parent="." unique_id=751273799 instance=ExtResource("6_xbbee")]
-material = SubResource("CanvasItemMaterial_wblr4")
-position = Vector2(1, 34)
-
-[node name="summary_action_tab5" parent="." unique_id=238466135 instance=ExtResource("6_xbbee")]
-material = SubResource("CanvasItemMaterial_wblr4")
-position = Vector2(1, 43)
-
-[node name="summary_action_tab6" parent="." unique_id=598289182 instance=ExtResource("6_xbbee")]
-material = SubResource("CanvasItemMaterial_wblr4")
-position = Vector2(1, 52)
-
-[node name="summary_action_tab7" parent="." unique_id=389421046 instance=ExtResource("6_xbbee")]
-material = SubResource("CanvasItemMaterial_wblr4")
-position = Vector2(1, 61)
-
-[node name="summary_action_tab8" parent="." unique_id=1424330154 instance=ExtResource("6_xbbee")]
-material = SubResource("CanvasItemMaterial_wblr4")
-position = Vector2(1, 70)
-
 [node name="arrow_left" type="Sprite2D" parent="." unique_id=996110215]
 material = SubResource("CanvasItemMaterial_wblr4")
 position = Vector2(-140, 0)
@@ -356,3 +325,41 @@ text = "30% WEAKNESS TO [color=RED]PHYSICAL DAMAGE[/color]"
 material = SubResource("CanvasItemMaterial_cp5na")
 position = Vector2(98, -38)
 frame_progress = 0.7161293
+
+[node name="summary_action_tabs" type="Node2D" parent="." unique_id=158429916]
+
+[node name="summary_action_tab" parent="summary_action_tabs" unique_id=378411467 instance=ExtResource("6_xbbee")]
+material = SubResource("CanvasItemMaterial_wblr4")
+position = Vector2(1, 7)
+
+[node name="summary_action_tab2" parent="summary_action_tabs" unique_id=1203038048 instance=ExtResource("6_xbbee")]
+material = SubResource("CanvasItemMaterial_wblr4")
+position = Vector2(1, 16)
+
+[node name="summary_action_tab3" parent="summary_action_tabs" unique_id=1353107208 instance=ExtResource("6_xbbee")]
+material = SubResource("CanvasItemMaterial_wblr4")
+position = Vector2(1, 25)
+
+[node name="summary_action_tab4" parent="summary_action_tabs" unique_id=751273799 instance=ExtResource("6_xbbee")]
+material = SubResource("CanvasItemMaterial_wblr4")
+position = Vector2(1, 34)
+
+[node name="summary_action_tab5" parent="summary_action_tabs" unique_id=238466135 instance=ExtResource("6_xbbee")]
+material = SubResource("CanvasItemMaterial_wblr4")
+position = Vector2(1, 43)
+
+[node name="summary_action_tab6" parent="summary_action_tabs" unique_id=598289182 instance=ExtResource("6_xbbee")]
+material = SubResource("CanvasItemMaterial_wblr4")
+position = Vector2(1, 52)
+
+[node name="summary_action_tab7" parent="summary_action_tabs" unique_id=389421046 instance=ExtResource("6_xbbee")]
+material = SubResource("CanvasItemMaterial_wblr4")
+position = Vector2(1, 61)
+
+[node name="summary_action_tab8" parent="summary_action_tabs" unique_id=1424330154 instance=ExtResource("6_xbbee")]
+material = SubResource("CanvasItemMaterial_wblr4")
+position = Vector2(1, 70)
+
+[node name="EquipItemSummary" parent="." unique_id=145563450 instance=ExtResource("14_ftgtg")]
+visible = false
+position = Vector2(0, 39)

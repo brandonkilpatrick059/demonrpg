@@ -8,11 +8,17 @@ var audio_player := AudioStreamPlayer.new()
 
 var sacrifice_mode : bool = false
 var grimoire_mode : bool = false
+var equip_item_mode : bool = false
+var equip_equip_item_mode : bool = false #I know...
 var view_all_familiars_mode : bool = false
 var store_familiars_mode : bool = false
 var summmon_familiars_mode : bool = false
 var main_mode : bool = true
 var save_game_mode : bool = false
+var equip_mode : bool = false
+var unequip_mode : bool = false
+
+var item_to_equip : EquipItem = null
 
 var interact_timer := Timer.new()
 
@@ -47,6 +53,8 @@ func set_basic_actions():
 		actions.append("GRIMOIRE")
 		if(player_ref.get_familiars_team().size() > 1):
 			actions.append("SACRIFICE")
+	if(player_ref.has_equip_items()):
+		actions.append("ARTIFACTS")
 	actions.append_array(["SAVE GAME","LEAVE"])
 	action_menu.set_actions(actions)
 
@@ -68,6 +76,15 @@ func list_team():
 	var names : Array[String] = []
 	for familiar : Familiar in familiars:
 		names.append(familiar.get_familiar_name())
+	names.append("BACK")
+	action_menu.set_actions(names)
+
+func list_items():
+	var player_ref : Player = get_tree().get_first_node_in_group("player")
+	var equip_items : Array[EquipItem] = player_ref.get_stored_equip_items()
+	var names : Array[String] = []
+	for item : EquipItem in equip_items:
+		names.append(item.get_item_name_text())
 	names.append("BACK")
 	action_menu.set_actions(names)
 
@@ -98,6 +115,20 @@ func handle_grimoire():
 	actions.append("BACK")
 	action_menu.set_actions(actions)
 
+func handle_equip_items():
+	var player_ref : Player = get_tree().get_first_node_in_group("player")
+	var actions : Array[String] = []
+	if(player_ref.has_stored_equip_items() ):
+		actions.append("EQUIP")
+	if(player_ref.has_equipped_items() && player_ref.get_stored_equip_items().size() < player_ref.get_max_stored_equip_items()):
+		actions.append("UNEQUIP")
+	elif(player_ref.has_equipped_items() && player_ref.get_stored_equip_items().size() >= player_ref.get_max_stored_equip_items()):
+		actions.append("UNEQUIP (FULL)")
+	elif(player_ref.has_stored_equip_items()):
+		actions.append("DESTROY")
+	actions.append("BACK")
+	action_menu.set_actions(actions)
+
 func handle_summon():
 	list_stored()
 
@@ -109,6 +140,24 @@ func show_summary(familiars : Array[Familiar]):
 	var pos : Vector2 = camera.get_screen_center_position()
 	summary.global_position = pos
 
+func show_summary_unequip(familiars : Array[Familiar]):
+	summary = load("res://interface/familiar_summary.tscn").instantiate()
+	get_parent().add_child(summary)
+	summary.set_familiars(familiars)
+	summary.set_select_mode(self)
+	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+	var pos : Vector2 = camera.get_screen_center_position()
+	summary.global_position = pos
+
+func show_summary_equip(familiars : Array[Familiar], equip_item : EquipItem):
+	summary = load("res://interface/familiar_summary.tscn").instantiate()
+	get_parent().add_child(summary)
+	summary.set_familiars(familiars)
+	summary.set_equip_item_mode(item_to_equip,self)
+	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+	var pos : Vector2 = camera.get_screen_center_position()
+	summary.global_position = pos
+
 func handle_view_all():
 	var player_ref : Player = get_tree().get_first_node_in_group("player")
 	var all_familiars : Array[Familiar] = []
@@ -116,6 +165,58 @@ func handle_view_all():
 	all_familiars.append_array(player_ref.get_stored_familiars())
 	show_summary(all_familiars)
 	action_menu.set_inactive()
+
+func handle_unequip():
+	var player_ref : Player = get_tree().get_first_node_in_group("player")
+	var all_familiars : Array[Familiar] = []
+	all_familiars.append_array(player_ref.get_familiars_team())
+	all_familiars.append_array(player_ref.get_stored_familiars())
+	var familiars_with_item : Array[Familiar] = []
+	for familiar : Familiar in all_familiars:
+		if(familiar.get_equipped_item() != null):
+			familiars_with_item.append(familiar)
+	equip_mode = false
+	unequip_mode = true
+	show_summary_unequip(familiars_with_item)
+	action_menu.set_inactive()
+
+func handle_equip(equip_item : EquipItem):
+	var player_ref : Player = get_tree().get_first_node_in_group("player")
+	var all_familiars : Array[Familiar] = []
+	all_familiars.append_array(player_ref.get_familiars_team())
+	all_familiars.append_array(player_ref.get_stored_familiars())
+	equip_mode = true
+	unequip_mode = false
+	show_summary_equip(all_familiars,equip_item)
+	action_menu.set_inactive()
+
+func summary_select_callback(familiar : Familiar):
+	action_menu.set_active()
+	var player_ref : Player = get_tree().get_first_node_in_group("player")
+	if(unequip_mode):
+		var item : EquipItem = familiar.get_equipped_item()
+		familiar.clear_equipped_item()
+		player_ref.add_stored_equip_item(item)
+		player_ref.add_child(item)
+	elif(equip_mode):
+		familiar.set_equipped_item(item_to_equip)
+		player_ref.remove_stored_equip_item(item_to_equip)
+		familiar.add_child(item_to_equip)
+	handle_equip_items()
+	unequip_mode = false
+	equip_equip_item_mode = false
+	equip_mode = false
+	equip_item_mode = true
+	action_menu.set_active()
+
+func summary_exit_callback():
+	action_menu.set_active()
+	if(unequip_mode):
+		pass
+	elif(equip_mode):
+		pass
+	unequip_mode = false
+	equip_mode = false
 
 func handle_store():
 	list_team()
@@ -189,6 +290,24 @@ func take_action(action : String):
 				grimoire_mode = false
 				audio_player.stream = load("res://audio/effects/brush_snare.ogg")
 				audio_player.play()
+	elif(equip_item_mode):
+		match action:
+			"EQUIP":
+				equip_item_mode = false
+				equip_equip_item_mode = true
+				list_items()
+				audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
+				audio_player.play()
+			"UNEQUIP":
+				handle_unequip()
+				audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
+				audio_player.play()
+			"BACK":
+				set_basic_actions()
+				equip_item_mode = false
+				main_mode = true
+				audio_player.stream = load("res://audio/effects/brush_snare.ogg")
+				audio_player.play()
 	elif(sacrifice_mode):
 		if(action == "BACK"):
 			set_basic_actions()
@@ -214,6 +333,23 @@ func take_action(action : String):
 			player_ref.start_encounter(encounter)
 			audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
 			audio_player.play()
+	elif(equip_equip_item_mode):
+		if(action == "BACK"):
+			set_basic_actions()
+			main_mode = true
+			equip_equip_item_mode = false
+			audio_player.stream = load("res://audio/effects/brush_snare.ogg")
+			audio_player.play()
+		else:
+			var player_ref : Player = get_tree().get_first_node_in_group("player")
+			var items : Array[EquipItem] = player_ref.get_stored_equip_items()
+			for item : EquipItem in items:
+				var item_name = item.get_item_name_text()
+				if(action == item_name):
+					item_to_equip = item
+			handle_equip(item_to_equip)
+			audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
+			audio_player.play()
 	elif(main_mode):
 		match action:
 			"LEAVE":
@@ -222,6 +358,12 @@ func take_action(action : String):
 				main_mode = false
 				grimoire_mode = true
 				handle_grimoire()
+				audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
+				audio_player.play()
+			"ARTIFACTS":
+				main_mode = false
+				equip_item_mode = true
+				handle_equip_items()
 				audio_player.stream = load("res://audio/effects/bell_quicker.ogg")
 				audio_player.play()
 			"SACRIFICE":
@@ -291,6 +433,12 @@ func _physics_process(delta: float) -> void:
 		handle_grimoire()
 		grimoire_mode = true
 		summmon_familiars_mode = false
+		audio_player.stream = load("res://audio/effects/brush_snare.ogg")
+		audio_player.play()
+	elif(equip_item_mode and Input.is_action_just_pressed("action_2")):
+		set_basic_actions()
+		main_mode = true
+		equip_item_mode = false
 		audio_player.stream = load("res://audio/effects/brush_snare.ogg")
 		audio_player.play()
 	elif(main_mode and Input.is_action_just_pressed("action_2")):

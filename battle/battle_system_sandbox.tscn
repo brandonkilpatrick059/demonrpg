@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://5cl0snotsklx" path="res://familiars/base/L1_walker.tscn" id="5_k5gt0"]
 [ext_resource type="SpriteFrames" uid="uid://cjne1hkkbeurl" path="res://sprites/spritesheets/player/player_body.tres" id="5_ogmts"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="6_f717y"]
+[ext_resource type="Texture2D" uid="uid://wsecgsub2ytg" path="res://sprites/effects/mist_2.png" id="8_143nw"]
+[ext_resource type="Script" uid="uid://c8nsbo4604d1a" path="res://utility/wobble.gd" id="9_1nvlj"]
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=1962261481]
 
@@ -54,3 +56,14 @@ animation = &"stand_left"
 [node name="Player" parent="." unique_id=1452148154 instance=ExtResource("6_f717y")]
 pentacle_charms = 3
 active = false
+
+[node name="mist" type="Sprite2D" parent="." unique_id=1284978000]
+modulate = Color(0.7294118, 0.7490196, 0.9098039, 0.2784314)
+z_index = 15
+position = Vector2(160, 90)
+scale = Vector2(-1, -1)
+texture = ExtResource("8_143nw")
+script = ExtResource("9_1nvlj")
+wobble_distance = 26
+speed = 1
+step_time_secs = 0.1

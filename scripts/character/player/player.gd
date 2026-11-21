@@ -4,6 +4,7 @@ class_name Player extends Node2D
 @export var stored_familiars : Array[Familiar] = []
 @export var pentacle_charms : int = 0
 @export var stored_equip_items : Array[EquipItem] = []
+var max_stored_equip_items : int = 8
 
 var facing_direction : String = "down"
 var walking : bool = false
@@ -52,6 +53,13 @@ func _ready() -> void:
 	play_time_timer.start(1.0)
 	camera_panning_timer.one_shot = true
 	add_child(camera_panning_timer)
+
+func add_stored_equip_item(item : EquipItem):
+	if(stored_equip_items.size() < max_stored_equip_items):
+		stored_equip_items.append(item)
+
+func remove_stored_equip_item(item : EquipItem):
+	stored_equip_items.erase(item)
 
 func get_familiars_team() -> Array[Familiar]:
 	for familiar in familiar_team:
@@ -491,6 +499,39 @@ func pan_camera(destination : Vector2, speed : float):
 	camera_returning = false
 	camera_pan_destination = destination
 	camera_pan_speed = speed
+
+func has_equip_items():
+	var has_them : bool = false
+	if(stored_equip_items.size() > 0):
+		has_them = true
+	else:
+		for familiar : Familiar in familiar_team:
+			if(familiar.get_equipped_item() != null):
+				has_them = true
+		for familiar : Familiar in stored_familiars:
+			if(familiar.get_equipped_item() != null):
+				has_them = true
+	return has_them
+
+func has_equipped_items():
+	var has_them : bool = false
+	for familiar : Familiar in familiar_team:
+		if(familiar.get_equipped_item() != null):
+			has_them = true
+	for familiar : Familiar in stored_familiars:
+		if(familiar.get_equipped_item() != null):
+			has_them = true
+	return has_them
+	
+
+func get_stored_equip_items() -> Array[EquipItem]:
+	return stored_equip_items
+
+func has_stored_equip_items():
+	return stored_equip_items.size() > 0
+
+func get_max_stored_equip_items() -> int:
+	return max_stored_equip_items
 
 func handle_camera_panning():
 	if(camera_panning_timer.is_stopped()):

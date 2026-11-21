@@ -6,20 +6,43 @@ var current_familiar : Familiar
 
 var showing_item : bool = false
 
+var selection_callback_node : Node = null
+var select_mode : bool = false
+
+var equip_item_mode : bool = false
+
 @onready var action_tabs : Array[SummaryActionTab] = [
-	$summary_action_tab,
-	$summary_action_tab2,
-	$summary_action_tab3,
-	$summary_action_tab4,
-	$summary_action_tab5,
-	$summary_action_tab6,
-	$summary_action_tab7,
-	$summary_action_tab8,
+	$summary_action_tabs/summary_action_tab,
+	$summary_action_tabs/summary_action_tab2,
+	$summary_action_tabs/summary_action_tab3,
+	$summary_action_tabs/summary_action_tab4,
+	$summary_action_tabs/summary_action_tab5,
+	$summary_action_tabs/summary_action_tab6,
+	$summary_action_tabs/summary_action_tab7,
+	$summary_action_tabs/summary_action_tab8,
 ]
 
 func _ready():
 	$AudioStreamPlayer.stream = load("res://audio/effects/bell_quick.ogg")
 	$AudioStreamPlayer.play()
+
+func set_select_mode(callback_node : Node):
+	selection_callback_node = callback_node
+	disable_equip_item_mode()
+	select_mode = true
+
+func set_equip_item_mode(equip_item : EquipItem, callback_node : Node):
+	set_select_mode(callback_node)
+	$summary_action_tabs.visible = false
+	$EquipItemSummary.set_equip_item(equip_item)
+	$EquipItemSummary.visible = true
+	equip_item_mode = true
+
+func disable_equip_item_mode():
+	$summary_action_tabs.visible = true
+	$EquipItemSummary.set_equip_item(null)
+	$EquipItemSummary.visible = false
+	equip_item_mode = false
 
 func set_familiars(new_familiars : Array[Familiar]):
 	if(new_familiars.size() > 0):
@@ -163,14 +186,30 @@ func handle_input():
 			set_familiar(familiars[familiar_index])
 		$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
 		$AudioStreamPlayer.play()
-	if(Input.is_action_just_pressed("select") || 
+	if(select_mode and 
+	Input.is_action_just_pressed("action_1")):
+		selection_callback_node.summary_select_callback(familiars[familiar_index])
+		select_mode = false
+		exit_summary()
+	elif(select_mode and 
+	(Input.is_action_just_pressed("select") || 
+	Input.is_action_just_pressed("action_2"))):
+		selection_callback_node.summary_exit_callback()
+		select_mode = false
+		exit_summary()
+	elif(Input.is_action_just_pressed("select") || 
 	Input.is_action_just_pressed("action_2")):
-		if(current_familiar != null):
-			current_familiar.set_inactive()
-		var player = get_tree().get_first_node_in_group("player")
-		current_familiar.reparent(player)
-		get_tree().paused = false
-		queue_free()
+		exit_summary()
+
+func exit_summary():
+	if(current_familiar != null):
+		current_familiar.set_inactive()
+	var player = get_tree().get_first_node_in_group("player")
+	current_familiar.reparent(player)
+	get_tree().paused = false
+	if(equip_item_mode):
+		disable_equip_item_mode()
+	queue_free()
 
 func _physics_process(delta: float) -> void:
 	handle_input()

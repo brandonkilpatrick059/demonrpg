@@ -803,6 +803,7 @@ func deploy_player():
 	var player_familiar = load("res://familiars/L0_girl.tscn").instantiate()
 	player_familiars.append(player_familiar)
 	player_positions[1].add_child(player_familiar)
+	player_familiar_index = 1
 	player_familiar.set_active()
 	player_familiar.position = Vector2(0,0)
 	player_deployed = true

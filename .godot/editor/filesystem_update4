@@ -97,3 +97,8 @@ res://scripts/battle_system/battle_system_manager.gd
 res://battle/actions/buffs/burn_buff_effect.tscn
 res://familiars/familiar_types/type_excretion.tscn
 res://familiars/familiar_types/type_faerie.tscn
+res://interface/equip_item_summary.tscn
+res://scripts/interface/equip_item_summary.gd
+res://scripts/interface/altar.gd
+res://battle/battle_system_sandbox.tscn
+res://locations/zones/ghost_town/zone_ghost_town.tscn
