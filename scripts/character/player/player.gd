@@ -473,11 +473,15 @@ func play_texts(texts : Array[Text], dark_texts : Array[bool] = []):
 	$InterfaceMessageSpeech.global_position = pos + Vector2(-64,80)
 
 func get_save_dictionary() -> Dictionary:
+	var stored_equip_items_paths : Array[String] = []
+	for item in stored_equip_items:
+		stored_equip_items_paths.append(item.get_path_to_self())
 	var ret_dictionary : Dictionary = {
 		"pentacle_charms" : pentacle_charms,
 		"play_time_secs" : play_time_seconds,
 		"pos_x" : global_position.x,
-		"pos_y" : global_position.y
+		"pos_y" : global_position.y,
+		"stored_equip_items" : stored_equip_items_paths
  	}
 	return ret_dictionary
 
@@ -488,6 +492,11 @@ func load_from_dictionary(dictionary : Dictionary):
 	var pos_y : float = float(dictionary.get("pos_y"))
 	var pos : Vector2 = Vector2(pos_x,pos_y)
 	global_position = pos
+	var equip_item_paths = dictionary.get("stored_equip_items")
+	for item_path in equip_item_paths:
+		var item : EquipItem = load(item_path).instantiate()
+		add_child(item)
+		stored_equip_items.append(item)
 
 func display_location_text(text : String):
 	location_label.display_text(text)

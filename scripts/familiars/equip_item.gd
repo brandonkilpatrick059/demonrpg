@@ -8,6 +8,7 @@ var item_name: String = "DEVIL FANG"
 @export var post_battle_buffs : Array[PostBattleBuff] = []
 @export var post_heal_buffs : Array[PostHealBuff] = []
 @export var post_feed_buffs: Array[PostFeedBuff] = []
+@export var path_to_self : String = ""
 
 #func apply_to_pkg(buff_holder : Familiar, pkg : BattlePkg) -> BattlePkg:
 	#return pkg
@@ -32,3 +33,6 @@ func get_post_feed_buffs() -> Array[PostFeedBuff]:
 
 func get_sprite_frames() -> SpriteFrames:
 	return sprite_frames
+
+func get_path_to_self() -> String:
+	return path_to_self

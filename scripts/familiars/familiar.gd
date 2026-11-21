@@ -587,6 +587,9 @@ func play_animation(anim_name : String):
 	sprite.play(anim_name)
 
 func get_save_dictionary() -> Dictionary:
+	var equipped_item_path : String = ""
+	if(equipped_item != null):
+		equipped_item_path = equipped_item.get_path_to_self()
 	var ret_dictionary : Dictionary = {
 		"packedscene" : packedscene_path,
 		"name" : familiar_name,
@@ -600,7 +603,8 @@ func get_save_dictionary() -> Dictionary:
 		"num_actions" : num_actions,	
 		"level" : level,
 		"experience" : experience,
-		"stored" : stored
+		"stored" : stored,
+		"equipped_item_path": equipped_item_path
 	}
 	return ret_dictionary
 
@@ -621,6 +625,11 @@ func load_from_dictionary(dictionary : Dictionary):
 	level = int(dictionary.get("level"))
 	experience = int(dictionary.get("experience"))
 	stored = bool(dictionary.get("stored"))
+	var item_path = dictionary.get("equipped_item_path")
+	if(item_path != ""):
+		var loaded_item : EquipItem = load(item_path).instantiate()
+		add_child(loaded_item)
+		set_equipped_item(loaded_item)
 
 func _physics_process(delta: float) -> void:
 	if(active):

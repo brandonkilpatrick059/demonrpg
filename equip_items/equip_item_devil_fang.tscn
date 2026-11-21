@@ -11,6 +11,7 @@ name_text = NodePath("name")
 description_text = NodePath("description")
 sprite_frames = ExtResource("2_rc885")
 post_battle_buffs = [NodePath("bleed_buff")]
+path_to_self = "res://equip_items/equip_item_devil_fang.tscn"
 
 [node name="name" type="Node" parent="." unique_id=284124591]
 script = ExtResource("2_fsrny")
