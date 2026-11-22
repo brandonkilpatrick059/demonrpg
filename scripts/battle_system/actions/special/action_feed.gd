@@ -12,6 +12,9 @@ var success_english : String = "[TEAM][ACTOR] [color=red]eats[/color] [TEAM2][TA
 var failure_english : String = "but [TEAM][ACTOR] fails to [color=red]eat[/color] [TEAM2][TARGET]"
 var comment_english : String = "[TEAM][ACTOR] gains [color=red][EXP] power[/color]..."
 
+var item_recovered_english : String = "[ITEM] was retrieved"
+var item_lost_english : String = "[ITEM] was lost"
+
 var feed_succeeded : bool = false
 
 var success_message : String = ""
@@ -177,28 +180,37 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			var target : Familiar = targets[0]
 			if(not target.is_dead()):
 				target.kill()
+			var messages : Array[String] = []
+			messages.append(success_message)
+			if(targets[0].get_equipped_item() != null &&
+			not targets[0].is_hostile()):
+				var item_comment : String = ""
+				var player_ref : Player = get_tree().get_first_node_in_group("player")
+				var item : EquipItem = targets[0].get_equipped_item()
+				if(player_ref.get_stored_equip_items().size() < player_ref.get_max_stored_equip_items()):
+					item_comment = item_recovered_english.replace("[ITEM]",item.get_item_name_text())
+				else:
+					item_comment = item_lost_english.replace("[ITEM]",item.get_item_name_text())
+				messages.append(item_comment)
+			battle_sys_ref.play_messages(messages)
 			actor.consume_familiar(target)
 			var heal_amount = target.get_max_hp()
 			var final_heal_amount = actor.heal(heal_amount)
 			visual_effects(actor,target)
 			visual_effects_2(actor,target,final_heal_amount)
-			commenced_feed = true
-		else:
-			exit_action()
+		commenced_feed = true
 	elif(not announced_failure && not feed_succeeded):
 		if(targets.size() > 0 and targets[0] != null):
 			var comment : String = get_failure_message(actor,targets[0])
 			battle_sys_ref.play_messages([comment])
-			announced_failure = true
-		else:
-			exit_action()
-	elif(not comment_feed && feed_succeeded): #pretty sure this is unused?
-		if(targets.size() > 0 and targets[0] != null):
-			var comment : String = success_message
-			battle_sys_ref.play_messages([comment])
-			comment_feed = true
-		else:
-			exit_action()
+		announced_failure = true
+	#elif(not comment_feed && feed_succeeded): #I think this is unused?
+		#if(targets.size() > 0 and targets[0] != null):
+			#var comment : String = success_message
+			#var messages : Array[String] = []
+			#messages.append(comment)
+			#battle_sys_ref.play_messages(messages)
+		#comment_feed = true
 	else:
 		var full_action_exectued : bool = true
 		exit_action(full_action_exectued)

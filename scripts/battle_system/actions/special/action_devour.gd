@@ -12,6 +12,9 @@ var success_english : String = "[TEAM][ACTOR] [color=red]devours[/color] [TEAM2]
 var failure_english : String = "but [TEAM][ACTOR] fails to [color=red]devour[/color] [TEAM2][TARGET]"
 var comment_english : String = "[TEAM][ACTOR] gains [color=red][EXP] power[/color]..."
 
+var item_recovered_english : String = "[ITEM] was retrieved"
+var item_lost_english : String = "[ITEM] was lost"
+
 var feed_succeeded : bool = false
 
 var success_message : String = ""
@@ -181,6 +184,19 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			var target : Familiar = targets[0]
 			if(not target.is_dead()):
 				target.kill()
+			var messages : Array[String] = []
+			messages.append(success_message)
+			if(targets[0].get_equipped_item() != null &&
+			not targets[0].is_hostile()):
+				var item_comment : String = ""
+				var player_ref : Player = get_tree().get_first_node_in_group("player")
+				var item : EquipItem = targets[0].get_equipped_item()
+				if(player_ref.get_stored_equip_items().size() < player_ref.get_max_stored_equip_items()):
+					item_comment = item_recovered_english.replace("[ITEM]",item.get_item_name_text())
+				else:
+					item_comment = item_lost_english.replace("[ITEM]",item.get_item_name_text())
+				messages.append(item_comment)
+			battle_sys_ref.play_messages(messages)
 			var exp_multiplier : float = 2.0
 			actor.consume_familiar(target,exp_multiplier)
 			visual_effects(actor,target)
