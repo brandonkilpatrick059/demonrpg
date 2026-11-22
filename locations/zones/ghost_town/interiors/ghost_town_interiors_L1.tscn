@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cam847702142m" path="res://monsters/damned.tscn" id="31_52klf"]
 [ext_resource type="PackedScene" uid="uid://cr8xx07o12v1d" path="res://item/equip_item_pickup.tscn" id="32_c20u2"]
 [ext_resource type="PackedScene" uid="uid://cci1ti3tgr2o2" path="res://equip_items/equip_item_blunt_fang.tscn" id="33_e8j2x"]
+[ext_resource type="PackedScene" uid="uid://5p4stnatam7k" path="res://equip_items/equip_item_cloudy_cross.tscn" id="34_e8j2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -1099,9 +1100,16 @@ position = Vector2(-360, -2880)
 damned_name = "GHOST_TOWN_DAMNED"
 familiar_path = "res://familiars/base/L0_forge_damned.tscn"
 
-[node name="EquipItemPickup" parent="." unique_id=1226598247 node_paths=PackedStringArray("item") instance=ExtResource("32_c20u2")]
+[node name="EquipItemPickupFang" parent="." unique_id=1226598247 node_paths=PackedStringArray("item") instance=ExtResource("32_c20u2")]
 position = Vector2(864, -24)
 gamestate_name = "GHOST_TOWN_FANG_1"
 item = NodePath("EquipItemBluntFang")
 
-[node name="EquipItemBluntFang" parent="EquipItemPickup" unique_id=979938698 instance=ExtResource("33_e8j2x")]
+[node name="EquipItemBluntFang" parent="EquipItemPickupFang" unique_id=979938698 instance=ExtResource("33_e8j2x")]
+
+[node name="EquipItemPickupCross" parent="." unique_id=265577618 node_paths=PackedStringArray("item") instance=ExtResource("32_c20u2")]
+position = Vector2(-384, -1056)
+gamestate_name = "GHOST_TOWN_CROSS_1"
+item = NodePath("EquipItemCloudyCharm")
+
+[node name="EquipItemCloudyCharm" parent="EquipItemPickupCross" unique_id=1478904662 instance=ExtResource("34_e8j2x")]

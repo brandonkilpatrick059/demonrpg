@@ -200,9 +200,16 @@ func summary_select_callback(familiar : Familiar):
 		player_ref.add_stored_equip_item(item)
 		item.reparent(player_ref)
 	elif(equip_mode):
+		var item_temp : EquipItem = null
+		if(familiar.get_equipped_item() != null):
+			item_temp = familiar.get_equipped_item()
+			item_temp.reparent(player_ref)
 		familiar.set_equipped_item(item_to_equip)
-		player_ref.remove_stored_equip_item(item_to_equip)
 		item_to_equip.reparent(familiar)
+		player_ref.remove_stored_equip_item(item_to_equip)
+		if(item_temp != null):
+			player_ref.add_stored_equip_item(item_temp)
+		
 	handle_equip_items()
 	unequip_mode = false
 	equip_equip_item_mode = false

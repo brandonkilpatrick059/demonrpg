@@ -47,3 +47,18 @@ func add_buff_phys_dmg() -> String:
 
 func add_buff_magic_dmg() -> String:
 	return add_buff_on_dealt_magic_dmg
+
+func get_type_phys() -> String:
+	return add_buff_on_dealt_phys_dmg
+
+func get_type_dealt_phys_dmg_scale_add() -> float:
+	return type_dealt_phys_dmg_scale_add
+
+func get_add_dealt_phys_dmg_to_type() -> String:
+	return add_dealt_phys_dmg_to_type
+
+func get_type_dealt_magic_dmg_scale_add() -> float:
+	return type_dealt_phys_dmg_scale_add
+
+func get_add_dealt_magic_dmg_to_type() -> String:
+	return add_dealt_phys_dmg_to_type

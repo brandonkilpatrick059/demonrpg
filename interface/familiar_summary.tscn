@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b8lc5tvv7145o" path="res://sprites/interface/type_interface.png" id="10_f3d0f"]
 [ext_resource type="Texture2D" uid="uid://ciu2cirs255rm" path="res://sprites/interface/artifact_slot.png" id="11_o38hn"]
 [ext_resource type="Texture2D" uid="uid://byabblf0gt07" path="res://sprites/interface/item_description.png" id="13_cp5na"]
+[ext_resource type="SpriteFrames" uid="uid://dpjwpuhulundk" path="res://sprites/spritesheets/equip_items/blade.tres" id="13_gqtp2"]
 [ext_resource type="PackedScene" uid="uid://ca2f5sbslagjp" path="res://interface/equip_item_summary.tscn" id="14_ftgtg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8h1s"]
@@ -324,7 +325,8 @@ text = "30% WEAKNESS TO [color=RED]PHYSICAL DAMAGE[/color]"
 [node name="sprite" type="AnimatedSprite2D" parent="equip_item_interface" unique_id=580727287]
 material = SubResource("CanvasItemMaterial_cp5na")
 position = Vector2(98, -38)
-frame_progress = 0.7161293
+sprite_frames = ExtResource("13_gqtp2")
+frame_progress = 0.2946051
 
 [node name="summary_action_tabs" type="Node2D" parent="." unique_id=158429916]
 

@@ -112,3 +112,13 @@ res://battle/actions/buffs/bleed_buff_effect_2.tscn
 res://battle/encounters/ghost_town/walker_stalf.tscn
 res://battle/encounters/ghost_town/walker_byle.tscn
 res://familiars/familiar_types/type_beast.tscn
+res://sprites/spritesheets/equip_items/blue_cross.tres
+res://sprites/spritesheets/equip_items/teal_cross.tres
+res://familiars/base/L0_worm.tscn
+res://sprites/spritesheets/equip_items/sickly_fang.tres
+res://equip_items/equip_item_cloudy_charm.tscn
+res://equip_items/equip_item_cloudy_cross.tscn
+res://sprites/spritesheets/equip_items/blade.tres
+res://equip_items/equip_item_beast_blade.tscn
+res://scripts/familiars/familiar_type.gd
+res://battle/actions/action_attack.tscn

@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b7wadll2wh0m1"]
+
+[ext_resource type="Texture2D" uid="uid://dkx8tlg0xurwa" path="res://sprites/spritesheets/equip_items/sickly_fang.png" id="1_brs3v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1tvh"]
+atlas = ExtResource("1_brs3v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8d0m"]
+atlas = ExtResource("1_brs3v")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d70jf"]
+atlas = ExtResource("1_brs3v")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxuaa"]
+atlas = ExtResource("1_brs3v")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd1wo"]
+atlas = ExtResource("1_brs3v")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78yfy"]
+atlas = ExtResource("1_brs3v")
+region = Rect2(160, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1tvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8d0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d70jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxuaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd1wo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78yfy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

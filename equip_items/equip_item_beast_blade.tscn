@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bpto0tf7an84i"]
+
+[ext_resource type="Script" uid="uid://d0hosismj2vbn" path="res://scripts/familiars/equip_item.gd" id="1_clie7"]
+[ext_resource type="SpriteFrames" uid="uid://dpjwpuhulundk" path="res://sprites/spritesheets/equip_items/blade.tres" id="2_0gvi6"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="3_jp210"]
+[ext_resource type="Script" uid="uid://cuq15w51x46sv" path="res://scripts/familiars/type_item_sys/post_battle_buff.gd" id="4_d6ys1"]
+
+[node name="EquipItemBeastBlade" type="Node2D" unique_id=979938698 node_paths=PackedStringArray("name_text", "description_text", "post_battle_buffs")]
+script = ExtResource("1_clie7")
+name_text = NodePath("name")
+description_text = NodePath("description")
+sprite_frames = ExtResource("2_0gvi6")
+post_battle_buffs = [NodePath("beast_buff")]
+path_to_self = "res://equip_items/equip_item_blunt_fang.tscn"
+
+[node name="name" type="Node" parent="." unique_id=284124591]
+script = ExtResource("3_jp210")
+language_map = Array[String](["english"])
+text = Array[String](["BEAST BLADE"])
+
+[node name="description" type="Node" parent="." unique_id=1495079430]
+script = ExtResource("3_jp210")
+language_map = Array[String](["english"])
+text = Array[String](["DEAL [color=green]+20%[/color][color=darkred] PHYSICAL DAMAGE[/color] TO [color=red]BEASTS[/color]"])
+
+[node name="beast_buff" type="Node" parent="." unique_id=1300610730]
+script = ExtResource("4_d6ys1")
+add_dealt_phys_dmg_to_type = "BEAST"
+type_dealt_phys_dmg_scale_add = 2.0

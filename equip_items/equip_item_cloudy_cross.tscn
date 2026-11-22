@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://5p4stnatam7k"]
+
+[ext_resource type="Script" uid="uid://d0hosismj2vbn" path="res://scripts/familiars/equip_item.gd" id="1_hr0pp"]
+[ext_resource type="SpriteFrames" uid="uid://1bc7qphgj6xr" path="res://sprites/spritesheets/equip_items/teal_cross.tres" id="2_hr0pp"]
+[ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="3_8jkgq"]
+[ext_resource type="Script" uid="uid://bpa75ml4nt3qr" path="res://scripts/familiars/type_item_sys/post_heal_buff.gd" id="4_hr0pp"]
+
+[node name="EquipItemCloudyCharm" type="Node2D" unique_id=979938698 node_paths=PackedStringArray("name_text", "description_text", "post_heal_buffs")]
+script = ExtResource("1_hr0pp")
+name_text = NodePath("name")
+description_text = NodePath("description")
+sprite_frames = ExtResource("2_hr0pp")
+post_heal_buffs = [NodePath("heal_buff")]
+path_to_self = "res://equip_items/equip_item_devil_fang.tscn"
+
+[node name="name" type="Node" parent="." unique_id=284124591]
+script = ExtResource("3_8jkgq")
+language_map = Array[String](["english"])
+text = Array[String](["CLOUDY CROSS"])
+
+[node name="description" type="Node" parent="." unique_id=1495079430]
+script = ExtResource("3_8jkgq")
+language_map = Array[String](["english"])
+text = Array[String](["[color=green]+25%[/color] WHEN[color=blue] HEALED[/color]"])
+
+[node name="heal_buff" type="Node" parent="." unique_id=68784235]
+script = ExtResource("4_hr0pp")
+heal_scale_add = 0.25

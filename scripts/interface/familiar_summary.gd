@@ -184,7 +184,6 @@ func handle_input():
 	elif(Input.is_action_just_pressed("left")):
 		if(familiars[familiar_index].get_equipped_item() != null and
 		showing_item):
-			showing_item = false
 			hide_item()
 		else:
 			familiar_index = familiar_index - 1

@@ -174,64 +174,91 @@ func get_familiar_type() -> FamiliarType:
 	return type
 
 func target_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
-	var buffs : Array[PostBattleBuff] = type.get_post_battle_buffs()
-	if(equipped_item != null):
-		buffs.append_array(equipped_item.get_post_battle_buffs())
-	var self_index = pkg.get_targets().find(self)
-	var final_damage = pkg.get_final_damages()[self_index]
-	var new_final_damage = final_damage
-	for buff : PostBattleBuff in buffs:
-		#physical damage
-		if(pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
-			var dmg_scale : float = buff.get_phys_dmg_scale_add()
-			var amt = int(ceili(final_damage * dmg_scale))
-			new_final_damage = new_final_damage + amt
-		#magic damage
-		elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
-			var dmg_scale : float = buff.get_magic_dmg_scale_add()
-			var amt = int(ceili(final_damage * dmg_scale))
-			new_final_damage = new_final_damage + amt
-	pkg.set_final_damage_index(self_index,new_final_damage)
-	return pkg
-
-func actor_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
-	var buffs : Array[PostBattleBuff] = type.get_post_battle_buffs()
-	if(equipped_item != null):
-		buffs.append_array(equipped_item.get_post_battle_buffs())
-	var new_final_damages : Array[int] = []
-	for damage in pkg.final_damages:
-		var final_buff = 0
+	if(type != null):
+		var buffs : Array[PostBattleBuff] = type.get_post_battle_buffs()
+		if(equipped_item != null):
+			buffs.append_array(equipped_item.get_post_battle_buffs())
+		var self_index = pkg.get_targets().find(self)
+		var final_damage = pkg.get_final_damages()[self_index]
+		var new_final_damage = final_damage
 		for buff : PostBattleBuff in buffs:
 			#physical damage
 			if(pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
 				var dmg_scale : float = buff.get_phys_dmg_scale_add()
-				var amt = int(ceili(damage * dmg_scale))
-				final_buff = final_buff + amt
+				var amt = int(ceili(final_damage * dmg_scale))
+				new_final_damage = new_final_damage + amt
 			#magic damage
 			elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
 				var dmg_scale : float = buff.get_magic_dmg_scale_add()
-				var amt = int(ceili(damage * dmg_scale))
-				final_buff = final_buff + amt
-		var new_final_damage = damage + final_buff
-		new_final_damages.append(new_final_damage)
-	for buff : PostBattleBuff in buffs:
-		if(pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
-			if(buff.add_buff_phys_dmg() != ""):
-				var path = buff.add_buff_phys_dmg()
-				for target : Familiar in pkg.get_targets():
-					if(target != null):
-						var add_buff = load(path).instantiate()
-						add_buff.set_source_and_target(pkg.actor,target)
-						target.add_battle_buff(add_buff)
-		elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
-			if(buff.add_buff_magic_dmg() != ""):
-				var path = buff.add_buff_magic_dmg()
-				for target : Familiar in pkg.get_targets():
-					if(target != null):
-						var add_buff = load(path).instantiate()
-						add_buff.set_source_and_target(pkg.actor,target)
-						target.add_battle_buff(add_buff)
-	pkg.set_final_damages(new_final_damages)
+				var amt = int(ceili(final_damage * dmg_scale))
+				new_final_damage = new_final_damage + amt
+		pkg.set_final_damage_index(self_index,new_final_damage)
+	return pkg
+
+func actor_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
+	if(type != null):
+		var buffs : Array[PostBattleBuff] = type.get_post_battle_buffs()
+		if(equipped_item != null):
+			buffs.append_array(equipped_item.get_post_battle_buffs())
+		var new_final_damages : Array[int] = []
+		var index : int = 0
+		for damage in pkg.final_damages:
+			var final_buff = 0
+			for buff : PostBattleBuff in buffs:
+				#physical damage
+				if(pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
+					var dmg_scale : float = buff.get_phys_dmg_scale_add()
+					var amt = int(ceili(damage * dmg_scale))
+					final_buff = final_buff + amt
+					#type-specifc buffs
+					if(buff.get_type_dealt_phys_dmg_scale_add() > 0.0):
+						var target_type : FamiliarType = pkg.get_targets()[index].get_familiar_type()
+						var type_name : String = target_type.get_type_name_text()
+						var self_index = pkg.get_targets().find(self)
+						var final_damage = pkg.get_final_damages()[self_index]
+						if(buff.get_add_dealt_phys_dmg_to_type() == type_name):
+							dmg_scale  = buff.get_type_dealt_phys_dmg_scale_add()
+							amt = int(ceili(damage * dmg_scale))
+							final_buff = final_buff + amt
+				#magic damage
+				elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
+					var dmg_scale : float = buff.get_magic_dmg_scale_add()
+					var amt = int(ceili(damage * dmg_scale))
+					final_buff = final_buff + amt
+					#type-specifc buffs
+					if(buff.get_type_dealt_magic_dmg_scale_add() > 0.0):
+						var target_type : FamiliarType = pkg.get_targets()[index].get_familiar_type()
+						var type_name : String = target_type.get_type_name_text()
+						var self_index = pkg.get_targets().find(self)
+						var final_damage = pkg.get_final_damages()[self_index]
+						if(buff.get_add_dealt_magic_dmg_to_type() == type_name):
+							dmg_scale  = buff.get_type_dealt_magic_dmg_scale_add()
+							amt = int(ceili(damage * dmg_scale))
+							final_buff = final_buff + amt
+			var new_final_damage = damage + final_buff
+			new_final_damages.append(new_final_damage)
+			index = index + 1
+		#add status effects
+		for buff : PostBattleBuff in buffs:
+			if(pkg.get_damage_type() == BattleAction.DamageType.PHYSICAL):
+				if(buff.add_buff_phys_dmg() != ""):
+					var path = buff.add_buff_phys_dmg()
+					for target : Familiar in pkg.get_targets():
+						if(target != null):
+							#add status buff
+							var add_buff = load(path).instantiate()
+							add_buff.set_source_and_target(pkg.actor,target)
+							target.add_battle_buff(add_buff)
+			elif(pkg.get_damage_type() == BattleAction.DamageType.MAGIC):
+				if(buff.add_buff_magic_dmg() != ""):
+					var path = buff.add_buff_magic_dmg()
+					for target : Familiar in pkg.get_targets():
+						if(target != null):
+							#add status buff
+							var add_buff = load(path).instantiate()
+							add_buff.set_source_and_target(pkg.actor,target)
+							target.add_battle_buff(add_buff)
+		pkg.set_final_damages(new_final_damages)
 	return pkg
 
 func get_actions_taken() -> int:
@@ -259,6 +286,9 @@ func heal(amount : int, heal_effects : bool = true) -> int:
 func apply_type_healing_buffs(amount : int) -> int:
 	var buff_amount : int = 0
 	var buffs : Array[PostHealBuff] = type.get_post_heal_buffs()
+	if(equipped_item != null):
+		var item_buffs : Array[PostHealBuff] = equipped_item.get_post_heal_buffs()
+		buffs.append_array(item_buffs)
 	for buff : PostHealBuff in buffs:
 		var amt_scale : float = buff.get_heal_scale_add()
 		var amt = int (amount * amt_scale)

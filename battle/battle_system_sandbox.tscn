@@ -9,6 +9,23 @@
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="6_f717y"]
 [ext_resource type="Texture2D" uid="uid://wsecgsub2ytg" path="res://sprites/effects/mist_2.png" id="8_143nw"]
 [ext_resource type="Script" uid="uid://c8nsbo4604d1a" path="res://utility/wobble.gd" id="9_1nvlj"]
+[ext_resource type="Shader" uid="uid://ctbt1f24kbll6" path="res://shaders/rain_shader.gdshader" id="10_utd3o"]
+[ext_resource type="Texture2D" uid="uid://5rlts5urifo0" path="res://sprites/effects/empty_screen_sprite.png" id="11_2a837"]
+[ext_resource type="Script" uid="uid://dtp58j4vg44s8" path="res://scripts/utility/rain_effect_layer.gd" id="12_ow41a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mte6a"]
+shader = ExtResource("10_utd3o")
+shader_parameter/rain_amount = 100.0
+shader_parameter/near_rain_length = 0.10000000405148
+shader_parameter/far_rain_length = 0.02500000048898
+shader_parameter/near_rain_width = 0.23100000771262
+shader_parameter/far_rain_width = 0.17300000495762002
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.003921569, 0.22745098, 0.36862746, 1)
+shader_parameter/base_rain_speed = 1.0
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 4.7499999933364734e-08
 
 [node name="BattleSystemSandbox" type="Node2D" unique_id=1962261481]
 
@@ -45,7 +62,7 @@ attack = 10
 
 [node name="L1walker2" parent="BattleSystem/player" unique_id=678025950 instance=ExtResource("5_k5gt0")]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1002522205]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1002522205 groups=["camera"]]
 position = Vector2(160, 90)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=765758611]
@@ -58,6 +75,7 @@ pentacle_charms = 3
 active = false
 
 [node name="mist" type="Sprite2D" parent="." unique_id=1284978000]
+visible = false
 modulate = Color(0.7294118, 0.7490196, 0.9098039, 0.2784314)
 z_index = 15
 position = Vector2(160, 90)
@@ -67,3 +85,10 @@ script = ExtResource("9_1nvlj")
 wobble_distance = 26
 speed = 1
 step_time_secs = 0.1
+
+[node name="rain_effect_sprite" type="Sprite2D" parent="." unique_id=501961861 groups=["rain_effect"]]
+z_index = 20
+material = SubResource("ShaderMaterial_mte6a")
+position = Vector2(160, 90)
+texture = ExtResource("11_2a837")
+script = ExtResource("12_ow41a")

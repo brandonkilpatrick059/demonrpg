@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://d0hosismj2vbn" path="res://scripts/familiars/equip_item.gd" id="1_us76v"]
 [ext_resource type="Script" uid="uid://xtykxchs28xu" path="res://scripts/utility/text.gd" id="2_fsrny"]
-[ext_resource type="SpriteFrames" uid="uid://dn0bq0y271ykf" path="res://sprites/spritesheets/equip_items/fang.tres" id="2_rc885"]
+[ext_resource type="SpriteFrames" uid="uid://b7wadll2wh0m1" path="res://sprites/spritesheets/equip_items/sickly_fang.tres" id="2_wru6y"]
 [ext_resource type="Script" uid="uid://cuq15w51x46sv" path="res://scripts/familiars/type_item_sys/post_battle_buff.gd" id="3_wru6y"]
 
 [node name="EquipItemDevilFang" type="Node2D" unique_id=979938698 node_paths=PackedStringArray("name_text", "description_text", "post_battle_buffs")]
 script = ExtResource("1_us76v")
 name_text = NodePath("name")
 description_text = NodePath("description")
-sprite_frames = ExtResource("2_rc885")
+sprite_frames = ExtResource("2_wru6y")
 post_battle_buffs = [NodePath("bleed_buff")]
 path_to_self = "res://equip_items/equip_item_devil_fang.tscn"
 
