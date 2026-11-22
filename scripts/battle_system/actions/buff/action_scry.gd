@@ -68,11 +68,6 @@ func clean_up():
 	announced_magic = false
 	printed_level = false
 
-func exit_action():
-	battle_sys_ref.start_wait_timer(1.0)
-	battle_sys_ref.get_next_action()
-	clean_up()
-
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
 	summary = str(summary,str(summary,get_action_name()))
@@ -100,28 +95,37 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		else:
 			exit_action()
 	elif(not cast_magic):
-		var target : Familiar = targets[0]
-		var scry_buff = load("res://battle/actions/buffs/scry_buff.tscn").instantiate()
-		var divided_magic = get_divided_magic(actor)
-		var extra_turns : int = randi_range(0,divided_magic)
-		var lifetime : int = get_base() + extra_turns
-		scry_buff.set_lifetime(lifetime)
-		scry_buff.set_target(target)
-		target.add_battle_buff(scry_buff)
-		actor.play_one_shot_animation("magic")
-		var battle_sys_ref : BattleSystemManager
-		battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-		battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
-		
-		if(targets[0] != null && targets[0].is_hostile()):
-			var messages : Array[String] = []
-			var level_string : String = get_level(targets[0])
-			var hp_string : String = get_health(targets[0])
-			messages.append_array([level_string,hp_string])
-			battle_sys_ref.play_messages(messages)
-		cast_magic = true
-	#elif(not printed_level):
-		#
-		#printed_level = true
+		if(targets.size() > 0):
+			var target : Familiar = targets[0]
+			if(target != null):
+				var scry_buff = load("res://battle/actions/buffs/scry_buff.tscn").instantiate()
+				var divided_magic = get_divided_magic(actor)
+				var extra_turns : int = randi_range(0,divided_magic)
+				var lifetime : int = get_base() + extra_turns
+				scry_buff.set_lifetime(lifetime)
+				scry_buff.set_target(target)
+				target.add_battle_buff(scry_buff)
+				actor.play_one_shot_animation("magic")
+				var battle_sys_ref : BattleSystemManager
+				battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+				battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
+				if(targets[0] != null && targets[0].is_hostile()):
+					var messages : Array[String] = []
+					var level_string : String = get_level(targets[0])
+					var hp_string : String = get_health(targets[0])
+					messages.append_array([level_string,hp_string])
+					battle_sys_ref.play_messages(messages)
+				cast_magic = true
+			else:
+				exit_action()
+		else:
+			exit_action()
 	else:
-		exit_action()
+		var full_action_exectued : bool = true
+		exit_action(full_action_exectued)
+
+func exit_action(full_action_executed : bool = false):
+	if full_action_executed:
+		battle_sys_ref.start_wait_timer(0.5)
+	battle_sys_ref.get_next_action()
+	clean_up()

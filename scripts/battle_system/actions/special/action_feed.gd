@@ -154,15 +154,16 @@ func visual_effects_2(actor : Familiar, target : Familiar, amount : int):
 	hp_particle.set_particle(str(amount),Color(0.542, 0.691, 1.0, 1.0))
 	battle_sys_ref.play_sound(load("res://audio/effects/dark_bell.ogg"))
 
-func exit_action():
-	battle_sys_ref.start_wait_timer(0.5)
+func exit_action(full_action_executed : bool = false):
+	if full_action_executed:
+		battle_sys_ref.start_wait_timer(0.5)
 	battle_sys_ref.get_next_action()
 	clean_up()
 
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_feed):
-		if(targets[0] != null):
+		if(targets.size() > 0 and targets[0] != null):
 			determine_feed_success(actor,targets[0])
 			announced_feed = true
 			if(not targets[0].is_dead()):
@@ -171,23 +172,33 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		else:
 			exit_action()
 	elif(not commenced_feed && feed_succeeded):
-		battle_sys_ref.start_wait_timer(0.5)
-		var target : Familiar = targets[0]
-		if(not target.is_dead()):
-			target.kill()
-		actor.consume_familiar(target)
-		var heal_amount = target.get_max_hp()
-		var final_heal_amount = actor.heal(heal_amount)
-		visual_effects(actor,target)
-		visual_effects_2(actor,target,final_heal_amount)
-		commenced_feed = true
+		if(targets.size() > 0 and targets[0] != null):
+			battle_sys_ref.start_wait_timer(0.5)
+			var target : Familiar = targets[0]
+			if(not target.is_dead()):
+				target.kill()
+			actor.consume_familiar(target)
+			var heal_amount = target.get_max_hp()
+			var final_heal_amount = actor.heal(heal_amount)
+			visual_effects(actor,target)
+			visual_effects_2(actor,target,final_heal_amount)
+			commenced_feed = true
+		else:
+			exit_action()
 	elif(not announced_failure && not feed_succeeded):
-		var comment : String = get_failure_message(actor,targets[0])
-		battle_sys_ref.play_messages([comment])
-		announced_failure = true
+		if(targets.size() > 0 and targets[0] != null):
+			var comment : String = get_failure_message(actor,targets[0])
+			battle_sys_ref.play_messages([comment])
+			announced_failure = true
+		else:
+			exit_action()
 	elif(not comment_feed && feed_succeeded): #pretty sure this is unused?
-		var comment : String = success_message
-		battle_sys_ref.play_messages([comment])
-		comment_feed = true
+		if(targets.size() > 0 and targets[0] != null):
+			var comment : String = success_message
+			battle_sys_ref.play_messages([comment])
+			comment_feed = true
+		else:
+			exit_action()
 	else:
-		exit_action()
+		var full_action_exectued : bool = true
+		exit_action(full_action_exectued)

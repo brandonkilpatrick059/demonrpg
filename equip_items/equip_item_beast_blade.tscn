@@ -11,7 +11,7 @@ name_text = NodePath("name")
 description_text = NodePath("description")
 sprite_frames = ExtResource("2_0gvi6")
 post_battle_buffs = [NodePath("beast_buff")]
-path_to_self = "res://equip_items/equip_item_blunt_fang.tscn"
+path_to_self = "res://equip_items/equip_item_beast_blade.tscn"
 
 [node name="name" type="Node" parent="." unique_id=284124591]
 script = ExtResource("3_jp210")
@@ -26,4 +26,4 @@ text = Array[String](["DEAL [color=green]+20%[/color][color=darkred] PHYSICAL DA
 [node name="beast_buff" type="Node" parent="." unique_id=1300610730]
 script = ExtResource("4_d6ys1")
 add_dealt_phys_dmg_to_type = "BEAST"
-type_dealt_phys_dmg_scale_add = 2.0
+type_dealt_phys_dmg_scale_add = 0.2

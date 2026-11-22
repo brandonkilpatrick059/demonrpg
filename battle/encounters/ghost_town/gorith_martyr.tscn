@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bdjob42clmg2b"]
+
+[ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_04xmb"]
+[ext_resource type="AudioStream" uid="uid://c30t0kt1pg570" path="res://audio/music/battle_4.ogg" id="2_04xmb"]
+[ext_resource type="PackedScene" uid="uid://cji52mlwppvu1" path="res://familiars/base/L1_martyr.tscn" id="3_04xmb"]
+[ext_resource type="PackedScene" uid="uid://fy0jk4wvuhj1" path="res://familiars/base/L2_gorith.tscn" id="4_amag2"]
+
+[node name="gorith_martyr" type="Node2D" unique_id=1645955725 node_paths=PackedStringArray("opponents")]
+script = ExtResource("1_04xmb")
+opponents = [NodePath("L1martyr"), NodePath("L1martyr2"), NodePath("L2gorith")]
+music = ExtResource("2_04xmb")
+
+[node name="L1martyr" parent="." unique_id=1657065563 instance=ExtResource("3_04xmb")]
+visible = false
+max_hp = 35
+current_hp = 35
+attack = 8
+defense = 6
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "DEFEND"])
+
+[node name="L1martyr2" parent="." unique_id=1754742643 instance=ExtResource("3_04xmb")]
+visible = false
+max_hp = 35
+current_hp = 35
+attack = 8
+defense = 6
+action_cadence_0 = Array[String](["ATTACK", "ATTACK", "ATTACK", "DEFEND"])
+
+[node name="L2gorith" parent="." unique_id=350619396 instance=ExtResource("4_amag2")]
+visible = false
+max_hp = 60
+current_hp = 60
+attack = 4
+defense = 12
+speed = 5
+action_cadence_0 = Array[String](["BLOCK", "BLOCK", "BLOCK", "DEFLECT", "ATTACK"])

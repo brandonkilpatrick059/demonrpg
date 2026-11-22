@@ -26,11 +26,11 @@ text = Array[String](["[color=yellow]+30%[/color] WHEN HEALED"])
 [node name="description_2" type="Node" parent="." unique_id=1383882342]
 script = ExtResource("2_uk0ak")
 language_map = Array[String](["english"])
-text = Array[String](["[color=yellow]50%[/color] [color=red]WEAKNESS[/color] TO [color=blue]MAGIC DAMAGE[/color]"])
+text = Array[String](["[color=yellow]30%[/color] [color=red]WEAKNESS[/color] TO [color=blue]MAGIC DAMAGE[/color]"])
 
 [node name="magic_weakness" type="Node" parent="." unique_id=445723168]
 script = ExtResource("3_rqxt8")
-magic_dmg_scale_add = 0.5
+magic_dmg_scale_add = 0.3
 
 [node name="heal_buff" type="Node" parent="." unique_id=1121113819]
 script = ExtResource("4_0lsdb")

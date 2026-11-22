@@ -11,9 +11,21 @@ packedscene_path = "res://familiars/base/L0_damned.tscn"
 familiar_name = "Damned"
 max_hp = 10
 current_hp = 10
-type = NodePath("TypeExcretion")
+attack = null
+defense = null
+speed = null
+magic = null
+num_actions = null
+no_sigil = null
+incorporeal = null
 level = 0
 experience = 100
+capture_hp_percent = null
+exp_req_for_level_up = null
+action_cadence_0 = null
+action_cadence_1 = null
+action_cadence_2 = null
+type = NodePath("TypeExcretion")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845359863]
 sprite_frames = ExtResource("2_i7e03")

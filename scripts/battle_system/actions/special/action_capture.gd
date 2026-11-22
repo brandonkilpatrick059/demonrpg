@@ -35,8 +35,9 @@ func visual_effects(target : Familiar):
 	capture_effect.global_position = target.global_position
 	battle_sys_ref.play_sound(load("res://audio/effects/capture.ogg"))
 
-func exit_action():
-	battle_sys_ref.start_wait_timer(0.5)
+func exit_action(full_action_executed : bool = false):
+	if full_action_executed:
+		battle_sys_ref.start_wait_timer(0.5)
 	battle_sys_ref.get_next_action()
 	clean_up()
 
@@ -50,7 +51,7 @@ func switch_to_player_familiars(target : Familiar):
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(!announced_capture):
-		if(targets[0] != null):
+		if(targets.size() > 0 and targets[0] != null):
 			var announcement : String = get_announcement()
 			battle_sys_ref.center_message()
 			battle_sys_ref.play_messages([announcement])
@@ -58,16 +59,23 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		else:
 			exit_action()
 	if(!made_capture):
-		battle_sys_ref.start_wait_timer(1.5)
-		var target : Familiar = targets[0]
-		target.set_health_percentage(0.75)
-		visual_effects(target)
-		made_capture = true
+		if(targets.size() > 0 and targets[0] != null):
+			battle_sys_ref.start_wait_timer(1.5)
+			var target : Familiar = targets[0]
+			target.set_health_percentage(0.75)
+			visual_effects(target)
+			made_capture = true
+		else:
+			exit_action()
 	if(!made_switch):
-		if(!battle_sys_ref.is_waiting()):
-			switch_to_player_familiars(targets[0])
-		var success : String = get_success(targets[0])
-		battle_sys_ref.play_messages([success])
-		made_switch = true
+		if(targets.size() > 0 and targets[0] != null):
+			if(!battle_sys_ref.is_waiting()):
+				switch_to_player_familiars(targets[0])
+			var success : String = get_success(targets[0])
+			battle_sys_ref.play_messages([success])
+			made_switch = true
+		else:
+			exit_action()
 	else:
-		exit_action()
+		var full_action_exectued : bool = true
+		exit_action(full_action_exectued)

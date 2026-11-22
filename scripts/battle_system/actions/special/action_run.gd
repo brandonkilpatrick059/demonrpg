@@ -7,7 +7,7 @@ var battle_sys_ref : BattleSystemManager
 
 var announcment_english : String = "You try to run..."
 var success_english : String = "You run as fast as you can."
-var failure_english : String = "But you cannot."
+var failure_english : String = "But you fail to escape."
 var failure_impossible_english : String = "But it is impossible."
 var success_message : String = ""
 

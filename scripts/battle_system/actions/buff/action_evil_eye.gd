@@ -34,11 +34,6 @@ func clean_up():
 	cast_magic = false
 	announced_magic = false
 
-func exit_action():
-	battle_sys_ref.start_wait_timer(1.0)
-	battle_sys_ref.get_next_action()
-	clean_up()
-
 func get_summary(actor : Familiar)-> String:
 	var summary : String = ""
 	summary = str(summary,str(summary,get_action_name()))
@@ -58,24 +53,40 @@ func get_divided_magic(actor : Familiar) -> int:
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_magic):
-		if(targets[0] != null):
-			var announcement : String = get_announcement(actor,targets[0])
-			battle_sys_ref.play_messages([announcement])
-			announced_magic = true
+		if(targets.size() > 0):
+			if(targets[0] != null):
+				var announcement : String = get_announcement(actor,targets[0])
+				battle_sys_ref.play_messages([announcement])
+				announced_magic = true
+			else:
+				exit_action()
 		else:
 			exit_action()
 	elif(not cast_magic):
-		var target : Familiar = targets[0]
-		var evil_eye_buff = load("res://battle/actions/buffs/evil_eye_buff.tscn").instantiate()
-		var divided_magic = get_divided_magic(actor)
-		var extra_turns : int = randi_range(0,divided_magic)
-		var lifetime : int = get_base() + extra_turns
-		evil_eye_buff.set_lifetime(lifetime)
-		target.add_battle_buff(evil_eye_buff)
-		actor.play_one_shot_animation("magic")
-		var battle_sys_ref : BattleSystemManager
-		battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-		battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
-		cast_magic = true
+		if(targets.size() > 0):
+			if(targets[0] != null):
+				var target : Familiar = targets[0]
+				var evil_eye_buff = load("res://battle/actions/buffs/evil_eye_buff.tscn").instantiate()
+				var divided_magic = get_divided_magic(actor)
+				var extra_turns : int = randi_range(0,divided_magic)
+				var lifetime : int = get_base() + extra_turns
+				evil_eye_buff.set_lifetime(lifetime)
+				target.add_battle_buff(evil_eye_buff)
+				actor.play_one_shot_animation("magic")
+				var battle_sys_ref : BattleSystemManager
+				battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+				battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
+				cast_magic = true
+			else:
+				exit_action()
+		else:
+			exit_action()
 	else:
-		exit_action()
+		var full_action_exectued : bool = true
+		exit_action(full_action_exectued)
+
+func exit_action(full_action_executed : bool = false):
+	if full_action_executed:
+		battle_sys_ref.start_wait_timer(0.5)
+	battle_sys_ref.get_next_action()
+	clean_up()

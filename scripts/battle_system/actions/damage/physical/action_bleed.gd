@@ -106,32 +106,43 @@ func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 				pkg = buff.apply_to_pkg(target,pkg)
 	return pkg
 
-func exit_action():
-	battle_sys_ref.start_wait_timer(0.5)
-	battle_sys_ref.get_next_action()
-	clean_up()
-
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(!announced_attack):
-		if(targets[0] != null):
-			if(targets[0].has_battle_buff("bleed")):
-				var announcement : String = get_announcement(actor,targets[0])
-				battle_sys_ref.play_messages([announcement])
-				announced_attack = true
+		if(targets.size() > 0):
+			if(targets[0] != null):
+				if(targets[0].has_battle_buff("bleed")):
+					var announcement : String = get_announcement(actor,targets[0])
+					battle_sys_ref.play_messages([announcement])
+					announced_attack = true
+				else:
+					exit_action()
 			else:
-				made_attack = true
+				exit_action()
 		else:
-			made_attack = true
+			exit_action()
 	if(!made_attack):
 		battle_sys_ref.start_wait_timer(0.5)
-		var target : Familiar = targets[0]
-		var pkg : BattlePkg = get_battle_pkg(actor, targets)
-		pkg = apply_buffs_to_pkg(pkg)
-		pkg = actor.actor_apply_type_item_buffs(pkg)
-		pkg = target.target_apply_type_item_buffs(pkg)
-		apply_pkg_to_target(pkg)
-		visual_effects(pkg)
-		made_attack = true
+		if(targets.size() > 0):
+			if(targets[0] != null):
+				var target : Familiar = targets[0]
+				var pkg : BattlePkg = get_battle_pkg(actor, targets)
+				pkg = apply_buffs_to_pkg(pkg)
+				pkg = actor.actor_apply_type_item_buffs(pkg)
+				pkg = target.target_apply_type_item_buffs(pkg)
+				apply_pkg_to_target(pkg)
+				visual_effects(pkg)
+				made_attack = true
+			else:
+				exit_action()
+		else:
+			exit_action()
 	else:
-		exit_action()
+		var full_action_exectued : bool = true
+		exit_action(full_action_exectued)
+
+func exit_action(full_action_executed : bool = false):
+	if full_action_executed:
+		battle_sys_ref.start_wait_timer(0.5)
+	battle_sys_ref.get_next_action()
+	clean_up()

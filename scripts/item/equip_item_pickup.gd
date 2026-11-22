@@ -17,7 +17,7 @@ func interact():
 		item.reparent(player_ref)
 		var gamestate : GlobalGamestate = get_tree().get_first_node_in_group("gamestate")
 		gamestate.set_state_map_value(gamestate_name,"GATHERED")
-		player_ref.play_sound(load("res://audio/effects/equip.ogg"))
+		player_ref.play_sound(load("res://audio/effects/capture.ogg"))
 		queue_free()
 	if(player_ref.get_stored_equip_items().size() >= player_ref.get_max_stored_equip_items()):
 		var name_text : Text = item.get_name_text()

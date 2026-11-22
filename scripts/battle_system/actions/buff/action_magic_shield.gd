@@ -47,29 +47,42 @@ func get_half_magic(actor : Familiar) -> int:
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_defense):
-		if(targets[0] != null):
-			var announcement : String = get_announcement(actor,targets[0])
-			battle_sys_ref.play_messages([announcement])
-			announced_defense = true
+		if(targets.size() > 0):
+			if(targets[0] != null):
+				var announcement : String = get_announcement(actor,targets[0])
+				battle_sys_ref.play_messages([announcement])
+				announced_defense = true
+			else:
+				exit_action()
 		else:
-			battle_sys_ref.get_next_action()
-			clean_up()
+			exit_action()
 	elif(not made_defense):
-		var target : Familiar = targets[0]
-		var defense_buff = load("res://battle/actions/buffs/defend_buff.tscn").instantiate()
-		var half_magic : int = get_half_magic(actor)
-		var damage_reduction : int = half_magic + randi_range(0,half_magic)
-		if(damage_reduction == 0):
-			damage_reduction = 1
-		defense_buff.set_damage_reduction(damage_reduction)
-		target.add_battle_buff(defense_buff)
-		actor.play_one_shot_animation("magic")
-		var battle_sys_ref : BattleSystemManager
-		battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-		battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
-		battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
-		made_defense = true
+		if(targets.size() > 0):
+			if(targets[0] != null):
+				var target : Familiar = targets[0]
+				var defense_buff = load("res://battle/actions/buffs/defend_buff.tscn").instantiate()
+				var half_magic : int = get_half_magic(actor)
+				var damage_reduction : int = half_magic + randi_range(0,half_magic)
+				if(damage_reduction == 0):
+					damage_reduction = 1
+				defense_buff.set_damage_reduction(damage_reduction)
+				target.add_battle_buff(defense_buff)
+				actor.play_one_shot_animation("magic")
+				var battle_sys_ref : BattleSystemManager
+				battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+				battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
+				battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
+				made_defense = true
+			else:
+				exit_action()
+		else:
+			exit_action()
 	else:
+		var full_action_exectued : bool = true
+		exit_action(full_action_exectued)
+
+func exit_action(full_action_executed : bool = false):
+	if full_action_executed:
 		battle_sys_ref.start_wait_timer(0.5)
-		battle_sys_ref.get_next_action()
-		clean_up()
+	battle_sys_ref.get_next_action()
+	clean_up()

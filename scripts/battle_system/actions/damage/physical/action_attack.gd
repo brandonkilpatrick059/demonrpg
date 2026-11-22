@@ -112,10 +112,12 @@ func apply_buffs_to_pkg(pkg : BattlePkg) -> BattlePkg:
 				pkg = buff.apply_to_pkg(target,pkg)
 	return pkg
 
-func exit_action():
-	clean_up()
-	battle_sys_ref.start_wait_timer(0.5)
+func exit_action(full_action_executed : bool = false):
+	if full_action_executed:
+		battle_sys_ref.start_wait_timer(0.5)
 	battle_sys_ref.get_next_action()
+	clean_up()
+
 
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
@@ -143,4 +145,5 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		else:
 			exit_action()
 	else:
-		exit_action()
+		var full_action_exectued : bool = true
+		exit_action(full_action_exectued)

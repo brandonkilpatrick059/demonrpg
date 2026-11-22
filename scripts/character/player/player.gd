@@ -493,10 +493,11 @@ func load_from_dictionary(dictionary : Dictionary):
 	var pos : Vector2 = Vector2(pos_x,pos_y)
 	global_position = pos
 	var equip_item_paths = dictionary.get("stored_equip_items")
-	for item_path in equip_item_paths:
-		var item : EquipItem = load(item_path).instantiate()
-		add_child(item)
-		stored_equip_items.append(item)
+	if(equip_item_paths != null):
+		for item_path in equip_item_paths:
+			var item : EquipItem = load(item_path).instantiate()
+			add_child(item)
+			stored_equip_items.append(item)
 
 func display_location_text(text : String):
 	location_label.display_text(text)

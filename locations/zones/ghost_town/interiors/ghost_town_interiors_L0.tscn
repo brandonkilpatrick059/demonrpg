@@ -383,5 +383,21 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc_fence" unique_id=138409683]
 polygon = PackedVector2Array(192, -552, 216, -552, 216, -528, 192, -528)
 
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="npc_fence" unique_id=1709810580]
+position = Vector2(408, 288)
+polygon = PackedVector2Array(192, -552, 216, -552, 216, -528, 192, -528)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="npc_fence" unique_id=2045806654]
+position = Vector2(576, 288)
+polygon = PackedVector2Array(192, -552, 216, -552, 216, -528, 192, -528)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="npc_fence" unique_id=496489934]
+position = Vector2(1152, 576)
+polygon = PackedVector2Array(192, -552, 216, -552, 216, -528, 192, -528)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="npc_fence" unique_id=1077934501]
+position = Vector2(192, -744)
+polygon = PackedVector2Array(192, -552, 216, -552, 216, -528, 192, -528)
+
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="npc_fence" unique_id=1000540508]
 polygon = PackedVector2Array(528, -960, 528, -936, 552, -936, 552, -960)

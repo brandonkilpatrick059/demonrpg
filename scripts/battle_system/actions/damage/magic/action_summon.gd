@@ -47,10 +47,12 @@ func visual_effects(actor : Familiar):
 	actor.play_one_shot_animation("magic")
 	battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
 
-func exit_action():
-	battle_sys_ref.start_wait_timer(0.5)
+func exit_action(full_action_executed : bool = false):
+	if full_action_executed:
+		battle_sys_ref.start_wait_timer(0.5)
 	battle_sys_ref.get_next_action()
 	clean_up()
+
 
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")

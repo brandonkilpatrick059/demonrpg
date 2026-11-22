@@ -1120,30 +1120,6 @@ position = Vector2(1344, 1488)
 encounter = ExtResource("38_w2q8d")
 sprite_frames = ExtResource("39_h3wx6")
 
-[node name="ShadeMonster_wraiths9" parent="encounters" unique_id=695752521 instance=ExtResource("37_h3wx6")]
-z_index = 2
-position = Vector2(1632, 1728)
-encounter = ExtResource("38_w2q8d")
-sprite_frames = ExtResource("39_h3wx6")
-
-[node name="ShadeMonster_wraiths10" parent="encounters" unique_id=1048656402 instance=ExtResource("37_h3wx6")]
-z_index = 2
-position = Vector2(1728, 1968)
-encounter = ExtResource("38_w2q8d")
-sprite_frames = ExtResource("39_h3wx6")
-
-[node name="ShadeMonster_wraiths3" parent="encounters" unique_id=1296051353 instance=ExtResource("37_h3wx6")]
-z_index = 2
-position = Vector2(1080, 1536)
-encounter = ExtResource("38_w2q8d")
-sprite_frames = ExtResource("39_h3wx6")
-
-[node name="ShadeMonster_wraiths4" parent="encounters" unique_id=1548855080 instance=ExtResource("37_h3wx6")]
-z_index = 2
-position = Vector2(1800, 1680)
-encounter = ExtResource("38_w2q8d")
-sprite_frames = ExtResource("39_h3wx6")
-
 [node name="ShadeMonster_wraiths5" parent="encounters" unique_id=425511279 instance=ExtResource("37_h3wx6")]
 z_index = 2
 position = Vector2(1560, 2088)
@@ -1153,11 +1129,5 @@ sprite_frames = ExtResource("39_h3wx6")
 [node name="ShadeMonster_wraiths6" parent="encounters" unique_id=1771857361 instance=ExtResource("37_h3wx6")]
 z_index = 2
 position = Vector2(1584, 2424)
-encounter = ExtResource("38_w2q8d")
-sprite_frames = ExtResource("39_h3wx6")
-
-[node name="ShadeMonster_wraiths7" parent="encounters" unique_id=1490512836 instance=ExtResource("37_h3wx6")]
-z_index = 2
-position = Vector2(1800, 2472)
 encounter = ExtResource("38_w2q8d")
 sprite_frames = ExtResource("39_h3wx6")

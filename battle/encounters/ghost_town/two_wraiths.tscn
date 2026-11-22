@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cdw07jo5n38uk"]
 
 [ext_resource type="Script" uid="uid://bgf8cw3icgxok" path="res://scripts/battle_system/encounter.gd" id="1_d6838"]
-[ext_resource type="AudioStream" uid="uid://dmwb2u8xa7t0e" path="res://audio/music/drone_1.ogg" id="2_ksoxv"]
+[ext_resource type="AudioStream" uid="uid://c30t0kt1pg570" path="res://audio/music/battle_4.ogg" id="2_fm0wf"]
 [ext_resource type="PackedScene" uid="uid://dbp5wkoesg4k" path="res://familiars/base/L2_wraith.tscn" id="3_fm0wf"]
 
 [node name="two_wraiths" type="Node2D" unique_id=1645955725 node_paths=PackedStringArray("opponents")]
 script = ExtResource("1_d6838")
 opponents = [NodePath("L2wraith"), NodePath("L2wraith2")]
-music = ExtResource("2_ksoxv")
+music = ExtResource("2_fm0wf")
 
 [node name="L2wraith" parent="." unique_id=1657065563 instance=ExtResource("3_fm0wf")]
 max_hp = 35

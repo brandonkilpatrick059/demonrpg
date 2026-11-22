@@ -48,26 +48,30 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 				battle_sys_ref.play_messages([announcement])
 				announced_defense = true
 			else:
-				battle_sys_ref.get_next_action()
-				clean_up()
+				exit_action()
 		else:
-			battle_sys_ref.get_next_action()
-			clean_up()
+			exit_action()
 	elif(not made_defense):
 		if(targets.size() > 0):
 			var target : Familiar = targets[0]
-			var reflect_buff = load("res://battle/actions/buffs/reflect_buff.tscn").instantiate()
-			target.add_battle_buff(reflect_buff)
-			actor.play_one_shot_animation("defend")
-			var battle_sys_ref : BattleSystemManager
-			battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-			battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
-			#pay_energy_cost(actor)
-			made_defense = true
+			if(target != null):
+				var reflect_buff = load("res://battle/actions/buffs/reflect_buff.tscn").instantiate()
+				target.add_battle_buff(reflect_buff)
+				actor.play_one_shot_animation("defend")
+				var battle_sys_ref : BattleSystemManager
+				battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+				battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
+				made_defense = true
+			else:
+				exit_action()
 		else:
-			battle_sys_ref.get_next_action()
-			clean_up()
+			exit_action()
 	else:
-		battle_sys_ref.start_wait_timer(1.0)
-		battle_sys_ref.get_next_action()
-		clean_up()
+		var full_action_exectued : bool = true
+		exit_action(full_action_exectued)
+
+func exit_action(full_action_executed : bool = false):
+	if full_action_executed:
+		battle_sys_ref.start_wait_timer(0.5)
+	battle_sys_ref.get_next_action()
+	clean_up()

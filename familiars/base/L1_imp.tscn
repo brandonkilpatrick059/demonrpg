@@ -16,11 +16,21 @@ packedscene_path = "res://familiars/base/L1_imp.tscn"
 familiar_name = "Imp"
 max_hp = 50
 current_hp = 50
+attack = null
+defense = null
+speed = null
 magic = 20
+num_actions = null
 no_sigil = true
+incorporeal = null
 type = NodePath("TypeDevil")
+level = -1
+experience = null
 capture_hp_percent = 0.1
+exp_req_for_level_up = null
 action_cadence_0 = Array[String](["SHIELD", "HEAL", "SUMMON", "HEAL", "SHIELD", "FIRE", "HEAL", "SHIELD", "SUMMON"])
+action_cadence_1 = null
+action_cadence_2 = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615893862]
 sprite_frames = ExtResource("2_uo36o")

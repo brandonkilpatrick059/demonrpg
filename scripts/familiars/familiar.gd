@@ -175,7 +175,8 @@ func get_familiar_type() -> FamiliarType:
 
 func target_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
 	if(type != null):
-		var buffs : Array[PostBattleBuff] = type.get_post_battle_buffs()
+		var buffs : Array[PostBattleBuff] = []
+		buffs.append_array(type.get_post_battle_buffs())
 		if(equipped_item != null):
 			buffs.append_array(equipped_item.get_post_battle_buffs())
 		var self_index = pkg.get_targets().find(self)
@@ -197,9 +198,11 @@ func target_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
 
 func actor_apply_type_item_buffs(pkg : BattlePkg) -> BattlePkg:
 	if(type != null):
-		var buffs : Array[PostBattleBuff] = type.get_post_battle_buffs()
+		var buffs : Array[PostBattleBuff] = []
+		buffs.append_array(type.get_post_battle_buffs())
 		if(equipped_item != null):
-			buffs.append_array(equipped_item.get_post_battle_buffs())
+			var item_buffs : Array[PostBattleBuff] = equipped_item.get_post_battle_buffs()
+			buffs.append_array(item_buffs)
 		var new_final_damages : Array[int] = []
 		var index : int = 0
 		for damage in pkg.final_damages:
@@ -285,7 +288,8 @@ func heal(amount : int, heal_effects : bool = true) -> int:
 
 func apply_type_healing_buffs(amount : int) -> int:
 	var buff_amount : int = 0
-	var buffs : Array[PostHealBuff] = type.get_post_heal_buffs()
+	var buffs : Array[PostHealBuff] = []
+	buffs.append_array(type.get_post_heal_buffs())
 	if(equipped_item != null):
 		var item_buffs : Array[PostHealBuff] = equipped_item.get_post_heal_buffs()
 		buffs.append_array(item_buffs)
@@ -317,8 +321,16 @@ func get_next_action() -> BattleAction:
 		action_cadence_index = action_cadence_index + 1
 	return ret_action
 
+func get_capture_hp_percent():
+	match level:
+		-1: return capture_hp_percent
+		0: return 0.5
+		1: return 0.25
+		2: return 0.15
+		3: return 0.10
+
 func get_capture_range() -> int:
-	return max_hp * capture_hp_percent
+	return max_hp * get_capture_hp_percent()
 
 func randomize_action_cadence():
 	var num_cadences = 0
@@ -387,6 +399,16 @@ func consume_familiar(familiar : Familiar, exp_multiplier : float = 1.0):
 		"num_actions":
 			num_actions = num_actions + final_value
 	experience = experience + (familiar.get_exp_value() * exp_multiplier)
+	
+	#return item to player if they have one
+	var player_ref : Player = get_tree().get_first_node_in_group("player")
+	if(not is_hostile() and 
+	not familiar.is_hostile() and 
+	familiar.get_equipped_item() != null and 
+	player_ref.get_stored_equip_items().size() < player_ref.get_max_stored_equip_items()):
+		familiar.get_equipped_item().reparent(player_ref)
+		player_ref.add_stored_equip_item(familiar.get_equipped_item())
+		familiar.clear_equipped_item()
 
 func add_experience(add_exp : int):
 	experience = experience + add_exp
@@ -436,8 +458,8 @@ func arrange_buffs():
 			battle_buffs[2].global_position = global_position + Vector2(12,buff_y)
 		4:
 			battle_buffs[0].global_position = global_position + Vector2(-16,buff_y)
-			battle_buffs[1].global_position = global_position + Vector2(-8,buff_y)
-			battle_buffs[2].global_position = global_position + Vector2(8,buff_y)
+			battle_buffs[1].global_position = global_position + Vector2(-5,buff_y)
+			battle_buffs[2].global_position = global_position + Vector2(5,buff_y)
 			battle_buffs[3].global_position = global_position + Vector2(16,buff_y)
 
 func has_battle_buff(type_name : String):
@@ -658,7 +680,7 @@ func load_from_dictionary(dictionary : Dictionary):
 	experience = int(dictionary.get("experience"))
 	stored = bool(dictionary.get("stored"))
 	var item_path = dictionary.get("equipped_item_path")
-	if(item_path != ""):
+	if(item_path != null && item_path != ""):
 		var loaded_item : EquipItem = load(item_path).instantiate()
 		add_child(loaded_item)
 		set_equipped_item(loaded_item)

@@ -930,23 +930,26 @@ func get_next_action():
 	update_buff_positions()
 	if(combined_action_queue.size() > 0):
 		var current_action : ActionQueueItem = combined_action_queue.pop_front()
-		while(current_action == null || 
-			current_action.get_actor() == null ||
-			current_action.get_actor().is_dead()):
-			if(combined_action_queue.size() > 0):
-				current_action = combined_action_queue.pop_front()
-			else:
-				no_more_actions()
-				break
+		#while(current_action == null || 
+			#current_action.get_actor() == null ||
+			#current_action.get_actor().is_dead()):
+			#if(combined_action_queue.size() > 0):
+				#current_action = combined_action_queue.pop_front()
+			#else:
+				#no_more_actions()
+				#break
 		if(current_action != null):
 			if(current_action.get_action() != null):
 				current_battle_action = current_action.get_action()
 				current_actor = current_action.get_actor()
 				current_targets = current_action.get_targets()
 				current_battle_action.clean_up() #make sure the action is reset and ready
-				#get a new target for opponent if their intended
+				#get a new target for hostile demons if their intended
 				#target has died
 				check_and_replace_targets(current_action)
+			else:
+				#will get next action during run_actions_process()
+				current_battle_action = null
 			log_battle_state(current_action)
 	elif(combined_action_queue.size() == 0):
 		no_more_actions()
