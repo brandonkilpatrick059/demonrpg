@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bsfd15u6rxo6h"]
+
+[ext_resource type="Script" uid="uid://ds3mb25b651ui" path="res://scripts/familiars/familiar.gd" id="1_tfhca"]
+[ext_resource type="SpriteFrames" uid="uid://clrnhvdy6nfvn" path="res://sprites/spritesheets/familiars/L2_gorgon.tres" id="2_v8trj"]
+[ext_resource type="PackedScene" uid="uid://dp3w8es7pgt6h" path="res://battle/actions/action_attack.tscn" id="3_mffrf"]
+[ext_resource type="PackedScene" uid="uid://bhfmqt6lxewql" path="res://battle/actions/action_block.tscn" id="4_25d0b"]
+[ext_resource type="PackedScene" uid="uid://iwklftc2amt6" path="res://battle/actions/action_feed.tscn" id="5_3ejro"]
+[ext_resource type="PackedScene" uid="uid://bfnuubvl43rki" path="res://battle/actions/action_reflect.tscn" id="6_b2nb8"]
+[ext_resource type="PackedScene" uid="uid://c00bxwkmmfi4m" path="res://familiars/familiar_types/type_beast.tscn" id="7_1tw1h"]
+
+[node name="L3gorgon" type="Node2D" unique_id=350619396 node_paths=PackedStringArray("type")]
+script = ExtResource("1_tfhca")
+packedscene_path = "res://familiars/base/L2_gorgon.tscn"
+familiar_name = "Gorgon"
+max_hp = 15
+current_hp = 15
+attack = 4
+defense = 5
+speed = 2
+type = NodePath("TypeBeast")
+level = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2095233212]
+sprite_frames = ExtResource("2_v8trj")
+animation = &"attack"
+frame_progress = 0.29847
+
+[node name="actions" type="Node" parent="." unique_id=1673258989]
+
+[node name="ActionAttack" parent="actions" unique_id=1995895392 instance=ExtResource("3_mffrf")]
+opponent_choice_weight = 0.4
+
+[node name="ActionBlock" parent="actions" unique_id=78442017 instance=ExtResource("4_25d0b")]
+opponent_choice_weight = 0.5
+
+[node name="ActionFeed" parent="actions" unique_id=9123841 instance=ExtResource("5_3ejro")]
+opponent_choice_weight = 0.1
+
+[node name="ActionReflect" parent="actions" unique_id=1102425551 instance=ExtResource("6_b2nb8")]
+opponent_choice_weight = 0.6
+
+[node name="TypeBeast" parent="." unique_id=696639826 instance=ExtResource("7_1tw1h")]

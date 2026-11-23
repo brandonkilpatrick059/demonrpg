@@ -63,7 +63,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		var announcement : String = get_announcement(actor,summon.get_familiar_name())
 		battle_sys_ref.play_messages([announcement])
 		announced_summon = true
-	if(!made_summon):
+	elif(!made_summon):
 		battle_sys_ref.start_wait_timer(0.5)
 		visual_effects(actor)
 		

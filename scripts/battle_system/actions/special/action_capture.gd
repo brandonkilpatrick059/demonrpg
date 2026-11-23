@@ -58,7 +58,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			announced_capture = true
 		else:
 			exit_action()
-	if(!made_capture):
+	elif(!made_capture):
 		if(targets.size() > 0 and targets[0] != null):
 			battle_sys_ref.start_wait_timer(1.5)
 			var target : Familiar = targets[0]
@@ -67,7 +67,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			made_capture = true
 		else:
 			exit_action()
-	if(!made_switch):
+	elif(!made_switch):
 		if(targets.size() > 0 and targets[0] != null):
 			if(!battle_sys_ref.is_waiting()):
 				switch_to_player_familiars(targets[0])

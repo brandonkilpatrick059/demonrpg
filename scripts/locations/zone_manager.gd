@@ -97,7 +97,6 @@ func load_game(load_scene_path : String, game_state_dictionary : Dictionary,
 		familiar.set_inactive()
 	player_ref.set_familiars_team(familiar_team)
 	player_ref.set_stored_familiars(stored_familiars)
-	player_ref.play_sound(load("res://audio/effects/bell_full_low.ogg"))
 	current_zone = load_zone
 	add_child(current_zone)
 	current_zone.visible = false

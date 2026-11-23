@@ -15,7 +15,13 @@ var active : bool = true
 
 var altar_ref : Altar = null
 
+var waiting_for_load_screen : bool = false
+var load_screen_wait_timer := Timer.new()
+var selected_load_index : int = 0
+
 func _ready() -> void:
+	load_screen_wait_timer.one_shot = true
+	add_child(load_screen_wait_timer)
 	update_save_slots()
 
 func set_inactive():
@@ -73,10 +79,16 @@ func handle_input():
 				audio_player.stream = load("res://audio/effects/bell_full_low.ogg")
 				audio_player.play()
 			elif(mode_load):
-				active = false
-				var zone_manager = get_tree().get_first_node_in_group("zone_manager")
+				set_inactive()
 				$loading.visible = true
-				zone_manager.load_game_from_file(selected_index)
+				waiting_for_load_screen = true
+				selected_load_index = selected_index
+				load_screen_wait_timer.start(0.5)
+				audio_player.stream = load("res://audio/effects/bell_full_low.ogg")
+				audio_player.play()
+				#var fade_node : FadeNode = load("res://utility/faders/fade_node.tscn").instantiate()
+				#fade_node.set_target_modulate(Color(0,0,0),0.3,0.3)
+				#add_child(fade_node)
 		elif(Input.is_action_just_pressed("action_2")):
 			queue_free()
 
@@ -84,6 +96,10 @@ func set_location(altar : Altar):
 	altar_ref = altar
 
 func _physics_process(delta: float) -> void:
+	if(waiting_for_load_screen and load_screen_wait_timer.is_stopped()):
+		var zone_manager = get_tree().get_first_node_in_group("zone_manager")
+		zone_manager.load_game_from_file(selected_load_index)
+		waiting_for_load_screen = false
 	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 	if(camera != null):
 		global_position = camera.get_screen_center_position()

@@ -87,7 +87,7 @@ func get_divided_magic(actor : Familiar) -> int:
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_magic):
-		if(targets[0] != null):
+		if(targets.size() > 0 and targets[0] != null):
 			var announcement : String = get_announcement(actor,targets[0])
 			var messages : Array[String] = [announcement]
 			battle_sys_ref.play_messages(messages)
@@ -95,29 +95,26 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 		else:
 			exit_action()
 	elif(not cast_magic):
-		if(targets.size() > 0):
+		if(targets.size() > 0 and targets[0] != null):
 			var target : Familiar = targets[0]
-			if(target != null):
-				var scry_buff = load("res://battle/actions/buffs/scry_buff.tscn").instantiate()
-				var divided_magic = get_divided_magic(actor)
-				var extra_turns : int = randi_range(0,divided_magic)
-				var lifetime : int = get_base() + extra_turns
-				scry_buff.set_lifetime(lifetime)
-				scry_buff.set_target(target)
-				target.add_battle_buff(scry_buff)
-				actor.play_one_shot_animation("magic")
-				var battle_sys_ref : BattleSystemManager
-				battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-				battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
-				if(targets[0] != null && targets[0].is_hostile()):
-					var messages : Array[String] = []
-					var level_string : String = get_level(targets[0])
-					var hp_string : String = get_health(targets[0])
-					messages.append_array([level_string,hp_string])
-					battle_sys_ref.play_messages(messages)
-				cast_magic = true
-			else:
-				exit_action()
+			var scry_buff = load("res://battle/actions/buffs/scry_buff.tscn").instantiate()
+			var divided_magic = get_divided_magic(actor)
+			var extra_turns : int = randi_range(0,divided_magic)
+			var lifetime : int = get_base() + extra_turns
+			scry_buff.set_lifetime(lifetime)
+			scry_buff.set_target(target)
+			target.add_battle_buff(scry_buff)
+			actor.play_one_shot_animation("magic")
+			var battle_sys_ref : BattleSystemManager
+			battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+			battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))
+			if(targets[0] != null && targets[0].is_hostile()):
+				var messages : Array[String] = []
+				var level_string : String = get_level(targets[0])
+				var hp_string : String = get_health(targets[0])
+				messages.append_array([level_string,hp_string])
+				battle_sys_ref.play_messages(messages)
+			cast_magic = true
 		else:
 			exit_action()
 	else:

@@ -204,13 +204,6 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			var comment : String = get_failure_message(actor,targets[0])
 			battle_sys_ref.play_messages([comment])
 		announced_failure = true
-	#elif(not comment_feed && feed_succeeded): #I think this is unused?
-		#if(targets.size() > 0 and targets[0] != null):
-			#var comment : String = success_message
-			#var messages : Array[String] = []
-			#messages.append(comment)
-			#battle_sys_ref.play_messages(messages)
-		#comment_feed = true
 	else:
 		var full_action_exectued : bool = true
 		exit_action(full_action_exectued)

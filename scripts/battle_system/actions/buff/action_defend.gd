@@ -51,33 +51,27 @@ func get_half_defense(actor : Familiar) -> int:
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_defense):
-		if(targets.size() > 0):
-			if(targets[0] != null):
-				var announcement : String = get_announcement(actor,targets[0])
-				battle_sys_ref.play_messages([announcement])
-				announced_defense = true
-			else:
-				exit_action()
+		if(targets.size() > 0 and targets[0] != null):
+			var announcement : String = get_announcement(actor,targets[0])
+			battle_sys_ref.play_messages([announcement])
+			announced_defense = true
 		else:
 			exit_action()
 	elif(not made_defense):
-		if(targets.size() > 0):
+		if(targets.size() > 0 and targets[0] != null):
 			var target : Familiar = targets[0]
-			if(target != null):
-				var defense_buff = load("res://battle/actions/buffs/defend_buff.tscn").instantiate()
-				var half_defense : int = get_half_defense(actor)
-				var damage_reduction : int = half_defense + randi_range(0,half_defense)
-				if(damage_reduction == 0):
-					damage_reduction = 1
-				defense_buff.set_damage_reduction(damage_reduction)
-				target.add_battle_buff(defense_buff)
-				actor.play_one_shot_animation("defend")
-				var battle_sys_ref : BattleSystemManager
-				battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-				battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
-				made_defense = true
-			else:
-				exit_action()
+			var defense_buff = load("res://battle/actions/buffs/defend_buff.tscn").instantiate()
+			var half_defense : int = get_half_defense(actor)
+			var damage_reduction : int = half_defense + randi_range(0,half_defense)
+			if(damage_reduction == 0):
+				damage_reduction = 1
+			defense_buff.set_damage_reduction(damage_reduction)
+			target.add_battle_buff(defense_buff)
+			actor.play_one_shot_animation("defend")
+			var battle_sys_ref : BattleSystemManager
+			battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+			battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
+			made_defense = true
 		else:
 			exit_action()
 	else:

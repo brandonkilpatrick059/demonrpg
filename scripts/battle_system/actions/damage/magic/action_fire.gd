@@ -133,31 +133,27 @@ func exit_action(full_action_executed : bool = false):
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(!announced_attack):
-		if(targets[0] != null):
+		if(targets.size() > 0 and targets[0] != null):
 			var announcement : String = get_announcement(actor,targets[0])
 			battle_sys_ref.play_messages([announcement])
 			announced_attack = true
 		else:
 			exit_action()
-	if(!made_attack):
+	elif(!made_attack):
 		battle_sys_ref.start_wait_timer(0.5)
 		var target : Familiar = targets[0]
-		if(targets.size() > 0):
-			if(targets[0] != null):
-				var pkg : BattlePkg = get_battle_pkg(actor, targets)
-				pkg = apply_buffs_to_pkg(pkg)
-				pkg = actor.actor_apply_type_item_buffs(pkg)
-				pkg = target.target_apply_type_item_buffs(pkg)
-				apply_pkg_to_target(pkg)
-				if(not target.is_incorporeal()):
-					var burn = load("res://battle/actions/buffs/burn_buff_effect.tscn").instantiate()
-					burn.set_source_and_target(actor,target)
-					target.add_battle_buff(burn)
-				visual_effects(pkg)
-				#pay_energy_cost(actor)
-				made_attack = true
-			else:
-				exit_action()
+		if(targets.size() > 0 and targets[0] != null):
+			var pkg : BattlePkg = get_battle_pkg(actor, targets)
+			pkg = apply_buffs_to_pkg(pkg)
+			pkg = actor.actor_apply_type_item_buffs(pkg)
+			pkg = target.target_apply_type_item_buffs(pkg)
+			apply_pkg_to_target(pkg)
+			if(not target.is_incorporeal()):
+				var burn = load("res://battle/actions/buffs/burn_buff_effect.tscn").instantiate()
+				burn.set_source_and_target(actor,target)
+				target.add_battle_buff(burn)
+			visual_effects(pkg)
+			made_attack = true
 		else:
 			exit_action()
 	else:

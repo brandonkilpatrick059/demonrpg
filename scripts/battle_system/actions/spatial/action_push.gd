@@ -114,17 +114,14 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			announced_push = true
 		else:
 			exit_action()
-	if(!made_push):
-		if(targets.size() > 0):
-			if(targets[0] != null):
+	elif(!made_push):
+		if(targets.size() > 0 and targets[0] != null):
 				battle_sys_ref.start_wait_timer(0.5)
 				var target : Familiar = targets[0]
 				var pkg : BattlePkg = get_battle_pkg(actor, targets)
 				battle_sys_ref.shift_familiar(target,direction)
 				visual_effects(pkg)
 				made_push = true
-			else:
-				exit_action()
 		else:
 			exit_action()
 	else:

@@ -42,28 +42,22 @@ func clean_up():
 func action_process(actor : Familiar, targets : Array[Familiar]):
 	battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 	if(not announced_defense):
-		if(targets != null and targets.size() > 0):
-			if(targets[0] != null):
+		if(targets != null and targets.size() > 0 and targets[0] != null):
 				var announcement : String = get_announcement(actor,targets[0])
 				battle_sys_ref.play_messages([announcement])
 				announced_defense = true
-			else:
-				exit_action()
 		else:
 			exit_action()
 	elif(not made_defense):
-		if(targets.size() > 0):
+		if(targets.size() > 0 and targets[0] != null):
 			var target : Familiar = targets[0]
-			if(target != null):
-				var reflect_buff = load("res://battle/actions/buffs/reflect_buff.tscn").instantiate()
-				target.add_battle_buff(reflect_buff)
-				actor.play_one_shot_animation("defend")
-				var battle_sys_ref : BattleSystemManager
-				battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
-				battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
-				made_defense = true
-			else:
-				exit_action()
+			var reflect_buff = load("res://battle/actions/buffs/reflect_buff.tscn").instantiate()
+			target.add_battle_buff(reflect_buff)
+			actor.play_one_shot_animation("defend")
+			var battle_sys_ref : BattleSystemManager
+			battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
+			battle_sys_ref.play_sound(load("res://audio/effects/bell_last.ogg"))
+			made_defense = true
 		else:
 			exit_action()
 	else:
