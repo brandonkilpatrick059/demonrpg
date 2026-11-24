@@ -88,3 +88,6 @@ res://scripts/battle_system/actions/buff/action_evil_eye.gd
 res://scripts/battle_system/actions/buff/action_magic_shield.gd
 res://scripts/battle_system/actions/buff/action_reflect.gd
 res://scripts/battle_system/actions/buff/action_scry.gd
+res://locations/zones/ghost_town/zone_ghost_town.tscn
+res://scripts/character/player/player.gd
+res://locations/zone_manager_test.tscn

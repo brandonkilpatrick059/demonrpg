@@ -47,6 +47,14 @@ func get_summary(actor : Familiar)-> String:
 func get_base() -> int:
 	return 2
 
+func visual_effects(actor : Familiar, target : Familiar):
+	actor.play_one_shot_animation("magic")
+	var glow_red_node = load("res://utility/faders/attack_glow_red.tscn").instantiate()
+	target.add_child(glow_red_node)
+	if(actor.is_hostile()):
+		var emerge_node = load("res://utility/faders/fade_in_and_back.tscn").instantiate()
+		actor.add_child(emerge_node)
+
 func get_divided_magic(actor : Familiar) -> int:
 	return actor.get_magic() / 5
 
@@ -68,7 +76,7 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 			var lifetime : int = get_base() + extra_turns
 			evil_eye_buff.set_lifetime(lifetime)
 			target.add_battle_buff(evil_eye_buff)
-			actor.play_one_shot_animation("magic")
+			visual_effects(actor,target)
 			var battle_sys_ref : BattleSystemManager
 			battle_sys_ref = get_tree().get_first_node_in_group("battle_system")
 			battle_sys_ref.play_sound(load("res://audio/effects/evil_eye.ogg"))

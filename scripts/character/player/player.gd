@@ -110,25 +110,41 @@ func set_encounter_on_unfreeze_input(encounter : Encounter):
 func input_is_frozen() -> bool:
 	return input_frozen
 
+var frames_pressed : int = 0
+
 func handle_input():
+	var frames_until_walk = 5
 	if(not input_is_frozen() and not fader_is_fading()):
 		if(Input.is_action_pressed("up")):
+			if(facing_direction == "up"):
+				frames_pressed = frames_pressed + 1
 			if(grid_aligned()):
-				walking = true
 				facing_direction = "up"
+				if(frames_pressed > frames_until_walk):
+					walking = true
 		elif(Input.is_action_pressed("down")):
+			if(facing_direction == "down"):
+				frames_pressed = frames_pressed + 1
 			if(grid_aligned()):
-				walking = true
 				facing_direction = "down"
+				if(frames_pressed > frames_until_walk):
+					walking = true
 		elif(Input.is_action_pressed("left")):
+			if(facing_direction == "left"):
+				frames_pressed = frames_pressed + 1
 			if(grid_aligned()):
-				walking = true
 				facing_direction = "left"
+				if(frames_pressed > frames_until_walk):
+					walking = true
 		elif(Input.is_action_pressed("right")):
+			if(facing_direction == "right"):
+				frames_pressed = frames_pressed + 1
 			if(grid_aligned()):
-				walking = true
 				facing_direction = "right"
+				if(frames_pressed > frames_until_walk):
+					walking = true
 		else:
+			frames_pressed = 0
 			walking = false
 		if(Input.is_action_just_pressed("dev")):
 			pan_camera(global_position + Vector2(0,400),2)

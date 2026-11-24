@@ -23,7 +23,7 @@ level = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=998839229]
 sprite_frames = ExtResource("2_6qxao")
 animation = &"magic"
-frame_progress = 0.696442
+frame_progress = 0.18464108
 
 [node name="actions" type="Node" parent="." unique_id=151527095]
 
