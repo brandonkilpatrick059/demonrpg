@@ -13,7 +13,7 @@ var selected_index : int = 0
 var menu_buttons : Array[String] = []
 var menu_labels : Array[Label] = []
 
-var transition_to_scene : PackedScene = null
+var transition_to_scene : String = ""
 
 var active : bool = false
 
@@ -58,14 +58,14 @@ func handle_control():
 			var selection : String = menu_buttons[selected_index]
 			match selection:
 				"NEW":
-					transition_to_scene = load("res://locations/zone_manager_start.tscn")
+					transition_to_scene = "res://locations/zone_manager_start.tscn"
 					$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
 					$AudioStreamPlayer.play()
 					get_tree().get_first_node_in_group("music_player").stop()
 					active = false
 					fade_out()
 				"LOAD":
-					transition_to_scene = load("res://locations/zone_manager_load.tscn")
+					transition_to_scene = "res://locations/zone_manager_load.tscn"
 					$AudioStreamPlayer.stream = load("res://audio/effects/bell_full_low.ogg")
 					$AudioStreamPlayer.play()
 					get_tree().get_first_node_in_group("music_player").stop()
@@ -113,12 +113,6 @@ func play_sound(stream : AudioStream):
 	$AudioStreamPlayer.play()
 
 func _physics_process(delta: float) -> void:
-	#if(Input.is_action_just_pressed("action_1")):
-		#if(active == false):
-			#modulate.a = 1.0
-			#active = true
-			#$AudioStreamPlayer.stream = load("res://audio/effects/click.ogg")
-			#$AudioStreamPlayer.play()
 	var camera : Camera2D = get_tree().get_first_node_in_group("camera")
 	global_position = camera.get_screen_center_position()
 	if(active):
@@ -130,10 +124,10 @@ func _physics_process(delta: float) -> void:
 				label.modulate = Color(1,1,1,1)
 			index = index + 1
 		handle_control()
-	elif(transition_to_scene != null):
+	elif(transition_to_scene != ""):
 		var fade_black = get_tree().get_first_node_in_group("fade_black")
 		if(fade_black.modulate.a == 1.0):
-			get_tree().change_scene_to_packed(transition_to_scene)
+			get_tree().change_scene_to_packed(load(transition_to_scene))
 	elif(modulate.a == 1.0):
 		active = true
 	

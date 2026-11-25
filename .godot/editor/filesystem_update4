@@ -91,3 +91,8 @@ res://scripts/battle_system/actions/buff/action_scry.gd
 res://locations/zones/ghost_town/zone_ghost_town.tscn
 res://scripts/character/player/player.gd
 res://locations/zone_manager_test.tscn
+res://battle/encounters/ghost_town/four_curs.tscn
+res://scripts/menu/main_menu.gd
+res://familiars/base/L1_cur.tscn
+res://battle/battle_system_sandbox.tscn
+res://utility/faders/capture_fade.tscn
