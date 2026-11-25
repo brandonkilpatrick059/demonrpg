@@ -7,6 +7,7 @@ var cast_magic : bool = false
 var announcment_english : String = "[TEAM][ACTOR] scries on [TEAM2][TARGET]"
 var level_english : String = "[TEAM2][TARGET] is a Level [LEVEL] [TYPE]"
 var hp_english : String = "[color=[COLOR]][CURRENT]/[MAX][/color] Health"
+var item_english : String = "[TEAM2][TARGET] wields a [ITEM]"
 
 var battle_sys_ref : BattleSystemManager
 
@@ -57,6 +58,16 @@ func get_health(target : Familiar) -> String:
 	ret_string = ret_string.replace("[CURRENT]",current)
 	ret_string = ret_string.replace("[MAX]",max)
 	ret_string = ret_string.replace("[COLOR]",color)
+	return ret_string
+
+func get_item(target : Familiar) -> String:
+	var ret_string : String = item_english
+	ret_string = ret_string.replace("[TARGET]",target.get_familiar_name())
+	var team2 : String = hostile_english
+	ret_string = ret_string.replace("[TEAM2]",team2)
+	var item : String = str(target.get_equipped_item().get_item_name_text())
+	ret_string = ret_string.replace("[ITEM]",item)
+	
 	return ret_string
 
 func _ready() -> void:
@@ -113,6 +124,8 @@ func action_process(actor : Familiar, targets : Array[Familiar]):
 				var level_string : String = get_level(targets[0])
 				var hp_string : String = get_health(targets[0])
 				messages.append_array([level_string,hp_string])
+				if(targets[0].get_equipped_item() != null):
+					messages.append(get_item(targets[0]))
 				battle_sys_ref.play_messages(messages)
 			cast_magic = true
 		else:
