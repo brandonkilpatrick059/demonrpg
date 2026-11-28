@@ -833,7 +833,7 @@ collision_layer = 0
 location_text = "GHOST TOWN"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LocationText" unique_id=1794062377]
-polygon = PackedVector2Array(264, 2808, 2088, 2808, 1944, 1944, 1752, 1920, 1728, 1920, 1728, 2088, 1680, 2088, 1632, 2088, 1632, 2064, 1632, 2016, 1728, 1896, 1992, 1752, 2088, 1392, 288, 1392)
+polygon = PackedVector2Array(264, 2808, 2088, 2808, 2088, 1392, 288, 1392)
 
 [node name="ZoneLinkCountryRoad" parent="." unique_id=889034446 node_paths=PackedStringArray("teleport_spot", "stop_point") instance=ExtResource("25_tl1pt")]
 position = Vector2(240, 144)

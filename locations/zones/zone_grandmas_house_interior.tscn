@@ -334,7 +334,7 @@ to_value = "USED"
 [node name="darken_room" type="Node" parent="interactable_area_book2" unique_id=1792726763 node_paths=PackedStringArray("add_node")]
 script = ExtResource("20_6h6yh")
 add_node = NodePath("../../CanvasModulate")
-fade_to = Color(0.19793725, 0.19793722, 0.19793722, 1)
+fade_to = Color(0.3069225, 0.30692276, 0.30692258, 1)
 time_step = 0.5
 
 [node name="interactable_area_blood_1" type="StaticBody2D" parent="." unique_id=397849837 node_paths=PackedStringArray("scripts")]
@@ -485,7 +485,7 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(24, 24)
 sprite_frames = ExtResource("26_mgjgc")
-frame_progress = 0.04417703
+frame_progress = 0.13831054
 offset = Vector2(12, 0)
 script = ExtResource("27_3opvd")
 

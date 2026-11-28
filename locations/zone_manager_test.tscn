@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
-[ext_resource type="PackedScene" uid="uid://br6gc0xmj5csb" path="res://locations/zones/zone_grandmas_house.tscn" id="7_vlo4x"]
+[ext_resource type="PackedScene" uid="uid://b4su5e3tsbe2s" path="res://locations/zones/ghost_town/zone_ghost_town.tscn" id="10_nn1l1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlo4x"]
 light_mode = 1
@@ -70,16 +70,16 @@ shader_parameter/pixel_strength = -4.0
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
 script = ExtResource("1_5ulbo")
-current_zone = NodePath("zone_grandmas_house")
+current_zone = NodePath("zone_ghost_town")
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
 states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
 states_map_values = Array[String](["TRUE", "TRUE", "TRUE"])
 
 [node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("stored_equip_items") instance=ExtResource("3_r2q7f")]
-position = Vector2(1728, -1680)
+position = Vector2(1656, 2136)
 pentacle_charms = 3
-stored_equip_items = [NodePath("")]
+stored_equip_items = [null]
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
 process_mode = 3
@@ -155,4 +155,4 @@ offset_bottom = 1170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="zone_grandmas_house" parent="." unique_id=1169712370 instance=ExtResource("7_vlo4x")]
+[node name="zone_ghost_town" parent="." unique_id=1169712370 instance=ExtResource("10_nn1l1")]

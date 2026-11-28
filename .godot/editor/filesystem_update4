@@ -72,3 +72,7 @@ res://locations/zone_manager_test.tscn
 res://utility/faders/fade_node.tscn
 res://scripts/utility/fade_node.gd
 res://scripts/utility/run_scripts/script_runner.gd
+res://locations/zones/zone_grandmas_house.tscn
+res://player/player.tscn
+res://scripts/character/player/location_label.gd
+res://locations/zones/ghost_town/zone_ghost_town.tscn
