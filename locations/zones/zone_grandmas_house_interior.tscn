@@ -24,10 +24,16 @@
 [ext_resource type="Script" uid="uid://cfnev2ya653it" path="res://scripts/utility/ready_run_scripts.gd" id="19_b3nw5"]
 [ext_resource type="Script" uid="uid://qow3wdm7tqsm" path="res://scripts/utility/run_scripts/set_unfreeze_input_encounter.gd" id="19_o1n2s"]
 [ext_resource type="Script" uid="uid://bwt5vjgo5bqgf" path="res://scripts/utility/run_scripts/set_visible.gd" id="20_3opvd"]
+[ext_resource type="Script" uid="uid://ca12nclmy1we3" path="res://scripts/utility/run_scripts/attach_fade_node.gd" id="20_6h6yh"]
 [ext_resource type="PackedScene" uid="uid://1bv8rorir2k0" path="res://battle/encounters/homunculus_encounter_1.tscn" id="20_233h6"]
+[ext_resource type="Script" uid="uid://cx5t83p0utfsd" path="res://scripts/utility/run_scripts/script_runner.gd" id="20_m3ix2"]
 [ext_resource type="AudioStream" uid="uid://deysb4q75hgex" path="res://audio/music/drone_2.ogg" id="22_mgjgc"]
+[ext_resource type="Script" uid="uid://bfoibrdm085gj" path="res://scripts/utility/run_scripts/play_sound.gd" id="23_0l7i3"]
+[ext_resource type="AudioStream" uid="uid://o8mku3ottv85" path="res://audio/effects/raspy_breathing_surround.ogg" id="24_1me3i"]
 [ext_resource type="SpriteFrames" uid="uid://ck0da3rqttoqt" path="res://sprites/spritesheets/monsters/shade_monster_2.tres" id="26_mgjgc"]
 [ext_resource type="Script" uid="uid://dxmosqab7qxhy" path="res://scripts/utility/play_default_animation.gd" id="27_3opvd"]
+[ext_resource type="SpriteFrames" uid="uid://v0to6i8110f3" path="res://sprites/spritesheets/battle/actions/fire.tres" id="29_xgjo6"]
+[ext_resource type="Texture2D" uid="uid://dkgi27ooiydcj" path="res://sprites/spritesheets/player/flash_light.png" id="30_6h6yh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qpjh"]
 size = Vector2(24, 24)
@@ -234,7 +240,7 @@ no_gamestate = false
 gamestate_key = "HAS_MANDRAKE"
 run_if_state = "TRUE"
 default_state = "FALSE"
-scripts = [NodePath("set_encounter"), NodePath("play_texts2"), NodePath("adjust_gamestate")]
+scripts = [NodePath("set_encounter"), NodePath("play_texts2"), NodePath("adjust_gamestate"), NodePath("darken_room")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area_book2" unique_id=1610107773]
 position = Vector2(36, 60)
@@ -246,42 +252,63 @@ encounter_scene = ExtResource("20_233h6")
 
 [node name="play_texts2" type="Node" parent="interactable_area_book2" unique_id=114775842 node_paths=PackedStringArray("texts")]
 script = ExtResource("16_0l7i3")
-texts = [NodePath("text13"), NodePath("text14"), NodePath("text16"), NodePath("text15"), NodePath("text17"), NodePath("text18"), NodePath("text19")]
+texts = [NodePath("text13"), NodePath("text14"), NodePath("text16"), NodePath("text17"), NodePath("text21"), NodePath("text20"), NodePath("text18"), NodePath("text19")]
+dark_texts = Array[bool]([true, true, true, true, true, true, true, true])
 
 [node name="text13" type="Node" parent="interactable_area_book2/play_texts2" unique_id=232587790]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(I place the mandrake root in the center of the circle)"])
+text = Array[String](["[color=white]You place the mandrake root in the center of the circle"])
 
 [node name="text14" type="Node" parent="interactable_area_book2/play_texts2" unique_id=734884711 node_paths=PackedStringArray("script_node")]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(The wind outside blows harder and the walls creak)"])
-script_node = NodePath("ritual_visible")
+text = Array[String](["[color=white]The wind outside blows harder and the walls creak"])
+script_node = NodePath("script_runner")
 
-[node name="ritual_visible" type="Node" parent="interactable_area_book2/play_texts2/text14" unique_id=1531686863 node_paths=PackedStringArray("node")]
+[node name="script_runner" type="Node" parent="interactable_area_book2/play_texts2/text14" unique_id=1656842266 node_paths=PackedStringArray("scripts")]
+script = ExtResource("20_m3ix2")
+scripts = [NodePath("ritual_visible"), NodePath("fade_in_ritual")]
+
+[node name="ritual_visible" type="Node" parent="interactable_area_book2/play_texts2/text14/script_runner" unique_id=1531686863 node_paths=PackedStringArray("node")]
 script = ExtResource("20_3opvd")
-node = NodePath("../../../../ritual")
+node = NodePath("../../../../../ritual")
 
-[node name="text16" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1396471368]
+[node name="fade_in_ritual" type="Node" parent="interactable_area_book2/play_texts2/text14/script_runner" unique_id=691107517 node_paths=PackedStringArray("add_node")]
+script = ExtResource("20_6h6yh")
+add_node = NodePath("../../../../../ritual")
+fade_to = Color(1, 1, 1, 1)
+time_step = 0.5
+
+[node name="text16" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1396471368 node_paths=PackedStringArray("script_node")]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(The sound of breathing comes from every corner of the room)"])
+text = Array[String](["[color=white]The sound of breathing emanates from the darkest corners"])
+script_node = NodePath("play_breathing_sound")
 
-[node name="text15" type="Node" parent="interactable_area_book2/play_texts2" unique_id=756432221]
-script = ExtResource("13_6h6yh")
-language_map = Array[String](["english"])
-text = Array[String](["(shadows swim across my vision)"])
+[node name="play_breathing_sound" type="Node" parent="interactable_area_book2/play_texts2/text16" unique_id=450385737]
+script = ExtResource("23_0l7i3")
+sound_stream = ExtResource("24_1me3i")
 
 [node name="text17" type="Node" parent="interactable_area_book2/play_texts2" unique_id=86246967]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(The air is thin)"])
+text = Array[String](["[color=white]The air is thin"])
+
+[node name="text21" type="Node" parent="interactable_area_book2/play_texts2" unique_id=872331894]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["[color=white]You are suffocating"])
+
+[node name="text20" type="Node" parent="interactable_area_book2/play_texts2" unique_id=796749318]
+script = ExtResource("13_6h6yh")
+language_map = Array[String](["english"])
+text = Array[String](["[color=white]You gasp for air as the breathing shadows close in"])
 
 [node name="text18" type="Node" parent="interactable_area_book2/play_texts2" unique_id=1099166623 node_paths=PackedStringArray("script_node")]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(It's cold)"])
+text = Array[String](["[color=white]It's cold..."])
 script_node = NodePath("ritual_visible")
 
 [node name="ritual_visible" type="Node" parent="interactable_area_book2/play_texts2/text18" unique_id=293598487 node_paths=PackedStringArray("node")]
@@ -292,7 +319,7 @@ visible = false
 [node name="text19" type="Node" parent="interactable_area_book2/play_texts2" unique_id=22881395 node_paths=PackedStringArray("script_node")]
 script = ExtResource("13_6h6yh")
 language_map = Array[String](["english"])
-text = Array[String](["(My vision fades...)"])
+text = Array[String](["[color=white]The darkness swallows you"])
 script_node = NodePath("q_free_books")
 
 [node name="q_free_books" type="Node" parent="interactable_area_book2/play_texts2/text19" unique_id=2066716810 node_paths=PackedStringArray("nodes")]
@@ -303,6 +330,12 @@ nodes = [NodePath("../../../../interactable_area_book"), NodePath("../../..")]
 script = ExtResource("14_m3ix2")
 game_state_key = "HAS_MANDRAKE"
 to_value = "USED"
+
+[node name="darken_room" type="Node" parent="interactable_area_book2" unique_id=1792726763 node_paths=PackedStringArray("add_node")]
+script = ExtResource("20_6h6yh")
+add_node = NodePath("../../CanvasModulate")
+fade_to = Color(0.19793725, 0.19793722, 0.19793722, 1)
+time_step = 0.5
 
 [node name="interactable_area_blood_1" type="StaticBody2D" parent="." unique_id=397849837 node_paths=PackedStringArray("scripts")]
 position = Vector2(-72, 0)
@@ -449,13 +482,44 @@ nodes = [NodePath("../../interactable_area_book"), NodePath("../../interactable_
 
 [node name="ritual" type="AnimatedSprite2D" parent="." unique_id=1613264338]
 visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(24, 24)
 sprite_frames = ExtResource("26_mgjgc")
-frame_progress = 0.98746836
+frame_progress = 0.04417703
 offset = Vector2(12, 0)
 script = ExtResource("27_3opvd")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=456840734]
-color = Color(0.6706895, 0.6706895, 0.6706895, 1)
+[node name="fire" type="AnimatedSprite2D" parent="ritual" unique_id=1814690707]
+position = Vector2(-1, -13)
+sprite_frames = ExtResource("29_xgjo6")
+script = ExtResource("27_3opvd")
+random_frame = true
+
+[node name="fire2" type="AnimatedSprite2D" parent="ritual" unique_id=1948383660]
+position = Vector2(26, -13)
+sprite_frames = ExtResource("29_xgjo6")
+script = ExtResource("27_3opvd")
+random_frame = true
+
+[node name="fire3" type="AnimatedSprite2D" parent="ritual" unique_id=994824683]
+position = Vector2(-13, 12)
+sprite_frames = ExtResource("29_xgjo6")
+script = ExtResource("27_3opvd")
+random_frame = true
+
+[node name="fire4" type="AnimatedSprite2D" parent="ritual" unique_id=1507749045]
+position = Vector2(37, 12)
+sprite_frames = ExtResource("29_xgjo6")
+script = ExtResource("27_3opvd")
+random_frame = true
+
+[node name="ritual_light" type="PointLight2D" parent="ritual" unique_id=150090128]
+position = Vector2(12, 9)
+color = Color(0.9539768, 0.5155906, 0.36266777, 1)
+energy = 0.5
+texture = ExtResource("30_6h6yh")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=456840734 groups=["global_modulate"]]
+color = Color(0.6392157, 0.6392157, 0.6392157, 1)
 
 [connection signal="body_entered" from="interact_zone_entered_house" to="interact_zone_entered_house" method="_on_body_entered"]

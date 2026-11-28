@@ -22,14 +22,17 @@ action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
 
 [node name="EquipItemBluntFang" parent="L1cur" unique_id=979938698 instance=ExtResource("4_y3i7d")]
 
-[node name="L1cur2" parent="." unique_id=1133261219 instance=ExtResource("3_7m6or")]
+[node name="L1cur2" parent="." unique_id=1133261219 node_paths=PackedStringArray("equipped_item") instance=ExtResource("3_7m6or")]
 visible = false
 max_hp = 40
 current_hp = 40
 attack = 8
 speed = 5
 capture_hp_percent = 0.2
+equipped_item = NodePath("EquipItemBluntFang")
 action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
+
+[node name="EquipItemBluntFang" parent="L1cur2" unique_id=1803319089 instance=ExtResource("4_y3i7d")]
 
 [node name="L1cur3" parent="." unique_id=403437911 node_paths=PackedStringArray("equipped_item") instance=ExtResource("3_7m6or")]
 visible = false
@@ -43,11 +46,14 @@ action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
 
 [node name="EquipItemBluntFang" parent="L1cur3" unique_id=1299673801 instance=ExtResource("4_y3i7d")]
 
-[node name="L1cur4" parent="." unique_id=850234148 instance=ExtResource("3_7m6or")]
+[node name="L1cur4" parent="." unique_id=850234148 node_paths=PackedStringArray("equipped_item") instance=ExtResource("3_7m6or")]
 visible = false
 max_hp = 40
 current_hp = 40
 attack = 8
 speed = 5
 capture_hp_percent = 0.2
+equipped_item = NodePath("EquipItemBluntFang")
 action_cadence_0 = Array[String](["BITE", "BITE", "BITE", "FEED"])
+
+[node name="EquipItemBluntFang" parent="L1cur4" unique_id=1208581335 instance=ExtResource("4_y3i7d")]

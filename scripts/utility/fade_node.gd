@@ -12,6 +12,8 @@ class_name FadeNode extends Node
 
 var return_modulate : Color 
 
+var parent_is_canvas_mod : bool = false
+
 var timer := Timer.new()
 
 func _ready() -> void:
@@ -23,6 +25,12 @@ func _ready() -> void:
 		return_modulate = preset_return_modulate
 	if(start_after_wait > 0.0):
 		timer.start(start_after_wait)
+	
+	if(get_parent() is CanvasModulate):
+		parent_is_canvas_mod = true
+
+func set_parent_is_canvas_mod():
+	parent_is_canvas_mod = true
 
 func set_target_modulate(color : Color, mod_step : float, set_time_step : float):
 	target_modulate = color
@@ -75,6 +83,43 @@ func handle_modulate_step():
 	else:
 		timer.start(time_step)
 
+func handle_modulate_canvas_mod():
+	var parent : CanvasModulate = get_parent()
+	var mod_r = parent.color.r
+	var mod_g = parent.color.g
+	var mod_b = parent.color.b
+	var mod_a = parent.color.a
+	
+	var target_r = target_modulate.r
+	var target_g = target_modulate.g
+	var target_b = target_modulate.b
+	var target_a = target_modulate.a
+	
+	var new_r = get_stepped_value(mod_r,target_r)
+	var new_g = get_stepped_value(mod_g,target_g)
+	var new_b = get_stepped_value(mod_b,target_b)
+	var new_a = get_stepped_value(mod_a,target_a)
+	
+	var new_modulate = Color(new_r,new_g,new_b,new_a)
+	
+	parent.color = new_modulate
+	if(new_modulate == target_modulate):
+		if(target_modulate_queue.size() > 0):
+			target_modulate = target_modulate_queue.pop_front()
+		elif(return_when_done):
+			target_modulate = return_modulate
+			return_when_done = false
+		else:
+			if(q_free_parent_when_done):
+				get_parent().queue_free()
+			else:
+				queue_free()
+	else:
+		timer.start(time_step)
+
 func _physics_process(delta: float) -> void:
 	if(timer.is_stopped()):
-		handle_modulate_step()
+		if(parent_is_canvas_mod):
+			handle_modulate_canvas_mod()
+		else:
+			handle_modulate_step()

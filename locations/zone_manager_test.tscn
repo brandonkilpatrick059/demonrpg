@@ -3,16 +3,10 @@
 [ext_resource type="Script" uid="uid://c81wetankxf32" path="res://scripts/locations/zone_manager.gd" id="1_5ulbo"]
 [ext_resource type="Script" uid="uid://dlwaagmlxkwrm" path="res://scripts/utility/choose_screen_effect.gd" id="3_2gs5w"]
 [ext_resource type="PackedScene" uid="uid://bfr1438c6fbr0" path="res://player/player.tscn" id="3_r2q7f"]
-[ext_resource type="PackedScene" uid="uid://hvgjpnfasq2w" path="res://equip_items/equip_item_devil_fang.tscn" id="5_2gs5w"]
 [ext_resource type="PackedScene" uid="uid://p1l1ljou3n3l" path="res://locations/gamestate_plug_1.tscn" id="5_5ulbo"]
-[ext_resource type="PackedScene" uid="uid://bpto0tf7an84i" path="res://equip_items/equip_item_beast_blade.tscn" id="5_6c713"]
-[ext_resource type="PackedScene" uid="uid://dogiaxmsxt1y8" path="res://familiars/base/L2_byle.tscn" id="6_2gs5w"]
 [ext_resource type="Shader" uid="uid://diden6j6u8tjh" path="res://shaders/screen_shader.gdshader" id="6_je83m"]
-[ext_resource type="PackedScene" uid="uid://2kvawkd11f4" path="res://familiars/base/L2_reaver.tscn" id="6_nn1l1"]
-[ext_resource type="PackedScene" uid="uid://chd5ugll25mm6" path="res://familiars/base/L2_stalf.tscn" id="7_2gs5w"]
 [ext_resource type="FontFile" uid="uid://bitlv1cop4rx3" path="res://fonts/Tiny5-Regular.ttf" id="7_ak4ce"]
-[ext_resource type="PackedScene" uid="uid://5p4stnatam7k" path="res://equip_items/equip_item_cloudy_cross.tscn" id="8_ri5ms"]
-[ext_resource type="PackedScene" uid="uid://b4su5e3tsbe2s" path="res://locations/zones/ghost_town/zone_ghost_town.tscn" id="10_nn1l1"]
+[ext_resource type="PackedScene" uid="uid://br6gc0xmj5csb" path="res://locations/zones/zone_grandmas_house.tscn" id="7_vlo4x"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlo4x"]
 light_mode = 1
@@ -76,61 +70,21 @@ shader_parameter/pixel_strength = -4.0
 [node name="zone_manager" type="Node2D" unique_id=576886889 node_paths=PackedStringArray("current_zone")]
 y_sort_enabled = true
 script = ExtResource("1_5ulbo")
-current_zone = NodePath("zone_ghost_town")
+current_zone = NodePath("zone_grandmas_house")
 
 [node name="gamestate" parent="." unique_id=1216957 instance=ExtResource("5_5ulbo")]
 states_map_keys = Array[String](["HAS_LAMP", "HOUSE_ENTERED", "HAS_MANDRAKE"])
-states_map_values = Array[String](["TRUE", "TRUE", "USED"])
+states_map_values = Array[String](["TRUE", "TRUE", "TRUE"])
 
-[node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("familiar_team", "stored_equip_items") instance=ExtResource("3_r2q7f")]
-position = Vector2(720, 2784)
-familiar_team = [NodePath("L2byle"), NodePath("L2reaver"), NodePath("L2reaver2"), NodePath("L2stalf")]
+[node name="Player" parent="." unique_id=286954556 node_paths=PackedStringArray("stored_equip_items") instance=ExtResource("3_r2q7f")]
+position = Vector2(1728, -1680)
 pentacle_charms = 3
-stored_equip_items = [NodePath("EquipItemCloudyCharm")]
+stored_equip_items = [NodePath("")]
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1878750654 groups=["camera"]]
 process_mode = 3
 offset = Vector2(12, -12)
 process_callback = 0
-
-[node name="L2reaver" parent="Player" unique_id=888126814 node_paths=PackedStringArray("equipped_item") instance=ExtResource("6_nn1l1")]
-visible = false
-max_hp = 25
-current_hp = 25
-attack = 8
-equipped_item = NodePath("EquipItemBeastBlade")
-
-[node name="EquipItemBeastBlade" parent="Player/L2reaver" unique_id=979938698 instance=ExtResource("5_6c713")]
-
-[node name="L2reaver2" parent="Player" unique_id=259755475 node_paths=PackedStringArray("equipped_item") instance=ExtResource("6_nn1l1")]
-visible = false
-max_hp = 30
-current_hp = 30
-attack = 15
-magic = 5
-equipped_item = NodePath("EquipItemDevilFang")
-
-[node name="EquipItemDevilFang" parent="Player/L2reaver2" unique_id=80450394 instance=ExtResource("5_2gs5w")]
-position = Vector2(-923.66895, -1899.7123)
-
-[node name="L2byle" parent="Player" unique_id=1170432072 node_paths=PackedStringArray("equipped_item") instance=ExtResource("6_2gs5w")]
-visible = false
-max_hp = 40
-current_hp = 40
-magic = 10
-equipped_item = NodePath("EquipItemCloudyCharm")
-
-[node name="EquipItemCloudyCharm" parent="Player/L2byle" unique_id=116277362 instance=ExtResource("8_ri5ms")]
-
-[node name="L2stalf" parent="Player" unique_id=2121275838 instance=ExtResource("7_2gs5w")]
-visible = false
-max_hp = 41
-current_hp = 41
-attack = 8
-speed = 6
-magic = 9
-
-[node name="EquipItemCloudyCharm" parent="Player" unique_id=2071627648 instance=ExtResource("8_ri5ms")]
 
 [node name="loading" type="Node2D" parent="." unique_id=47417405]
 visible = false
@@ -201,4 +155,4 @@ offset_bottom = 1170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="zone_ghost_town" parent="." unique_id=1169712370 instance=ExtResource("10_nn1l1")]
+[node name="zone_grandmas_house" parent="." unique_id=1169712370 instance=ExtResource("7_vlo4x")]

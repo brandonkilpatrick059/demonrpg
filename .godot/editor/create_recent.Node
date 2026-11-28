@@ -1,14 +1,14 @@
 Node
+AnimatedSprite2D
+PointLight2D
 AudioStreamPlayer
 Node2D
 Sprite2D
-AnimatedSprite2D
 AudioStreamPlayer2D
 CollisionPolygon2D
 CollisionShape2D
 Label
 ColorRect
-PointLight2D
 RichTextLabel
 Camera2D
 Polygon2D
